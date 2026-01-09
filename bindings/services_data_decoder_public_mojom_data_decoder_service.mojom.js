@@ -115,7 +115,7 @@ data_decoder.mojom.DataDecoderService.getRemote = function() {
     'data_decoder.mojom.DataDecoderService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindImageDecoder
 data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec = {
@@ -129,7 +129,7 @@ data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindXmlParser
 data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec = {
@@ -143,7 +143,7 @@ data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindWebBundleParserFactory
 data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec = {
@@ -157,7 +157,7 @@ data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindGzipper
 data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec = {
@@ -171,7 +171,7 @@ data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindStructuredHeadersParser
 data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec = {
@@ -185,7 +185,7 @@ data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindCborParser
 data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec = {
@@ -199,7 +199,7 @@ data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindPixCodeValidator
 data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = {
@@ -213,7 +213,7 @@ data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 data_decoder.mojom.DataDecoderServicePtr = data_decoder.mojom.DataDecoderServiceRemote;

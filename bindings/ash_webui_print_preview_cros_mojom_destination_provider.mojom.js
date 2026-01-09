@@ -63,7 +63,7 @@ ash.printing.print_preview.mojom.DestinationProvider.getRemote = function() {
     'ash.printing.print_preview.mojom.DestinationProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FetchCapabilities
 ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec = {
@@ -78,7 +78,7 @@ ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec = {
   $: {
@@ -91,7 +91,7 @@ ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.printing.print_preview.mojom.DestinationProviderPtr = ash.printing.print_preview.mojom.DestinationProviderRemote;

@@ -61,7 +61,7 @@ media.mojom.VideoDecodePerfHistory.getRemote = function() {
     'media.mojom.VideoDecodePerfHistory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPerfInfo
 media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = {
@@ -75,7 +75,7 @@ media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec = {
   $: {
@@ -89,7 +89,7 @@ media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.VideoDecodePerfHistoryPtr = media.mojom.VideoDecodePerfHistoryRemote;

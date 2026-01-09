@@ -53,7 +53,7 @@ ash.ime.mojom.ConnectionFactory.getRemote = function() {
     'ash.ime.mojom.ConnectionFactory',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.ime.mojom.ConnectionFactoryPtr = ash.ime.mojom.ConnectionFactoryRemote;

@@ -130,7 +130,7 @@ midi.mojom.MidiSessionClient.getRemote = function() {
     'midi.mojom.MidiSessionClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddInputPort
 midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec = {
@@ -144,7 +144,7 @@ midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddOutputPort
 midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec = {
@@ -158,7 +158,7 @@ midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetInputPortState
 midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec = {
@@ -173,7 +173,7 @@ midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetOutputPortState
 midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec = {
@@ -188,7 +188,7 @@ midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SessionStarted
 midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec = {
@@ -202,7 +202,7 @@ midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AcknowledgeSentData
 midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec = {
@@ -216,7 +216,7 @@ midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DataReceived
 midi.mojom.MidiSessionClient_DataReceived_ParamsSpec = {
@@ -232,7 +232,7 @@ midi.mojom.MidiSessionClient_DataReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 midi.mojom.MidiSessionClientPtr = midi.mojom.MidiSessionClientRemote;
@@ -291,7 +291,7 @@ midi.mojom.MidiSessionProvider.getRemote = function() {
     'midi.mojom.MidiSessionProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartSession
 midi.mojom.MidiSessionProvider_StartSession_ParamsSpec = {
@@ -306,7 +306,7 @@ midi.mojom.MidiSessionProvider_StartSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 midi.mojom.MidiSessionProviderPtr = midi.mojom.MidiSessionProviderRemote;
@@ -365,7 +365,7 @@ midi.mojom.MidiSession.getRemote = function() {
     'midi.mojom.MidiSession',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendData
 midi.mojom.MidiSession_SendData_ParamsSpec = {
@@ -381,7 +381,7 @@ midi.mojom.MidiSession_SendData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 midi.mojom.MidiSessionPtr = midi.mojom.MidiSessionRemote;

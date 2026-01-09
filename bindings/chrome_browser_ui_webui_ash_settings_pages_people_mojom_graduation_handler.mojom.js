@@ -72,7 +72,7 @@ ash.settings.graduation.mojom.GraduationHandler.getRemote = function() {
     'ash.settings.graduation.mojom.GraduationHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LaunchGraduationApp
 ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec = {
@@ -85,7 +85,7 @@ ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddObserver
 ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec = {
@@ -99,7 +99,7 @@ ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.graduation.mojom.GraduationHandlerPtr = ash.settings.graduation.mojom.GraduationHandlerRemote;
@@ -158,7 +158,7 @@ ash.settings.graduation.mojom.GraduationObserver.getRemote = function() {
     'ash.settings.graduation.mojom.GraduationObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnGraduationAppUpdated
 ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec = {
@@ -172,7 +172,7 @@ ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.graduation.mojom.GraduationObserverPtr = ash.settings.graduation.mojom.GraduationObserverRemote;

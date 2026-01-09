@@ -61,7 +61,7 @@ commerce_web_extractor.mojom.CommerceWebExtractor.getRemote = function() {
     'commerce_web_extractor.mojom.CommerceWebExtractor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ExtractMetaInfo
 commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec = {
@@ -74,7 +74,7 @@ commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 commerce_web_extractor.mojom.CommerceWebExtractorPtr = commerce_web_extractor.mojom.CommerceWebExtractorRemote;

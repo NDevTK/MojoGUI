@@ -77,7 +77,7 @@ remote_cocoa.mojom.AlertBridge.getRemote = function() {
     'remote_cocoa.mojom.AlertBridge',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Show
 remote_cocoa.mojom.AlertBridge_Show_ParamsSpec = {
@@ -91,7 +91,7 @@ remote_cocoa.mojom.AlertBridge_Show_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec = {
   $: {
@@ -106,7 +106,7 @@ remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Dismiss
 remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec = {
@@ -119,7 +119,7 @@ remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remote_cocoa.mojom.AlertBridgePtr = remote_cocoa.mojom.AlertBridgeRemote;

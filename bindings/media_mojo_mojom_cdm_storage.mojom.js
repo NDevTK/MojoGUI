@@ -74,7 +74,7 @@ media.mojom.CdmStorage.getRemote = function() {
     'media.mojom.CdmStorage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Open
 media.mojom.CdmStorage_Open_ParamsSpec = {
@@ -88,7 +88,7 @@ media.mojom.CdmStorage_Open_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CdmStorage_Open_ResponseParamsSpec = {
   $: {
@@ -102,7 +102,7 @@ media.mojom.CdmStorage_Open_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.CdmStoragePtr = media.mojom.CdmStorageRemote;
@@ -170,7 +170,7 @@ media.mojom.CdmFile.getRemote = function() {
     'media.mojom.CdmFile',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Read
 media.mojom.CdmFile_Read_ParamsSpec = {
@@ -183,7 +183,7 @@ media.mojom.CdmFile_Read_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CdmFile_Read_ResponseParamsSpec = {
   $: {
@@ -197,7 +197,7 @@ media.mojom.CdmFile_Read_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Write
 media.mojom.CdmFile_Write_ParamsSpec = {
@@ -211,7 +211,7 @@ media.mojom.CdmFile_Write_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CdmFile_Write_ResponseParamsSpec = {
   $: {
@@ -224,7 +224,7 @@ media.mojom.CdmFile_Write_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.CdmFilePtr = media.mojom.CdmFileRemote;

@@ -71,7 +71,7 @@ ash.growth.mojom.PageHandler.getRemote = function() {
     'ash.growth.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetCampaignsLogs
 ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = {
@@ -84,7 +84,7 @@ ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearAllEvents
 ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec = {
@@ -110,7 +110,7 @@ ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.growth.mojom.PageHandlerPtr = ash.growth.mojom.PageHandlerRemote;

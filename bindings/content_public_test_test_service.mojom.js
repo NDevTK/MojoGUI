@@ -169,7 +169,7 @@ content.mojom.TestService.getRemote = function() {
     'content.mojom.TestService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DoSomething
 content.mojom.TestService_DoSomething_ParamsSpec = {
@@ -182,7 +182,7 @@ content.mojom.TestService_DoSomething_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DoTerminateProcess
 content.mojom.TestService_DoTerminateProcess_ParamsSpec = {
@@ -195,7 +195,7 @@ content.mojom.TestService_DoTerminateProcess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DoCrashImmediately
 content.mojom.TestService_DoCrashImmediately_ParamsSpec = {
@@ -208,7 +208,7 @@ content.mojom.TestService_DoCrashImmediately_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateFolder
 content.mojom.TestService_CreateFolder_ParamsSpec = {
@@ -221,7 +221,7 @@ content.mojom.TestService_CreateFolder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.TestService_CreateFolder_ResponseParamsSpec = {
   $: {
@@ -234,7 +234,7 @@ content.mojom.TestService_CreateFolder_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRequestorName
 content.mojom.TestService_GetRequestorName_ParamsSpec = {
@@ -247,7 +247,7 @@ content.mojom.TestService_GetRequestorName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.TestService_GetRequestorName_ResponseParamsSpec = {
   $: {
@@ -260,7 +260,7 @@ content.mojom.TestService_GetRequestorName_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateReadOnlySharedMemoryRegion
 content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec = {
@@ -274,7 +274,7 @@ content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec = {
   $: {
@@ -287,7 +287,7 @@ content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateWritableSharedMemoryRegion
 content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec = {
@@ -301,7 +301,7 @@ content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec = {
   $: {
@@ -314,7 +314,7 @@ content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateUnsafeSharedMemoryRegion
 content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec = {
@@ -328,7 +328,7 @@ content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec = {
   $: {
@@ -341,7 +341,7 @@ content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloneSharedMemoryContents
 content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec = {
@@ -355,7 +355,7 @@ content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec = {
   $: {
@@ -368,7 +368,7 @@ content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsProcessSandboxed
 content.mojom.TestService_IsProcessSandboxed_ParamsSpec = {
@@ -381,7 +381,7 @@ content.mojom.TestService_IsProcessSandboxed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec = {
   $: {
@@ -394,7 +394,7 @@ content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PseudonymizeString
 content.mojom.TestService_PseudonymizeString_ParamsSpec = {
@@ -408,7 +408,7 @@ content.mojom.TestService_PseudonymizeString_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.TestService_PseudonymizeString_ResponseParamsSpec = {
   $: {
@@ -421,7 +421,7 @@ content.mojom.TestService_PseudonymizeString_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PassWriteableFile
 content.mojom.TestService_PassWriteableFile_ParamsSpec = {
@@ -435,7 +435,7 @@ content.mojom.TestService_PassWriteableFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteToPreloadedPipe
 content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec = {
@@ -448,7 +448,7 @@ content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.TestServicePtr = content.mojom.TestServiceRemote;

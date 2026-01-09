@@ -59,7 +59,7 @@ chromeos.cdm.mojom.CdmFactory.getRemote = function() {
     'chromeos.cdm.mojom.CdmFactory',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cdm.mojom.CdmFactoryPtr = chromeos.cdm.mojom.CdmFactoryRemote;
@@ -109,7 +109,7 @@ chromeos.cdm.mojom.CdmFactoryDaemon.getRemote = function() {
     'chromeos.cdm.mojom.CdmFactoryDaemon',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cdm.mojom.CdmFactoryDaemonPtr = chromeos.cdm.mojom.CdmFactoryDaemonRemote;

@@ -70,7 +70,7 @@ blink.mojom.ServiceWorkerStreamCallback.getRemote = function() {
     'blink.mojom.ServiceWorkerStreamCallback',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCompleted
 blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec = {
@@ -83,7 +83,7 @@ blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAborted
 blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec = {
@@ -96,7 +96,7 @@ blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerStreamCallbackPtr = blink.mojom.ServiceWorkerStreamCallbackRemote;

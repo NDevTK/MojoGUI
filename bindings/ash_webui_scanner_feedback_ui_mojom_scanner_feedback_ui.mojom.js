@@ -80,7 +80,7 @@ ash.mojom.scanner_feedback_ui.PageHandler.getRemote = function() {
     'ash.mojom.scanner_feedback_ui.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetFeedbackInfo
 ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec = {
@@ -93,7 +93,7 @@ ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec = {
   $: {
@@ -106,7 +106,7 @@ ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseDialog
 ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec = {
@@ -119,7 +119,7 @@ ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendFeedback
 ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec = {
@@ -133,7 +133,7 @@ ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.mojom.scanner_feedback_ui.PageHandlerPtr = ash.mojom.scanner_feedback_ui.PageHandlerRemote;

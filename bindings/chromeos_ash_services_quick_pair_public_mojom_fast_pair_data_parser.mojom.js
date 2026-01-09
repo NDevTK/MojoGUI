@@ -123,7 +123,7 @@ ash.quick_pair.mojom.FastPairDataParser.getRemote = function() {
     'ash.quick_pair.mojom.FastPairDataParser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetHexModelIdFromServiceData
 ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec = {
@@ -137,7 +137,7 @@ ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec = {
   $: {
@@ -150,7 +150,7 @@ ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ParseDecryptedResponse
 ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec = {
@@ -165,7 +165,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec = {
   $: {
@@ -178,7 +178,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ParseDecryptedPasskey
 ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec = {
@@ -193,7 +193,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec = {
   $: {
@@ -206,7 +206,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ParseNotDiscoverableAdvertisement
 ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec = {
@@ -221,7 +221,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec = {
   $: {
@@ -234,7 +234,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ParseMessageStreamMessages
 ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec = {
@@ -248,7 +248,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec = {
   $: {
@@ -261,7 +261,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.quick_pair.mojom.FastPairDataParserPtr = ash.quick_pair.mojom.FastPairDataParserRemote;

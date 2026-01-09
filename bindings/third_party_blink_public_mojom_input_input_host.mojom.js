@@ -79,7 +79,7 @@ blink.mojom.TextSuggestionHost.getRemote = function() {
     'blink.mojom.TextSuggestionHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartSuggestionMenuTimer
 blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec = {
@@ -92,7 +92,7 @@ blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowSpellCheckSuggestionMenu
 blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec = {
@@ -109,7 +109,7 @@ blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowTextSuggestionMenu
 blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec = {
@@ -126,7 +126,7 @@ blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.TextSuggestionHostPtr = blink.mojom.TextSuggestionHostRemote;

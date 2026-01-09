@@ -62,7 +62,7 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactory.getRemote = function() {
     'ash.mojom.demo_mode.UntrustedPageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.mojom.demo_mode.UntrustedPageHandlerFactoryPtr = ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemote;
@@ -144,7 +144,7 @@ ash.mojom.demo_mode.UntrustedPageHandler.getRemote = function() {
     'ash.mojom.demo_mode.UntrustedPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ToggleFullscreen
 ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec = {
@@ -157,7 +157,7 @@ ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LaunchApp
 ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = {
@@ -171,7 +171,7 @@ ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.mojom.demo_mode.UntrustedPageHandlerPtr = ash.mojom.demo_mode.UntrustedPageHandlerRemote;

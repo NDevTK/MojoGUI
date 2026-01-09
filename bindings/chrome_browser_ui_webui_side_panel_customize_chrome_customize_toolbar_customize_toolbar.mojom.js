@@ -99,7 +99,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory.getRemote = fun
     'side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateCustomizeToolbarHandler
 side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec = {
@@ -114,7 +114,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomize
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryPtr = side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemote;
@@ -209,7 +209,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler.getRemote = function()
     'side_panel.customize_chrome.mojom.CustomizeToolbarHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ListActions
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec = {
@@ -222,7 +222,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec = {
   $: {
@@ -235,7 +235,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ListCategories
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec = {
@@ -248,7 +248,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec = {
   $: {
@@ -261,7 +261,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PinAction
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec = {
@@ -276,7 +276,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetIsCustomized
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec = {
@@ -289,7 +289,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec = {
   $: {
@@ -302,7 +302,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetToDefault
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec = {
@@ -315,7 +315,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 side_panel.customize_chrome.mojom.CustomizeToolbarHandlerPtr = side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemote;
@@ -383,7 +383,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClient.getRemote = function() 
     'side_panel.customize_chrome.mojom.CustomizeToolbarClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetActionPinned
 side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec = {
@@ -398,7 +398,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyActionsUpdated
 side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec = {
@@ -411,7 +411,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 side_panel.customize_chrome.mojom.CustomizeToolbarClientPtr = side_panel.customize_chrome.mojom.CustomizeToolbarClientRemote;

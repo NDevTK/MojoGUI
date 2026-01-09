@@ -61,7 +61,7 @@ arc.mojom.TtsHost.getRemote = function() {
     'arc.mojom.TtsHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.TtsHostPtr = arc.mojom.TtsHostRemote;
@@ -111,7 +111,7 @@ arc.mojom.TtsInstance.getRemote = function() {
     'arc.mojom.TtsInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.TtsInstancePtr = arc.mojom.TtsInstanceRemote;

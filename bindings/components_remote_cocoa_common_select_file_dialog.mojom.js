@@ -71,7 +71,7 @@ remote_cocoa.mojom.SelectFileDialog.getRemote = function() {
     'remote_cocoa.mojom.SelectFileDialog',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Show
 remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec = {
@@ -90,7 +90,7 @@ remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec = {
   $: {
@@ -106,7 +106,7 @@ remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remote_cocoa.mojom.SelectFileDialogPtr = remote_cocoa.mojom.SelectFileDialogRemote;

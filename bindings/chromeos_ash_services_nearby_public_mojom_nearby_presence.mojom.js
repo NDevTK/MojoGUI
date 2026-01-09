@@ -102,7 +102,7 @@ ash.nearby.presence.mojom.ScanSession.getRemote = function() {
     'ash.nearby.presence.mojom.ScanSession',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.nearby.presence.mojom.ScanSessionPtr = ash.nearby.presence.mojom.ScanSessionRemote;
@@ -179,7 +179,7 @@ ash.nearby.presence.mojom.ScanObserver.getRemote = function() {
     'ash.nearby.presence.mojom.ScanObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDeviceFound
 ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec = {
@@ -193,7 +193,7 @@ ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeviceChanged
 ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec = {
@@ -207,7 +207,7 @@ ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeviceLost
 ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec = {
@@ -221,7 +221,7 @@ ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.nearby.presence.mojom.ScanObserverPtr = ash.nearby.presence.mojom.ScanObserverRemote;
@@ -325,7 +325,7 @@ ash.nearby.presence.mojom.NearbyPresence.getRemote = function() {
     'ash.nearby.presence.mojom.NearbyPresence',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartScan
 ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec = {
@@ -339,7 +339,7 @@ ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec = {
   $: {
@@ -353,7 +353,7 @@ ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetScanObserver
 ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec = {
@@ -367,7 +367,7 @@ ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateLocalDeviceMetadata
 ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec = {
@@ -381,7 +381,7 @@ ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateLocalDeviceMetadataAndGenerateCredentials
 ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec = {
@@ -395,7 +395,7 @@ ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCre
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec = {
   $: {
@@ -409,7 +409,7 @@ ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCre
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateRemoteSharedCredentials
 ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec = {
@@ -424,7 +424,7 @@ ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec = {
   $: {
@@ -437,7 +437,7 @@ ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLocalSharedCredentials
 ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec = {
@@ -451,7 +451,7 @@ ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec = {
   $: {
@@ -465,7 +465,7 @@ ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.nearby.presence.mojom.NearbyPresencePtr = ash.nearby.presence.mojom.NearbyPresenceRemote;

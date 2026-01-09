@@ -61,7 +61,7 @@ device.mojom.GeolocationControl.getRemote = function() {
     'device.mojom.GeolocationControl',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UserDidOptIntoLocationServices
 device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec = {
@@ -74,7 +74,7 @@ device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.GeolocationControlPtr = device.mojom.GeolocationControlRemote;

@@ -70,7 +70,7 @@ extensions.mime_handler.MimeHandlerService.getRemote = function() {
     'extensions.mime_handler.MimeHandlerService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetStreamInfo
 extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec = {
@@ -83,7 +83,7 @@ extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec = {
   $: {
@@ -96,7 +96,7 @@ extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPdfPluginAttributes
 extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec = {
@@ -110,7 +110,7 @@ extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mime_handler.MimeHandlerServicePtr = extensions.mime_handler.MimeHandlerServiceRemote;
@@ -169,7 +169,7 @@ extensions.mime_handler.BeforeUnloadControl.getRemote = function() {
     'extensions.mime_handler.BeforeUnloadControl',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetShowBeforeUnloadDialog
 extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec = {
@@ -183,7 +183,7 @@ extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mime_handler.BeforeUnloadControlPtr = extensions.mime_handler.BeforeUnloadControlRemote;

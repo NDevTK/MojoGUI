@@ -100,7 +100,7 @@ ash.cfm.mojom.XuCamera.getRemote = function() {
     'ash.cfm.mojom.XuCamera',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetUnitId
 ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec = {
@@ -115,7 +115,7 @@ ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec = {
   $: {
@@ -129,7 +129,7 @@ ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MapCtrl
 ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec = {
@@ -144,7 +144,7 @@ ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec = {
   $: {
@@ -157,7 +157,7 @@ ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCtrl
 ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec = {
@@ -173,7 +173,7 @@ ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec = {
   $: {
@@ -187,7 +187,7 @@ ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCtrl
 ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec = {
@@ -203,7 +203,7 @@ ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec = {
   $: {
@@ -216,7 +216,7 @@ ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.cfm.mojom.XuCameraPtr = ash.cfm.mojom.XuCameraRemote;

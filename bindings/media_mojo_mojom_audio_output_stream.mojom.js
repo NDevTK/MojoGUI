@@ -97,7 +97,7 @@ media.mojom.AudioOutputStream.getRemote = function() {
     'media.mojom.AudioOutputStream',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Play
 media.mojom.AudioOutputStream_Play_ParamsSpec = {
@@ -110,7 +110,7 @@ media.mojom.AudioOutputStream_Play_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Pause
 media.mojom.AudioOutputStream_Pause_ParamsSpec = {
@@ -123,7 +123,7 @@ media.mojom.AudioOutputStream_Pause_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Flush
 media.mojom.AudioOutputStream_Flush_ParamsSpec = {
@@ -136,7 +136,7 @@ media.mojom.AudioOutputStream_Flush_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVolume
 media.mojom.AudioOutputStream_SetVolume_ParamsSpec = {
@@ -150,7 +150,7 @@ media.mojom.AudioOutputStream_SetVolume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioOutputStreamPtr = media.mojom.AudioOutputStreamRemote;
@@ -227,7 +227,7 @@ media.mojom.AudioOutputStreamObserver.getRemote = function() {
     'media.mojom.AudioOutputStreamObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidStartPlaying
 media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec = {
@@ -240,7 +240,7 @@ media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidStopPlaying
 media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec = {
@@ -253,7 +253,7 @@ media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidChangeAudibleState
 media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec = {
@@ -267,7 +267,7 @@ media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioOutputStreamObserverPtr = media.mojom.AudioOutputStreamObserverRemote;
@@ -326,7 +326,7 @@ media.mojom.AudioOutputStreamProvider.getRemote = function() {
     'media.mojom.AudioOutputStreamProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Acquire
 media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec = {
@@ -341,7 +341,7 @@ media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioOutputStreamProviderPtr = media.mojom.AudioOutputStreamProviderRemote;
@@ -400,7 +400,7 @@ media.mojom.AudioOutputStreamProviderClient.getRemote = function() {
     'media.mojom.AudioOutputStreamProviderClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Created
 media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec = {
@@ -415,7 +415,7 @@ media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioOutputStreamProviderClientPtr = media.mojom.AudioOutputStreamProviderClientRemote;
@@ -474,7 +474,7 @@ media.mojom.DeviceSwitchInterface.getRemote = function() {
     'media.mojom.DeviceSwitchInterface',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SwitchAudioOutputDeviceId
 media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec = {
@@ -488,7 +488,7 @@ media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.DeviceSwitchInterfacePtr = media.mojom.DeviceSwitchInterfaceRemote;

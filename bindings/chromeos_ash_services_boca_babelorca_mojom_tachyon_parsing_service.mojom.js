@@ -69,7 +69,7 @@ ash.babelorca.mojom.TachyonParsingService.getRemote = function() {
     'ash.babelorca.mojom.TachyonParsingService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Parse
 ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec = {
@@ -83,7 +83,7 @@ ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.babelorca.mojom.TachyonParsingServicePtr = ash.babelorca.mojom.TachyonParsingServiceRemote;

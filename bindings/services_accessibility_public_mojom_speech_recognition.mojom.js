@@ -85,7 +85,7 @@ ax.mojom.SpeechRecognitionEventObserver.getRemote = function() {
     'ax.mojom.SpeechRecognitionEventObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStop
 ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec = {
@@ -98,7 +98,7 @@ ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnResult
 ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec = {
@@ -112,7 +112,7 @@ ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec = {
@@ -126,7 +126,7 @@ ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ax.mojom.SpeechRecognitionEventObserverPtr = ax.mojom.SpeechRecognitionEventObserverRemote;
@@ -194,7 +194,7 @@ ax.mojom.SpeechRecognition.getRemote = function() {
     'ax.mojom.SpeechRecognition',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Start
 ax.mojom.SpeechRecognition_Start_ParamsSpec = {
@@ -208,7 +208,7 @@ ax.mojom.SpeechRecognition_Start_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ax.mojom.SpeechRecognition_Start_ResponseParamsSpec = {
   $: {
@@ -221,7 +221,7 @@ ax.mojom.SpeechRecognition_Start_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Stop
 ax.mojom.SpeechRecognition_Stop_ParamsSpec = {
@@ -235,7 +235,7 @@ ax.mojom.SpeechRecognition_Stop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec = {
   $: {
@@ -248,7 +248,7 @@ ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ax.mojom.SpeechRecognitionPtr = ax.mojom.SpeechRecognitionRemote;

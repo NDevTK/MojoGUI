@@ -61,7 +61,7 @@ commerce.mojom.CommerceInternalsHandlerFactory.getRemote = function() {
     'commerce.mojom.CommerceInternalsHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateCommerceInternalsHandler
 commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 commerce.mojom.CommerceInternalsHandlerFactoryPtr = commerce.mojom.CommerceInternalsHandlerFactoryRemote;
@@ -189,7 +189,7 @@ commerce.mojom.CommerceInternalsHandler.getRemote = function() {
     'commerce.mojom.CommerceInternalsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetIsShoppingListEligible
 commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec = {
@@ -202,7 +202,7 @@ commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec = {
   $: {
@@ -215,7 +215,7 @@ commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetPriceTrackingEmailPref
 commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec = {
@@ -228,7 +228,7 @@ commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetProductInfoForUrl
 commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = {
@@ -242,7 +242,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec = {
   $: {
@@ -255,7 +255,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSubscriptionDetails
 commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec = {
@@ -268,7 +268,7 @@ commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec = {
   $: {
@@ -281,7 +281,7 @@ commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetProductSpecificationsDetails
 commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec = {
@@ -294,7 +294,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec = {
   $: {
@@ -307,7 +307,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetProductSpecifications
 commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec = {
@@ -320,7 +320,7 @@ commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetShoppingEligibilityDetails
 commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec = {
@@ -333,7 +333,7 @@ commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec = {
   $: {
@@ -346,7 +346,7 @@ commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 commerce.mojom.CommerceInternalsHandlerPtr = commerce.mojom.CommerceInternalsHandlerRemote;
@@ -405,7 +405,7 @@ commerce.mojom.CommerceInternalsPage.getRemote = function() {
     'commerce.mojom.CommerceInternalsPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnShoppingListEligibilityChanged
 commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec = {
@@ -419,7 +419,7 @@ commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 commerce.mojom.CommerceInternalsPagePtr = commerce.mojom.CommerceInternalsPageRemote;

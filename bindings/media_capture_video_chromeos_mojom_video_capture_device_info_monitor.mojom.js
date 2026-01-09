@@ -52,7 +52,7 @@ cros.mojom.VideoCaptureDeviceInfoObserver.getRemote = function() {
     'cros.mojom.VideoCaptureDeviceInfoObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.VideoCaptureDeviceInfoObserverPtr = cros.mojom.VideoCaptureDeviceInfoObserverRemote;
@@ -102,7 +102,7 @@ cros.mojom.VideoCaptureDeviceInfoMonitor.getRemote = function() {
     'cros.mojom.VideoCaptureDeviceInfoMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.VideoCaptureDeviceInfoMonitorPtr = cros.mojom.VideoCaptureDeviceInfoMonitorRemote;

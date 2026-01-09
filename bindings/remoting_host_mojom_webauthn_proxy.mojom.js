@@ -61,7 +61,7 @@ remoting.mojom.WebAuthnRequestCanceller.getRemote = function() {
     'remoting.mojom.WebAuthnRequestCanceller',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Cancel
 remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec = {
@@ -74,7 +74,7 @@ remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.WebAuthnRequestCancellerPtr = remoting.mojom.WebAuthnRequestCancellerRemote;
@@ -164,7 +164,7 @@ remoting.mojom.WebAuthnProxy.getRemote = function() {
     'remoting.mojom.WebAuthnProxy',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for IsUserVerifyingPlatformAuthenticatorAvailable
 remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec = {
@@ -177,7 +177,7 @@ remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec = {
   $: {
@@ -190,7 +190,7 @@ remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Create
 remoting.mojom.WebAuthnProxy_Create_ParamsSpec = {
@@ -205,7 +205,7 @@ remoting.mojom.WebAuthnProxy_Create_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec = {
   $: {
@@ -218,7 +218,7 @@ remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Get
 remoting.mojom.WebAuthnProxy_Get_ParamsSpec = {
@@ -233,7 +233,7 @@ remoting.mojom.WebAuthnProxy_Get_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec = {
   $: {
@@ -246,7 +246,7 @@ remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.WebAuthnProxyPtr = remoting.mojom.WebAuthnProxyRemote;

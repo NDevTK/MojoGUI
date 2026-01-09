@@ -74,7 +74,7 @@ arc.mojom.PolicyHost.getRemote = function() {
     'arc.mojom.PolicyHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.PolicyHostPtr = arc.mojom.PolicyHostRemote;
@@ -124,7 +124,7 @@ arc.mojom.PolicyInstance.getRemote = function() {
     'arc.mojom.PolicyInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.PolicyInstancePtr = arc.mojom.PolicyInstanceRemote;

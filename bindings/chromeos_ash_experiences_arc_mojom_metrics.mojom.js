@@ -303,7 +303,7 @@ arc.mojom.MetricsHost.getRemote = function() {
     'arc.mojom.MetricsHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.MetricsHostPtr = arc.mojom.MetricsHostRemote;
@@ -353,7 +353,7 @@ arc.mojom.MetricsInstance.getRemote = function() {
     'arc.mojom.MetricsInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.MetricsInstancePtr = arc.mojom.MetricsInstanceRemote;

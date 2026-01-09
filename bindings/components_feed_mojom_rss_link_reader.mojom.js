@@ -61,7 +61,7 @@ feed.mojom.RssLinkReader.getRemote = function() {
     'feed.mojom.RssLinkReader',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetRssLinks
 feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec = {
@@ -74,7 +74,7 @@ feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 feed.mojom.RssLinkReaderPtr = feed.mojom.RssLinkReaderRemote;

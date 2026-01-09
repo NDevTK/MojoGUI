@@ -61,7 +61,7 @@ blink.mojom.PointerLockContext.getRemote = function() {
     'blink.mojom.PointerLockContext',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestMouseLockChange
 blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PointerLockContextPtr = blink.mojom.PointerLockContextRemote;

@@ -69,7 +69,7 @@ payments.facilitated.mojom.PixCodeValidator.getRemote = function() {
     'payments.facilitated.mojom.PixCodeValidator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ValidatePixCode
 payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec = {
@@ -83,7 +83,7 @@ payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec = {
   $: {
@@ -96,7 +96,7 @@ payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 payments.facilitated.mojom.PixCodeValidatorPtr = payments.facilitated.mojom.PixCodeValidatorRemote;

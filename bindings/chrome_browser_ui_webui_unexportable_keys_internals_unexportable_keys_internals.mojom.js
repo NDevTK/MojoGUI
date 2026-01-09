@@ -61,7 +61,7 @@ unexportable_keys_internals.mojom.PageHandlerFactory.getRemote = function() {
     'unexportable_keys_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateUnexportableKeysInternalsHandler
 unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInter
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 unexportable_keys_internals.mojom.PageHandlerFactoryPtr = unexportable_keys_internals.mojom.PageHandlerFactoryRemote;
@@ -144,7 +144,7 @@ unexportable_keys_internals.mojom.PageHandler.getRemote = function() {
     'unexportable_keys_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetUnexportableKeysInfo
 unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec = {
@@ -157,7 +157,7 @@ unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec = {
   $: {
@@ -170,7 +170,7 @@ unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteKey
 unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec = {
@@ -184,7 +184,7 @@ unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec = {
   $: {
@@ -197,7 +197,7 @@ unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 unexportable_keys_internals.mojom.PageHandlerPtr = unexportable_keys_internals.mojom.PageHandlerRemote;
@@ -247,7 +247,7 @@ unexportable_keys_internals.mojom.Page.getRemote = function() {
     'unexportable_keys_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 unexportable_keys_internals.mojom.PagePtr = unexportable_keys_internals.mojom.PageRemote;

@@ -62,7 +62,7 @@ chromecast.media.mojom.VideoGeometryChangeClient.getRemote = function() {
     'chromecast.media.mojom.VideoGeometryChangeClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnVideoGeometryChange
 chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec = {
@@ -77,7 +77,7 @@ chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.media.mojom.VideoGeometryChangeClientPtr = chromecast.media.mojom.VideoGeometryChangeClientRemote;
@@ -136,7 +136,7 @@ chromecast.media.mojom.VideoGeometryChangeSubscriber.getRemote = function() {
     'chromecast.media.mojom.VideoGeometryChangeSubscriber',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SubscribeToVideoGeometryChange
 chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec = {
@@ -151,7 +151,7 @@ chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryCha
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.media.mojom.VideoGeometryChangeSubscriberPtr = chromecast.media.mojom.VideoGeometryChangeSubscriberRemote;
@@ -210,7 +210,7 @@ chromecast.media.mojom.VideoGeometrySetter.getRemote = function() {
     'chromecast.media.mojom.VideoGeometrySetter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetVideoGeometry
 chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec = {
@@ -226,7 +226,7 @@ chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.media.mojom.VideoGeometrySetterPtr = chromecast.media.mojom.VideoGeometrySetterRemote;

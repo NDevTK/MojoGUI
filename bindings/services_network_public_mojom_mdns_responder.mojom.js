@@ -70,7 +70,7 @@ network.mojom.MdnsResponder.getRemote = function() {
     'network.mojom.MdnsResponder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateNameForAddress
 network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = {
@@ -84,7 +84,7 @@ network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveNameForAddress
 network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = {
@@ -112,7 +112,7 @@ network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec = {
   $: {
@@ -126,7 +126,7 @@ network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.MdnsResponderPtr = network.mojom.MdnsResponderRemote;

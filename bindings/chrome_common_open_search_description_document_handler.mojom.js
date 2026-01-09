@@ -61,7 +61,7 @@ chrome.mojom.OpenSearchDescriptionDocumentHandler.getRemote = function() {
     'chrome.mojom.OpenSearchDescriptionDocumentHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PageHasOpenSearchDescriptionDocument
 chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec = {
@@ -76,7 +76,7 @@ chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.OpenSearchDescriptionDocumentHandlerPtr = chrome.mojom.OpenSearchDescriptionDocumentHandlerRemote;

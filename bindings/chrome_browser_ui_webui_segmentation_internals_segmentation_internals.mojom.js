@@ -61,7 +61,7 @@ segmentation_internals.mojom.PageHandlerFactory.getRemote = function() {
     'segmentation_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 segmentation_internals.mojom.PageHandlerFactoryPtr = segmentation_internals.mojom.PageHandlerFactoryRemote;
@@ -162,7 +162,7 @@ segmentation_internals.mojom.PageHandler.getRemote = function() {
     'segmentation_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetServiceStatus
 segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec = {
@@ -175,7 +175,7 @@ segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteModel
 segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec = {
@@ -189,7 +189,7 @@ segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OverwriteResult
 segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec = {
@@ -204,7 +204,7 @@ segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSelected
 segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec = {
@@ -219,7 +219,7 @@ segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 segmentation_internals.mojom.PageHandlerPtr = segmentation_internals.mojom.PageHandlerRemote;
@@ -287,7 +287,7 @@ segmentation_internals.mojom.Page.getRemote = function() {
     'segmentation_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnServiceStatusChanged
 segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec = {
@@ -302,7 +302,7 @@ segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClientInfoAvailable
 segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec = {
@@ -316,7 +316,7 @@ segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 segmentation_internals.mojom.PagePtr = segmentation_internals.mojom.PageRemote;

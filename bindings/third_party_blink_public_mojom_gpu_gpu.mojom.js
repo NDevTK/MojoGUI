@@ -61,7 +61,7 @@ blink.mojom.GpuDataManager.getRemote = function() {
     'blink.mojom.GpuDataManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Are3DAPIsBlockedForUrl
 blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.GpuDataManagerPtr = blink.mojom.GpuDataManagerRemote;

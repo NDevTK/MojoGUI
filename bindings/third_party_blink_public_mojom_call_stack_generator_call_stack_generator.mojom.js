@@ -61,7 +61,7 @@ blink.mojom.CallStackGenerator.getRemote = function() {
     'blink.mojom.CallStackGenerator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CollectJavaScriptCallStack
 blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec = {
@@ -74,7 +74,7 @@ blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.CallStackGeneratorPtr = blink.mojom.CallStackGeneratorRemote;

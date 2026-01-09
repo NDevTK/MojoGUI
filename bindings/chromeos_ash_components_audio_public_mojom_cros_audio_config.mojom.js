@@ -107,7 +107,7 @@ ash.audio_config.mojom.AudioSystemPropertiesObserver.getRemote = function() {
     'ash.audio_config.mojom.AudioSystemPropertiesObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPropertiesUpdated
 ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec = {
@@ -121,7 +121,7 @@ ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.audio_config.mojom.AudioSystemPropertiesObserverPtr = ash.audio_config.mojom.AudioSystemPropertiesObserverRemote;
@@ -288,7 +288,7 @@ ash.audio_config.mojom.CrosAudioConfig.getRemote = function() {
     'ash.audio_config.mojom.CrosAudioConfig',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ObserveAudioSystemProperties
 ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec = {
@@ -302,7 +302,7 @@ ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetOutputMuted
 ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec = {
@@ -316,7 +316,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetOutputVolumePercent
 ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec = {
@@ -330,7 +330,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetInputGainPercent
 ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec = {
@@ -344,7 +344,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetActiveDevice
 ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec = {
@@ -358,7 +358,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetInputMuted
 ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec = {
@@ -372,7 +372,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordVoiceIsolationEnabledChange
 ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec = {
@@ -385,7 +385,7 @@ ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordVoiceIsolationPreferredEffectChange
 ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec = {
@@ -399,7 +399,7 @@ ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNoiseCancellationEnabled
 ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec = {
@@ -413,7 +413,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetStyleTransferEnabled
 ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec = {
@@ -427,7 +427,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetForceRespectUiGainsEnabled
 ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec = {
@@ -441,7 +441,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHfpMicSrEnabled
 ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec = {
@@ -455,7 +455,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSpatialAudioEnabled
 ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec = {
@@ -469,7 +469,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.audio_config.mojom.CrosAudioConfigPtr = ash.audio_config.mojom.CrosAudioConfigRemote;

@@ -70,7 +70,7 @@ blink.mojom.FileSystemAccessTransferToken.getRemote = function() {
     'blink.mojom.FileSystemAccessTransferToken',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetInternalID
 blink.mojom.FileSystemAccessTransferToken_GetInternalID_ParamsSpec = {
@@ -83,7 +83,7 @@ blink.mojom.FileSystemAccessTransferToken_GetInternalID_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec = {
   $: {
@@ -96,7 +96,7 @@ blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec = {
@@ -110,7 +110,7 @@ blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileSystemAccessTransferTokenPtr = blink.mojom.FileSystemAccessTransferTokenRemote;

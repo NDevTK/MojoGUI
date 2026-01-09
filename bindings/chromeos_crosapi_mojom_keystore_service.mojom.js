@@ -89,7 +89,7 @@ crosapi.mojom.KeystoreService.getRemote = function() {
     'crosapi.mojom.KeystoreService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.KeystoreServicePtr = crosapi.mojom.KeystoreServiceRemote;

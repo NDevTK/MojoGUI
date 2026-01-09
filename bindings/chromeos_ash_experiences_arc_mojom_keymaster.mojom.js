@@ -69,7 +69,7 @@ arc.mojom.KeymasterHost.getRemote = function() {
     'arc.mojom.KeymasterHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.KeymasterHostPtr = arc.mojom.KeymasterHostRemote;
@@ -119,7 +119,7 @@ arc.mojom.KeymasterInstance.getRemote = function() {
     'arc.mojom.KeymasterInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.KeymasterInstancePtr = arc.mojom.KeymasterInstanceRemote;
@@ -169,7 +169,7 @@ arc.mojom.KeymasterServer.getRemote = function() {
     'arc.mojom.KeymasterServer',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.KeymasterServerPtr = arc.mojom.KeymasterServerRemote;

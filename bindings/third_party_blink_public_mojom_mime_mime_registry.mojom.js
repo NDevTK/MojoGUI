@@ -61,7 +61,7 @@ blink.mojom.MimeRegistry.getRemote = function() {
     'blink.mojom.MimeRegistry',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetMimeTypeFromExtension
 blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.MimeRegistryPtr = blink.mojom.MimeRegistryRemote;

@@ -62,7 +62,7 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver.getRemote = f
     'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSearchResultsAvailabilityChanged
 ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec = {
@@ -75,7 +75,7 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResul
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverPtr = ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote;
@@ -143,7 +143,7 @@ ash.shortcut_customization.mojom.SearchHandler.getRemote = function() {
     'ash.shortcut_customization.mojom.SearchHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Search
 ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = {
@@ -158,7 +158,7 @@ ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec = {
   $: {
@@ -171,7 +171,7 @@ ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddSearchResultsAvailabilityObserver
 ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec = {
@@ -185,7 +185,7 @@ ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObser
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shortcut_customization.mojom.SearchHandlerPtr = ash.shortcut_customization.mojom.SearchHandlerRemote;

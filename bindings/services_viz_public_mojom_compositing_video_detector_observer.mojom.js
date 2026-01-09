@@ -70,7 +70,7 @@ viz.mojom.VideoDetectorObserver.getRemote = function() {
     'viz.mojom.VideoDetectorObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnVideoActivityStarted
 viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec = {
@@ -83,7 +83,7 @@ viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnVideoActivityEnded
 viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec = {
@@ -96,7 +96,7 @@ viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.VideoDetectorObserverPtr = viz.mojom.VideoDetectorObserverRemote;

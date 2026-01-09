@@ -52,7 +52,7 @@ arc.mojom.VideoProtectedBufferAllocator.getRemote = function() {
     'arc.mojom.VideoProtectedBufferAllocator',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.VideoProtectedBufferAllocatorPtr = arc.mojom.VideoProtectedBufferAllocatorRemote;

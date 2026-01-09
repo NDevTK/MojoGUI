@@ -61,7 +61,7 @@ video_capture.mojom.TestingControls.getRemote = function() {
     'video_capture.mojom.TestingControls',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Crash
 video_capture.mojom.TestingControls_Crash_ParamsSpec = {
@@ -74,7 +74,7 @@ video_capture.mojom.TestingControls_Crash_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 video_capture.mojom.TestingControlsPtr = video_capture.mojom.TestingControlsRemote;

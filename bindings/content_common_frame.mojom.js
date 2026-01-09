@@ -100,7 +100,7 @@ content.mojom.FrameHTMLSerializerHandler.getRemote = function() {
     'content.mojom.FrameHTMLSerializerHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidReceiveData
 content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec = {
@@ -114,7 +114,7 @@ content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Done
 content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec = {
@@ -127,7 +127,7 @@ content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.FrameHTMLSerializerHandlerPtr = content.mojom.FrameHTMLSerializerHandlerRemote;
@@ -258,7 +258,7 @@ content.mojom.Frame.getRemote = function() {
     'content.mojom.Frame',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CommitSameDocumentNavigation
 content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec = {
@@ -273,7 +273,7 @@ content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.Frame_CommitSameDocumentNavigation_ResponseParamsSpec = {
   $: {
@@ -286,7 +286,7 @@ content.mojom.Frame_CommitSameDocumentNavigation_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateSubresourceLoaderFactories
 content.mojom.Frame_UpdateSubresourceLoaderFactories_ParamsSpec = {
@@ -300,7 +300,7 @@ content.mojom.Frame_UpdateSubresourceLoaderFactories_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWantErrorMessageStackTrace
 content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec = {
@@ -313,7 +313,7 @@ content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Unload
 content.mojom.Frame_Unload_ParamsSpec = {
@@ -332,7 +332,7 @@ content.mojom.Frame_Unload_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Delete
 content.mojom.Frame_Delete_ParamsSpec = {
@@ -346,7 +346,7 @@ content.mojom.Frame_Delete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UndoCommitNavigation
 content.mojom.Frame_UndoCommitNavigation_ParamsSpec = {
@@ -364,7 +364,7 @@ content.mojom.Frame_UndoCommitNavigation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetInterfaceProvider
 content.mojom.Frame_GetInterfaceProvider_ParamsSpec = {
@@ -378,7 +378,7 @@ content.mojom.Frame_GetInterfaceProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SnapshotAccessibilityTree
 content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec = {
@@ -392,7 +392,7 @@ content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec = {
   $: {
@@ -405,7 +405,7 @@ content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSerializedHtmlWithLocalLinks
 content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec = {
@@ -422,7 +422,7 @@ content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.FramePtr = content.mojom.FrameRemote;
@@ -508,7 +508,7 @@ content.mojom.FrameBindingsControl.getRemote = function() {
     'content.mojom.FrameBindingsControl',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AllowBindings
 content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec = {
@@ -522,7 +522,7 @@ content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableMojoJsBindings
 content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec = {
@@ -536,7 +536,7 @@ content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableMojoJsBindingsWithBroker
 content.mojom.FrameBindingsControl_EnableMojoJsBindingsWithBroker_ParamsSpec = {
@@ -550,7 +550,7 @@ content.mojom.FrameBindingsControl_EnableMojoJsBindingsWithBroker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindWebUI
 content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec = {
@@ -565,7 +565,7 @@ content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.FrameBindingsControlPtr = content.mojom.FrameBindingsControlRemote;
@@ -624,7 +624,7 @@ content.mojom.NavigationRendererCancellationListener.getRemote = function() {
     'content.mojom.NavigationRendererCancellationListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RendererCancellationWindowEnded
 content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec = {
@@ -637,7 +637,7 @@ content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowE
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.NavigationRendererCancellationListenerPtr = content.mojom.NavigationRendererCancellationListenerRemote;
@@ -822,7 +822,7 @@ content.mojom.FrameHost.getRemote = function() {
     'content.mojom.FrameHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateNewWindow
 content.mojom.FrameHost_CreateNewWindow_ParamsSpec = {
@@ -836,7 +836,7 @@ content.mojom.FrameHost_CreateNewWindow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.FrameHost_CreateNewWindow_ResponseParamsSpec = {
   $: {
@@ -850,7 +850,7 @@ content.mojom.FrameHost_CreateNewWindow_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateChildFrame
 content.mojom.FrameHost_CreateChildFrame_ParamsSpec = {
@@ -876,7 +876,7 @@ content.mojom.FrameHost_CreateChildFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidCommitProvisionalLoad
 content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec = {
@@ -891,7 +891,7 @@ content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidCommitSameDocumentNavigation
 content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec = {
@@ -906,7 +906,7 @@ content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidOpenDocumentInputStream
 content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec = {
@@ -920,7 +920,7 @@ content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BeginNavigation
 content.mojom.FrameHost_BeginNavigation_ParamsSpec = {
@@ -939,7 +939,7 @@ content.mojom.FrameHost_BeginNavigation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SubresourceResponseStarted
 content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec = {
@@ -954,7 +954,7 @@ content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResourceLoadComplete
 content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec = {
@@ -968,7 +968,7 @@ content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidChangeName
 content.mojom.FrameHost_DidChangeName_ParamsSpec = {
@@ -983,7 +983,7 @@ content.mojom.FrameHost_DidChangeName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelInitialHistoryLoad
 content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec = {
@@ -996,7 +996,7 @@ content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateEncoding
 content.mojom.FrameHost_UpdateEncoding_ParamsSpec = {
@@ -1010,7 +1010,7 @@ content.mojom.FrameHost_UpdateEncoding_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateUserGestureCarryoverInfo
 content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec = {
@@ -1023,7 +1023,7 @@ content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateState
 content.mojom.FrameHost_UpdateState_ParamsSpec = {
@@ -1037,7 +1037,7 @@ content.mojom.FrameHost_UpdateState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenURL
 content.mojom.FrameHost_OpenURL_ParamsSpec = {
@@ -1051,7 +1051,7 @@ content.mojom.FrameHost_OpenURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidStopLoading
 content.mojom.FrameHost_DidStopLoading_ParamsSpec = {
@@ -1064,7 +1064,7 @@ content.mojom.FrameHost_DidStopLoading_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.FrameHostPtr = content.mojom.FrameHostRemote;

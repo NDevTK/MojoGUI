@@ -229,7 +229,7 @@ content.mojom.Renderer.getRemote = function() {
     'content.mojom.Renderer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateAgentSchedulingGroup
 content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec = {
@@ -243,7 +243,7 @@ content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateAssociatedAgentSchedulingGroup
 content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec = {
@@ -257,7 +257,7 @@ content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TransferSharedLastForegroundTime
 content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec = {
@@ -271,7 +271,7 @@ content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNetworkConnectionChanged
 content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec = {
@@ -286,7 +286,7 @@ content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNetworkQualityChanged
 content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec = {
@@ -303,7 +303,7 @@ content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWebKitSharedTimersSuspended
 content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec = {
@@ -317,7 +317,7 @@ content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateScrollbarTheme
 content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec = {
@@ -331,7 +331,7 @@ content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSystemColorsChanged
 content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec = {
@@ -345,7 +345,7 @@ content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateSystemColorInfo
 content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec = {
@@ -359,7 +359,7 @@ content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PurgePluginListCache
 content.mojom.Renderer_PurgePluginListCache_ParamsSpec = {
@@ -372,7 +372,7 @@ content.mojom.Renderer_PurgePluginListCache_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PurgeResourceCache
 content.mojom.Renderer_PurgeResourceCache_ParamsSpec = {
@@ -385,7 +385,7 @@ content.mojom.Renderer_PurgeResourceCache_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetProcessState
 content.mojom.Renderer_SetProcessState_ParamsSpec = {
@@ -400,7 +400,7 @@ content.mojom.Renderer_SetProcessState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsLockedToSite
 content.mojom.Renderer_SetIsLockedToSite_ParamsSpec = {
@@ -413,7 +413,7 @@ content.mojom.Renderer_SetIsLockedToSite_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteClangProfilingProfile
 content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec = {
@@ -426,7 +426,7 @@ content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsCrossOriginIsolated
 content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec = {
@@ -440,7 +440,7 @@ content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsWebSecurityDisabled
 content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec = {
@@ -454,7 +454,7 @@ content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsIsolatedContext
 content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec = {
@@ -468,7 +468,7 @@ content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWebUIResourceUrlToCodeCacheMap
 content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec = {
@@ -482,7 +482,7 @@ content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InitializeRenderer
 content.mojom.Renderer_InitializeRenderer_ParamsSpec = {
@@ -501,7 +501,7 @@ content.mojom.Renderer_InitializeRenderer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.RendererPtr = content.mojom.RendererRemote;

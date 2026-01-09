@@ -53,7 +53,7 @@ chromeos.cfm.mojom.CfmBrowser.getRemote = function() {
     'chromeos.cfm.mojom.CfmBrowser',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cfm.mojom.CfmBrowserPtr = chromeos.cfm.mojom.CfmBrowserRemote;

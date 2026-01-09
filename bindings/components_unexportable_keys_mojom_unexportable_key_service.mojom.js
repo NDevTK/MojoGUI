@@ -133,7 +133,7 @@ unexportable_keys.mojom.UnexportableKeyService.getRemote = function() {
     'unexportable_keys.mojom.UnexportableKeyService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GenerateSigningKey
 unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec = {
@@ -148,7 +148,7 @@ unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FromWrappedSigningKey
 unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec = {
@@ -163,7 +163,7 @@ unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Sign
 unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec = {
@@ -179,7 +179,7 @@ unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllSigningKeysForGarbageCollection
 unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec = {
@@ -193,7 +193,7 @@ unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteKey
 unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec = {
@@ -208,7 +208,7 @@ unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec = {
   $: {
@@ -221,7 +221,7 @@ unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteAllKeys
 unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec = {
@@ -235,7 +235,7 @@ unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 unexportable_keys.mojom.UnexportableKeyServicePtr = unexportable_keys.mojom.UnexportableKeyServiceRemote;

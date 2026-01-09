@@ -70,7 +70,7 @@ chromecast.mojom.RemoteInterfaces.getRemote = function() {
     'chromecast.mojom.RemoteInterfaces',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindInterface
 chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec = {
@@ -85,7 +85,7 @@ chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddClient
 chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec = {
@@ -99,7 +99,7 @@ chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.RemoteInterfacesPtr = chromecast.mojom.RemoteInterfacesRemote;

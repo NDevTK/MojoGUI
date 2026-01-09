@@ -90,7 +90,7 @@ lens.mojom.LensPageHandlerFactory.getRemote = function() {
     'lens.mojom.LensPageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -105,7 +105,7 @@ lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 lens.mojom.LensPageHandlerFactoryPtr = lens.mojom.LensPageHandlerFactoryRemote;
@@ -407,7 +407,7 @@ lens.mojom.LensPageHandler.getRemote = function() {
     'lens.mojom.LensPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ActivityRequestedByOverlay
 lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec = {
@@ -421,7 +421,7 @@ lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseRequestedByOverlayCloseButton
 lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_ParamsSpec = {
@@ -434,7 +434,7 @@ lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseRequestedByOverlayBackgroundClick
 lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_ParamsSpec = {
@@ -447,7 +447,7 @@ lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyOverlayInitialized
 lens.mojom.LensPageHandler_NotifyOverlayInitialized_ParamsSpec = {
@@ -460,7 +460,7 @@ lens.mojom.LensPageHandler_NotifyOverlayInitialized_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddBackgroundBlur
 lens.mojom.LensPageHandler_AddBackgroundBlur_ParamsSpec = {
@@ -473,7 +473,7 @@ lens.mojom.LensPageHandler_AddBackgroundBlur_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetLiveBlur
 lens.mojom.LensPageHandler_SetLiveBlur_ParamsSpec = {
@@ -487,7 +487,7 @@ lens.mojom.LensPageHandler_SetLiveBlur_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FeedbackRequestedByOverlay
 lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_ParamsSpec = {
@@ -500,7 +500,7 @@ lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOverlayInvocationSource
 lens.mojom.LensPageHandler_GetOverlayInvocationSource_ParamsSpec = {
@@ -513,7 +513,7 @@ lens.mojom.LensPageHandler_GetOverlayInvocationSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParamsSpec = {
   $: {
@@ -526,7 +526,7 @@ lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InfoRequestedByOverlay
 lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec = {
@@ -540,7 +540,7 @@ lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IssueLensRegionRequest
 lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec = {
@@ -555,7 +555,7 @@ lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IssueLensObjectRequest
 lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec = {
@@ -570,7 +570,7 @@ lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IssueTextSelectionRequest
 lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec = {
@@ -587,7 +587,7 @@ lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IssueTranslateSelectionRequest
 lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec = {
@@ -604,7 +604,7 @@ lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IssueMathSelectionRequest
 lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec = {
@@ -621,7 +621,7 @@ lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IssueTranslateFullPageRequest
 lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_ParamsSpec = {
@@ -636,7 +636,7 @@ lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IssueEndTranslateModeRequest
 lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_ParamsSpec = {
@@ -649,7 +649,7 @@ lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CopyText
 lens.mojom.LensPageHandler_CopyText_ParamsSpec = {
@@ -663,7 +663,7 @@ lens.mojom.LensPageHandler_CopyText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CopyImage
 lens.mojom.LensPageHandler_CopyImage_ParamsSpec = {
@@ -677,7 +677,7 @@ lens.mojom.LensPageHandler_CopyImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SaveAsImage
 lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec = {
@@ -691,7 +691,7 @@ lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClosePreselectionBubble
 lens.mojom.LensPageHandler_ClosePreselectionBubble_ParamsSpec = {
@@ -704,7 +704,7 @@ lens.mojom.LensPageHandler_ClosePreselectionBubble_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordUkmAndTaskCompletionForLensOverlayInteraction
 lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_ParamsSpec = {
@@ -718,7 +718,7 @@ lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordLensOverlaySemanticEvent
 lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec = {
@@ -732,7 +732,7 @@ lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MaybeShowTranslateFeaturePromo
 lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_ParamsSpec = {
@@ -745,7 +745,7 @@ lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MaybeCloseTranslateFeaturePromo
 lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_ParamsSpec = {
@@ -759,7 +759,7 @@ lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchSupportedLanguages
 lens.mojom.LensPageHandler_FetchSupportedLanguages_ParamsSpec = {
@@ -772,7 +772,7 @@ lens.mojom.LensPageHandler_FetchSupportedLanguages_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec = {
   $: {
@@ -787,7 +787,7 @@ lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FinishReshowOverlay
 lens.mojom.LensPageHandler_FinishReshowOverlay_ParamsSpec = {
@@ -800,7 +800,7 @@ lens.mojom.LensPageHandler_FinishReshowOverlay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AcceptPrivacyNotice
 lens.mojom.LensPageHandler_AcceptPrivacyNotice_ParamsSpec = {
@@ -813,7 +813,7 @@ lens.mojom.LensPageHandler_AcceptPrivacyNotice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DismissPrivacyNotice
 lens.mojom.LensPageHandler_DismissPrivacyNotice_ParamsSpec = {
@@ -826,7 +826,7 @@ lens.mojom.LensPageHandler_DismissPrivacyNotice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 lens.mojom.LensPageHandlerPtr = lens.mojom.LensPageHandlerRemote;
@@ -1047,7 +1047,7 @@ lens.mojom.LensPage.getRemote = function() {
     'lens.mojom.LensPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ScreenshotDataReceived
 lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec = {
@@ -1062,7 +1062,7 @@ lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyHandshakeComplete
 lens.mojom.LensPage_NotifyHandshakeComplete_ParamsSpec = {
@@ -1075,7 +1075,7 @@ lens.mojom.LensPage_NotifyHandshakeComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyResultsPanelOpened
 lens.mojom.LensPage_NotifyResultsPanelOpened_ParamsSpec = {
@@ -1088,7 +1088,7 @@ lens.mojom.LensPage_NotifyResultsPanelOpened_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyOverlayClosing
 lens.mojom.LensPage_NotifyOverlayClosing_ParamsSpec = {
@@ -1101,7 +1101,7 @@ lens.mojom.LensPage_NotifyOverlayClosing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObjectsReceived
 lens.mojom.LensPage_ObjectsReceived_ParamsSpec = {
@@ -1115,7 +1115,7 @@ lens.mojom.LensPage_ObjectsReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TextReceived
 lens.mojom.LensPage_TextReceived_ParamsSpec = {
@@ -1129,7 +1129,7 @@ lens.mojom.LensPage_TextReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegionTextReceived
 lens.mojom.LensPage_RegionTextReceived_ParamsSpec = {
@@ -1144,7 +1144,7 @@ lens.mojom.LensPage_RegionTextReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ThemeReceived
 lens.mojom.LensPage_ThemeReceived_ParamsSpec = {
@@ -1158,7 +1158,7 @@ lens.mojom.LensPage_ThemeReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShouldShowContextualSearchBox
 lens.mojom.LensPage_ShouldShowContextualSearchBox_ParamsSpec = {
@@ -1172,7 +1172,7 @@ lens.mojom.LensPage_ShouldShowContextualSearchBox_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PageContentTypeChanged
 lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec = {
@@ -1186,7 +1186,7 @@ lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPostRegionSelection
 lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec = {
@@ -1200,7 +1200,7 @@ lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTextSelection
 lens.mojom.LensPage_SetTextSelection_ParamsSpec = {
@@ -1215,7 +1215,7 @@ lens.mojom.LensPage_SetTextSelection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTranslateMode
 lens.mojom.LensPage_SetTranslateMode_ParamsSpec = {
@@ -1230,7 +1230,7 @@ lens.mojom.LensPage_SetTranslateMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearRegionSelection
 lens.mojom.LensPage_ClearRegionSelection_ParamsSpec = {
@@ -1243,7 +1243,7 @@ lens.mojom.LensPage_ClearRegionSelection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearTextSelection
 lens.mojom.LensPage_ClearTextSelection_ParamsSpec = {
@@ -1256,7 +1256,7 @@ lens.mojom.LensPage_ClearTextSelection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearAllSelections
 lens.mojom.LensPage_ClearAllSelections_ParamsSpec = {
@@ -1269,7 +1269,7 @@ lens.mojom.LensPage_ClearAllSelections_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCopyCommand
 lens.mojom.LensPage_OnCopyCommand_ParamsSpec = {
@@ -1282,7 +1282,7 @@ lens.mojom.LensPage_OnCopyCommand_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SuppressGhostLoader
 lens.mojom.LensPage_SuppressGhostLoader_ParamsSpec = {
@@ -1295,7 +1295,7 @@ lens.mojom.LensPage_SuppressGhostLoader_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnOverlayReshown
 lens.mojom.LensPage_OnOverlayReshown_ParamsSpec = {
@@ -1309,7 +1309,7 @@ lens.mojom.LensPage_OnOverlayReshown_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 lens.mojom.LensPagePtr = lens.mojom.LensPageRemote;

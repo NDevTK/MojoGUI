@@ -61,7 +61,7 @@ ax.mojom.AccessibilityFileLoader.getRemote = function() {
     'ax.mojom.AccessibilityFileLoader',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Load
 ax.mojom.AccessibilityFileLoader_Load_ParamsSpec = {
@@ -75,7 +75,7 @@ ax.mojom.AccessibilityFileLoader_Load_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ax.mojom.AccessibilityFileLoaderPtr = ax.mojom.AccessibilityFileLoaderRemote;

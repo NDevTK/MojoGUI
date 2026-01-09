@@ -62,7 +62,7 @@ chromeos_camera.mojom.MjpegDecodeAccelerator.getRemote = function() {
     'chromeos_camera.mojom.MjpegDecodeAccelerator',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos_camera.mojom.MjpegDecodeAcceleratorPtr = chromeos_camera.mojom.MjpegDecodeAcceleratorRemote;

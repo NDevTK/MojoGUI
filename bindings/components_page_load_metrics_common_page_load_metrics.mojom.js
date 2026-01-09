@@ -86,7 +86,7 @@ page_load_metrics.mojom.PageLoadMetrics.getRemote = function() {
     'page_load_metrics.mojom.PageLoadMetrics',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateTiming
 page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = {
@@ -108,7 +108,7 @@ page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUpSharedMemoryForDroppedFrames
 page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec = {
@@ -122,7 +122,7 @@ page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddCustomUserTiming
 page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = {
@@ -136,7 +136,7 @@ page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 page_load_metrics.mojom.PageLoadMetricsPtr = page_load_metrics.mojom.PageLoadMetricsRemote;

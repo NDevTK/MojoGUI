@@ -70,7 +70,7 @@ network.mojom.URLLoader.getRemote = function() {
     'network.mojom.URLLoader',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FollowRedirect
 network.mojom.URLLoader_FollowRedirect_ParamsSpec = {
@@ -87,7 +87,7 @@ network.mojom.URLLoader_FollowRedirect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPriority
 network.mojom.URLLoader_SetPriority_ParamsSpec = {
@@ -102,7 +102,7 @@ network.mojom.URLLoader_SetPriority_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.URLLoaderPtr = network.mojom.URLLoaderRemote;
@@ -206,7 +206,7 @@ network.mojom.URLLoaderClient.getRemote = function() {
     'network.mojom.URLLoaderClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnReceiveEarlyHints
 network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = {
@@ -220,7 +220,7 @@ network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReceiveResponse
 network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = {
@@ -236,7 +236,7 @@ network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReceiveRedirect
 network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec = {
@@ -251,7 +251,7 @@ network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnUploadProgress
 network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec = {
@@ -266,7 +266,7 @@ network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTransferSizeUpdated
 network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec = {
@@ -280,7 +280,7 @@ network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnComplete
 network.mojom.URLLoaderClient_OnComplete_ParamsSpec = {
@@ -294,7 +294,7 @@ network.mojom.URLLoaderClient_OnComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.URLLoaderClientPtr = network.mojom.URLLoaderClientRemote;

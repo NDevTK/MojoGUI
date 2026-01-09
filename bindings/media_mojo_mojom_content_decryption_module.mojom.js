@@ -136,7 +136,7 @@ media.mojom.ContentDecryptionModule.getRemote = function() {
     'media.mojom.ContentDecryptionModule',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetClient
 media.mojom.ContentDecryptionModule_SetClient_ParamsSpec = {
@@ -150,7 +150,7 @@ media.mojom.ContentDecryptionModule_SetClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetServerCertificate
 media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = {
@@ -164,7 +164,7 @@ media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = {
   $: {
@@ -177,7 +177,7 @@ media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStatusForPolicy
 media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = {
@@ -191,7 +191,7 @@ media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = {
   $: {
@@ -205,7 +205,7 @@ media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateSessionAndGenerateRequest
 media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec = {
@@ -221,7 +221,7 @@ media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec = {
   $: {
@@ -235,7 +235,7 @@ media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadSession
 media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = {
@@ -250,7 +250,7 @@ media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = {
   $: {
@@ -264,7 +264,7 @@ media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateSession
 media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = {
@@ -279,7 +279,7 @@ media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = {
   $: {
@@ -292,7 +292,7 @@ media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseSession
 media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = {
@@ -306,7 +306,7 @@ media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = {
   $: {
@@ -319,7 +319,7 @@ media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveSession
 media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = {
@@ -333,7 +333,7 @@ media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = {
   $: {
@@ -346,7 +346,7 @@ media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.ContentDecryptionModulePtr = media.mojom.ContentDecryptionModuleRemote;
@@ -432,7 +432,7 @@ media.mojom.ContentDecryptionModuleClient.getRemote = function() {
     'media.mojom.ContentDecryptionModuleClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSessionMessage
 media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = {
@@ -448,7 +448,7 @@ media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSessionClosed
 media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = {
@@ -463,7 +463,7 @@ media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSessionKeysChange
 media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = {
@@ -479,7 +479,7 @@ media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSessionExpirationUpdate
 media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec = {
@@ -494,7 +494,7 @@ media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.ContentDecryptionModuleClientPtr = media.mojom.ContentDecryptionModuleClientRemote;
@@ -553,7 +553,7 @@ media.mojom.CdmFactory.getRemote = function() {
     'media.mojom.CdmFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateCdm
 media.mojom.CdmFactory_CreateCdm_ParamsSpec = {
@@ -567,7 +567,7 @@ media.mojom.CdmFactory_CreateCdm_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = {
   $: {
@@ -582,7 +582,7 @@ media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.CdmFactoryPtr = media.mojom.CdmFactoryRemote;

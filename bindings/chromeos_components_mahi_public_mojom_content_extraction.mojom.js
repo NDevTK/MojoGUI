@@ -59,7 +59,7 @@ mahi.mojom.ContentExtractionService.getRemote = function() {
     'mahi.mojom.ContentExtractionService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 mahi.mojom.ContentExtractionServicePtr = mahi.mojom.ContentExtractionServiceRemote;
@@ -109,7 +109,7 @@ mahi.mojom.ContentExtractionServiceFactory.getRemote = function() {
     'mahi.mojom.ContentExtractionServiceFactory',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 mahi.mojom.ContentExtractionServiceFactoryPtr = mahi.mojom.ContentExtractionServiceFactoryRemote;

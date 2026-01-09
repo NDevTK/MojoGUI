@@ -61,7 +61,7 @@ extensions.mojom.EventDispatcher.getRemote = function() {
     'extensions.mojom.EventDispatcher',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DispatchEvent
 extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec = {
@@ -76,7 +76,7 @@ extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec = {
   $: {
@@ -89,7 +89,7 @@ extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mojom.EventDispatcherPtr = extensions.mojom.EventDispatcherRemote;

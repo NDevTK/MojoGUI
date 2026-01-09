@@ -67,7 +67,7 @@ ash.mojom.HidPreservingBluetoothStateController.getRemote = function() {
     'ash.mojom.HidPreservingBluetoothStateController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for TryToSetBluetoothEnabledState
 ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec = {
@@ -82,7 +82,7 @@ ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.mojom.HidPreservingBluetoothStateControllerPtr = ash.mojom.HidPreservingBluetoothStateControllerRemote;

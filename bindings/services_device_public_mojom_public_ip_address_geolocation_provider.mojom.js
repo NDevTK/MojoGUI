@@ -61,7 +61,7 @@ device.mojom.PublicIpAddressGeolocationProvider.getRemote = function() {
     'device.mojom.PublicIpAddressGeolocationProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateGeolocation
 device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec = {
@@ -77,7 +77,7 @@ device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.PublicIpAddressGeolocationProviderPtr = device.mojom.PublicIpAddressGeolocationProviderRemote;

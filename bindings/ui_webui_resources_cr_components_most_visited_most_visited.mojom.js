@@ -61,7 +61,7 @@ most_visited.mojom.MostVisitedPageHandlerFactory.getRemote = function() {
     'most_visited.mojom.MostVisitedPageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 most_visited.mojom.MostVisitedPageHandlerFactoryPtr = most_visited.mojom.MostVisitedPageHandlerFactoryRemote;
@@ -270,7 +270,7 @@ most_visited.mojom.MostVisitedPageHandler.getRemote = function() {
     'most_visited.mojom.MostVisitedPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddMostVisitedTile
 most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec = {
@@ -285,7 +285,7 @@ most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec = {
   $: {
@@ -298,7 +298,7 @@ most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteMostVisitedTile
 most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec = {
@@ -312,7 +312,7 @@ most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReorderMostVisitedTile
 most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec = {
@@ -327,7 +327,7 @@ most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestoreMostVisitedDefaults
 most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec = {
@@ -341,7 +341,7 @@ most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UndoMostVisitedAutoRemoval
 most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec = {
@@ -354,7 +354,7 @@ most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UndoMostVisitedTileAction
 most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec = {
@@ -368,7 +368,7 @@ most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateMostVisitedInfo
 most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec = {
@@ -381,7 +381,7 @@ most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateMostVisitedTile
 most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec = {
@@ -397,7 +397,7 @@ most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec = {
   $: {
@@ -410,7 +410,7 @@ most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrerenderMostVisitedTile
 most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec = {
@@ -424,7 +424,7 @@ most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrefetchMostVisitedTile
 most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec = {
@@ -438,7 +438,7 @@ most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PreconnectMostVisitedTile
 most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec = {
@@ -452,7 +452,7 @@ most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelPrerender
 most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec = {
@@ -465,7 +465,7 @@ most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMostVisitedExpandedState
 most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec = {
@@ -478,7 +478,7 @@ most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec = {
   $: {
@@ -491,7 +491,7 @@ most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMostVisitedExpandedState
 most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec = {
@@ -505,7 +505,7 @@ most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMostVisitedTilesRendered
 most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec = {
@@ -520,7 +520,7 @@ most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMostVisitedTileNavigation
 most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec = {
@@ -540,7 +540,7 @@ most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 most_visited.mojom.MostVisitedPageHandlerPtr = most_visited.mojom.MostVisitedPageHandlerRemote;
@@ -608,7 +608,7 @@ most_visited.mojom.MostVisitedPage.getRemote = function() {
     'most_visited.mojom.MostVisitedPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetMostVisitedInfo
 most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec = {
@@ -622,7 +622,7 @@ most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMostVisitedTilesAutoRemoval
 most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec = {
@@ -635,7 +635,7 @@ most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 most_visited.mojom.MostVisitedPagePtr = most_visited.mojom.MostVisitedPageRemote;

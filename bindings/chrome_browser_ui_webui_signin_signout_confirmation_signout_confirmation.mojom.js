@@ -61,7 +61,7 @@ signout_confirmation.mojom.PageHandlerFactory.getRemote = function() {
     'signout_confirmation.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateSignoutConfirmationHandler
 signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 signout_confirmation.mojom.PageHandlerFactoryPtr = signout_confirmation.mojom.PageHandlerFactoryRemote;
@@ -171,7 +171,7 @@ signout_confirmation.mojom.PageHandler.getRemote = function() {
     'signout_confirmation.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateViewHeight
 signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
@@ -185,7 +185,7 @@ signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Accept
 signout_confirmation.mojom.PageHandler_Accept_ParamsSpec = {
@@ -199,7 +199,7 @@ signout_confirmation.mojom.PageHandler_Accept_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Cancel
 signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec = {
@@ -213,7 +213,7 @@ signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PerformReauth
 signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec = {
@@ -226,7 +226,7 @@ signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Close
 signout_confirmation.mojom.PageHandler_Close_ParamsSpec = {
@@ -239,7 +239,7 @@ signout_confirmation.mojom.PageHandler_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 signout_confirmation.mojom.PageHandlerPtr = signout_confirmation.mojom.PageHandlerRemote;
@@ -298,7 +298,7 @@ signout_confirmation.mojom.Page.getRemote = function() {
     'signout_confirmation.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendSignoutConfirmationData
 signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec = {
@@ -312,7 +312,7 @@ signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 signout_confirmation.mojom.PagePtr = signout_confirmation.mojom.PageRemote;

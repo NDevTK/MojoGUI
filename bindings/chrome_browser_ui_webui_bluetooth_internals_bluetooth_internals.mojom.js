@@ -60,7 +60,7 @@ mojom.DebugLogsChangeHandler.getRemote = function() {
     'mojom.DebugLogsChangeHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ChangeDebugLogsState
 mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec = {
@@ -74,7 +74,7 @@ mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mojom.DebugLogsChangeHandlerPtr = mojom.DebugLogsChangeHandlerRemote;
@@ -196,7 +196,7 @@ mojom.BluetoothInternalsHandler.getRemote = function() {
     'mojom.BluetoothInternalsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetAdapter
 mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec = {
@@ -209,7 +209,7 @@ mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec = {
   $: {
@@ -222,7 +222,7 @@ mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDebugLogsChangeHandler
 mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec = {
@@ -235,7 +235,7 @@ mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec = {
   $: {
@@ -249,7 +249,7 @@ mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CheckSystemPermissions
 mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec = {
@@ -262,7 +262,7 @@ mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec = {
   $: {
@@ -278,7 +278,7 @@ mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestSystemPermissions
 mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec = {
@@ -291,7 +291,7 @@ mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestLocationServices
 mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec = {
@@ -304,7 +304,7 @@ mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestartSystemBluetooth
 mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec = {
@@ -317,7 +317,7 @@ mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartBtsnoop
 mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec = {
@@ -330,7 +330,7 @@ mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec = {
   $: {
@@ -343,7 +343,7 @@ mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsBtsnoopFeatureEnabled
 mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec = {
@@ -356,7 +356,7 @@ mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec = {
   $: {
@@ -369,7 +369,7 @@ mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mojom.BluetoothInternalsHandlerPtr = mojom.BluetoothInternalsHandlerRemote;
@@ -428,7 +428,7 @@ mojom.BluetoothBtsnoop.getRemote = function() {
     'mojom.BluetoothBtsnoop',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Stop
 mojom.BluetoothBtsnoop_Stop_ParamsSpec = {
@@ -441,7 +441,7 @@ mojom.BluetoothBtsnoop_Stop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec = {
   $: {
@@ -454,7 +454,7 @@ mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mojom.BluetoothBtsnoopPtr = mojom.BluetoothBtsnoopRemote;

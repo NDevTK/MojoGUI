@@ -61,7 +61,7 @@ chrome.mojom.GoogleAccountsPrivateApiExtension.getRemote = function() {
     'chrome.mojom.GoogleAccountsPrivateApiExtension',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetConsentResult
 chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec = {
@@ -75,7 +75,7 @@ chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.GoogleAccountsPrivateApiExtensionPtr = chrome.mojom.GoogleAccountsPrivateApiExtensionRemote;

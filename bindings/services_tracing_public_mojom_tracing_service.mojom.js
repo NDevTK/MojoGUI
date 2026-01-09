@@ -79,7 +79,7 @@ tracing.mojom.TracingService.getRemote = function() {
     'tracing.mojom.TracingService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Initialize
 tracing.mojom.TracingService_Initialize_ParamsSpec = {
@@ -93,7 +93,7 @@ tracing.mojom.TracingService_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddClient
 tracing.mojom.TracingService_AddClient_ParamsSpec = {
@@ -107,7 +107,7 @@ tracing.mojom.TracingService_AddClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindConsumerHost
 tracing.mojom.TracingService_BindConsumerHost_ParamsSpec = {
@@ -121,7 +121,7 @@ tracing.mojom.TracingService_BindConsumerHost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tracing.mojom.TracingServicePtr = tracing.mojom.TracingServiceRemote;

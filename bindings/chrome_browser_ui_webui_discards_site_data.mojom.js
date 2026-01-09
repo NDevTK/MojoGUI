@@ -70,7 +70,7 @@ discards.mojom.SiteDataProvider.getRemote = function() {
     'discards.mojom.SiteDataProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSiteDataArray
 discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = {
@@ -84,7 +84,7 @@ discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSiteDataDatabaseSize
 discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = {
@@ -110,7 +110,7 @@ discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = {
   $: {
@@ -123,7 +123,7 @@ discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 discards.mojom.SiteDataProviderPtr = discards.mojom.SiteDataProviderRemote;

@@ -114,7 +114,7 @@ media.mojom.ImageCapture.getRemote = function() {
     'media.mojom.ImageCapture',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPhotoState
 media.mojom.ImageCapture_GetPhotoState_ParamsSpec = {
@@ -128,7 +128,7 @@ media.mojom.ImageCapture_GetPhotoState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec = {
   $: {
@@ -141,7 +141,7 @@ media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPhotoOptions
 media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec = {
@@ -156,7 +156,7 @@ media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec = {
   $: {
@@ -169,7 +169,7 @@ media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TakePhoto
 media.mojom.ImageCapture_TakePhoto_ParamsSpec = {
@@ -183,7 +183,7 @@ media.mojom.ImageCapture_TakePhoto_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec = {
   $: {
@@ -196,7 +196,7 @@ media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.ImageCapturePtr = media.mojom.ImageCaptureRemote;

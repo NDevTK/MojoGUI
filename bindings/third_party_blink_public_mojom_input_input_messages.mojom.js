@@ -106,7 +106,7 @@ blink.mojom.TextSuggestionBackend.getRemote = function() {
     'blink.mojom.TextSuggestionBackend',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ApplySpellCheckSuggestion
 blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = {
@@ -120,7 +120,7 @@ blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ApplyTextSuggestion
 blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = {
@@ -135,7 +135,7 @@ blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteActiveSuggestionRange
 blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec = {
@@ -148,7 +148,7 @@ blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNewWordAddedToDictionary
 blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = {
@@ -162,7 +162,7 @@ blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSuggestionMenuClosed
 blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec = {
@@ -175,7 +175,7 @@ blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SuggestionMenuTimeoutCallback
 blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = {
@@ -189,7 +189,7 @@ blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.TextSuggestionBackendPtr = blink.mojom.TextSuggestionBackendRemote;

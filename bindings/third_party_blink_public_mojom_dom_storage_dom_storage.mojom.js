@@ -61,7 +61,7 @@ blink.mojom.DomStorageProvider.getRemote = function() {
     'blink.mojom.DomStorageProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindDomStorage
 blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec = {
@@ -76,7 +76,7 @@ blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DomStorageProviderPtr = blink.mojom.DomStorageProviderRemote;
@@ -153,7 +153,7 @@ blink.mojom.DomStorage.getRemote = function() {
     'blink.mojom.DomStorage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenLocalStorage
 blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec = {
@@ -169,7 +169,7 @@ blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindSessionStorageNamespace
 blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec = {
@@ -184,7 +184,7 @@ blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindSessionStorageArea
 blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec = {
@@ -201,7 +201,7 @@ blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DomStoragePtr = blink.mojom.DomStorageRemote;
@@ -269,7 +269,7 @@ blink.mojom.DomStorageClient.getRemote = function() {
     'blink.mojom.DomStorageClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ResetSessionStorageConnections
 blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec = {
@@ -282,7 +282,7 @@ blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetLocalStorageConnections
 blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec = {
@@ -295,7 +295,7 @@ blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DomStorageClientPtr = blink.mojom.DomStorageClientRemote;

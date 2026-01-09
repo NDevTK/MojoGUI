@@ -87,7 +87,7 @@ network.mojom.ConnectionChangeObserverClient.getRemote = function() {
     'network.mojom.ConnectionChangeObserverClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSessionClosed
 network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec = {
@@ -100,7 +100,7 @@ network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNetworkEvent
 network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec = {
@@ -114,7 +114,7 @@ network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnConnectionFailed
 network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec = {
@@ -127,7 +127,7 @@ network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.ConnectionChangeObserverClientPtr = network.mojom.ConnectionChangeObserverClientRemote;

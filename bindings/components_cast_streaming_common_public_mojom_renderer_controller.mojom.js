@@ -61,7 +61,7 @@ cast_streaming.mojom.RendererController.getRemote = function() {
     'cast_streaming.mojom.RendererController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetPlaybackController
 cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec = {
@@ -75,7 +75,7 @@ cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cast_streaming.mojom.RendererControllerPtr = cast_streaming.mojom.RendererControllerRemote;

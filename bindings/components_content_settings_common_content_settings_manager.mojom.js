@@ -89,7 +89,7 @@ content_settings.mojom.ContentSettingsManager.getRemote = function() {
     'content_settings.mojom.ContentSettingsManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Clone
 content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec = {
@@ -103,7 +103,7 @@ content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AllowStorageAccess
 content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec = {
@@ -121,7 +121,7 @@ content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec = {
   $: {
@@ -134,7 +134,7 @@ content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnContentBlocked
 content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec = {
@@ -149,7 +149,7 @@ content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content_settings.mojom.ContentSettingsManagerPtr = content_settings.mojom.ContentSettingsManagerRemote;

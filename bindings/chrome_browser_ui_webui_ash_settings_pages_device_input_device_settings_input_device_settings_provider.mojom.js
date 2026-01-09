@@ -71,7 +71,7 @@ ash.settings.mojom.KeyboardSettingsObserver.getRemote = function() {
     'ash.settings.mojom.KeyboardSettingsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnKeyboardListUpdated
 ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec = {
@@ -85,7 +85,7 @@ ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnKeyboardPoliciesUpdated
 ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec = {
@@ -99,7 +99,7 @@ ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.KeyboardSettingsObserverPtr = ash.settings.mojom.KeyboardSettingsObserverRemote;
@@ -158,7 +158,7 @@ ash.settings.mojom.TouchpadSettingsObserver.getRemote = function() {
     'ash.settings.mojom.TouchpadSettingsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnTouchpadListUpdated
 ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec = {
@@ -172,7 +172,7 @@ ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.TouchpadSettingsObserverPtr = ash.settings.mojom.TouchpadSettingsObserverRemote;
@@ -231,7 +231,7 @@ ash.settings.mojom.PointingStickSettingsObserver.getRemote = function() {
     'ash.settings.mojom.PointingStickSettingsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPointingStickListUpdated
 ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec = {
@@ -245,7 +245,7 @@ ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.PointingStickSettingsObserverPtr = ash.settings.mojom.PointingStickSettingsObserverRemote;
@@ -313,7 +313,7 @@ ash.settings.mojom.MouseSettingsObserver.getRemote = function() {
     'ash.settings.mojom.MouseSettingsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMouseListUpdated
 ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec = {
@@ -327,7 +327,7 @@ ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMousePoliciesUpdated
 ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec = {
@@ -341,7 +341,7 @@ ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.MouseSettingsObserverPtr = ash.settings.mojom.MouseSettingsObserverRemote;
@@ -400,7 +400,7 @@ ash.settings.mojom.ButtonPressObserver.getRemote = function() {
     'ash.settings.mojom.ButtonPressObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnButtonPressed
 ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec = {
@@ -414,7 +414,7 @@ ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.ButtonPressObserverPtr = ash.settings.mojom.ButtonPressObserverRemote;
@@ -473,7 +473,7 @@ ash.settings.mojom.GraphicsTabletSettingsObserver.getRemote = function() {
     'ash.settings.mojom.GraphicsTabletSettingsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnGraphicsTabletListUpdated
 ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec = {
@@ -487,7 +487,7 @@ ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.GraphicsTabletSettingsObserverPtr = ash.settings.mojom.GraphicsTabletSettingsObserverRemote;
@@ -546,7 +546,7 @@ ash.settings.mojom.KeyboardBrightnessObserver.getRemote = function() {
     'ash.settings.mojom.KeyboardBrightnessObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnKeyboardBrightnessChanged
 ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec = {
@@ -560,7 +560,7 @@ ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.KeyboardBrightnessObserverPtr = ash.settings.mojom.KeyboardBrightnessObserverRemote;
@@ -619,7 +619,7 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserver.getRemote = function() {
     'ash.settings.mojom.KeyboardAmbientLightSensorObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnKeyboardAmbientLightSensorEnabledChanged
 ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec = {
@@ -633,7 +633,7 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSens
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.KeyboardAmbientLightSensorObserverPtr = ash.settings.mojom.KeyboardAmbientLightSensorObserverRemote;
@@ -692,7 +692,7 @@ ash.settings.mojom.LidStateObserver.getRemote = function() {
     'ash.settings.mojom.LidStateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnLidStateChanged
 ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = {
@@ -706,7 +706,7 @@ ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.LidStateObserverPtr = ash.settings.mojom.LidStateObserverRemote;
@@ -1017,7 +1017,7 @@ ash.settings.mojom.InputDeviceSettingsProvider.getRemote = function() {
     'ash.settings.mojom.InputDeviceSettingsProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ObserveKeyboardSettings
 ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec = {
@@ -1031,7 +1031,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveTouchpadSettings
 ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec = {
@@ -1045,7 +1045,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObservePointingStickSettings
 ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec = {
@@ -1059,7 +1059,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveMouseSettings
 ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec = {
@@ -1073,7 +1073,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveGraphicsTabletSettings
 ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec = {
@@ -1087,7 +1087,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveButtonPresses
 ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec = {
@@ -1101,7 +1101,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveKeyboardBrightness
 ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec = {
@@ -1115,7 +1115,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveKeyboardAmbientLightSensor
 ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec = {
@@ -1129,7 +1129,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveLidState
 ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec = {
@@ -1143,7 +1143,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpec = {
   $: {
@@ -1156,7 +1156,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestoreDefaultKeyboardRemappings
 ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec = {
@@ -1170,7 +1170,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetKeyboardSettings
 ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec = {
@@ -1185,7 +1185,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPointingStickSettings
 ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec = {
@@ -1200,7 +1200,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMouseSettings
 ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec = {
@@ -1215,7 +1215,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTouchpadSettings
 ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec = {
@@ -1230,7 +1230,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetGraphicsTabletSettings
 ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec = {
@@ -1245,7 +1245,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetKeyboardBrightness
 ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec = {
@@ -1259,7 +1259,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetKeyboardAmbientLightSensorEnabled
 ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec = {
@@ -1273,7 +1273,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnab
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartObserving
 ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec = {
@@ -1287,7 +1287,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopObserving
 ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec = {
@@ -1300,7 +1300,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetActionsForMouseButtonCustomization
 ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec = {
@@ -1313,7 +1313,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomiza
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec = {
   $: {
@@ -1326,7 +1326,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomiza
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetActionsForGraphicsTabletButtonCustomization
 ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec = {
@@ -1339,7 +1339,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButton
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec = {
   $: {
@@ -1352,7 +1352,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButton
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMetaKeyToDisplay
 ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec = {
@@ -1365,7 +1365,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec = {
   $: {
@@ -1378,7 +1378,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HasKeyboardBacklight
 ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec = {
@@ -1391,7 +1391,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponseParamsSpec = {
   $: {
@@ -1404,7 +1404,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HasAmbientLightSensor
 ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec = {
@@ -1417,7 +1417,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponseParamsSpec = {
   $: {
@@ -1430,7 +1430,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsRgbKeyboardSupported
 ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec = {
@@ -1443,7 +1443,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponseParamsSpec = {
   $: {
@@ -1456,7 +1456,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordKeyboardColorLinkClicked
 ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec = {
@@ -1469,7 +1469,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordKeyboardBrightnessChangeFromSlider
 ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec = {
@@ -1483,7 +1483,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFro
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDeviceIconImage
 ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec = {
@@ -1497,7 +1497,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParamsSpec = {
   $: {
@@ -1510,7 +1510,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LaunchCompanionApp
 ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec = {
@@ -1524,7 +1524,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.InputDeviceSettingsProviderPtr = ash.settings.mojom.InputDeviceSettingsProviderRemote;

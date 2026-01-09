@@ -106,7 +106,7 @@ media.mojom.AudioDecoder.getRemote = function() {
     'media.mojom.AudioDecoder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSupportedConfigs
 media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec = {
@@ -119,7 +119,7 @@ media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec = {
   $: {
@@ -132,7 +132,7 @@ media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Construct
 media.mojom.AudioDecoder_Construct_ParamsSpec = {
@@ -147,7 +147,7 @@ media.mojom.AudioDecoder_Construct_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Initialize
 media.mojom.AudioDecoder_Initialize_ParamsSpec = {
@@ -162,7 +162,7 @@ media.mojom.AudioDecoder_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.AudioDecoder_Initialize_ResponseParamsSpec = {
   $: {
@@ -177,7 +177,7 @@ media.mojom.AudioDecoder_Initialize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDataSource
 media.mojom.AudioDecoder_SetDataSource_ParamsSpec = {
@@ -191,7 +191,7 @@ media.mojom.AudioDecoder_SetDataSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Decode
 media.mojom.AudioDecoder_Decode_ParamsSpec = {
@@ -205,7 +205,7 @@ media.mojom.AudioDecoder_Decode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.AudioDecoder_Decode_ResponseParamsSpec = {
   $: {
@@ -218,7 +218,7 @@ media.mojom.AudioDecoder_Decode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Reset
 media.mojom.AudioDecoder_Reset_ParamsSpec = {
@@ -231,7 +231,7 @@ media.mojom.AudioDecoder_Reset_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioDecoderPtr = media.mojom.AudioDecoderRemote;
@@ -299,7 +299,7 @@ media.mojom.AudioDecoderClient.getRemote = function() {
     'media.mojom.AudioDecoderClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnBufferDecoded
 media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec = {
@@ -313,7 +313,7 @@ media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWaiting
 media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec = {
@@ -327,7 +327,7 @@ media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioDecoderClientPtr = media.mojom.AudioDecoderClientRemote;

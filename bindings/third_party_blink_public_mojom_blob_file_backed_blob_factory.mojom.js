@@ -70,7 +70,7 @@ blink.mojom.FileBackedBlobFactory.getRemote = function() {
     'blink.mojom.FileBackedBlobFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterBlob
 blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec = {
@@ -87,7 +87,7 @@ blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterBlobSync
 blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec = {
@@ -104,7 +104,7 @@ blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileBackedBlobFactoryPtr = blink.mojom.FileBackedBlobFactoryRemote;

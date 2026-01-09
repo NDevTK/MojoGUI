@@ -61,7 +61,7 @@ lens.mojom.LensGhostLoaderPageHandlerFactory.getRemote = function() {
     'lens.mojom.LensGhostLoaderPageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateGhostLoaderPage
 lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec = {
@@ -75,7 +75,7 @@ lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 lens.mojom.LensGhostLoaderPageHandlerFactoryPtr = lens.mojom.LensGhostLoaderPageHandlerFactoryRemote;
@@ -134,7 +134,7 @@ lens.mojom.LensGhostLoaderPage.getRemote = function() {
     'lens.mojom.LensGhostLoaderPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShowErrorState
 lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec = {
@@ -147,7 +147,7 @@ lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 lens.mojom.LensGhostLoaderPagePtr = lens.mojom.LensGhostLoaderPageRemote;

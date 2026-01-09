@@ -59,7 +59,7 @@ chromeos.auth.mojom.InSessionAuth.getRemote = function() {
     'chromeos.auth.mojom.InSessionAuth',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.auth.mojom.InSessionAuthPtr = chromeos.auth.mojom.InSessionAuthRemote;

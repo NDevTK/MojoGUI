@@ -77,7 +77,7 @@ blink.mojom.LockScreenService.getRemote = function() {
     'blink.mojom.LockScreenService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetKeys
 blink.mojom.LockScreenService_GetKeys_ParamsSpec = {
@@ -90,7 +90,7 @@ blink.mojom.LockScreenService_GetKeys_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec = {
   $: {
@@ -103,7 +103,7 @@ blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetData
 blink.mojom.LockScreenService_SetData_ParamsSpec = {
@@ -118,7 +118,7 @@ blink.mojom.LockScreenService_SetData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LockScreenService_SetData_ResponseParamsSpec = {
   $: {
@@ -131,7 +131,7 @@ blink.mojom.LockScreenService_SetData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.LockScreenServicePtr = blink.mojom.LockScreenServiceRemote;

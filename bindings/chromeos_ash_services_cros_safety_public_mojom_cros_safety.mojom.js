@@ -65,7 +65,7 @@ ash.cros_safety.mojom.CloudSafetySession.getRemote = function() {
     'ash.cros_safety.mojom.CloudSafetySession',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_safety.mojom.CloudSafetySessionPtr = ash.cros_safety.mojom.CloudSafetySessionRemote;
@@ -115,7 +115,7 @@ ash.cros_safety.mojom.OnDeviceSafetySession.getRemote = function() {
     'ash.cros_safety.mojom.OnDeviceSafetySession',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_safety.mojom.OnDeviceSafetySessionPtr = ash.cros_safety.mojom.OnDeviceSafetySessionRemote;

@@ -70,7 +70,7 @@ media.mojom.DCOMPSurfaceRegistry.getRemote = function() {
     'media.mojom.DCOMPSurfaceRegistry',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterDCOMPSurfaceHandle
 media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec = {
@@ -84,7 +84,7 @@ media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnregisterDCOMPSurfaceHandle
 media.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_ParamsSpec = {
@@ -111,7 +111,7 @@ media.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.DCOMPSurfaceRegistryPtr = media.mojom.DCOMPSurfaceRegistryRemote;

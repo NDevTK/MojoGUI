@@ -89,7 +89,7 @@ ash.personalization_app.mojom.SeaPenObserver.getRemote = function() {
     'ash.personalization_app.mojom.SeaPenObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSelectedSeaPenImageChanged
 ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec = {
@@ -103,7 +103,7 @@ ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTextQueryHistoryChanged
 ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec = {
@@ -117,7 +117,7 @@ ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.personalization_app.mojom.SeaPenObserverPtr = ash.personalization_app.mojom.SeaPenObserverRemote;
@@ -293,7 +293,7 @@ ash.personalization_app.mojom.SeaPenProvider.getRemote = function() {
     'ash.personalization_app.mojom.SeaPenProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetSeaPenObserver
 ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec = {
@@ -307,7 +307,7 @@ ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSeaPenThumbnails
 ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec = {
@@ -321,7 +321,7 @@ ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParamsSpec = {
   $: {
@@ -335,7 +335,7 @@ ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectSeaPenThumbnail
 ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec = {
@@ -350,7 +350,7 @@ ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ResponseParamsSpec = {
   $: {
@@ -363,7 +363,7 @@ ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRecentSeaPenImageIds
 ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec = {
@@ -376,7 +376,7 @@ ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponseParamsSpec = {
   $: {
@@ -389,7 +389,7 @@ ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectRecentSeaPenImage
 ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec = {
@@ -404,7 +404,7 @@ ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ResponseParamsSpec = {
   $: {
@@ -417,7 +417,7 @@ ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRecentSeaPenImageThumbnail
 ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec = {
@@ -431,7 +431,7 @@ ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParamsSpec = {
   $: {
@@ -444,7 +444,7 @@ ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteRecentSeaPenImage
 ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec = {
@@ -458,7 +458,7 @@ ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ResponseParamsSpec = {
   $: {
@@ -471,7 +471,7 @@ ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenFeedbackDialog
 ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec = {
@@ -485,7 +485,7 @@ ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShouldShowSeaPenIntroductionDialog
 ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec = {
@@ -498,7 +498,7 @@ ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ResponseParamsSpec = {
   $: {
@@ -511,7 +511,7 @@ ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleSeaPenIntroductionDialogClosed
 ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec = {
@@ -524,7 +524,7 @@ ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClose
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShouldShowSeaPenFreeformIntroductionDialog
 ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec = {
@@ -537,7 +537,7 @@ ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductio
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ResponseParamsSpec = {
   $: {
@@ -550,7 +550,7 @@ ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductio
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleSeaPenFreeformIntroductionDialogClosed
 ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec = {
@@ -563,7 +563,7 @@ ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDia
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsInTabletMode
 ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec = {
@@ -576,7 +576,7 @@ ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParamsSpec = {
   $: {
@@ -589,7 +589,7 @@ ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MakeTransparent
 ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec = {
@@ -602,7 +602,7 @@ ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.personalization_app.mojom.SeaPenProviderPtr = ash.personalization_app.mojom.SeaPenProviderRemote;

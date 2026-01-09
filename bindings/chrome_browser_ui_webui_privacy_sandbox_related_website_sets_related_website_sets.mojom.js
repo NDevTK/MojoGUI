@@ -68,7 +68,7 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandler.getRemote = function() 
     'related_website_sets.mojom.RelatedWebsiteSetsPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetRelatedWebsiteSets
 related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec = {
@@ -81,7 +81,7 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec = {
   $: {
@@ -94,7 +94,7 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_R
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 related_website_sets.mojom.RelatedWebsiteSetsPageHandlerPtr = related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemote;

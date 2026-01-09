@@ -81,7 +81,7 @@ storage.mojom.MockFailureInjector.getRemote = function() {
     'storage.mojom.MockFailureInjector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FailOperation
 storage.mojom.MockFailureInjector_FailOperation_ParamsSpec = {
@@ -98,7 +98,7 @@ storage.mojom.MockFailureInjector_FailOperation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.MockFailureInjectorPtr = storage.mojom.MockFailureInjectorRemote;
@@ -229,7 +229,7 @@ storage.mojom.IndexedDBControlTest.getRemote = function() {
     'storage.mojom.IndexedDBControlTest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetBaseDataPathForTesting
 storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec = {
@@ -242,7 +242,7 @@ storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec = {
   $: {
@@ -255,7 +255,7 @@ storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFilePathForTesting
 storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = {
@@ -270,7 +270,7 @@ storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec = {
   $: {
@@ -283,7 +283,7 @@ storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetCachesForTesting
 storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec = {
@@ -296,7 +296,7 @@ storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPathForBlobForTesting
 storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = {
@@ -312,7 +312,7 @@ storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec = {
   $: {
@@ -325,7 +325,7 @@ storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FlushBackingStoreForTesting
 storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec = {
@@ -339,7 +339,7 @@ storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FlushBucketSequenceForTesting
 storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec = {
@@ -353,7 +353,7 @@ storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUsageForTesting
 storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec = {
@@ -366,7 +366,7 @@ storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec = {
   $: {
@@ -379,7 +379,7 @@ storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindMockFailureSingletonForTesting
 storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec = {
@@ -393,7 +393,7 @@ storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForceInitializeFromFilesForTesting
 storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec = {
@@ -406,7 +406,7 @@ storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.IndexedDBControlTestPtr = storage.mojom.IndexedDBControlTestRemote;

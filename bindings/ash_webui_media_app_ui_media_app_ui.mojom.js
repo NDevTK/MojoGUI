@@ -62,7 +62,7 @@ ash.media_app_ui.mojom.PageHandlerFactory.getRemote = function() {
     'ash.media_app_ui.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.media_app_ui.mojom.PageHandlerFactoryPtr = ash.media_app_ui.mojom.PageHandlerFactoryRemote;
@@ -189,7 +189,7 @@ ash.media_app_ui.mojom.PageHandler.getRemote = function() {
     'ash.media_app_ui.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenFeedbackDialog
 ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
@@ -202,7 +202,7 @@ ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = {
   $: {
@@ -215,7 +215,7 @@ ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ToggleBrowserFullscreenMode
 ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec = {
@@ -228,7 +228,7 @@ ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MaybeTriggerPdfHats
 ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec = {
@@ -241,7 +241,7 @@ ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsFileArcWritable
 ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec = {
@@ -255,7 +255,7 @@ ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec = {
   $: {
@@ -268,7 +268,7 @@ ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsFileBrowserWritable
 ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec = {
@@ -282,7 +282,7 @@ ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec = {
   $: {
@@ -295,7 +295,7 @@ ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EditInPhotos
 ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec = {
@@ -310,7 +310,7 @@ ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SubmitForm
 ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec = {
@@ -326,7 +326,7 @@ ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.media_app_ui.mojom.PageHandlerPtr = ash.media_app_ui.mojom.PageHandlerRemote;

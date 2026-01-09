@@ -61,7 +61,7 @@ watermark.mojom.PageHandlerFactory.getRemote = function() {
     'watermark.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -75,7 +75,7 @@ watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 watermark.mojom.PageHandlerFactoryPtr = watermark.mojom.PageHandlerFactoryRemote;
@@ -143,7 +143,7 @@ watermark.mojom.PageHandler.getRemote = function() {
     'watermark.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetWatermarkStyle
 watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = {
@@ -157,7 +157,7 @@ watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowNotificationToast
 watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec = {
@@ -170,7 +170,7 @@ watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 watermark.mojom.PageHandlerPtr = watermark.mojom.PageHandlerRemote;

@@ -208,7 +208,7 @@ blink.mojom.MediaStreamDeviceObserver.getRemote = function() {
     'blink.mojom.MediaStreamDeviceObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDeviceStopped
 blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec = {
@@ -223,7 +223,7 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeviceChanged
 blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec = {
@@ -239,7 +239,7 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeviceRequestStateChange
 blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec = {
@@ -255,7 +255,7 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeviceCaptureConfigurationChange
 blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec = {
@@ -270,7 +270,7 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeviceCaptureHandleChange
 blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec = {
@@ -285,7 +285,7 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnZoomLevelChange
 blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec = {
@@ -301,7 +301,7 @@ blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.MediaStreamDeviceObserverPtr = blink.mojom.MediaStreamDeviceObserverRemote;
@@ -468,7 +468,7 @@ blink.mojom.MediaStreamDispatcherHost.getRemote = function() {
     'blink.mojom.MediaStreamDispatcherHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GenerateStreams
 blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec = {
@@ -485,7 +485,7 @@ blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec = {
   $: {
@@ -501,7 +501,7 @@ blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FocusCapturedSurface
 blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec = {
@@ -516,7 +516,7 @@ blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelRequest
 blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec = {
@@ -530,7 +530,7 @@ blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopStreamDevice
 blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec = {
@@ -545,7 +545,7 @@ blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenDevice
 blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec = {
@@ -561,7 +561,7 @@ blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec = {
   $: {
@@ -576,7 +576,7 @@ blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseDevice
 blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec = {
@@ -590,7 +590,7 @@ blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCapturingLinkSecured
 blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec = {
@@ -606,7 +606,7 @@ blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ApplySubCaptureTarget
 blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec = {
@@ -623,7 +623,7 @@ blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec = {
   $: {
@@ -636,7 +636,7 @@ blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendWheel
 blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec = {
@@ -651,7 +651,7 @@ blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateZoomLevel
 blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec = {
@@ -666,7 +666,7 @@ blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec = {
   $: {
@@ -679,7 +679,7 @@ blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestCapturedSurfaceControlPermission
 blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec = {
@@ -693,7 +693,7 @@ blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec = {
   $: {
@@ -706,7 +706,7 @@ blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_Re
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOpenDevice
 blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec = {
@@ -722,7 +722,7 @@ blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec = {
   $: {
@@ -736,7 +736,7 @@ blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for KeepDeviceAliveForTransfer
 blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec = {
@@ -751,7 +751,7 @@ blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec = {
   $: {
@@ -764,7 +764,7 @@ blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.MediaStreamDispatcherHostPtr = blink.mojom.MediaStreamDispatcherHostRemote;
@@ -832,7 +832,7 @@ blink.mojom.MediaStreamTrackMetricsHost.getRemote = function() {
     'blink.mojom.MediaStreamTrackMetricsHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddTrack
 blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec = {
@@ -848,7 +848,7 @@ blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveTrack
 blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec = {
@@ -862,7 +862,7 @@ blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.MediaStreamTrackMetricsHostPtr = blink.mojom.MediaStreamTrackMetricsHostRemote;

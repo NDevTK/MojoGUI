@@ -70,7 +70,7 @@ network.mojom.P2PTrustedSocketManagerClient.getRemote = function() {
     'network.mojom.P2PTrustedSocketManagerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for InvalidSocketPortRangeRequested
 network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec = {
@@ -83,7 +83,7 @@ network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DumpPacket
 network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec = {
@@ -99,7 +99,7 @@ network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.P2PTrustedSocketManagerClientPtr = network.mojom.P2PTrustedSocketManagerClientRemote;
@@ -185,7 +185,7 @@ network.mojom.P2PTrustedSocketManager.getRemote = function() {
     'network.mojom.P2PTrustedSocketManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartRtpDump
 network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec = {
@@ -200,7 +200,7 @@ network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopRtpDump
 network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec = {
@@ -215,7 +215,7 @@ network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PauseNetworkChangeNotifications
 network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec = {
@@ -228,7 +228,7 @@ network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResumeNetworkChangeNotifications
 network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec = {
@@ -241,7 +241,7 @@ network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.P2PTrustedSocketManagerPtr = network.mojom.P2PTrustedSocketManagerRemote;

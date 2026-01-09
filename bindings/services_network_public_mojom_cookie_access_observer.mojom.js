@@ -76,7 +76,7 @@ network.mojom.CookieAccessObserver.getRemote = function() {
     'network.mojom.CookieAccessObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCookiesAccessed
 network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec = {
@@ -90,7 +90,7 @@ network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 network.mojom.CookieAccessObserver_Clone_ParamsSpec = {
@@ -104,7 +104,7 @@ network.mojom.CookieAccessObserver_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.CookieAccessObserverPtr = network.mojom.CookieAccessObserverRemote;

@@ -70,7 +70,7 @@ sharing.mojom.TcpSocketFactory.getRemote = function() {
     'sharing.mojom.TcpSocketFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateTCPServerSocket
 sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec = {
@@ -88,7 +88,7 @@ sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec = {
   $: {
@@ -102,7 +102,7 @@ sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateTCPConnectedSocket
 sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec = {
@@ -122,7 +122,7 @@ sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec = {
   $: {
@@ -139,7 +139,7 @@ sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 sharing.mojom.TcpSocketFactoryPtr = sharing.mojom.TcpSocketFactoryRemote;

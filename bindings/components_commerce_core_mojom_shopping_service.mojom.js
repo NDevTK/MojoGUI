@@ -76,7 +76,7 @@ shopping_service.mojom.ShoppingServiceHandlerFactory.getRemote = function() {
     'shopping_service.mojom.ShoppingServiceHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateShoppingServiceHandler
 shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandler_ParamsSpec = {
@@ -90,7 +90,7 @@ shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandle
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 shopping_service.mojom.ShoppingServiceHandlerFactoryPtr = shopping_service.mojom.ShoppingServiceHandlerFactoryRemote;
@@ -320,7 +320,7 @@ shopping_service.mojom.ShoppingServiceHandler.getRemote = function() {
     'shopping_service.mojom.ShoppingServiceHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetProductInfoForCurrentUrl
 shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ParamsSpec = {
@@ -333,7 +333,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ResponseParamsSpec = {
   $: {
@@ -346,7 +346,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetProductInfoForUrl
 shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ParamsSpec = {
@@ -360,7 +360,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ResponseParamsSpec = {
   $: {
@@ -374,7 +374,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetProductInfoForUrls
 shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ParamsSpec = {
@@ -388,7 +388,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ResponseParamsSpec = {
   $: {
@@ -401,7 +401,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPriceInsightsInfoForCurrentUrl
 shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ParamsSpec = {
@@ -414,7 +414,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ResponseParamsSpec = {
   $: {
@@ -427,7 +427,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPriceInsightsInfoForUrl
 shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ParamsSpec = {
@@ -441,7 +441,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ResponseParamsSpec = {
   $: {
@@ -455,7 +455,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetProductSpecificationsForUrls
 shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ParamsSpec = {
@@ -469,7 +469,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ResponseParamsSpec = {
   $: {
@@ -482,7 +482,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_Re
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUrlInfosForProductTabs
 shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ParamsSpec = {
@@ -495,7 +495,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ResponseParamsSpec = {
   $: {
@@ -508,7 +508,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUrlInfosForRecentlyViewedTabs
 shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ParamsSpec = {
@@ -521,7 +521,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ResponseParamsSpec = {
   $: {
@@ -534,7 +534,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_R
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsShoppingListEligible
 shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ParamsSpec = {
@@ -547,7 +547,7 @@ shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ResponseParamsSpec = {
   $: {
@@ -560,7 +560,7 @@ shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPriceTrackingStatusForCurrentUrl
 shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ParamsSpec = {
@@ -573,7 +573,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUr
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ResponseParamsSpec = {
   $: {
@@ -586,7 +586,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUr
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenUrlInNewTab
 shopping_service.mojom.ShoppingServiceHandler_OpenUrlInNewTab_ParamsSpec = {
@@ -600,7 +600,7 @@ shopping_service.mojom.ShoppingServiceHandler_OpenUrlInNewTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SwitchToOrOpenTab
 shopping_service.mojom.ShoppingServiceHandler_SwitchToOrOpenTab_ParamsSpec = {
@@ -614,7 +614,7 @@ shopping_service.mojom.ShoppingServiceHandler_SwitchToOrOpenTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllProductSpecificationsSets
 shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ParamsSpec = {
@@ -627,7 +627,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ResponseParamsSpec = {
   $: {
@@ -640,7 +640,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_Re
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetProductSpecificationsSetByUuid
 shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ParamsSpec = {
@@ -654,7 +654,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ResponseParamsSpec = {
   $: {
@@ -667,7 +667,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddProductSpecificationsSet
 shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ParamsSpec = {
@@ -682,7 +682,7 @@ shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ResponseParamsSpec = {
   $: {
@@ -695,7 +695,7 @@ shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteProductSpecificationsSet
 shopping_service.mojom.ShoppingServiceHandler_DeleteProductSpecificationsSet_ParamsSpec = {
@@ -709,7 +709,7 @@ shopping_service.mojom.ShoppingServiceHandler_DeleteProductSpecificationsSet_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNameForProductSpecificationsSet
 shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ParamsSpec = {
@@ -724,7 +724,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ResponseParamsSpec = {
   $: {
@@ -737,7 +737,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUrlsForProductSpecificationsSet
 shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ParamsSpec = {
@@ -752,7 +752,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ResponseParamsSpec = {
   $: {
@@ -765,7 +765,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetProductSpecificationsUserFeedback
 shopping_service.mojom.ShoppingServiceHandler_SetProductSpecificationsUserFeedback_ParamsSpec = {
@@ -779,7 +779,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetProductSpecificationsUserFeedba
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetProductSpecificationsFeatureState
 shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ParamsSpec = {
@@ -792,7 +792,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureSta
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ResponseParamsSpec = {
   $: {
@@ -805,7 +805,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureSta
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 shopping_service.mojom.ShoppingServiceHandlerPtr = shopping_service.mojom.ShoppingServiceHandlerRemote;

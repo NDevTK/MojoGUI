@@ -97,7 +97,7 @@ blink.mojom.StorageAreaObserver.getRemote = function() {
     'blink.mojom.StorageAreaObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for KeyChanged
 blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec = {
@@ -114,7 +114,7 @@ blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for KeyChangeFailed
 blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec = {
@@ -129,7 +129,7 @@ blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for KeyDeleted
 blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec = {
@@ -145,7 +145,7 @@ blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AllDeleted
 blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec = {
@@ -160,7 +160,7 @@ blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShouldSendOldValueOnMutations
 blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec = {
@@ -174,7 +174,7 @@ blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.StorageAreaObserverPtr = blink.mojom.StorageAreaObserverRemote;
@@ -278,7 +278,7 @@ blink.mojom.StorageArea.getRemote = function() {
     'blink.mojom.StorageArea',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddObserver
 blink.mojom.StorageArea_AddObserver_ParamsSpec = {
@@ -292,7 +292,7 @@ blink.mojom.StorageArea_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Put
 blink.mojom.StorageArea_Put_ParamsSpec = {
@@ -309,7 +309,7 @@ blink.mojom.StorageArea_Put_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.StorageArea_Put_ResponseParamsSpec = {
   $: {
@@ -322,7 +322,7 @@ blink.mojom.StorageArea_Put_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Delete
 blink.mojom.StorageArea_Delete_ParamsSpec = {
@@ -338,7 +338,7 @@ blink.mojom.StorageArea_Delete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.StorageArea_Delete_ResponseParamsSpec = {
   $: {
@@ -351,7 +351,7 @@ blink.mojom.StorageArea_Delete_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteAll
 blink.mojom.StorageArea_DeleteAll_ParamsSpec = {
@@ -366,7 +366,7 @@ blink.mojom.StorageArea_DeleteAll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec = {
   $: {
@@ -379,7 +379,7 @@ blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Get
 blink.mojom.StorageArea_Get_ParamsSpec = {
@@ -393,7 +393,7 @@ blink.mojom.StorageArea_Get_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.StorageArea_Get_ResponseParamsSpec = {
   $: {
@@ -407,7 +407,7 @@ blink.mojom.StorageArea_Get_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAll
 blink.mojom.StorageArea_GetAll_ParamsSpec = {
@@ -421,7 +421,7 @@ blink.mojom.StorageArea_GetAll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.StorageArea_GetAll_ResponseParamsSpec = {
   $: {
@@ -434,7 +434,7 @@ blink.mojom.StorageArea_GetAll_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.StorageAreaPtr = blink.mojom.StorageAreaRemote;

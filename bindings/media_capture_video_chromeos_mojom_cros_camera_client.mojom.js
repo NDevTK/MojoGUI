@@ -52,7 +52,7 @@ cros.mojom.CameraHalClient.getRemote = function() {
     'cros.mojom.CameraHalClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CameraHalClientPtr = cros.mojom.CameraHalClientRemote;

@@ -186,7 +186,7 @@ remoting.mojom.DesktopSessionRequestHandler.getRemote = function() {
     'remoting.mojom.DesktopSessionRequestHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ConnectDesktopChannel
 remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec = {
@@ -200,7 +200,7 @@ remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InjectSecureAttentionSequence
 remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec = {
@@ -213,7 +213,7 @@ remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CrashNetworkProcess
 remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec = {
@@ -226,7 +226,7 @@ remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.DesktopSessionRequestHandlerPtr = remoting.mojom.DesktopSessionRequestHandlerRemote;
@@ -303,7 +303,7 @@ remoting.mojom.DesktopSessionManager.getRemote = function() {
     'remoting.mojom.DesktopSessionManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateDesktopSession
 remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec = {
@@ -319,7 +319,7 @@ remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseDesktopSession
 remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec = {
@@ -333,7 +333,7 @@ remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetScreenResolution
 remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec = {
@@ -348,7 +348,7 @@ remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.DesktopSessionManagerPtr = remoting.mojom.DesktopSessionManagerRemote;
@@ -407,7 +407,7 @@ remoting.mojom.DesktopSessionAgent.getRemote = function() {
     'remoting.mojom.DesktopSessionAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Start
 remoting.mojom.DesktopSessionAgent_Start_ParamsSpec = {
@@ -423,7 +423,7 @@ remoting.mojom.DesktopSessionAgent_Start_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec = {
   $: {
@@ -436,7 +436,7 @@ remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.DesktopSessionAgentPtr = remoting.mojom.DesktopSessionAgentRemote;
@@ -504,7 +504,7 @@ remoting.mojom.FileWriter.getRemote = function() {
     'remoting.mojom.FileWriter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for WriteChunk
 remoting.mojom.FileWriter_WriteChunk_ParamsSpec = {
@@ -518,7 +518,7 @@ remoting.mojom.FileWriter_WriteChunk_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec = {
   $: {
@@ -531,7 +531,7 @@ remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseFile
 remoting.mojom.FileWriter_CloseFile_ParamsSpec = {
@@ -544,7 +544,7 @@ remoting.mojom.FileWriter_CloseFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec = {
   $: {
@@ -557,7 +557,7 @@ remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.FileWriterPtr = remoting.mojom.FileWriterRemote;
@@ -616,7 +616,7 @@ remoting.mojom.FileReader.getRemote = function() {
     'remoting.mojom.FileReader',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ReadChunk
 remoting.mojom.FileReader_ReadChunk_ParamsSpec = {
@@ -630,7 +630,7 @@ remoting.mojom.FileReader_ReadChunk_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec = {
   $: {
@@ -643,7 +643,7 @@ remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.FileReaderPtr = remoting.mojom.FileReaderRemote;
@@ -819,7 +819,7 @@ remoting.mojom.DesktopSessionControl.getRemote = function() {
     'remoting.mojom.DesktopSessionControl',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateVideoCapturer
 remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec = {
@@ -833,7 +833,7 @@ remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec = {
   $: {
@@ -846,7 +846,7 @@ remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetScreenResolution
 remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec = {
@@ -860,7 +860,7 @@ remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LockWorkstation
 remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec = {
@@ -873,7 +873,7 @@ remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InjectSendAttentionSequence
 remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec = {
@@ -886,7 +886,7 @@ remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InjectClipboardEvent
 remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec = {
@@ -900,7 +900,7 @@ remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InjectKeyEvent
 remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec = {
@@ -914,7 +914,7 @@ remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InjectMouseEvent
 remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec = {
@@ -928,7 +928,7 @@ remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InjectTextEvent
 remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec = {
@@ -942,7 +942,7 @@ remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InjectTouchEvent
 remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec = {
@@ -956,7 +956,7 @@ remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUpUrlForwarder
 remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec = {
@@ -969,7 +969,7 @@ remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SignalWebAuthnExtension
 remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec = {
@@ -982,7 +982,7 @@ remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BeginFileRead
 remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec = {
@@ -995,7 +995,7 @@ remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec = {
   $: {
@@ -1008,7 +1008,7 @@ remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BeginFileWrite
 remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec = {
@@ -1022,7 +1022,7 @@ remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec = {
   $: {
@@ -1035,7 +1035,7 @@ remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHostCursorRenderedByClient
 remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec = {
@@ -1048,7 +1048,7 @@ remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.DesktopSessionControlPtr = remoting.mojom.DesktopSessionControlRemote;
@@ -1116,7 +1116,7 @@ remoting.mojom.VideoCapturer.getRemote = function() {
     'remoting.mojom.VideoCapturer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CaptureFrame
 remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec = {
@@ -1129,7 +1129,7 @@ remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetComposeEnabled
 remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec = {
@@ -1143,7 +1143,7 @@ remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.VideoCapturerPtr = remoting.mojom.VideoCapturerRemote;
@@ -1220,7 +1220,7 @@ remoting.mojom.VideoCapturerEventHandler.getRemote = function() {
     'remoting.mojom.VideoCapturerEventHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSharedMemoryRegionCreated
 remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec = {
@@ -1236,7 +1236,7 @@ remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSharedMemoryRegionReleased
 remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec = {
@@ -1250,7 +1250,7 @@ remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCaptureResult
 remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec = {
@@ -1264,7 +1264,7 @@ remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.VideoCapturerEventHandlerPtr = remoting.mojom.VideoCapturerEventHandlerRemote;
@@ -1395,7 +1395,7 @@ remoting.mojom.DesktopSessionEventHandler.getRemote = function() {
     'remoting.mojom.DesktopSessionEventHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnClipboardEvent
 remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec = {
@@ -1409,7 +1409,7 @@ remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnUrlForwarderStateChange
 remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec = {
@@ -1423,7 +1423,7 @@ remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAudioPacket
 remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec = {
@@ -1437,7 +1437,7 @@ remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDesktopDisplayChanged
 remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec = {
@@ -1451,7 +1451,7 @@ remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMouseCursorChanged
 remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec = {
@@ -1465,7 +1465,7 @@ remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMouseCursorFractionalPositionChanged
 remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec = {
@@ -1479,7 +1479,7 @@ remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnKeyboardLayoutChanged
 remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec = {
@@ -1493,7 +1493,7 @@ remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLocalMouseMoveDetected
 remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec = {
@@ -1507,7 +1507,7 @@ remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLocalKeyboardInputDetected
 remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec = {
@@ -1521,7 +1521,7 @@ remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.DesktopSessionEventHandlerPtr = remoting.mojom.DesktopSessionEventHandlerRemote;
@@ -1580,7 +1580,7 @@ remoting.mojom.DesktopSessionStateHandler.getRemote = function() {
     'remoting.mojom.DesktopSessionStateHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DisconnectSession
 remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec = {
@@ -1596,7 +1596,7 @@ remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.DesktopSessionStateHandlerPtr = remoting.mojom.DesktopSessionStateHandlerRemote;
@@ -1655,7 +1655,7 @@ remoting.mojom.WorkerProcessControl.getRemote = function() {
     'remoting.mojom.WorkerProcessControl',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CrashProcess
 remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec = {
@@ -1671,7 +1671,7 @@ remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.WorkerProcessControlPtr = remoting.mojom.WorkerProcessControlRemote;

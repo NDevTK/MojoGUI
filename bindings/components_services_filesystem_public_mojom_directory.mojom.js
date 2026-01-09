@@ -178,7 +178,7 @@ filesystem.mojom.Directory.getRemote = function() {
     'filesystem.mojom.Directory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Read
 filesystem.mojom.Directory_Read_ParamsSpec = {
@@ -191,7 +191,7 @@ filesystem.mojom.Directory_Read_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 filesystem.mojom.Directory_Read_ResponseParamsSpec = {
   $: {
@@ -205,7 +205,7 @@ filesystem.mojom.Directory_Read_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenFileHandle
 filesystem.mojom.Directory_OpenFileHandle_ParamsSpec = {
@@ -220,7 +220,7 @@ filesystem.mojom.Directory_OpenFileHandle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec = {
   $: {
@@ -234,7 +234,7 @@ filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenFileHandles
 filesystem.mojom.Directory_OpenFileHandles_ParamsSpec = {
@@ -248,7 +248,7 @@ filesystem.mojom.Directory_OpenFileHandles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec = {
   $: {
@@ -261,7 +261,7 @@ filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenDirectory
 filesystem.mojom.Directory_OpenDirectory_ParamsSpec = {
@@ -277,7 +277,7 @@ filesystem.mojom.Directory_OpenDirectory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 filesystem.mojom.Directory_OpenDirectory_ResponseParamsSpec = {
   $: {
@@ -290,7 +290,7 @@ filesystem.mojom.Directory_OpenDirectory_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Rename
 filesystem.mojom.Directory_Rename_ParamsSpec = {
@@ -305,7 +305,7 @@ filesystem.mojom.Directory_Rename_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 filesystem.mojom.Directory_Rename_ResponseParamsSpec = {
   $: {
@@ -318,7 +318,7 @@ filesystem.mojom.Directory_Rename_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Replace
 filesystem.mojom.Directory_Replace_ParamsSpec = {
@@ -333,7 +333,7 @@ filesystem.mojom.Directory_Replace_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 filesystem.mojom.Directory_Replace_ResponseParamsSpec = {
   $: {
@@ -346,7 +346,7 @@ filesystem.mojom.Directory_Replace_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Delete
 filesystem.mojom.Directory_Delete_ParamsSpec = {
@@ -361,7 +361,7 @@ filesystem.mojom.Directory_Delete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 filesystem.mojom.Directory_Delete_ResponseParamsSpec = {
   $: {
@@ -374,7 +374,7 @@ filesystem.mojom.Directory_Delete_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Exists
 filesystem.mojom.Directory_Exists_ParamsSpec = {
@@ -388,7 +388,7 @@ filesystem.mojom.Directory_Exists_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 filesystem.mojom.Directory_Exists_ResponseParamsSpec = {
   $: {
@@ -402,7 +402,7 @@ filesystem.mojom.Directory_Exists_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsWritable
 filesystem.mojom.Directory_IsWritable_ParamsSpec = {
@@ -416,7 +416,7 @@ filesystem.mojom.Directory_IsWritable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 filesystem.mojom.Directory_IsWritable_ResponseParamsSpec = {
   $: {
@@ -430,7 +430,7 @@ filesystem.mojom.Directory_IsWritable_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Flush
 filesystem.mojom.Directory_Flush_ParamsSpec = {
@@ -443,7 +443,7 @@ filesystem.mojom.Directory_Flush_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 filesystem.mojom.Directory_Flush_ResponseParamsSpec = {
   $: {
@@ -456,7 +456,7 @@ filesystem.mojom.Directory_Flush_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StatFile
 filesystem.mojom.Directory_StatFile_ParamsSpec = {
@@ -470,7 +470,7 @@ filesystem.mojom.Directory_StatFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 filesystem.mojom.Directory_StatFile_ResponseParamsSpec = {
   $: {
@@ -484,7 +484,7 @@ filesystem.mojom.Directory_StatFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 filesystem.mojom.Directory_Clone_ParamsSpec = {
@@ -498,7 +498,7 @@ filesystem.mojom.Directory_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadEntireFile
 filesystem.mojom.Directory_ReadEntireFile_ParamsSpec = {
@@ -512,7 +512,7 @@ filesystem.mojom.Directory_ReadEntireFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec = {
   $: {
@@ -526,7 +526,7 @@ filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteFile
 filesystem.mojom.Directory_WriteFile_ParamsSpec = {
@@ -541,7 +541,7 @@ filesystem.mojom.Directory_WriteFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 filesystem.mojom.Directory_WriteFile_ResponseParamsSpec = {
   $: {
@@ -554,7 +554,7 @@ filesystem.mojom.Directory_WriteFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 filesystem.mojom.DirectoryPtr = filesystem.mojom.DirectoryRemote;

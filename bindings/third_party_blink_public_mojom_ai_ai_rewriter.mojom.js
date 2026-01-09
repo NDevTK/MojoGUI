@@ -91,7 +91,7 @@ blink.mojom.AIRewriter.getRemote = function() {
     'blink.mojom.AIRewriter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Rewrite
 blink.mojom.AIRewriter_Rewrite_ParamsSpec = {
@@ -107,7 +107,7 @@ blink.mojom.AIRewriter_Rewrite_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MeasureUsage
 blink.mojom.AIRewriter_MeasureUsage_ParamsSpec = {
@@ -122,7 +122,7 @@ blink.mojom.AIRewriter_MeasureUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AIRewriter_MeasureUsage_ResponseParamsSpec = {
   $: {
@@ -135,7 +135,7 @@ blink.mojom.AIRewriter_MeasureUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AIRewriterPtr = blink.mojom.AIRewriterRemote;

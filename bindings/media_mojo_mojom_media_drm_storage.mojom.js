@@ -97,7 +97,7 @@ media.mojom.MediaDrmStorage.getRemote = function() {
     'media.mojom.MediaDrmStorage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Initialize
 media.mojom.MediaDrmStorage_Initialize_ParamsSpec = {
@@ -110,7 +110,7 @@ media.mojom.MediaDrmStorage_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec = {
   $: {
@@ -124,7 +124,7 @@ media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnProvisioned
 media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec = {
@@ -137,7 +137,7 @@ media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec = {
   $: {
@@ -150,7 +150,7 @@ media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SavePersistentSession
 media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec = {
@@ -165,7 +165,7 @@ media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec = {
   $: {
@@ -178,7 +178,7 @@ media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadPersistentSession
 media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec = {
@@ -192,7 +192,7 @@ media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec = {
   $: {
@@ -205,7 +205,7 @@ media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemovePersistentSession
 media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec = {
@@ -219,7 +219,7 @@ media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec = {
   $: {
@@ -232,7 +232,7 @@ media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaDrmStoragePtr = media.mojom.MediaDrmStorageRemote;

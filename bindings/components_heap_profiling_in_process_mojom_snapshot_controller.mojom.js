@@ -70,7 +70,7 @@ heap_profiling.mojom.SnapshotController.getRemote = function() {
     'heap_profiling.mojom.SnapshotController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for TakeSnapshot
 heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec = {
@@ -85,7 +85,7 @@ heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogMetricsWithoutSnapshot
 heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec = {
@@ -98,7 +98,7 @@ heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 heap_profiling.mojom.SnapshotControllerPtr = heap_profiling.mojom.SnapshotControllerRemote;

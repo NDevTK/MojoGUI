@@ -68,7 +68,7 @@ shape_detection.mojom.FaceDetection.getRemote = function() {
     'shape_detection.mojom.FaceDetection',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Detect
 shape_detection.mojom.FaceDetection_Detect_ParamsSpec = {
@@ -82,7 +82,7 @@ shape_detection.mojom.FaceDetection_Detect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec = {
   $: {
@@ -95,7 +95,7 @@ shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 shape_detection.mojom.FaceDetectionPtr = shape_detection.mojom.FaceDetectionRemote;

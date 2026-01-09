@@ -446,7 +446,7 @@ content.optional_numerics_unittest.mojom.Params.getRemote = function() {
     'content.optional_numerics_unittest.mojom.Params',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendNullBool
 content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec = {
@@ -460,7 +460,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullUint8
 content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec = {
@@ -474,7 +474,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullInt8
 content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec = {
@@ -488,7 +488,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullUint16
 content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec = {
@@ -502,7 +502,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullInt16
 content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec = {
@@ -516,7 +516,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullUint32
 content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec = {
@@ -530,7 +530,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullInt32
 content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec = {
@@ -544,7 +544,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullUint64
 content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec = {
@@ -558,7 +558,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullInt64
 content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec = {
@@ -572,7 +572,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullFloat
 content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec = {
@@ -586,7 +586,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullDouble
 content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec = {
@@ -600,7 +600,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullEnum
 content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec = {
@@ -614,7 +614,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullBools
 content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec = {
@@ -628,7 +628,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullInt16s
 content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec = {
@@ -642,7 +642,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullUint32s
 content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec = {
@@ -656,7 +656,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullDoubles
 content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec = {
@@ -670,7 +670,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullEnums
 content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec = {
@@ -684,7 +684,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullBoolMap
 content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec = {
@@ -698,7 +698,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullDoubleMap
 content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec = {
@@ -712,7 +712,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullEnumMap
 content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec = {
@@ -726,7 +726,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalBool
 content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec = {
@@ -740,7 +740,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec = {
   $: {
@@ -753,7 +753,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalUint8
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec = {
@@ -767,7 +767,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec = {
   $: {
@@ -780,7 +780,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalInt8
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec = {
@@ -794,7 +794,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec = {
   $: {
@@ -807,7 +807,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalUint16
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec = {
@@ -821,7 +821,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec = {
   $: {
@@ -834,7 +834,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalInt16
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec = {
@@ -848,7 +848,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec = {
   $: {
@@ -861,7 +861,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalUint32
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec = {
@@ -875,7 +875,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec = {
   $: {
@@ -888,7 +888,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalInt32
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec = {
@@ -902,7 +902,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec = {
   $: {
@@ -915,7 +915,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalUint64
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec = {
@@ -929,7 +929,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec = {
   $: {
@@ -942,7 +942,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalInt64
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec = {
@@ -956,7 +956,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec = {
   $: {
@@ -969,7 +969,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalFloat
 content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec = {
@@ -983,7 +983,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec = {
   $: {
@@ -996,7 +996,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalDouble
 content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec = {
@@ -1010,7 +1010,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec = {
   $: {
@@ -1023,7 +1023,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalEnum
 content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec = {
@@ -1037,7 +1037,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec = {
   $: {
@@ -1050,7 +1050,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalBools
 content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec = {
@@ -1064,7 +1064,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec = {
   $: {
@@ -1077,7 +1077,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalInt16s
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec = {
@@ -1091,7 +1091,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec = {
   $: {
@@ -1104,7 +1104,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalUint32s
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec = {
@@ -1118,7 +1118,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec = {
   $: {
@@ -1131,7 +1131,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalDoubles
 content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec = {
@@ -1145,7 +1145,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec = {
   $: {
@@ -1158,7 +1158,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalEnums
 content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec = {
@@ -1172,7 +1172,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec = {
   $: {
@@ -1185,7 +1185,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalBoolMap
 content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec = {
@@ -1199,7 +1199,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec = {
   $: {
@@ -1212,7 +1212,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalDoubleMap
 content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec = {
@@ -1226,7 +1226,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec = {
   $: {
@@ -1239,7 +1239,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOptionalEnumMap
 content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec = {
@@ -1253,7 +1253,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec = {
   $: {
@@ -1266,7 +1266,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNullStructWithOptionalNumerics
 content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec = {
@@ -1280,7 +1280,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumeri
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendStructWithNullOptionalNumerics
 content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec = {
@@ -1294,7 +1294,7 @@ content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumeri
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendStructWithOptionalNumerics
 content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec = {
@@ -1308,7 +1308,7 @@ content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec = {
   $: {
@@ -1332,7 +1332,7 @@ content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_R
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.optional_numerics_unittest.mojom.ParamsPtr = content.optional_numerics_unittest.mojom.ParamsRemote;
@@ -1769,7 +1769,7 @@ content.optional_numerics_unittest.mojom.ResponseParams.getRemote = function() {
     'content.optional_numerics_unittest.mojom.ResponseParams',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetNullBool
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec = {
@@ -1782,7 +1782,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec = {
   $: {
@@ -1795,7 +1795,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullUint8
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec = {
@@ -1808,7 +1808,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec = {
   $: {
@@ -1821,7 +1821,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullInt8
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec = {
@@ -1834,7 +1834,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec = {
   $: {
@@ -1847,7 +1847,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullUint16
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec = {
@@ -1860,7 +1860,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec = {
   $: {
@@ -1873,7 +1873,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullInt16
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec = {
@@ -1886,7 +1886,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec = {
   $: {
@@ -1899,7 +1899,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullUint32
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec = {
@@ -1912,7 +1912,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec = {
   $: {
@@ -1925,7 +1925,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullInt32
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec = {
@@ -1938,7 +1938,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec = {
   $: {
@@ -1951,7 +1951,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullUint64
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec = {
@@ -1964,7 +1964,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec = {
   $: {
@@ -1977,7 +1977,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullInt64
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec = {
@@ -1990,7 +1990,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec = {
   $: {
@@ -2003,7 +2003,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullFloat
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec = {
@@ -2016,7 +2016,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec = {
   $: {
@@ -2029,7 +2029,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullDouble
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec = {
@@ -2042,7 +2042,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec = {
   $: {
@@ -2055,7 +2055,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullEnum
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec = {
@@ -2068,7 +2068,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec = {
   $: {
@@ -2081,7 +2081,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullBools
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec = {
@@ -2094,7 +2094,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec = {
   $: {
@@ -2107,7 +2107,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullInt16s
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec = {
@@ -2120,7 +2120,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec = {
   $: {
@@ -2133,7 +2133,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullUint32s
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec = {
@@ -2146,7 +2146,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec = {
   $: {
@@ -2159,7 +2159,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullDoubles
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec = {
@@ -2172,7 +2172,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec = {
   $: {
@@ -2185,7 +2185,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullEnums
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec = {
@@ -2198,7 +2198,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec = {
   $: {
@@ -2211,7 +2211,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullBoolMap
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec = {
@@ -2224,7 +2224,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec = {
   $: {
@@ -2237,7 +2237,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullInt32Map
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec = {
@@ -2250,7 +2250,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec = {
   $: {
@@ -2263,7 +2263,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullEnumMap
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec = {
@@ -2276,7 +2276,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec = {
   $: {
@@ -2289,7 +2289,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalBool
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec = {
@@ -2303,7 +2303,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec = {
   $: {
@@ -2316,7 +2316,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalUint8
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec = {
@@ -2330,7 +2330,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec = {
   $: {
@@ -2343,7 +2343,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalInt8
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec = {
@@ -2357,7 +2357,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec = {
   $: {
@@ -2370,7 +2370,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalUint16
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec = {
@@ -2384,7 +2384,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec = {
   $: {
@@ -2397,7 +2397,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalInt16
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec = {
@@ -2411,7 +2411,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec = {
   $: {
@@ -2424,7 +2424,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalUint32
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec = {
@@ -2438,7 +2438,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec = {
   $: {
@@ -2451,7 +2451,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalInt32
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec = {
@@ -2465,7 +2465,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec = {
   $: {
@@ -2478,7 +2478,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalUint64
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec = {
@@ -2492,7 +2492,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec = {
   $: {
@@ -2505,7 +2505,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalInt64
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec = {
@@ -2519,7 +2519,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec = {
   $: {
@@ -2532,7 +2532,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalFloat
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec = {
@@ -2546,7 +2546,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec = {
   $: {
@@ -2559,7 +2559,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalDouble
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec = {
@@ -2573,7 +2573,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec = {
   $: {
@@ -2586,7 +2586,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalEnum
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec = {
@@ -2600,7 +2600,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec = {
   $: {
@@ -2613,7 +2613,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalBools
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec = {
@@ -2627,7 +2627,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec = {
   $: {
@@ -2640,7 +2640,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalInt16s
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec = {
@@ -2654,7 +2654,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec = {
   $: {
@@ -2667,7 +2667,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalUint32s
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec = {
@@ -2681,7 +2681,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec = {
   $: {
@@ -2694,7 +2694,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalDoubles
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec = {
@@ -2708,7 +2708,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec = {
   $: {
@@ -2721,7 +2721,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalEnums
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec = {
@@ -2735,7 +2735,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec = {
   $: {
@@ -2748,7 +2748,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalBoolMap
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec = {
@@ -2763,7 +2763,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec = {
   $: {
@@ -2776,7 +2776,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalFloatMap
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec = {
@@ -2791,7 +2791,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec = {
   $: {
@@ -2804,7 +2804,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_Resp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOptionalEnumMap
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec = {
@@ -2819,7 +2819,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec = {
   $: {
@@ -2832,7 +2832,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNullStructWithOptionalNumerics
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec = {
@@ -2845,7 +2845,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptiona
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec = {
   $: {
@@ -2858,7 +2858,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptiona
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStructWithNullOptionalNumerics
 content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec = {
@@ -2871,7 +2871,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptiona
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec = {
   $: {
@@ -2884,7 +2884,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptiona
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStructWithOptionalNumerics
 content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec = {
@@ -2909,7 +2909,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNum
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec = {
   $: {
@@ -2922,7 +2922,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNum
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.optional_numerics_unittest.mojom.ResponseParamsPtr = content.optional_numerics_unittest.mojom.ResponseParamsRemote;
@@ -2972,7 +2972,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0.getRemote = function() {
     'content.optional_numerics_unittest.mojom.InterfaceV0',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 content.optional_numerics_unittest.mojom.InterfaceV0Ptr = content.optional_numerics_unittest.mojom.InterfaceV0Remote;
@@ -3022,7 +3022,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2.getRemote = function() {
     'content.optional_numerics_unittest.mojom.InterfaceV2',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 content.optional_numerics_unittest.mojom.InterfaceV2Ptr = content.optional_numerics_unittest.mojom.InterfaceV2Remote;

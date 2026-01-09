@@ -71,7 +71,7 @@ chromeos.tts.mojom.TtsService.getRemote = function() {
     'chromeos.tts.mojom.TtsService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindGoogleTtsStream
 chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec = {
@@ -86,7 +86,7 @@ chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindPlaybackTtsStream
 chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = {
@@ -102,7 +102,7 @@ chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec = {
   $: {
@@ -115,7 +115,7 @@ chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromeos.tts.mojom.TtsServicePtr = chromeos.tts.mojom.TtsServiceRemote;
@@ -228,7 +228,7 @@ chromeos.tts.mojom.GoogleTtsStream.getRemote = function() {
     'chromeos.tts.mojom.GoogleTtsStream',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for InstallVoice
 chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec = {
@@ -243,7 +243,7 @@ chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec = {
   $: {
@@ -256,7 +256,7 @@ chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectVoice
 chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec = {
@@ -270,7 +270,7 @@ chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec = {
   $: {
@@ -283,7 +283,7 @@ chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Speak
 chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec = {
@@ -298,7 +298,7 @@ chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec = {
   $: {
@@ -311,7 +311,7 @@ chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Stop
 chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec = {
@@ -324,7 +324,7 @@ chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVolume
 chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec = {
@@ -338,7 +338,7 @@ chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Pause
 chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec = {
@@ -351,7 +351,7 @@ chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Resume
 chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec = {
@@ -364,7 +364,7 @@ chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromeos.tts.mojom.GoogleTtsStreamPtr = chromeos.tts.mojom.GoogleTtsStreamRemote;
@@ -468,7 +468,7 @@ chromeos.tts.mojom.PlaybackTtsStream.getRemote = function() {
     'chromeos.tts.mojom.PlaybackTtsStream',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Play
 chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec = {
@@ -481,7 +481,7 @@ chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec = {
   $: {
@@ -494,7 +494,7 @@ chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendAudioBuffer
 chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec = {
@@ -510,7 +510,7 @@ chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Stop
 chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec = {
@@ -523,7 +523,7 @@ chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVolume
 chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec = {
@@ -537,7 +537,7 @@ chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Pause
 chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec = {
@@ -550,7 +550,7 @@ chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Resume
 chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec = {
@@ -563,7 +563,7 @@ chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromeos.tts.mojom.PlaybackTtsStreamPtr = chromeos.tts.mojom.PlaybackTtsStreamRemote;
@@ -649,7 +649,7 @@ chromeos.tts.mojom.TtsEventObserver.getRemote = function() {
     'chromeos.tts.mojom.TtsEventObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStart
 chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec = {
@@ -662,7 +662,7 @@ chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTimepoint
 chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec = {
@@ -676,7 +676,7 @@ chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnEnd
 chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec = {
@@ -689,7 +689,7 @@ chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec = {
@@ -702,7 +702,7 @@ chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromeos.tts.mojom.TtsEventObserverPtr = chromeos.tts.mojom.TtsEventObserverRemote;

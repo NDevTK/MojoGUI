@@ -52,7 +52,7 @@ arc.mojom.VideoHost.getRemote = function() {
     'arc.mojom.VideoHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.VideoHostPtr = arc.mojom.VideoHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.VideoInstance.getRemote = function() {
     'arc.mojom.VideoInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.VideoInstancePtr = arc.mojom.VideoInstanceRemote;
@@ -152,7 +152,7 @@ arc.mojom.VideoAcceleratorFactory.getRemote = function() {
     'arc.mojom.VideoAcceleratorFactory',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.VideoAcceleratorFactoryPtr = arc.mojom.VideoAcceleratorFactoryRemote;

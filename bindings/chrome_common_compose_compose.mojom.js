@@ -94,7 +94,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactory.getRemote = function() {
     'compose.mojom.ComposeSessionUntrustedPageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateComposeSessionUntrustedPageHandler
 compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec = {
@@ -110,7 +110,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntr
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 compose.mojom.ComposeSessionUntrustedPageHandlerFactoryPtr = compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemote;
@@ -313,7 +313,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler.getRemote = function() {
     'compose.mojom.ComposeSessionUntrustedPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LogCancelEdit
 compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec = {
@@ -326,7 +326,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Compose
 compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec = {
@@ -342,7 +342,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Rewrite
 compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec = {
@@ -356,7 +356,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogEditInput
 compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec = {
@@ -369,7 +369,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SaveWebUIState
 compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec = {
@@ -383,7 +383,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AcceptComposeResult
 compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec = {
@@ -396,7 +396,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec = {
   $: {
@@ -409,7 +409,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestInitialState
 compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec = {
@@ -422,7 +422,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec = {
   $: {
@@ -435,7 +435,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Undo
 compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec = {
@@ -448,7 +448,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec = {
   $: {
@@ -461,7 +461,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecoverFromErrorState
 compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec = {
@@ -474,7 +474,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec = {
   $: {
@@ -487,7 +487,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Redo
 compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec = {
@@ -500,7 +500,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec = {
   $: {
@@ -513,7 +513,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenBugReportingLink
 compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec = {
@@ -526,7 +526,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenComposeLearnMorePage
 compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec = {
@@ -539,7 +539,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenEnterpriseComposeLearnMorePage
 compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec = {
@@ -552,7 +552,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMoreP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenFeedbackSurveyLink
 compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec = {
@@ -565,7 +565,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenSignInPage
 compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec = {
@@ -578,7 +578,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUserFeedback
 compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec = {
@@ -592,7 +592,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EditResult
 compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec = {
@@ -606,7 +606,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec = {
   $: {
@@ -619,7 +619,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 compose.mojom.ComposeSessionUntrustedPageHandlerPtr = compose.mojom.ComposeSessionUntrustedPageHandlerRemote;
@@ -705,7 +705,7 @@ compose.mojom.ComposeClientUntrustedPageHandler.getRemote = function() {
     'compose.mojom.ComposeClientUntrustedPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShowUI
 compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec = {
@@ -718,7 +718,7 @@ compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseUI
 compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec = {
@@ -732,7 +732,7 @@ compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CompleteFirstRun
 compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec = {
@@ -745,7 +745,7 @@ compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenComposeSettings
 compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec = {
@@ -758,7 +758,7 @@ compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 compose.mojom.ComposeClientUntrustedPageHandlerPtr = compose.mojom.ComposeClientUntrustedPageHandlerRemote;
@@ -826,7 +826,7 @@ compose.mojom.ComposeUntrustedDialog.getRemote = function() {
     'compose.mojom.ComposeUntrustedDialog',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ResponseReceived
 compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec = {
@@ -840,7 +840,7 @@ compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PartialResponseReceived
 compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec = {
@@ -854,7 +854,7 @@ compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 compose.mojom.ComposeUntrustedDialogPtr = compose.mojom.ComposeUntrustedDialogRemote;

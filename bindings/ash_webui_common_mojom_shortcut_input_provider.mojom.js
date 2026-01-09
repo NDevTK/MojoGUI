@@ -71,7 +71,7 @@ ash.common.mojom.ShortcutInputObserver.getRemote = function() {
     'ash.common.mojom.ShortcutInputObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnShortcutInputEventPressed
 ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec = {
@@ -86,7 +86,7 @@ ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnShortcutInputEventReleased
 ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec = {
@@ -101,7 +101,7 @@ ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.common.mojom.ShortcutInputObserverPtr = ash.common.mojom.ShortcutInputObserverRemote;
@@ -169,7 +169,7 @@ ash.common.mojom.ShortcutInputProvider.getRemote = function() {
     'ash.common.mojom.ShortcutInputProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartObservingShortcutInput
 ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec = {
@@ -183,7 +183,7 @@ ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopObservingShortcutInput
 ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec = {
@@ -196,7 +196,7 @@ ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.common.mojom.ShortcutInputProviderPtr = ash.common.mojom.ShortcutInputProviderRemote;

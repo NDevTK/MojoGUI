@@ -61,7 +61,7 @@ media.mojom.RemoterFactory.getRemote = function() {
     'media.mojom.RemoterFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Create
 media.mojom.RemoterFactory_Create_ParamsSpec = {
@@ -76,7 +76,7 @@ media.mojom.RemoterFactory_Create_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.RemoterFactoryPtr = media.mojom.RemoterFactoryRemote;
@@ -144,7 +144,7 @@ media.mojom.RemotingDataStreamSender.getRemote = function() {
     'media.mojom.RemotingDataStreamSender',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendFrame
 media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec = {
@@ -158,7 +158,7 @@ media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelInFlightData
 media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec = {
@@ -171,7 +171,7 @@ media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.RemotingDataStreamSenderPtr = media.mojom.RemotingDataStreamSenderRemote;
@@ -275,7 +275,7 @@ media.mojom.Remoter.getRemote = function() {
     'media.mojom.Remoter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Start
 media.mojom.Remoter_Start_ParamsSpec = {
@@ -288,7 +288,7 @@ media.mojom.Remoter_Start_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartWithPermissionAlreadyGranted
 media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec = {
@@ -301,7 +301,7 @@ media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartDataStreams
 media.mojom.Remoter_StartDataStreams_ParamsSpec = {
@@ -318,7 +318,7 @@ media.mojom.Remoter_StartDataStreams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Stop
 media.mojom.Remoter_Stop_ParamsSpec = {
@@ -332,7 +332,7 @@ media.mojom.Remoter_Stop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendMessageToSink
 media.mojom.Remoter_SendMessageToSink_ParamsSpec = {
@@ -346,7 +346,7 @@ media.mojom.Remoter_SendMessageToSink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EstimateTransmissionCapacity
 media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec = {
@@ -359,7 +359,7 @@ media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec = {
   $: {
@@ -372,7 +372,7 @@ media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.RemoterPtr = media.mojom.RemoterRemote;
@@ -476,7 +476,7 @@ media.mojom.RemotingSource.getRemote = function() {
     'media.mojom.RemotingSource',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSinkAvailable
 media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec = {
@@ -490,7 +490,7 @@ media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSinkGone
 media.mojom.RemotingSource_OnSinkGone_ParamsSpec = {
@@ -503,7 +503,7 @@ media.mojom.RemotingSource_OnSinkGone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStarted
 media.mojom.RemotingSource_OnStarted_ParamsSpec = {
@@ -516,7 +516,7 @@ media.mojom.RemotingSource_OnStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStartFailed
 media.mojom.RemotingSource_OnStartFailed_ParamsSpec = {
@@ -530,7 +530,7 @@ media.mojom.RemotingSource_OnStartFailed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMessageFromSink
 media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec = {
@@ -544,7 +544,7 @@ media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStopped
 media.mojom.RemotingSource_OnStopped_ParamsSpec = {
@@ -558,7 +558,7 @@ media.mojom.RemotingSource_OnStopped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.RemotingSourcePtr = media.mojom.RemotingSourceRemote;
@@ -653,7 +653,7 @@ media.mojom.Remotee.getRemote = function() {
     'media.mojom.Remotee',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnRemotingSinkReady
 media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec = {
@@ -667,7 +667,7 @@ media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendMessageToSource
 media.mojom.Remotee_SendMessageToSource_ParamsSpec = {
@@ -681,7 +681,7 @@ media.mojom.Remotee_SendMessageToSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartDataStreams
 media.mojom.Remotee_StartDataStreams_ParamsSpec = {
@@ -696,7 +696,7 @@ media.mojom.Remotee_StartDataStreams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFlushUntil
 media.mojom.Remotee_OnFlushUntil_ParamsSpec = {
@@ -711,7 +711,7 @@ media.mojom.Remotee_OnFlushUntil_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnVideoNaturalSizeChange
 media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec = {
@@ -725,7 +725,7 @@ media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.RemoteePtr = media.mojom.RemoteeRemote;
@@ -784,7 +784,7 @@ media.mojom.RemotingSink.getRemote = function() {
     'media.mojom.RemotingSink',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMessageFromSource
 media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec = {
@@ -798,7 +798,7 @@ media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.RemotingSinkPtr = media.mojom.RemotingSinkRemote;
@@ -875,7 +875,7 @@ media.mojom.RemotingDataStreamReceiver.getRemote = function() {
     'media.mojom.RemotingDataStreamReceiver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for InitializeDataPipe
 media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec = {
@@ -889,7 +889,7 @@ media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReceiveFrame
 media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec = {
@@ -904,7 +904,7 @@ media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FlushUntil
 media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec = {
@@ -918,7 +918,7 @@ media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.RemotingDataStreamReceiverPtr = media.mojom.RemotingDataStreamReceiverRemote;

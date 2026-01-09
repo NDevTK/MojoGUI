@@ -122,7 +122,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler.getRemote = function
     'ash.settings.app_notification.mojom.AppNotificationsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetQuietMode
 ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec = {
@@ -136,7 +136,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddObserver
 ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec = {
@@ -150,7 +150,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNotificationPermission
 ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec = {
@@ -165,7 +165,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermi
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetApps
 ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec = {
@@ -178,7 +178,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec = {
   $: {
@@ -191,7 +191,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetQuietMode
 ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec = {
@@ -204,7 +204,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec = {
   $: {
@@ -217,7 +217,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenBrowserNotificationSettings
 ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec = {
@@ -230,7 +230,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificat
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.app_notification.mojom.AppNotificationsHandlerPtr = ash.settings.app_notification.mojom.AppNotificationsHandlerRemote;
@@ -298,7 +298,7 @@ ash.settings.app_notification.mojom.AppNotificationsObserver.getRemote = functio
     'ash.settings.app_notification.mojom.AppNotificationsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnNotificationAppChanged
 ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec = {
@@ -312,7 +312,7 @@ ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppCh
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnQuietModeChanged
 ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec = {
@@ -326,7 +326,7 @@ ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.app_notification.mojom.AppNotificationsObserverPtr = ash.settings.app_notification.mojom.AppNotificationsObserverRemote;

@@ -70,7 +70,7 @@ blink.mojom.OriginTrialStateHost.getRemote = function() {
     'blink.mojom.OriginTrialStateHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ApplyFeatureDiffForOriginTrial
 blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec = {
@@ -84,7 +84,7 @@ blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnablePersistentTrial
 blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = {
@@ -99,7 +99,7 @@ blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.OriginTrialStateHostPtr = blink.mojom.OriginTrialStateHostRemote;

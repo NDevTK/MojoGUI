@@ -70,7 +70,7 @@ blink.mojom.ServiceWorkerWorkerClientRegistry.getRemote = function() {
     'blink.mojom.ServiceWorkerWorkerClientRegistry',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterWorkerClient
 blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec = {
@@ -84,7 +84,7 @@ blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloneWorkerClientRegistry
 blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec = {
@@ -98,7 +98,7 @@ blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerWorkerClientRegistryPtr = blink.mojom.ServiceWorkerWorkerClientRegistryRemote;

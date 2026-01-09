@@ -193,7 +193,7 @@ chrome.mojom.ProfileImportObserver.getRemote = function() {
     'chrome.mojom.ProfileImportObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnImportStart
 chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec = {
@@ -206,7 +206,7 @@ chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnImportFinished
 chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec = {
@@ -221,7 +221,7 @@ chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnImportItemStart
 chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec = {
@@ -235,7 +235,7 @@ chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnImportItemFinished
 chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec = {
@@ -249,7 +249,7 @@ chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHistoryImportStart
 chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec = {
@@ -263,7 +263,7 @@ chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHistoryImportGroup
 chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec = {
@@ -278,7 +278,7 @@ chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHomePageImportReady
 chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec = {
@@ -292,7 +292,7 @@ chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBookmarksImportStart
 chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec = {
@@ -307,7 +307,7 @@ chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBookmarksImportGroup
 chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec = {
@@ -321,7 +321,7 @@ chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFaviconsImportStart
 chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec = {
@@ -335,7 +335,7 @@ chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFaviconsImportGroup
 chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec = {
@@ -349,7 +349,7 @@ chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPasswordFormImportReady
 chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec = {
@@ -363,7 +363,7 @@ chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnKeywordsImportReady
 chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec = {
@@ -378,7 +378,7 @@ chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAutofillFormDataImportStart
 chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec = {
@@ -392,7 +392,7 @@ chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAutofillFormDataImportGroup
 chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec = {
@@ -406,7 +406,7 @@ chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.ProfileImportObserverPtr = chrome.mojom.ProfileImportObserverRemote;
@@ -483,7 +483,7 @@ chrome.mojom.ProfileImport.getRemote = function() {
     'chrome.mojom.ProfileImport',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartImport
 chrome.mojom.ProfileImport_StartImport_ParamsSpec = {
@@ -500,7 +500,7 @@ chrome.mojom.ProfileImport_StartImport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelImport
 chrome.mojom.ProfileImport_CancelImport_ParamsSpec = {
@@ -513,7 +513,7 @@ chrome.mojom.ProfileImport_CancelImport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportImportItemFinished
 chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec = {
@@ -527,7 +527,7 @@ chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.ProfileImportPtr = chrome.mojom.ProfileImportRemote;

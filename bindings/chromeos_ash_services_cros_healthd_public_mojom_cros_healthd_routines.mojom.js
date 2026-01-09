@@ -184,7 +184,7 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesService.getRemote = function() {
     'ash.cros_healthd.mojom.CrosHealthdRoutinesService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.CrosHealthdRoutinesServicePtr = ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote;
@@ -234,7 +234,7 @@ ash.cros_healthd.mojom.RoutineControl.getRemote = function() {
     'ash.cros_healthd.mojom.RoutineControl',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.RoutineControlPtr = ash.cros_healthd.mojom.RoutineControlRemote;
@@ -284,7 +284,7 @@ ash.cros_healthd.mojom.RoutineObserver.getRemote = function() {
     'ash.cros_healthd.mojom.RoutineObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.RoutineObserverPtr = ash.cros_healthd.mojom.RoutineObserverRemote;

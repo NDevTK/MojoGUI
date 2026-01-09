@@ -61,7 +61,7 @@ viz.mojom.BeginFrameObserver.getRemote = function() {
     'viz.mojom.BeginFrameObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStandaloneBeginFrame
 viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec = {
@@ -75,7 +75,7 @@ viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.BeginFrameObserverPtr = viz.mojom.BeginFrameObserverRemote;

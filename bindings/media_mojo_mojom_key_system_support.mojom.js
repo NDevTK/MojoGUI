@@ -78,7 +78,7 @@ media.mojom.KeySystemSupportObserver.getRemote = function() {
     'media.mojom.KeySystemSupportObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnKeySystemSupportUpdated
 media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = {
@@ -92,7 +92,7 @@ media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.KeySystemSupportObserverPtr = media.mojom.KeySystemSupportObserverRemote;
@@ -151,7 +151,7 @@ media.mojom.KeySystemSupport.getRemote = function() {
     'media.mojom.KeySystemSupport',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetObserver
 media.mojom.KeySystemSupport_SetObserver_ParamsSpec = {
@@ -165,7 +165,7 @@ media.mojom.KeySystemSupport_SetObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.KeySystemSupportPtr = media.mojom.KeySystemSupportRemote;

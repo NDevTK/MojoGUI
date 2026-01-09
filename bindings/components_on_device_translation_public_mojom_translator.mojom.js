@@ -70,7 +70,7 @@ on_device_translation.mojom.Translator.getRemote = function() {
     'on_device_translation.mojom.Translator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Translate
 on_device_translation.mojom.Translator_Translate_ParamsSpec = {
@@ -84,7 +84,7 @@ on_device_translation.mojom.Translator_Translate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_translation.mojom.Translator_Translate_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ on_device_translation.mojom.Translator_Translate_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SplitSentences
 on_device_translation.mojom.Translator_SplitSentences_ParamsSpec = {
@@ -111,7 +111,7 @@ on_device_translation.mojom.Translator_SplitSentences_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec = {
   $: {
@@ -124,7 +124,7 @@ on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 on_device_translation.mojom.TranslatorPtr = on_device_translation.mojom.TranslatorRemote;

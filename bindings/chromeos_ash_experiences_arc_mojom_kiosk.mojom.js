@@ -52,7 +52,7 @@ arc.mojom.KioskHost.getRemote = function() {
     'arc.mojom.KioskHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.KioskHostPtr = arc.mojom.KioskHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.KioskInstance.getRemote = function() {
     'arc.mojom.KioskInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.KioskInstancePtr = arc.mojom.KioskInstanceRemote;

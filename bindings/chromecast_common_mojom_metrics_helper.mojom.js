@@ -62,7 +62,7 @@ chromecast.metrics.mojom.MetricsHelper.getRemote = function() {
     'chromecast.metrics.mojom.MetricsHelper',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RecordApplicationEvent
 chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec = {
@@ -79,7 +79,7 @@ chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.metrics.mojom.MetricsHelperPtr = chromecast.metrics.mojom.MetricsHelperRemote;

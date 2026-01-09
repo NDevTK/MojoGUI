@@ -178,7 +178,7 @@ network.mojom.DevToolsObserver.getRemote = function() {
     'network.mojom.DevToolsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnRawRequest
 network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec = {
@@ -198,7 +198,7 @@ network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRawResponse
 network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec = {
@@ -218,7 +218,7 @@ network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnEarlyHintsResponse
 network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec = {
@@ -233,7 +233,7 @@ network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPrivateNetworkRequest
 network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec = {
@@ -251,7 +251,7 @@ network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCorsPreflightRequest
 network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec = {
@@ -269,7 +269,7 @@ network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCorsPreflightResponse
 network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec = {
@@ -285,7 +285,7 @@ network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCorsPreflightRequestCompleted
 network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec = {
@@ -300,7 +300,7 @@ network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTrustTokenOperationDone
 network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec = {
@@ -315,7 +315,7 @@ network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCorsError
 network.mojom.DevToolsObserver_OnCorsError_ParamsSpec = {
@@ -334,7 +334,7 @@ network.mojom.DevToolsObserver_OnCorsError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnOrbError
 network.mojom.DevToolsObserver_OnOrbError_ParamsSpec = {
@@ -349,7 +349,7 @@ network.mojom.DevToolsObserver_OnOrbError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSharedDictionaryError
 network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec = {
@@ -365,7 +365,7 @@ network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSRIMessageSignatureIssue
 network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec = {
@@ -381,7 +381,7 @@ network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnUnencodedDigestError
 network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec = {
@@ -397,7 +397,7 @@ network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 network.mojom.DevToolsObserver_Clone_ParamsSpec = {
@@ -411,7 +411,7 @@ network.mojom.DevToolsObserver_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.DevToolsObserverPtr = network.mojom.DevToolsObserverRemote;

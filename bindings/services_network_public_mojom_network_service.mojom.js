@@ -61,7 +61,7 @@ network.mojom.GssapiLibraryLoadObserver.getRemote = function() {
     'network.mojom.GssapiLibraryLoadObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnBeforeGssapiLibraryLoad
 network.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec = {
@@ -74,7 +74,7 @@ network.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.GssapiLibraryLoadObserverPtr = network.mojom.GssapiLibraryLoadObserverRemote;
@@ -493,7 +493,7 @@ network.mojom.NetworkService.getRemote = function() {
     'network.mojom.NetworkService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetParams
 network.mojom.NetworkService_SetParams_ParamsSpec = {
@@ -507,7 +507,7 @@ network.mojom.NetworkService_SetParams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartNetLog
 network.mojom.NetworkService_StartNetLog_ParamsSpec = {
@@ -525,7 +525,7 @@ network.mojom.NetworkService_StartNetLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AttachNetLogProxy
 network.mojom.NetworkService_AttachNetLogProxy_ParamsSpec = {
@@ -540,7 +540,7 @@ network.mojom.NetworkService_AttachNetLogProxy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSSLKeyLogFile
 network.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec = {
@@ -554,7 +554,7 @@ network.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateNetworkContext
 network.mojom.NetworkService_CreateNetworkContext_ParamsSpec = {
@@ -569,7 +569,7 @@ network.mojom.NetworkService_CreateNetworkContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConfigureStubHostResolver
 network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec = {
@@ -588,7 +588,7 @@ network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableQuic
 network.mojom.NetworkService_DisableQuic_ParamsSpec = {
@@ -601,7 +601,7 @@ network.mojom.NetworkService_DisableQuic_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUpHttpAuth
 network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec = {
@@ -615,7 +615,7 @@ network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConfigureHttpAuthPrefs
 network.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec = {
@@ -629,7 +629,7 @@ network.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetRawHeadersAccess
 network.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec = {
@@ -644,7 +644,7 @@ network.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMaxConnectionsPerProxyChain
 network.mojom.NetworkService_SetMaxConnectionsPerProxyChain_ParamsSpec = {
@@ -658,7 +658,7 @@ network.mojom.NetworkService_SetMaxConnectionsPerProxyChain_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNetworkChangeManager
 network.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec = {
@@ -672,7 +672,7 @@ network.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNetworkQualityEstimatorManager
 network.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec = {
@@ -686,7 +686,7 @@ network.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDnsConfigChangeManager
 network.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec = {
@@ -700,7 +700,7 @@ network.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNetworkList
 network.mojom.NetworkService_GetNetworkList_ParamsSpec = {
@@ -714,7 +714,7 @@ network.mojom.NetworkService_GetNetworkList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkService_GetNetworkList_ResponseParamsSpec = {
   $: {
@@ -727,7 +727,7 @@ network.mojom.NetworkService_GetNetworkList_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTrustStoreChanged
 network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec = {
@@ -740,7 +740,7 @@ network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClientCertStoreChanged
 network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec = {
@@ -753,7 +753,7 @@ network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetEncryptionKey
 network.mojom.NetworkService_SetEncryptionKey_ParamsSpec = {
@@ -767,7 +767,7 @@ network.mojom.NetworkService_SetEncryptionKey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPeerToPeerConnectionsCountChange
 network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec = {
@@ -781,7 +781,7 @@ network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnApplicationStateChange
 network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec = {
@@ -795,7 +795,7 @@ network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTrustTokenKeyCommitments
 network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec = {
@@ -809,7 +809,7 @@ network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearSCTAuditingCache
 network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec = {
@@ -822,7 +822,7 @@ network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConfigureSCTAuditing
 network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec = {
@@ -836,7 +836,7 @@ network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateCtLogList
 network.mojom.NetworkService_UpdateCtLogList_ParamsSpec = {
@@ -850,7 +850,7 @@ network.mojom.NetworkService_UpdateCtLogList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateCtKnownPopularSCTs
 network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec = {
@@ -864,7 +864,7 @@ network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCtEnforcementEnabled
 network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec = {
@@ -878,7 +878,7 @@ network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateKeyPinsList
 network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec = {
@@ -893,7 +893,7 @@ network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DumpWithoutCrashing
 network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec = {
@@ -907,7 +907,7 @@ network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindTestInterfaceForTesting
 network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec = {
@@ -921,7 +921,7 @@ network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFirstPartySets
 network.mojom.NetworkService_SetFirstPartySets_ParamsSpec = {
@@ -935,7 +935,7 @@ network.mojom.NetworkService_SetFirstPartySets_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetExplicitlyAllowedPorts
 network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec = {
@@ -949,7 +949,7 @@ network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ParseHeaders
 network.mojom.NetworkService_ParseHeaders_ParamsSpec = {
@@ -964,7 +964,7 @@ network.mojom.NetworkService_ParseHeaders_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec = {
   $: {
@@ -977,7 +977,7 @@ network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableDataUseUpdates
 network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec = {
@@ -991,7 +991,7 @@ network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIPv6ReachabilityOverride
 network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec = {
@@ -1005,7 +1005,7 @@ network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetGssapiLibraryLoadObserver
 network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec = {
@@ -1019,7 +1019,7 @@ network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNetworkAnnotationMonitor
 network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec = {
@@ -1033,7 +1033,7 @@ network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTpcdMetadataGrants
 network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec = {
@@ -1047,7 +1047,7 @@ network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InterceptUrlLoaderForBodyDecoding
 network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec = {
@@ -1067,7 +1067,7 @@ network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DecodeContentEncoding
 network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec = {
@@ -1083,7 +1083,7 @@ network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec = {
   $: {
@@ -1096,7 +1096,7 @@ network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTLS13EarlyDataEnabled
 network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec = {
@@ -1110,7 +1110,7 @@ network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddDurableMessageCollector
 network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec = {
@@ -1124,7 +1124,7 @@ network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.NetworkServicePtr = network.mojom.NetworkServiceRemote;
@@ -1210,7 +1210,7 @@ network.mojom.DurableMessageCollector.getRemote = function() {
     'network.mojom.DurableMessageCollector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Configure
 network.mojom.DurableMessageCollector_Configure_ParamsSpec = {
@@ -1224,7 +1224,7 @@ network.mojom.DurableMessageCollector_Configure_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableForProfile
 network.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec = {
@@ -1238,7 +1238,7 @@ network.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableForProfile
 network.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec = {
@@ -1252,7 +1252,7 @@ network.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Retrieve
 network.mojom.DurableMessageCollector_Retrieve_ParamsSpec = {
@@ -1266,7 +1266,7 @@ network.mojom.DurableMessageCollector_Retrieve_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec = {
   $: {
@@ -1279,7 +1279,7 @@ network.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.DurableMessageCollectorPtr = network.mojom.DurableMessageCollectorRemote;

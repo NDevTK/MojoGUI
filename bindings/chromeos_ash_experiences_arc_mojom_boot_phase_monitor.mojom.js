@@ -52,7 +52,7 @@ arc.mojom.BootPhaseMonitorHost.getRemote = function() {
     'arc.mojom.BootPhaseMonitorHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.BootPhaseMonitorHostPtr = arc.mojom.BootPhaseMonitorHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.BootPhaseMonitorInstance.getRemote = function() {
     'arc.mojom.BootPhaseMonitorInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.BootPhaseMonitorInstancePtr = arc.mojom.BootPhaseMonitorInstanceRemote;

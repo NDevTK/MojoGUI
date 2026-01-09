@@ -70,7 +70,7 @@ chromecast.mojom.ActivityWindow.getRemote = function() {
     'chromecast.mojom.ActivityWindow',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Show
 chromecast.mojom.ActivityWindow_Show_ParamsSpec = {
@@ -83,7 +83,7 @@ chromecast.mojom.ActivityWindow_Show_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Hide
 chromecast.mojom.ActivityWindow_Hide_ParamsSpec = {
@@ -96,7 +96,7 @@ chromecast.mojom.ActivityWindow_Hide_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.ActivityWindowPtr = chromecast.mojom.ActivityWindowRemote;

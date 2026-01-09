@@ -61,7 +61,7 @@ blink.mojom.ModelDownloadProgressObserver.getRemote = function() {
     'blink.mojom.ModelDownloadProgressObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDownloadProgressUpdate
 blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec = {
@@ -76,7 +76,7 @@ blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ModelDownloadProgressObserverPtr = blink.mojom.ModelDownloadProgressObserverRemote;

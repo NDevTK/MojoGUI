@@ -94,7 +94,7 @@ mojom.OmniboxPageHandler.getRemote = function() {
     'mojom.OmniboxPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetClientPage
 mojom.OmniboxPageHandler_SetClientPage_ParamsSpec = {
@@ -108,7 +108,7 @@ mojom.OmniboxPageHandler_SetClientPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartOmniboxQuery
 mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec = {
@@ -129,7 +129,7 @@ mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMlModelVersion
 mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec = {
@@ -142,7 +142,7 @@ mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec = {
   $: {
@@ -155,7 +155,7 @@ mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartMl
 mojom.OmniboxPageHandler_StartMl_ParamsSpec = {
@@ -169,7 +169,7 @@ mojom.OmniboxPageHandler_StartMl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec = {
   $: {
@@ -182,7 +182,7 @@ mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mojom.OmniboxPageHandlerPtr = mojom.OmniboxPageHandlerRemote;
@@ -268,7 +268,7 @@ mojom.OmniboxPage.getRemote = function() {
     'mojom.OmniboxPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HandleNewAutocompleteQuery
 mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec = {
@@ -283,7 +283,7 @@ mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleNewAutocompleteResponse
 mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec = {
@@ -298,7 +298,7 @@ mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleNewMlResponse
 mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec = {
@@ -314,7 +314,7 @@ mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleAnswerIconImageData
 mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec = {
@@ -330,7 +330,7 @@ mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mojom.OmniboxPagePtr = mojom.OmniboxPageRemote;

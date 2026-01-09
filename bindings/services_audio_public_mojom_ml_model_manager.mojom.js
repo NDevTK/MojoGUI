@@ -70,7 +70,7 @@ audio.mojom.MlModelManager.getRemote = function() {
     'audio.mojom.MlModelManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetResidualEchoEstimationModel
 audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec = {
@@ -84,7 +84,7 @@ audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopServingResidualEchoEstimationModel
 audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec = {
@@ -97,7 +97,7 @@ audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 audio.mojom.MlModelManagerPtr = audio.mojom.MlModelManagerRemote;

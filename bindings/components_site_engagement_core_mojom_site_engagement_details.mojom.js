@@ -70,7 +70,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider.getRemote = function() {
     'site_engagement.mojom.SiteEngagementDetailsProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSiteEngagementDetails
 site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec = {
@@ -83,7 +83,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec = {
   $: {
@@ -96,7 +96,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Res
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSiteEngagementBaseScoreForUrl
 site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec = {
@@ -111,7 +111,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreFo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 site_engagement.mojom.SiteEngagementDetailsProviderPtr = site_engagement.mojom.SiteEngagementDetailsProviderRemote;

@@ -70,7 +70,7 @@ android_webview.mojom.Renderer.getRemote = function() {
     'android_webview.mojom.Renderer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ClearCache
 android_webview.mojom.Renderer_ClearCache_ParamsSpec = {
@@ -83,7 +83,7 @@ android_webview.mojom.Renderer_ClearCache_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetJsOnlineProperty
 android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec = {
@@ -97,7 +97,7 @@ android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 android_webview.mojom.RendererPtr = android_webview.mojom.RendererRemote;

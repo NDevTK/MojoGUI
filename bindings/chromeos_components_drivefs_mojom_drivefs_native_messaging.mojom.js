@@ -59,7 +59,7 @@ drivefs.mojom.NativeMessagingPort.getRemote = function() {
     'drivefs.mojom.NativeMessagingPort',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 drivefs.mojom.NativeMessagingPortPtr = drivefs.mojom.NativeMessagingPortRemote;
@@ -109,7 +109,7 @@ drivefs.mojom.NativeMessagingHost.getRemote = function() {
     'drivefs.mojom.NativeMessagingHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 drivefs.mojom.NativeMessagingHostPtr = drivefs.mojom.NativeMessagingHostRemote;

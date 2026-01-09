@@ -52,7 +52,7 @@ enterprise_companion.mojom.EnterpriseCompanion.getRemote = function() {
     'enterprise_companion.mojom.EnterpriseCompanion',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 enterprise_companion.mojom.EnterpriseCompanionPtr = enterprise_companion.mojom.EnterpriseCompanionRemote;

@@ -283,7 +283,7 @@ blink.mojom.WebBluetoothService.getRemote = function() {
     'blink.mojom.WebBluetoothService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetAvailability
 blink.mojom.WebBluetoothService_GetAvailability_ParamsSpec = {
@@ -296,7 +296,7 @@ blink.mojom.WebBluetoothService_GetAvailability_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebBluetoothService_GetAvailability_ResponseParamsSpec = {
   $: {
@@ -309,7 +309,7 @@ blink.mojom.WebBluetoothService_GetAvailability_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestDevice
 blink.mojom.WebBluetoothService_RequestDevice_ParamsSpec = {
@@ -323,7 +323,7 @@ blink.mojom.WebBluetoothService_RequestDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebBluetoothService_RequestDevice_ResponseParamsSpec = {
   $: {
@@ -337,7 +337,7 @@ blink.mojom.WebBluetoothService_RequestDevice_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDevices
 blink.mojom.WebBluetoothService_GetDevices_ParamsSpec = {
@@ -350,7 +350,7 @@ blink.mojom.WebBluetoothService_GetDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebBluetoothService_GetDevices_ResponseParamsSpec = {
   $: {
@@ -363,7 +363,7 @@ blink.mojom.WebBluetoothService_GetDevices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForgetDevice
 blink.mojom.WebBluetoothService_ForgetDevice_ParamsSpec = {
@@ -377,7 +377,7 @@ blink.mojom.WebBluetoothService_ForgetDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoteServerConnect
 blink.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec = {
@@ -392,7 +392,7 @@ blink.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebBluetoothService_RemoteServerConnect_ResponseParamsSpec = {
   $: {
@@ -405,7 +405,7 @@ blink.mojom.WebBluetoothService_RemoteServerConnect_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoteServerDisconnect
 blink.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec = {
@@ -419,7 +419,7 @@ blink.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoteServerGetPrimaryServices
 blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec = {
@@ -435,7 +435,7 @@ blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ResponseParamsSpec = {
   $: {
@@ -449,7 +449,7 @@ blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoteServiceGetCharacteristics
 blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec = {
@@ -465,7 +465,7 @@ blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ResponseParamsSpec = {
   $: {
@@ -479,7 +479,7 @@ blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoteCharacteristicReadValue
 blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec = {
@@ -493,7 +493,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ResponseParamsSpec = {
   $: {
@@ -507,7 +507,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoteCharacteristicWriteValue
 blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec = {
@@ -523,7 +523,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ResponseParamsSpec = {
   $: {
@@ -536,7 +536,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoteCharacteristicStartNotifications
 blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpec = {
@@ -551,7 +551,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ResponseParamsSpec = {
   $: {
@@ -564,7 +564,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoteCharacteristicStopNotifications
 blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec = {
@@ -578,7 +578,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoteCharacteristicGetDescriptors
 blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec = {
@@ -594,7 +594,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ResponseParamsSpec = {
   $: {
@@ -608,7 +608,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoteDescriptorReadValue
 blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec = {
@@ -622,7 +622,7 @@ blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ResponseParamsSpec = {
   $: {
@@ -636,7 +636,7 @@ blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoteDescriptorWriteValue
 blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec = {
@@ -651,7 +651,7 @@ blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ResponseParamsSpec = {
   $: {
@@ -664,7 +664,7 @@ blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestScanningStart
 blink.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec = {
@@ -679,7 +679,7 @@ blink.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebBluetoothService_RequestScanningStart_ResponseParamsSpec = {
   $: {
@@ -692,7 +692,7 @@ blink.mojom.WebBluetoothService_RequestScanningStart_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WatchAdvertisementsForDevice
 blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec = {
@@ -707,7 +707,7 @@ blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ResponseParamsSpec = {
   $: {
@@ -720,7 +720,7 @@ blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebBluetoothServicePtr = blink.mojom.WebBluetoothServiceRemote;
@@ -779,7 +779,7 @@ blink.mojom.WebBluetoothServerClient.getRemote = function() {
     'blink.mojom.WebBluetoothServerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GATTServerDisconnected
 blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec = {
@@ -792,7 +792,7 @@ blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebBluetoothServerClientPtr = blink.mojom.WebBluetoothServerClientRemote;
@@ -851,7 +851,7 @@ blink.mojom.WebBluetoothCharacteristicClient.getRemote = function() {
     'blink.mojom.WebBluetoothCharacteristicClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RemoteCharacteristicValueChanged
 blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec = {
@@ -865,7 +865,7 @@ blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebBluetoothCharacteristicClientPtr = blink.mojom.WebBluetoothCharacteristicClientRemote;
@@ -924,7 +924,7 @@ blink.mojom.WebBluetoothAdvertisementClient.getRemote = function() {
     'blink.mojom.WebBluetoothAdvertisementClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AdvertisingEvent
 blink.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec = {
@@ -938,7 +938,7 @@ blink.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebBluetoothAdvertisementClientPtr = blink.mojom.WebBluetoothAdvertisementClientRemote;

@@ -70,7 +70,7 @@ tabs_api.mojom.TabStripExperimentService.getRemote = function() {
     'tabs_api.mojom.TabStripExperimentService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateTabGroupVisual
 tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec = {
@@ -85,7 +85,7 @@ tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowTabContextMenu
 tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec = {
@@ -100,7 +100,7 @@ tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tabs_api.mojom.TabStripExperimentServicePtr = tabs_api.mojom.TabStripExperimentServiceRemote;

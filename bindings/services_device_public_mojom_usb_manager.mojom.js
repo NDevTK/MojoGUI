@@ -124,7 +124,7 @@ device.mojom.UsbDeviceManager.getRemote = function() {
     'device.mojom.UsbDeviceManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EnumerateDevicesAndSetClient
 device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec = {
@@ -138,7 +138,7 @@ device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec = {
   $: {
@@ -151,7 +151,7 @@ device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDevices
 device.mojom.UsbDeviceManager_GetDevices_ParamsSpec = {
@@ -165,7 +165,7 @@ device.mojom.UsbDeviceManager_GetDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec = {
   $: {
@@ -178,7 +178,7 @@ device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDevice
 device.mojom.UsbDeviceManager_GetDevice_ParamsSpec = {
@@ -195,7 +195,7 @@ device.mojom.UsbDeviceManager_GetDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSecurityKeyDevice
 device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec = {
@@ -211,7 +211,7 @@ device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RefreshDeviceInfo
 device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec = {
@@ -225,7 +225,7 @@ device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec = {
   $: {
@@ -238,7 +238,7 @@ device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CheckAccess
 device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec = {
@@ -252,7 +252,7 @@ device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec = {
   $: {
@@ -265,7 +265,7 @@ device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenFileDescriptor
 device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec = {
@@ -281,7 +281,7 @@ device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec = {
   $: {
@@ -294,7 +294,7 @@ device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetClient
 device.mojom.UsbDeviceManager_SetClient_ParamsSpec = {
@@ -308,7 +308,7 @@ device.mojom.UsbDeviceManager_SetClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.UsbDeviceManagerPtr = device.mojom.UsbDeviceManagerRemote;

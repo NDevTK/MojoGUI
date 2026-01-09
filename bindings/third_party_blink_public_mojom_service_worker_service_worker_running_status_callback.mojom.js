@@ -61,7 +61,7 @@ blink.mojom.ServiceWorkerRunningStatusCallback.getRemote = function() {
     'blink.mojom.ServiceWorkerRunningStatusCallback',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStatusChanged
 blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerRunningStatusCallbackPtr = blink.mojom.ServiceWorkerRunningStatusCallbackRemote;

@@ -88,7 +88,7 @@ viz.mojom.FrameSinksMetricsRecorder.getRemote = function() {
     'viz.mojom.FrameSinksMetricsRecorder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartFrameCounting
 viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = {
@@ -103,7 +103,7 @@ viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopFrameCounting
 viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = {
@@ -116,7 +116,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = {
   $: {
@@ -129,7 +129,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartOverdrawTracking
 viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = {
@@ -144,7 +144,7 @@ viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopOverdrawTracking
 viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = {
@@ -158,7 +158,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = {
   $: {
@@ -171,7 +171,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.FrameSinksMetricsRecorderPtr = viz.mojom.FrameSinksMetricsRecorderRemote;

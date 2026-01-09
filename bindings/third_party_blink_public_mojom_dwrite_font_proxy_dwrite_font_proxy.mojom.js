@@ -106,7 +106,7 @@ blink.mojom.DWriteFontProxy.getRemote = function() {
     'blink.mojom.DWriteFontProxy',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FindFamily
 blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec = {
@@ -120,7 +120,7 @@ blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec = {
   $: {
@@ -133,7 +133,7 @@ blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFamilyCount
 blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec = {
@@ -146,7 +146,7 @@ blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec = {
   $: {
@@ -159,7 +159,7 @@ blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFamilyNames
 blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec = {
@@ -173,7 +173,7 @@ blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec = {
   $: {
@@ -186,7 +186,7 @@ blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFontFileHandles
 blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec = {
@@ -200,7 +200,7 @@ blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec = {
   $: {
@@ -213,7 +213,7 @@ blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MatchUniqueFont
 blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec = {
@@ -227,7 +227,7 @@ blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec = {
   $: {
@@ -241,7 +241,7 @@ blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MapCharacters
 blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec = {
@@ -259,7 +259,7 @@ blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec = {
   $: {
@@ -272,7 +272,7 @@ blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DWriteFontProxyPtr = blink.mojom.DWriteFontProxyRemote;

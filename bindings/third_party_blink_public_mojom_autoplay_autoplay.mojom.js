@@ -61,7 +61,7 @@ blink.mojom.AutoplayConfigurationClient.getRemote = function() {
     'blink.mojom.AutoplayConfigurationClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddAutoplayFlags
 blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec = {
@@ -76,7 +76,7 @@ blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AutoplayConfigurationClientPtr = blink.mojom.AutoplayConfigurationClientRemote;

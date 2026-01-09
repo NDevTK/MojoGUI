@@ -61,7 +61,7 @@ tracing.mojom.SystemTracingService.getRemote = function() {
     'tracing.mojom.SystemTracingService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenProducerSocket
 tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec = {
@@ -74,7 +74,7 @@ tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tracing.mojom.SystemTracingServicePtr = tracing.mojom.SystemTracingServiceRemote;

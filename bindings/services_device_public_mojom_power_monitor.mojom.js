@@ -61,7 +61,7 @@ device.mojom.PowerMonitor.getRemote = function() {
     'device.mojom.PowerMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddClient
 device.mojom.PowerMonitor_AddClient_ParamsSpec = {
@@ -75,7 +75,7 @@ device.mojom.PowerMonitor_AddClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.PowerMonitorPtr = device.mojom.PowerMonitorRemote;
@@ -152,7 +152,7 @@ device.mojom.PowerMonitorClient.getRemote = function() {
     'device.mojom.PowerMonitorClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PowerStateChange
 device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec = {
@@ -166,7 +166,7 @@ device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Suspend
 device.mojom.PowerMonitorClient_Suspend_ParamsSpec = {
@@ -179,7 +179,7 @@ device.mojom.PowerMonitorClient_Suspend_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Resume
 device.mojom.PowerMonitorClient_Resume_ParamsSpec = {
@@ -192,7 +192,7 @@ device.mojom.PowerMonitorClient_Resume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.PowerMonitorClientPtr = device.mojom.PowerMonitorClientRemote;

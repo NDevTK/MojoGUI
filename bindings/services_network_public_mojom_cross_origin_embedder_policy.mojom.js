@@ -77,7 +77,7 @@ network.mojom.CrossOriginEmbedderPolicyReporter.getRemote = function() {
     'network.mojom.CrossOriginEmbedderPolicyReporter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for QueueCorpViolationReport
 network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec = {
@@ -93,7 +93,7 @@ network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec = {
@@ -107,7 +107,7 @@ network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.CrossOriginEmbedderPolicyReporterPtr = network.mojom.CrossOriginEmbedderPolicyReporterRemote;

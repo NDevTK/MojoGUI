@@ -61,7 +61,7 @@ device.mojom.XRSessionController.getRemote = function() {
     'device.mojom.XRSessionController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetFrameDataRestricted
 device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec = {
@@ -75,7 +75,7 @@ device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.XRSessionControllerPtr = device.mojom.XRSessionControllerRemote;
@@ -143,7 +143,7 @@ device.mojom.XRRuntimeEventListener.getRemote = function() {
     'device.mojom.XRRuntimeEventListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnVisibilityStateChanged
 device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec = {
@@ -157,7 +157,7 @@ device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnExitPresent
 device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec = {
@@ -170,7 +170,7 @@ device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.XRRuntimeEventListenerPtr = device.mojom.XRRuntimeEventListenerRemote;
@@ -247,7 +247,7 @@ device.mojom.XRRuntime.getRemote = function() {
     'device.mojom.XRRuntime',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestSession
 device.mojom.XRRuntime_RequestSession_ParamsSpec = {
@@ -261,7 +261,7 @@ device.mojom.XRRuntime_RequestSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.XRRuntime_RequestSession_ResponseParamsSpec = {
   $: {
@@ -274,7 +274,7 @@ device.mojom.XRRuntime_RequestSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShutdownSession
 device.mojom.XRRuntime_ShutdownSession_ParamsSpec = {
@@ -287,7 +287,7 @@ device.mojom.XRRuntime_ShutdownSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ListenToDeviceChanges
 device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec = {
@@ -301,7 +301,7 @@ device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.XRRuntimePtr = device.mojom.XRRuntimeRemote;
@@ -387,7 +387,7 @@ device.mojom.ImmersiveOverlay.getRemote = function() {
     'device.mojom.ImmersiveOverlay',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestNextOverlayPose
 device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec = {
@@ -400,7 +400,7 @@ device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec = {
   $: {
@@ -413,7 +413,7 @@ device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SubmitOverlayTexture
 device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec = {
@@ -431,7 +431,7 @@ device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec = {
   $: {
@@ -444,7 +444,7 @@ device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetOverlayAndWebXRVisibility
 device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec = {
@@ -459,7 +459,7 @@ device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestNotificationOnWebXrSubmitted
 device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec = {
@@ -472,7 +472,7 @@ device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.ImmersiveOverlayPtr = device.mojom.ImmersiveOverlayRemote;
@@ -549,7 +549,7 @@ device.mojom.IsolatedXRRuntimeProviderClient.getRemote = function() {
     'device.mojom.IsolatedXRRuntimeProviderClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDeviceAdded
 device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec = {
@@ -565,7 +565,7 @@ device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeviceRemoved
 device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec = {
@@ -579,7 +579,7 @@ device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDevicesEnumerated
 device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec = {
@@ -592,7 +592,7 @@ device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.IsolatedXRRuntimeProviderClientPtr = device.mojom.IsolatedXRRuntimeProviderClientRemote;
@@ -651,7 +651,7 @@ device.mojom.IsolatedXRRuntimeProvider.getRemote = function() {
     'device.mojom.IsolatedXRRuntimeProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestDevices
 device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec = {
@@ -665,7 +665,7 @@ device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.IsolatedXRRuntimeProviderPtr = device.mojom.IsolatedXRRuntimeProviderRemote;
@@ -733,7 +733,7 @@ device.mojom.XRDeviceService.getRemote = function() {
     'device.mojom.XRDeviceService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindRuntimeProvider
 device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec = {
@@ -748,7 +748,7 @@ device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindTestHook
 device.mojom.XRDeviceService_BindTestHook_ParamsSpec = {
@@ -762,7 +762,7 @@ device.mojom.XRDeviceService_BindTestHook_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.XRDeviceServicePtr = device.mojom.XRDeviceServiceRemote;
@@ -821,7 +821,7 @@ device.mojom.XRDeviceServiceHost.getRemote = function() {
     'device.mojom.XRDeviceServiceHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindGpu
 device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec = {
@@ -835,7 +835,7 @@ device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.XRDeviceServiceHostPtr = device.mojom.XRDeviceServiceHostRemote;

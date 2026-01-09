@@ -106,7 +106,7 @@ network.mojom.NetworkContextClient.getRemote = function() {
     'network.mojom.NetworkContextClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnFileUploadRequested
 network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec = {
@@ -123,7 +123,7 @@ network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec = {
   $: {
@@ -137,7 +137,7 @@ network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCanSendReportingReports
 network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec = {
@@ -151,7 +151,7 @@ network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec = {
   $: {
@@ -164,7 +164,7 @@ network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCanSendDomainReliabilityUpload
 network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec = {
@@ -178,7 +178,7 @@ network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec = {
   $: {
@@ -191,7 +191,7 @@ network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnGenerateHttpNegotiateAuthToken
 network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec = {
@@ -208,7 +208,7 @@ network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec = {
   $: {
@@ -222,7 +222,7 @@ network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCanSendSCTAuditingReport
 network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec = {
@@ -235,7 +235,7 @@ network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec = {
   $: {
@@ -248,7 +248,7 @@ network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNewSCTAuditingReportSent
 network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec = {
@@ -261,7 +261,7 @@ network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.NetworkContextClientPtr = network.mojom.NetworkContextClientRemote;

@@ -106,7 +106,7 @@ network.mojom.SimpleCacheEntry.getRemote = function() {
     'network.mojom.SimpleCacheEntry',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for WriteData
 network.mojom.SimpleCacheEntry_WriteData_ParamsSpec = {
@@ -123,7 +123,7 @@ network.mojom.SimpleCacheEntry_WriteData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec = {
   $: {
@@ -136,7 +136,7 @@ network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadData
 network.mojom.SimpleCacheEntry_ReadData_ParamsSpec = {
@@ -152,7 +152,7 @@ network.mojom.SimpleCacheEntry_ReadData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec = {
   $: {
@@ -166,7 +166,7 @@ network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteSparseData
 network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec = {
@@ -181,7 +181,7 @@ network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec = {
   $: {
@@ -194,7 +194,7 @@ network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadSparseData
 network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec = {
@@ -209,7 +209,7 @@ network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec = {
   $: {
@@ -223,7 +223,7 @@ network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Close
 network.mojom.SimpleCacheEntry_Close_ParamsSpec = {
@@ -236,7 +236,7 @@ network.mojom.SimpleCacheEntry_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.SimpleCacheEntryPtr = network.mojom.SimpleCacheEntryRemote;
@@ -295,7 +295,7 @@ network.mojom.SimpleCacheEntryEnumerator.getRemote = function() {
     'network.mojom.SimpleCacheEntryEnumerator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetNext
 network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec = {
@@ -308,7 +308,7 @@ network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec = {
   $: {
@@ -321,7 +321,7 @@ network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.SimpleCacheEntryEnumeratorPtr = network.mojom.SimpleCacheEntryEnumeratorRemote;
@@ -425,7 +425,7 @@ network.mojom.SimpleCache.getRemote = function() {
     'network.mojom.SimpleCache',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateEntry
 network.mojom.SimpleCache_CreateEntry_ParamsSpec = {
@@ -439,7 +439,7 @@ network.mojom.SimpleCache_CreateEntry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec = {
   $: {
@@ -453,7 +453,7 @@ network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenEntry
 network.mojom.SimpleCache_OpenEntry_ParamsSpec = {
@@ -467,7 +467,7 @@ network.mojom.SimpleCache_OpenEntry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec = {
   $: {
@@ -481,7 +481,7 @@ network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DoomEntry
 network.mojom.SimpleCache_DoomEntry_ParamsSpec = {
@@ -495,7 +495,7 @@ network.mojom.SimpleCache_DoomEntry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec = {
   $: {
@@ -508,7 +508,7 @@ network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DoomAllEntries
 network.mojom.SimpleCache_DoomAllEntries_ParamsSpec = {
@@ -521,7 +521,7 @@ network.mojom.SimpleCache_DoomAllEntries_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec = {
   $: {
@@ -534,7 +534,7 @@ network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnumerateEntries
 network.mojom.SimpleCache_EnumerateEntries_ParamsSpec = {
@@ -548,7 +548,7 @@ network.mojom.SimpleCache_EnumerateEntries_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Detach
 network.mojom.SimpleCache_Detach_ParamsSpec = {
@@ -561,7 +561,7 @@ network.mojom.SimpleCache_Detach_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.SimpleCachePtr = network.mojom.SimpleCacheRemote;
@@ -872,7 +872,7 @@ network.mojom.NetworkServiceTest.getRemote = function() {
     'network.mojom.NetworkServiceTest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddRules
 network.mojom.NetworkServiceTest_AddRules_ParamsSpec = {
@@ -886,7 +886,7 @@ network.mojom.NetworkServiceTest_AddRules_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SimulateNetworkChange
 network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec = {
@@ -900,7 +900,7 @@ network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SimulateNetworkQualityChange
 network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec = {
@@ -914,7 +914,7 @@ network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForceNetworkQualityEstimatorReportWifiAsSlow2G
 network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ParamsSpec = {
@@ -927,7 +927,7 @@ network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SimulateCrash
 network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec = {
@@ -940,7 +940,7 @@ network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MockCertVerifierSetDefaultResult
 network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec = {
@@ -954,7 +954,7 @@ network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MockCertVerifierAddResultForCertAndHost
 network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsSpec = {
@@ -971,7 +971,7 @@ network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTransportSecurityStateTestSource
 network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec = {
@@ -985,7 +985,7 @@ network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAllowNetworkAccessToHostResolutions
 network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSpec = {
@@ -998,7 +998,7 @@ network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReplaceSystemDnsConfig
 network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec = {
@@ -1011,7 +1011,7 @@ network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTestDohConfig
 network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec = {
@@ -1026,7 +1026,7 @@ network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CrashOnResolveHost
 network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec = {
@@ -1040,7 +1040,7 @@ network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CrashOnGetCookieList
 network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec = {
@@ -1053,7 +1053,7 @@ network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLatestMemoryPressureLevel
 network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec = {
@@ -1066,7 +1066,7 @@ network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec = {
   $: {
@@ -1079,7 +1079,7 @@ network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPeerToPeerConnectionsCountChange
 network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec = {
@@ -1092,7 +1092,7 @@ network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponseParamsSpec = {
   $: {
@@ -1105,7 +1105,7 @@ network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetEnvironmentVariableValue
 network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec = {
@@ -1119,7 +1119,7 @@ network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec = {
   $: {
@@ -1132,7 +1132,7 @@ network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Log
 network.mojom.NetworkServiceTest_Log_ParamsSpec = {
@@ -1146,7 +1146,7 @@ network.mojom.NetworkServiceTest_Log_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ActivateFieldTrial
 network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec = {
@@ -1160,7 +1160,7 @@ network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSCTAuditingRetryDelay
 network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec = {
@@ -1174,7 +1174,7 @@ network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenFile
 network.mojom.NetworkServiceTest_OpenFile_ParamsSpec = {
@@ -1188,7 +1188,7 @@ network.mojom.NetworkServiceTest_OpenFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec = {
   $: {
@@ -1201,7 +1201,7 @@ network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnumerateFiles
 network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec = {
@@ -1216,7 +1216,7 @@ network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec = {
   $: {
@@ -1230,7 +1230,7 @@ network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateSimpleCache
 network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec = {
@@ -1246,7 +1246,7 @@ network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec = {
   $: {
@@ -1259,7 +1259,7 @@ network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MakeRequestToServer
 network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec = {
@@ -1274,7 +1274,7 @@ network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec = {
   $: {
@@ -1287,7 +1287,7 @@ network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolveOwnHostnameWithSystemDns
 network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec = {
@@ -1300,7 +1300,7 @@ network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec = {
   $: {
@@ -1315,7 +1315,7 @@ network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIPv6ProbeResult
 network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec = {
@@ -1329,7 +1329,7 @@ network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAddressMapCacheLinux
 network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec = {
@@ -1342,7 +1342,7 @@ network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec = {
   $: {
@@ -1356,7 +1356,7 @@ network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AllowsGSSAPILibraryLoad
 network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec = {
@@ -1369,7 +1369,7 @@ network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec = {
   $: {
@@ -1382,7 +1382,7 @@ network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableExclusiveCookieDatabaseLockingForTesting
 network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ParamsSpec = {
@@ -1395,7 +1395,7 @@ network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsHappyEyeballsV3Enabled
 network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec = {
@@ -1408,7 +1408,7 @@ network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec = {
   $: {
@@ -1421,7 +1421,7 @@ network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.NetworkServiceTestPtr = network.mojom.NetworkServiceTestRemote;

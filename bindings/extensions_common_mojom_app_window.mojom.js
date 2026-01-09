@@ -61,7 +61,7 @@ extensions.mojom.AppWindow.getRemote = function() {
     'extensions.mojom.AppWindow',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetVisuallyDeemphasized
 extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec = {
@@ -75,7 +75,7 @@ extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mojom.AppWindowPtr = extensions.mojom.AppWindowRemote;

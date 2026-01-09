@@ -154,7 +154,7 @@ ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier.getRemote = function() 
     'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPtr = ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote;

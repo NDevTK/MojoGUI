@@ -70,7 +70,7 @@ sharing.mojom.MdnsObserver.getRemote = function() {
     'sharing.mojom.MdnsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ServiceFound
 sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec = {
@@ -84,7 +84,7 @@ sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ServiceLost
 sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec = {
@@ -98,7 +98,7 @@ sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 sharing.mojom.MdnsObserverPtr = sharing.mojom.MdnsObserverRemote;
@@ -175,7 +175,7 @@ sharing.mojom.MdnsManager.getRemote = function() {
     'sharing.mojom.MdnsManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddObserver
 sharing.mojom.MdnsManager_AddObserver_ParamsSpec = {
@@ -189,7 +189,7 @@ sharing.mojom.MdnsManager_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartDiscoverySession
 sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = {
@@ -203,7 +203,7 @@ sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec = {
   $: {
@@ -216,7 +216,7 @@ sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopDiscoverySession
 sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = {
@@ -230,7 +230,7 @@ sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = {
   $: {
@@ -243,7 +243,7 @@ sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 sharing.mojom.MdnsManagerPtr = sharing.mojom.MdnsManagerRemote;

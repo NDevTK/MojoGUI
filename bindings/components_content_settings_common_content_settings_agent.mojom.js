@@ -70,7 +70,7 @@ content_settings.mojom.ContentSettingsAgent.getRemote = function() {
     'content_settings.mojom.ContentSettingsAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetAllowRunningInsecureContent
 content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec = {
@@ -83,7 +83,7 @@ content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendRendererContentSettingRules
 content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec = {
@@ -97,7 +97,7 @@ content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content_settings.mojom.ContentSettingsAgentPtr = content_settings.mojom.ContentSettingsAgentRemote;

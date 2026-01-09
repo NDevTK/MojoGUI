@@ -52,7 +52,7 @@ arc.mojom.ArcBridgeHost.getRemote = function() {
     'arc.mojom.ArcBridgeHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ArcBridgeHostPtr = arc.mojom.ArcBridgeHostRemote;

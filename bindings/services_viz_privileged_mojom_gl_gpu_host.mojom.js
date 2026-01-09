@@ -205,7 +205,7 @@ viz.mojom.GpuHost.getRemote = function() {
     'viz.mojom.GpuHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidInitialize
 viz.mojom.GpuHost_DidInitialize_ParamsSpec = {
@@ -223,7 +223,7 @@ viz.mojom.GpuHost_DidInitialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidFailInitialize
 viz.mojom.GpuHost_DidFailInitialize_ParamsSpec = {
@@ -236,7 +236,7 @@ viz.mojom.GpuHost_DidFailInitialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidCreateContextSuccessfully
 viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec = {
@@ -249,7 +249,7 @@ viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidCreateOffscreenContext
 viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec = {
@@ -263,7 +263,7 @@ viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidDestroyOffscreenContext
 viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec = {
@@ -277,7 +277,7 @@ viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidDestroyChannel
 viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec = {
@@ -291,7 +291,7 @@ viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidDestroyAllChannels
 viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec = {
@@ -304,7 +304,7 @@ viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidLoseContext
 viz.mojom.GpuHost_DidLoseContext_ParamsSpec = {
@@ -319,7 +319,7 @@ viz.mojom.GpuHost_DidLoseContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidUpdateGPUInfo
 viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec = {
@@ -333,7 +333,7 @@ viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidUpdateOverlayInfo
 viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec = {
@@ -347,7 +347,7 @@ viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidUpdateDXGIInfo
 viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec = {
@@ -361,7 +361,7 @@ viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableGpuCompositing
 viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec = {
@@ -374,7 +374,7 @@ viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetIsolationKey
 viz.mojom.GpuHost_GetIsolationKey_ParamsSpec = {
@@ -389,7 +389,7 @@ viz.mojom.GpuHost_GetIsolationKey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec = {
   $: {
@@ -402,7 +402,7 @@ viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StoreBlobToDisk
 viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec = {
@@ -418,7 +418,7 @@ viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearGrShaderDiskCache
 viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec = {
@@ -431,7 +431,7 @@ viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnsureWebNNExecutionProvidersReady
 viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec = {
@@ -444,7 +444,7 @@ viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec = {
   $: {
@@ -457,7 +457,7 @@ viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateWebNNWeightsFile
 viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec = {
@@ -470,7 +470,7 @@ viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec = {
   $: {
@@ -483,7 +483,7 @@ viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.GpuHostPtr = viz.mojom.GpuHostRemote;

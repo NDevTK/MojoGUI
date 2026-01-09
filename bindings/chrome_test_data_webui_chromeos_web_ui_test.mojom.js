@@ -61,7 +61,7 @@ web_ui_test.mojom.TestRunner.getRemote = function() {
     'web_ui_test.mojom.TestRunner',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for TestComplete
 web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec = {
@@ -75,7 +75,7 @@ web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 web_ui_test.mojom.TestRunnerPtr = web_ui_test.mojom.TestRunnerRemote;

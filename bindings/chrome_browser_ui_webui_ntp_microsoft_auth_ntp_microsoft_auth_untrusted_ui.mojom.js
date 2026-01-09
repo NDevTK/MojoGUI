@@ -70,7 +70,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.getRemote = f
     'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ConnectToParentDocument
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec = {
@@ -84,7 +84,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToPare
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec = {
@@ -99,7 +99,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHan
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryPtr = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemote;
@@ -185,7 +185,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler.getRemote = function() {
     'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ClearAuthData
 new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec = {
@@ -198,7 +198,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MaybeAcquireTokenSilent
 new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec = {
@@ -211,7 +211,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAccessToken
 new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec = {
@@ -225,7 +225,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAuthStateError
 new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec = {
@@ -240,7 +240,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerPtr = new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote;

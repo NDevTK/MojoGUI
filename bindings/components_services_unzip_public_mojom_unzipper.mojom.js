@@ -61,7 +61,7 @@ unzip.mojom.UnzipFilter.getRemote = function() {
     'unzip.mojom.UnzipFilter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShouldUnzipFile
 unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec = {
@@ -75,7 +75,7 @@ unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 unzip.mojom.UnzipFilterPtr = unzip.mojom.UnzipFilterRemote;
@@ -147,7 +147,7 @@ unzip.mojom.UnzipListener.getRemote = function() {
     'unzip.mojom.UnzipListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnProgress
 unzip.mojom.UnzipListener_OnProgress_ParamsSpec = {
@@ -161,7 +161,7 @@ unzip.mojom.UnzipListener_OnProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 unzip.mojom.UnzipListenerPtr = unzip.mojom.UnzipListenerRemote;
@@ -247,7 +247,7 @@ unzip.mojom.Unzipper.getRemote = function() {
     'unzip.mojom.Unzipper',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Unzip
 unzip.mojom.Unzipper_Unzip_ParamsSpec = {
@@ -265,7 +265,7 @@ unzip.mojom.Unzipper_Unzip_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 unzip.mojom.Unzipper_Unzip_ResponseParamsSpec = {
   $: {
@@ -278,7 +278,7 @@ unzip.mojom.Unzipper_Unzip_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DetectEncoding
 unzip.mojom.Unzipper_DetectEncoding_ParamsSpec = {
@@ -292,7 +292,7 @@ unzip.mojom.Unzipper_DetectEncoding_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec = {
   $: {
@@ -305,7 +305,7 @@ unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetExtractedInfo
 unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec = {
@@ -319,7 +319,7 @@ unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec = {
   $: {
@@ -332,7 +332,7 @@ unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DecodeXz
 unzip.mojom.Unzipper_DecodeXz_ParamsSpec = {
@@ -347,7 +347,7 @@ unzip.mojom.Unzipper_DecodeXz_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec = {
   $: {
@@ -360,7 +360,7 @@ unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 unzip.mojom.UnzipperPtr = unzip.mojom.UnzipperRemote;

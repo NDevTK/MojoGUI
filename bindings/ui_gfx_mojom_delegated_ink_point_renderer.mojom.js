@@ -70,7 +70,7 @@ gfx.mojom.DelegatedInkPointRenderer.getRemote = function() {
     'gfx.mojom.DelegatedInkPointRenderer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StoreDelegatedInkPoint
 gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = {
@@ -84,7 +84,7 @@ gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetPrediction
 gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = {
@@ -97,7 +97,7 @@ gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 gfx.mojom.DelegatedInkPointRendererPtr = gfx.mojom.DelegatedInkPointRendererRemote;

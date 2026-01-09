@@ -61,7 +61,7 @@ history_clusters_internals.mojom.PageHandlerFactory.getRemote = function() {
     'history_clusters_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 history_clusters_internals.mojom.PageHandlerFactoryPtr = history_clusters_internals.mojom.PageHandlerFactoryRemote;
@@ -144,7 +144,7 @@ history_clusters_internals.mojom.PageHandler.getRemote = function() {
     'history_clusters_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetContextClustersJson
 history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec = {
@@ -157,7 +157,7 @@ history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec = {
   $: {
@@ -170,7 +170,7 @@ history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrintKeywordBagStateToLogMessages
 history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec = {
@@ -183,7 +183,7 @@ history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 history_clusters_internals.mojom.PageHandlerPtr = history_clusters_internals.mojom.PageHandlerRemote;
@@ -242,7 +242,7 @@ history_clusters_internals.mojom.Page.getRemote = function() {
     'history_clusters_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnLogMessageAdded
 history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
@@ -256,7 +256,7 @@ history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 history_clusters_internals.mojom.PagePtr = history_clusters_internals.mojom.PageRemote;

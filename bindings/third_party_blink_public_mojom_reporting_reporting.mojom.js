@@ -124,7 +124,7 @@ blink.mojom.ReportingServiceProxy.getRemote = function() {
     'blink.mojom.ReportingServiceProxy',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for QueueInterventionReport
 blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec = {
@@ -143,7 +143,7 @@ blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueueDeprecationReport
 blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec = {
@@ -163,7 +163,7 @@ blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueueCspViolationReport
 blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec = {
@@ -189,7 +189,7 @@ blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueueIntegrityViolationReport
 blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec = {
@@ -208,7 +208,7 @@ blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueuePermissionsPolicyViolationReport
 blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec = {
@@ -229,7 +229,7 @@ blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueuePotentialPermissionsPolicyViolationReport
 blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec = {
@@ -252,7 +252,7 @@ blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueueDocumentPolicyViolationReport
 blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec = {
@@ -273,7 +273,7 @@ blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueueCSPHashReport
 blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec = {
@@ -292,7 +292,7 @@ blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ReportingServiceProxyPtr = blink.mojom.ReportingServiceProxyRemote;

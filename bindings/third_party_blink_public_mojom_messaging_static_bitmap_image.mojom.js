@@ -61,7 +61,7 @@ blink.mojom.ImageReleaseCallback.getRemote = function() {
     'blink.mojom.ImageReleaseCallback',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Release
 blink.mojom.ImageReleaseCallback_Release_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.ImageReleaseCallback_Release_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ImageReleaseCallbackPtr = blink.mojom.ImageReleaseCallbackRemote;

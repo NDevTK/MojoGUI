@@ -61,7 +61,7 @@ blink.mojom.WebPressureManager.getRemote = function() {
     'blink.mojom.WebPressureManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddClient
 blink.mojom.WebPressureManager_AddClient_ParamsSpec = {
@@ -76,7 +76,7 @@ blink.mojom.WebPressureManager_AddClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec = {
   $: {
@@ -89,7 +89,7 @@ blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebPressureManagerPtr = blink.mojom.WebPressureManagerRemote;
@@ -148,7 +148,7 @@ blink.mojom.WebPressureClient.getRemote = function() {
     'blink.mojom.WebPressureClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPressureUpdated
 blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = {
@@ -162,7 +162,7 @@ blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebPressureClientPtr = blink.mojom.WebPressureClientRemote;

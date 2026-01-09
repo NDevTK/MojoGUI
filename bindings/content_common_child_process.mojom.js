@@ -70,7 +70,7 @@ content.mojom.ChildProcessHost.getRemote = function() {
     'content.mojom.ChildProcessHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Ping
 content.mojom.ChildProcessHost_Ping_ParamsSpec = {
@@ -83,7 +83,7 @@ content.mojom.ChildProcessHost_Ping_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindHostReceiver
 content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec = {
@@ -97,7 +97,7 @@ content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.ChildProcessHostPtr = content.mojom.ChildProcessHostRemote;
@@ -273,7 +273,7 @@ content.mojom.ChildProcess.getRemote = function() {
     'content.mojom.ChildProcess',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ProcessShutdown
 content.mojom.ChildProcess_ProcessShutdown_ParamsSpec = {
@@ -286,7 +286,7 @@ content.mojom.ChildProcess_ProcessShutdown_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTaskPort
 content.mojom.ChildProcess_GetTaskPort_ParamsSpec = {
@@ -299,7 +299,7 @@ content.mojom.ChildProcess_GetTaskPort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec = {
   $: {
@@ -312,7 +312,7 @@ content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIPCLoggingEnabled
 content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec = {
@@ -326,7 +326,7 @@ content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetBackgroundTracingAgentProvider
 content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec = {
@@ -340,7 +340,7 @@ content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableSystemTracingService
 content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec = {
@@ -354,7 +354,7 @@ content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CrashHungProcess
 content.mojom.ChildProcess_CrashHungProcess_ParamsSpec = {
@@ -367,7 +367,7 @@ content.mojom.ChildProcess_CrashHungProcess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindServiceInterface
 content.mojom.ChildProcess_BindServiceInterface_ParamsSpec = {
@@ -381,7 +381,7 @@ content.mojom.ChildProcess_BindServiceInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindReceiver
 content.mojom.ChildProcess_BindReceiver_ParamsSpec = {
@@ -395,7 +395,7 @@ content.mojom.ChildProcess_BindReceiver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetProfilingFile
 content.mojom.ChildProcess_SetProfilingFile_ParamsSpec = {
@@ -409,7 +409,7 @@ content.mojom.ChildProcess_SetProfilingFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteClangProfilingProfile
 content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec = {
@@ -422,7 +422,7 @@ content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPseudonymizationSalt
 content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec = {
@@ -436,7 +436,7 @@ content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReinitializeLogging
 content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec = {
@@ -450,7 +450,7 @@ content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMemoryPressure
 content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec = {
@@ -464,7 +464,7 @@ content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBatterySaverMode
 content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec = {
@@ -478,7 +478,7 @@ content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.ChildProcessPtr = content.mojom.ChildProcessRemote;

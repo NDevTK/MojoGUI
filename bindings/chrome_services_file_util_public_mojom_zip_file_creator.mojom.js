@@ -70,7 +70,7 @@ chrome.mojom.ZipListener.getRemote = function() {
     'chrome.mojom.ZipListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnProgress
 chrome.mojom.ZipListener_OnProgress_ParamsSpec = {
@@ -86,7 +86,7 @@ chrome.mojom.ZipListener_OnProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFinished
 chrome.mojom.ZipListener_OnFinished_ParamsSpec = {
@@ -100,7 +100,7 @@ chrome.mojom.ZipListener_OnFinished_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.ZipListenerPtr = chrome.mojom.ZipListenerRemote;
@@ -159,7 +159,7 @@ chrome.mojom.ZipFileCreator.getRemote = function() {
     'chrome.mojom.ZipFileCreator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateZipFile
 chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec = {
@@ -176,7 +176,7 @@ chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.ZipFileCreatorPtr = chrome.mojom.ZipFileCreatorRemote;

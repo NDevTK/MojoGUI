@@ -61,7 +61,7 @@ aim_eligibility.mojom.Page.getRemote = function() {
     'aim_eligibility.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnEligibilityStateChanged
 aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec = {
@@ -75,7 +75,7 @@ aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 aim_eligibility.mojom.PagePtr = aim_eligibility.mojom.PageRemote;
@@ -152,7 +152,7 @@ aim_eligibility.mojom.PageHandler.getRemote = function() {
     'aim_eligibility.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetEligibilityState
 aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec = {
@@ -165,7 +165,7 @@ aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec = {
   $: {
@@ -178,7 +178,7 @@ aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestServerEligibilityForDebugging
 aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec = {
@@ -191,7 +191,7 @@ aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetEligibilityResponseForDebugging
 aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec = {
@@ -205,7 +205,7 @@ aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec = {
   $: {
@@ -218,7 +218,7 @@ aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 aim_eligibility.mojom.PageHandlerPtr = aim_eligibility.mojom.PageHandlerRemote;
@@ -277,7 +277,7 @@ aim_eligibility.mojom.PageHandlerFactory.getRemote = function() {
     'aim_eligibility.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -292,7 +292,7 @@ aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 aim_eligibility.mojom.PageHandlerFactoryPtr = aim_eligibility.mojom.PageHandlerFactoryRemote;

@@ -61,7 +61,7 @@ blink.mojom.BroadcastChannelClient.getRemote = function() {
     'blink.mojom.BroadcastChannelClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMessage
 blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BroadcastChannelClientPtr = blink.mojom.BroadcastChannelClientRemote;
@@ -134,7 +134,7 @@ blink.mojom.BroadcastChannelProvider.getRemote = function() {
     'blink.mojom.BroadcastChannelProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ConnectToChannel
 blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec = {
@@ -150,7 +150,7 @@ blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BroadcastChannelProviderPtr = blink.mojom.BroadcastChannelProviderRemote;

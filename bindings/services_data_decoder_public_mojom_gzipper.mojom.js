@@ -88,7 +88,7 @@ data_decoder.mojom.Gzipper.getRemote = function() {
     'data_decoder.mojom.Gzipper',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Deflate
 data_decoder.mojom.Gzipper_Deflate_ParamsSpec = {
@@ -102,7 +102,7 @@ data_decoder.mojom.Gzipper_Deflate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec = {
   $: {
@@ -115,7 +115,7 @@ data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Inflate
 data_decoder.mojom.Gzipper_Inflate_ParamsSpec = {
@@ -130,7 +130,7 @@ data_decoder.mojom.Gzipper_Inflate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec = {
   $: {
@@ -143,7 +143,7 @@ data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Compress
 data_decoder.mojom.Gzipper_Compress_ParamsSpec = {
@@ -157,7 +157,7 @@ data_decoder.mojom.Gzipper_Compress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec = {
   $: {
@@ -170,7 +170,7 @@ data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Uncompress
 data_decoder.mojom.Gzipper_Uncompress_ParamsSpec = {
@@ -184,7 +184,7 @@ data_decoder.mojom.Gzipper_Uncompress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec = {
   $: {
@@ -197,7 +197,7 @@ data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 data_decoder.mojom.GzipperPtr = data_decoder.mojom.GzipperRemote;

@@ -136,7 +136,7 @@ content.mojom.InputInjector.getRemote = function() {
     'content.mojom.InputInjector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for QueueSyntheticSmoothDrag
 content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec = {
@@ -150,7 +150,7 @@ content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueueSyntheticSmoothScroll
 content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec = {
@@ -164,7 +164,7 @@ content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueueSyntheticPinch
 content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec = {
@@ -178,7 +178,7 @@ content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueueSyntheticTap
 content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec = {
@@ -192,7 +192,7 @@ content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueueSyntheticPointerAction
 content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec = {
@@ -206,7 +206,7 @@ content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.InputInjectorPtr = content.mojom.InputInjectorRemote;

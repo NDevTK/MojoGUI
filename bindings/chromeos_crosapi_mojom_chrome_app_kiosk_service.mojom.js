@@ -71,7 +71,7 @@ crosapi.mojom.ChromeKioskLaunchController.getRemote = function() {
     'crosapi.mojom.ChromeKioskLaunchController',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.ChromeKioskLaunchControllerPtr = crosapi.mojom.ChromeKioskLaunchControllerRemote;
@@ -121,7 +121,7 @@ crosapi.mojom.ChromeAppKioskService.getRemote = function() {
     'crosapi.mojom.ChromeAppKioskService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.ChromeAppKioskServicePtr = crosapi.mojom.ChromeAppKioskServiceRemote;

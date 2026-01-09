@@ -61,7 +61,7 @@ blink.mojom.FileSystemAccessDirectoryEntriesListener.getRemote = function() {
     'blink.mojom.FileSystemAccessDirectoryEntriesListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidReadDirectory
 blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec = {
@@ -77,7 +77,7 @@ blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileSystemAccessDirectoryEntriesListenerPtr = blink.mojom.FileSystemAccessDirectoryEntriesListenerRemote;
@@ -244,7 +244,7 @@ blink.mojom.FileSystemAccessDirectoryHandle.getRemote = function() {
     'blink.mojom.FileSystemAccessDirectoryHandle',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPermissionStatus
 blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec = {
@@ -258,7 +258,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec = {
   $: {
@@ -271,7 +271,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestPermission
 blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec = {
@@ -285,7 +285,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec = {
   $: {
@@ -299,7 +299,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFile
 blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec = {
@@ -314,7 +314,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec = {
   $: {
@@ -328,7 +328,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDirectory
 blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec = {
@@ -343,7 +343,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec = {
   $: {
@@ -357,7 +357,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetEntries
 blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec = {
@@ -371,7 +371,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Rename
 blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec = {
@@ -385,7 +385,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec = {
   $: {
@@ -398,7 +398,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Move
 blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec = {
@@ -413,7 +413,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec = {
   $: {
@@ -426,7 +426,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Remove
 blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec = {
@@ -440,7 +440,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec = {
   $: {
@@ -453,7 +453,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveEntry
 blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec = {
@@ -468,7 +468,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec = {
   $: {
@@ -481,7 +481,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Resolve
 blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec = {
@@ -495,7 +495,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec = {
   $: {
@@ -509,7 +509,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Transfer
 blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec = {
@@ -523,7 +523,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUniqueId
 blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec = {
@@ -536,7 +536,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec = {
   $: {
@@ -550,7 +550,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCloudIdentifiers
 blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec = {
@@ -563,7 +563,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec = {
   $: {
@@ -577,7 +577,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileSystemAccessDirectoryHandlePtr = blink.mojom.FileSystemAccessDirectoryHandleRemote;

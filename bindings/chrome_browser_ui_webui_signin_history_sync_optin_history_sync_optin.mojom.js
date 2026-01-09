@@ -75,7 +75,7 @@ history_sync_optin.mojom.PageHandlerFactory.getRemote = function() {
     'history_sync_optin.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateHistorySyncOptinHandler
 history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec = {
@@ -90,7 +90,7 @@ history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 history_sync_optin.mojom.PageHandlerFactoryPtr = history_sync_optin.mojom.PageHandlerFactoryRemote;
@@ -176,7 +176,7 @@ history_sync_optin.mojom.PageHandler.getRemote = function() {
     'history_sync_optin.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Accept
 history_sync_optin.mojom.PageHandler_Accept_ParamsSpec = {
@@ -189,7 +189,7 @@ history_sync_optin.mojom.PageHandler_Accept_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Reject
 history_sync_optin.mojom.PageHandler_Reject_ParamsSpec = {
@@ -202,7 +202,7 @@ history_sync_optin.mojom.PageHandler_Reject_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestAccountInfo
 history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec = {
@@ -215,7 +215,7 @@ history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateDialogHeight
 history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec = {
@@ -229,7 +229,7 @@ history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 history_sync_optin.mojom.PageHandlerPtr = history_sync_optin.mojom.PageHandlerRemote;
@@ -297,7 +297,7 @@ history_sync_optin.mojom.Page.getRemote = function() {
     'history_sync_optin.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendAccountInfo
 history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec = {
@@ -311,7 +311,7 @@ history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendScreenMode
 history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec = {
@@ -325,7 +325,7 @@ history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 history_sync_optin.mojom.PagePtr = history_sync_optin.mojom.PageRemote;

@@ -67,7 +67,7 @@ media_session.mojom.AudioFocusObserver.getRemote = function() {
     'media_session.mojom.AudioFocusObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media_session.mojom.AudioFocusObserverPtr = media_session.mojom.AudioFocusObserverRemote;
@@ -117,7 +117,7 @@ media_session.mojom.AudioFocusRequestClient.getRemote = function() {
     'media_session.mojom.AudioFocusRequestClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media_session.mojom.AudioFocusRequestClientPtr = media_session.mojom.AudioFocusRequestClientRemote;
@@ -167,7 +167,7 @@ media_session.mojom.AudioFocusManager.getRemote = function() {
     'media_session.mojom.AudioFocusManager',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media_session.mojom.AudioFocusManagerPtr = media_session.mojom.AudioFocusManagerRemote;
@@ -217,7 +217,7 @@ media_session.mojom.AudioFocusManagerDebug.getRemote = function() {
     'media_session.mojom.AudioFocusManagerDebug',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media_session.mojom.AudioFocusManagerDebugPtr = media_session.mojom.AudioFocusManagerDebugRemote;

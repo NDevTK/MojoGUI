@@ -77,7 +77,7 @@ ash.language.mojom.LanguagePacksObserver.getRemote = function() {
     'ash.language.mojom.LanguagePacksObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.language.mojom.LanguagePacksObserverPtr = ash.language.mojom.LanguagePacksObserverRemote;
@@ -127,7 +127,7 @@ ash.language.mojom.LanguagePacks.getRemote = function() {
     'ash.language.mojom.LanguagePacks',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.language.mojom.LanguagePacksPtr = ash.language.mojom.LanguagePacksRemote;

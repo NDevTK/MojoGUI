@@ -61,7 +61,7 @@ viz.mojom.CompositingModeWatcher.getRemote = function() {
     'viz.mojom.CompositingModeWatcher',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CompositingModeFallbackToSoftware
 viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec = {
@@ -74,7 +74,7 @@ viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.CompositingModeWatcherPtr = viz.mojom.CompositingModeWatcherRemote;
@@ -133,7 +133,7 @@ viz.mojom.CompositingModeReporter.getRemote = function() {
     'viz.mojom.CompositingModeReporter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddCompositingModeWatcher
 viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = {
@@ -147,7 +147,7 @@ viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.CompositingModeReporterPtr = viz.mojom.CompositingModeReporterRemote;

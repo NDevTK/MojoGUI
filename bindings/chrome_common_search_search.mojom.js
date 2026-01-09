@@ -61,7 +61,7 @@ search.mojom.EmbeddedSearchConnector.getRemote = function() {
     'search.mojom.EmbeddedSearchConnector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Connect
 search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = {
@@ -76,7 +76,7 @@ search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 search.mojom.EmbeddedSearchConnectorPtr = search.mojom.EmbeddedSearchConnectorRemote;
@@ -162,7 +162,7 @@ search.mojom.EmbeddedSearch.getRemote = function() {
     'search.mojom.EmbeddedSearch',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FocusOmnibox
 search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec = {
@@ -177,7 +177,7 @@ search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteMostVisitedItem
 search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = {
@@ -192,7 +192,7 @@ search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UndoAllMostVisitedDeletions
 search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec = {
@@ -206,7 +206,7 @@ search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UndoMostVisitedDeletion
 search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = {
@@ -221,7 +221,7 @@ search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 search.mojom.EmbeddedSearchPtr = search.mojom.EmbeddedSearchRemote;
@@ -316,7 +316,7 @@ search.mojom.EmbeddedSearchClient.getRemote = function() {
     'search.mojom.EmbeddedSearchClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetPageSequenceNumber
 search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec = {
@@ -330,7 +330,7 @@ search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FocusChanged
 search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec = {
@@ -345,7 +345,7 @@ search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MostVisitedInfoChanged
 search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec = {
@@ -359,7 +359,7 @@ search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetInputInProgress
 search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec = {
@@ -373,7 +373,7 @@ search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ThemeChanged
 search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = {
@@ -387,7 +387,7 @@ search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 search.mojom.EmbeddedSearchClientPtr = search.mojom.EmbeddedSearchClientRemote;

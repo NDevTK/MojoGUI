@@ -52,7 +52,7 @@ arc.mojom.ProtectedBufferManager.getRemote = function() {
     'arc.mojom.ProtectedBufferManager',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ProtectedBufferManagerPtr = arc.mojom.ProtectedBufferManagerRemote;

@@ -61,7 +61,7 @@ chrome_urls.mojom.PageHandlerFactory.getRemote = function() {
     'chrome_urls.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome_urls.mojom.PageHandlerFactoryPtr = chrome_urls.mojom.PageHandlerFactoryRemote;
@@ -144,7 +144,7 @@ chrome_urls.mojom.PageHandler.getRemote = function() {
     'chrome_urls.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetUrls
 chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec = {
@@ -157,7 +157,7 @@ chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec = {
   $: {
@@ -170,7 +170,7 @@ chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDebugPagesEnabled
 chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec = {
@@ -184,7 +184,7 @@ chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome_urls.mojom.PageHandlerPtr = chrome_urls.mojom.PageHandlerRemote;
@@ -234,7 +234,7 @@ chrome_urls.mojom.Page.getRemote = function() {
     'chrome_urls.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chrome_urls.mojom.PagePtr = chrome_urls.mojom.PageRemote;

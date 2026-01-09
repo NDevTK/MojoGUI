@@ -61,7 +61,7 @@ media.mojom.VideoDecoderFactoryProcess.getRemote = function() {
     'media.mojom.VideoDecoderFactoryProcess',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for InitializeVideoDecoderFactory
 media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec = {
@@ -77,7 +77,7 @@ media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.VideoDecoderFactoryProcessPtr = media.mojom.VideoDecoderFactoryProcessRemote;

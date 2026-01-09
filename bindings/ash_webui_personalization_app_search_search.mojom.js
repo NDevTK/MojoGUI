@@ -83,7 +83,7 @@ ash.personalization_app.mojom.SearchResultsObserver.getRemote = function() {
     'ash.personalization_app.mojom.SearchResultsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSearchResultsChanged
 ash.personalization_app.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec = {
@@ -96,7 +96,7 @@ ash.personalization_app.mojom.SearchResultsObserver_OnSearchResultsChanged_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.personalization_app.mojom.SearchResultsObserverPtr = ash.personalization_app.mojom.SearchResultsObserverRemote;
@@ -164,7 +164,7 @@ ash.personalization_app.mojom.SearchHandler.getRemote = function() {
     'ash.personalization_app.mojom.SearchHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Search
 ash.personalization_app.mojom.SearchHandler_Search_ParamsSpec = {
@@ -179,7 +179,7 @@ ash.personalization_app.mojom.SearchHandler_Search_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.SearchHandler_Search_ResponseParamsSpec = {
   $: {
@@ -192,7 +192,7 @@ ash.personalization_app.mojom.SearchHandler_Search_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddObserver
 ash.personalization_app.mojom.SearchHandler_AddObserver_ParamsSpec = {
@@ -206,7 +206,7 @@ ash.personalization_app.mojom.SearchHandler_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.personalization_app.mojom.SearchHandlerPtr = ash.personalization_app.mojom.SearchHandlerRemote;

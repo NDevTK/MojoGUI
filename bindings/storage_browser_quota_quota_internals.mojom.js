@@ -106,7 +106,7 @@ storage.mojom.QuotaInternalsHandler.getRemote = function() {
     'storage.mojom.QuotaInternalsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDiskAvailabilityAndTempPoolSize
 storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec = {
@@ -119,7 +119,7 @@ storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec = {
   $: {
@@ -134,7 +134,7 @@ storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStatistics
 storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec = {
@@ -147,7 +147,7 @@ storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec = {
   $: {
@@ -160,7 +160,7 @@ storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SimulateStoragePressure
 storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec = {
@@ -174,7 +174,7 @@ storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RetrieveBucketsTable
 storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec = {
@@ -187,7 +187,7 @@ storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec = {
   $: {
@@ -200,7 +200,7 @@ storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetGlobalUsageForInternals
 storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec = {
@@ -213,7 +213,7 @@ storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec = {
   $: {
@@ -227,7 +227,7 @@ storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsSimulateStoragePressureAvailable
 storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec = {
@@ -240,7 +240,7 @@ storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec = {
   $: {
@@ -253,7 +253,7 @@ storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.QuotaInternalsHandlerPtr = storage.mojom.QuotaInternalsHandlerRemote;

@@ -70,7 +70,7 @@ blink.mojom.FetchLaterLoaderFactory.getRemote = function() {
     'blink.mojom.FetchLaterLoaderFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateLoader
 blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec = {
@@ -88,7 +88,7 @@ blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec = {
@@ -102,7 +102,7 @@ blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FetchLaterLoaderFactoryPtr = blink.mojom.FetchLaterLoaderFactoryRemote;
@@ -170,7 +170,7 @@ blink.mojom.FetchLaterLoader.getRemote = function() {
     'blink.mojom.FetchLaterLoader',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendNow
 blink.mojom.FetchLaterLoader_SendNow_ParamsSpec = {
@@ -183,7 +183,7 @@ blink.mojom.FetchLaterLoader_SendNow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Cancel
 blink.mojom.FetchLaterLoader_Cancel_ParamsSpec = {
@@ -196,7 +196,7 @@ blink.mojom.FetchLaterLoader_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FetchLaterLoaderPtr = blink.mojom.FetchLaterLoaderRemote;

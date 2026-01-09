@@ -79,7 +79,7 @@ heap_profiling.mojom.TestConnector.getRemote = function() {
     'heap_profiling.mojom.TestConnector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ConnectSnapshotController
 heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec = {
@@ -93,7 +93,7 @@ heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConnectProfileCollector
 heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec = {
@@ -107,7 +107,7 @@ heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Disconnect
 heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec = {
@@ -120,7 +120,7 @@ heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 heap_profiling.mojom.TestConnectorPtr = heap_profiling.mojom.TestConnectorRemote;

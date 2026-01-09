@@ -138,7 +138,7 @@ blink.mojom.ServiceWorkerContainerHost.getRemote = function() {
     'blink.mojom.ServiceWorkerContainerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Register
 blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec = {
@@ -154,7 +154,7 @@ blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec = {
   $: {
@@ -169,7 +169,7 @@ blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRegistration
 blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec = {
@@ -183,7 +183,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec = {
   $: {
@@ -198,7 +198,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRegistrations
 blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec = {
@@ -211,7 +211,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec = {
   $: {
@@ -226,7 +226,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRegistrationForReady
 blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec = {
@@ -239,7 +239,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec = {
   $: {
@@ -252,7 +252,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnsureControllerServiceWorker
 blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec = {
@@ -267,7 +267,7 @@ blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloneContainerHost
 blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec = {
@@ -281,7 +281,7 @@ blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HintToUpdateServiceWorker
 blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec = {
@@ -294,7 +294,7 @@ blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnsureFileAccess
 blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec = {
@@ -308,7 +308,7 @@ blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnExecutionReady
 blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec = {
@@ -321,7 +321,7 @@ blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerContainerHostPtr = blink.mojom.ServiceWorkerContainerHostRemote;
@@ -398,7 +398,7 @@ blink.mojom.ServiceWorkerContainer.getRemote = function() {
     'blink.mojom.ServiceWorkerContainer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetController
 blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec = {
@@ -413,7 +413,7 @@ blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PostMessageToClient
 blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec = {
@@ -428,7 +428,7 @@ blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CountFeature
 blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec = {
@@ -442,7 +442,7 @@ blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerContainerPtr = blink.mojom.ServiceWorkerContainerRemote;

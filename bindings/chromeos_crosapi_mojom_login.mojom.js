@@ -52,7 +52,7 @@ crosapi.mojom.ExternalLogoutRequestObserver.getRemote = function() {
     'crosapi.mojom.ExternalLogoutRequestObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.ExternalLogoutRequestObserverPtr = crosapi.mojom.ExternalLogoutRequestObserverRemote;
@@ -102,7 +102,7 @@ crosapi.mojom.Login.getRemote = function() {
     'crosapi.mojom.Login',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.LoginPtr = crosapi.mojom.LoginRemote;

@@ -135,7 +135,7 @@ app_management.mojom.PageHandlerFactory.getRemote = function() {
     'app_management.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 app_management.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -150,7 +150,7 @@ app_management.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 app_management.mojom.PageHandlerFactoryPtr = app_management.mojom.PageHandlerFactoryRemote;
@@ -371,7 +371,7 @@ app_management.mojom.PageHandler.getRemote = function() {
     'app_management.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetApps
 app_management.mojom.PageHandler_GetApps_ParamsSpec = {
@@ -384,7 +384,7 @@ app_management.mojom.PageHandler_GetApps_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 app_management.mojom.PageHandler_GetApps_ResponseParamsSpec = {
   $: {
@@ -397,7 +397,7 @@ app_management.mojom.PageHandler_GetApps_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetApp
 app_management.mojom.PageHandler_GetApp_ParamsSpec = {
@@ -411,7 +411,7 @@ app_management.mojom.PageHandler_GetApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 app_management.mojom.PageHandler_GetApp_ResponseParamsSpec = {
   $: {
@@ -424,7 +424,7 @@ app_management.mojom.PageHandler_GetApp_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSubAppToParentMap
 app_management.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec = {
@@ -437,7 +437,7 @@ app_management.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec = {
   $: {
@@ -450,7 +450,7 @@ app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetExtensionAppPermissionMessages
 app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec = {
@@ -464,7 +464,7 @@ app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec = {
   $: {
@@ -477,7 +477,7 @@ app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPinned
 app_management.mojom.PageHandler_SetPinned_ParamsSpec = {
@@ -492,7 +492,7 @@ app_management.mojom.PageHandler_SetPinned_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPermission
 app_management.mojom.PageHandler_SetPermission_ParamsSpec = {
@@ -507,7 +507,7 @@ app_management.mojom.PageHandler_SetPermission_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetResizeLocked
 app_management.mojom.PageHandler_SetResizeLocked_ParamsSpec = {
@@ -522,7 +522,7 @@ app_management.mojom.PageHandler_SetResizeLocked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Uninstall
 app_management.mojom.PageHandler_Uninstall_ParamsSpec = {
@@ -536,7 +536,7 @@ app_management.mojom.PageHandler_Uninstall_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenNativeSettings
 app_management.mojom.PageHandler_OpenNativeSettings_ParamsSpec = {
@@ -550,7 +550,7 @@ app_management.mojom.PageHandler_OpenNativeSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPreferredApp
 app_management.mojom.PageHandler_SetPreferredApp_ParamsSpec = {
@@ -565,7 +565,7 @@ app_management.mojom.PageHandler_SetPreferredApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOverlappingPreferredApps
 app_management.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec = {
@@ -579,7 +579,7 @@ app_management.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec = {
   $: {
@@ -592,7 +592,7 @@ app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateAppSize
 app_management.mojom.PageHandler_UpdateAppSize_ParamsSpec = {
@@ -606,7 +606,7 @@ app_management.mojom.PageHandler_UpdateAppSize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWindowMode
 app_management.mojom.PageHandler_SetWindowMode_ParamsSpec = {
@@ -621,7 +621,7 @@ app_management.mojom.PageHandler_SetWindowMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetRunOnOsLoginMode
 app_management.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
@@ -636,7 +636,7 @@ app_management.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFileHandlingEnabled
 app_management.mojom.PageHandler_SetFileHandlingEnabled_ParamsSpec = {
@@ -651,7 +651,7 @@ app_management.mojom.PageHandler_SetFileHandlingEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowDefaultAppAssociationsUi
 app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec = {
@@ -664,7 +664,7 @@ app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenStorePage
 app_management.mojom.PageHandler_OpenStorePage_ParamsSpec = {
@@ -678,7 +678,7 @@ app_management.mojom.PageHandler_OpenStorePage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAppLocale
 app_management.mojom.PageHandler_SetAppLocale_ParamsSpec = {
@@ -693,7 +693,7 @@ app_management.mojom.PageHandler_SetAppLocale_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenSystemNotificationSettings
 app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec = {
@@ -707,7 +707,7 @@ app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 app_management.mojom.PageHandlerPtr = app_management.mojom.PageHandlerRemote;
@@ -784,7 +784,7 @@ app_management.mojom.Page.getRemote = function() {
     'app_management.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAppAdded
 app_management.mojom.Page_OnAppAdded_ParamsSpec = {
@@ -798,7 +798,7 @@ app_management.mojom.Page_OnAppAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAppChanged
 app_management.mojom.Page_OnAppChanged_ParamsSpec = {
@@ -812,7 +812,7 @@ app_management.mojom.Page_OnAppChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAppRemoved
 app_management.mojom.Page_OnAppRemoved_ParamsSpec = {
@@ -826,7 +826,7 @@ app_management.mojom.Page_OnAppRemoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 app_management.mojom.PagePtr = app_management.mojom.PageRemote;

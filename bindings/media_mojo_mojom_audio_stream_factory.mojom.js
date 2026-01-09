@@ -52,7 +52,7 @@ media.mojom.LocalMuter.getRemote = function() {
     'media.mojom.LocalMuter',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media.mojom.LocalMuterPtr = media.mojom.LocalMuterRemote;
@@ -156,7 +156,7 @@ media.mojom.AudioStreamFactory.getRemote = function() {
     'media.mojom.AudioStreamFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateInputStream
 media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec = {
@@ -179,7 +179,7 @@ media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec = {
   $: {
@@ -194,7 +194,7 @@ media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AssociateInputAndOutputForAec
 media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec = {
@@ -209,7 +209,7 @@ media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateOutputStream
 media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec = {
@@ -228,7 +228,7 @@ media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec = {
   $: {
@@ -241,7 +241,7 @@ media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateSwitchableOutputStream
 media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec = {
@@ -261,7 +261,7 @@ media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec = {
   $: {
@@ -274,7 +274,7 @@ media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindMuter
 media.mojom.AudioStreamFactory_BindMuter_ParamsSpec = {
@@ -289,7 +289,7 @@ media.mojom.AudioStreamFactory_BindMuter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateLoopbackStream
 media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec = {
@@ -308,7 +308,7 @@ media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec = {
   $: {
@@ -321,7 +321,7 @@ media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioStreamFactoryPtr = media.mojom.AudioStreamFactoryRemote;

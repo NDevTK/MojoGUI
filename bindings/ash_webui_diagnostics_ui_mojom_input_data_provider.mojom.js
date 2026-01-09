@@ -92,7 +92,7 @@ ash.diagnostics.mojom.KeyboardObserver.getRemote = function() {
     'ash.diagnostics.mojom.KeyboardObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnKeyEvent
 ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec = {
@@ -106,7 +106,7 @@ ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnKeyEventsPaused
 ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec = {
@@ -119,7 +119,7 @@ ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnKeyEventsResumed
 ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec = {
@@ -132,7 +132,7 @@ ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.KeyboardObserverPtr = ash.diagnostics.mojom.KeyboardObserverRemote;
@@ -191,7 +191,7 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserver.getRemote = function() {
     'ash.diagnostics.mojom.InternalDisplayPowerStateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnInternalDisplayPowerStateChanged
 ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec = {
@@ -205,7 +205,7 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerSt
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.InternalDisplayPowerStateObserverPtr = ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemote;
@@ -264,7 +264,7 @@ ash.diagnostics.mojom.TabletModeObserver.getRemote = function() {
     'ash.diagnostics.mojom.TabletModeObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnTabletModeChanged
 ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = {
@@ -278,7 +278,7 @@ ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.TabletModeObserverPtr = ash.diagnostics.mojom.TabletModeObserverRemote;
@@ -337,7 +337,7 @@ ash.diagnostics.mojom.LidStateObserver.getRemote = function() {
     'ash.diagnostics.mojom.LidStateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnLidStateChanged
 ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = {
@@ -351,7 +351,7 @@ ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.LidStateObserverPtr = ash.diagnostics.mojom.LidStateObserverRemote;
@@ -437,7 +437,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver.getRemote = function() {
     'ash.diagnostics.mojom.ConnectedDevicesObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnKeyboardConnected
 ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec = {
@@ -451,7 +451,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnKeyboardDisconnected
 ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec = {
@@ -465,7 +465,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTouchDeviceConnected
 ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec = {
@@ -479,7 +479,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTouchDeviceDisconnected
 ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec = {
@@ -493,7 +493,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.ConnectedDevicesObserverPtr = ash.diagnostics.mojom.ConnectedDevicesObserverRemote;
@@ -624,7 +624,7 @@ ash.diagnostics.mojom.InputDataProvider.getRemote = function() {
     'ash.diagnostics.mojom.InputDataProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetConnectedDevices
 ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec = {
@@ -637,7 +637,7 @@ ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec = {
   $: {
@@ -650,7 +650,7 @@ ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveConnectedDevices
 ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec = {
@@ -664,7 +664,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveKeyEvents
 ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec = {
@@ -679,7 +679,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveTabletMode
 ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec = {
@@ -693,7 +693,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec = {
   $: {
@@ -706,7 +706,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveLidState
 ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec = {
@@ -720,7 +720,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec = {
   $: {
@@ -733,7 +733,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveInternalDisplayPowerState
 ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec = {
@@ -747,7 +747,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MoveAppToTestingScreen
 ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec = {
@@ -761,7 +761,7 @@ ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MoveAppBackToPreviousScreen
 ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec = {
@@ -774,7 +774,7 @@ ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetA11yTouchPassthrough
 ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec = {
@@ -788,7 +788,7 @@ ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.InputDataProviderPtr = ash.diagnostics.mojom.InputDataProviderRemote;

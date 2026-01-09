@@ -149,7 +149,7 @@ cert_verifier.mojom.CertVerifierServiceFactory.getRemote = function() {
     'cert_verifier.mojom.CertVerifierServiceFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetNewCertVerifier
 cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec = {
@@ -166,7 +166,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateCRLSet
 cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec = {
@@ -180,7 +180,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateCtLogList
 cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec = {
@@ -195,7 +195,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableCtEnforcement
 cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec = {
@@ -208,7 +208,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateChromeRootStore
 cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec = {
@@ -222,7 +222,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateMtcMetadata
 cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec = {
@@ -236,7 +236,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUseChromeRootStore
 cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec = {
@@ -250,7 +250,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetChromeRootStoreInfo
 cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec = {
@@ -263,7 +263,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec = {
   $: {
@@ -276,7 +276,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPlatformRootStoreInfo
 cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec = {
@@ -289,7 +289,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec = {
   $: {
@@ -302,7 +302,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateNetworkTime
 cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec = {
@@ -318,7 +318,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cert_verifier.mojom.CertVerifierServiceFactoryPtr = cert_verifier.mojom.CertVerifierServiceFactoryRemote;

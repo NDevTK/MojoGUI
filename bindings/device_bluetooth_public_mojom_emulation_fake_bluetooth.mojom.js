@@ -114,7 +114,7 @@ bluetooth.mojom.FakeBluetooth.getRemote = function() {
     'bluetooth.mojom.FakeBluetooth',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetLESupported
 bluetooth.mojom.FakeBluetooth_SetLESupported_ParamsSpec = {
@@ -128,7 +128,7 @@ bluetooth.mojom.FakeBluetooth_SetLESupported_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SimulateCentral
 bluetooth.mojom.FakeBluetooth_SimulateCentral_ParamsSpec = {
@@ -142,7 +142,7 @@ bluetooth.mojom.FakeBluetooth_SimulateCentral_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec = {
   $: {
@@ -155,7 +155,7 @@ bluetooth.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AllResponsesConsumed
 bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ParamsSpec = {
@@ -168,7 +168,7 @@ bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ResponseParamsSpec = {
   $: {
@@ -181,7 +181,7 @@ bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 bluetooth.mojom.FakeBluetoothPtr = bluetooth.mojom.FakeBluetoothRemote;
@@ -465,7 +465,7 @@ bluetooth.mojom.FakeCentral.getRemote = function() {
     'bluetooth.mojom.FakeCentral',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SimulatePreconnectedPeripheral
 bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec = {
@@ -482,7 +482,7 @@ bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SimulateAdvertisementReceived
 bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec = {
@@ -496,7 +496,7 @@ bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetState
 bluetooth.mojom.FakeCentral_SetState_ParamsSpec = {
@@ -510,7 +510,7 @@ bluetooth.mojom.FakeCentral_SetState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNextGATTConnectionResponse
 bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ParamsSpec = {
@@ -525,7 +525,7 @@ bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ResponseParamsSpec = {
   $: {
@@ -538,7 +538,7 @@ bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNextGATTDiscoveryResponse
 bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ParamsSpec = {
@@ -553,7 +553,7 @@ bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ResponseParamsSpec = {
   $: {
@@ -566,7 +566,7 @@ bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SimulateGATTOperationResponse
 bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec = {
@@ -582,7 +582,7 @@ bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ResponseParamsSpec = {
   $: {
@@ -595,7 +595,7 @@ bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SimulateGATTDisconnection
 bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec = {
@@ -609,7 +609,7 @@ bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec = {
   $: {
@@ -622,7 +622,7 @@ bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SimulateGATTServicesChanged
 bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec = {
@@ -636,7 +636,7 @@ bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec = {
   $: {
@@ -649,7 +649,7 @@ bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SimulateCharacteristicOperationResponse
 bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec = {
@@ -668,7 +668,7 @@ bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ResponseParamsSpec = {
   $: {
@@ -681,7 +681,7 @@ bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SimulateDescriptorOperationResponse
 bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec = {
@@ -701,7 +701,7 @@ bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponseParamsSpec = {
   $: {
@@ -714,7 +714,7 @@ bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddFakeService
 bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec = {
@@ -729,7 +729,7 @@ bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_AddFakeService_ResponseParamsSpec = {
   $: {
@@ -742,7 +742,7 @@ bluetooth.mojom.FakeCentral_AddFakeService_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveFakeService
 bluetooth.mojom.FakeCentral_RemoveFakeService_ParamsSpec = {
@@ -757,7 +757,7 @@ bluetooth.mojom.FakeCentral_RemoveFakeService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec = {
   $: {
@@ -770,7 +770,7 @@ bluetooth.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddFakeCharacteristic
 bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec = {
@@ -787,7 +787,7 @@ bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec = {
   $: {
@@ -800,7 +800,7 @@ bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveFakeCharacteristic
 bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec = {
@@ -816,7 +816,7 @@ bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec = {
   $: {
@@ -829,7 +829,7 @@ bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddFakeDescriptor
 bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec = {
@@ -846,7 +846,7 @@ bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec = {
   $: {
@@ -859,7 +859,7 @@ bluetooth.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveFakeDescriptor
 bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec = {
@@ -876,7 +876,7 @@ bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec = {
   $: {
@@ -889,7 +889,7 @@ bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNextReadCharacteristicResponse
 bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec = {
@@ -907,7 +907,7 @@ bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponseParamsSpec = {
   $: {
@@ -920,7 +920,7 @@ bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNextWriteCharacteristicResponse
 bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec = {
@@ -937,7 +937,7 @@ bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponseParamsSpec = {
   $: {
@@ -950,7 +950,7 @@ bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNextSubscribeToNotificationsResponse
 bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec = {
@@ -967,7 +967,7 @@ bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ResponseParamsSpec = {
   $: {
@@ -980,7 +980,7 @@ bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNextUnsubscribeFromNotificationsResponse
 bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec = {
@@ -997,7 +997,7 @@ bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ResponseParamsSpec = {
   $: {
@@ -1010,7 +1010,7 @@ bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsNotifying
 bluetooth.mojom.FakeCentral_IsNotifying_ParamsSpec = {
@@ -1026,7 +1026,7 @@ bluetooth.mojom.FakeCentral_IsNotifying_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_IsNotifying_ResponseParamsSpec = {
   $: {
@@ -1040,7 +1040,7 @@ bluetooth.mojom.FakeCentral_IsNotifying_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLastWrittenCharacteristicValue
 bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec = {
@@ -1056,7 +1056,7 @@ bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec = {
   $: {
@@ -1071,7 +1071,7 @@ bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNextReadDescriptorResponse
 bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec = {
@@ -1090,7 +1090,7 @@ bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSpec = {
   $: {
@@ -1103,7 +1103,7 @@ bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNextWriteDescriptorResponse
 bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec = {
@@ -1121,7 +1121,7 @@ bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsSpec = {
   $: {
@@ -1134,7 +1134,7 @@ bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLastWrittenDescriptorValue
 bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec = {
@@ -1151,7 +1151,7 @@ bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec = {
   $: {
@@ -1165,7 +1165,7 @@ bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetClient
 bluetooth.mojom.FakeCentral_SetClient_ParamsSpec = {
@@ -1179,7 +1179,7 @@ bluetooth.mojom.FakeCentral_SetClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 bluetooth.mojom.FakeCentralPtr = bluetooth.mojom.FakeCentralRemote;
@@ -1256,7 +1256,7 @@ bluetooth.mojom.FakeCentralClient.getRemote = function() {
     'bluetooth.mojom.FakeCentralClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DispatchGATTOperationEvent
 bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec = {
@@ -1271,7 +1271,7 @@ bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchCharacteristicOperationEvent
 bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpec = {
@@ -1288,7 +1288,7 @@ bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchDescriptorOperationEvent
 bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec = {
@@ -1304,7 +1304,7 @@ bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 bluetooth.mojom.FakeCentralClientPtr = bluetooth.mojom.FakeCentralClientRemote;

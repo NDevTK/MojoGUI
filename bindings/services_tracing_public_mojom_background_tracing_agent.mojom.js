@@ -70,7 +70,7 @@ tracing.mojom.BackgroundTracingAgentClient.getRemote = function() {
     'tracing.mojom.BackgroundTracingAgentClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnInitialized
 tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec = {
@@ -83,7 +83,7 @@ tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTriggerBackgroundTrace
 tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec = {
@@ -99,7 +99,7 @@ tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tracing.mojom.BackgroundTracingAgentClientPtr = tracing.mojom.BackgroundTracingAgentClientRemote;
@@ -167,7 +167,7 @@ tracing.mojom.BackgroundTracingAgent.getRemote = function() {
     'tracing.mojom.BackgroundTracingAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetUMACallback
 tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec = {
@@ -184,7 +184,7 @@ tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearUMACallback
 tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec = {
@@ -198,7 +198,7 @@ tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tracing.mojom.BackgroundTracingAgentPtr = tracing.mojom.BackgroundTracingAgentRemote;
@@ -257,7 +257,7 @@ tracing.mojom.BackgroundTracingAgentProvider.getRemote = function() {
     'tracing.mojom.BackgroundTracingAgentProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Create
 tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = {
@@ -273,7 +273,7 @@ tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tracing.mojom.BackgroundTracingAgentProviderPtr = tracing.mojom.BackgroundTracingAgentProviderRemote;

@@ -82,7 +82,7 @@ blink.mojom.ClipboardListener.getRemote = function() {
     'blink.mojom.ClipboardListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnClipboardDataChanged
 blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec = {
@@ -97,7 +97,7 @@ blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ClipboardListenerPtr = blink.mojom.ClipboardListenerRemote;
@@ -363,7 +363,7 @@ blink.mojom.ClipboardHost.getRemote = function() {
     'blink.mojom.ClipboardHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSequenceNumber
 blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec = {
@@ -377,7 +377,7 @@ blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec = {
   $: {
@@ -390,7 +390,7 @@ blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsFormatAvailable
 blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec = {
@@ -405,7 +405,7 @@ blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec = {
   $: {
@@ -418,7 +418,7 @@ blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadAvailableTypes
 blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec = {
@@ -432,7 +432,7 @@ blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec = {
   $: {
@@ -445,7 +445,7 @@ blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadText
 blink.mojom.ClipboardHost_ReadText_ParamsSpec = {
@@ -459,7 +459,7 @@ blink.mojom.ClipboardHost_ReadText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec = {
   $: {
@@ -472,7 +472,7 @@ blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadHtml
 blink.mojom.ClipboardHost_ReadHtml_ParamsSpec = {
@@ -486,7 +486,7 @@ blink.mojom.ClipboardHost_ReadHtml_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec = {
   $: {
@@ -502,7 +502,7 @@ blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadSvg
 blink.mojom.ClipboardHost_ReadSvg_ParamsSpec = {
@@ -516,7 +516,7 @@ blink.mojom.ClipboardHost_ReadSvg_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec = {
   $: {
@@ -529,7 +529,7 @@ blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadRtf
 blink.mojom.ClipboardHost_ReadRtf_ParamsSpec = {
@@ -543,7 +543,7 @@ blink.mojom.ClipboardHost_ReadRtf_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec = {
   $: {
@@ -556,7 +556,7 @@ blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadPng
 blink.mojom.ClipboardHost_ReadPng_ParamsSpec = {
@@ -570,7 +570,7 @@ blink.mojom.ClipboardHost_ReadPng_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec = {
   $: {
@@ -583,7 +583,7 @@ blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadFiles
 blink.mojom.ClipboardHost_ReadFiles_ParamsSpec = {
@@ -597,7 +597,7 @@ blink.mojom.ClipboardHost_ReadFiles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec = {
   $: {
@@ -610,7 +610,7 @@ blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadDataTransferCustomData
 blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec = {
@@ -625,7 +625,7 @@ blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec = {
   $: {
@@ -638,7 +638,7 @@ blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadAvailableCustomAndStandardFormats
 blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec = {
@@ -651,7 +651,7 @@ blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec = {
   $: {
@@ -664,7 +664,7 @@ blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadUnsanitizedCustomFormat
 blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec = {
@@ -678,7 +678,7 @@ blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec = {
   $: {
@@ -691,7 +691,7 @@ blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteText
 blink.mojom.ClipboardHost_WriteText_ParamsSpec = {
@@ -705,7 +705,7 @@ blink.mojom.ClipboardHost_WriteText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteHtml
 blink.mojom.ClipboardHost_WriteHtml_ParamsSpec = {
@@ -720,7 +720,7 @@ blink.mojom.ClipboardHost_WriteHtml_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteSvg
 blink.mojom.ClipboardHost_WriteSvg_ParamsSpec = {
@@ -734,7 +734,7 @@ blink.mojom.ClipboardHost_WriteSvg_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteSmartPasteMarker
 blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec = {
@@ -747,7 +747,7 @@ blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteDataTransferCustomData
 blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec = {
@@ -761,7 +761,7 @@ blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteBookmark
 blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec = {
@@ -776,7 +776,7 @@ blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteImage
 blink.mojom.ClipboardHost_WriteImage_ParamsSpec = {
@@ -790,7 +790,7 @@ blink.mojom.ClipboardHost_WriteImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteUnsanitizedCustomFormat
 blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec = {
@@ -805,7 +805,7 @@ blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CommitWrite
 blink.mojom.ClipboardHost_CommitWrite_ParamsSpec = {
@@ -818,7 +818,7 @@ blink.mojom.ClipboardHost_CommitWrite_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteStringToFindPboard
 blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec = {
@@ -832,7 +832,7 @@ blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPlatformPermissionState
 blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec = {
@@ -845,7 +845,7 @@ blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec = {
   $: {
@@ -858,7 +858,7 @@ blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterClipboardListener
 blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec = {
@@ -872,7 +872,7 @@ blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ClipboardHostPtr = blink.mojom.ClipboardHostRemote;

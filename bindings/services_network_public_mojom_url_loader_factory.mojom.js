@@ -70,7 +70,7 @@ network.mojom.URLLoaderFactory.getRemote = function() {
     'network.mojom.URLLoaderFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateLoaderAndStart
 network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec = {
@@ -89,7 +89,7 @@ network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 network.mojom.URLLoaderFactory_Clone_ParamsSpec = {
@@ -103,7 +103,7 @@ network.mojom.URLLoaderFactory_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.URLLoaderFactoryPtr = network.mojom.URLLoaderFactoryRemote;

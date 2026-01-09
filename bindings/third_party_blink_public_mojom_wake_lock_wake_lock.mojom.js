@@ -61,7 +61,7 @@ blink.mojom.WakeLockService.getRemote = function() {
     'blink.mojom.WakeLockService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetWakeLock
 blink.mojom.WakeLockService_GetWakeLock_ParamsSpec = {
@@ -78,7 +78,7 @@ blink.mojom.WakeLockService_GetWakeLock_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WakeLockServicePtr = blink.mojom.WakeLockServiceRemote;

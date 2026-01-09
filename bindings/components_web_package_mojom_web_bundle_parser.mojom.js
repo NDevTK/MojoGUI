@@ -83,7 +83,7 @@ web_package.mojom.WebBundleParserFactory.getRemote = function() {
     'web_package.mojom.WebBundleParserFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetParserForDataSource
 web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec = {
@@ -99,7 +99,7 @@ web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindFileDataSource
 web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec = {
@@ -114,7 +114,7 @@ web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 web_package.mojom.WebBundleParserFactoryPtr = web_package.mojom.WebBundleParserFactoryRemote;
@@ -200,7 +200,7 @@ web_package.mojom.WebBundleParser.getRemote = function() {
     'web_package.mojom.WebBundleParser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ParseIntegrityBlock
 web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec = {
@@ -213,7 +213,7 @@ web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec = {
   $: {
@@ -227,7 +227,7 @@ web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ParseMetadata
 web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec = {
@@ -241,7 +241,7 @@ web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec = {
   $: {
@@ -255,7 +255,7 @@ web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ParseResponse
 web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec = {
@@ -270,7 +270,7 @@ web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec = {
   $: {
@@ -284,7 +284,7 @@ web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Close
 web_package.mojom.WebBundleParser_Close_ParamsSpec = {
@@ -297,7 +297,7 @@ web_package.mojom.WebBundleParser_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 web_package.mojom.WebBundleParserPtr = web_package.mojom.WebBundleParserRemote;
@@ -383,7 +383,7 @@ web_package.mojom.BundleDataSource.getRemote = function() {
     'web_package.mojom.BundleDataSource',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Read
 web_package.mojom.BundleDataSource_Read_ParamsSpec = {
@@ -398,7 +398,7 @@ web_package.mojom.BundleDataSource_Read_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 web_package.mojom.BundleDataSource_Read_ResponseParamsSpec = {
   $: {
@@ -411,7 +411,7 @@ web_package.mojom.BundleDataSource_Read_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Length
 web_package.mojom.BundleDataSource_Length_ParamsSpec = {
@@ -424,7 +424,7 @@ web_package.mojom.BundleDataSource_Length_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 web_package.mojom.BundleDataSource_Length_ResponseParamsSpec = {
   $: {
@@ -437,7 +437,7 @@ web_package.mojom.BundleDataSource_Length_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsRandomAccessContext
 web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec = {
@@ -450,7 +450,7 @@ web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec = {
   $: {
@@ -463,7 +463,7 @@ web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Close
 web_package.mojom.BundleDataSource_Close_ParamsSpec = {
@@ -476,7 +476,7 @@ web_package.mojom.BundleDataSource_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 web_package.mojom.BundleDataSourcePtr = web_package.mojom.BundleDataSourceRemote;

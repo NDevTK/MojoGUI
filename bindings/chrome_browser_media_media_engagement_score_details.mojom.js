@@ -70,7 +70,7 @@ media.mojom.MediaEngagementScoreDetailsProvider.getRemote = function() {
     'media.mojom.MediaEngagementScoreDetailsProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetMediaEngagementScoreDetails
 media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec = {
@@ -83,7 +83,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec = {
   $: {
@@ -96,7 +96,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_R
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMediaEngagementConfig
 media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec = {
@@ -109,7 +109,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec = {
   $: {
@@ -122,7 +122,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaEngagementScoreDetailsProviderPtr = media.mojom.MediaEngagementScoreDetailsProviderRemote;

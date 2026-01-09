@@ -61,7 +61,7 @@ blink.mojom.UnhandledTapNotifier.getRemote = function() {
     'blink.mojom.UnhandledTapNotifier',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShowUnhandledTapUIIfNeeded
 blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.UnhandledTapNotifierPtr = blink.mojom.UnhandledTapNotifierRemote;

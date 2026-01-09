@@ -132,7 +132,7 @@ screen_ai.mojom.ScreenAIAnnotator.getRemote = function() {
     'screen_ai.mojom.ScreenAIAnnotator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PerformOcrAndReturnAXTreeUpdate
 screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec = {
@@ -146,7 +146,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec = {
   $: {
@@ -159,7 +159,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PerformOcrAndReturnAnnotation
 screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec = {
@@ -173,7 +173,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec = {
   $: {
@@ -186,7 +186,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetClientType
 screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec = {
@@ -200,7 +200,7 @@ screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMaxImageDimension
 screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec = {
@@ -213,7 +213,7 @@ screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec = {
   $: {
@@ -226,7 +226,7 @@ screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetOCRLightMode
 screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec = {
@@ -240,7 +240,7 @@ screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsOCRBusy
 screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec = {
@@ -253,7 +253,7 @@ screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec = {
   $: {
@@ -266,7 +266,7 @@ screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 screen_ai.mojom.ScreenAIAnnotatorPtr = screen_ai.mojom.ScreenAIAnnotatorRemote;
@@ -352,7 +352,7 @@ screen_ai.mojom.Screen2xMainContentExtractor.getRemote = function() {
     'screen_ai.mojom.Screen2xMainContentExtractor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ExtractMainContent
 screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec = {
@@ -366,7 +366,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec = {
   $: {
@@ -379,7 +379,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExtractMainNode
 screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec = {
@@ -393,7 +393,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec = {
   $: {
@@ -406,7 +406,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IdentifyMainNode
 screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec = {
@@ -420,7 +420,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec = {
   $: {
@@ -434,7 +434,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetClientType
 screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec = {
@@ -448,7 +448,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 screen_ai.mojom.Screen2xMainContentExtractorPtr = screen_ai.mojom.Screen2xMainContentExtractorRemote;
@@ -507,7 +507,7 @@ screen_ai.mojom.OCRService.getRemote = function() {
     'screen_ai.mojom.OCRService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindAnnotator
 screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec = {
@@ -521,7 +521,7 @@ screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 screen_ai.mojom.OCRServicePtr = screen_ai.mojom.OCRServiceRemote;
@@ -580,7 +580,7 @@ screen_ai.mojom.MainContentExtractionService.getRemote = function() {
     'screen_ai.mojom.MainContentExtractionService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindMainContentExtractor
 screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec = {
@@ -594,7 +594,7 @@ screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 screen_ai.mojom.MainContentExtractionServicePtr = screen_ai.mojom.MainContentExtractionServiceRemote;

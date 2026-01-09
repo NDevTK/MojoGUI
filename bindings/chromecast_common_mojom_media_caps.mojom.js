@@ -62,7 +62,7 @@ chromecast.media.mojom.MediaCaps.getRemote = function() {
     'chromecast.media.mojom.MediaCaps',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddObserver
 chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec = {
@@ -76,7 +76,7 @@ chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.media.mojom.MediaCapsPtr = chromecast.media.mojom.MediaCapsRemote;
@@ -135,7 +135,7 @@ chromecast.media.mojom.MediaCapsObserver.getRemote = function() {
     'chromecast.media.mojom.MediaCapsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddSupportedCodecProfileLevel
 chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec = {
@@ -149,7 +149,7 @@ chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.media.mojom.MediaCapsObserverPtr = chromecast.media.mojom.MediaCapsObserverRemote;

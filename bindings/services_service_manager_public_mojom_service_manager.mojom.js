@@ -113,7 +113,7 @@ service_manager.mojom.ServiceManagerListener.getRemote = function() {
     'service_manager.mojom.ServiceManagerListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnInit
 service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec = {
@@ -127,7 +127,7 @@ service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnServiceCreated
 service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec = {
@@ -141,7 +141,7 @@ service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnServiceStarted
 service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec = {
@@ -156,7 +156,7 @@ service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnServicePIDReceived
 service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec = {
@@ -171,7 +171,7 @@ service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnServiceFailedToStart
 service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec = {
@@ -185,7 +185,7 @@ service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnServiceStopped
 service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec = {
@@ -199,7 +199,7 @@ service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 service_manager.mojom.ServiceManagerListenerPtr = service_manager.mojom.ServiceManagerListenerRemote;
@@ -258,7 +258,7 @@ service_manager.mojom.ServiceManager.getRemote = function() {
     'service_manager.mojom.ServiceManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddListener
 service_manager.mojom.ServiceManager_AddListener_ParamsSpec = {
@@ -272,7 +272,7 @@ service_manager.mojom.ServiceManager_AddListener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 service_manager.mojom.ServiceManagerPtr = service_manager.mojom.ServiceManagerRemote;

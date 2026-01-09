@@ -61,7 +61,7 @@ audio.mojom.TestingApi.getRemote = function() {
     'audio.mojom.TestingApi',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Crash
 audio.mojom.TestingApi_Crash_ParamsSpec = {
@@ -74,7 +74,7 @@ audio.mojom.TestingApi_Crash_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 audio.mojom.TestingApiPtr = audio.mojom.TestingApiRemote;

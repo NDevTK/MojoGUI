@@ -121,7 +121,7 @@ device.mojom.SensorProvider.getRemote = function() {
     'device.mojom.SensorProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSensor
 device.mojom.SensorProvider_GetSensor_ParamsSpec = {
@@ -135,7 +135,7 @@ device.mojom.SensorProvider_GetSensor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SensorProvider_GetSensor_ResponseParamsSpec = {
   $: {
@@ -149,7 +149,7 @@ device.mojom.SensorProvider_GetSensor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateVirtualSensor
 device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec = {
@@ -164,7 +164,7 @@ device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec = {
   $: {
@@ -177,7 +177,7 @@ device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateVirtualSensor
 device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec = {
@@ -192,7 +192,7 @@ device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec = {
   $: {
@@ -205,7 +205,7 @@ device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveVirtualSensor
 device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec = {
@@ -219,7 +219,7 @@ device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetVirtualSensorInformation
 device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec = {
@@ -233,7 +233,7 @@ device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec = {
   $: {
@@ -246,7 +246,7 @@ device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.SensorProviderPtr = device.mojom.SensorProviderRemote;

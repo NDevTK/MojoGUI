@@ -70,7 +70,7 @@ blink.mojom.DevToolsFrontend.getRemote = function() {
     'blink.mojom.DevToolsFrontend',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetupDevToolsFrontend
 blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec = {
@@ -85,7 +85,7 @@ blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetupDevToolsExtensionAPI
 blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec = {
@@ -99,7 +99,7 @@ blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DevToolsFrontendPtr = blink.mojom.DevToolsFrontendRemote;
@@ -158,7 +158,7 @@ blink.mojom.DevToolsFrontendHost.getRemote = function() {
     'blink.mojom.DevToolsFrontendHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DispatchEmbedderMessage
 blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec = {
@@ -172,7 +172,7 @@ blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DevToolsFrontendHostPtr = blink.mojom.DevToolsFrontendHostRemote;

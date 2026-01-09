@@ -124,7 +124,7 @@ extensions.mojom.ServiceWorkerHost.getRemote = function() {
     'extensions.mojom.ServiceWorkerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidInitializeServiceWorkerContext
 extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec = {
@@ -142,7 +142,7 @@ extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidStartServiceWorkerContext
 extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec = {
@@ -160,7 +160,7 @@ extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidStopServiceWorkerContext
 extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec = {
@@ -178,7 +178,7 @@ extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestWorker
 extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec = {
@@ -192,7 +192,7 @@ extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec = {
   $: {
@@ -208,7 +208,7 @@ extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WorkerResponseAck
 extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec = {
@@ -222,7 +222,7 @@ extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenChannelToExtension
 extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec = {
@@ -241,7 +241,7 @@ extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenChannelToNativeApp
 extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec = {
@@ -258,7 +258,7 @@ extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenChannelToTab
 extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec = {
@@ -279,7 +279,7 @@ extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mojom.ServiceWorkerHostPtr = extensions.mojom.ServiceWorkerHostRemote;

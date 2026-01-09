@@ -61,7 +61,7 @@ remoting.mojom.SecurityKeyForwarder.getRemote = function() {
     'remoting.mojom.SecurityKeyForwarder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSecurityKeyRequest
 remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec = {
@@ -75,7 +75,7 @@ remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.SecurityKeyForwarderPtr = remoting.mojom.SecurityKeyForwarderRemote;

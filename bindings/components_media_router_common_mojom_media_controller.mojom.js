@@ -115,7 +115,7 @@ media_router.mojom.MediaController.getRemote = function() {
     'media_router.mojom.MediaController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Play
 media_router.mojom.MediaController_Play_ParamsSpec = {
@@ -128,7 +128,7 @@ media_router.mojom.MediaController_Play_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Pause
 media_router.mojom.MediaController_Pause_ParamsSpec = {
@@ -141,7 +141,7 @@ media_router.mojom.MediaController_Pause_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMute
 media_router.mojom.MediaController_SetMute_ParamsSpec = {
@@ -155,7 +155,7 @@ media_router.mojom.MediaController_SetMute_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVolume
 media_router.mojom.MediaController_SetVolume_ParamsSpec = {
@@ -169,7 +169,7 @@ media_router.mojom.MediaController_SetVolume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Seek
 media_router.mojom.MediaController_Seek_ParamsSpec = {
@@ -183,7 +183,7 @@ media_router.mojom.MediaController_Seek_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NextTrack
 media_router.mojom.MediaController_NextTrack_ParamsSpec = {
@@ -196,7 +196,7 @@ media_router.mojom.MediaController_NextTrack_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PreviousTrack
 media_router.mojom.MediaController_PreviousTrack_ParamsSpec = {
@@ -209,7 +209,7 @@ media_router.mojom.MediaController_PreviousTrack_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media_router.mojom.MediaControllerPtr = media_router.mojom.MediaControllerRemote;

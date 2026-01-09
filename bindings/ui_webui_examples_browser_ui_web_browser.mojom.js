@@ -61,7 +61,7 @@ webui_examples.mojom.PageHandlerFactory.getRemote = function() {
     'webui_examples.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -75,7 +75,7 @@ webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 webui_examples.mojom.PageHandlerFactoryPtr = webui_examples.mojom.PageHandlerFactoryRemote;
@@ -152,7 +152,7 @@ webui_examples.mojom.PageHandler.getRemote = function() {
     'webui_examples.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Navigate
 webui_examples.mojom.PageHandler_Navigate_ParamsSpec = {
@@ -167,7 +167,7 @@ webui_examples.mojom.PageHandler_Navigate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GoBack
 webui_examples.mojom.PageHandler_GoBack_ParamsSpec = {
@@ -181,7 +181,7 @@ webui_examples.mojom.PageHandler_GoBack_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GoForward
 webui_examples.mojom.PageHandler_GoForward_ParamsSpec = {
@@ -195,7 +195,7 @@ webui_examples.mojom.PageHandler_GoForward_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 webui_examples.mojom.PageHandlerPtr = webui_examples.mojom.PageHandlerRemote;

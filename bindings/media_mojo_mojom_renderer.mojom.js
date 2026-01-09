@@ -115,7 +115,7 @@ media.mojom.Renderer.getRemote = function() {
     'media.mojom.Renderer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Initialize
 media.mojom.Renderer_Initialize_ParamsSpec = {
@@ -130,7 +130,7 @@ media.mojom.Renderer_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.Renderer_Initialize_ResponseParamsSpec = {
   $: {
@@ -143,7 +143,7 @@ media.mojom.Renderer_Initialize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Flush
 media.mojom.Renderer_Flush_ParamsSpec = {
@@ -156,7 +156,7 @@ media.mojom.Renderer_Flush_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartPlayingFrom
 media.mojom.Renderer_StartPlayingFrom_ParamsSpec = {
@@ -170,7 +170,7 @@ media.mojom.Renderer_StartPlayingFrom_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPlaybackRate
 media.mojom.Renderer_SetPlaybackRate_ParamsSpec = {
@@ -184,7 +184,7 @@ media.mojom.Renderer_SetPlaybackRate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVolume
 media.mojom.Renderer_SetVolume_ParamsSpec = {
@@ -198,7 +198,7 @@ media.mojom.Renderer_SetVolume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCdm
 media.mojom.Renderer_SetCdm_ParamsSpec = {
@@ -212,7 +212,7 @@ media.mojom.Renderer_SetCdm_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.Renderer_SetCdm_ResponseParamsSpec = {
   $: {
@@ -225,7 +225,7 @@ media.mojom.Renderer_SetCdm_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetLatencyHint
 media.mojom.Renderer_SetLatencyHint_ParamsSpec = {
@@ -239,7 +239,7 @@ media.mojom.Renderer_SetLatencyHint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.RendererPtr = media.mojom.RendererRemote;
@@ -379,7 +379,7 @@ media.mojom.RendererClient.getRemote = function() {
     'media.mojom.RendererClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnTimeUpdate
 media.mojom.RendererClient_OnTimeUpdate_ParamsSpec = {
@@ -395,7 +395,7 @@ media.mojom.RendererClient_OnTimeUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBufferingStateChange
 media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec = {
@@ -410,7 +410,7 @@ media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnEnded
 media.mojom.RendererClient_OnEnded_ParamsSpec = {
@@ -423,7 +423,7 @@ media.mojom.RendererClient_OnEnded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 media.mojom.RendererClient_OnError_ParamsSpec = {
@@ -437,7 +437,7 @@ media.mojom.RendererClient_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAudioConfigChange
 media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec = {
@@ -451,7 +451,7 @@ media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnVideoConfigChange
 media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec = {
@@ -465,7 +465,7 @@ media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnVideoNaturalSizeChange
 media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec = {
@@ -479,7 +479,7 @@ media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnVideoOpacityChange
 media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec = {
@@ -493,7 +493,7 @@ media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStatisticsUpdate
 media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec = {
@@ -507,7 +507,7 @@ media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWaiting
 media.mojom.RendererClient_OnWaiting_ParamsSpec = {
@@ -521,7 +521,7 @@ media.mojom.RendererClient_OnWaiting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.RendererClientPtr = media.mojom.RendererClientRemote;

@@ -62,7 +62,7 @@ actor.ui.mojom.ActorOverlayPageHandlerFactory.getRemote = function() {
     'actor.ui.mojom.ActorOverlayPageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -77,7 +77,7 @@ actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 actor.ui.mojom.ActorOverlayPageHandlerFactoryPtr = actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote;
@@ -145,7 +145,7 @@ actor.ui.mojom.ActorOverlayPageHandler.getRemote = function() {
     'actor.ui.mojom.ActorOverlayPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnHoverStatusChanged
 actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec = {
@@ -159,7 +159,7 @@ actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCurrentBorderGlowVisibility
 actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec = {
@@ -172,7 +172,7 @@ actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec = {
   $: {
@@ -185,7 +185,7 @@ actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 actor.ui.mojom.ActorOverlayPageHandlerPtr = actor.ui.mojom.ActorOverlayPageHandlerRemote;
@@ -280,7 +280,7 @@ actor.ui.mojom.ActorOverlayPage.getRemote = function() {
     'actor.ui.mojom.ActorOverlayPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetScrimBackground
 actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec = {
@@ -294,7 +294,7 @@ actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBorderGlowVisibility
 actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec = {
@@ -308,7 +308,7 @@ actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTheme
 actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec = {
@@ -322,7 +322,7 @@ actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MoveCursorTo
 actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = {
@@ -336,7 +336,7 @@ actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TriggerClickAnimation
 actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec = {
@@ -349,7 +349,7 @@ actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 actor.ui.mojom.ActorOverlayPagePtr = actor.ui.mojom.ActorOverlayPageRemote;

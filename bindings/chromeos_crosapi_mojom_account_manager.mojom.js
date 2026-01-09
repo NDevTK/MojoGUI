@@ -94,7 +94,7 @@ crosapi.mojom.AccountManagerObserver.getRemote = function() {
     'crosapi.mojom.AccountManagerObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.AccountManagerObserverPtr = crosapi.mojom.AccountManagerObserverRemote;
@@ -144,7 +144,7 @@ crosapi.mojom.AccountManager.getRemote = function() {
     'crosapi.mojom.AccountManager',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.AccountManagerPtr = crosapi.mojom.AccountManagerRemote;
@@ -194,7 +194,7 @@ crosapi.mojom.AccessTokenFetcher.getRemote = function() {
     'crosapi.mojom.AccessTokenFetcher',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.AccessTokenFetcherPtr = crosapi.mojom.AccessTokenFetcherRemote;

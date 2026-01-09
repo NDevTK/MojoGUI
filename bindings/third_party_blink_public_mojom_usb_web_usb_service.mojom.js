@@ -97,7 +97,7 @@ blink.mojom.WebUsbService.getRemote = function() {
     'blink.mojom.WebUsbService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDevices
 blink.mojom.WebUsbService_GetDevices_ParamsSpec = {
@@ -110,7 +110,7 @@ blink.mojom.WebUsbService_GetDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec = {
   $: {
@@ -123,7 +123,7 @@ blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDevice
 blink.mojom.WebUsbService_GetDevice_ParamsSpec = {
@@ -138,7 +138,7 @@ blink.mojom.WebUsbService_GetDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPermission
 blink.mojom.WebUsbService_GetPermission_ParamsSpec = {
@@ -152,7 +152,7 @@ blink.mojom.WebUsbService_GetPermission_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec = {
   $: {
@@ -165,7 +165,7 @@ blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForgetDevice
 blink.mojom.WebUsbService_ForgetDevice_ParamsSpec = {
@@ -179,7 +179,7 @@ blink.mojom.WebUsbService_ForgetDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetClient
 blink.mojom.WebUsbService_SetClient_ParamsSpec = {
@@ -193,7 +193,7 @@ blink.mojom.WebUsbService_SetClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebUsbServicePtr = blink.mojom.WebUsbServiceRemote;

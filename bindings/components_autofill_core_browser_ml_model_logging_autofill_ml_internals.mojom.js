@@ -68,7 +68,7 @@ autofill_ml_internals.mojom.Page.getRemote = function() {
     'autofill_ml_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnLogAdded
 autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec = {
@@ -82,7 +82,7 @@ autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 autofill_ml_internals.mojom.PagePtr = autofill_ml_internals.mojom.PageRemote;
@@ -141,7 +141,7 @@ autofill_ml_internals.mojom.PageHandler.getRemote = function() {
     'autofill_ml_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetPage
 autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec = {
@@ -155,7 +155,7 @@ autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 autofill_ml_internals.mojom.PageHandlerPtr = autofill_ml_internals.mojom.PageHandlerRemote;

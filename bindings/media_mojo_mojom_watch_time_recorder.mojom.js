@@ -133,7 +133,7 @@ media.mojom.WatchTimeRecorder.getRemote = function() {
     'media.mojom.WatchTimeRecorder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RecordWatchTime
 media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec = {
@@ -148,7 +148,7 @@ media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FinalizeWatchTime
 media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec = {
@@ -162,7 +162,7 @@ media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 media.mojom.WatchTimeRecorder_OnError_ParamsSpec = {
@@ -176,7 +176,7 @@ media.mojom.WatchTimeRecorder_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateSecondaryProperties
 media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec = {
@@ -190,7 +190,7 @@ media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAutoplayInitiated
 media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec = {
@@ -204,7 +204,7 @@ media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDurationChanged
 media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec = {
@@ -218,7 +218,7 @@ media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateVideoDecodeStats
 media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec = {
@@ -233,7 +233,7 @@ media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateUnderflowCount
 media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec = {
@@ -247,7 +247,7 @@ media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateUnderflowDuration
 media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec = {
@@ -262,7 +262,7 @@ media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.WatchTimeRecorderPtr = media.mojom.WatchTimeRecorderRemote;

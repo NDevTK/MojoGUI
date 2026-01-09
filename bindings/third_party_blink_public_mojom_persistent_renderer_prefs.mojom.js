@@ -61,7 +61,7 @@ blink.mojom.PersistentRendererPrefsService.getRemote = function() {
     'blink.mojom.PersistentRendererPrefsService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetViewSourceLineWrapping
 blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PersistentRendererPrefsServicePtr = blink.mojom.PersistentRendererPrefsServiceRemote;

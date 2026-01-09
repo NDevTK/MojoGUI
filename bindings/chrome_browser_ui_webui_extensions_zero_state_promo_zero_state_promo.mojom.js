@@ -70,7 +70,7 @@ zero_state_promo.mojom.PageHandlerFactory.getRemote = function() {
     'zero_state_promo.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -84,7 +84,7 @@ zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 zero_state_promo.mojom.PageHandlerFactoryPtr = zero_state_promo.mojom.PageHandlerFactoryRemote;
@@ -143,7 +143,7 @@ zero_state_promo.mojom.PageHandler.getRemote = function() {
     'zero_state_promo.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LaunchWebStoreLink
 zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = {
@@ -157,7 +157,7 @@ zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 zero_state_promo.mojom.PageHandlerPtr = zero_state_promo.mojom.PageHandlerRemote;

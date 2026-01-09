@@ -70,7 +70,7 @@ device.mojom.ScreenOrientation.getRemote = function() {
     'device.mojom.ScreenOrientation',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LockOrientation
 device.mojom.ScreenOrientation_LockOrientation_ParamsSpec = {
@@ -84,7 +84,7 @@ device.mojom.ScreenOrientation_LockOrientation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnlockOrientation
 device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec = {
@@ -110,7 +110,7 @@ device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.ScreenOrientationPtr = device.mojom.ScreenOrientationRemote;
@@ -169,7 +169,7 @@ device.mojom.ScreenOrientationListener.getRemote = function() {
     'device.mojom.ScreenOrientationListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for IsAutoRotateEnabledByUser
 device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec = {
@@ -182,7 +182,7 @@ device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec = {
   $: {
@@ -195,7 +195,7 @@ device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.ScreenOrientationListenerPtr = device.mojom.ScreenOrientationListenerRemote;

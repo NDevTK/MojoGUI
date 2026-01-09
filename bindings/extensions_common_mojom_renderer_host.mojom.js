@@ -88,7 +88,7 @@ extensions.mojom.RendererHost.getRemote = function() {
     'extensions.mojom.RendererHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddAPIActionToActivityLog
 extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec = {
@@ -105,7 +105,7 @@ extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddEventToActivityLog
 extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec = {
@@ -122,7 +122,7 @@ extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddDOMActionToActivityLog
 extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec = {
@@ -141,7 +141,7 @@ extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMessageBundle
 extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec = {
@@ -155,7 +155,7 @@ extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec = {
   $: {
@@ -168,7 +168,7 @@ extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mojom.RendererHostPtr = extensions.mojom.RendererHostRemote;

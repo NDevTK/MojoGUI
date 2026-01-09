@@ -61,7 +61,7 @@ foo.mojom.FooHandler.getRemote = function() {
     'foo.mojom.FooHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetData
 foo.mojom.FooHandler_GetData_ParamsSpec = {
@@ -74,7 +74,7 @@ foo.mojom.FooHandler_GetData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 foo.mojom.FooHandler_GetData_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ foo.mojom.FooHandler_GetData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 foo.mojom.FooHandlerPtr = foo.mojom.FooHandlerRemote;

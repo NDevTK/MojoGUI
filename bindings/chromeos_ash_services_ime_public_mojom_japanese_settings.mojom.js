@@ -99,7 +99,7 @@ ash.ime.mojom.JpUnused.getRemote = function() {
     'ash.ime.mojom.JpUnused',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.ime.mojom.JpUnusedPtr = ash.ime.mojom.JpUnusedRemote;

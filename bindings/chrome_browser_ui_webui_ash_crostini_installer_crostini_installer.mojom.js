@@ -62,7 +62,7 @@ ash.crostini_installer.mojom.PageHandlerFactory.getRemote = function() {
     'ash.crostini_installer.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -77,7 +77,7 @@ ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.crostini_installer.mojom.PageHandlerFactoryPtr = ash.crostini_installer.mojom.PageHandlerFactoryRemote;
@@ -172,7 +172,7 @@ ash.crostini_installer.mojom.PageHandler.getRemote = function() {
     'ash.crostini_installer.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Install
 ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec = {
@@ -187,7 +187,7 @@ ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Cancel
 ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec = {
@@ -200,7 +200,7 @@ ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelBeforeStart
 ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec = {
@@ -213,7 +213,7 @@ ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPageClosed
 ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = {
@@ -226,7 +226,7 @@ ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestAmountOfFreeDiskSpace
 ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec = {
@@ -239,7 +239,7 @@ ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec = {
   $: {
@@ -254,7 +254,7 @@ ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.crostini_installer.mojom.PageHandlerPtr = ash.crostini_installer.mojom.PageHandlerRemote;
@@ -340,7 +340,7 @@ ash.crostini_installer.mojom.Page.getRemote = function() {
     'ash.crostini_installer.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnProgressUpdate
 ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec = {
@@ -355,7 +355,7 @@ ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnInstallFinished
 ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec = {
@@ -369,7 +369,7 @@ ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCanceled
 ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec = {
@@ -382,7 +382,7 @@ ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestClose
 ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec = {
@@ -395,7 +395,7 @@ ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.crostini_installer.mojom.PagePtr = ash.crostini_installer.mojom.PageRemote;

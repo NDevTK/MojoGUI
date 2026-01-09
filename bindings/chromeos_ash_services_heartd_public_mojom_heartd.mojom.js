@@ -73,7 +73,7 @@ ash.heartd.mojom.HeartdControl.getRemote = function() {
     'ash.heartd.mojom.HeartdControl',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.heartd.mojom.HeartdControlPtr = ash.heartd.mojom.HeartdControlRemote;
@@ -123,7 +123,7 @@ ash.heartd.mojom.HeartbeatService.getRemote = function() {
     'ash.heartd.mojom.HeartbeatService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.heartd.mojom.HeartbeatServicePtr = ash.heartd.mojom.HeartbeatServiceRemote;
@@ -173,7 +173,7 @@ ash.heartd.mojom.Pacemaker.getRemote = function() {
     'ash.heartd.mojom.Pacemaker',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.heartd.mojom.PacemakerPtr = ash.heartd.mojom.PacemakerRemote;

@@ -70,7 +70,7 @@ cast_streaming.mojom.AudioBufferRequester.getRemote = function() {
     'cast_streaming.mojom.AudioBufferRequester',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetBuffer
 cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec = {
@@ -83,7 +83,7 @@ cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec = {
   $: {
@@ -96,7 +96,7 @@ cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableBitstreamConverter
 cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec = {
@@ -109,7 +109,7 @@ cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = {
   $: {
@@ -122,7 +122,7 @@ cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cast_streaming.mojom.AudioBufferRequesterPtr = cast_streaming.mojom.AudioBufferRequesterRemote;
@@ -190,7 +190,7 @@ cast_streaming.mojom.VideoBufferRequester.getRemote = function() {
     'cast_streaming.mojom.VideoBufferRequester',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetBuffer
 cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec = {
@@ -203,7 +203,7 @@ cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec = {
   $: {
@@ -216,7 +216,7 @@ cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableBitstreamConverter
 cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec = {
@@ -229,7 +229,7 @@ cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = {
   $: {
@@ -242,7 +242,7 @@ cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cast_streaming.mojom.VideoBufferRequesterPtr = cast_streaming.mojom.VideoBufferRequesterRemote;
@@ -310,7 +310,7 @@ cast_streaming.mojom.DemuxerConnector.getRemote = function() {
     'cast_streaming.mojom.DemuxerConnector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EnableReceiver
 cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec = {
@@ -323,7 +323,7 @@ cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStreamsInitialized
 cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec = {
@@ -338,7 +338,7 @@ cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cast_streaming.mojom.DemuxerConnectorPtr = cast_streaming.mojom.DemuxerConnectorRemote;

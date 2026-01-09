@@ -176,7 +176,7 @@ feed_internals.mojom.PageHandler.getRemote = function() {
     'feed_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetGeneralProperties
 feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec = {
@@ -189,7 +189,7 @@ feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec = {
   $: {
@@ -202,7 +202,7 @@ feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLastFetchProperties
 feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec = {
@@ -215,7 +215,7 @@ feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec = {
   $: {
@@ -228,7 +228,7 @@ feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RefreshForYouFeed
 feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec = {
@@ -241,7 +241,7 @@ feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RefreshFollowingFeed
 feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec = {
@@ -254,7 +254,7 @@ feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RefreshWebFeedSuggestions
 feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec = {
@@ -267,7 +267,7 @@ feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFeedProcessScopeDump
 feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec = {
@@ -280,7 +280,7 @@ feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec = {
   $: {
@@ -293,7 +293,7 @@ feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFeedHistograms
 feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec = {
@@ -306,7 +306,7 @@ feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec = {
   $: {
@@ -319,7 +319,7 @@ feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OverrideFeedHost
 feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec = {
@@ -333,7 +333,7 @@ feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OverrideDiscoverApiEndpoint
 feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec = {
@@ -347,7 +347,7 @@ feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OverrideFeedStreamData
 feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec = {
@@ -361,7 +361,7 @@ feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWebFeedFollowIntroDebugEnabled
 feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec = {
@@ -375,7 +375,7 @@ feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUseFeedQueryRequests
 feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec = {
@@ -389,7 +389,7 @@ feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFollowingFeedOrder
 feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec = {
@@ -403,7 +403,7 @@ feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 feed_internals.mojom.PageHandlerPtr = feed_internals.mojom.PageHandlerRemote;

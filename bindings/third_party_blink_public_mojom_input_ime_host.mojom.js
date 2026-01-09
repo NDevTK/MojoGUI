@@ -61,7 +61,7 @@ blink.mojom.ImeRenderWidgetHost.getRemote = function() {
     'blink.mojom.ImeRenderWidgetHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateCursorAnchorInfo
 blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ImeRenderWidgetHostPtr = blink.mojom.ImeRenderWidgetHostRemote;

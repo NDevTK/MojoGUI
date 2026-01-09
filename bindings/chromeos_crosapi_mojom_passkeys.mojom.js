@@ -73,7 +73,7 @@ crosapi.mojom.PasskeyAuthenticator.getRemote = function() {
     'crosapi.mojom.PasskeyAuthenticator',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.PasskeyAuthenticatorPtr = crosapi.mojom.PasskeyAuthenticatorRemote;

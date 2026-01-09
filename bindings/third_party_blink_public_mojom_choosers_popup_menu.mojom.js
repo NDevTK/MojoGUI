@@ -79,7 +79,7 @@ blink.mojom.PopupMenuClient.getRemote = function() {
     'blink.mojom.PopupMenuClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidAcceptIndices
 blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec = {
@@ -93,7 +93,7 @@ blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidCancel
 blink.mojom.PopupMenuClient_DidCancel_ParamsSpec = {
@@ -106,7 +106,7 @@ blink.mojom.PopupMenuClient_DidCancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PopupMenuClientPtr = blink.mojom.PopupMenuClientRemote;

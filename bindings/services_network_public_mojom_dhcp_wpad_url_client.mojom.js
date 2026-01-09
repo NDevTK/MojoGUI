@@ -61,7 +61,7 @@ network.mojom.DhcpWpadUrlClient.getRemote = function() {
     'network.mojom.DhcpWpadUrlClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPacUrl
 network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec = {
@@ -74,7 +74,7 @@ network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.DhcpWpadUrlClientPtr = network.mojom.DhcpWpadUrlClientRemote;

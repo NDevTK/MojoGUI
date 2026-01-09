@@ -70,7 +70,7 @@ blink.mojom.ImageDownloader.getRemote = function() {
     'blink.mojom.ImageDownloader',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DownloadImage
 blink.mojom.ImageDownloader_DownloadImage_ParamsSpec = {
@@ -88,7 +88,7 @@ blink.mojom.ImageDownloader_DownloadImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec = {
   $: {
@@ -103,7 +103,7 @@ blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DownloadImageFromAxNode
 blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec = {
@@ -120,7 +120,7 @@ blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec = {
   $: {
@@ -135,7 +135,7 @@ blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ImageDownloaderPtr = blink.mojom.ImageDownloaderRemote;

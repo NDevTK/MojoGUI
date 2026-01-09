@@ -61,7 +61,7 @@ dom_distiller.mojom.DistillabilityService.getRemote = function() {
     'dom_distiller.mojom.DistillabilityService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NotifyIsDistillable
 dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec = {
@@ -78,7 +78,7 @@ dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 dom_distiller.mojom.DistillabilityServicePtr = dom_distiller.mojom.DistillabilityServiceRemote;

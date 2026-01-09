@@ -106,7 +106,7 @@ media.mojom.CdmDocumentService.getRemote = function() {
     'media.mojom.CdmDocumentService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ChallengePlatform
 media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = {
@@ -121,7 +121,7 @@ media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = {
   $: {
@@ -137,7 +137,7 @@ media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStorageId
 media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = {
@@ -151,7 +151,7 @@ media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = {
   $: {
@@ -165,7 +165,7 @@ media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsVerifiedAccessEnabled
 media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec = {
@@ -178,7 +178,7 @@ media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec = {
   $: {
@@ -191,7 +191,7 @@ media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMediaFoundationCdmData
 media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = {
@@ -204,7 +204,7 @@ media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = {
   $: {
@@ -217,7 +217,7 @@ media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCdmClientToken
 media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = {
@@ -231,7 +231,7 @@ media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCdmEvent
 media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = {
@@ -246,7 +246,7 @@ media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.CdmDocumentServicePtr = media.mojom.CdmDocumentServiceRemote;

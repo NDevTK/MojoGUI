@@ -62,7 +62,7 @@ ash.ime.mojom.InputChannel.getRemote = function() {
     'ash.ime.mojom.InputChannel',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ProcessMessage
 ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec = {
@@ -76,7 +76,7 @@ ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec = {
   $: {
@@ -89,7 +89,7 @@ ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.ime.mojom.InputChannelPtr = ash.ime.mojom.InputChannelRemote;

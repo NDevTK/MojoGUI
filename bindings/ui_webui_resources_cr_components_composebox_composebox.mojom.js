@@ -61,7 +61,7 @@ composebox.mojom.PageHandlerFactory.getRemote = function() {
     'composebox.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -78,7 +78,7 @@ composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 composebox.mojom.PageHandlerFactoryPtr = composebox.mojom.PageHandlerFactoryRemote;
@@ -182,7 +182,7 @@ composebox.mojom.PageHandler.getRemote = function() {
     'composebox.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FocusChanged
 composebox.mojom.PageHandler_FocusChanged_ParamsSpec = {
@@ -196,7 +196,7 @@ composebox.mojom.PageHandler_FocusChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDeepSearchMode
 composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec = {
@@ -210,7 +210,7 @@ composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCreateImageMode
 composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec = {
@@ -225,7 +225,7 @@ composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleLensButtonClick
 composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec = {
@@ -238,7 +238,7 @@ composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleFileUpload
 composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec = {
@@ -252,7 +252,7 @@ composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NavigateUrl
 composebox.mojom.PageHandler_NavigateUrl_ParamsSpec = {
@@ -266,7 +266,7 @@ composebox.mojom.PageHandler_NavigateUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 composebox.mojom.PageHandlerPtr = composebox.mojom.PageHandlerRemote;
@@ -316,7 +316,7 @@ composebox.mojom.Page.getRemote = function() {
     'composebox.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 composebox.mojom.PagePtr = composebox.mojom.PageRemote;

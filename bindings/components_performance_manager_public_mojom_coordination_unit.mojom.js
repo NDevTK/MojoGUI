@@ -168,7 +168,7 @@ performance_manager.mojom.DocumentCoordinationUnit.getRemote = function() {
     'performance_manager.mojom.DocumentCoordinationUnit',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetNetworkAlmostIdle
 performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec = {
@@ -181,7 +181,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetLifecycleState
 performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec = {
@@ -195,7 +195,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHasNonEmptyBeforeUnload
 performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec = {
@@ -209,7 +209,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHadFormInteraction
 performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec = {
@@ -222,7 +222,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHadUserEdits
 performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec = {
@@ -235,7 +235,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStartedUsingWebRTC
 performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec = {
@@ -248,7 +248,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStoppedUsingWebRTC
 performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec = {
@@ -261,7 +261,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsAdFrame
 performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec = {
@@ -275,7 +275,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNonPersistentNotificationCreated
 performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec = {
@@ -288,7 +288,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCr
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFirstContentfulPaint
 performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec = {
@@ -302,7 +302,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWebMemoryMeasurementRequested
 performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec = {
@@ -316,7 +316,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequest
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec = {
   $: {
@@ -329,7 +329,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequest
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFreezingOriginTrialOptOut
 performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec = {
@@ -342,7 +342,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 performance_manager.mojom.DocumentCoordinationUnitPtr = performance_manager.mojom.DocumentCoordinationUnitRemote;
@@ -446,7 +446,7 @@ performance_manager.mojom.ProcessCoordinationUnit.getRemote = function() {
     'performance_manager.mojom.ProcessCoordinationUnit',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetMainThreadTaskLoadIsLow
 performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec = {
@@ -460,7 +460,7 @@ performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnV8ContextCreated
 performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec = {
@@ -475,7 +475,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnV8ContextDetached
 performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec = {
@@ -489,7 +489,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnV8ContextDestroyed
 performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec = {
@@ -503,7 +503,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRemoteIframeAttached
 performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec = {
@@ -519,7 +519,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRemoteIframeDetached
 performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec = {
@@ -534,7 +534,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 performance_manager.mojom.ProcessCoordinationUnitPtr = performance_manager.mojom.ProcessCoordinationUnitRemote;
@@ -593,7 +593,7 @@ performance_manager.mojom.ChildProcessCoordinationUnit.getRemote = function() {
     'performance_manager.mojom.ChildProcessCoordinationUnit',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for InitializeChildProcessCoordination
 performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec = {
@@ -606,7 +606,7 @@ performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec = {
   $: {
@@ -620,7 +620,7 @@ performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 performance_manager.mojom.ChildProcessCoordinationUnitPtr = performance_manager.mojom.ChildProcessCoordinationUnitRemote;

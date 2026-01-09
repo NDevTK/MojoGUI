@@ -222,7 +222,7 @@ history_clusters.mojom.PageHandler.getRemote = function() {
     'history_clusters.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenHistoryUrl
 history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec = {
@@ -237,7 +237,7 @@ history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPage
 history_clusters.mojom.PageHandler_SetPage_ParamsSpec = {
@@ -251,7 +251,7 @@ history_clusters.mojom.PageHandler_SetPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowContextMenuForSearchbox
 history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec = {
@@ -266,7 +266,7 @@ history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowContextMenuForURL
 history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = {
@@ -281,7 +281,7 @@ history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowSidePanelUI
 history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec = {
@@ -294,7 +294,7 @@ history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ToggleVisibility
 history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec = {
@@ -308,7 +308,7 @@ history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec = {
   $: {
@@ -321,7 +321,7 @@ history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartQueryClusters
 history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec = {
@@ -337,7 +337,7 @@ history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadMoreClusters
 history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec = {
@@ -351,7 +351,7 @@ history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HideVisits
 history_clusters.mojom.PageHandler_HideVisits_ParamsSpec = {
@@ -365,7 +365,7 @@ history_clusters.mojom.PageHandler_HideVisits_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec = {
   $: {
@@ -378,7 +378,7 @@ history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveVisits
 history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec = {
@@ -392,7 +392,7 @@ history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec = {
   $: {
@@ -405,7 +405,7 @@ history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveVisitByUrlAndTime
 history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec = {
@@ -420,7 +420,7 @@ history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec = {
   $: {
@@ -433,7 +433,7 @@ history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenVisitUrlsInTabGroup
 history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec = {
@@ -448,7 +448,7 @@ history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordVisitAction
 history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec = {
@@ -464,7 +464,7 @@ history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordRelatedSearchAction
 history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec = {
@@ -479,7 +479,7 @@ history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordClusterAction
 history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec = {
@@ -494,7 +494,7 @@ history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordToggledVisibility
 history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec = {
@@ -508,7 +508,7 @@ history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 history_clusters.mojom.PageHandlerPtr = history_clusters.mojom.PageHandlerRemote;
@@ -612,7 +612,7 @@ history_clusters.mojom.Page.getRemote = function() {
     'history_clusters.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnClustersQueryResult
 history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec = {
@@ -626,7 +626,7 @@ history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClusterImageUpdated
 history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec = {
@@ -641,7 +641,7 @@ history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnVisitsHidden
 history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec = {
@@ -655,7 +655,7 @@ history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnVisitsRemoved
 history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec = {
@@ -669,7 +669,7 @@ history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHistoryDeleted
 history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec = {
@@ -682,7 +682,7 @@ history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnQueryChangedByUser
 history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec = {
@@ -696,7 +696,7 @@ history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 history_clusters.mojom.PagePtr = history_clusters.mojom.PageRemote;

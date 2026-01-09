@@ -52,7 +52,7 @@ arc.mojom.PrivacyItemsHost.getRemote = function() {
     'arc.mojom.PrivacyItemsHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.PrivacyItemsHostPtr = arc.mojom.PrivacyItemsHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.PrivacyItemsInstance.getRemote = function() {
     'arc.mojom.PrivacyItemsInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.PrivacyItemsInstancePtr = arc.mojom.PrivacyItemsInstanceRemote;

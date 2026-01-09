@@ -78,7 +78,7 @@ private_aggregation_internals.mojom.Observer.getRemote = function() {
     'private_aggregation_internals.mojom.Observer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnRequestStorageModified
 private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec = {
@@ -91,7 +91,7 @@ private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReportHandled
 private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
@@ -105,7 +105,7 @@ private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 private_aggregation_internals.mojom.ObserverPtr = private_aggregation_internals.mojom.ObserverRemote;
@@ -182,7 +182,7 @@ private_aggregation_internals.mojom.Handler.getRemote = function() {
     'private_aggregation_internals.mojom.Handler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetReports
 private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec = {
@@ -195,7 +195,7 @@ private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec = {
   $: {
@@ -208,7 +208,7 @@ private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendReports
 private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec = {
@@ -222,7 +222,7 @@ private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearStorage
 private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec = {
@@ -235,7 +235,7 @@ private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 private_aggregation_internals.mojom.HandlerPtr = private_aggregation_internals.mojom.HandlerRemote;
@@ -294,7 +294,7 @@ private_aggregation_internals.mojom.Factory.getRemote = function() {
     'private_aggregation_internals.mojom.Factory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Create
 private_aggregation_internals.mojom.Factory_Create_ParamsSpec = {
@@ -309,7 +309,7 @@ private_aggregation_internals.mojom.Factory_Create_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 private_aggregation_internals.mojom.FactoryPtr = private_aggregation_internals.mojom.FactoryRemote;

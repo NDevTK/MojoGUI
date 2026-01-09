@@ -148,7 +148,7 @@ chrome.mojom.UtilWin.getRemote = function() {
     'chrome.mojom.UtilWin',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for IsPinnedToTaskbar
 chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec = {
@@ -161,7 +161,7 @@ chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec = {
   $: {
@@ -175,7 +175,7 @@ chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnpinShortcuts
 chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec = {
@@ -189,7 +189,7 @@ chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateOrUpdateShortcuts
 chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec = {
@@ -205,7 +205,7 @@ chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec = {
   $: {
@@ -218,7 +218,7 @@ chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CallExecuteSelectFile
 chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec = {
@@ -238,7 +238,7 @@ chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec = {
   $: {
@@ -252,7 +252,7 @@ chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InspectModule
 chrome.mojom.UtilWin_InspectModule_ParamsSpec = {
@@ -266,7 +266,7 @@ chrome.mojom.UtilWin_InspectModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec = {
   $: {
@@ -279,7 +279,7 @@ chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAntiVirusProducts
 chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec = {
@@ -293,7 +293,7 @@ chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec = {
   $: {
@@ -306,7 +306,7 @@ chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTpmIdentifier
 chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec = {
@@ -319,7 +319,7 @@ chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec = {
   $: {
@@ -332,7 +332,7 @@ chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.UtilWinPtr = chrome.mojom.UtilWinRemote;
@@ -391,7 +391,7 @@ chrome.mojom.ProcessorMetrics.getRemote = function() {
     'chrome.mojom.ProcessorMetrics',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RecordProcessorMetrics
 chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec = {
@@ -404,7 +404,7 @@ chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.ProcessorMetricsPtr = chrome.mojom.ProcessorMetricsRemote;

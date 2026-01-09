@@ -85,7 +85,7 @@ whats_new.mojom.PageHandlerFactory.getRemote = function() {
     'whats_new.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -100,7 +100,7 @@ whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 whats_new.mojom.PageHandlerFactoryPtr = whats_new.mojom.PageHandlerFactoryRemote;
@@ -348,7 +348,7 @@ whats_new.mojom.PageHandler.getRemote = function() {
     'whats_new.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetServerUrl
 whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec = {
@@ -362,7 +362,7 @@ whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec = {
   $: {
@@ -375,7 +375,7 @@ whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordTimeToLoadContent
 whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec = {
@@ -389,7 +389,7 @@ whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordVersionPageLoaded
 whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec = {
@@ -403,7 +403,7 @@ whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordEditionPageLoaded
 whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec = {
@@ -418,7 +418,7 @@ whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordModuleImpression
 whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec = {
@@ -433,7 +433,7 @@ whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordExploreMoreToggled
 whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec = {
@@ -447,7 +447,7 @@ whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordScrollDepth
 whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec = {
@@ -461,7 +461,7 @@ whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordTimeOnPage
 whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec = {
@@ -475,7 +475,7 @@ whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordModuleLinkClicked
 whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec = {
@@ -490,7 +490,7 @@ whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordModuleVideoStarted
 whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec = {
@@ -505,7 +505,7 @@ whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordModuleVideoEnded
 whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec = {
@@ -520,7 +520,7 @@ whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordModulePlayClicked
 whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec = {
@@ -535,7 +535,7 @@ whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordModulePauseClicked
 whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec = {
@@ -550,7 +550,7 @@ whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordModuleRestartClicked
 whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec = {
@@ -565,7 +565,7 @@ whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordBrowserCommandExecuted
 whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec = {
@@ -578,7 +578,7 @@ whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordQrCodeToggled
 whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec = {
@@ -592,7 +592,7 @@ whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordNavClick
 whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec = {
@@ -605,7 +605,7 @@ whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordFeatureTileNavigation
 whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec = {
@@ -618,7 +618,7 @@ whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordCarouselScrollButtonClick
 whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec = {
@@ -631,7 +631,7 @@ whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordExpandMediaToggled
 whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec = {
@@ -646,7 +646,7 @@ whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordCtaClick
 whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec = {
@@ -659,7 +659,7 @@ whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordNextButtonClick
 whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec = {
@@ -672,7 +672,7 @@ whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 whats_new.mojom.PageHandlerPtr = whats_new.mojom.PageHandlerRemote;
@@ -722,7 +722,7 @@ whats_new.mojom.Page.getRemote = function() {
     'whats_new.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 whats_new.mojom.PagePtr = whats_new.mojom.PageRemote;

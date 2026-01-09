@@ -61,7 +61,7 @@ content.mojom.WebUIHost.getRemote = function() {
     'content.mojom.WebUIHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Send
 content.mojom.WebUIHost_Send_ParamsSpec = {
@@ -76,7 +76,7 @@ content.mojom.WebUIHost_Send_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.WebUIHostPtr = content.mojom.WebUIHostRemote;
@@ -135,7 +135,7 @@ content.mojom.WebUI.getRemote = function() {
     'content.mojom.WebUI',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetProperty
 content.mojom.WebUI_SetProperty_ParamsSpec = {
@@ -150,7 +150,7 @@ content.mojom.WebUI_SetProperty_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.WebUIPtr = content.mojom.WebUIRemote;

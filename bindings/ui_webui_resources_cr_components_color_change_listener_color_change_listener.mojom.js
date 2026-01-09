@@ -61,7 +61,7 @@ color_change_listener.mojom.PageHandler.getRemote = function() {
     'color_change_listener.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetPage
 color_change_listener.mojom.PageHandler_SetPage_ParamsSpec = {
@@ -75,7 +75,7 @@ color_change_listener.mojom.PageHandler_SetPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 color_change_listener.mojom.PageHandlerPtr = color_change_listener.mojom.PageHandlerRemote;
@@ -134,7 +134,7 @@ color_change_listener.mojom.Page.getRemote = function() {
     'color_change_listener.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnColorProviderChanged
 color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec = {
@@ -147,7 +147,7 @@ color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 color_change_listener.mojom.PagePtr = color_change_listener.mojom.PageRemote;

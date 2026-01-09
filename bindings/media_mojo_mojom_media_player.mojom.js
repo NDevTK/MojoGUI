@@ -187,7 +187,7 @@ media.mojom.MediaPlayer.getRemote = function() {
     'media.mojom.MediaPlayer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestPlay
 media.mojom.MediaPlayer_RequestPlay_ParamsSpec = {
@@ -200,7 +200,7 @@ media.mojom.MediaPlayer_RequestPlay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestPause
 media.mojom.MediaPlayer_RequestPause_ParamsSpec = {
@@ -214,7 +214,7 @@ media.mojom.MediaPlayer_RequestPause_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestSeekForward
 media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec = {
@@ -228,7 +228,7 @@ media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestSeekBackward
 media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec = {
@@ -242,7 +242,7 @@ media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestSeekTo
 media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec = {
@@ -256,7 +256,7 @@ media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestEnterPictureInPicture
 media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec = {
@@ -269,7 +269,7 @@ media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestMute
 media.mojom.MediaPlayer_RequestMute_ParamsSpec = {
@@ -283,7 +283,7 @@ media.mojom.MediaPlayer_RequestMute_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVolumeMultiplier
 media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec = {
@@ -297,7 +297,7 @@ media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPersistentState
 media.mojom.MediaPlayer_SetPersistentState_ParamsSpec = {
@@ -311,7 +311,7 @@ media.mojom.MediaPlayer_SetPersistentState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPowerExperimentState
 media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec = {
@@ -325,7 +325,7 @@ media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAudioSinkId
 media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec = {
@@ -339,7 +339,7 @@ media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SuspendForFrameClosed
 media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec = {
@@ -352,7 +352,7 @@ media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestMediaRemoting
 media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec = {
@@ -365,7 +365,7 @@ media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestVisibility
 media.mojom.MediaPlayer_RequestVisibility_ParamsSpec = {
@@ -378,7 +378,7 @@ media.mojom.MediaPlayer_RequestVisibility_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec = {
   $: {
@@ -391,7 +391,7 @@ media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordAutoPictureInPictureInfo
 media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec = {
@@ -405,7 +405,7 @@ media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaPlayerPtr = media.mojom.MediaPlayerRemote;
@@ -464,7 +464,7 @@ media.mojom.MediaPlayerObserverClient.getRemote = function() {
     'media.mojom.MediaPlayerObserverClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetHasPlayedBefore
 media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec = {
@@ -477,7 +477,7 @@ media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec = {
   $: {
@@ -490,7 +490,7 @@ media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaPlayerObserverClientPtr = media.mojom.MediaPlayerObserverClientRemote;
@@ -657,7 +657,7 @@ media.mojom.MediaPlayerObserver.getRemote = function() {
     'media.mojom.MediaPlayerObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMediaPlaying
 media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec = {
@@ -670,7 +670,7 @@ media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMediaPaused
 media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec = {
@@ -684,7 +684,7 @@ media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMutedStatusChanged
 media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec = {
@@ -698,7 +698,7 @@ media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMediaMetadataChanged
 media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec = {
@@ -714,7 +714,7 @@ media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMediaPositionStateChanged
 media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec = {
@@ -728,7 +728,7 @@ media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMediaEffectivelyFullscreenChanged
 media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec = {
@@ -742,7 +742,7 @@ media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMediaSizeChanged
 media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec = {
@@ -756,7 +756,7 @@ media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPictureInPictureAvailabilityChanged
 media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec = {
@@ -770,7 +770,7 @@ media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAudioOutputSinkChanged
 media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec = {
@@ -784,7 +784,7 @@ media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnUseAudioServiceChanged
 media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec = {
@@ -798,7 +798,7 @@ media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAudioOutputSinkChangingDisabled
 media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec = {
@@ -811,7 +811,7 @@ media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRemotePlaybackMetadataChange
 media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec = {
@@ -825,7 +825,7 @@ media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnVideoVisibilityChanged
 media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec = {
@@ -839,7 +839,7 @@ media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaPlayerObserverPtr = media.mojom.MediaPlayerObserverRemote;
@@ -898,7 +898,7 @@ media.mojom.MediaPlayerHost.getRemote = function() {
     'media.mojom.MediaPlayerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMediaPlayerAdded
 media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec = {
@@ -914,7 +914,7 @@ media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaPlayerHostPtr = media.mojom.MediaPlayerHostRemote;

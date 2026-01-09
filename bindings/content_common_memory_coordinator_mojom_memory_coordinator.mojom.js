@@ -70,7 +70,7 @@ content.mojom.ChildMemoryConsumer.getRemote = function() {
     'content.mojom.ChildMemoryConsumer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NotifyReleaseMemory
 content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = {
@@ -83,7 +83,7 @@ content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyUpdateMemoryLimit
 content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = {
@@ -97,7 +97,7 @@ content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.ChildMemoryConsumerPtr = content.mojom.ChildMemoryConsumerRemote;
@@ -156,7 +156,7 @@ content.mojom.BrowserMemoryConsumerRegistry.getRemote = function() {
     'content.mojom.BrowserMemoryConsumerRegistry',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterChildMemoryConsumer
 content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec = {
@@ -172,7 +172,7 @@ content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.BrowserMemoryConsumerRegistryPtr = content.mojom.BrowserMemoryConsumerRegistryRemote;

@@ -278,7 +278,7 @@ searchbox.mojom.PageHandler.getRemote = function() {
     'searchbox.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetPage
 searchbox.mojom.PageHandler_SetPage_ParamsSpec = {
@@ -292,7 +292,7 @@ searchbox.mojom.PageHandler_SetPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFocusChanged
 searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec = {
@@ -306,7 +306,7 @@ searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueryAutocomplete
 searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec = {
@@ -321,7 +321,7 @@ searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopAutocomplete
 searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec = {
@@ -335,7 +335,7 @@ searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenAutocompleteMatch
 searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec = {
@@ -356,7 +356,7 @@ searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNavigationLikely
 searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec = {
@@ -372,7 +372,7 @@ searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteAutocompleteMatch
 searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec = {
@@ -387,7 +387,7 @@ searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ActivateKeyword
 searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec = {
@@ -404,7 +404,7 @@ searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowContextMenu
 searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
@@ -418,7 +418,7 @@ searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteAction
 searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec = {
@@ -440,7 +440,7 @@ searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnThumbnailRemoved
 searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec = {
@@ -453,7 +453,7 @@ searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPlaceholderConfig
 searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec = {
@@ -466,7 +466,7 @@ searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec = {
   $: {
@@ -479,7 +479,7 @@ searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRecentTabs
 searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec = {
@@ -492,7 +492,7 @@ searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec = {
   $: {
@@ -505,7 +505,7 @@ searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTabPreview
 searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec = {
@@ -519,7 +519,7 @@ searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec = {
   $: {
@@ -532,7 +532,7 @@ searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifySessionStarted
 searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec = {
@@ -545,7 +545,7 @@ searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifySessionAbandoned
 searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec = {
@@ -558,7 +558,7 @@ searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddFileContext
 searchbox.mojom.PageHandler_AddFileContext_ParamsSpec = {
@@ -573,7 +573,7 @@ searchbox.mojom.PageHandler_AddFileContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec = {
   $: {
@@ -586,7 +586,7 @@ searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddTabContext
 searchbox.mojom.PageHandler_AddTabContext_ParamsSpec = {
@@ -601,7 +601,7 @@ searchbox.mojom.PageHandler_AddTabContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec = {
   $: {
@@ -614,7 +614,7 @@ searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteContext
 searchbox.mojom.PageHandler_DeleteContext_ParamsSpec = {
@@ -629,7 +629,7 @@ searchbox.mojom.PageHandler_DeleteContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearFiles
 searchbox.mojom.PageHandler_ClearFiles_ParamsSpec = {
@@ -642,7 +642,7 @@ searchbox.mojom.PageHandler_ClearFiles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SubmitQuery
 searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec = {
@@ -661,7 +661,7 @@ searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenLensSearch
 searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec = {
@@ -674,7 +674,7 @@ searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 searchbox.mojom.PageHandlerPtr = searchbox.mojom.PageHandlerRemote;
@@ -850,7 +850,7 @@ searchbox.mojom.Page.getRemote = function() {
     'searchbox.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AutocompleteResultChanged
 searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec = {
@@ -864,7 +864,7 @@ searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateSelection
 searchbox.mojom.Page_UpdateSelection_ParamsSpec = {
@@ -879,7 +879,7 @@ searchbox.mojom.Page_UpdateSelection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetKeywordSelected
 searchbox.mojom.Page_SetKeywordSelected_ParamsSpec = {
@@ -893,7 +893,7 @@ searchbox.mojom.Page_SetKeywordSelected_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnShow
 searchbox.mojom.Page_OnShow_ParamsSpec = {
@@ -906,7 +906,7 @@ searchbox.mojom.Page_OnShow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetInputText
 searchbox.mojom.Page_SetInputText_ParamsSpec = {
@@ -920,7 +920,7 @@ searchbox.mojom.Page_SetInputText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetThumbnail
 searchbox.mojom.Page_SetThumbnail_ParamsSpec = {
@@ -935,7 +935,7 @@ searchbox.mojom.Page_SetThumbnail_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnContextualInputStatusChanged
 searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec = {
@@ -951,7 +951,7 @@ searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTabStripChanged
 searchbox.mojom.Page_OnTabStripChanged_ParamsSpec = {
@@ -964,7 +964,7 @@ searchbox.mojom.Page_OnTabStripChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddFileContext
 searchbox.mojom.Page_AddFileContext_ParamsSpec = {
@@ -979,7 +979,7 @@ searchbox.mojom.Page_AddFileContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateAutoSuggestedTabContext
 searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec = {
@@ -993,7 +993,7 @@ searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateLensSearchEligibility
 searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec = {
@@ -1007,7 +1007,7 @@ searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateContentSharingPolicy
 searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec = {
@@ -1021,7 +1021,7 @@ searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateAimEligibility
 searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec = {
@@ -1035,7 +1035,7 @@ searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnShowAiModePrefChanged
 searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec = {
@@ -1049,7 +1049,7 @@ searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 searchbox.mojom.PagePtr = searchbox.mojom.PageRemote;

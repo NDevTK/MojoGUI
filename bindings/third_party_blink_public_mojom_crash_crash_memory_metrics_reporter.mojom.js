@@ -61,7 +61,7 @@ blink.mojom.CrashMemoryMetricsReporter.getRemote = function() {
     'blink.mojom.CrashMemoryMetricsReporter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetSharedMemory
 blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.CrashMemoryMetricsReporterPtr = blink.mojom.CrashMemoryMetricsReporterRemote;

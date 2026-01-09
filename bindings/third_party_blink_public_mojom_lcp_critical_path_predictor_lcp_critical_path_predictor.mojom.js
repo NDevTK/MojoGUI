@@ -115,7 +115,7 @@ blink.mojom.LCPCriticalPathPredictorHost.getRemote = function() {
     'blink.mojom.LCPCriticalPathPredictorHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnLcpUpdated
 blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec = {
@@ -129,7 +129,7 @@ blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLcpTimingPredictedForTesting
 blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec = {
@@ -143,7 +143,7 @@ blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetLcpInfluencerScriptUrls
 blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec = {
@@ -157,7 +157,7 @@ blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddPreconnectOrigin
 blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec = {
@@ -171,7 +171,7 @@ blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyFetchedFont
 blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec = {
@@ -186,7 +186,7 @@ blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyFetchedSubresource
 blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec = {
@@ -202,7 +202,7 @@ blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUnusedPreloads
 blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec = {
@@ -216,7 +216,7 @@ blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.LCPCriticalPathPredictorHostPtr = blink.mojom.LCPCriticalPathPredictorHostRemote;

@@ -63,7 +63,7 @@ global_media_controls.mojom.DeviceListHost.getRemote = function() {
     'global_media_controls.mojom.DeviceListHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 global_media_controls.mojom.DeviceListHostPtr = global_media_controls.mojom.DeviceListHostRemote;
@@ -113,7 +113,7 @@ global_media_controls.mojom.DeviceListClient.getRemote = function() {
     'global_media_controls.mojom.DeviceListClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 global_media_controls.mojom.DeviceListClientPtr = global_media_controls.mojom.DeviceListClientRemote;
@@ -163,7 +163,7 @@ global_media_controls.mojom.DeviceService.getRemote = function() {
     'global_media_controls.mojom.DeviceService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 global_media_controls.mojom.DeviceServicePtr = global_media_controls.mojom.DeviceServiceRemote;
@@ -213,7 +213,7 @@ global_media_controls.mojom.DevicePickerProvider.getRemote = function() {
     'global_media_controls.mojom.DevicePickerProvider',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 global_media_controls.mojom.DevicePickerProviderPtr = global_media_controls.mojom.DevicePickerProviderRemote;
@@ -263,7 +263,7 @@ global_media_controls.mojom.DevicePickerObserver.getRemote = function() {
     'global_media_controls.mojom.DevicePickerObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 global_media_controls.mojom.DevicePickerObserverPtr = global_media_controls.mojom.DevicePickerObserverRemote;

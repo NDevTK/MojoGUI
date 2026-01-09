@@ -102,7 +102,7 @@ blink.mojom.CredentialManager.getRemote = function() {
     'blink.mojom.CredentialManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Store
 blink.mojom.CredentialManager_Store_ParamsSpec = {
@@ -116,7 +116,7 @@ blink.mojom.CredentialManager_Store_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PreventSilentAccess
 blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec = {
@@ -129,7 +129,7 @@ blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Get
 blink.mojom.CredentialManager_Get_ParamsSpec = {
@@ -145,7 +145,7 @@ blink.mojom.CredentialManager_Get_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.CredentialManager_Get_ResponseParamsSpec = {
   $: {
@@ -159,7 +159,7 @@ blink.mojom.CredentialManager_Get_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.CredentialManagerPtr = blink.mojom.CredentialManagerRemote;

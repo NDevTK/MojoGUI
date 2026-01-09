@@ -79,7 +79,7 @@ continuous_search.mojom.SearchResultExtractor.getRemote = function() {
     'continuous_search.mojom.SearchResultExtractor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ExtractCurrentSearchResults
 continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec = {
@@ -93,7 +93,7 @@ continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec = {
   $: {
@@ -107,7 +107,7 @@ continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 continuous_search.mojom.SearchResultExtractorPtr = continuous_search.mojom.SearchResultExtractorRemote;

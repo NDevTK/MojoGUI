@@ -61,7 +61,7 @@ media.mojom.MediaLog.getRemote = function() {
     'media.mojom.MediaLog',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddLogRecord
 media.mojom.MediaLog_AddLogRecord_ParamsSpec = {
@@ -75,7 +75,7 @@ media.mojom.MediaLog_AddLogRecord_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaLogPtr = media.mojom.MediaLogRemote;

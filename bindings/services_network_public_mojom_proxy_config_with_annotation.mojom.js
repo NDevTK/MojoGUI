@@ -70,7 +70,7 @@ network.mojom.ProxyConfigClient.getRemote = function() {
     'network.mojom.ProxyConfigClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnProxyConfigUpdated
 network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = {
@@ -84,7 +84,7 @@ network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FlushProxyConfig
 network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec = {
@@ -97,7 +97,7 @@ network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.ProxyConfigClientPtr = network.mojom.ProxyConfigClientRemote;
@@ -156,7 +156,7 @@ network.mojom.ProxyConfigPollerClient.getRemote = function() {
     'network.mojom.ProxyConfigPollerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnLazyProxyConfigPoll
 network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec = {
@@ -169,7 +169,7 @@ network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.ProxyConfigPollerClientPtr = network.mojom.ProxyConfigPollerClientRemote;
@@ -237,7 +237,7 @@ network.mojom.ProxyErrorClient.getRemote = function() {
     'network.mojom.ProxyErrorClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPACScriptError
 network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = {
@@ -252,7 +252,7 @@ network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRequestMaybeFailedDueToProxySettings
 network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec = {
@@ -266,7 +266,7 @@ network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.ProxyErrorClientPtr = network.mojom.ProxyErrorClientRemote;

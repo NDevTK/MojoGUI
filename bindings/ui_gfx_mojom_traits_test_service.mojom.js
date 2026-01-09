@@ -88,7 +88,7 @@ gfx.mojom.TraitsTestService.getRemote = function() {
     'gfx.mojom.TraitsTestService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EchoSelectionBound
 gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec = {
@@ -102,7 +102,7 @@ gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec = {
   $: {
@@ -115,7 +115,7 @@ gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoTransform
 gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec = {
@@ -129,7 +129,7 @@ gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec = {
   $: {
@@ -142,7 +142,7 @@ gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoGpuMemoryBufferHandle
 gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec = {
@@ -156,7 +156,7 @@ gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec = {
   $: {
@@ -169,7 +169,7 @@ gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoRRectF
 gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec = {
@@ -183,7 +183,7 @@ gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec = {
   $: {
@@ -196,7 +196,7 @@ gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 gfx.mojom.TraitsTestServicePtr = gfx.mojom.TraitsTestServiceRemote;

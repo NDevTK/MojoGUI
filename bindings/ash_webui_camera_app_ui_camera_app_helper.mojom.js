@@ -114,7 +114,7 @@ ash.camera_app.mojom.TabletModeMonitor.getRemote = function() {
     'ash.camera_app.mojom.TabletModeMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Update
 ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec = {
@@ -128,7 +128,7 @@ ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.camera_app.mojom.TabletModeMonitorPtr = ash.camera_app.mojom.TabletModeMonitorRemote;
@@ -187,7 +187,7 @@ ash.camera_app.mojom.ScreenStateMonitor.getRemote = function() {
     'ash.camera_app.mojom.ScreenStateMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Update
 ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec = {
@@ -201,7 +201,7 @@ ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.camera_app.mojom.ScreenStateMonitorPtr = ash.camera_app.mojom.ScreenStateMonitorRemote;
@@ -260,7 +260,7 @@ ash.camera_app.mojom.ScreenLockedMonitor.getRemote = function() {
     'ash.camera_app.mojom.ScreenLockedMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Update
 ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec = {
@@ -274,7 +274,7 @@ ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.camera_app.mojom.ScreenLockedMonitorPtr = ash.camera_app.mojom.ScreenLockedMonitorRemote;
@@ -333,7 +333,7 @@ ash.camera_app.mojom.ExternalScreenMonitor.getRemote = function() {
     'ash.camera_app.mojom.ExternalScreenMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Update
 ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec = {
@@ -347,7 +347,7 @@ ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.camera_app.mojom.ExternalScreenMonitorPtr = ash.camera_app.mojom.ExternalScreenMonitorRemote;
@@ -406,7 +406,7 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitor.getRemote = function() {
     'ash.camera_app.mojom.CameraUsageOwnershipMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCameraUsageOwnershipChanged
 ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec = {
@@ -420,7 +420,7 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.camera_app.mojom.CameraUsageOwnershipMonitorPtr = ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote;
@@ -479,7 +479,7 @@ ash.camera_app.mojom.LidStateMonitor.getRemote = function() {
     'ash.camera_app.mojom.LidStateMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Update
 ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec = {
@@ -493,7 +493,7 @@ ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.camera_app.mojom.LidStateMonitorPtr = ash.camera_app.mojom.LidStateMonitorRemote;
@@ -552,7 +552,7 @@ ash.camera_app.mojom.SWPrivacySwitchMonitor.getRemote = function() {
     'ash.camera_app.mojom.SWPrivacySwitchMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Update
 ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec = {
@@ -566,7 +566,7 @@ ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.camera_app.mojom.SWPrivacySwitchMonitorPtr = ash.camera_app.mojom.SWPrivacySwitchMonitorRemote;
@@ -634,7 +634,7 @@ ash.camera_app.mojom.WindowStateMonitor.getRemote = function() {
     'ash.camera_app.mojom.WindowStateMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnWindowStateChanged
 ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec = {
@@ -648,7 +648,7 @@ ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowFocusChanged
 ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec = {
@@ -662,7 +662,7 @@ ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.camera_app.mojom.WindowStateMonitorPtr = ash.camera_app.mojom.WindowStateMonitorRemote;
@@ -721,7 +721,7 @@ ash.camera_app.mojom.StorageMonitor.getRemote = function() {
     'ash.camera_app.mojom.StorageMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Update
 ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec = {
@@ -735,7 +735,7 @@ ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.camera_app.mojom.StorageMonitorPtr = ash.camera_app.mojom.StorageMonitorRemote;
@@ -848,7 +848,7 @@ ash.camera_app.mojom.WindowStateController.getRemote = function() {
     'ash.camera_app.mojom.WindowStateController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddMonitor
 ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec = {
@@ -862,7 +862,7 @@ ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec = {
   $: {
@@ -875,7 +875,7 @@ ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetWindowState
 ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec = {
@@ -888,7 +888,7 @@ ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec = {
   $: {
@@ -901,7 +901,7 @@ ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Minimize
 ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec = {
@@ -914,7 +914,7 @@ ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Restore
 ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec = {
@@ -927,7 +927,7 @@ ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Maximize
 ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec = {
@@ -940,7 +940,7 @@ ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Fullscreen
 ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec = {
@@ -953,7 +953,7 @@ ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Focus
 ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec = {
@@ -966,7 +966,7 @@ ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.camera_app.mojom.WindowStateControllerPtr = ash.camera_app.mojom.WindowStateControllerRemote;
@@ -1304,7 +1304,7 @@ ash.camera_app.mojom.CameraAppHelper.getRemote = function() {
     'ash.camera_app.mojom.CameraAppHelper',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HandleCameraResult
 ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec = {
@@ -1320,7 +1320,7 @@ ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec = {
   $: {
@@ -1333,7 +1333,7 @@ ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsTabletMode
 ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec = {
@@ -1346,7 +1346,7 @@ ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec = {
   $: {
@@ -1359,7 +1359,7 @@ ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartPerfEventTrace
 ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec = {
@@ -1373,7 +1373,7 @@ ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopPerfEventTrace
 ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec = {
@@ -1387,7 +1387,7 @@ ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTabletMonitor
 ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec = {
@@ -1401,7 +1401,7 @@ ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec = {
   $: {
@@ -1414,7 +1414,7 @@ ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetScreenStateMonitor
 ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec = {
@@ -1428,7 +1428,7 @@ ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec = {
   $: {
@@ -1441,7 +1441,7 @@ ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsMetricsAndCrashReportingEnabled
 ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec = {
@@ -1454,7 +1454,7 @@ ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec = {
   $: {
@@ -1467,7 +1467,7 @@ ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetExternalScreenMonitor
 ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec = {
@@ -1481,7 +1481,7 @@ ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec = {
   $: {
@@ -1494,7 +1494,7 @@ ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenFileInGallery
 ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec = {
@@ -1508,7 +1508,7 @@ ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenFeedbackDialog
 ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec = {
@@ -1522,7 +1522,7 @@ ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenUrlInBrowser
 ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec = {
@@ -1536,7 +1536,7 @@ ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetWindowStateController
 ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec = {
@@ -1549,7 +1549,7 @@ ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec = {
   $: {
@@ -1562,7 +1562,7 @@ ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ProcessCapturedFile
 ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec = {
@@ -1577,7 +1577,7 @@ ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec = {
   $: {
@@ -1590,7 +1590,7 @@ ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MonitorFileDeletion
 ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec = {
@@ -1604,7 +1604,7 @@ ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec = {
   $: {
@@ -1617,7 +1617,7 @@ ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsDocumentScannerSupported
 ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec = {
@@ -1630,7 +1630,7 @@ ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec = {
   $: {
@@ -1643,7 +1643,7 @@ ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CheckDocumentModeReadiness
 ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec = {
@@ -1656,7 +1656,7 @@ ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec = {
   $: {
@@ -1669,7 +1669,7 @@ ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ScanDocumentCorners
 ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec = {
@@ -1683,7 +1683,7 @@ ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec = {
   $: {
@@ -1696,7 +1696,7 @@ ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConvertToDocument
 ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec = {
@@ -1712,7 +1712,7 @@ ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec = {
   $: {
@@ -1725,7 +1725,7 @@ ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MaybeTriggerSurvey
 ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec = {
@@ -1738,7 +1738,7 @@ ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartStorageMonitor
 ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec = {
@@ -1752,7 +1752,7 @@ ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec = {
   $: {
@@ -1765,7 +1765,7 @@ ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopStorageMonitor
 ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec = {
@@ -1778,7 +1778,7 @@ ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenStorageManagement
 ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec = {
@@ -1791,7 +1791,7 @@ ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenWifiDialog
 ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec = {
@@ -1805,7 +1805,7 @@ ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetLidStateMonitor
 ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec = {
@@ -1819,7 +1819,7 @@ ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec = {
   $: {
@@ -1832,7 +1832,7 @@ ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSWPrivacySwitchMonitor
 ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec = {
@@ -1846,7 +1846,7 @@ ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec = {
   $: {
@@ -1859,7 +1859,7 @@ ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetEventsSender
 ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec = {
@@ -1872,7 +1872,7 @@ ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec = {
   $: {
@@ -1885,7 +1885,7 @@ ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetScreenLockedMonitor
 ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec = {
@@ -1899,7 +1899,7 @@ ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec = {
   $: {
@@ -1912,7 +1912,7 @@ ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RenderPdfAsJpeg
 ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec = {
@@ -1926,7 +1926,7 @@ ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec = {
   $: {
@@ -1939,7 +1939,7 @@ ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PerformOcr
 ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec = {
@@ -1953,7 +1953,7 @@ ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec = {
   $: {
@@ -1966,7 +1966,7 @@ ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PerformOcrInline
 ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec = {
@@ -1980,7 +1980,7 @@ ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec = {
   $: {
@@ -1993,7 +1993,7 @@ ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreatePdfBuilder
 ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec = {
@@ -2007,7 +2007,7 @@ ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAspectRatioOrder
 ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec = {
@@ -2020,7 +2020,7 @@ ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec = {
   $: {
@@ -2033,7 +2033,7 @@ ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.camera_app.mojom.CameraAppHelperPtr = ash.camera_app.mojom.CameraAppHelperRemote;

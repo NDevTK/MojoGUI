@@ -74,7 +74,7 @@ media.mojom.CdmContextEventCallback.getRemote = function() {
     'media.mojom.CdmContextEventCallback',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EventCallback
 media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec = {
@@ -88,7 +88,7 @@ media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.CdmContextEventCallbackPtr = media.mojom.CdmContextEventCallbackRemote;
@@ -201,7 +201,7 @@ media.mojom.CdmContextForOOPVD.getRemote = function() {
     'media.mojom.CdmContextForOOPVD',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetHwKeyData
 media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec = {
@@ -216,7 +216,7 @@ media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec = {
   $: {
@@ -230,7 +230,7 @@ media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterEventCallback
 media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec = {
@@ -244,7 +244,7 @@ media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetHwConfigData
 media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec = {
@@ -257,7 +257,7 @@ media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec = {
   $: {
@@ -271,7 +271,7 @@ media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetScreenResolutions
 media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec = {
@@ -284,7 +284,7 @@ media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec = {
   $: {
@@ -297,7 +297,7 @@ media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AllocateSecureBuffer
 media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec = {
@@ -311,7 +311,7 @@ media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec = {
   $: {
@@ -324,7 +324,7 @@ media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ParseEncryptedSliceHeader
 media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec = {
@@ -340,7 +340,7 @@ media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec = {
   $: {
@@ -354,7 +354,7 @@ media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DecryptVideoBuffer
 media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec = {
@@ -369,7 +369,7 @@ media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec = {
   $: {
@@ -384,7 +384,7 @@ media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.CdmContextForOOPVDPtr = media.mojom.CdmContextForOOPVDRemote;

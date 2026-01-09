@@ -68,7 +68,7 @@ printing.mojom.PrintRenderer.getRemote = function() {
     'printing.mojom.PrintRenderer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePreviewDocument
 printing.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec = {
@@ -82,7 +82,7 @@ printing.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec = {
   $: {
@@ -95,7 +95,7 @@ printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 printing.mojom.PrintRendererPtr = printing.mojom.PrintRendererRemote;
@@ -226,7 +226,7 @@ printing.mojom.PrintPreviewUI.getRemote = function() {
     'printing.mojom.PrintPreviewUI',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetOptionsFromDocument
 printing.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec = {
@@ -241,7 +241,7 @@ printing.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidPrepareDocumentForPreview
 printing.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_ParamsSpec = {
@@ -256,7 +256,7 @@ printing.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidPreviewPage
 printing.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec = {
@@ -271,7 +271,7 @@ printing.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MetafileReadyForPrinting
 printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec = {
@@ -286,7 +286,7 @@ printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrintPreviewFailed
 printing.mojom.PrintPreviewUI_PrintPreviewFailed_ParamsSpec = {
@@ -301,7 +301,7 @@ printing.mojom.PrintPreviewUI_PrintPreviewFailed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrintPreviewCancelled
 printing.mojom.PrintPreviewUI_PrintPreviewCancelled_ParamsSpec = {
@@ -316,7 +316,7 @@ printing.mojom.PrintPreviewUI_PrintPreviewCancelled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrinterSettingsInvalid
 printing.mojom.PrintPreviewUI_PrinterSettingsInvalid_ParamsSpec = {
@@ -331,7 +331,7 @@ printing.mojom.PrintPreviewUI_PrinterSettingsInvalid_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidGetDefaultPageLayout
 printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec = {
@@ -349,7 +349,7 @@ printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidStartPreview
 printing.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec = {
@@ -364,7 +364,7 @@ printing.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 printing.mojom.PrintPreviewUIPtr = printing.mojom.PrintPreviewUIRemote;
@@ -513,7 +513,7 @@ printing.mojom.PrintRenderFrame.getRemote = function() {
     'printing.mojom.PrintRenderFrame',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PrintRequestedPages
 printing.mojom.PrintRenderFrame_PrintRequestedPages_ParamsSpec = {
@@ -526,7 +526,7 @@ printing.mojom.PrintRenderFrame_PrintRequestedPages_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrintWithParams
 printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec = {
@@ -540,7 +540,7 @@ printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrintForSystemDialog
 printing.mojom.PrintRenderFrame_PrintForSystemDialog_ParamsSpec = {
@@ -553,7 +553,7 @@ printing.mojom.PrintRenderFrame_PrintForSystemDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InitiatePrintPreview
 printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec = {
@@ -568,7 +568,7 @@ printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPrintPreviewUI
 printing.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec = {
@@ -582,7 +582,7 @@ printing.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrintPreview
 printing.mojom.PrintRenderFrame_PrintPreview_ParamsSpec = {
@@ -596,7 +596,7 @@ printing.mojom.PrintRenderFrame_PrintPreview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPrintPreviewDialogClosed
 printing.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_ParamsSpec = {
@@ -609,7 +609,7 @@ printing.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrintFrameContent
 printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec = {
@@ -623,7 +623,7 @@ printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec = {
   $: {
@@ -637,7 +637,7 @@ printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConnectToPdfRenderer
 printing.mojom.PrintRenderFrame_ConnectToPdfRenderer_ParamsSpec = {
@@ -650,7 +650,7 @@ printing.mojom.PrintRenderFrame_ConnectToPdfRenderer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrintingDone
 printing.mojom.PrintRenderFrame_PrintingDone_ParamsSpec = {
@@ -664,7 +664,7 @@ printing.mojom.PrintRenderFrame_PrintingDone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrintNodeUnderContextMenu
 printing.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_ParamsSpec = {
@@ -677,7 +677,7 @@ printing.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 printing.mojom.PrintRenderFramePtr = printing.mojom.PrintRenderFrameRemote;
@@ -844,7 +844,7 @@ printing.mojom.PrintManagerHost.getRemote = function() {
     'printing.mojom.PrintManagerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidGetPrintedPagesCount
 printing.mojom.PrintManagerHost_DidGetPrintedPagesCount_ParamsSpec = {
@@ -859,7 +859,7 @@ printing.mojom.PrintManagerHost_DidGetPrintedPagesCount_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDefaultPrintSettings
 printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ParamsSpec = {
@@ -872,7 +872,7 @@ printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec = {
   $: {
@@ -885,7 +885,7 @@ printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidShowPrintDialog
 printing.mojom.PrintManagerHost_DidShowPrintDialog_ParamsSpec = {
@@ -898,7 +898,7 @@ printing.mojom.PrintManagerHost_DidShowPrintDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidPrintDocument
 printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec = {
@@ -912,7 +912,7 @@ printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec = {
   $: {
@@ -925,7 +925,7 @@ printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsPrintingEnabled
 printing.mojom.PrintManagerHost_IsPrintingEnabled_ParamsSpec = {
@@ -938,7 +938,7 @@ printing.mojom.PrintManagerHost_IsPrintingEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec = {
   $: {
@@ -951,7 +951,7 @@ printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ScriptedPrint
 printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec = {
@@ -965,7 +965,7 @@ printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec = {
   $: {
@@ -978,7 +978,7 @@ printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrintingFailed
 printing.mojom.PrintManagerHost_PrintingFailed_ParamsSpec = {
@@ -993,7 +993,7 @@ printing.mojom.PrintManagerHost_PrintingFailed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdatePrintSettings
 printing.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec = {
@@ -1007,7 +1007,7 @@ printing.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec = {
   $: {
@@ -1020,7 +1020,7 @@ printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetupScriptedPrintPreview
 printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ParamsSpec = {
@@ -1033,7 +1033,7 @@ printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowScriptedPrintPreview
 printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec = {
@@ -1047,7 +1047,7 @@ printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestPrintPreview
 printing.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec = {
@@ -1061,7 +1061,7 @@ printing.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CheckForCancel
 printing.mojom.PrintManagerHost_CheckForCancel_ParamsSpec = {
@@ -1076,7 +1076,7 @@ printing.mojom.PrintManagerHost_CheckForCancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec = {
   $: {
@@ -1089,7 +1089,7 @@ printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAccessibilityTree
 printing.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec = {
@@ -1104,7 +1104,7 @@ printing.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 printing.mojom.PrintManagerHostPtr = printing.mojom.PrintManagerHostRemote;

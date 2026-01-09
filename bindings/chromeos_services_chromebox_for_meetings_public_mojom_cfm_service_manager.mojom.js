@@ -53,7 +53,7 @@ chromeos.cfm.mojom.DisconnectReason.getRemote = function() {
     'chromeos.cfm.mojom.DisconnectReason',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cfm.mojom.DisconnectReasonPtr = chromeos.cfm.mojom.DisconnectReasonRemote;
@@ -103,7 +103,7 @@ chromeos.cfm.mojom.CfmServiceContext.getRemote = function() {
     'chromeos.cfm.mojom.CfmServiceContext',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cfm.mojom.CfmServiceContextPtr = chromeos.cfm.mojom.CfmServiceContextRemote;
@@ -153,7 +153,7 @@ chromeos.cfm.mojom.CfmServiceAdaptor.getRemote = function() {
     'chromeos.cfm.mojom.CfmServiceAdaptor',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cfm.mojom.CfmServiceAdaptorPtr = chromeos.cfm.mojom.CfmServiceAdaptorRemote;

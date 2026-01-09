@@ -78,7 +78,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactory.getRemote = funct
     'certificate_manager.mojom.CertificateManagerPageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateCertificateManagerPageHandler
 certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec = {
@@ -93,7 +93,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificate
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 certificate_manager.mojom.CertificateManagerPageHandlerFactoryPtr = certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemote;
@@ -224,7 +224,7 @@ certificate_manager.mojom.CertificateManagerPageHandler.getRemote = function() {
     'certificate_manager.mojom.CertificateManagerPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetCertificates
 certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec = {
@@ -238,7 +238,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec = {
   $: {
@@ -251,7 +251,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCertManagementMetadata
 certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec = {
@@ -264,7 +264,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadat
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec = {
   $: {
@@ -277,7 +277,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadat
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ViewCertificate
 certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec = {
@@ -292,7 +292,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExportCertificates
 certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec = {
@@ -306,7 +306,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ImportCertificate
 certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec = {
@@ -320,7 +320,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec = {
   $: {
@@ -333,7 +333,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ImportAndBindCertificate
 certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec = {
@@ -347,7 +347,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec = {
   $: {
@@ -360,7 +360,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteCertificate
 certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec = {
@@ -376,7 +376,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec = {
   $: {
@@ -389,7 +389,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowNativeManageCertificates
 certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec = {
@@ -402,7 +402,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertific
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIncludeSystemTrustStore
 certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec = {
@@ -416,7 +416,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustSto
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 certificate_manager.mojom.CertificateManagerPageHandlerPtr = certificate_manager.mojom.CertificateManagerPageHandlerRemote;
@@ -502,7 +502,7 @@ certificate_manager.mojom.CertificateManagerPage.getRemote = function() {
     'certificate_manager.mojom.CertificateManagerPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AskForImportPassword
 certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec = {
@@ -515,7 +515,7 @@ certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec = {
   $: {
@@ -528,7 +528,7 @@ certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AskForConfirmation
 certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec = {
@@ -543,7 +543,7 @@ certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec = {
   $: {
@@ -556,7 +556,7 @@ certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TriggerReload
 certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec = {
@@ -570,7 +570,7 @@ certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TriggerMetadataUpdate
 certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec = {
@@ -583,7 +583,7 @@ certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 certificate_manager.mojom.CertificateManagerPagePtr = certificate_manager.mojom.CertificateManagerPageRemote;

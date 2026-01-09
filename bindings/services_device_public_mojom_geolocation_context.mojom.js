@@ -95,7 +95,7 @@ device.mojom.GeolocationContext.getRemote = function() {
     'device.mojom.GeolocationContext',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindGeolocation
 device.mojom.GeolocationContext_BindGeolocation_ParamsSpec = {
@@ -112,7 +112,7 @@ device.mojom.GeolocationContext_BindGeolocation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPermissionUpdated
 device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec = {
@@ -127,7 +127,7 @@ device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetOverride
 device.mojom.GeolocationContext_SetOverride_ParamsSpec = {
@@ -141,7 +141,7 @@ device.mojom.GeolocationContext_SetOverride_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearOverride
 device.mojom.GeolocationContext_ClearOverride_ParamsSpec = {
@@ -154,7 +154,7 @@ device.mojom.GeolocationContext_ClearOverride_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.GeolocationContextPtr = device.mojom.GeolocationContextRemote;

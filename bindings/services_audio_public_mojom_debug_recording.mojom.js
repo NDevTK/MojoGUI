@@ -77,7 +77,7 @@ audio.mojom.DebugRecordingFileProvider.getRemote = function() {
     'audio.mojom.DebugRecordingFileProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateWavFile
 audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec = {
@@ -92,7 +92,7 @@ audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec = {
   $: {
@@ -105,7 +105,7 @@ audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateAecdumpFile
 audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec = {
@@ -119,7 +119,7 @@ audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec = {
   $: {
@@ -132,7 +132,7 @@ audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 audio.mojom.DebugRecordingFileProviderPtr = audio.mojom.DebugRecordingFileProviderRemote;
@@ -191,7 +191,7 @@ audio.mojom.DebugRecording.getRemote = function() {
     'audio.mojom.DebugRecording',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Enable
 audio.mojom.DebugRecording_Enable_ParamsSpec = {
@@ -205,7 +205,7 @@ audio.mojom.DebugRecording_Enable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 audio.mojom.DebugRecordingPtr = audio.mojom.DebugRecordingRemote;

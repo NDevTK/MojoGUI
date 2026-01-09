@@ -95,7 +95,7 @@ blink.mojom.AIManagerCreateWriterClient.getRemote = function() {
     'blink.mojom.AIManagerCreateWriterClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnResult
 blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec = {
@@ -109,7 +109,7 @@ blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec = {
@@ -124,7 +124,7 @@ blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AIManagerCreateWriterClientPtr = blink.mojom.AIManagerCreateWriterClientRemote;
@@ -192,7 +192,7 @@ blink.mojom.AIManagerCreateRewriterClient.getRemote = function() {
     'blink.mojom.AIManagerCreateRewriterClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnResult
 blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec = {
@@ -206,7 +206,7 @@ blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec = {
@@ -221,7 +221,7 @@ blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AIManagerCreateRewriterClientPtr = blink.mojom.AIManagerCreateRewriterClientRemote;
@@ -289,7 +289,7 @@ blink.mojom.AIManagerCreateSummarizerClient.getRemote = function() {
     'blink.mojom.AIManagerCreateSummarizerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnResult
 blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec = {
@@ -303,7 +303,7 @@ blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec = {
@@ -318,7 +318,7 @@ blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AIManagerCreateSummarizerClientPtr = blink.mojom.AIManagerCreateSummarizerClientRemote;
@@ -386,7 +386,7 @@ blink.mojom.AIManagerCreateProofreaderClient.getRemote = function() {
     'blink.mojom.AIManagerCreateProofreaderClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnResult
 blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec = {
@@ -400,7 +400,7 @@ blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec = {
@@ -415,7 +415,7 @@ blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AIManagerCreateProofreaderClientPtr = blink.mojom.AIManagerCreateProofreaderClientRemote;
@@ -573,7 +573,7 @@ blink.mojom.AIManager.getRemote = function() {
     'blink.mojom.AIManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CanCreateLanguageModel
 blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec = {
@@ -587,7 +587,7 @@ blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec = {
   $: {
@@ -600,7 +600,7 @@ blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateLanguageModel
 blink.mojom.AIManager_CreateLanguageModel_ParamsSpec = {
@@ -615,7 +615,7 @@ blink.mojom.AIManager_CreateLanguageModel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CanCreateSummarizer
 blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec = {
@@ -629,7 +629,7 @@ blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec = {
   $: {
@@ -642,7 +642,7 @@ blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateSummarizer
 blink.mojom.AIManager_CreateSummarizer_ParamsSpec = {
@@ -657,7 +657,7 @@ blink.mojom.AIManager_CreateSummarizer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLanguageModelParams
 blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec = {
@@ -670,7 +670,7 @@ blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec = {
   $: {
@@ -683,7 +683,7 @@ blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CanCreateWriter
 blink.mojom.AIManager_CanCreateWriter_ParamsSpec = {
@@ -697,7 +697,7 @@ blink.mojom.AIManager_CanCreateWriter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec = {
   $: {
@@ -710,7 +710,7 @@ blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateWriter
 blink.mojom.AIManager_CreateWriter_ParamsSpec = {
@@ -725,7 +725,7 @@ blink.mojom.AIManager_CreateWriter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CanCreateRewriter
 blink.mojom.AIManager_CanCreateRewriter_ParamsSpec = {
@@ -739,7 +739,7 @@ blink.mojom.AIManager_CanCreateRewriter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec = {
   $: {
@@ -752,7 +752,7 @@ blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateRewriter
 blink.mojom.AIManager_CreateRewriter_ParamsSpec = {
@@ -767,7 +767,7 @@ blink.mojom.AIManager_CreateRewriter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CanCreateProofreader
 blink.mojom.AIManager_CanCreateProofreader_ParamsSpec = {
@@ -781,7 +781,7 @@ blink.mojom.AIManager_CanCreateProofreader_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec = {
   $: {
@@ -794,7 +794,7 @@ blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateProofreader
 blink.mojom.AIManager_CreateProofreader_ParamsSpec = {
@@ -809,7 +809,7 @@ blink.mojom.AIManager_CreateProofreader_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddModelDownloadProgressObserver
 blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec = {
@@ -823,7 +823,7 @@ blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AIManagerPtr = blink.mojom.AIManagerRemote;

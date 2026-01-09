@@ -70,7 +70,7 @@ network.mojom.AcceptCHFrameObserver.getRemote = function() {
     'network.mojom.AcceptCHFrameObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAcceptCHFrameReceived
 network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
@@ -85,7 +85,7 @@ network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = {
@@ -112,7 +112,7 @@ network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.AcceptCHFrameObserverPtr = network.mojom.AcceptCHFrameObserverRemote;

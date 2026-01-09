@@ -62,7 +62,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector.getRemote = function() {
     'ash.cros_healthd.internal.mojom.ChromiumDataCollector',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.internal.mojom.ChromiumDataCollectorPtr = ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemote;

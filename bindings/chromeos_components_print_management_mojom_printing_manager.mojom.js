@@ -108,7 +108,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserver.getRemote = function(
     'chromeos.printing.printing_manager.mojom.PrintJobsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAllPrintJobsDeleted
 chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec = {
@@ -121,7 +121,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPrintJobUpdate
 chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec = {
@@ -135,7 +135,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromeos.printing.printing_manager.mojom.PrintJobsObserverPtr = chromeos.printing.printing_manager.mojom.PrintJobsObserverRemote;
@@ -239,7 +239,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.getRemote = fu
     'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ObservePrintJobs
 chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec = {
@@ -253,7 +253,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPrintJobs
 chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec = {
@@ -266,7 +266,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec = {
   $: {
@@ -279,7 +279,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_R
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteAllPrintJobs
 chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec = {
@@ -292,7 +292,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrint
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ResponseParamsSpec = {
   $: {
@@ -305,7 +305,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrint
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelPrintJob
 chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec = {
@@ -319,7 +319,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ResponseParamsSpec = {
   $: {
@@ -332,7 +332,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDeletePrintJobHistoryAllowedByPolicy
 chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec = {
@@ -345,7 +345,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrint
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ResponseParamsSpec = {
   $: {
@@ -358,7 +358,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrint
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPrintJobHistoryExpirationPeriod
 chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec = {
@@ -371,7 +371,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHis
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ResponseParamsSpec = {
   $: {
@@ -385,7 +385,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHis
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromeos.printing.printing_manager.mojom.PrintingMetadataProviderPtr = chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemote;
@@ -453,7 +453,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandler.getRemote = func
     'chromeos.printing.printing_manager.mojom.PrintManagementHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LaunchPrinterSettings
 chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec = {
@@ -467,7 +467,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSet
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordGetPrintJobsRequestDuration
 chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec = {
@@ -481,7 +481,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromeos.printing.printing_manager.mojom.PrintManagementHandlerPtr = chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemote;

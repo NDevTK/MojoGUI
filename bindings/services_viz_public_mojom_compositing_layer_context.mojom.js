@@ -85,7 +85,7 @@ viz.mojom.LayerContext.getRemote = function() {
     'viz.mojom.LayerContext',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetVisible
 viz.mojom.LayerContext_SetVisible_ParamsSpec = {
@@ -99,7 +99,7 @@ viz.mojom.LayerContext_SetVisible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateDisplayTree
 viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec = {
@@ -113,7 +113,7 @@ viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateDisplayTiling
 viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec = {
@@ -127,7 +127,7 @@ viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.LayerContextPtr = viz.mojom.LayerContextRemote;
@@ -195,7 +195,7 @@ viz.mojom.LayerContextClient.getRemote = function() {
     'viz.mojom.LayerContextClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnRequestCommitForFrame
 viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec = {
@@ -209,7 +209,7 @@ viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTilingsReadyForCleanup
 viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec = {
@@ -224,7 +224,7 @@ viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.LayerContextClientPtr = viz.mojom.LayerContextClientRemote;

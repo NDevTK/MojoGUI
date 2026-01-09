@@ -88,7 +88,7 @@ browsing_topics.mojom.PageHandler.getRemote = function() {
     'browsing_topics.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetBrowsingTopicsConfiguration
 browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec = {
@@ -101,7 +101,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec = {
   $: {
@@ -114,7 +114,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetBrowsingTopicsState
 browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec = {
@@ -128,7 +128,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec = {
   $: {
@@ -141,7 +141,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetModelInfo
 browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec = {
@@ -154,7 +154,7 @@ browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
   $: {
@@ -167,7 +167,7 @@ browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClassifyHosts
 browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec = {
@@ -181,7 +181,7 @@ browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec = {
   $: {
@@ -194,7 +194,7 @@ browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 browsing_topics.mojom.PageHandlerPtr = browsing_topics.mojom.PageHandlerRemote;

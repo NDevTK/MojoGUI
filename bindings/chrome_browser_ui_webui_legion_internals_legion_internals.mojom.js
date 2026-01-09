@@ -79,7 +79,7 @@ legion_internals.mojom.LegionInternalsPageHandler.getRemote = function() {
     'legion_internals.mojom.LegionInternalsPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Connect
 legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec = {
@@ -94,7 +94,7 @@ legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Close
 legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec = {
@@ -107,7 +107,7 @@ legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendRequest
 legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec = {
@@ -122,7 +122,7 @@ legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec = {
   $: {
@@ -135,7 +135,7 @@ legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 legion_internals.mojom.LegionInternalsPageHandlerPtr = legion_internals.mojom.LegionInternalsPageHandlerRemote;

@@ -67,7 +67,7 @@ blink.mojom.AppBannerController.getRemote = function() {
     'blink.mojom.AppBannerController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BannerPromptRequest
 blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = {
@@ -83,7 +83,7 @@ blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec = {
   $: {
@@ -96,7 +96,7 @@ blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AppBannerControllerPtr = blink.mojom.AppBannerControllerRemote;
@@ -164,7 +164,7 @@ blink.mojom.AppBannerEvent.getRemote = function() {
     'blink.mojom.AppBannerEvent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BannerAccepted
 blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec = {
@@ -178,7 +178,7 @@ blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BannerDismissed
 blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec = {
@@ -191,7 +191,7 @@ blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AppBannerEventPtr = blink.mojom.AppBannerEventRemote;
@@ -250,7 +250,7 @@ blink.mojom.AppBannerService.getRemote = function() {
     'blink.mojom.AppBannerService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DisplayAppBanner
 blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec = {
@@ -263,7 +263,7 @@ blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AppBannerServicePtr = blink.mojom.AppBannerServiceRemote;

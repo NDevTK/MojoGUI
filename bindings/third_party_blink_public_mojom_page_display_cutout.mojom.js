@@ -78,7 +78,7 @@ blink.mojom.DisplayCutoutHost.getRemote = function() {
     'blink.mojom.DisplayCutoutHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NotifyViewportFitChanged
 blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec = {
@@ -92,7 +92,7 @@ blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyComplexSafeAreaConstraintChanged
 blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec = {
@@ -106,7 +106,7 @@ blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DisplayCutoutHostPtr = blink.mojom.DisplayCutoutHostRemote;
@@ -165,7 +165,7 @@ blink.mojom.DisplayCutoutClient.getRemote = function() {
     'blink.mojom.DisplayCutoutClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetSafeArea
 blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec = {
@@ -179,7 +179,7 @@ blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DisplayCutoutClientPtr = blink.mojom.DisplayCutoutClientRemote;

@@ -71,7 +71,7 @@ sensor.mojom.PageHandlerFactory.getRemote = function() {
     'sensor.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -85,7 +85,7 @@ sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 sensor.mojom.PageHandlerFactoryPtr = sensor.mojom.PageHandlerFactoryRemote;
@@ -153,7 +153,7 @@ sensor.mojom.PageHandler.getRemote = function() {
     'sensor.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartRecordingUpdate
 sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec = {
@@ -166,7 +166,7 @@ sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopRecordingUpdate
 sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec = {
@@ -179,7 +179,7 @@ sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 sensor.mojom.PageHandlerPtr = sensor.mojom.PageHandlerRemote;

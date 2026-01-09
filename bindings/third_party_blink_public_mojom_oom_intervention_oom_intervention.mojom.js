@@ -61,7 +61,7 @@ blink.mojom.OomInterventionHost.getRemote = function() {
     'blink.mojom.OomInterventionHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnHighMemoryUsage
 blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec = {
@@ -74,7 +74,7 @@ blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.OomInterventionHostPtr = blink.mojom.OomInterventionHostRemote;
@@ -133,7 +133,7 @@ blink.mojom.OomIntervention.getRemote = function() {
     'blink.mojom.OomIntervention',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartDetection
 blink.mojom.OomIntervention_StartDetection_ParamsSpec = {
@@ -151,7 +151,7 @@ blink.mojom.OomIntervention_StartDetection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.OomInterventionPtr = blink.mojom.OomInterventionRemote;

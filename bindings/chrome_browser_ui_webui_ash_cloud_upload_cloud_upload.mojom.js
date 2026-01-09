@@ -91,7 +91,7 @@ ash.cloud_upload.mojom.PageHandlerFactory.getRemote = function() {
     'ash.cloud_upload.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -105,7 +105,7 @@ ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.cloud_upload.mojom.PageHandlerFactoryPtr = ash.cloud_upload.mojom.PageHandlerFactoryRemote;
@@ -290,7 +290,7 @@ ash.cloud_upload.mojom.PageHandler.getRemote = function() {
     'ash.cloud_upload.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDialogArgs
 ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
@@ -303,7 +303,7 @@ ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
   $: {
@@ -316,7 +316,7 @@ ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsOfficeWebAppInstalled
 ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec = {
@@ -329,7 +329,7 @@ ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec = {
   $: {
@@ -342,7 +342,7 @@ ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InstallOfficeWebApp
 ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec = {
@@ -355,7 +355,7 @@ ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec = {
   $: {
@@ -368,7 +368,7 @@ ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsODFSMounted
 ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec = {
@@ -381,7 +381,7 @@ ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec = {
   $: {
@@ -394,7 +394,7 @@ ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SignInToOneDrive
 ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec = {
@@ -407,7 +407,7 @@ ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec = {
   $: {
@@ -420,7 +420,7 @@ ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RespondWithUserActionAndClose
 ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec = {
@@ -434,7 +434,7 @@ ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RespondWithLocalTaskAndClose
 ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec = {
@@ -448,7 +448,7 @@ ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetOfficeAsDefaultHandler
 ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec = {
@@ -461,7 +461,7 @@ ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAlwaysMoveOfficeFilesToDrive
 ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec = {
@@ -474,7 +474,7 @@ ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec = {
   $: {
@@ -487,7 +487,7 @@ ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAlwaysMoveOfficeFilesToDrive
 ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec = {
@@ -501,7 +501,7 @@ ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAlwaysMoveOfficeFilesToOneDrive
 ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec = {
@@ -514,7 +514,7 @@ ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec = {
   $: {
@@ -527,7 +527,7 @@ ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAlwaysMoveOfficeFilesToOneDrive
 ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec = {
@@ -541,7 +541,7 @@ ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOfficeMoveConfirmationShownForDrive
 ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec = {
@@ -554,7 +554,7 @@ ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec = {
   $: {
@@ -567,7 +567,7 @@ ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOfficeMoveConfirmationShownForOneDrive
 ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec = {
@@ -580,7 +580,7 @@ ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec = {
   $: {
@@ -593,7 +593,7 @@ ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_Res
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordCancel
 ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec = {
@@ -607,7 +607,7 @@ ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.cloud_upload.mojom.PageHandlerPtr = ash.cloud_upload.mojom.PageHandlerRemote;

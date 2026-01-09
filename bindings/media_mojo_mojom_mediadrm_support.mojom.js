@@ -61,7 +61,7 @@ media.mojom.MediaDrmSupport.getRemote = function() {
     'media.mojom.MediaDrmSupport',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for IsKeySystemSupported
 media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec = {
@@ -76,7 +76,7 @@ media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec = {
   $: {
@@ -89,7 +89,7 @@ media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaDrmSupportPtr = media.mojom.MediaDrmSupportRemote;

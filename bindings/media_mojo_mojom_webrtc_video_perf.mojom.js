@@ -61,7 +61,7 @@ media.mojom.WebrtcVideoPerfRecorder.getRemote = function() {
     'media.mojom.WebrtcVideoPerfRecorder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateRecord
 media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec = {
@@ -76,7 +76,7 @@ media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.WebrtcVideoPerfRecorderPtr = media.mojom.WebrtcVideoPerfRecorderRemote;
@@ -135,7 +135,7 @@ media.mojom.WebrtcVideoPerfHistory.getRemote = function() {
     'media.mojom.WebrtcVideoPerfHistory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPerfInfo
 media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec = {
@@ -150,7 +150,7 @@ media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec = {
   $: {
@@ -163,7 +163,7 @@ media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.WebrtcVideoPerfHistoryPtr = media.mojom.WebrtcVideoPerfHistoryRemote;

@@ -79,7 +79,7 @@ blink.mojom.AndroidFontLookup.getRemote = function() {
     'blink.mojom.AndroidFontLookup',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetUniqueNameLookupTable
 blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec = {
@@ -92,7 +92,7 @@ blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
   $: {
@@ -105,7 +105,7 @@ blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MatchLocalFontByUniqueName
 blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec = {
@@ -119,7 +119,7 @@ blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec = {
   $: {
@@ -132,7 +132,7 @@ blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchAllFontFiles
 blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec = {
@@ -145,7 +145,7 @@ blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec = {
   $: {
@@ -158,7 +158,7 @@ blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AndroidFontLookupPtr = blink.mojom.AndroidFontLookupRemote;

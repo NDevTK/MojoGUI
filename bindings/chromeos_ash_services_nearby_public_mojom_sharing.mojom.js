@@ -70,7 +70,7 @@ sharing.mojom.Sharing.getRemote = function() {
     'sharing.mojom.Sharing',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Connect
 sharing.mojom.Sharing_Connect_ParamsSpec = {
@@ -88,7 +88,7 @@ sharing.mojom.Sharing_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShutDown
 sharing.mojom.Sharing_ShutDown_ParamsSpec = {
@@ -101,7 +101,7 @@ sharing.mojom.Sharing_ShutDown_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 sharing.mojom.SharingPtr = sharing.mojom.SharingRemote;

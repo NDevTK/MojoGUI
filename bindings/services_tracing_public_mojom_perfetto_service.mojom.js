@@ -118,7 +118,7 @@ tracing.mojom.ProducerHost.getRemote = function() {
     'tracing.mojom.ProducerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CommitData
 tracing.mojom.ProducerHost_CommitData_ParamsSpec = {
@@ -132,7 +132,7 @@ tracing.mojom.ProducerHost_CommitData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterDataSource
 tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec = {
@@ -146,7 +146,7 @@ tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateDataSource
 tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec = {
@@ -160,7 +160,7 @@ tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterTraceWriter
 tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec = {
@@ -175,7 +175,7 @@ tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnregisterTraceWriter
 tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec = {
@@ -189,7 +189,7 @@ tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tracing.mojom.ProducerHostPtr = tracing.mojom.ProducerHostRemote;
@@ -284,7 +284,7 @@ tracing.mojom.ProducerClient.getRemote = function() {
     'tracing.mojom.ProducerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnTracingStart
 tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec = {
@@ -297,7 +297,7 @@ tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartDataSource
 tracing.mojom.ProducerClient_StartDataSource_ParamsSpec = {
@@ -312,7 +312,7 @@ tracing.mojom.ProducerClient_StartDataSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopDataSource
 tracing.mojom.ProducerClient_StopDataSource_ParamsSpec = {
@@ -326,7 +326,7 @@ tracing.mojom.ProducerClient_StopDataSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Flush
 tracing.mojom.ProducerClient_Flush_ParamsSpec = {
@@ -341,7 +341,7 @@ tracing.mojom.ProducerClient_Flush_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearIncrementalState
 tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec = {
@@ -354,7 +354,7 @@ tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tracing.mojom.ProducerClientPtr = tracing.mojom.ProducerClientRemote;
@@ -413,7 +413,7 @@ tracing.mojom.PerfettoService.getRemote = function() {
     'tracing.mojom.PerfettoService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ConnectToProducerHost
 tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec = {
@@ -430,7 +430,7 @@ tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tracing.mojom.PerfettoServicePtr = tracing.mojom.PerfettoServiceRemote;
@@ -498,7 +498,7 @@ tracing.mojom.ConsumerHost.getRemote = function() {
     'tracing.mojom.ConsumerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EnableTracing
 tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec = {
@@ -515,7 +515,7 @@ tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloneSession
 tracing.mojom.ConsumerHost_CloneSession_ParamsSpec = {
@@ -532,7 +532,7 @@ tracing.mojom.ConsumerHost_CloneSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec = {
   $: {
@@ -547,7 +547,7 @@ tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tracing.mojom.ConsumerHostPtr = tracing.mojom.ConsumerHostRemote;
@@ -642,7 +642,7 @@ tracing.mojom.TracingSessionHost.getRemote = function() {
     'tracing.mojom.TracingSessionHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ChangeTraceConfig
 tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec = {
@@ -656,7 +656,7 @@ tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableTracing
 tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec = {
@@ -669,7 +669,7 @@ tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadBuffers
 tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec = {
@@ -683,7 +683,7 @@ tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestBufferUsage
 tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec = {
@@ -696,7 +696,7 @@ tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec = {
   $: {
@@ -711,7 +711,7 @@ tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableTracingAndEmitJson
 tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec = {
@@ -727,7 +727,7 @@ tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tracing.mojom.TracingSessionHostPtr = tracing.mojom.TracingSessionHostRemote;
@@ -795,7 +795,7 @@ tracing.mojom.TracingSessionClient.getRemote = function() {
     'tracing.mojom.TracingSessionClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnTracingEnabled
 tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec = {
@@ -808,7 +808,7 @@ tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTracingDisabled
 tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec = {
@@ -822,7 +822,7 @@ tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tracing.mojom.TracingSessionClientPtr = tracing.mojom.TracingSessionClientRemote;

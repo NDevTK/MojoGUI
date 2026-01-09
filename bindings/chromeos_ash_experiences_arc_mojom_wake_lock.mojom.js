@@ -52,7 +52,7 @@ arc.mojom.WakeLockHost.getRemote = function() {
     'arc.mojom.WakeLockHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.WakeLockHostPtr = arc.mojom.WakeLockHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.WakeLockInstance.getRemote = function() {
     'arc.mojom.WakeLockInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.WakeLockInstancePtr = arc.mojom.WakeLockInstanceRemote;

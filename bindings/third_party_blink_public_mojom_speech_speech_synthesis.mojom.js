@@ -69,7 +69,7 @@ blink.mojom.SpeechSynthesisVoiceListObserver.getRemote = function() {
     'blink.mojom.SpeechSynthesisVoiceListObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSetVoiceList
 blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = {
@@ -83,7 +83,7 @@ blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SpeechSynthesisVoiceListObserverPtr = blink.mojom.SpeechSynthesisVoiceListObserverRemote;
@@ -196,7 +196,7 @@ blink.mojom.SpeechSynthesisClient.getRemote = function() {
     'blink.mojom.SpeechSynthesisClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStartedSpeaking
 blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec = {
@@ -209,7 +209,7 @@ blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFinishedSpeaking
 blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = {
@@ -223,7 +223,7 @@ blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPausedSpeaking
 blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec = {
@@ -236,7 +236,7 @@ blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnResumedSpeaking
 blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec = {
@@ -249,7 +249,7 @@ blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnEncounteredWordBoundary
 blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = {
@@ -264,7 +264,7 @@ blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnEncounteredSentenceBoundary
 blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = {
@@ -279,7 +279,7 @@ blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnEncounteredSpeakingError
 blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec = {
@@ -292,7 +292,7 @@ blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SpeechSynthesisClientPtr = blink.mojom.SpeechSynthesisClientRemote;
@@ -387,7 +387,7 @@ blink.mojom.SpeechSynthesis.getRemote = function() {
     'blink.mojom.SpeechSynthesis',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddVoiceListObserver
 blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = {
@@ -401,7 +401,7 @@ blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Speak
 blink.mojom.SpeechSynthesis_Speak_ParamsSpec = {
@@ -416,7 +416,7 @@ blink.mojom.SpeechSynthesis_Speak_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Pause
 blink.mojom.SpeechSynthesis_Pause_ParamsSpec = {
@@ -429,7 +429,7 @@ blink.mojom.SpeechSynthesis_Pause_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Resume
 blink.mojom.SpeechSynthesis_Resume_ParamsSpec = {
@@ -442,7 +442,7 @@ blink.mojom.SpeechSynthesis_Resume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Cancel
 blink.mojom.SpeechSynthesis_Cancel_ParamsSpec = {
@@ -455,7 +455,7 @@ blink.mojom.SpeechSynthesis_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SpeechSynthesisPtr = blink.mojom.SpeechSynthesisRemote;

@@ -70,7 +70,7 @@ storage.mojom.QuotaManagerObserver.getRemote = function() {
     'storage.mojom.QuotaManagerObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCreateOrUpdateBucket
 storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec = {
@@ -84,7 +84,7 @@ storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeleteBucket
 storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec = {
@@ -98,7 +98,7 @@ storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.QuotaManagerObserverPtr = storage.mojom.QuotaManagerObserverRemote;

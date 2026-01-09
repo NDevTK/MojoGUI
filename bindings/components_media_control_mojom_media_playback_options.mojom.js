@@ -80,7 +80,7 @@ components.media_control.mojom.MediaPlaybackOptions.getRemote = function() {
     'components.media_control.mojom.MediaPlaybackOptions',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetMediaLoadingBlocked
 components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec = {
@@ -94,7 +94,7 @@ components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBackgroundVideoPlaybackEnabled
 components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec = {
@@ -108,7 +108,7 @@ components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEn
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetRendererType
 components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec = {
@@ -122,7 +122,7 @@ components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 components.media_control.mojom.MediaPlaybackOptionsPtr = components.media_control.mojom.MediaPlaybackOptionsRemote;

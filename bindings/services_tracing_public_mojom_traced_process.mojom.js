@@ -61,7 +61,7 @@ tracing.mojom.TracedProcess.getRemote = function() {
     'tracing.mojom.TracedProcess',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ConnectToTracingService
 tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = {
@@ -75,7 +75,7 @@ tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tracing.mojom.TracedProcessPtr = tracing.mojom.TracedProcessRemote;

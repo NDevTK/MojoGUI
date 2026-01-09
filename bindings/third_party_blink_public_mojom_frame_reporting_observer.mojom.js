@@ -61,7 +61,7 @@ blink.mojom.ReportingObserver.getRemote = function() {
     'blink.mojom.ReportingObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Notify
 blink.mojom.ReportingObserver_Notify_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.ReportingObserver_Notify_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ReportingObserverPtr = blink.mojom.ReportingObserverRemote;

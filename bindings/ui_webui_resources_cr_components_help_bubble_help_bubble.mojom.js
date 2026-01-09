@@ -84,7 +84,7 @@ help_bubble.mojom.HelpBubbleHandlerFactory.getRemote = function() {
     'help_bubble.mojom.HelpBubbleHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateHelpBubbleHandler
 help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = {
@@ -99,7 +99,7 @@ help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 help_bubble.mojom.HelpBubbleHandlerFactoryPtr = help_bubble.mojom.HelpBubbleHandlerFactoryRemote;
@@ -158,7 +158,7 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactory.getRemote = function() {
     'help_bubble.mojom.PdfHelpBubbleHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateHelpBubbleHandler
 help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = {
@@ -173,7 +173,7 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 help_bubble.mojom.PdfHelpBubbleHandlerFactoryPtr = help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemote;
@@ -250,7 +250,7 @@ help_bubble.mojom.HelpBubbleHandler.getRemote = function() {
     'help_bubble.mojom.HelpBubbleHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindTrackedElementHandler
 help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec = {
@@ -264,7 +264,7 @@ help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HelpBubbleButtonPressed
 help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec = {
@@ -279,7 +279,7 @@ help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HelpBubbleClosed
 help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec = {
@@ -294,7 +294,7 @@ help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 help_bubble.mojom.HelpBubbleHandlerPtr = help_bubble.mojom.HelpBubbleHandlerRemote;
@@ -380,7 +380,7 @@ help_bubble.mojom.HelpBubbleClient.getRemote = function() {
     'help_bubble.mojom.HelpBubbleClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShowHelpBubble
 help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec = {
@@ -394,7 +394,7 @@ help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ToggleFocusForAccessibility
 help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec = {
@@ -408,7 +408,7 @@ help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HideHelpBubble
 help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec = {
@@ -422,7 +422,7 @@ help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExternalHelpBubbleUpdated
 help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec = {
@@ -437,7 +437,7 @@ help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 help_bubble.mojom.HelpBubbleClientPtr = help_bubble.mojom.HelpBubbleClientRemote;

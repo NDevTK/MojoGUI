@@ -97,7 +97,7 @@ blink.mojom.AnchorElementInteractionHost.getRemote = function() {
     'blink.mojom.AnchorElementInteractionHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPointerDown
 blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec = {
@@ -111,7 +111,7 @@ blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPointerHoverEager
 blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec = {
@@ -126,7 +126,7 @@ blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPointerHoverModerate
 blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec = {
@@ -141,7 +141,7 @@ blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnModerateViewportHeuristicTriggered
 blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec = {
@@ -155,7 +155,7 @@ blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnEagerViewportHeuristicTriggered
 blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec = {
@@ -169,7 +169,7 @@ blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AnchorElementInteractionHostPtr = blink.mojom.AnchorElementInteractionHostRemote;

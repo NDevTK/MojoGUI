@@ -61,7 +61,7 @@ media.mojom.VideoFrameHandleReleaser.getRemote = function() {
     'media.mojom.VideoFrameHandleReleaser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ReleaseVideoFrame
 media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec = {
@@ -76,7 +76,7 @@ media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.VideoFrameHandleReleaserPtr = media.mojom.VideoFrameHandleReleaserRemote;
@@ -180,7 +180,7 @@ media.mojom.VideoDecoder.getRemote = function() {
     'media.mojom.VideoDecoder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSupportedConfigs
 media.mojom.VideoDecoder_GetSupportedConfigs_ParamsSpec = {
@@ -193,7 +193,7 @@ media.mojom.VideoDecoder_GetSupportedConfigs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec = {
   $: {
@@ -207,7 +207,7 @@ media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Construct
 media.mojom.VideoDecoder_Construct_ParamsSpec = {
@@ -226,7 +226,7 @@ media.mojom.VideoDecoder_Construct_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Initialize
 media.mojom.VideoDecoder_Initialize_ParamsSpec = {
@@ -242,7 +242,7 @@ media.mojom.VideoDecoder_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.VideoDecoder_Initialize_ResponseParamsSpec = {
   $: {
@@ -259,7 +259,7 @@ media.mojom.VideoDecoder_Initialize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Decode
 media.mojom.VideoDecoder_Decode_ParamsSpec = {
@@ -273,7 +273,7 @@ media.mojom.VideoDecoder_Decode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.VideoDecoder_Decode_ResponseParamsSpec = {
   $: {
@@ -286,7 +286,7 @@ media.mojom.VideoDecoder_Decode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Reset
 media.mojom.VideoDecoder_Reset_ParamsSpec = {
@@ -299,7 +299,7 @@ media.mojom.VideoDecoder_Reset_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnOverlayInfoChanged
 media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec = {
@@ -313,7 +313,7 @@ media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.VideoDecoderPtr = media.mojom.VideoDecoderRemote;
@@ -390,7 +390,7 @@ media.mojom.VideoDecoderClient.getRemote = function() {
     'media.mojom.VideoDecoderClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnVideoFrameDecoded
 media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec = {
@@ -406,7 +406,7 @@ media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWaiting
 media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec = {
@@ -420,7 +420,7 @@ media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestOverlayInfo
 media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec = {
@@ -433,7 +433,7 @@ media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.VideoDecoderClientPtr = media.mojom.VideoDecoderClientRemote;

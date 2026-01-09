@@ -106,7 +106,7 @@ chrome.mojom.SafeArchiveAnalyzer.getRemote = function() {
     'chrome.mojom.SafeArchiveAnalyzer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AnalyzeZipFile
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec = {
@@ -122,7 +122,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec = {
   $: {
@@ -135,7 +135,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AnalyzeDmgFile
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec = {
@@ -150,7 +150,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec = {
   $: {
@@ -163,7 +163,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AnalyzeRarFile
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec = {
@@ -179,7 +179,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec = {
   $: {
@@ -192,7 +192,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AnalyzeSevenZipFile
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec = {
@@ -207,7 +207,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec = {
   $: {
@@ -220,7 +220,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AnalyzeObfuscatedZipFile
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec = {
@@ -237,7 +237,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec = {
   $: {
@@ -250,7 +250,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AnalyzeObfuscatedRarFile
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec = {
@@ -267,7 +267,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec = {
   $: {
@@ -280,7 +280,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.SafeArchiveAnalyzerPtr = chrome.mojom.SafeArchiveAnalyzerRemote;
@@ -339,7 +339,7 @@ chrome.mojom.TemporaryFileGetter.getRemote = function() {
     'chrome.mojom.TemporaryFileGetter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestTemporaryFile
 chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec = {
@@ -352,7 +352,7 @@ chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec = {
   $: {
@@ -365,7 +365,7 @@ chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.TemporaryFileGetterPtr = chrome.mojom.TemporaryFileGetterRemote;

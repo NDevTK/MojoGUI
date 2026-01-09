@@ -70,7 +70,7 @@ sharing.mojom.NearbySharingDecoder.getRemote = function() {
     'sharing.mojom.NearbySharingDecoder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DecodeAdvertisement
 sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec = {
@@ -84,7 +84,7 @@ sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DecodeFrame
 sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec = {
@@ -111,7 +111,7 @@ sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec = {
   $: {
@@ -124,7 +124,7 @@ sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 sharing.mojom.NearbySharingDecoderPtr = sharing.mojom.NearbySharingDecoderRemote;

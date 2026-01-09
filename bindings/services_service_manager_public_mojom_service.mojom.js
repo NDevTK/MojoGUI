@@ -79,7 +79,7 @@ service_manager.mojom.Service.getRemote = function() {
     'service_manager.mojom.Service',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStart
 service_manager.mojom.Service_OnStart_ParamsSpec = {
@@ -93,7 +93,7 @@ service_manager.mojom.Service_OnStart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 service_manager.mojom.Service_OnStart_ResponseParamsSpec = {
   $: {
@@ -107,7 +107,7 @@ service_manager.mojom.Service_OnStart_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBindInterface
 service_manager.mojom.Service_OnBindInterface_ParamsSpec = {
@@ -123,7 +123,7 @@ service_manager.mojom.Service_OnBindInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreatePackagedServiceInstance
 service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = {
@@ -139,7 +139,7 @@ service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 service_manager.mojom.ServicePtr = service_manager.mojom.ServiceRemote;

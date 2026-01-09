@@ -61,7 +61,7 @@ gpu.mojom.SharedImagePoolClientInterface.getRemote = function() {
     'gpu.mojom.SharedImagePoolClientInterface',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnClearPool
 gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec = {
@@ -74,7 +74,7 @@ gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 gpu.mojom.SharedImagePoolClientInterfacePtr = gpu.mojom.SharedImagePoolClientInterfaceRemote;

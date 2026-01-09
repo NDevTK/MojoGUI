@@ -79,7 +79,7 @@ arc.mojom.PowerHost.getRemote = function() {
     'arc.mojom.PowerHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.PowerHostPtr = arc.mojom.PowerHostRemote;
@@ -129,7 +129,7 @@ arc.mojom.PowerInstance.getRemote = function() {
     'arc.mojom.PowerInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.PowerInstancePtr = arc.mojom.PowerInstanceRemote;

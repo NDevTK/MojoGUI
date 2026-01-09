@@ -88,7 +88,7 @@ optimization_guide_internals.mojom.PageHandlerFactory.getRemote = function() {
     'optimization_guide_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -102,7 +102,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestDownloadedModelsInfo
 optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec = {
@@ -115,7 +115,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInf
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec = {
   $: {
@@ -128,7 +128,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInf
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestLoggedModelQualityClientIds
 optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec = {
@@ -141,7 +141,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityC
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec = {
   $: {
@@ -154,7 +154,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityC
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestMqlsLogs
 optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec = {
@@ -167,7 +167,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec = {
   $: {
@@ -180,7 +180,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 optimization_guide_internals.mojom.PageHandlerFactoryPtr = optimization_guide_internals.mojom.PageHandlerFactoryRemote;
@@ -239,7 +239,7 @@ optimization_guide_internals.mojom.Page.getRemote = function() {
     'optimization_guide_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnLogMessageAdded
 optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
@@ -257,7 +257,7 @@ optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 optimization_guide_internals.mojom.PagePtr = optimization_guide_internals.mojom.PageRemote;

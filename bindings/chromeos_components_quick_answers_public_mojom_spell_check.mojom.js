@@ -61,7 +61,7 @@ quick_answers.mojom.SpellCheckService.getRemote = function() {
     'quick_answers.mojom.SpellCheckService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateDictionary
 quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec = {
@@ -75,7 +75,7 @@ quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 quick_answers.mojom.SpellCheckServicePtr = quick_answers.mojom.SpellCheckServiceRemote;
@@ -147,7 +147,7 @@ quick_answers.mojom.SpellCheckDictionary.getRemote = function() {
     'quick_answers.mojom.SpellCheckDictionary',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CheckSpelling
 quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec = {
@@ -161,7 +161,7 @@ quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec = {
   $: {
@@ -174,7 +174,7 @@ quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 quick_answers.mojom.SpellCheckDictionaryPtr = quick_answers.mojom.SpellCheckDictionaryRemote;

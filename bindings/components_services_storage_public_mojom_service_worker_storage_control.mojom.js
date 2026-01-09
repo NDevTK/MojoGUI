@@ -58,7 +58,7 @@ storage.mojom.ServiceWorkerLiveVersionRef.getRemote = function() {
     'storage.mojom.ServiceWorkerLiveVersionRef',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 storage.mojom.ServiceWorkerLiveVersionRefPtr = storage.mojom.ServiceWorkerLiveVersionRefRemote;
@@ -135,7 +135,7 @@ storage.mojom.ServiceWorkerResourceReader.getRemote = function() {
     'storage.mojom.ServiceWorkerResourceReader',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ReadResponseHead
 storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec = {
@@ -148,7 +148,7 @@ storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec = {
   $: {
@@ -163,7 +163,7 @@ storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrepareReadData
 storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec = {
@@ -177,7 +177,7 @@ storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec = {
   $: {
@@ -190,7 +190,7 @@ storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadData
 storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec = {
@@ -203,7 +203,7 @@ storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec = {
   $: {
@@ -216,7 +216,7 @@ storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.ServiceWorkerResourceReaderPtr = storage.mojom.ServiceWorkerResourceReaderRemote;
@@ -284,7 +284,7 @@ storage.mojom.ServiceWorkerResourceWriter.getRemote = function() {
     'storage.mojom.ServiceWorkerResourceWriter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for WriteResponseHead
 storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec = {
@@ -298,7 +298,7 @@ storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec = {
   $: {
@@ -311,7 +311,7 @@ storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteData
 storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec = {
@@ -325,7 +325,7 @@ storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec = {
   $: {
@@ -338,7 +338,7 @@ storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.ServiceWorkerResourceWriterPtr = storage.mojom.ServiceWorkerResourceWriterRemote;
@@ -397,7 +397,7 @@ storage.mojom.ServiceWorkerResourceMetadataWriter.getRemote = function() {
     'storage.mojom.ServiceWorkerResourceMetadataWriter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for WriteMetadata
 storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec = {
@@ -411,7 +411,7 @@ storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec = {
   $: {
@@ -424,7 +424,7 @@ storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.ServiceWorkerResourceMetadataWriterPtr = storage.mojom.ServiceWorkerResourceMetadataWriterRemote;
@@ -861,7 +861,7 @@ storage.mojom.ServiceWorkerStorageControl.getRemote = function() {
     'storage.mojom.ServiceWorkerStorageControl',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Disable
 storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec = {
@@ -874,7 +874,7 @@ storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Delete
 storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec = {
@@ -887,7 +887,7 @@ storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec = {
   $: {
@@ -900,7 +900,7 @@ storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Recover
 storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec = {
@@ -914,7 +914,7 @@ storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRegisteredStorageKeys
 storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec = {
@@ -927,7 +927,7 @@ storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec = {
   $: {
@@ -940,7 +940,7 @@ storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FindRegistrationForClientUrl
 storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec = {
@@ -955,7 +955,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec = {
   $: {
@@ -970,7 +970,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FindRegistrationForScope
 storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec = {
@@ -985,7 +985,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec = {
   $: {
@@ -999,7 +999,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FindRegistrationForId
 storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec = {
@@ -1014,7 +1014,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec = {
   $: {
@@ -1028,7 +1028,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRegistrationsForStorageKey
 storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec = {
@@ -1042,7 +1042,7 @@ storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec = {
   $: {
@@ -1056,7 +1056,7 @@ storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUsageForStorageKey
 storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec = {
@@ -1070,7 +1070,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec = {
   $: {
@@ -1084,7 +1084,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllRegistrationsDeprecated
 storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec = {
@@ -1097,7 +1097,7 @@ storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec = {
   $: {
@@ -1111,7 +1111,7 @@ storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFakeRegistrationForClientUrl
 storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec = {
@@ -1126,7 +1126,7 @@ storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec = {
   $: {
@@ -1141,7 +1141,7 @@ storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StoreRegistration
 storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec = {
@@ -1156,7 +1156,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec = {
   $: {
@@ -1170,7 +1170,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteRegistration
 storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec = {
@@ -1185,7 +1185,7 @@ storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec = {
   $: {
@@ -1200,7 +1200,7 @@ storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateToActiveState
 storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec = {
@@ -1215,7 +1215,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec = {
   $: {
@@ -1228,7 +1228,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateLastUpdateCheckTime
 storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec = {
@@ -1244,7 +1244,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec = {
   $: {
@@ -1257,7 +1257,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateNavigationPreloadEnabled
 storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec = {
@@ -1273,7 +1273,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec = {
   $: {
@@ -1286,7 +1286,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateNavigationPreloadHeader
 storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec = {
@@ -1302,7 +1302,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec = {
   $: {
@@ -1315,7 +1315,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateFetchHandlerType
 storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec = {
@@ -1331,7 +1331,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec = {
   $: {
@@ -1344,7 +1344,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateResourceSha256Checksums
 storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec = {
@@ -1360,7 +1360,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec = {
   $: {
@@ -1373,7 +1373,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNewRegistrationId
 storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec = {
@@ -1386,7 +1386,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec = {
   $: {
@@ -1399,7 +1399,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNewVersionId
 storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec = {
@@ -1412,7 +1412,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec = {
   $: {
@@ -1426,7 +1426,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNewResourceId
 storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec = {
@@ -1439,7 +1439,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec = {
   $: {
@@ -1452,7 +1452,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateResourceReader
 storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec = {
@@ -1467,7 +1467,7 @@ storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateResourceWriter
 storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec = {
@@ -1482,7 +1482,7 @@ storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateResourceMetadataWriter
 storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec = {
@@ -1497,7 +1497,7 @@ storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StoreUncommittedResourceId
 storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec = {
@@ -1511,7 +1511,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec = {
   $: {
@@ -1524,7 +1524,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DoomUncommittedResources
 storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec = {
@@ -1538,7 +1538,7 @@ storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec = {
   $: {
@@ -1551,7 +1551,7 @@ storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUserData
 storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec = {
@@ -1566,7 +1566,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec = {
   $: {
@@ -1580,7 +1580,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StoreUserData
 storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec = {
@@ -1596,7 +1596,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec = {
   $: {
@@ -1609,7 +1609,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearUserData
 storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec = {
@@ -1624,7 +1624,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec = {
   $: {
@@ -1637,7 +1637,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUserDataByKeyPrefix
 storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec = {
@@ -1652,7 +1652,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec = {
   $: {
@@ -1666,7 +1666,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUserKeysAndDataByKeyPrefix
 storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec = {
@@ -1681,7 +1681,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec = {
   $: {
@@ -1695,7 +1695,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearUserDataByKeyPrefixes
 storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec = {
@@ -1710,7 +1710,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec = {
   $: {
@@ -1723,7 +1723,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUserDataForAllRegistrations
 storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec = {
@@ -1737,7 +1737,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec = {
   $: {
@@ -1751,7 +1751,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUserDataForAllRegistrationsByKeyPrefix
 storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec = {
@@ -1765,7 +1765,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPre
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec = {
   $: {
@@ -1779,7 +1779,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPre
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearUserDataForAllRegistrationsByKeyPrefix
 storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec = {
@@ -1793,7 +1793,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec = {
   $: {
@@ -1806,7 +1806,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PerformStorageCleanup
 storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec = {
@@ -1819,7 +1819,7 @@ storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ApplyPolicyUpdates
 storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec = {
@@ -1833,7 +1833,7 @@ storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec = {
   $: {
@@ -1846,7 +1846,7 @@ storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPurgingResourceIdsForTest
 storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec = {
@@ -1859,7 +1859,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec = {
   $: {
@@ -1873,7 +1873,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPurgingResourceIdsForLiveVersionForTest
 storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec = {
@@ -1887,7 +1887,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionFor
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec = {
   $: {
@@ -1901,7 +1901,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionFor
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPurgeableResourceIdsForTest
 storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec = {
@@ -1914,7 +1914,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec = {
   $: {
@@ -1928,7 +1928,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUncommittedResourceIdsForTest
 storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec = {
@@ -1941,7 +1941,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec = {
   $: {
@@ -1955,7 +1955,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPurgingCompleteCallbackForTest
 storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec = {
@@ -1968,7 +1968,7 @@ storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.ServiceWorkerStorageControlPtr = storage.mojom.ServiceWorkerStorageControlRemote;

@@ -89,7 +89,7 @@ blink.mojom.TranslationManagerCreateTranslatorClient.getRemote = function() {
     'blink.mojom.TranslationManagerCreateTranslatorClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnResult
 blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec = {
@@ -105,7 +105,7 @@ blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.TranslationManagerCreateTranslatorClientPtr = blink.mojom.TranslationManagerCreateTranslatorClientRemote;
@@ -173,7 +173,7 @@ blink.mojom.TranslationManager.getRemote = function() {
     'blink.mojom.TranslationManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateTranslator
 blink.mojom.TranslationManager_CreateTranslator_ParamsSpec = {
@@ -188,7 +188,7 @@ blink.mojom.TranslationManager_CreateTranslator_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TranslationAvailable
 blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec = {
@@ -203,7 +203,7 @@ blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec = {
   $: {
@@ -216,7 +216,7 @@ blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.TranslationManagerPtr = blink.mojom.TranslationManagerRemote;

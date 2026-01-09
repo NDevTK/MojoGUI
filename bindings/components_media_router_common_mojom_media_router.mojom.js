@@ -188,7 +188,7 @@ media_router.mojom.MediaRouteProvider.getRemote = function() {
     'media_router.mojom.MediaRouteProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateRoute
 media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec = {
@@ -207,7 +207,7 @@ media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec = {
   $: {
@@ -223,7 +223,7 @@ media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for JoinRoute
 media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec = {
@@ -241,7 +241,7 @@ media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec = {
   $: {
@@ -257,7 +257,7 @@ media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TerminateRoute
 media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec = {
@@ -271,7 +271,7 @@ media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec = {
   $: {
@@ -285,7 +285,7 @@ media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendRouteMessage
 media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec = {
@@ -300,7 +300,7 @@ media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendRouteBinaryMessage
 media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec = {
@@ -315,7 +315,7 @@ media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartObservingMediaSinks
 media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec = {
@@ -329,7 +329,7 @@ media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopObservingMediaSinks
 media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec = {
@@ -343,7 +343,7 @@ media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartObservingMediaRoutes
 media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec = {
@@ -356,7 +356,7 @@ media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DetachRoute
 media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec = {
@@ -370,7 +370,7 @@ media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DiscoverSinksNow
 media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec = {
@@ -383,7 +383,7 @@ media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindMediaController
 media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec = {
@@ -399,7 +399,7 @@ media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec = {
   $: {
@@ -412,7 +412,7 @@ media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetState
 media_router.mojom.MediaRouteProvider_GetState_ParamsSpec = {
@@ -425,7 +425,7 @@ media_router.mojom.MediaRouteProvider_GetState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec = {
   $: {
@@ -438,7 +438,7 @@ media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media_router.mojom.MediaRouteProviderPtr = media_router.mojom.MediaRouteProviderRemote;
@@ -596,7 +596,7 @@ media_router.mojom.MediaRouter.getRemote = function() {
     'media_router.mojom.MediaRouter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterMediaRouteProvider
 media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec = {
@@ -611,7 +611,7 @@ media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSinksReceived
 media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec = {
@@ -628,7 +628,7 @@ media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnIssue
 media_router.mojom.MediaRouter_OnIssue_ParamsSpec = {
@@ -642,7 +642,7 @@ media_router.mojom.MediaRouter_OnIssue_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearTopIssueForSink
 media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec = {
@@ -656,7 +656,7 @@ media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRoutesUpdated
 media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec = {
@@ -671,7 +671,7 @@ media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPresentationConnectionStateChanged
 media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec = {
@@ -686,7 +686,7 @@ media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPresentationConnectionClosed
 media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec = {
@@ -702,7 +702,7 @@ media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRouteMessagesReceived
 media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec = {
@@ -717,7 +717,7 @@ media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMediaSinkServiceStatus
 media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec = {
@@ -730,7 +730,7 @@ media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec = {
   $: {
@@ -743,7 +743,7 @@ media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLogger
 media_router.mojom.MediaRouter_GetLogger_ParamsSpec = {
@@ -757,7 +757,7 @@ media_router.mojom.MediaRouter_GetLogger_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDebugger
 media_router.mojom.MediaRouter_GetDebugger_ParamsSpec = {
@@ -771,7 +771,7 @@ media_router.mojom.MediaRouter_GetDebugger_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLogsAsString
 media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec = {
@@ -784,7 +784,7 @@ media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec = {
   $: {
@@ -797,7 +797,7 @@ media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media_router.mojom.MediaRouterPtr = media_router.mojom.MediaRouterRemote;

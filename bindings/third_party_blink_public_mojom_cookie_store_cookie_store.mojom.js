@@ -79,7 +79,7 @@ blink.mojom.CookieStore.getRemote = function() {
     'blink.mojom.CookieStore',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddSubscriptions
 blink.mojom.CookieStore_AddSubscriptions_ParamsSpec = {
@@ -94,7 +94,7 @@ blink.mojom.CookieStore_AddSubscriptions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec = {
   $: {
@@ -107,7 +107,7 @@ blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveSubscriptions
 blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec = {
@@ -122,7 +122,7 @@ blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec = {
   $: {
@@ -135,7 +135,7 @@ blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSubscriptions
 blink.mojom.CookieStore_GetSubscriptions_ParamsSpec = {
@@ -149,7 +149,7 @@ blink.mojom.CookieStore_GetSubscriptions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec = {
   $: {
@@ -163,7 +163,7 @@ blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.CookieStorePtr = blink.mojom.CookieStoreRemote;

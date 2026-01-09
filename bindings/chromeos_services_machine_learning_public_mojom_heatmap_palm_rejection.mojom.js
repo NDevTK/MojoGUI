@@ -61,7 +61,7 @@ chromeos.machine_learning.mojom.HeatmapPalmRejectionClient.getRemote = function(
     'chromeos.machine_learning.mojom.HeatmapPalmRejectionClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.machine_learning.mojom.HeatmapPalmRejectionClientPtr = chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemote;

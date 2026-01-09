@@ -60,7 +60,7 @@ coral.mojom.TitleObserver.getRemote = function() {
     'coral.mojom.TitleObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 coral.mojom.TitleObserverPtr = coral.mojom.TitleObserverRemote;
@@ -110,7 +110,7 @@ coral.mojom.CoralProcessor.getRemote = function() {
     'coral.mojom.CoralProcessor',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 coral.mojom.CoralProcessorPtr = coral.mojom.CoralProcessorRemote;
@@ -160,7 +160,7 @@ coral.mojom.CoralService.getRemote = function() {
     'coral.mojom.CoralService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 coral.mojom.CoralServicePtr = coral.mojom.CoralServiceRemote;

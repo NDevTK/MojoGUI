@@ -52,7 +52,7 @@ cros.mojom.JpegAcceleratorProvider.getRemote = function() {
     'cros.mojom.JpegAcceleratorProvider',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.JpegAcceleratorProviderPtr = cros.mojom.JpegAcceleratorProviderRemote;

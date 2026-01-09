@@ -106,7 +106,7 @@ input.mojom.RenderInputRouterDelegate.getRemote = function() {
     'input.mojom.RenderInputRouterDelegate',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StateOnTouchTransfer
 input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec = {
@@ -120,7 +120,7 @@ input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForceEnableZoomStateChanged
 input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec = {
@@ -135,7 +135,7 @@ input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopFlingingOnViz
 input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec = {
@@ -149,7 +149,7 @@ input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestartInputEventAckTimeoutIfNecessary
 input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec = {
@@ -163,7 +163,7 @@ input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyVisibilityChanged
 input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec = {
@@ -178,7 +178,7 @@ input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetGestureDetection
 input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec = {
@@ -192,7 +192,7 @@ input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 input.mojom.RenderInputRouterDelegatePtr = input.mojom.RenderInputRouterDelegateRemote;
@@ -287,7 +287,7 @@ input.mojom.RenderInputRouterDelegateClient.getRemote = function() {
     'input.mojom.RenderInputRouterDelegateClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NotifyObserversOfInputEvent
 input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec = {
@@ -302,7 +302,7 @@ input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyObserversOfInputEventAcks
 input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec = {
@@ -318,7 +318,7 @@ input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnInvalidInputEventSource
 input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec = {
@@ -331,7 +331,7 @@ input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StateOnOverscrollTransfer
 input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec = {
@@ -345,7 +345,7 @@ input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RendererInputResponsivenessChanged
 input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec = {
@@ -360,7 +360,7 @@ input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 input.mojom.RenderInputRouterDelegateClientPtr = input.mojom.RenderInputRouterDelegateClientRemote;

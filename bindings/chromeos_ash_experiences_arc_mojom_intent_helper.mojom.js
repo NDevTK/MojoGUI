@@ -143,7 +143,7 @@ arc.mojom.CustomTabSession.getRemote = function() {
     'arc.mojom.CustomTabSession',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.CustomTabSessionPtr = arc.mojom.CustomTabSessionRemote;
@@ -193,7 +193,7 @@ arc.mojom.IntentHelperHost.getRemote = function() {
     'arc.mojom.IntentHelperHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.IntentHelperHostPtr = arc.mojom.IntentHelperHostRemote;
@@ -243,7 +243,7 @@ arc.mojom.IntentHelperInstance.getRemote = function() {
     'arc.mojom.IntentHelperInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.IntentHelperInstancePtr = arc.mojom.IntentHelperInstanceRemote;

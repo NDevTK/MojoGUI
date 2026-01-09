@@ -61,7 +61,7 @@ metrics.mojom.SingleSampleMetricsProvider.getRemote = function() {
     'metrics.mojom.SingleSampleMetricsProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AcquireSingleSampleMetric
 metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec = {
@@ -80,7 +80,7 @@ metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 metrics.mojom.SingleSampleMetricsProviderPtr = metrics.mojom.SingleSampleMetricsProviderRemote;
@@ -139,7 +139,7 @@ metrics.mojom.SingleSampleMetric.getRemote = function() {
     'metrics.mojom.SingleSampleMetric',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetSample
 metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec = {
@@ -153,7 +153,7 @@ metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 metrics.mojom.SingleSampleMetricPtr = metrics.mojom.SingleSampleMetricRemote;

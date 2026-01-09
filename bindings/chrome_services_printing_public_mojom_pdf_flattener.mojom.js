@@ -70,7 +70,7 @@ printing.mojom.PdfFlattener.getRemote = function() {
     'printing.mojom.PdfFlattener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FlattenPdf
 printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec = {
@@ -84,7 +84,7 @@ printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUseSkiaRendererPolicy
 printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec = {
@@ -111,7 +111,7 @@ printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 printing.mojom.PdfFlattenerPtr = printing.mojom.PdfFlattenerRemote;

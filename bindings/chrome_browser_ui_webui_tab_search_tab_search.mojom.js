@@ -104,7 +104,7 @@ tab_search.mojom.PageHandlerFactory.getRemote = function() {
     'tab_search.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 tab_search.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -119,7 +119,7 @@ tab_search.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tab_search.mojom.PageHandlerFactoryPtr = tab_search.mojom.PageHandlerFactoryRemote;
@@ -466,7 +466,7 @@ tab_search.mojom.PageHandler.getRemote = function() {
     'tab_search.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CloseTab
 tab_search.mojom.PageHandler_CloseTab_ParamsSpec = {
@@ -480,7 +480,7 @@ tab_search.mojom.PageHandler_CloseTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseWebUiTab
 tab_search.mojom.PageHandler_CloseWebUiTab_ParamsSpec = {
@@ -493,7 +493,7 @@ tab_search.mojom.PageHandler_CloseWebUiTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeclutterTabs
 tab_search.mojom.PageHandler_DeclutterTabs_ParamsSpec = {
@@ -508,7 +508,7 @@ tab_search.mojom.PageHandler_DeclutterTabs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AcceptTabOrganization
 tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec = {
@@ -524,7 +524,7 @@ tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RejectTabOrganization
 tab_search.mojom.PageHandler_RejectTabOrganization_ParamsSpec = {
@@ -539,7 +539,7 @@ tab_search.mojom.PageHandler_RejectTabOrganization_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RenameTabOrganization
 tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec = {
@@ -555,7 +555,7 @@ tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExcludeFromStaleTabs
 tab_search.mojom.PageHandler_ExcludeFromStaleTabs_ParamsSpec = {
@@ -569,7 +569,7 @@ tab_search.mojom.PageHandler_ExcludeFromStaleTabs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExcludeFromDuplicateTabs
 tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_ParamsSpec = {
@@ -583,7 +583,7 @@ tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetProfileData
 tab_search.mojom.PageHandler_GetProfileData_ParamsSpec = {
@@ -596,7 +596,7 @@ tab_search.mojom.PageHandler_GetProfileData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 tab_search.mojom.PageHandler_GetProfileData_ResponseParamsSpec = {
   $: {
@@ -609,7 +609,7 @@ tab_search.mojom.PageHandler_GetProfileData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUnusedTabs
 tab_search.mojom.PageHandler_GetUnusedTabs_ParamsSpec = {
@@ -622,7 +622,7 @@ tab_search.mojom.PageHandler_GetUnusedTabs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParamsSpec = {
   $: {
@@ -635,7 +635,7 @@ tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTabSearchSection
 tab_search.mojom.PageHandler_GetTabSearchSection_ParamsSpec = {
@@ -648,7 +648,7 @@ tab_search.mojom.PageHandler_GetTabSearchSection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParamsSpec = {
   $: {
@@ -661,7 +661,7 @@ tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTabOrganizationFeature
 tab_search.mojom.PageHandler_GetTabOrganizationFeature_ParamsSpec = {
@@ -674,7 +674,7 @@ tab_search.mojom.PageHandler_GetTabOrganizationFeature_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParamsSpec = {
   $: {
@@ -687,7 +687,7 @@ tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTabOrganizationSession
 tab_search.mojom.PageHandler_GetTabOrganizationSession_ParamsSpec = {
@@ -700,7 +700,7 @@ tab_search.mojom.PageHandler_GetTabOrganizationSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParamsSpec = {
   $: {
@@ -713,7 +713,7 @@ tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTabOrganizationModelStrategy
 tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ParamsSpec = {
@@ -726,7 +726,7 @@ tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParamsSpec = {
   $: {
@@ -739,7 +739,7 @@ tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetIsSplit
 tab_search.mojom.PageHandler_GetIsSplit_ParamsSpec = {
@@ -752,7 +752,7 @@ tab_search.mojom.PageHandler_GetIsSplit_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 tab_search.mojom.PageHandler_GetIsSplit_ResponseParamsSpec = {
   $: {
@@ -765,7 +765,7 @@ tab_search.mojom.PageHandler_GetIsSplit_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SwitchToTab
 tab_search.mojom.PageHandler_SwitchToTab_ParamsSpec = {
@@ -779,7 +779,7 @@ tab_search.mojom.PageHandler_SwitchToTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenRecentlyClosedEntry
 tab_search.mojom.PageHandler_OpenRecentlyClosedEntry_ParamsSpec = {
@@ -793,7 +793,7 @@ tab_search.mojom.PageHandler_OpenRecentlyClosedEntry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestTabOrganization
 tab_search.mojom.PageHandler_RequestTabOrganization_ParamsSpec = {
@@ -806,7 +806,7 @@ tab_search.mojom.PageHandler_RequestTabOrganization_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveTabFromOrganization
 tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec = {
@@ -822,7 +822,7 @@ tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RejectSession
 tab_search.mojom.PageHandler_RejectSession_ParamsSpec = {
@@ -836,7 +836,7 @@ tab_search.mojom.PageHandler_RejectSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReplaceActiveSplitTab
 tab_search.mojom.PageHandler_ReplaceActiveSplitTab_ParamsSpec = {
@@ -850,7 +850,7 @@ tab_search.mojom.PageHandler_ReplaceActiveSplitTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestartSession
 tab_search.mojom.PageHandler_RestartSession_ParamsSpec = {
@@ -863,7 +863,7 @@ tab_search.mojom.PageHandler_RestartSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SaveRecentlyClosedExpandedPref
 tab_search.mojom.PageHandler_SaveRecentlyClosedExpandedPref_ParamsSpec = {
@@ -877,7 +877,7 @@ tab_search.mojom.PageHandler_SaveRecentlyClosedExpandedPref_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetOrganizationFeature
 tab_search.mojom.PageHandler_SetOrganizationFeature_ParamsSpec = {
@@ -891,7 +891,7 @@ tab_search.mojom.PageHandler_SetOrganizationFeature_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartTabGroupTutorial
 tab_search.mojom.PageHandler_StartTabGroupTutorial_ParamsSpec = {
@@ -904,7 +904,7 @@ tab_search.mojom.PageHandler_StartTabGroupTutorial_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TriggerFeedback
 tab_search.mojom.PageHandler_TriggerFeedback_ParamsSpec = {
@@ -918,7 +918,7 @@ tab_search.mojom.PageHandler_TriggerFeedback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TriggerSignIn
 tab_search.mojom.PageHandler_TriggerSignIn_ParamsSpec = {
@@ -931,7 +931,7 @@ tab_search.mojom.PageHandler_TriggerSignIn_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenHelpPage
 tab_search.mojom.PageHandler_OpenHelpPage_ParamsSpec = {
@@ -944,7 +944,7 @@ tab_search.mojom.PageHandler_OpenHelpPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTabOrganizationModelStrategy
 tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_ParamsSpec = {
@@ -958,7 +958,7 @@ tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTabOrganizationUserInstruction
 tab_search.mojom.PageHandler_SetTabOrganizationUserInstruction_ParamsSpec = {
@@ -972,7 +972,7 @@ tab_search.mojom.PageHandler_SetTabOrganizationUserInstruction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUserFeedback
 tab_search.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
@@ -987,7 +987,7 @@ tab_search.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyOrganizationUIReadyToShow
 tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_ParamsSpec = {
@@ -1000,7 +1000,7 @@ tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifySearchUIReadyToShow
 tab_search.mojom.PageHandler_NotifySearchUIReadyToShow_ParamsSpec = {
@@ -1013,7 +1013,7 @@ tab_search.mojom.PageHandler_NotifySearchUIReadyToShow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tab_search.mojom.PageHandlerPtr = tab_search.mojom.PageHandlerRemote;
@@ -1171,7 +1171,7 @@ tab_search.mojom.Page.getRemote = function() {
     'tab_search.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for TabOrganizationSessionUpdated
 tab_search.mojom.Page_TabOrganizationSessionUpdated_ParamsSpec = {
@@ -1185,7 +1185,7 @@ tab_search.mojom.Page_TabOrganizationSessionUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabOrganizationModelStrategyUpdated
 tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_ParamsSpec = {
@@ -1199,7 +1199,7 @@ tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HostWindowChanged
 tab_search.mojom.Page_HostWindowChanged_ParamsSpec = {
@@ -1212,7 +1212,7 @@ tab_search.mojom.Page_HostWindowChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabsChanged
 tab_search.mojom.Page_TabsChanged_ParamsSpec = {
@@ -1226,7 +1226,7 @@ tab_search.mojom.Page_TabsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabUpdated
 tab_search.mojom.Page_TabUpdated_ParamsSpec = {
@@ -1240,7 +1240,7 @@ tab_search.mojom.Page_TabUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabsRemoved
 tab_search.mojom.Page_TabsRemoved_ParamsSpec = {
@@ -1254,7 +1254,7 @@ tab_search.mojom.Page_TabsRemoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabSearchSectionChanged
 tab_search.mojom.Page_TabSearchSectionChanged_ParamsSpec = {
@@ -1268,7 +1268,7 @@ tab_search.mojom.Page_TabSearchSectionChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabOrganizationFeatureChanged
 tab_search.mojom.Page_TabOrganizationFeatureChanged_ParamsSpec = {
@@ -1282,7 +1282,7 @@ tab_search.mojom.Page_TabOrganizationFeatureChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowFREChanged
 tab_search.mojom.Page_ShowFREChanged_ParamsSpec = {
@@ -1296,7 +1296,7 @@ tab_search.mojom.Page_ShowFREChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabOrganizationEnabledChanged
 tab_search.mojom.Page_TabOrganizationEnabledChanged_ParamsSpec = {
@@ -1310,7 +1310,7 @@ tab_search.mojom.Page_TabOrganizationEnabledChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnusedTabsChanged
 tab_search.mojom.Page_UnusedTabsChanged_ParamsSpec = {
@@ -1324,7 +1324,7 @@ tab_search.mojom.Page_UnusedTabsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabUnsplit
 tab_search.mojom.Page_TabUnsplit_ParamsSpec = {
@@ -1337,7 +1337,7 @@ tab_search.mojom.Page_TabUnsplit_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tab_search.mojom.PagePtr = tab_search.mojom.PageRemote;

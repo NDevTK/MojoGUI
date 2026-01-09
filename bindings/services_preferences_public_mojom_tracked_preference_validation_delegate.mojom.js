@@ -87,7 +87,7 @@ prefs.mojom.TrackedPreferenceValidationDelegate.getRemote = function() {
     'prefs.mojom.TrackedPreferenceValidationDelegate',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAtomicPreferenceValidation
 prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec = {
@@ -105,7 +105,7 @@ prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSplitPreferenceValidation
 prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec = {
@@ -124,7 +124,7 @@ prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 prefs.mojom.TrackedPreferenceValidationDelegatePtr = prefs.mojom.TrackedPreferenceValidationDelegateRemote;

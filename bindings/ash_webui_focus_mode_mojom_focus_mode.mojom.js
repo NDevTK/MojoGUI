@@ -71,7 +71,7 @@ ash.focus_mode.mojom.MediaClient.getRemote = function() {
     'ash.focus_mode.mojom.MediaClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartPlay
 ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec = {
@@ -85,7 +85,7 @@ ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.focus_mode.mojom.MediaClientPtr = ash.focus_mode.mojom.MediaClientRemote;
@@ -171,7 +171,7 @@ ash.focus_mode.mojom.TrackProvider.getRemote = function() {
     'ash.focus_mode.mojom.TrackProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetTrack
 ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec = {
@@ -184,7 +184,7 @@ ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec = {
   $: {
@@ -197,7 +197,7 @@ ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMediaClient
 ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec = {
@@ -211,7 +211,7 @@ ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportPlayback
 ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec = {
@@ -225,7 +225,7 @@ ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportPlayerError
 ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec = {
@@ -238,7 +238,7 @@ ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.focus_mode.mojom.TrackProviderPtr = ash.focus_mode.mojom.TrackProviderRemote;

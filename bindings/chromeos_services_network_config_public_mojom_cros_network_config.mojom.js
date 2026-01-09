@@ -471,7 +471,7 @@ chromeos.network_config.mojom.CrosNetworkConfig.getRemote = function() {
     'chromeos.network_config.mojom.CrosNetworkConfig',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddObserver
 chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec = {
@@ -485,7 +485,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNetworkState
 chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec = {
@@ -499,7 +499,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec = {
   $: {
@@ -512,7 +512,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNetworkStateList
 chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec = {
@@ -526,7 +526,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec = {
   $: {
@@ -539,7 +539,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDeviceStateList
 chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec = {
@@ -552,7 +552,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec = {
   $: {
@@ -565,7 +565,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetManagedProperties
 chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec = {
@@ -579,7 +579,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec = {
   $: {
@@ -592,7 +592,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetProperties
 chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec = {
@@ -607,7 +607,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec = {
   $: {
@@ -621,7 +621,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConfigureNetwork
 chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec = {
@@ -636,7 +636,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec = {
   $: {
@@ -650,7 +650,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForgetNetwork
 chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec = {
@@ -664,7 +664,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec = {
   $: {
@@ -677,7 +677,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNetworkTypeEnabledState
 chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ParamsSpec = {
@@ -692,7 +692,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec = {
   $: {
@@ -705,7 +705,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCellularSimState
 chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec = {
@@ -719,7 +719,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec = {
   $: {
@@ -732,7 +732,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectCellularMobileNetwork
 chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ParamsSpec = {
@@ -747,7 +747,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec = {
   $: {
@@ -760,7 +760,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_Resp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestNetworkScan
 chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec = {
@@ -774,7 +774,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetGlobalPolicy
 chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec = {
@@ -787,7 +787,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec = {
   $: {
@@ -800,7 +800,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartConnect
 chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec = {
@@ -814,7 +814,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec = {
   $: {
@@ -828,7 +828,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartDisconnect
 chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec = {
@@ -842,7 +842,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec = {
   $: {
@@ -855,7 +855,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVpnProviders
 chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec = {
@@ -869,7 +869,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetVpnProviders
 chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec = {
@@ -882,7 +882,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec = {
   $: {
@@ -895,7 +895,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNetworkCertificates
 chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpec = {
@@ -908,7 +908,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec = {
   $: {
@@ -922,7 +922,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAlwaysOnVpn
 chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec = {
@@ -935,7 +935,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec = {
   $: {
@@ -948,7 +948,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAlwaysOnVpn
 chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec = {
@@ -962,7 +962,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSupportedVpnTypes
 chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec = {
@@ -975,7 +975,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec = {
   $: {
@@ -988,7 +988,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestTrafficCounters
 chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpec = {
@@ -1002,7 +1002,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec = {
   $: {
@@ -1015,7 +1015,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetTrafficCounters
 chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec = {
@@ -1029,7 +1029,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTrafficCountersResetDay
 chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ParamsSpec = {
@@ -1044,7 +1044,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec = {
   $: {
@@ -1057,7 +1057,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateCustomApn
 chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec = {
@@ -1072,7 +1072,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec = {
   $: {
@@ -1085,7 +1085,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateExclusivelyEnabledCustomApn
 chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ParamsSpec = {
@@ -1100,7 +1100,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomAp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec = {
   $: {
@@ -1113,7 +1113,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomAp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveCustomApn
 chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec = {
@@ -1128,7 +1128,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ModifyCustomApn
 chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec = {
@@ -1143,7 +1143,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromeos.network_config.mojom.CrosNetworkConfigPtr = chromeos.network_config.mojom.CrosNetworkConfigRemote;
@@ -1256,7 +1256,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserver.getRemote = function() {
     'chromeos.network_config.mojom.CrosNetworkConfigObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnActiveNetworksChanged
 chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec = {
@@ -1270,7 +1270,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNetworkStateChanged
 chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_ParamsSpec = {
@@ -1284,7 +1284,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNetworkStateListChanged
 chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_ParamsSpec = {
@@ -1297,7 +1297,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChange
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeviceStateListChanged
 chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_ParamsSpec = {
@@ -1310,7 +1310,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnVpnProvidersChanged
 chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_ParamsSpec = {
@@ -1323,7 +1323,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNetworkCertificatesChanged
 chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_ParamsSpec = {
@@ -1336,7 +1336,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesCha
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPoliciesApplied
 chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_ParamsSpec = {
@@ -1350,7 +1350,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromeos.network_config.mojom.CrosNetworkConfigObserverPtr = chromeos.network_config.mojom.CrosNetworkConfigObserverRemote;

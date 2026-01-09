@@ -52,7 +52,7 @@ arc.mojom.UsbHostHost.getRemote = function() {
     'arc.mojom.UsbHostHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.UsbHostHostPtr = arc.mojom.UsbHostHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.UsbHostInstance.getRemote = function() {
     'arc.mojom.UsbHostInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.UsbHostInstancePtr = arc.mojom.UsbHostInstanceRemote;

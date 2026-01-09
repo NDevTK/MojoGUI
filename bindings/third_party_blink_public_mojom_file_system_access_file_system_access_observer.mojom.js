@@ -61,7 +61,7 @@ blink.mojom.FileSystemAccessObserver.getRemote = function() {
     'blink.mojom.FileSystemAccessObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnFileChanges
 blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileSystemAccessObserverPtr = blink.mojom.FileSystemAccessObserverRemote;

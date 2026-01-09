@@ -70,7 +70,7 @@ content.mojom.FontCacheWin.getRemote = function() {
     'content.mojom.FontCacheWin',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PreCacheFont
 content.mojom.FontCacheWin_PreCacheFont_ParamsSpec = {
@@ -84,7 +84,7 @@ content.mojom.FontCacheWin_PreCacheFont_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReleaseCachedFonts
 content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec = {
@@ -97,7 +97,7 @@ content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.FontCacheWinPtr = content.mojom.FontCacheWinRemote;

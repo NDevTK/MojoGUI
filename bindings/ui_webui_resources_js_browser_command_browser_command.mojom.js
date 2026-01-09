@@ -85,7 +85,7 @@ browser_command.mojom.CommandHandlerFactory.getRemote = function() {
     'browser_command.mojom.CommandHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateBrowserCommandHandler
 browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec = {
@@ -99,7 +99,7 @@ browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 browser_command.mojom.CommandHandlerFactoryPtr = browser_command.mojom.CommandHandlerFactoryRemote;
@@ -167,7 +167,7 @@ browser_command.mojom.CommandHandler.getRemote = function() {
     'browser_command.mojom.CommandHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CanExecuteCommand
 browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = {
@@ -181,7 +181,7 @@ browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec = {
   $: {
@@ -194,7 +194,7 @@ browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteCommand
 browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec = {
@@ -209,7 +209,7 @@ browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec = {
   $: {
@@ -222,7 +222,7 @@ browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 browser_command.mojom.CommandHandlerPtr = browser_command.mojom.CommandHandlerRemote;

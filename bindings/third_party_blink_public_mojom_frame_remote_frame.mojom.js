@@ -52,7 +52,7 @@ blink.mojom.NavigationStateKeepAliveHandle.getRemote = function() {
     'blink.mojom.NavigationStateKeepAliveHandle',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 blink.mojom.NavigationStateKeepAliveHandlePtr = blink.mojom.NavigationStateKeepAliveHandleRemote;
@@ -237,7 +237,7 @@ blink.mojom.RemoteFrameHost.getRemote = function() {
     'blink.mojom.RemoteFrameHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetInheritedEffectiveTouchAction
 blink.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec = {
@@ -251,7 +251,7 @@ blink.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateRenderThrottlingStatus
 blink.mojom.RemoteFrameHost_UpdateRenderThrottlingStatus_ParamsSpec = {
@@ -267,7 +267,7 @@ blink.mojom.RemoteFrameHost_UpdateRenderThrottlingStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for VisibilityChanged
 blink.mojom.RemoteFrameHost_VisibilityChanged_ParamsSpec = {
@@ -281,7 +281,7 @@ blink.mojom.RemoteFrameHost_VisibilityChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidFocusFrame
 blink.mojom.RemoteFrameHost_DidFocusFrame_ParamsSpec = {
@@ -294,7 +294,7 @@ blink.mojom.RemoteFrameHost_DidFocusFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CheckCompleted
 blink.mojom.RemoteFrameHost_CheckCompleted_ParamsSpec = {
@@ -307,7 +307,7 @@ blink.mojom.RemoteFrameHost_CheckCompleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CapturePaintPreviewOfCrossProcessSubframe
 blink.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_ParamsSpec = {
@@ -322,7 +322,7 @@ blink.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsInert
 blink.mojom.RemoteFrameHost_SetIsInert_ParamsSpec = {
@@ -336,7 +336,7 @@ blink.mojom.RemoteFrameHost_SetIsInert_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidChangeOpener
 blink.mojom.RemoteFrameHost_DidChangeOpener_ParamsSpec = {
@@ -350,7 +350,7 @@ blink.mojom.RemoteFrameHost_DidChangeOpener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AdvanceFocus
 blink.mojom.RemoteFrameHost_AdvanceFocus_ParamsSpec = {
@@ -365,7 +365,7 @@ blink.mojom.RemoteFrameHost_AdvanceFocus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RouteMessageEvent
 blink.mojom.RemoteFrameHost_RouteMessageEvent_ParamsSpec = {
@@ -382,7 +382,7 @@ blink.mojom.RemoteFrameHost_RouteMessageEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrintCrossProcessSubframe
 blink.mojom.RemoteFrameHost_PrintCrossProcessSubframe_ParamsSpec = {
@@ -397,7 +397,7 @@ blink.mojom.RemoteFrameHost_PrintCrossProcessSubframe_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Detach
 blink.mojom.RemoteFrameHost_Detach_ParamsSpec = {
@@ -410,7 +410,7 @@ blink.mojom.RemoteFrameHost_Detach_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateViewportIntersection
 blink.mojom.RemoteFrameHost_UpdateViewportIntersection_ParamsSpec = {
@@ -425,7 +425,7 @@ blink.mojom.RemoteFrameHost_UpdateViewportIntersection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SynchronizeVisualProperties
 blink.mojom.RemoteFrameHost_SynchronizeVisualProperties_ParamsSpec = {
@@ -439,7 +439,7 @@ blink.mojom.RemoteFrameHost_SynchronizeVisualProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenURL
 blink.mojom.RemoteFrameHost_OpenURL_ParamsSpec = {
@@ -453,7 +453,7 @@ blink.mojom.RemoteFrameHost_OpenURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RemoteFrameHostPtr = blink.mojom.RemoteFrameHostRemote;
@@ -809,7 +809,7 @@ blink.mojom.RemoteFrame.getRemote = function() {
     'blink.mojom.RemoteFrame',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for WillEnterFullscreen
 blink.mojom.RemoteFrame_WillEnterFullscreen_ParamsSpec = {
@@ -823,7 +823,7 @@ blink.mojom.RemoteFrame_WillEnterFullscreen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnforceInsecureNavigationsSet
 blink.mojom.RemoteFrame_EnforceInsecureNavigationsSet_ParamsSpec = {
@@ -837,7 +837,7 @@ blink.mojom.RemoteFrame_EnforceInsecureNavigationsSet_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFrameOwnerProperties
 blink.mojom.RemoteFrame_SetFrameOwnerProperties_ParamsSpec = {
@@ -851,7 +851,7 @@ blink.mojom.RemoteFrame_SetFrameOwnerProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnforceInsecureRequestPolicy
 blink.mojom.RemoteFrame_EnforceInsecureRequestPolicy_ParamsSpec = {
@@ -865,7 +865,7 @@ blink.mojom.RemoteFrame_EnforceInsecureRequestPolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetReplicatedOrigin
 blink.mojom.RemoteFrame_SetReplicatedOrigin_ParamsSpec = {
@@ -880,7 +880,7 @@ blink.mojom.RemoteFrame_SetReplicatedOrigin_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetReplicatedIsAdFrame
 blink.mojom.RemoteFrame_SetReplicatedIsAdFrame_ParamsSpec = {
@@ -894,7 +894,7 @@ blink.mojom.RemoteFrame_SetReplicatedIsAdFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetReplicatedName
 blink.mojom.RemoteFrame_SetReplicatedName_ParamsSpec = {
@@ -909,7 +909,7 @@ blink.mojom.RemoteFrame_SetReplicatedName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchLoadEventForFrameOwner
 blink.mojom.RemoteFrame_DispatchLoadEventForFrameOwner_ParamsSpec = {
@@ -922,7 +922,7 @@ blink.mojom.RemoteFrame_DispatchLoadEventForFrameOwner_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNeedsOcclusionTracking
 blink.mojom.RemoteFrame_SetNeedsOcclusionTracking_ParamsSpec = {
@@ -936,7 +936,7 @@ blink.mojom.RemoteFrame_SetNeedsOcclusionTracking_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Collapse
 blink.mojom.RemoteFrame_Collapse_ParamsSpec = {
@@ -950,7 +950,7 @@ blink.mojom.RemoteFrame_Collapse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Focus
 blink.mojom.RemoteFrame_Focus_ParamsSpec = {
@@ -963,7 +963,7 @@ blink.mojom.RemoteFrame_Focus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHadStickyUserActivationBeforeNavigation
 blink.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_ParamsSpec = {
@@ -977,7 +977,7 @@ blink.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BubbleLogicalScroll
 blink.mojom.RemoteFrame_BubbleLogicalScroll_ParamsSpec = {
@@ -992,7 +992,7 @@ blink.mojom.RemoteFrame_BubbleLogicalScroll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateUserActivationState
 blink.mojom.RemoteFrame_UpdateUserActivationState_ParamsSpec = {
@@ -1007,7 +1007,7 @@ blink.mojom.RemoteFrame_UpdateUserActivationState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetEmbeddingToken
 blink.mojom.RemoteFrame_SetEmbeddingToken_ParamsSpec = {
@@ -1021,7 +1021,7 @@ blink.mojom.RemoteFrame_SetEmbeddingToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPageFocus
 blink.mojom.RemoteFrame_SetPageFocus_ParamsSpec = {
@@ -1035,7 +1035,7 @@ blink.mojom.RemoteFrame_SetPageFocus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RenderFallbackContent
 blink.mojom.RemoteFrame_RenderFallbackContent_ParamsSpec = {
@@ -1048,7 +1048,7 @@ blink.mojom.RemoteFrame_RenderFallbackContent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddResourceTimingFromChild
 blink.mojom.RemoteFrame_AddResourceTimingFromChild_ParamsSpec = {
@@ -1062,7 +1062,7 @@ blink.mojom.RemoteFrame_AddResourceTimingFromChild_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ScrollRectToVisible
 blink.mojom.RemoteFrame_ScrollRectToVisible_ParamsSpec = {
@@ -1077,7 +1077,7 @@ blink.mojom.RemoteFrame_ScrollRectToVisible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidStartLoading
 blink.mojom.RemoteFrame_DidStartLoading_ParamsSpec = {
@@ -1090,7 +1090,7 @@ blink.mojom.RemoteFrame_DidStartLoading_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidStopLoading
 blink.mojom.RemoteFrame_DidStopLoading_ParamsSpec = {
@@ -1103,7 +1103,7 @@ blink.mojom.RemoteFrame_DidStopLoading_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IntrinsicSizingInfoOfChildChanged
 blink.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_ParamsSpec = {
@@ -1117,7 +1117,7 @@ blink.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidSetFramePolicyHeaders
 blink.mojom.RemoteFrame_DidSetFramePolicyHeaders_ParamsSpec = {
@@ -1132,7 +1132,7 @@ blink.mojom.RemoteFrame_DidSetFramePolicyHeaders_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidUpdateFramePolicy
 blink.mojom.RemoteFrame_DidUpdateFramePolicy_ParamsSpec = {
@@ -1146,7 +1146,7 @@ blink.mojom.RemoteFrame_DidUpdateFramePolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateOpener
 blink.mojom.RemoteFrame_UpdateOpener_ParamsSpec = {
@@ -1160,7 +1160,7 @@ blink.mojom.RemoteFrame_UpdateOpener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DetachAndDispose
 blink.mojom.RemoteFrame_DetachAndDispose_ParamsSpec = {
@@ -1173,7 +1173,7 @@ blink.mojom.RemoteFrame_DetachAndDispose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableAutoResize
 blink.mojom.RemoteFrame_EnableAutoResize_ParamsSpec = {
@@ -1188,7 +1188,7 @@ blink.mojom.RemoteFrame_EnableAutoResize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableAutoResize
 blink.mojom.RemoteFrame_DisableAutoResize_ParamsSpec = {
@@ -1201,7 +1201,7 @@ blink.mojom.RemoteFrame_DisableAutoResize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidUpdateVisualProperties
 blink.mojom.RemoteFrame_DidUpdateVisualProperties_ParamsSpec = {
@@ -1215,7 +1215,7 @@ blink.mojom.RemoteFrame_DidUpdateVisualProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFrameSinkId
 blink.mojom.RemoteFrame_SetFrameSinkId_ParamsSpec = {
@@ -1230,7 +1230,7 @@ blink.mojom.RemoteFrame_SetFrameSinkId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ChildProcessGone
 blink.mojom.RemoteFrame_ChildProcessGone_ParamsSpec = {
@@ -1243,7 +1243,7 @@ blink.mojom.RemoteFrame_ChildProcessGone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateRemoteChild
 blink.mojom.RemoteFrame_CreateRemoteChild_ParamsSpec = {
@@ -1264,7 +1264,7 @@ blink.mojom.RemoteFrame_CreateRemoteChild_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateRemoteChildren
 blink.mojom.RemoteFrame_CreateRemoteChildren_ParamsSpec = {
@@ -1279,7 +1279,7 @@ blink.mojom.RemoteFrame_CreateRemoteChildren_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForwardFencedFrameEventToEmbedder
 blink.mojom.RemoteFrame_ForwardFencedFrameEventToEmbedder_ParamsSpec = {
@@ -1293,7 +1293,7 @@ blink.mojom.RemoteFrame_ForwardFencedFrameEventToEmbedder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RemoteFramePtr = blink.mojom.RemoteFrameRemote;
@@ -1352,7 +1352,7 @@ blink.mojom.RemoteMainFrame.getRemote = function() {
     'blink.mojom.RemoteMainFrame',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateTextAutosizerPageInfo
 blink.mojom.RemoteMainFrame_UpdateTextAutosizerPageInfo_ParamsSpec = {
@@ -1366,7 +1366,7 @@ blink.mojom.RemoteMainFrame_UpdateTextAutosizerPageInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RemoteMainFramePtr = blink.mojom.RemoteMainFrameRemote;
@@ -1452,7 +1452,7 @@ blink.mojom.RemoteMainFrameHost.getRemote = function() {
     'blink.mojom.RemoteMainFrameHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FocusPage
 blink.mojom.RemoteMainFrameHost_FocusPage_ParamsSpec = {
@@ -1465,7 +1465,7 @@ blink.mojom.RemoteMainFrameHost_FocusPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TakeFocus
 blink.mojom.RemoteMainFrameHost_TakeFocus_ParamsSpec = {
@@ -1479,7 +1479,7 @@ blink.mojom.RemoteMainFrameHost_TakeFocus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateTargetURL
 blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ParamsSpec = {
@@ -1493,7 +1493,7 @@ blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RouteCloseEvent
 blink.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpec = {
@@ -1506,7 +1506,7 @@ blink.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RemoteMainFrameHostPtr = blink.mojom.RemoteMainFrameHostRemote;

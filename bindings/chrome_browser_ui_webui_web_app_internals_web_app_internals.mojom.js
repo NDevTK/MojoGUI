@@ -195,7 +195,7 @@ mojom.WebAppInternalsHandler.getRemote = function() {
     'mojom.WebAppInternalsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDebugInfoAsJsonString
 mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec = {
@@ -208,7 +208,7 @@ mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec = {
   $: {
@@ -221,7 +221,7 @@ mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InstallIsolatedWebAppFromDevProxy
 mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec = {
@@ -235,7 +235,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpec = {
   $: {
@@ -248,7 +248,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectFileAndInstallIsolatedWebAppFromDevBundle
 mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ParamsSpec = {
@@ -261,7 +261,7 @@ mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParamsSpec = {
   $: {
@@ -274,7 +274,7 @@ mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_Res
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ParseUpdateManifestFromUrl
 mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec = {
@@ -288,7 +288,7 @@ mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec = {
   $: {
@@ -301,7 +301,7 @@ mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InstallIsolatedWebAppFromBundleUrl
 mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec = {
@@ -315,7 +315,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSpec = {
   $: {
@@ -328,7 +328,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateDevProxyIsolatedWebApp
 mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec = {
@@ -342,7 +342,7 @@ mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec = {
   $: {
@@ -355,7 +355,7 @@ mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectFileAndUpdateIsolatedWebAppFromDevBundle
 mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ParamsSpec = {
@@ -369,7 +369,7 @@ mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ResponseParamsSpec = {
   $: {
@@ -382,7 +382,7 @@ mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_Resp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateManifestInstalledIsolatedWebApp
 mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec = {
@@ -396,7 +396,7 @@ mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParamsSpec = {
   $: {
@@ -409,7 +409,7 @@ mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteIsolatedWebApp
 mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec = {
@@ -423,7 +423,7 @@ mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec = {
   $: {
@@ -436,7 +436,7 @@ mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUpdateChannelForIsolatedWebApp
 mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec = {
@@ -451,7 +451,7 @@ mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpec = {
   $: {
@@ -464,7 +464,7 @@ mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPinnedVersionForIsolatedWebApp
 mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec = {
@@ -479,7 +479,7 @@ mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpec = {
   $: {
@@ -492,7 +492,7 @@ mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetPinnedVersionForIsolatedWebApp
 mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec = {
@@ -506,7 +506,7 @@ mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAllowDowngradesForIsolatedWebApp
 mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec = {
@@ -521,7 +521,7 @@ mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SearchForIsolatedWebAppUpdates
 mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec = {
@@ -534,7 +534,7 @@ mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec = {
   $: {
@@ -547,7 +547,7 @@ mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetIsolatedWebAppDevModeAppInfo
 mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec = {
@@ -560,7 +560,7 @@ mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec = {
   $: {
@@ -573,7 +573,7 @@ mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RotateKey
 mojom.WebAppInternalsHandler_RotateKey_ParamsSpec = {
@@ -588,7 +588,7 @@ mojom.WebAppInternalsHandler_RotateKey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mojom.WebAppInternalsHandlerPtr = mojom.WebAppInternalsHandlerRemote;

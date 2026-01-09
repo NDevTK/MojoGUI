@@ -79,7 +79,7 @@ ax.mojom.UserInput.getRemote = function() {
     'ax.mojom.UserInput',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendSyntheticKeyEventForShortcutOrNavigation
 ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec = {
@@ -93,7 +93,7 @@ ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendSyntheticMouseEvent
 ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec = {
@@ -107,7 +107,7 @@ ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ax.mojom.UserInputPtr = ax.mojom.UserInputRemote;

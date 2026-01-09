@@ -70,7 +70,7 @@ blink.mojom.TextInputHost.getRemote = function() {
     'blink.mojom.TextInputHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GotCharacterIndexAtPoint
 blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec = {
@@ -84,7 +84,7 @@ blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GotFirstRectForRange
 blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec = {
@@ -98,7 +98,7 @@ blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.TextInputHostPtr = blink.mojom.TextInputHostRemote;

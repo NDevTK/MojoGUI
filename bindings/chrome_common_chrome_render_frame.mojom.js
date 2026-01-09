@@ -195,7 +195,7 @@ chrome.mojom.ChromeRenderFrame.getRemote = function() {
     'chrome.mojom.ChromeRenderFrame',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetWindowFeatures
 chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec = {
@@ -209,7 +209,7 @@ chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestReloadImageForContextNode
 chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec = {
@@ -222,7 +222,7 @@ chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestBitmapForContextNode
 chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec = {
@@ -235,7 +235,7 @@ chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec = {
   $: {
@@ -248,7 +248,7 @@ chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestBitmapForContextNodeWithBoundsHint
 chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec = {
@@ -261,7 +261,7 @@ chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec = {
   $: {
@@ -275,7 +275,7 @@ chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestBoundsHintForAllImages
 chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec = {
@@ -288,7 +288,7 @@ chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec = {
   $: {
@@ -301,7 +301,7 @@ chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestImageForContextNode
 chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec = {
@@ -318,7 +318,7 @@ chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec = {
   $: {
@@ -335,7 +335,7 @@ chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteWebUIJavaScript
 chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec = {
@@ -349,7 +349,7 @@ chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCCTClientHeader
 chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec = {
@@ -363,7 +363,7 @@ chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMediaFeedURL
 chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec = {
@@ -376,7 +376,7 @@ chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec = {
   $: {
@@ -389,7 +389,7 @@ chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadBlockedPlugins
 chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec = {
@@ -403,7 +403,7 @@ chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetShouldDeferMediaLoad
 chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec = {
@@ -417,7 +417,7 @@ chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InvokeTool
 chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec = {
@@ -431,7 +431,7 @@ chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec = {
   $: {
@@ -444,7 +444,7 @@ chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelTool
 chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec = {
@@ -458,7 +458,7 @@ chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartActorJournal
 chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec = {
@@ -472,7 +472,7 @@ chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreatePageStabilityMonitor
 chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec = {
@@ -488,7 +488,7 @@ chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.ChromeRenderFramePtr = chrome.mojom.ChromeRenderFrameRemote;

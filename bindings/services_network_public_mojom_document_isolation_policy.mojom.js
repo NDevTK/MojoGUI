@@ -77,7 +77,7 @@ network.mojom.DocumentIsolationPolicyReporter.getRemote = function() {
     'network.mojom.DocumentIsolationPolicyReporter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for QueueCorpViolationReport
 network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpec = {
@@ -93,7 +93,7 @@ network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 network.mojom.DocumentIsolationPolicyReporter_Clone_ParamsSpec = {
@@ -107,7 +107,7 @@ network.mojom.DocumentIsolationPolicyReporter_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.DocumentIsolationPolicyReporterPtr = network.mojom.DocumentIsolationPolicyReporterRemote;

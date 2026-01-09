@@ -61,7 +61,7 @@ video_capture.mojom.DevicesChangedObserver.getRemote = function() {
     'video_capture.mojom.DevicesChangedObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDevicesChanged
 video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec = {
@@ -74,7 +74,7 @@ video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 video_capture.mojom.DevicesChangedObserverPtr = video_capture.mojom.DevicesChangedObserverRemote;

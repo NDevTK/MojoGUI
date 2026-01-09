@@ -61,7 +61,7 @@ chrome.mojom.NetworkDiagnostics.getRemote = function() {
     'chrome.mojom.NetworkDiagnostics',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RunNetworkDiagnostics
 chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec = {
@@ -75,7 +75,7 @@ chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.NetworkDiagnosticsPtr = chrome.mojom.NetworkDiagnosticsRemote;
@@ -143,7 +143,7 @@ chrome.mojom.NetworkDiagnosticsClient.getRemote = function() {
     'chrome.mojom.NetworkDiagnosticsClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetCanShowNetworkDiagnosticsDialog
 chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec = {
@@ -157,7 +157,7 @@ chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DNSProbeStatus
 chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec = {
@@ -171,7 +171,7 @@ chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.NetworkDiagnosticsClientPtr = chrome.mojom.NetworkDiagnosticsClientRemote;

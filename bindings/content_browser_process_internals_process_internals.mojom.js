@@ -121,7 +121,7 @@ mojom.ProcessInternalsHandler.getRemote = function() {
     'mojom.ProcessInternalsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetProcessCountInfo
 mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec = {
@@ -134,7 +134,7 @@ mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec = {
   $: {
@@ -147,7 +147,7 @@ mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetIsolationMode
 mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec = {
@@ -160,7 +160,7 @@ mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec = {
   $: {
@@ -173,7 +173,7 @@ mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetProcessPerSiteMode
 mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec = {
@@ -186,7 +186,7 @@ mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec = {
   $: {
@@ -199,7 +199,7 @@ mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUserTriggeredIsolatedOrigins
 mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec = {
@@ -212,7 +212,7 @@ mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec = {
   $: {
@@ -225,7 +225,7 @@ mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetWebTriggeredIsolatedOrigins
 mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec = {
@@ -238,7 +238,7 @@ mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec = {
   $: {
@@ -251,7 +251,7 @@ mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetGloballyIsolatedOrigins
 mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec = {
@@ -264,7 +264,7 @@ mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec = {
   $: {
@@ -277,7 +277,7 @@ mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllWebContentsInfo
 mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec = {
@@ -290,7 +290,7 @@ mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec = {
   $: {
@@ -303,7 +303,7 @@ mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mojom.ProcessInternalsHandlerPtr = mojom.ProcessInternalsHandlerRemote;

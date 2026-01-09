@@ -69,7 +69,7 @@ mojom.UsbInternalsPageHandler.getRemote = function() {
     'mojom.UsbInternalsPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindUsbDeviceManagerInterface
 mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec = {
@@ -83,7 +83,7 @@ mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindTestInterface
 mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec = {
@@ -97,7 +97,7 @@ mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mojom.UsbInternalsPageHandlerPtr = mojom.UsbInternalsPageHandlerRemote;

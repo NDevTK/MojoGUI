@@ -259,7 +259,7 @@ extensions.mojom.Renderer.getRemote = function() {
     'extensions.mojom.Renderer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ActivateExtension
 extensions.mojom.Renderer_ActivateExtension_ParamsSpec = {
@@ -273,7 +273,7 @@ extensions.mojom.Renderer_ActivateExtension_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetActivityLoggingEnabled
 extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec = {
@@ -287,7 +287,7 @@ extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadExtensions
 extensions.mojom.Renderer_LoadExtensions_ParamsSpec = {
@@ -301,7 +301,7 @@ extensions.mojom.Renderer_LoadExtensions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnloadExtension
 extensions.mojom.Renderer_UnloadExtension_ParamsSpec = {
@@ -315,7 +315,7 @@ extensions.mojom.Renderer_UnloadExtension_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SuspendExtension
 extensions.mojom.Renderer_SuspendExtension_ParamsSpec = {
@@ -329,7 +329,7 @@ extensions.mojom.Renderer_SuspendExtension_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelSuspendExtension
 extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec = {
@@ -343,7 +343,7 @@ extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDeveloperMode
 extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec = {
@@ -357,7 +357,7 @@ extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUserScriptsAllowed
 extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec = {
@@ -372,7 +372,7 @@ extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSessionInfo
 extensions.mojom.Renderer_SetSessionInfo_ParamsSpec = {
@@ -387,7 +387,7 @@ extensions.mojom.Renderer_SetSessionInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSystemFont
 extensions.mojom.Renderer_SetSystemFont_ParamsSpec = {
@@ -402,7 +402,7 @@ extensions.mojom.Renderer_SetSystemFont_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWebViewPartitionID
 extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec = {
@@ -416,7 +416,7 @@ extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetScriptingAllowlist
 extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec = {
@@ -430,7 +430,7 @@ extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateUserScriptWorlds
 extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec = {
@@ -444,7 +444,7 @@ extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearUserScriptWorldConfig
 extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec = {
@@ -459,7 +459,7 @@ extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShouldSuspend
 extensions.mojom.Renderer_ShouldSuspend_ParamsSpec = {
@@ -472,7 +472,7 @@ extensions.mojom.Renderer_ShouldSuspend_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TransferBlobs
 extensions.mojom.Renderer_TransferBlobs_ParamsSpec = {
@@ -485,7 +485,7 @@ extensions.mojom.Renderer_TransferBlobs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdatePermissions
 extensions.mojom.Renderer_UpdatePermissions_ParamsSpec = {
@@ -504,7 +504,7 @@ extensions.mojom.Renderer_UpdatePermissions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateDefaultPolicyHostRestrictions
 extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec = {
@@ -519,7 +519,7 @@ extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateUserHostRestrictions
 extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec = {
@@ -534,7 +534,7 @@ extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateTabSpecificPermissions
 extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec = {
@@ -551,7 +551,7 @@ extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateUserScripts
 extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec = {
@@ -566,7 +566,7 @@ extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearTabSpecificPermissions
 extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec = {
@@ -582,7 +582,7 @@ extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WatchPages
 extensions.mojom.Renderer_WatchPages_ParamsSpec = {
@@ -596,7 +596,7 @@ extensions.mojom.Renderer_WatchPages_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mojom.RendererPtr = extensions.mojom.RendererRemote;

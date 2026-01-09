@@ -102,7 +102,7 @@ ash.graduation_ui.mojom.GraduationUiHandler.getRemote = function() {
     'ash.graduation_ui.mojom.GraduationUiHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AuthenticateWebview
 ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec = {
@@ -115,7 +115,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec = {
   $: {
@@ -128,7 +128,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetProfileInfo
 ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec = {
@@ -141,7 +141,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec = {
   $: {
@@ -154,7 +154,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnScreenSwitched
 ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec = {
@@ -168,7 +168,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTransferComplete
 ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec = {
@@ -181,7 +181,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.graduation_ui.mojom.GraduationUiHandlerPtr = ash.graduation_ui.mojom.GraduationUiHandlerRemote;

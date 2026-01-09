@@ -174,7 +174,7 @@ printing.mojom.PrintCompositor.getRemote = function() {
     'printing.mojom.PrintCompositor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NotifyUnavailableSubframe
 printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec = {
@@ -188,7 +188,7 @@ printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddSubframeContent
 printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec = {
@@ -204,7 +204,7 @@ printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAccessibilityTree
 printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec = {
@@ -218,7 +218,7 @@ printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CompositePage
 printing.mojom.PrintCompositor_CompositePage_ParamsSpec = {
@@ -234,7 +234,7 @@ printing.mojom.PrintCompositor_CompositePage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec = {
   $: {
@@ -248,7 +248,7 @@ printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CompositeDocument
 printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec = {
@@ -265,7 +265,7 @@ printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec = {
   $: {
@@ -279,7 +279,7 @@ printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrepareToCompositeDocument
 printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec = {
@@ -293,7 +293,7 @@ printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec = {
   $: {
@@ -306,7 +306,7 @@ printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FinishDocumentComposition
 printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec = {
@@ -320,7 +320,7 @@ printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec = {
   $: {
@@ -334,7 +334,7 @@ printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWebContentsURL
 printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec = {
@@ -348,7 +348,7 @@ printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUserAgent
 printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec = {
@@ -362,7 +362,7 @@ printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetGenerateDocumentOutline
 printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec = {
@@ -376,7 +376,7 @@ printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTitle
 printing.mojom.PrintCompositor_SetTitle_ParamsSpec = {
@@ -390,7 +390,7 @@ printing.mojom.PrintCompositor_SetTitle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWatermarkBlock
 printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec = {
@@ -404,7 +404,7 @@ printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 printing.mojom.PrintCompositorPtr = printing.mojom.PrintCompositorRemote;

@@ -64,7 +64,7 @@ arc.mojom.TimerHost.getRemote = function() {
     'arc.mojom.TimerHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.TimerHostPtr = arc.mojom.TimerHostRemote;
@@ -114,7 +114,7 @@ arc.mojom.TimerInstance.getRemote = function() {
     'arc.mojom.TimerInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.TimerInstancePtr = arc.mojom.TimerInstanceRemote;

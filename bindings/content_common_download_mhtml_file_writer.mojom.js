@@ -73,7 +73,7 @@ content.mojom.MhtmlFileWriter.getRemote = function() {
     'content.mojom.MhtmlFileWriter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SerializeAsMHTML
 content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec = {
@@ -87,7 +87,7 @@ content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec = {
   $: {
@@ -101,7 +101,7 @@ content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.MhtmlFileWriterPtr = content.mojom.MhtmlFileWriterRemote;

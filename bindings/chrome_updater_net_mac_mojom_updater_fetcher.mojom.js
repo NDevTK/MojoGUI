@@ -79,7 +79,7 @@ updater.mojom.PostRequestObserver.getRemote = function() {
     'updater.mojom.PostRequestObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnResponseStarted
 updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec = {
@@ -94,7 +94,7 @@ updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnProgress
 updater.mojom.PostRequestObserver_OnProgress_ParamsSpec = {
@@ -108,7 +108,7 @@ updater.mojom.PostRequestObserver_OnProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRequestComplete
 updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec = {
@@ -127,7 +127,7 @@ updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 updater.mojom.PostRequestObserverPtr = updater.mojom.PostRequestObserverRemote;
@@ -204,7 +204,7 @@ updater.mojom.FileDownloadObserver.getRemote = function() {
     'updater.mojom.FileDownloadObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnResponseStarted
 updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec = {
@@ -219,7 +219,7 @@ updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnProgress
 updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec = {
@@ -233,7 +233,7 @@ updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDownloadComplete
 updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec = {
@@ -248,7 +248,7 @@ updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 updater.mojom.FileDownloadObserverPtr = updater.mojom.FileDownloadObserverRemote;
@@ -316,7 +316,7 @@ updater.mojom.FetchService.getRemote = function() {
     'updater.mojom.FetchService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PostRequest
 updater.mojom.FetchService_PostRequest_ParamsSpec = {
@@ -333,7 +333,7 @@ updater.mojom.FetchService_PostRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 updater.mojom.FetchService_PostRequest_ResponseParamsSpec = {
   $: {
@@ -346,7 +346,7 @@ updater.mojom.FetchService_PostRequest_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DownloadToFile
 updater.mojom.FetchService_DownloadToFile_ParamsSpec = {
@@ -361,7 +361,7 @@ updater.mojom.FetchService_DownloadToFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec = {
   $: {
@@ -374,7 +374,7 @@ updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 updater.mojom.FetchServicePtr = updater.mojom.FetchServiceRemote;

@@ -70,7 +70,7 @@ prerender.mojom.NoStatePrefetchCanceler.getRemote = function() {
     'prerender.mojom.NoStatePrefetchCanceler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CancelNoStatePrefetchForUnsupportedScheme
 prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec = {
@@ -83,7 +83,7 @@ prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedSchem
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelNoStatePrefetchAfterSubresourcesDiscovered
 prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec = {
@@ -96,7 +96,7 @@ prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDi
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 prerender.mojom.NoStatePrefetchCancelerPtr = prerender.mojom.NoStatePrefetchCancelerRemote;

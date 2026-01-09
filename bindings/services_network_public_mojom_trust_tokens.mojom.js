@@ -141,7 +141,7 @@ network.mojom.TrustTokenQueryAnswerer.getRemote = function() {
     'network.mojom.TrustTokenQueryAnswerer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HasTrustTokens
 network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec = {
@@ -155,7 +155,7 @@ network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec = {
   $: {
@@ -168,7 +168,7 @@ network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HasRedemptionRecord
 network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec = {
@@ -182,7 +182,7 @@ network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec = {
   $: {
@@ -195,7 +195,7 @@ network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.TrustTokenQueryAnswererPtr = network.mojom.TrustTokenQueryAnswererRemote;

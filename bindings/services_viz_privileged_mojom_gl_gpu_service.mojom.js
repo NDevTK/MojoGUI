@@ -349,7 +349,7 @@ viz.mojom.GpuService.getRemote = function() {
     'viz.mojom.GpuService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EstablishGpuChannel
 viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec = {
@@ -366,7 +366,7 @@ viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec = {
   $: {
@@ -382,7 +382,7 @@ viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetChannelClientPid
 viz.mojom.GpuService_SetChannelClientPid_ParamsSpec = {
@@ -397,7 +397,7 @@ viz.mojom.GpuService_SetChannelClientPid_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetChannelDiskCacheHandle
 viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec = {
@@ -412,7 +412,7 @@ viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetChannelPersistentCachePendingBackend
 viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec = {
@@ -428,7 +428,7 @@ viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDiskCacheHandleDestoyed
 viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec = {
@@ -442,7 +442,7 @@ viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseChannel
 viz.mojom.GpuService_CloseChannel_ParamsSpec = {
@@ -456,7 +456,7 @@ viz.mojom.GpuService_CloseChannel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateJpegDecodeAccelerator
 viz.mojom.GpuService_CreateJpegDecodeAccelerator_ParamsSpec = {
@@ -470,7 +470,7 @@ viz.mojom.GpuService_CreateJpegDecodeAccelerator_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateJpegEncodeAccelerator
 viz.mojom.GpuService_CreateJpegEncodeAccelerator_ParamsSpec = {
@@ -484,7 +484,7 @@ viz.mojom.GpuService_CreateJpegEncodeAccelerator_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterDCOMPSurfaceHandle
 viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec = {
@@ -498,7 +498,7 @@ viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec = {
   $: {
@@ -511,7 +511,7 @@ viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnregisterDCOMPSurfaceHandle
 viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec = {
@@ -525,7 +525,7 @@ viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateVideoEncodeAcceleratorProvider
 viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
@@ -539,7 +539,7 @@ viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindWebNNContextProvider
 viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec = {
@@ -554,7 +554,7 @@ viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetVideoMemoryUsageStats
 viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec = {
@@ -567,7 +567,7 @@ viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec = {
   $: {
@@ -580,7 +580,7 @@ viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartPeakMemoryMonitor
 viz.mojom.GpuService_StartPeakMemoryMonitor_ParamsSpec = {
@@ -594,7 +594,7 @@ viz.mojom.GpuService_StartPeakMemoryMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPeakMemoryUsage
 viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec = {
@@ -608,7 +608,7 @@ viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec = {
   $: {
@@ -622,7 +622,7 @@ viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestDXGIInfo
 viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec = {
@@ -635,7 +635,7 @@ viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec = {
   $: {
@@ -648,7 +648,7 @@ viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadedBlob
 viz.mojom.GpuService_LoadedBlob_ParamsSpec = {
@@ -664,7 +664,7 @@ viz.mojom.GpuService_LoadedBlob_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WakeUpGpu
 viz.mojom.GpuService_WakeUpGpu_ParamsSpec = {
@@ -677,7 +677,7 @@ viz.mojom.GpuService_WakeUpGpu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GpuSwitched
 viz.mojom.GpuService_GpuSwitched_ParamsSpec = {
@@ -690,7 +690,7 @@ viz.mojom.GpuService_GpuSwitched_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisplayAdded
 viz.mojom.GpuService_DisplayAdded_ParamsSpec = {
@@ -703,7 +703,7 @@ viz.mojom.GpuService_DisplayAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisplayRemoved
 viz.mojom.GpuService_DisplayRemoved_ParamsSpec = {
@@ -716,7 +716,7 @@ viz.mojom.GpuService_DisplayRemoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisplayMetricsChanged
 viz.mojom.GpuService_DisplayMetricsChanged_ParamsSpec = {
@@ -729,7 +729,7 @@ viz.mojom.GpuService_DisplayMetricsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DestroyAllChannels
 viz.mojom.GpuService_DestroyAllChannels_ParamsSpec = {
@@ -742,7 +742,7 @@ viz.mojom.GpuService_DestroyAllChannels_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBackgroundCleanup
 viz.mojom.GpuService_OnBackgroundCleanup_ParamsSpec = {
@@ -755,7 +755,7 @@ viz.mojom.GpuService_OnBackgroundCleanup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBackgrounded
 viz.mojom.GpuService_OnBackgrounded_ParamsSpec = {
@@ -768,7 +768,7 @@ viz.mojom.GpuService_OnBackgrounded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnForegrounded
 viz.mojom.GpuService_OnForegrounded_ParamsSpec = {
@@ -781,7 +781,7 @@ viz.mojom.GpuService_OnForegrounded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BeginCATransaction
 viz.mojom.GpuService_BeginCATransaction_ParamsSpec = {
@@ -794,7 +794,7 @@ viz.mojom.GpuService_BeginCATransaction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CommitCATransaction
 viz.mojom.GpuService_CommitCATransaction_ParamsSpec = {
@@ -807,7 +807,7 @@ viz.mojom.GpuService_CommitCATransaction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteClangProfilingProfile
 viz.mojom.GpuService_WriteClangProfilingProfile_ParamsSpec = {
@@ -820,7 +820,7 @@ viz.mojom.GpuService_WriteClangProfilingProfile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDawnInfo
 viz.mojom.GpuService_GetDawnInfo_ParamsSpec = {
@@ -834,7 +834,7 @@ viz.mojom.GpuService_GetDawnInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec = {
   $: {
@@ -847,7 +847,7 @@ viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Crash
 viz.mojom.GpuService_Crash_ParamsSpec = {
@@ -860,7 +860,7 @@ viz.mojom.GpuService_Crash_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Hang
 viz.mojom.GpuService_Hang_ParamsSpec = {
@@ -873,7 +873,7 @@ viz.mojom.GpuService_Hang_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ThrowJavaException
 viz.mojom.GpuService_ThrowJavaException_ParamsSpec = {
@@ -886,7 +886,7 @@ viz.mojom.GpuService_ThrowJavaException_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.GpuServicePtr = viz.mojom.GpuServiceRemote;

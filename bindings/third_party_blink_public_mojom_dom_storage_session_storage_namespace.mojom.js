@@ -61,7 +61,7 @@ blink.mojom.SessionStorageNamespace.getRemote = function() {
     'blink.mojom.SessionStorageNamespace',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Clone
 blink.mojom.SessionStorageNamespace_Clone_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.SessionStorageNamespace_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SessionStorageNamespacePtr = blink.mojom.SessionStorageNamespaceRemote;

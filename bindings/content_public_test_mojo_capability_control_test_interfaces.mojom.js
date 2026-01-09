@@ -61,7 +61,7 @@ content.mojom.TestInterfaceForDefer.getRemote = function() {
     'content.mojom.TestInterfaceForDefer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Ping
 content.mojom.TestInterfaceForDefer_Ping_ParamsSpec = {
@@ -74,7 +74,7 @@ content.mojom.TestInterfaceForDefer_Ping_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.TestInterfaceForDeferPtr = content.mojom.TestInterfaceForDeferRemote;
@@ -124,7 +124,7 @@ content.mojom.TestInterfaceForGrant.getRemote = function() {
     'content.mojom.TestInterfaceForGrant',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 content.mojom.TestInterfaceForGrantPtr = content.mojom.TestInterfaceForGrantRemote;
@@ -174,7 +174,7 @@ content.mojom.TestInterfaceForCancel.getRemote = function() {
     'content.mojom.TestInterfaceForCancel',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 content.mojom.TestInterfaceForCancelPtr = content.mojom.TestInterfaceForCancelRemote;
@@ -224,7 +224,7 @@ content.mojom.TestInterfaceForUnexpected.getRemote = function() {
     'content.mojom.TestInterfaceForUnexpected',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 content.mojom.TestInterfaceForUnexpectedPtr = content.mojom.TestInterfaceForUnexpectedRemote;
@@ -283,7 +283,7 @@ content.mojom.MojoContextProvider.getRemote = function() {
     'content.mojom.MojoContextProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GrantAll
 content.mojom.MojoContextProvider_GrantAll_ParamsSpec = {
@@ -296,7 +296,7 @@ content.mojom.MojoContextProvider_GrantAll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.MojoContextProviderPtr = content.mojom.MojoContextProviderRemote;

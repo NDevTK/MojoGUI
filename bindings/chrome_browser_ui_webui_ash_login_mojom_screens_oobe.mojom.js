@@ -98,7 +98,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler.getRemote = function() {
     'ash.screens_oobe.mojom.ConsumerUpdatePageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDeclineCellularClicked
 ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec = {
@@ -111,7 +111,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAcceptCellularClicked
 ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec = {
@@ -124,7 +124,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSkipClicked
 ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec = {
@@ -137,7 +137,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBackClicked
 ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec = {
@@ -150,7 +150,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_oobe.mojom.ConsumerUpdatePageHandlerPtr = ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemote;
@@ -245,7 +245,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage.getRemote = function() {
     'ash.screens_oobe.mojom.ConsumerUpdatePage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShowSkipButton
 ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec = {
@@ -258,7 +258,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetLowBatteryWarningVisible
 ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec = {
@@ -272,7 +272,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetScreenStep
 ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec = {
@@ -286,7 +286,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUpdateStatusMessage
 ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec = {
@@ -302,7 +302,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAutoTransition
 ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec = {
@@ -316,7 +316,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_oobe.mojom.ConsumerUpdatePagePtr = ash.screens_oobe.mojom.ConsumerUpdatePageRemote;
@@ -384,7 +384,7 @@ ash.screens_oobe.mojom.PackagedLicensePageHandler.getRemote = function() {
     'ash.screens_oobe.mojom.PackagedLicensePageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDontEnrollClicked
 ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec = {
@@ -397,7 +397,7 @@ ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnEnrollClicked
 ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec = {
@@ -410,7 +410,7 @@ ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_oobe.mojom.PackagedLicensePageHandlerPtr = ash.screens_oobe.mojom.PackagedLicensePageHandlerRemote;

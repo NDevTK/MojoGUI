@@ -219,7 +219,7 @@ gpu.mojom.GpuChannel.getRemote = function() {
     'gpu.mojom.GpuChannel',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CrashForTesting
 gpu.mojom.GpuChannel_CrashForTesting_ParamsSpec = {
@@ -232,7 +232,7 @@ gpu.mojom.GpuChannel_CrashForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TerminateForTesting
 gpu.mojom.GpuChannel_TerminateForTesting_ParamsSpec = {
@@ -245,7 +245,7 @@ gpu.mojom.GpuChannel_TerminateForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetChannelToken
 gpu.mojom.GpuChannel_GetChannelToken_ParamsSpec = {
@@ -258,7 +258,7 @@ gpu.mojom.GpuChannel_GetChannelToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec = {
   $: {
@@ -271,7 +271,7 @@ gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Flush
 gpu.mojom.GpuChannel_Flush_ParamsSpec = {
@@ -284,7 +284,7 @@ gpu.mojom.GpuChannel_Flush_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSharedMemoryForFlushId
 gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec = {
@@ -297,7 +297,7 @@ gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec = {
   $: {
@@ -310,7 +310,7 @@ gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateCommandBuffer
 gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec = {
@@ -328,7 +328,7 @@ gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec = {
   $: {
@@ -343,7 +343,7 @@ gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DestroyCommandBuffer
 gpu.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec = {
@@ -357,7 +357,7 @@ gpu.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FlushDeferredRequests
 gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec = {
@@ -372,7 +372,7 @@ gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateGpuMemoryBuffer
 gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec = {
@@ -388,7 +388,7 @@ gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec = {
   $: {
@@ -401,7 +401,7 @@ gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateDCOMPTexture
 gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec = {
@@ -416,7 +416,7 @@ gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec = {
   $: {
@@ -429,7 +429,7 @@ gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterOverlayStateObserver
 gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec = {
@@ -444,7 +444,7 @@ gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec = {
   $: {
@@ -457,7 +457,7 @@ gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitForTokenInRange
 gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec = {
@@ -473,7 +473,7 @@ gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec = {
   $: {
@@ -486,7 +486,7 @@ gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitForGetOffsetInRange
 gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec = {
@@ -503,7 +503,7 @@ gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec = {
   $: {
@@ -516,7 +516,7 @@ gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterSysmemBufferCollection
 gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec = {
@@ -534,7 +534,7 @@ gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CopyToGpuMemoryBufferAsync
 gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec = {
@@ -550,7 +550,7 @@ gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec = {
   $: {
@@ -563,7 +563,7 @@ gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CopyNativeGmbToSharedMemoryAsync
 gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec = {
@@ -578,7 +578,7 @@ gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec = {
   $: {
@@ -591,7 +591,7 @@ gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 gpu.mojom.GpuChannelPtr = gpu.mojom.GpuChannelRemote;
@@ -695,7 +695,7 @@ gpu.mojom.CommandBuffer.getRemote = function() {
     'gpu.mojom.CommandBuffer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetGetBuffer
 gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec = {
@@ -709,7 +709,7 @@ gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterTransferBuffer
 gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec = {
@@ -724,7 +724,7 @@ gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateGpuFenceFromHandle
 gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec = {
@@ -739,7 +739,7 @@ gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetGpuFenceHandle
 gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec = {
@@ -753,7 +753,7 @@ gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec = {
   $: {
@@ -766,7 +766,7 @@ gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SignalSyncToken
 gpu.mojom.CommandBuffer_SignalSyncToken_ParamsSpec = {
@@ -781,7 +781,7 @@ gpu.mojom.CommandBuffer_SignalSyncToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SignalQuery
 gpu.mojom.CommandBuffer_SignalQuery_ParamsSpec = {
@@ -796,7 +796,7 @@ gpu.mojom.CommandBuffer_SignalQuery_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 gpu.mojom.CommandBufferPtr = gpu.mojom.CommandBufferRemote;
@@ -891,7 +891,7 @@ gpu.mojom.CommandBufferClient.getRemote = function() {
     'gpu.mojom.CommandBufferClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnConsoleMessage
 gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec = {
@@ -905,7 +905,7 @@ gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnGpuSwitched
 gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec = {
@@ -918,7 +918,7 @@ gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDestroyed
 gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec = {
@@ -933,7 +933,7 @@ gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReturnData
 gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec = {
@@ -947,7 +947,7 @@ gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSignalAck
 gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec = {
@@ -962,7 +962,7 @@ gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 gpu.mojom.CommandBufferClientPtr = gpu.mojom.CommandBufferClientRemote;
@@ -1039,7 +1039,7 @@ gpu.mojom.DCOMPTexture.getRemote = function() {
     'gpu.mojom.DCOMPTexture',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartListening
 gpu.mojom.DCOMPTexture_StartListening_ParamsSpec = {
@@ -1053,7 +1053,7 @@ gpu.mojom.DCOMPTexture_StartListening_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTextureSize
 gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec = {
@@ -1067,7 +1067,7 @@ gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDCOMPSurfaceHandle
 gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec = {
@@ -1081,7 +1081,7 @@ gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec = {
   $: {
@@ -1094,7 +1094,7 @@ gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 gpu.mojom.DCOMPTexturePtr = gpu.mojom.DCOMPTextureRemote;
@@ -1162,7 +1162,7 @@ gpu.mojom.DCOMPTextureClient.getRemote = function() {
     'gpu.mojom.DCOMPTextureClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSharedImageMailboxBound
 gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec = {
@@ -1176,7 +1176,7 @@ gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnOutputRectChange
 gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec = {
@@ -1190,7 +1190,7 @@ gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 gpu.mojom.DCOMPTextureClientPtr = gpu.mojom.DCOMPTextureClientRemote;
@@ -1249,7 +1249,7 @@ gpu.mojom.OverlayStateObserver.getRemote = function() {
     'gpu.mojom.OverlayStateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStateChanged
 gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec = {
@@ -1263,7 +1263,7 @@ gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 gpu.mojom.OverlayStateObserverPtr = gpu.mojom.OverlayStateObserverRemote;

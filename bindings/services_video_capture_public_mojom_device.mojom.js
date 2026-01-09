@@ -124,7 +124,7 @@ video_capture.mojom.Device.getRemote = function() {
     'video_capture.mojom.Device',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Start
 video_capture.mojom.Device_Start_ParamsSpec = {
@@ -139,7 +139,7 @@ video_capture.mojom.Device_Start_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MaybeSuspend
 video_capture.mojom.Device_MaybeSuspend_ParamsSpec = {
@@ -152,7 +152,7 @@ video_capture.mojom.Device_MaybeSuspend_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Resume
 video_capture.mojom.Device_Resume_ParamsSpec = {
@@ -165,7 +165,7 @@ video_capture.mojom.Device_Resume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPhotoState
 video_capture.mojom.Device_GetPhotoState_ParamsSpec = {
@@ -178,7 +178,7 @@ video_capture.mojom.Device_GetPhotoState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec = {
   $: {
@@ -191,7 +191,7 @@ video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPhotoOptions
 video_capture.mojom.Device_SetPhotoOptions_ParamsSpec = {
@@ -205,7 +205,7 @@ video_capture.mojom.Device_SetPhotoOptions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec = {
   $: {
@@ -218,7 +218,7 @@ video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TakePhoto
 video_capture.mojom.Device_TakePhoto_ParamsSpec = {
@@ -231,7 +231,7 @@ video_capture.mojom.Device_TakePhoto_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 video_capture.mojom.Device_TakePhoto_ResponseParamsSpec = {
   $: {
@@ -244,7 +244,7 @@ video_capture.mojom.Device_TakePhoto_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ProcessFeedback
 video_capture.mojom.Device_ProcessFeedback_ParamsSpec = {
@@ -258,7 +258,7 @@ video_capture.mojom.Device_ProcessFeedback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestRefreshFrame
 video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec = {
@@ -271,7 +271,7 @@ video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 video_capture.mojom.DevicePtr = video_capture.mojom.DeviceRemote;

@@ -70,7 +70,7 @@ network.mojom.TCPBoundSocket.getRemote = function() {
     'network.mojom.TCPBoundSocket',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Listen
 network.mojom.TCPBoundSocket_Listen_ParamsSpec = {
@@ -85,7 +85,7 @@ network.mojom.TCPBoundSocket_Listen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Connect
 network.mojom.TCPBoundSocket_Connect_ParamsSpec = {
@@ -115,7 +115,7 @@ network.mojom.TCPBoundSocket_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec = {
   $: {
@@ -132,7 +132,7 @@ network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.TCPBoundSocketPtr = network.mojom.TCPBoundSocketRemote;
@@ -227,7 +227,7 @@ network.mojom.TCPConnectedSocket.getRemote = function() {
     'network.mojom.TCPConnectedSocket',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpgradeToTLS
 network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec = {
@@ -245,7 +245,7 @@ network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec = {
   $: {
@@ -261,7 +261,7 @@ network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSendBufferSize
 network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec = {
@@ -275,7 +275,7 @@ network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec = {
   $: {
@@ -288,7 +288,7 @@ network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetReceiveBufferSize
 network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec = {
@@ -302,7 +302,7 @@ network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec = {
   $: {
@@ -315,7 +315,7 @@ network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNoDelay
 network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec = {
@@ -329,7 +329,7 @@ network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec = {
   $: {
@@ -342,7 +342,7 @@ network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetKeepAlive
 network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec = {
@@ -357,7 +357,7 @@ network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec = {
   $: {
@@ -370,7 +370,7 @@ network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.TCPConnectedSocketPtr = network.mojom.TCPConnectedSocketRemote;
@@ -438,7 +438,7 @@ network.mojom.SocketObserver.getRemote = function() {
     'network.mojom.SocketObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnReadError
 network.mojom.SocketObserver_OnReadError_ParamsSpec = {
@@ -452,7 +452,7 @@ network.mojom.SocketObserver_OnReadError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWriteError
 network.mojom.SocketObserver_OnWriteError_ParamsSpec = {
@@ -466,7 +466,7 @@ network.mojom.SocketObserver_OnWriteError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.SocketObserverPtr = network.mojom.SocketObserverRemote;
@@ -525,7 +525,7 @@ network.mojom.TCPServerSocket.getRemote = function() {
     'network.mojom.TCPServerSocket',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Accept
 network.mojom.TCPServerSocket_Accept_ParamsSpec = {
@@ -539,7 +539,7 @@ network.mojom.TCPServerSocket_Accept_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.TCPServerSocket_Accept_ResponseParamsSpec = {
   $: {
@@ -556,7 +556,7 @@ network.mojom.TCPServerSocket_Accept_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.TCPServerSocketPtr = network.mojom.TCPServerSocketRemote;

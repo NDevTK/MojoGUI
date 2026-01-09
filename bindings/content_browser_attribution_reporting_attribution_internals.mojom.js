@@ -141,7 +141,7 @@ attribution_internals.mojom.Observer.getRemote = function() {
     'attribution_internals.mojom.Observer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSourcesChanged
 attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec = {
@@ -155,7 +155,7 @@ attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReportsChanged
 attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec = {
@@ -169,7 +169,7 @@ attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSourceHandled
 attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec = {
@@ -183,7 +183,7 @@ attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReportHandled
 attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
@@ -197,7 +197,7 @@ attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDebugReportSent
 attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec = {
@@ -211,7 +211,7 @@ attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAggregatableDebugReportSent
 attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec = {
@@ -225,7 +225,7 @@ attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTriggerHandled
 attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec = {
@@ -239,7 +239,7 @@ attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnOsRegistration
 attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec = {
@@ -253,7 +253,7 @@ attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDebugModeChanged
 attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec = {
@@ -267,7 +267,7 @@ attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 attribution_internals.mojom.ObserverPtr = attribution_internals.mojom.ObserverRemote;
@@ -344,7 +344,7 @@ attribution_internals.mojom.Handler.getRemote = function() {
     'attribution_internals.mojom.Handler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for IsAttributionReportingEnabled
 attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec = {
@@ -357,7 +357,7 @@ attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec = {
   $: {
@@ -371,7 +371,7 @@ attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendReport
 attribution_internals.mojom.Handler_SendReport_ParamsSpec = {
@@ -385,7 +385,7 @@ attribution_internals.mojom.Handler_SendReport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearStorage
 attribution_internals.mojom.Handler_ClearStorage_ParamsSpec = {
@@ -398,7 +398,7 @@ attribution_internals.mojom.Handler_ClearStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 attribution_internals.mojom.HandlerPtr = attribution_internals.mojom.HandlerRemote;
@@ -457,7 +457,7 @@ attribution_internals.mojom.Factory.getRemote = function() {
     'attribution_internals.mojom.Factory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Create
 attribution_internals.mojom.Factory_Create_ParamsSpec = {
@@ -472,7 +472,7 @@ attribution_internals.mojom.Factory_Create_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 attribution_internals.mojom.FactoryPtr = attribution_internals.mojom.FactoryRemote;

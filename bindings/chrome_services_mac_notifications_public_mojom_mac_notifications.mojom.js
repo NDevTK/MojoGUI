@@ -130,7 +130,7 @@ mac_notifications.mojom.MacNotificationService.getRemote = function() {
     'mac_notifications.mojom.MacNotificationService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DisplayNotification
 mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec = {
@@ -144,7 +144,7 @@ mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDisplayedNotifications
 mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec = {
@@ -159,7 +159,7 @@ mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec = {
   $: {
@@ -172,7 +172,7 @@ mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseNotification
 mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec = {
@@ -186,7 +186,7 @@ mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseNotificationsForProfile
 mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec = {
@@ -200,7 +200,7 @@ mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseAllNotifications
 mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec = {
@@ -213,7 +213,7 @@ mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OkayToTerminateService
 mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec = {
@@ -226,7 +226,7 @@ mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec = {
   $: {
@@ -239,7 +239,7 @@ mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mac_notifications.mojom.MacNotificationServicePtr = mac_notifications.mojom.MacNotificationServiceRemote;
@@ -298,7 +298,7 @@ mac_notifications.mojom.MacNotificationActionHandler.getRemote = function() {
     'mac_notifications.mojom.MacNotificationActionHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnNotificationAction
 mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec = {
@@ -312,7 +312,7 @@ mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mac_notifications.mojom.MacNotificationActionHandlerPtr = mac_notifications.mojom.MacNotificationActionHandlerRemote;
@@ -371,7 +371,7 @@ mac_notifications.mojom.MacNotificationProvider.getRemote = function() {
     'mac_notifications.mojom.MacNotificationProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindNotificationService
 mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec = {
@@ -386,7 +386,7 @@ mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mac_notifications.mojom.MacNotificationProviderPtr = mac_notifications.mojom.MacNotificationProviderRemote;

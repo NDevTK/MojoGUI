@@ -61,7 +61,7 @@ device.mojom.WakeLockContext.getRemote = function() {
     'device.mojom.WakeLockContext',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetWakeLock
 device.mojom.WakeLockContext_GetWakeLock_ParamsSpec = {
@@ -78,7 +78,7 @@ device.mojom.WakeLockContext_GetWakeLock_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.WakeLockContextPtr = device.mojom.WakeLockContextRemote;

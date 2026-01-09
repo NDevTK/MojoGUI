@@ -146,7 +146,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler.getRemote = f
     'commerce.product_specifications.mojom.ProductSpecificationsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetAcceptedDisclosureVersion
 commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec = {
@@ -160,7 +160,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDi
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MaybeShowDisclosure
 commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec = {
@@ -176,7 +176,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisc
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec = {
   $: {
@@ -189,7 +189,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisc
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeclineDisclosure
 commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec = {
@@ -202,7 +202,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowSyncSetupFlow
 commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec = {
@@ -215,7 +215,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetup
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPageTitleFromHistory
 commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec = {
@@ -229,7 +229,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleF
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec = {
   $: {
@@ -242,7 +242,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleF
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowProductSpecificationsSetForUuid
 commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec = {
@@ -257,7 +257,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowProductSpecificationsSetsForUuids
 commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec = {
@@ -272,7 +272,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowComparePage
 commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec = {
@@ -286,7 +286,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetComparisonTableUrlForUuid
 commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec = {
@@ -300,7 +300,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparison
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec = {
   $: {
@@ -313,7 +313,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparison
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 commerce.product_specifications.mojom.ProductSpecificationsHandlerPtr = commerce.product_specifications.mojom.ProductSpecificationsHandlerRemote;
@@ -399,7 +399,7 @@ commerce.product_specifications.mojom.Page.getRemote = function() {
     'commerce.product_specifications.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnProductSpecificationsSetAdded
 commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec = {
@@ -413,7 +413,7 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnProductSpecificationsSetUpdated
 commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec = {
@@ -427,7 +427,7 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnProductSpecificationsSetRemoved
 commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec = {
@@ -441,7 +441,7 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSyncStateChanged
 commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec = {
@@ -454,7 +454,7 @@ commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 commerce.product_specifications.mojom.PagePtr = commerce.product_specifications.mojom.PageRemote;
@@ -513,7 +513,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory.getRem
     'commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateProductSpecificationsHandler
 commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec = {
@@ -528,7 +528,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_Create
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryPtr = commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemote;

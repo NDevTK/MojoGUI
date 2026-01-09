@@ -70,7 +70,7 @@ chromecast.mojom.ApiBindings.getRemote = function() {
     'chromecast.mojom.ApiBindings',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetAll
 chromecast.mojom.ApiBindings_GetAll_ParamsSpec = {
@@ -83,7 +83,7 @@ chromecast.mojom.ApiBindings_GetAll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec = {
   $: {
@@ -96,7 +96,7 @@ chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Connect
 chromecast.mojom.ApiBindings_Connect_ParamsSpec = {
@@ -111,7 +111,7 @@ chromecast.mojom.ApiBindings_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.ApiBindingsPtr = chromecast.mojom.ApiBindingsRemote;

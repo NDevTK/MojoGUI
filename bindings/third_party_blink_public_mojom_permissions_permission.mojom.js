@@ -112,7 +112,7 @@ blink.mojom.PermissionObserver.getRemote = function() {
     'blink.mojom.PermissionObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPermissionStatusChange
 blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec = {
@@ -126,7 +126,7 @@ blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PermissionObserverPtr = blink.mojom.PermissionObserverRemote;
@@ -185,7 +185,7 @@ blink.mojom.EmbeddedPermissionControlClient.getRemote = function() {
     'blink.mojom.EmbeddedPermissionControlClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnEmbeddedPermissionControlRegistered
 blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec = {
@@ -200,7 +200,7 @@ blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistere
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.EmbeddedPermissionControlClientPtr = blink.mojom.EmbeddedPermissionControlClientRemote;
@@ -331,7 +331,7 @@ blink.mojom.PermissionService.getRemote = function() {
     'blink.mojom.PermissionService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HasPermission
 blink.mojom.PermissionService_HasPermission_ParamsSpec = {
@@ -345,7 +345,7 @@ blink.mojom.PermissionService_HasPermission_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PermissionService_HasPermission_ResponseParamsSpec = {
   $: {
@@ -358,7 +358,7 @@ blink.mojom.PermissionService_HasPermission_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterPageEmbeddedPermissionControl
 blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec = {
@@ -374,7 +374,7 @@ blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestPageEmbeddedPermission
 blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec = {
@@ -389,7 +389,7 @@ blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec = {
   $: {
@@ -402,7 +402,7 @@ blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestPermission
 blink.mojom.PermissionService_RequestPermission_ParamsSpec = {
@@ -417,7 +417,7 @@ blink.mojom.PermissionService_RequestPermission_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec = {
   $: {
@@ -430,7 +430,7 @@ blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestPermissions
 blink.mojom.PermissionService_RequestPermissions_ParamsSpec = {
@@ -445,7 +445,7 @@ blink.mojom.PermissionService_RequestPermissions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec = {
   $: {
@@ -458,7 +458,7 @@ blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RevokePermission
 blink.mojom.PermissionService_RevokePermission_ParamsSpec = {
@@ -472,7 +472,7 @@ blink.mojom.PermissionService_RevokePermission_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec = {
   $: {
@@ -485,7 +485,7 @@ blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddPermissionObserver
 blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec = {
@@ -501,7 +501,7 @@ blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddPageEmbeddedPermissionObserver
 blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec = {
@@ -517,7 +517,7 @@ blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyEventListener
 blink.mojom.PermissionService_NotifyEventListener_ParamsSpec = {
@@ -533,7 +533,7 @@ blink.mojom.PermissionService_NotifyEventListener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PermissionServicePtr = blink.mojom.PermissionServiceRemote;

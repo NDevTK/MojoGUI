@@ -96,7 +96,7 @@ media_router.mojom.Logger.getRemote = function() {
     'media_router.mojom.Logger',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LogInfo
 media_router.mojom.Logger_LogInfo_ParamsSpec = {
@@ -115,7 +115,7 @@ media_router.mojom.Logger_LogInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogWarning
 media_router.mojom.Logger_LogWarning_ParamsSpec = {
@@ -134,7 +134,7 @@ media_router.mojom.Logger_LogWarning_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogError
 media_router.mojom.Logger_LogError_ParamsSpec = {
@@ -153,7 +153,7 @@ media_router.mojom.Logger_LogError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindReceiver
 media_router.mojom.Logger_BindReceiver_ParamsSpec = {
@@ -167,7 +167,7 @@ media_router.mojom.Logger_BindReceiver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media_router.mojom.LoggerPtr = media_router.mojom.LoggerRemote;

@@ -129,7 +129,7 @@ dlp_internals.mojom.ReportingObserver.getRemote = function() {
     'dlp_internals.mojom.ReportingObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnReportEvent
 dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec = {
@@ -143,7 +143,7 @@ dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 dlp_internals.mojom.ReportingObserverPtr = dlp_internals.mojom.ReportingObserverRemote;
@@ -238,7 +238,7 @@ dlp_internals.mojom.PageHandler.getRemote = function() {
     'dlp_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetClipboardDataSource
 dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec = {
@@ -251,7 +251,7 @@ dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec = {
   $: {
@@ -264,7 +264,7 @@ dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetContentRestrictionsInfo
 dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec = {
@@ -277,7 +277,7 @@ dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec = {
   $: {
@@ -290,7 +290,7 @@ dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveReporting
 dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec = {
@@ -304,7 +304,7 @@ dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFilesDatabaseEntries
 dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec = {
@@ -317,7 +317,7 @@ dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec = {
   $: {
@@ -330,7 +330,7 @@ dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFileInode
 dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec = {
@@ -344,7 +344,7 @@ dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec = {
   $: {
@@ -357,7 +357,7 @@ dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 dlp_internals.mojom.PageHandlerPtr = dlp_internals.mojom.PageHandlerRemote;

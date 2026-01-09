@@ -124,7 +124,7 @@ autofill.mojom.TypeTraitsTest.getRemote = function() {
     'autofill.mojom.TypeTraitsTest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PassFormData
 autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec = {
@@ -138,7 +138,7 @@ autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec = {
   $: {
@@ -151,7 +151,7 @@ autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PassFormFieldData
 autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec = {
@@ -165,7 +165,7 @@ autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec = {
   $: {
@@ -178,7 +178,7 @@ autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PassFormDataPredictions
 autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec = {
@@ -192,7 +192,7 @@ autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec = {
   $: {
@@ -205,7 +205,7 @@ autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PassFormFieldDataPredictions
 autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec = {
@@ -219,7 +219,7 @@ autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec = {
   $: {
@@ -232,7 +232,7 @@ autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PassPasswordFormFillData
 autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec = {
@@ -246,7 +246,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec = {
   $: {
@@ -259,7 +259,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PassPasswordFormGenerationData
 autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec = {
@@ -273,7 +273,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec = {
   $: {
@@ -286,7 +286,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PassPasswordGenerationUIData
 autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec = {
@@ -300,7 +300,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec = {
   $: {
@@ -313,7 +313,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PassPasswordSuggestionRequest
 autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec = {
@@ -327,7 +327,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec = {
   $: {
@@ -340,7 +340,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 autofill.mojom.TypeTraitsTestPtr = autofill.mojom.TypeTraitsTestRemote;

@@ -150,7 +150,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.getRemote = function() {
     'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPtr = ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote;
@@ -200,7 +200,7 @@ ash.cros_healthd.mojom.CrosHealthdLidObserver.getRemote = function() {
     'ash.cros_healthd.mojom.CrosHealthdLidObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.CrosHealthdLidObserverPtr = ash.cros_healthd.mojom.CrosHealthdLidObserverRemote;
@@ -250,7 +250,7 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserver.getRemote = function() {
     'ash.cros_healthd.mojom.CrosHealthdPowerObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.CrosHealthdPowerObserverPtr = ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote;
@@ -300,7 +300,7 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserver.getRemote = function() {
     'ash.cros_healthd.mojom.CrosHealthdAudioObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.CrosHealthdAudioObserverPtr = ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote;
@@ -350,7 +350,7 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserver.getRemote = function() {
     'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPtr = ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote;
@@ -400,7 +400,7 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserver.getRemote = function() {
     'ash.cros_healthd.mojom.CrosHealthdUsbObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.CrosHealthdUsbObserverPtr = ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote;
@@ -450,7 +450,7 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserver.getRemote = function() {
     'ash.cros_healthd.mojom.CrosHealthdSdCardObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.CrosHealthdSdCardObserverPtr = ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote;
@@ -500,7 +500,7 @@ ash.cros_healthd.mojom.EventObserver.getRemote = function() {
     'ash.cros_healthd.mojom.EventObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.EventObserverPtr = ash.cros_healthd.mojom.EventObserverRemote;

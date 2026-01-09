@@ -80,7 +80,7 @@ network.mojom.CrossOriginOpenerPolicyReporter.getRemote = function() {
     'network.mojom.CrossOriginOpenerPolicyReporter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for QueueAccessReport
 network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = {
@@ -97,7 +97,7 @@ network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.CrossOriginOpenerPolicyReporterPtr = network.mojom.CrossOriginOpenerPolicyReporterRemote;

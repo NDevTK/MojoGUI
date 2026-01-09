@@ -119,7 +119,7 @@ connectors_internals.mojom.PageHandler.getRemote = function() {
     'connectors_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDeviceTrustState
 connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec = {
@@ -132,7 +132,7 @@ connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec = {
   $: {
@@ -145,7 +145,7 @@ connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteDeviceTrustKey
 connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec = {
@@ -158,7 +158,7 @@ connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetClientCertificateState
 connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec = {
@@ -171,7 +171,7 @@ connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec = {
   $: {
@@ -184,7 +184,7 @@ connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSignalsReportingState
 connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec = {
@@ -197,7 +197,7 @@ connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec = {
   $: {
@@ -210,7 +210,7 @@ connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 connectors_internals.mojom.PageHandlerPtr = connectors_internals.mojom.PageHandlerRemote;

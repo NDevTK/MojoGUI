@@ -111,7 +111,7 @@ device.mojom.WakeLock.getRemote = function() {
     'device.mojom.WakeLock',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestWakeLock
 device.mojom.WakeLock_RequestWakeLock_ParamsSpec = {
@@ -124,7 +124,7 @@ device.mojom.WakeLock_RequestWakeLock_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelWakeLock
 device.mojom.WakeLock_CancelWakeLock_ParamsSpec = {
@@ -137,7 +137,7 @@ device.mojom.WakeLock_CancelWakeLock_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddClient
 device.mojom.WakeLock_AddClient_ParamsSpec = {
@@ -151,7 +151,7 @@ device.mojom.WakeLock_AddClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ChangeType
 device.mojom.WakeLock_ChangeType_ParamsSpec = {
@@ -165,7 +165,7 @@ device.mojom.WakeLock_ChangeType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.WakeLock_ChangeType_ResponseParamsSpec = {
   $: {
@@ -178,7 +178,7 @@ device.mojom.WakeLock_ChangeType_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HasWakeLockForTests
 device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec = {
@@ -191,7 +191,7 @@ device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec = {
   $: {
@@ -204,7 +204,7 @@ device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.WakeLockPtr = device.mojom.WakeLockRemote;

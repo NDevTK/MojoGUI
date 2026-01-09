@@ -88,7 +88,7 @@ blink.mojom.BlobURLStore.getRemote = function() {
     'blink.mojom.BlobURLStore',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Register
 blink.mojom.BlobURLStore_Register_ParamsSpec = {
@@ -103,7 +103,7 @@ blink.mojom.BlobURLStore_Register_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Revoke
 blink.mojom.BlobURLStore_Revoke_ParamsSpec = {
@@ -117,7 +117,7 @@ blink.mojom.BlobURLStore_Revoke_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolveAsURLLoaderFactory
 blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec = {
@@ -132,7 +132,7 @@ blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolveAsBlobURLToken
 blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec = {
@@ -148,7 +148,7 @@ blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BlobURLStorePtr = blink.mojom.BlobURLStoreRemote;
@@ -216,7 +216,7 @@ blink.mojom.BlobURLToken.getRemote = function() {
     'blink.mojom.BlobURLToken',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Clone
 blink.mojom.BlobURLToken_Clone_ParamsSpec = {
@@ -230,7 +230,7 @@ blink.mojom.BlobURLToken_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetToken
 blink.mojom.BlobURLToken_GetToken_ParamsSpec = {
@@ -243,7 +243,7 @@ blink.mojom.BlobURLToken_GetToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec = {
   $: {
@@ -256,7 +256,7 @@ blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BlobURLTokenPtr = blink.mojom.BlobURLTokenRemote;

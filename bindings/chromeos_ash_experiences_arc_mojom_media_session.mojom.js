@@ -52,7 +52,7 @@ arc.mojom.MediaSessionInstance.getRemote = function() {
     'arc.mojom.MediaSessionInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.MediaSessionInstancePtr = arc.mojom.MediaSessionInstanceRemote;

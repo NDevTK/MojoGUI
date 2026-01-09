@@ -61,7 +61,7 @@ content.mojom.FieldTrialRecorder.getRemote = function() {
     'content.mojom.FieldTrialRecorder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FieldTrialActivated
 content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec = {
@@ -75,7 +75,7 @@ content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.FieldTrialRecorderPtr = content.mojom.FieldTrialRecorderRemote;

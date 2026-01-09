@@ -53,7 +53,7 @@ chromeos.remote_apps.mojom.RemoteApps.getRemote = function() {
     'chromeos.remote_apps.mojom.RemoteApps',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.remote_apps.mojom.RemoteAppsPtr = chromeos.remote_apps.mojom.RemoteAppsRemote;
@@ -103,7 +103,7 @@ chromeos.remote_apps.mojom.RemoteAppsFactory.getRemote = function() {
     'chromeos.remote_apps.mojom.RemoteAppsFactory',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.remote_apps.mojom.RemoteAppsFactoryPtr = chromeos.remote_apps.mojom.RemoteAppsFactoryRemote;
@@ -153,7 +153,7 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserver.getRemote = function() {
     'chromeos.remote_apps.mojom.RemoteAppLaunchObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.remote_apps.mojom.RemoteAppLaunchObserverPtr = chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemote;

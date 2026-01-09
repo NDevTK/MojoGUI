@@ -67,7 +67,7 @@ url_rewrite.mojom.UrlRequestRulesReceiver.getRemote = function() {
     'url_rewrite.mojom.UrlRequestRulesReceiver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnRulesUpdated
 url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = {
@@ -81,7 +81,7 @@ url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 url_rewrite.mojom.UrlRequestRulesReceiverPtr = url_rewrite.mojom.UrlRequestRulesReceiverRemote;

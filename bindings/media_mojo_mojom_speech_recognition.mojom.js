@@ -84,7 +84,7 @@ media.mojom.SpeechRecognitionContext.getRemote = function() {
     'media.mojom.SpeechRecognitionContext',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media.mojom.SpeechRecognitionContextPtr = media.mojom.SpeechRecognitionContextRemote;
@@ -134,7 +134,7 @@ media.mojom.SpeechRecognitionRecognizer.getRemote = function() {
     'media.mojom.SpeechRecognitionRecognizer',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media.mojom.SpeechRecognitionRecognizerPtr = media.mojom.SpeechRecognitionRecognizerRemote;
@@ -184,7 +184,7 @@ media.mojom.SpeechRecognitionRecognizerClient.getRemote = function() {
     'media.mojom.SpeechRecognitionRecognizerClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media.mojom.SpeechRecognitionRecognizerClientPtr = media.mojom.SpeechRecognitionRecognizerClientRemote;
@@ -234,7 +234,7 @@ media.mojom.SpeechRecognitionBrowserObserver.getRemote = function() {
     'media.mojom.SpeechRecognitionBrowserObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media.mojom.SpeechRecognitionBrowserObserverPtr = media.mojom.SpeechRecognitionBrowserObserverRemote;
@@ -284,7 +284,7 @@ media.mojom.SpeechRecognitionSurface.getRemote = function() {
     'media.mojom.SpeechRecognitionSurface',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media.mojom.SpeechRecognitionSurfacePtr = media.mojom.SpeechRecognitionSurfaceRemote;
@@ -334,7 +334,7 @@ media.mojom.SpeechRecognitionSurfaceClient.getRemote = function() {
     'media.mojom.SpeechRecognitionSurfaceClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media.mojom.SpeechRecognitionSurfaceClientPtr = media.mojom.SpeechRecognitionSurfaceClientRemote;
@@ -384,7 +384,7 @@ media.mojom.SpeechRecognitionClientBrowserInterface.getRemote = function() {
     'media.mojom.SpeechRecognitionClientBrowserInterface',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media.mojom.SpeechRecognitionClientBrowserInterfacePtr = media.mojom.SpeechRecognitionClientBrowserInterfaceRemote;

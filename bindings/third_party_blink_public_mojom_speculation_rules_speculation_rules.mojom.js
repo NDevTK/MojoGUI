@@ -109,7 +109,7 @@ blink.mojom.SpeculationHost.getRemote = function() {
     'blink.mojom.SpeculationHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateSpeculationCandidates
 blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec = {
@@ -124,7 +124,7 @@ blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLCPPredicted
 blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec = {
@@ -137,7 +137,7 @@ blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InitiatePreview
 blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = {
@@ -151,7 +151,7 @@ blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SpeculationHostPtr = blink.mojom.SpeculationHostRemote;

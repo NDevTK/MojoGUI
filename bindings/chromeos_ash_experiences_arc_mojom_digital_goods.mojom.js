@@ -59,7 +59,7 @@ arc.mojom.DigitalGoodsInstance.getRemote = function() {
     'arc.mojom.DigitalGoodsInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.DigitalGoodsInstancePtr = arc.mojom.DigitalGoodsInstanceRemote;

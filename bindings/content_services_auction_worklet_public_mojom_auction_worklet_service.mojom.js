@@ -61,7 +61,7 @@ auction_worklet.mojom.LoadSellerWorkletClient.getRemote = function() {
     'auction_worklet.mojom.LoadSellerWorkletClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SellerWorkletLoaded
 auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec = {
@@ -75,7 +75,7 @@ auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 auction_worklet.mojom.LoadSellerWorkletClientPtr = auction_worklet.mojom.LoadSellerWorkletClientRemote;
@@ -152,7 +152,7 @@ auction_worklet.mojom.AuctionWorkletService.getRemote = function() {
     'auction_worklet.mojom.AuctionWorkletService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetTrustedSignalsCache
 auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec = {
@@ -166,7 +166,7 @@ auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadBidderWorklet
 auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec = {
@@ -192,7 +192,7 @@ auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadSellerWorklet
 auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec = {
@@ -218,7 +218,7 @@ auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 auction_worklet.mojom.AuctionWorkletServicePtr = auction_worklet.mojom.AuctionWorkletServiceRemote;

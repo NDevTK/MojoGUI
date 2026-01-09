@@ -61,7 +61,7 @@ network.mojom.NetworkInterfaceChangeListener.getRemote = function() {
     'network.mojom.NetworkInterfaceChangeListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnNetworkInterfacesChanged
 network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec = {
@@ -75,7 +75,7 @@ network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.NetworkInterfaceChangeListenerPtr = network.mojom.NetworkInterfaceChangeListenerRemote;

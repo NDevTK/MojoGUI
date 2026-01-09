@@ -67,7 +67,7 @@ crosapi.mojom.ScopedAccessPermission.getRemote = function() {
     'crosapi.mojom.ScopedAccessPermission',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.ScopedAccessPermissionPtr = crosapi.mojom.ScopedAccessPermissionRemote;
@@ -117,7 +117,7 @@ crosapi.mojom.VideoFrameHandler.getRemote = function() {
     'crosapi.mojom.VideoFrameHandler',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.VideoFrameHandlerPtr = crosapi.mojom.VideoFrameHandlerRemote;
@@ -167,7 +167,7 @@ crosapi.mojom.VideoCaptureDevice.getRemote = function() {
     'crosapi.mojom.VideoCaptureDevice',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.VideoCaptureDevicePtr = crosapi.mojom.VideoCaptureDeviceRemote;
@@ -217,7 +217,7 @@ crosapi.mojom.VideoCaptureDeviceFactory.getRemote = function() {
     'crosapi.mojom.VideoCaptureDeviceFactory',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.VideoCaptureDeviceFactoryPtr = crosapi.mojom.VideoCaptureDeviceFactoryRemote;

@@ -141,7 +141,7 @@ crosapi.mojom.PrintServerObserver.getRemote = function() {
     'crosapi.mojom.PrintServerObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.PrintServerObserverPtr = crosapi.mojom.PrintServerObserverRemote;
@@ -191,7 +191,7 @@ crosapi.mojom.PrintJobObserver.getRemote = function() {
     'crosapi.mojom.PrintJobObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.PrintJobObserverPtr = crosapi.mojom.PrintJobObserverRemote;
@@ -241,7 +241,7 @@ crosapi.mojom.LocalPrintersObserver.getRemote = function() {
     'crosapi.mojom.LocalPrintersObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.LocalPrintersObserverPtr = crosapi.mojom.LocalPrintersObserverRemote;
@@ -291,7 +291,7 @@ crosapi.mojom.LocalPrinter.getRemote = function() {
     'crosapi.mojom.LocalPrinter',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.LocalPrinterPtr = crosapi.mojom.LocalPrinterRemote;

@@ -60,7 +60,7 @@ mojom.LocationInternalsHandler.getRemote = function() {
     'mojom.LocationInternalsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindInternalsInterface
 mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec = {
@@ -74,7 +74,7 @@ mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mojom.LocationInternalsHandlerPtr = mojom.LocationInternalsHandlerRemote;

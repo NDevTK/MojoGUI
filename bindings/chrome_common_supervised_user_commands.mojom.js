@@ -88,7 +88,7 @@ supervised_user.mojom.SupervisedUserCommands.getRemote = function() {
     'supervised_user.mojom.SupervisedUserCommands',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GoBack
 supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec = {
@@ -101,7 +101,7 @@ supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestUrlAccessRemote
 supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec = {
@@ -114,7 +114,7 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec = {
   $: {
@@ -127,7 +127,7 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestUrlAccessLocal
 supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec = {
@@ -140,7 +140,7 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec = {
   $: {
@@ -153,7 +153,7 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LearnMore
 supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec = {
@@ -166,7 +166,7 @@ supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 supervised_user.mojom.SupervisedUserCommandsPtr = supervised_user.mojom.SupervisedUserCommandsRemote;

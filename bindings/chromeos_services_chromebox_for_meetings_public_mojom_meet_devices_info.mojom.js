@@ -53,7 +53,7 @@ chromeos.cfm.mojom.MeetDevicesInfo.getRemote = function() {
     'chromeos.cfm.mojom.MeetDevicesInfo',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cfm.mojom.MeetDevicesInfoPtr = chromeos.cfm.mojom.MeetDevicesInfoRemote;
@@ -103,7 +103,7 @@ chromeos.cfm.mojom.PolicyInfoObserver.getRemote = function() {
     'chromeos.cfm.mojom.PolicyInfoObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cfm.mojom.PolicyInfoObserverPtr = chromeos.cfm.mojom.PolicyInfoObserverRemote;

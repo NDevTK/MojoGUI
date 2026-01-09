@@ -79,7 +79,7 @@ media.mojom.DemuxerStream.getRemote = function() {
     'media.mojom.DemuxerStream',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Initialize
 media.mojom.DemuxerStream_Initialize_ParamsSpec = {
@@ -92,7 +92,7 @@ media.mojom.DemuxerStream_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.DemuxerStream_Initialize_ResponseParamsSpec = {
   $: {
@@ -108,7 +108,7 @@ media.mojom.DemuxerStream_Initialize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Read
 media.mojom.DemuxerStream_Read_ParamsSpec = {
@@ -122,7 +122,7 @@ media.mojom.DemuxerStream_Read_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.DemuxerStream_Read_ResponseParamsSpec = {
   $: {
@@ -138,7 +138,7 @@ media.mojom.DemuxerStream_Read_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableBitstreamConverter
 media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = {
@@ -151,7 +151,7 @@ media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.DemuxerStreamPtr = media.mojom.DemuxerStreamRemote;

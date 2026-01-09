@@ -61,7 +61,7 @@ blink.mojom.DocumentMetadata.getRemote = function() {
     'blink.mojom.DocumentMetadata',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetEntities
 blink.mojom.DocumentMetadata_GetEntities_ParamsSpec = {
@@ -74,7 +74,7 @@ blink.mojom.DocumentMetadata_GetEntities_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DocumentMetadataPtr = blink.mojom.DocumentMetadataRemote;

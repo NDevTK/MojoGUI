@@ -61,7 +61,7 @@ arc.mojom.SystemUiInstance.getRemote = function() {
     'arc.mojom.SystemUiInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.SystemUiInstancePtr = arc.mojom.SystemUiInstanceRemote;

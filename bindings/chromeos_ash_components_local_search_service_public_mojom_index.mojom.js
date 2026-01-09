@@ -116,7 +116,7 @@ ash.local_search_service.mojom.Index.getRemote = function() {
     'ash.local_search_service.mojom.Index',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSize
 ash.local_search_service.mojom.Index_GetSize_ParamsSpec = {
@@ -129,7 +129,7 @@ ash.local_search_service.mojom.Index_GetSize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec = {
   $: {
@@ -142,7 +142,7 @@ ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddOrUpdate
 ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec = {
@@ -156,7 +156,7 @@ ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Delete
 ash.local_search_service.mojom.Index_Delete_ParamsSpec = {
@@ -170,7 +170,7 @@ ash.local_search_service.mojom.Index_Delete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec = {
   $: {
@@ -183,7 +183,7 @@ ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateDocuments
 ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec = {
@@ -197,7 +197,7 @@ ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec = {
   $: {
@@ -210,7 +210,7 @@ ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Find
 ash.local_search_service.mojom.Index_Find_ParamsSpec = {
@@ -225,7 +225,7 @@ ash.local_search_service.mojom.Index_Find_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.local_search_service.mojom.Index_Find_ResponseParamsSpec = {
   $: {
@@ -239,7 +239,7 @@ ash.local_search_service.mojom.Index_Find_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearIndex
 ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec = {
@@ -252,7 +252,7 @@ ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSearchParams
 ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec = {
@@ -266,7 +266,7 @@ ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.local_search_service.mojom.IndexPtr = ash.local_search_service.mojom.IndexRemote;

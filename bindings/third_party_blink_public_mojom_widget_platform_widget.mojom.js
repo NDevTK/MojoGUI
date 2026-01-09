@@ -61,7 +61,7 @@ blink.mojom.WidgetCompositor.getRemote = function() {
     'blink.mojom.WidgetCompositor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for VisualStateRequest
 blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec = {
@@ -74,7 +74,7 @@ blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WidgetCompositorPtr = blink.mojom.WidgetCompositorRemote;
@@ -196,7 +196,7 @@ blink.mojom.WidgetHost.getRemote = function() {
     'blink.mojom.WidgetHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetCursor
 blink.mojom.WidgetHost_SetCursor_ParamsSpec = {
@@ -210,7 +210,7 @@ blink.mojom.WidgetHost_SetCursor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateTooltipUnderCursor
 blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec = {
@@ -225,7 +225,7 @@ blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateTooltipFromKeyboard
 blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec = {
@@ -241,7 +241,7 @@ blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearKeyboardTriggeredTooltip
 blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec = {
@@ -254,7 +254,7 @@ blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TextInputStateChanged
 blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec = {
@@ -268,7 +268,7 @@ blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectionBoundsChanged
 blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec = {
@@ -287,7 +287,7 @@ blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateFrameSink
 blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec = {
@@ -303,7 +303,7 @@ blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterRenderFrameMetadataObserver
 blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec = {
@@ -318,7 +318,7 @@ blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WidgetHostPtr = blink.mojom.WidgetHostRemote;
@@ -440,7 +440,7 @@ blink.mojom.Widget.getRemote = function() {
     'blink.mojom.Widget',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ForceRedraw
 blink.mojom.Widget_ForceRedraw_ParamsSpec = {
@@ -453,7 +453,7 @@ blink.mojom.Widget_ForceRedraw_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateVisualProperties
 blink.mojom.Widget_UpdateVisualProperties_ParamsSpec = {
@@ -467,7 +467,7 @@ blink.mojom.Widget_UpdateVisualProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateScreenRects
 blink.mojom.Widget_UpdateScreenRects_ParamsSpec = {
@@ -482,7 +482,7 @@ blink.mojom.Widget_UpdateScreenRects_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WasHidden
 blink.mojom.Widget_WasHidden_ParamsSpec = {
@@ -495,7 +495,7 @@ blink.mojom.Widget_WasHidden_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WasShown
 blink.mojom.Widget_WasShown_ParamsSpec = {
@@ -510,7 +510,7 @@ blink.mojom.Widget_WasShown_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestSuccessfulPresentationTimeForNextFrame
 blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec = {
@@ -524,7 +524,7 @@ blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelSuccessfulPresentationTimeRequest
 blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec = {
@@ -537,7 +537,7 @@ blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetupBrowserRenderInputRouterConnections
 blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec = {
@@ -551,7 +551,7 @@ blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WidgetPtr = blink.mojom.WidgetRemote;
@@ -628,7 +628,7 @@ blink.mojom.RenderInputRouterClient.getRemote = function() {
     'blink.mojom.RenderInputRouterClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetWidgetInputHandler
 blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec = {
@@ -644,7 +644,7 @@ blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowContextMenu
 blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec = {
@@ -659,7 +659,7 @@ blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindInputTargetClient
 blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec = {
@@ -673,7 +673,7 @@ blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RenderInputRouterClientPtr = blink.mojom.RenderInputRouterClientRemote;

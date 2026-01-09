@@ -61,7 +61,7 @@ blink.mojom.ServiceWorkerWorkerClient.getRemote = function() {
     'blink.mojom.ServiceWorkerWorkerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnControllerChanged
 blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerWorkerClientPtr = blink.mojom.ServiceWorkerWorkerClientRemote;

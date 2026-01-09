@@ -81,7 +81,7 @@ paint_preview.mojom.PaintPreviewRecorder.getRemote = function() {
     'paint_preview.mojom.PaintPreviewRecorder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CapturePaintPreview
 paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = {
@@ -95,7 +95,7 @@ paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetGeometryMetadata
 paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = {
@@ -109,7 +109,7 @@ paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec = {
   $: {
@@ -122,7 +122,7 @@ paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 paint_preview.mojom.PaintPreviewRecorderPtr = paint_preview.mojom.PaintPreviewRecorderRemote;

@@ -257,7 +257,7 @@ device.mojom.UsbDevice.getRemote = function() {
     'device.mojom.UsbDevice',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Open
 device.mojom.UsbDevice_Open_ParamsSpec = {
@@ -270,7 +270,7 @@ device.mojom.UsbDevice_Open_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDevice_Open_ResponseParamsSpec = {
   $: {
@@ -283,7 +283,7 @@ device.mojom.UsbDevice_Open_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Close
 device.mojom.UsbDevice_Close_ParamsSpec = {
@@ -296,7 +296,7 @@ device.mojom.UsbDevice_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetConfiguration
 device.mojom.UsbDevice_SetConfiguration_ParamsSpec = {
@@ -310,7 +310,7 @@ device.mojom.UsbDevice_SetConfiguration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec = {
   $: {
@@ -323,7 +323,7 @@ device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClaimInterface
 device.mojom.UsbDevice_ClaimInterface_ParamsSpec = {
@@ -337,7 +337,7 @@ device.mojom.UsbDevice_ClaimInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec = {
   $: {
@@ -350,7 +350,7 @@ device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReleaseInterface
 device.mojom.UsbDevice_ReleaseInterface_ParamsSpec = {
@@ -364,7 +364,7 @@ device.mojom.UsbDevice_ReleaseInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec = {
   $: {
@@ -377,7 +377,7 @@ device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetInterfaceAlternateSetting
 device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec = {
@@ -392,7 +392,7 @@ device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec = {
   $: {
@@ -405,7 +405,7 @@ device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Reset
 device.mojom.UsbDevice_Reset_ParamsSpec = {
@@ -418,7 +418,7 @@ device.mojom.UsbDevice_Reset_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDevice_Reset_ResponseParamsSpec = {
   $: {
@@ -431,7 +431,7 @@ device.mojom.UsbDevice_Reset_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearHalt
 device.mojom.UsbDevice_ClearHalt_ParamsSpec = {
@@ -446,7 +446,7 @@ device.mojom.UsbDevice_ClearHalt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec = {
   $: {
@@ -459,7 +459,7 @@ device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ControlTransferIn
 device.mojom.UsbDevice_ControlTransferIn_ParamsSpec = {
@@ -475,7 +475,7 @@ device.mojom.UsbDevice_ControlTransferIn_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec = {
   $: {
@@ -489,7 +489,7 @@ device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ControlTransferOut
 device.mojom.UsbDevice_ControlTransferOut_ParamsSpec = {
@@ -505,7 +505,7 @@ device.mojom.UsbDevice_ControlTransferOut_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec = {
   $: {
@@ -518,7 +518,7 @@ device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GenericTransferIn
 device.mojom.UsbDevice_GenericTransferIn_ParamsSpec = {
@@ -534,7 +534,7 @@ device.mojom.UsbDevice_GenericTransferIn_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec = {
   $: {
@@ -548,7 +548,7 @@ device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GenericTransferOut
 device.mojom.UsbDevice_GenericTransferOut_ParamsSpec = {
@@ -564,7 +564,7 @@ device.mojom.UsbDevice_GenericTransferOut_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec = {
   $: {
@@ -577,7 +577,7 @@ device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsochronousTransferIn
 device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec = {
@@ -593,7 +593,7 @@ device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec = {
   $: {
@@ -607,7 +607,7 @@ device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsochronousTransferOut
 device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec = {
@@ -624,7 +624,7 @@ device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec = {
   $: {
@@ -637,7 +637,7 @@ device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.UsbDevicePtr = device.mojom.UsbDeviceRemote;
@@ -705,7 +705,7 @@ device.mojom.UsbDeviceClient.getRemote = function() {
     'device.mojom.UsbDeviceClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDeviceOpened
 device.mojom.UsbDeviceClient_OnDeviceOpened_ParamsSpec = {
@@ -718,7 +718,7 @@ device.mojom.UsbDeviceClient_OnDeviceOpened_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeviceClosed
 device.mojom.UsbDeviceClient_OnDeviceClosed_ParamsSpec = {
@@ -731,7 +731,7 @@ device.mojom.UsbDeviceClient_OnDeviceClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.UsbDeviceClientPtr = device.mojom.UsbDeviceClientRemote;

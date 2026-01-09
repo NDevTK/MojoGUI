@@ -185,7 +185,7 @@ blink.mojom.IDBFactoryClient.getRemote = function() {
     'blink.mojom.IDBFactoryClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Error
 blink.mojom.IDBFactoryClient_Error_ParamsSpec = {
@@ -200,7 +200,7 @@ blink.mojom.IDBFactoryClient_Error_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Blocked
 blink.mojom.IDBFactoryClient_Blocked_ParamsSpec = {
@@ -214,7 +214,7 @@ blink.mojom.IDBFactoryClient_Blocked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpgradeNeeded
 blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec = {
@@ -232,7 +232,7 @@ blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenSuccess
 blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec = {
@@ -247,7 +247,7 @@ blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteSuccess
 blink.mojom.IDBFactoryClient_DeleteSuccess_ParamsSpec = {
@@ -261,7 +261,7 @@ blink.mojom.IDBFactoryClient_DeleteSuccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.IDBFactoryClientPtr = blink.mojom.IDBFactoryClientRemote;
@@ -347,7 +347,7 @@ blink.mojom.IDBDatabaseCallbacks.getRemote = function() {
     'blink.mojom.IDBDatabaseCallbacks',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ForcedClose
 blink.mojom.IDBDatabaseCallbacks_ForcedClose_ParamsSpec = {
@@ -360,7 +360,7 @@ blink.mojom.IDBDatabaseCallbacks_ForcedClose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for VersionChange
 blink.mojom.IDBDatabaseCallbacks_VersionChange_ParamsSpec = {
@@ -375,7 +375,7 @@ blink.mojom.IDBDatabaseCallbacks_VersionChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Abort
 blink.mojom.IDBDatabaseCallbacks_Abort_ParamsSpec = {
@@ -391,7 +391,7 @@ blink.mojom.IDBDatabaseCallbacks_Abort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Complete
 blink.mojom.IDBDatabaseCallbacks_Complete_ParamsSpec = {
@@ -405,7 +405,7 @@ blink.mojom.IDBDatabaseCallbacks_Complete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.IDBDatabaseCallbacksPtr = blink.mojom.IDBDatabaseCallbacksRemote;
@@ -491,7 +491,7 @@ blink.mojom.IDBCursor.getRemote = function() {
     'blink.mojom.IDBCursor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Advance
 blink.mojom.IDBCursor_Advance_ParamsSpec = {
@@ -505,7 +505,7 @@ blink.mojom.IDBCursor_Advance_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.IDBCursor_Advance_ResponseParamsSpec = {
   $: {
@@ -518,7 +518,7 @@ blink.mojom.IDBCursor_Advance_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Continue
 blink.mojom.IDBCursor_Continue_ParamsSpec = {
@@ -533,7 +533,7 @@ blink.mojom.IDBCursor_Continue_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.IDBCursor_Continue_ResponseParamsSpec = {
   $: {
@@ -546,7 +546,7 @@ blink.mojom.IDBCursor_Continue_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Prefetch
 blink.mojom.IDBCursor_Prefetch_ParamsSpec = {
@@ -560,7 +560,7 @@ blink.mojom.IDBCursor_Prefetch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec = {
   $: {
@@ -573,7 +573,7 @@ blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrefetchReset
 blink.mojom.IDBCursor_PrefetchReset_ParamsSpec = {
@@ -587,7 +587,7 @@ blink.mojom.IDBCursor_PrefetchReset_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.IDBCursorPtr = blink.mojom.IDBCursorRemote;
@@ -691,7 +691,7 @@ blink.mojom.IDBTransaction.getRemote = function() {
     'blink.mojom.IDBTransaction',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateObjectStore
 blink.mojom.IDBTransaction_CreateObjectStore_ParamsSpec = {
@@ -708,7 +708,7 @@ blink.mojom.IDBTransaction_CreateObjectStore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteObjectStore
 blink.mojom.IDBTransaction_DeleteObjectStore_ParamsSpec = {
@@ -722,7 +722,7 @@ blink.mojom.IDBTransaction_DeleteObjectStore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Put
 blink.mojom.IDBTransaction_Put_ParamsSpec = {
@@ -740,7 +740,7 @@ blink.mojom.IDBTransaction_Put_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.IDBTransaction_Put_ResponseParamsSpec = {
   $: {
@@ -753,7 +753,7 @@ blink.mojom.IDBTransaction_Put_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIndexKeys
 blink.mojom.IDBTransaction_SetIndexKeys_ParamsSpec = {
@@ -769,7 +769,7 @@ blink.mojom.IDBTransaction_SetIndexKeys_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIndexKeysDone
 blink.mojom.IDBTransaction_SetIndexKeysDone_ParamsSpec = {
@@ -782,7 +782,7 @@ blink.mojom.IDBTransaction_SetIndexKeysDone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Commit
 blink.mojom.IDBTransaction_Commit_ParamsSpec = {
@@ -796,7 +796,7 @@ blink.mojom.IDBTransaction_Commit_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.IDBTransactionPtr = blink.mojom.IDBTransactionRemote;
@@ -864,7 +864,7 @@ blink.mojom.IDBDatabaseGetAllResultSink.getRemote = function() {
     'blink.mojom.IDBDatabaseGetAllResultSink',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ReceiveResults
 blink.mojom.IDBDatabaseGetAllResultSink_ReceiveResults_ParamsSpec = {
@@ -879,7 +879,7 @@ blink.mojom.IDBDatabaseGetAllResultSink_ReceiveResults_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 blink.mojom.IDBDatabaseGetAllResultSink_OnError_ParamsSpec = {
@@ -893,7 +893,7 @@ blink.mojom.IDBDatabaseGetAllResultSink_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.IDBDatabaseGetAllResultSinkPtr = blink.mojom.IDBDatabaseGetAllResultSinkRemote;
@@ -1087,7 +1087,7 @@ blink.mojom.IDBDatabase.getRemote = function() {
     'blink.mojom.IDBDatabase',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RenameObjectStore
 blink.mojom.IDBDatabase_RenameObjectStore_ParamsSpec = {
@@ -1103,7 +1103,7 @@ blink.mojom.IDBDatabase_RenameObjectStore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateTransaction
 blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec = {
@@ -1121,7 +1121,7 @@ blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for VersionChangeIgnored
 blink.mojom.IDBDatabase_VersionChangeIgnored_ParamsSpec = {
@@ -1134,7 +1134,7 @@ blink.mojom.IDBDatabase_VersionChangeIgnored_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Get
 blink.mojom.IDBDatabase_Get_ParamsSpec = {
@@ -1152,7 +1152,7 @@ blink.mojom.IDBDatabase_Get_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.IDBDatabase_Get_ResponseParamsSpec = {
   $: {
@@ -1165,7 +1165,7 @@ blink.mojom.IDBDatabase_Get_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAll
 blink.mojom.IDBDatabase_GetAll_ParamsSpec = {
@@ -1185,7 +1185,7 @@ blink.mojom.IDBDatabase_GetAll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec = {
   $: {
@@ -1198,7 +1198,7 @@ blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenCursor
 blink.mojom.IDBDatabase_OpenCursor_ParamsSpec = {
@@ -1218,7 +1218,7 @@ blink.mojom.IDBDatabase_OpenCursor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec = {
   $: {
@@ -1231,7 +1231,7 @@ blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Count
 blink.mojom.IDBDatabase_Count_ParamsSpec = {
@@ -1248,7 +1248,7 @@ blink.mojom.IDBDatabase_Count_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.IDBDatabase_Count_ResponseParamsSpec = {
   $: {
@@ -1262,7 +1262,7 @@ blink.mojom.IDBDatabase_Count_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteRange
 blink.mojom.IDBDatabase_DeleteRange_ParamsSpec = {
@@ -1278,7 +1278,7 @@ blink.mojom.IDBDatabase_DeleteRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec = {
   $: {
@@ -1291,7 +1291,7 @@ blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetKeyGeneratorCurrentNumber
 blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ParamsSpec = {
@@ -1306,7 +1306,7 @@ blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec = {
   $: {
@@ -1320,7 +1320,7 @@ blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clear
 blink.mojom.IDBDatabase_Clear_ParamsSpec = {
@@ -1335,7 +1335,7 @@ blink.mojom.IDBDatabase_Clear_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.IDBDatabase_Clear_ResponseParamsSpec = {
   $: {
@@ -1348,7 +1348,7 @@ blink.mojom.IDBDatabase_Clear_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateIndex
 blink.mojom.IDBDatabase_CreateIndex_ParamsSpec = {
@@ -1364,7 +1364,7 @@ blink.mojom.IDBDatabase_CreateIndex_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteIndex
 blink.mojom.IDBDatabase_DeleteIndex_ParamsSpec = {
@@ -1380,7 +1380,7 @@ blink.mojom.IDBDatabase_DeleteIndex_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RenameIndex
 blink.mojom.IDBDatabase_RenameIndex_ParamsSpec = {
@@ -1397,7 +1397,7 @@ blink.mojom.IDBDatabase_RenameIndex_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Abort
 blink.mojom.IDBDatabase_Abort_ParamsSpec = {
@@ -1411,7 +1411,7 @@ blink.mojom.IDBDatabase_Abort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidBecomeInactive
 blink.mojom.IDBDatabase_DidBecomeInactive_ParamsSpec = {
@@ -1424,7 +1424,7 @@ blink.mojom.IDBDatabase_DidBecomeInactive_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdatePriority
 blink.mojom.IDBDatabase_UpdatePriority_ParamsSpec = {
@@ -1438,7 +1438,7 @@ blink.mojom.IDBDatabase_UpdatePriority_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.IDBDatabasePtr = blink.mojom.IDBDatabaseRemote;
@@ -1515,7 +1515,7 @@ blink.mojom.IDBFactory.getRemote = function() {
     'blink.mojom.IDBFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDatabaseInfo
 blink.mojom.IDBFactory_GetDatabaseInfo_ParamsSpec = {
@@ -1528,7 +1528,7 @@ blink.mojom.IDBFactory_GetDatabaseInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec = {
   $: {
@@ -1542,7 +1542,7 @@ blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Open
 blink.mojom.IDBFactory_Open_ParamsSpec = {
@@ -1562,7 +1562,7 @@ blink.mojom.IDBFactory_Open_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteDatabase
 blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec = {
@@ -1578,7 +1578,7 @@ blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.IDBFactoryPtr = blink.mojom.IDBFactoryRemote;

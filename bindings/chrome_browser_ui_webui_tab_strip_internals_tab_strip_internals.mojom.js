@@ -77,7 +77,7 @@ tab_strip_internals.mojom.PageHandlerFactory.getRemote = function() {
     'tab_strip_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -92,7 +92,7 @@ tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tab_strip_internals.mojom.PageHandlerFactoryPtr = tab_strip_internals.mojom.PageHandlerFactoryRemote;
@@ -151,7 +151,7 @@ tab_strip_internals.mojom.PageHandler.getRemote = function() {
     'tab_strip_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetTabStripData
 tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec = {
@@ -164,7 +164,7 @@ tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec = {
   $: {
@@ -177,7 +177,7 @@ tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tab_strip_internals.mojom.PageHandlerPtr = tab_strip_internals.mojom.PageHandlerRemote;
@@ -236,7 +236,7 @@ tab_strip_internals.mojom.Page.getRemote = function() {
     'tab_strip_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnTabStripUpdated
 tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec = {
@@ -250,7 +250,7 @@ tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tab_strip_internals.mojom.PagePtr = tab_strip_internals.mojom.PageRemote;

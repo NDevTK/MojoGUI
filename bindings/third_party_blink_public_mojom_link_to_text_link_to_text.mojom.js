@@ -132,7 +132,7 @@ blink.mojom.TextFragmentReceiver.getRemote = function() {
     'blink.mojom.TextFragmentReceiver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Cancel
 blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec = {
@@ -145,7 +145,7 @@ blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestSelector
 blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec = {
@@ -158,7 +158,7 @@ blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec = {
   $: {
@@ -173,7 +173,7 @@ blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveFragments
 blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec = {
@@ -186,7 +186,7 @@ blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExtractTextFragmentsMatches
 blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec = {
@@ -199,7 +199,7 @@ blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec = {
   $: {
@@ -212,7 +212,7 @@ blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetExistingSelectors
 blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec = {
@@ -225,7 +225,7 @@ blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec = {
   $: {
@@ -238,7 +238,7 @@ blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExtractFirstFragmentRect
 blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec = {
@@ -251,7 +251,7 @@ blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec = {
   $: {
@@ -264,7 +264,7 @@ blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.TextFragmentReceiverPtr = blink.mojom.TextFragmentReceiverRemote;

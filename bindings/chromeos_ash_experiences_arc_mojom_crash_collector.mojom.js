@@ -52,7 +52,7 @@ arc.mojom.CrashCollectorHost.getRemote = function() {
     'arc.mojom.CrashCollectorHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.CrashCollectorHostPtr = arc.mojom.CrashCollectorHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.CrashCollectorInstance.getRemote = function() {
     'arc.mojom.CrashCollectorInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.CrashCollectorInstancePtr = arc.mojom.CrashCollectorInstanceRemote;

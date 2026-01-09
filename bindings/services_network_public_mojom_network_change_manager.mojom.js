@@ -130,7 +130,7 @@ network.mojom.NetworkChangeManagerClient.getRemote = function() {
     'network.mojom.NetworkChangeManagerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnInitialConnectionType
 network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec = {
@@ -144,7 +144,7 @@ network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNetworkChanged
 network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec = {
@@ -158,7 +158,7 @@ network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.NetworkChangeManagerClientPtr = network.mojom.NetworkChangeManagerClientRemote;
@@ -235,7 +235,7 @@ network.mojom.NetworkChangeManager.getRemote = function() {
     'network.mojom.NetworkChangeManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestNotifications
 network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec = {
@@ -249,7 +249,7 @@ network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNetworkChanged
 network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec = {
@@ -268,7 +268,7 @@ network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindNetworkInterfaceChangeListener
 network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec = {
@@ -282,7 +282,7 @@ network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.NetworkChangeManagerPtr = network.mojom.NetworkChangeManagerRemote;

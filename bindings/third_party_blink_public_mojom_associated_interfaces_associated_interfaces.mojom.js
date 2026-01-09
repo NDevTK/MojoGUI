@@ -52,7 +52,7 @@ blink.mojom.AssociatedInterface.getRemote = function() {
     'blink.mojom.AssociatedInterface',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AssociatedInterfacePtr = blink.mojom.AssociatedInterfaceRemote;
@@ -111,7 +111,7 @@ blink.mojom.AssociatedInterfaceProvider.getRemote = function() {
     'blink.mojom.AssociatedInterfaceProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetAssociatedInterface
 blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec = {
@@ -126,7 +126,7 @@ blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AssociatedInterfaceProviderPtr = blink.mojom.AssociatedInterfaceProviderRemote;

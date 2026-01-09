@@ -61,7 +61,7 @@ ai.mojom.EnhancedCalendarService.getRemote = function() {
     'ai.mojom.EnhancedCalendarService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ExecuteEnhancedCalendarRequest
 ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec = {
@@ -75,7 +75,7 @@ ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ai.mojom.EnhancedCalendarServicePtr = ai.mojom.EnhancedCalendarServiceRemote;

@@ -187,7 +187,7 @@ remote_cocoa.mojom.TextInputHost.getRemote = function() {
     'remote_cocoa.mojom.TextInputHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HasClient
 remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec = {
@@ -200,7 +200,7 @@ remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec = {
   $: {
@@ -213,7 +213,7 @@ remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HasInputContext
 remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec = {
@@ -226,7 +226,7 @@ remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec = {
   $: {
@@ -239,7 +239,7 @@ remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsRTL
 remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec = {
@@ -252,7 +252,7 @@ remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec = {
   $: {
@@ -265,7 +265,7 @@ remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSelectionRange
 remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec = {
@@ -278,7 +278,7 @@ remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec = {
   $: {
@@ -291,7 +291,7 @@ remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSelectionText
 remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec = {
@@ -304,7 +304,7 @@ remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec = {
   $: {
@@ -318,7 +318,7 @@ remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InsertText
 remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec = {
@@ -333,7 +333,7 @@ remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteRange
 remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec = {
@@ -347,7 +347,7 @@ remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCompositionText
 remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec = {
@@ -363,7 +363,7 @@ remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConfirmCompositionText
 remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec = {
@@ -376,7 +376,7 @@ remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HasCompositionText
 remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec = {
@@ -389,7 +389,7 @@ remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec = {
   $: {
@@ -402,7 +402,7 @@ remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCompositionTextRange
 remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec = {
@@ -415,7 +415,7 @@ remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec = {
   $: {
@@ -428,7 +428,7 @@ remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAttributedSubstringForRange
 remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec = {
@@ -442,7 +442,7 @@ remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec = {
   $: {
@@ -456,7 +456,7 @@ remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFirstRectForRange
 remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec = {
@@ -470,7 +470,7 @@ remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec = {
   $: {
@@ -484,7 +484,7 @@ remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsTextEditCommandEnabled
 remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec = {
@@ -498,7 +498,7 @@ remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec = {
   $: {
@@ -511,7 +511,7 @@ remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTextEditCommandForNextKeyEvent
 remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec = {
@@ -525,7 +525,7 @@ remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remote_cocoa.mojom.TextInputHostPtr = remote_cocoa.mojom.TextInputHostRemote;

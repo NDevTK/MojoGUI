@@ -61,7 +61,7 @@ web_app.mojom.WebAppShortcutCopier.getRemote = function() {
     'web_app.mojom.WebAppShortcutCopier',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CopyWebAppShortcut
 web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec = {
@@ -76,7 +76,7 @@ web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec = {
   $: {
@@ -89,7 +89,7 @@ web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 web_app.mojom.WebAppShortcutCopierPtr = web_app.mojom.WebAppShortcutCopierRemote;

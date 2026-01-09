@@ -61,7 +61,7 @@ test.mojom.MojoFileSystemAccessTest.getRemote = function() {
     'test.mojom.MojoFileSystemAccessTest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ResolveTransferToken
 test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec = {
@@ -75,7 +75,7 @@ test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 test.mojom.MojoFileSystemAccessTestPtr = test.mojom.MojoFileSystemAccessTestRemote;

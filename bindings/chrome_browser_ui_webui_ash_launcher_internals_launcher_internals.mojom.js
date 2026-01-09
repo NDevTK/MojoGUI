@@ -61,7 +61,7 @@ launcher_internals.mojom.PageHandlerFactory.getRemote = function() {
     'launcher_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -75,7 +75,7 @@ launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 launcher_internals.mojom.PageHandlerFactoryPtr = launcher_internals.mojom.PageHandlerFactoryRemote;
@@ -134,7 +134,7 @@ launcher_internals.mojom.Page.getRemote = function() {
     'launcher_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateResults
 launcher_internals.mojom.Page_UpdateResults_ParamsSpec = {
@@ -150,7 +150,7 @@ launcher_internals.mojom.Page_UpdateResults_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 launcher_internals.mojom.PagePtr = launcher_internals.mojom.PageRemote;

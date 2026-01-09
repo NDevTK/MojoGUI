@@ -870,7 +870,7 @@ blink.mojom.LocalFrameHost.getRemote = function() {
     'blink.mojom.LocalFrameHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EnterFullscreen
 blink.mojom.LocalFrameHost_EnterFullscreen_ParamsSpec = {
@@ -884,7 +884,7 @@ blink.mojom.LocalFrameHost_EnterFullscreen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrameHost_EnterFullscreen_ResponseParamsSpec = {
   $: {
@@ -897,7 +897,7 @@ blink.mojom.LocalFrameHost_EnterFullscreen_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExitFullscreen
 blink.mojom.LocalFrameHost_ExitFullscreen_ParamsSpec = {
@@ -910,7 +910,7 @@ blink.mojom.LocalFrameHost_ExitFullscreen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FullscreenStateChanged
 blink.mojom.LocalFrameHost_FullscreenStateChanged_ParamsSpec = {
@@ -925,7 +925,7 @@ blink.mojom.LocalFrameHost_FullscreenStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterProtocolHandler
 blink.mojom.LocalFrameHost_RegisterProtocolHandler_ParamsSpec = {
@@ -941,7 +941,7 @@ blink.mojom.LocalFrameHost_RegisterProtocolHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnregisterProtocolHandler
 blink.mojom.LocalFrameHost_UnregisterProtocolHandler_ParamsSpec = {
@@ -957,7 +957,7 @@ blink.mojom.LocalFrameHost_UnregisterProtocolHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidDisplayInsecureContent
 blink.mojom.LocalFrameHost_DidDisplayInsecureContent_ParamsSpec = {
@@ -970,7 +970,7 @@ blink.mojom.LocalFrameHost_DidDisplayInsecureContent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidContainInsecureFormAction
 blink.mojom.LocalFrameHost_DidContainInsecureFormAction_ParamsSpec = {
@@ -983,7 +983,7 @@ blink.mojom.LocalFrameHost_DidContainInsecureFormAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MainDocumentElementAvailable
 blink.mojom.LocalFrameHost_MainDocumentElementAvailable_ParamsSpec = {
@@ -997,7 +997,7 @@ blink.mojom.LocalFrameHost_MainDocumentElementAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNeedsOcclusionTracking
 blink.mojom.LocalFrameHost_SetNeedsOcclusionTracking_ParamsSpec = {
@@ -1011,7 +1011,7 @@ blink.mojom.LocalFrameHost_SetNeedsOcclusionTracking_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVirtualKeyboardMode
 blink.mojom.LocalFrameHost_SetVirtualKeyboardMode_ParamsSpec = {
@@ -1025,7 +1025,7 @@ blink.mojom.LocalFrameHost_SetVirtualKeyboardMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for VisibilityChanged
 blink.mojom.LocalFrameHost_VisibilityChanged_ParamsSpec = {
@@ -1039,7 +1039,7 @@ blink.mojom.LocalFrameHost_VisibilityChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidChangeThemeColor
 blink.mojom.LocalFrameHost_DidChangeThemeColor_ParamsSpec = {
@@ -1053,7 +1053,7 @@ blink.mojom.LocalFrameHost_DidChangeThemeColor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidChangeBackgroundColor
 blink.mojom.LocalFrameHost_DidChangeBackgroundColor_ParamsSpec = {
@@ -1068,7 +1068,7 @@ blink.mojom.LocalFrameHost_DidChangeBackgroundColor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidFailLoadWithError
 blink.mojom.LocalFrameHost_DidFailLoadWithError_ParamsSpec = {
@@ -1083,7 +1083,7 @@ blink.mojom.LocalFrameHost_DidFailLoadWithError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidFocusFrame
 blink.mojom.LocalFrameHost_DidFocusFrame_ParamsSpec = {
@@ -1096,7 +1096,7 @@ blink.mojom.LocalFrameHost_DidFocusFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidCallFocus
 blink.mojom.LocalFrameHost_DidCallFocus_ParamsSpec = {
@@ -1109,7 +1109,7 @@ blink.mojom.LocalFrameHost_DidCallFocus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnforceInsecureRequestPolicy
 blink.mojom.LocalFrameHost_EnforceInsecureRequestPolicy_ParamsSpec = {
@@ -1123,7 +1123,7 @@ blink.mojom.LocalFrameHost_EnforceInsecureRequestPolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnforceInsecureNavigationsSet
 blink.mojom.LocalFrameHost_EnforceInsecureNavigationsSet_ParamsSpec = {
@@ -1137,7 +1137,7 @@ blink.mojom.LocalFrameHost_EnforceInsecureNavigationsSet_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SuddenTerminationDisablerChanged
 blink.mojom.LocalFrameHost_SuddenTerminationDisablerChanged_ParamsSpec = {
@@ -1152,7 +1152,7 @@ blink.mojom.LocalFrameHost_SuddenTerminationDisablerChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HadStickyUserActivationBeforeNavigationChanged
 blink.mojom.LocalFrameHost_HadStickyUserActivationBeforeNavigationChanged_ParamsSpec = {
@@ -1166,7 +1166,7 @@ blink.mojom.LocalFrameHost_HadStickyUserActivationBeforeNavigationChanged_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ScrollRectToVisibleInParentFrame
 blink.mojom.LocalFrameHost_ScrollRectToVisibleInParentFrame_ParamsSpec = {
@@ -1181,7 +1181,7 @@ blink.mojom.LocalFrameHost_ScrollRectToVisibleInParentFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BubbleLogicalScrollInParentFrame
 blink.mojom.LocalFrameHost_BubbleLogicalScrollInParentFrame_ParamsSpec = {
@@ -1196,7 +1196,7 @@ blink.mojom.LocalFrameHost_BubbleLogicalScrollInParentFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartLoadingForAsyncNavigationApiCommit
 blink.mojom.LocalFrameHost_StartLoadingForAsyncNavigationApiCommit_ParamsSpec = {
@@ -1209,7 +1209,7 @@ blink.mojom.LocalFrameHost_StartLoadingForAsyncNavigationApiCommit_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidBlockNavigation
 blink.mojom.LocalFrameHost_DidBlockNavigation_ParamsSpec = {
@@ -1224,7 +1224,7 @@ blink.mojom.LocalFrameHost_DidBlockNavigation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidChangeLoadProgress
 blink.mojom.LocalFrameHost_DidChangeLoadProgress_ParamsSpec = {
@@ -1238,7 +1238,7 @@ blink.mojom.LocalFrameHost_DidChangeLoadProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidFinishLoad
 blink.mojom.LocalFrameHost_DidFinishLoad_ParamsSpec = {
@@ -1252,7 +1252,7 @@ blink.mojom.LocalFrameHost_DidFinishLoad_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchLoad
 blink.mojom.LocalFrameHost_DispatchLoad_ParamsSpec = {
@@ -1265,7 +1265,7 @@ blink.mojom.LocalFrameHost_DispatchLoad_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GoToEntryAtOffset
 blink.mojom.LocalFrameHost_GoToEntryAtOffset_ParamsSpec = {
@@ -1282,7 +1282,7 @@ blink.mojom.LocalFrameHost_GoToEntryAtOffset_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NavigateToNavigationApiKey
 blink.mojom.LocalFrameHost_NavigateToNavigationApiKey_ParamsSpec = {
@@ -1299,7 +1299,7 @@ blink.mojom.LocalFrameHost_NavigateToNavigationApiKey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NavigateEventHandlerPresenceChanged
 blink.mojom.LocalFrameHost_NavigateEventHandlerPresenceChanged_ParamsSpec = {
@@ -1313,7 +1313,7 @@ blink.mojom.LocalFrameHost_NavigateEventHandlerPresenceChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateTitle
 blink.mojom.LocalFrameHost_UpdateTitle_ParamsSpec = {
@@ -1328,7 +1328,7 @@ blink.mojom.LocalFrameHost_UpdateTitle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateApplicationTitle
 blink.mojom.LocalFrameHost_UpdateApplicationTitle_ParamsSpec = {
@@ -1342,7 +1342,7 @@ blink.mojom.LocalFrameHost_UpdateApplicationTitle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateUserActivationState
 blink.mojom.LocalFrameHost_UpdateUserActivationState_ParamsSpec = {
@@ -1357,7 +1357,7 @@ blink.mojom.LocalFrameHost_UpdateUserActivationState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidConsumeHistoryUserActivation
 blink.mojom.LocalFrameHost_DidConsumeHistoryUserActivation_ParamsSpec = {
@@ -1370,7 +1370,7 @@ blink.mojom.LocalFrameHost_DidConsumeHistoryUserActivation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleAccessibilityFindInPageResult
 blink.mojom.LocalFrameHost_HandleAccessibilityFindInPageResult_ParamsSpec = {
@@ -1384,7 +1384,7 @@ blink.mojom.LocalFrameHost_HandleAccessibilityFindInPageResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleAccessibilityFindInPageTermination
 blink.mojom.LocalFrameHost_HandleAccessibilityFindInPageTermination_ParamsSpec = {
@@ -1397,7 +1397,7 @@ blink.mojom.LocalFrameHost_HandleAccessibilityFindInPageTermination_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DocumentOnLoadCompleted
 blink.mojom.LocalFrameHost_DocumentOnLoadCompleted_ParamsSpec = {
@@ -1410,7 +1410,7 @@ blink.mojom.LocalFrameHost_DocumentOnLoadCompleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForwardResourceTimingToParent
 blink.mojom.LocalFrameHost_ForwardResourceTimingToParent_ParamsSpec = {
@@ -1424,7 +1424,7 @@ blink.mojom.LocalFrameHost_ForwardResourceTimingToParent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidDispatchDOMContentLoadedEvent
 blink.mojom.LocalFrameHost_DidDispatchDOMContentLoadedEvent_ParamsSpec = {
@@ -1437,7 +1437,7 @@ blink.mojom.LocalFrameHost_DidDispatchDOMContentLoadedEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RunModalAlertDialog
 blink.mojom.LocalFrameHost_RunModalAlertDialog_ParamsSpec = {
@@ -1452,7 +1452,7 @@ blink.mojom.LocalFrameHost_RunModalAlertDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RunModalConfirmDialog
 blink.mojom.LocalFrameHost_RunModalConfirmDialog_ParamsSpec = {
@@ -1467,7 +1467,7 @@ blink.mojom.LocalFrameHost_RunModalConfirmDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrameHost_RunModalConfirmDialog_ResponseParamsSpec = {
   $: {
@@ -1480,7 +1480,7 @@ blink.mojom.LocalFrameHost_RunModalConfirmDialog_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RunModalPromptDialog
 blink.mojom.LocalFrameHost_RunModalPromptDialog_ParamsSpec = {
@@ -1496,7 +1496,7 @@ blink.mojom.LocalFrameHost_RunModalPromptDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrameHost_RunModalPromptDialog_ResponseParamsSpec = {
   $: {
@@ -1510,7 +1510,7 @@ blink.mojom.LocalFrameHost_RunModalPromptDialog_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RunBeforeUnloadConfirm
 blink.mojom.LocalFrameHost_RunBeforeUnloadConfirm_ParamsSpec = {
@@ -1524,7 +1524,7 @@ blink.mojom.LocalFrameHost_RunBeforeUnloadConfirm_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrameHost_RunBeforeUnloadConfirm_ResponseParamsSpec = {
   $: {
@@ -1537,7 +1537,7 @@ blink.mojom.LocalFrameHost_RunBeforeUnloadConfirm_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateFaviconURL
 blink.mojom.LocalFrameHost_UpdateFaviconURL_ParamsSpec = {
@@ -1551,7 +1551,7 @@ blink.mojom.LocalFrameHost_UpdateFaviconURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DownloadURL
 blink.mojom.LocalFrameHost_DownloadURL_ParamsSpec = {
@@ -1565,7 +1565,7 @@ blink.mojom.LocalFrameHost_DownloadURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FocusedElementChanged
 blink.mojom.LocalFrameHost_FocusedElementChanged_ParamsSpec = {
@@ -1582,7 +1582,7 @@ blink.mojom.LocalFrameHost_FocusedElementChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TextSelectionChanged
 blink.mojom.LocalFrameHost_TextSelectionChanged_ParamsSpec = {
@@ -1598,7 +1598,7 @@ blink.mojom.LocalFrameHost_TextSelectionChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowPopupMenu
 blink.mojom.LocalFrameHost_ShowPopupMenu_ParamsSpec = {
@@ -1618,7 +1618,7 @@ blink.mojom.LocalFrameHost_ShowPopupMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateNewPopupWidget
 blink.mojom.LocalFrameHost_CreateNewPopupWidget_ParamsSpec = {
@@ -1634,7 +1634,7 @@ blink.mojom.LocalFrameHost_CreateNewPopupWidget_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowContextMenu
 blink.mojom.LocalFrameHost_ShowContextMenu_ParamsSpec = {
@@ -1649,7 +1649,7 @@ blink.mojom.LocalFrameHost_ShowContextMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidLoadResourceFromMemoryCache
 blink.mojom.LocalFrameHost_DidLoadResourceFromMemoryCache_ParamsSpec = {
@@ -1667,7 +1667,7 @@ blink.mojom.LocalFrameHost_DidLoadResourceFromMemoryCache_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidChangeFrameOwnerProperties
 blink.mojom.LocalFrameHost_DidChangeFrameOwnerProperties_ParamsSpec = {
@@ -1682,7 +1682,7 @@ blink.mojom.LocalFrameHost_DidChangeFrameOwnerProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidChangeOpener
 blink.mojom.LocalFrameHost_DidChangeOpener_ParamsSpec = {
@@ -1696,7 +1696,7 @@ blink.mojom.LocalFrameHost_DidChangeOpener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidChangeFramePolicy
 blink.mojom.LocalFrameHost_DidChangeFramePolicy_ParamsSpec = {
@@ -1711,7 +1711,7 @@ blink.mojom.LocalFrameHost_DidChangeFramePolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidChangeIframeAttributes
 blink.mojom.LocalFrameHost_DidChangeIframeAttributes_ParamsSpec = {
@@ -1726,7 +1726,7 @@ blink.mojom.LocalFrameHost_DidChangeIframeAttributes_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CapturePaintPreviewOfSubframe
 blink.mojom.LocalFrameHost_CapturePaintPreviewOfSubframe_ParamsSpec = {
@@ -1741,7 +1741,7 @@ blink.mojom.LocalFrameHost_CapturePaintPreviewOfSubframe_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCloseListener
 blink.mojom.LocalFrameHost_SetCloseListener_ParamsSpec = {
@@ -1755,7 +1755,7 @@ blink.mojom.LocalFrameHost_SetCloseListener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Detach
 blink.mojom.LocalFrameHost_Detach_ParamsSpec = {
@@ -1768,7 +1768,7 @@ blink.mojom.LocalFrameHost_Detach_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetKeepAliveHandleFactory
 blink.mojom.LocalFrameHost_GetKeepAliveHandleFactory_ParamsSpec = {
@@ -1782,7 +1782,7 @@ blink.mojom.LocalFrameHost_GetKeepAliveHandleFactory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidAddMessageToConsole
 blink.mojom.LocalFrameHost_DidAddMessageToConsole_ParamsSpec = {
@@ -1800,7 +1800,7 @@ blink.mojom.LocalFrameHost_DidAddMessageToConsole_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FrameSizeChanged
 blink.mojom.LocalFrameHost_FrameSizeChanged_ParamsSpec = {
@@ -1814,7 +1814,7 @@ blink.mojom.LocalFrameHost_FrameSizeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidInferColorScheme
 blink.mojom.LocalFrameHost_DidInferColorScheme_ParamsSpec = {
@@ -1828,7 +1828,7 @@ blink.mojom.LocalFrameHost_DidInferColorScheme_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidChangeSrcDoc
 blink.mojom.LocalFrameHost_DidChangeSrcDoc_ParamsSpec = {
@@ -1843,7 +1843,7 @@ blink.mojom.LocalFrameHost_DidChangeSrcDoc_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReceivedDelegatedCapability
 blink.mojom.LocalFrameHost_ReceivedDelegatedCapability_ParamsSpec = {
@@ -1857,7 +1857,7 @@ blink.mojom.LocalFrameHost_ReceivedDelegatedCapability_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendFencedFrameReportingBeacon
 blink.mojom.LocalFrameHost_SendFencedFrameReportingBeacon_ParamsSpec = {
@@ -1874,7 +1874,7 @@ blink.mojom.LocalFrameHost_SendFencedFrameReportingBeacon_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendFencedFrameReportingBeaconToCustomURL
 blink.mojom.LocalFrameHost_SendFencedFrameReportingBeaconToCustomURL_ParamsSpec = {
@@ -1889,7 +1889,7 @@ blink.mojom.LocalFrameHost_SendFencedFrameReportingBeaconToCustomURL_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableUntrustedNetworkInFencedFrame
 blink.mojom.LocalFrameHost_DisableUntrustedNetworkInFencedFrame_ParamsSpec = {
@@ -1902,7 +1902,7 @@ blink.mojom.LocalFrameHost_DisableUntrustedNetworkInFencedFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExemptUrlFromNetworkRevocationForTesting
 blink.mojom.LocalFrameHost_ExemptUrlFromNetworkRevocationForTesting_ParamsSpec = {
@@ -1916,7 +1916,7 @@ blink.mojom.LocalFrameHost_ExemptUrlFromNetworkRevocationForTesting_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendLegacyTechEvent
 blink.mojom.LocalFrameHost_SendLegacyTechEvent_ParamsSpec = {
@@ -1931,7 +1931,7 @@ blink.mojom.LocalFrameHost_SendLegacyTechEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFencedFrameAutomaticBeaconReportEventData
 blink.mojom.LocalFrameHost_SetFencedFrameAutomaticBeaconReportEventData_ParamsSpec = {
@@ -1949,7 +1949,7 @@ blink.mojom.LocalFrameHost_SetFencedFrameAutomaticBeaconReportEventData_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendPrivateAggregationRequestsForFencedFrameEvent
 blink.mojom.LocalFrameHost_SendPrivateAggregationRequestsForFencedFrameEvent_ParamsSpec = {
@@ -1963,7 +1963,7 @@ blink.mojom.LocalFrameHost_SendPrivateAggregationRequestsForFencedFrameEvent_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateFencedFrame
 blink.mojom.LocalFrameHost_CreateFencedFrame_ParamsSpec = {
@@ -1980,7 +1980,7 @@ blink.mojom.LocalFrameHost_CreateFencedFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForwardFencedFrameEventAndUserActivationToEmbedder
 blink.mojom.LocalFrameHost_ForwardFencedFrameEventAndUserActivationToEmbedder_ParamsSpec = {
@@ -1994,7 +1994,7 @@ blink.mojom.LocalFrameHost_ForwardFencedFrameEventAndUserActivationToEmbedder_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnViewTransitionOptInChanged
 blink.mojom.LocalFrameHost_OnViewTransitionOptInChanged_ParamsSpec = {
@@ -2008,7 +2008,7 @@ blink.mojom.LocalFrameHost_OnViewTransitionOptInChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartDragging
 blink.mojom.LocalFrameHost_StartDragging_ParamsSpec = {
@@ -2027,7 +2027,7 @@ blink.mojom.LocalFrameHost_StartDragging_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IssueKeepAliveHandle
 blink.mojom.LocalFrameHost_IssueKeepAliveHandle_ParamsSpec = {
@@ -2041,7 +2041,7 @@ blink.mojom.LocalFrameHost_IssueKeepAliveHandle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyStorageAccessed
 blink.mojom.LocalFrameHost_NotifyStorageAccessed_ParamsSpec = {
@@ -2056,7 +2056,7 @@ blink.mojom.LocalFrameHost_NotifyStorageAccessed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordWindowProxyUsageMetrics
 blink.mojom.LocalFrameHost_RecordWindowProxyUsageMetrics_ParamsSpec = {
@@ -2071,7 +2071,7 @@ blink.mojom.LocalFrameHost_RecordWindowProxyUsageMetrics_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyDocumentInteractive
 blink.mojom.LocalFrameHost_NotifyDocumentInteractive_ParamsSpec = {
@@ -2084,7 +2084,7 @@ blink.mojom.LocalFrameHost_NotifyDocumentInteractive_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetStorageAccessApiStatus
 blink.mojom.LocalFrameHost_SetStorageAccessApiStatus_ParamsSpec = {
@@ -2098,7 +2098,7 @@ blink.mojom.LocalFrameHost_SetStorageAccessApiStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InitializeCrashReportStorage
 blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ParamsSpec = {
@@ -2112,7 +2112,7 @@ blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCrashReportStorageKey
 blink.mojom.LocalFrameHost_SetCrashReportStorageKey_ParamsSpec = {
@@ -2127,7 +2127,7 @@ blink.mojom.LocalFrameHost_SetCrashReportStorageKey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveCrashReportStorageKey
 blink.mojom.LocalFrameHost_RemoveCrashReportStorageKey_ParamsSpec = {
@@ -2141,7 +2141,7 @@ blink.mojom.LocalFrameHost_RemoveCrashReportStorageKey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.LocalFrameHostPtr = blink.mojom.LocalFrameHostRemote;
@@ -2200,7 +2200,7 @@ blink.mojom.NonAssociatedLocalFrameHost.getRemote = function() {
     'blink.mojom.NonAssociatedLocalFrameHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for MaybeStartOutermostMainFrameNavigation
 blink.mojom.NonAssociatedLocalFrameHost_MaybeStartOutermostMainFrameNavigation_ParamsSpec = {
@@ -2214,7 +2214,7 @@ blink.mojom.NonAssociatedLocalFrameHost_MaybeStartOutermostMainFrameNavigation_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.NonAssociatedLocalFrameHostPtr = blink.mojom.NonAssociatedLocalFrameHostRemote;
@@ -2759,7 +2759,7 @@ blink.mojom.LocalFrame.getRemote = function() {
     'blink.mojom.LocalFrame',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetTextSurroundingSelection
 blink.mojom.LocalFrame_GetTextSurroundingSelection_ParamsSpec = {
@@ -2773,7 +2773,7 @@ blink.mojom.LocalFrame_GetTextSurroundingSelection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrame_GetTextSurroundingSelection_ResponseParamsSpec = {
   $: {
@@ -2788,7 +2788,7 @@ blink.mojom.LocalFrame_GetTextSurroundingSelection_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendInterventionReport
 blink.mojom.LocalFrame_SendInterventionReport_ParamsSpec = {
@@ -2804,7 +2804,7 @@ blink.mojom.LocalFrame_SendInterventionReport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFrameOwnerProperties
 blink.mojom.LocalFrame_SetFrameOwnerProperties_ParamsSpec = {
@@ -2818,7 +2818,7 @@ blink.mojom.LocalFrame_SetFrameOwnerProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyUserActivation
 blink.mojom.LocalFrame_NotifyUserActivation_ParamsSpec = {
@@ -2832,7 +2832,7 @@ blink.mojom.LocalFrame_NotifyUserActivation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyVirtualKeyboardOverlayRect
 blink.mojom.LocalFrame_NotifyVirtualKeyboardOverlayRect_ParamsSpec = {
@@ -2846,7 +2846,7 @@ blink.mojom.LocalFrame_NotifyVirtualKeyboardOverlayRect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowInterestInElement
 blink.mojom.LocalFrame_ShowInterestInElement_ParamsSpec = {
@@ -2860,7 +2860,7 @@ blink.mojom.LocalFrame_ShowInterestInElement_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddMessageToConsole
 blink.mojom.LocalFrame_AddMessageToConsole_ParamsSpec = {
@@ -2876,7 +2876,7 @@ blink.mojom.LocalFrame_AddMessageToConsole_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SwapInImmediately
 blink.mojom.LocalFrame_SwapInImmediately_ParamsSpec = {
@@ -2889,7 +2889,7 @@ blink.mojom.LocalFrame_SwapInImmediately_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CheckCompleted
 blink.mojom.LocalFrame_CheckCompleted_ParamsSpec = {
@@ -2902,7 +2902,7 @@ blink.mojom.LocalFrame_CheckCompleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopLoading
 blink.mojom.LocalFrame_StopLoading_ParamsSpec = {
@@ -2915,7 +2915,7 @@ blink.mojom.LocalFrame_StopLoading_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Collapse
 blink.mojom.LocalFrame_Collapse_ParamsSpec = {
@@ -2929,7 +2929,7 @@ blink.mojom.LocalFrame_Collapse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableViewSourceMode
 blink.mojom.LocalFrame_EnableViewSourceMode_ParamsSpec = {
@@ -2942,7 +2942,7 @@ blink.mojom.LocalFrame_EnableViewSourceMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Focus
 blink.mojom.LocalFrame_Focus_ParamsSpec = {
@@ -2955,7 +2955,7 @@ blink.mojom.LocalFrame_Focus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearFocusedElement
 blink.mojom.LocalFrame_ClearFocusedElement_ParamsSpec = {
@@ -2968,7 +2968,7 @@ blink.mojom.LocalFrame_ClearFocusedElement_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CopyImageAt
 blink.mojom.LocalFrame_CopyImageAt_ParamsSpec = {
@@ -2982,7 +2982,7 @@ blink.mojom.LocalFrame_CopyImageAt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SaveImageAt
 blink.mojom.LocalFrame_SaveImageAt_ParamsSpec = {
@@ -2996,7 +2996,7 @@ blink.mojom.LocalFrame_SaveImageAt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportBlinkFeatureUsage
 blink.mojom.LocalFrame_ReportBlinkFeatureUsage_ParamsSpec = {
@@ -3010,7 +3010,7 @@ blink.mojom.LocalFrame_ReportBlinkFeatureUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RenderFallbackContent
 blink.mojom.LocalFrame_RenderFallbackContent_ParamsSpec = {
@@ -3023,7 +3023,7 @@ blink.mojom.LocalFrame_RenderFallbackContent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BeforeUnload
 blink.mojom.LocalFrame_BeforeUnload_ParamsSpec = {
@@ -3037,7 +3037,7 @@ blink.mojom.LocalFrame_BeforeUnload_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrame_BeforeUnload_ResponseParamsSpec = {
   $: {
@@ -3052,7 +3052,7 @@ blink.mojom.LocalFrame_BeforeUnload_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MediaPlayerActionAt
 blink.mojom.LocalFrame_MediaPlayerActionAt_ParamsSpec = {
@@ -3067,7 +3067,7 @@ blink.mojom.LocalFrame_MediaPlayerActionAt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestVideoFrameAtWithBoundsHint
 blink.mojom.LocalFrame_RequestVideoFrameAtWithBoundsHint_ParamsSpec = {
@@ -3083,7 +3083,7 @@ blink.mojom.LocalFrame_RequestVideoFrameAtWithBoundsHint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrame_RequestVideoFrameAtWithBoundsHint_ResponseParamsSpec = {
   $: {
@@ -3097,7 +3097,7 @@ blink.mojom.LocalFrame_RequestVideoFrameAtWithBoundsHint_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PluginActionAt
 blink.mojom.LocalFrame_PluginActionAt_ParamsSpec = {
@@ -3112,7 +3112,7 @@ blink.mojom.LocalFrame_PluginActionAt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AdvanceFocusInFrame
 blink.mojom.LocalFrame_AdvanceFocusInFrame_ParamsSpec = {
@@ -3127,7 +3127,7 @@ blink.mojom.LocalFrame_AdvanceFocusInFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AdvanceFocusForIME
 blink.mojom.LocalFrame_AdvanceFocusForIME_ParamsSpec = {
@@ -3141,7 +3141,7 @@ blink.mojom.LocalFrame_AdvanceFocusForIME_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportContentSecurityPolicyViolation
 blink.mojom.LocalFrame_ReportContentSecurityPolicyViolation_ParamsSpec = {
@@ -3155,7 +3155,7 @@ blink.mojom.LocalFrame_ReportContentSecurityPolicyViolation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidUpdateFramePolicy
 blink.mojom.LocalFrame_DidUpdateFramePolicy_ParamsSpec = {
@@ -3169,7 +3169,7 @@ blink.mojom.LocalFrame_DidUpdateFramePolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameVisibilityChanged
 blink.mojom.LocalFrame_OnFrameVisibilityChanged_ParamsSpec = {
@@ -3183,7 +3183,7 @@ blink.mojom.LocalFrame_OnFrameVisibilityChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PostMessageEvent
 blink.mojom.LocalFrame_PostMessageEvent_ParamsSpec = {
@@ -3200,7 +3200,7 @@ blink.mojom.LocalFrame_PostMessageEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for JavaScriptMethodExecuteRequest
 blink.mojom.LocalFrame_JavaScriptMethodExecuteRequest_ParamsSpec = {
@@ -3217,7 +3217,7 @@ blink.mojom.LocalFrame_JavaScriptMethodExecuteRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrame_JavaScriptMethodExecuteRequest_ResponseParamsSpec = {
   $: {
@@ -3230,7 +3230,7 @@ blink.mojom.LocalFrame_JavaScriptMethodExecuteRequest_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for JavaScriptExecuteRequest
 blink.mojom.LocalFrame_JavaScriptExecuteRequest_ParamsSpec = {
@@ -3245,7 +3245,7 @@ blink.mojom.LocalFrame_JavaScriptExecuteRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrame_JavaScriptExecuteRequest_ResponseParamsSpec = {
   $: {
@@ -3258,7 +3258,7 @@ blink.mojom.LocalFrame_JavaScriptExecuteRequest_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for JavaScriptExecuteRequestForTests
 blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ParamsSpec = {
@@ -3276,7 +3276,7 @@ blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ResponseParamsSpec = {
   $: {
@@ -3290,7 +3290,7 @@ blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for JavaScriptExecuteRequestInIsolatedWorld
 blink.mojom.LocalFrame_JavaScriptExecuteRequestInIsolatedWorld_ParamsSpec = {
@@ -3306,7 +3306,7 @@ blink.mojom.LocalFrame_JavaScriptExecuteRequestInIsolatedWorld_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrame_JavaScriptExecuteRequestInIsolatedWorld_ResponseParamsSpec = {
   $: {
@@ -3319,7 +3319,7 @@ blink.mojom.LocalFrame_JavaScriptExecuteRequestInIsolatedWorld_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCharacterIndexAtPoint
 blink.mojom.LocalFrame_GetCharacterIndexAtPoint_ParamsSpec = {
@@ -3333,7 +3333,7 @@ blink.mojom.LocalFrame_GetCharacterIndexAtPoint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFirstRectForRange
 blink.mojom.LocalFrame_GetFirstRectForRange_ParamsSpec = {
@@ -3347,7 +3347,7 @@ blink.mojom.LocalFrame_GetFirstRectForRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStringForRange
 blink.mojom.LocalFrame_GetStringForRange_ParamsSpec = {
@@ -3361,7 +3361,7 @@ blink.mojom.LocalFrame_GetStringForRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrame_GetStringForRange_ResponseParamsSpec = {
   $: {
@@ -3375,7 +3375,7 @@ blink.mojom.LocalFrame_GetStringForRange_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindReportingObserver
 blink.mojom.LocalFrame_BindReportingObserver_ParamsSpec = {
@@ -3389,7 +3389,7 @@ blink.mojom.LocalFrame_BindReportingObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateOpener
 blink.mojom.LocalFrame_UpdateOpener_ParamsSpec = {
@@ -3403,7 +3403,7 @@ blink.mojom.LocalFrame_UpdateOpener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSavableResourceLinks
 blink.mojom.LocalFrame_GetSavableResourceLinks_ParamsSpec = {
@@ -3416,7 +3416,7 @@ blink.mojom.LocalFrame_GetSavableResourceLinks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrame_GetSavableResourceLinks_ResponseParamsSpec = {
   $: {
@@ -3429,7 +3429,7 @@ blink.mojom.LocalFrame_GetSavableResourceLinks_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MixedContentFound
 blink.mojom.LocalFrame_MixedContentFound_ParamsSpec = {
@@ -3449,7 +3449,7 @@ blink.mojom.LocalFrame_MixedContentFound_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindDevToolsAgent
 blink.mojom.LocalFrame_BindDevToolsAgent_ParamsSpec = {
@@ -3464,7 +3464,7 @@ blink.mojom.LocalFrame_BindDevToolsAgent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExtractSmartClipData
 blink.mojom.LocalFrame_ExtractSmartClipData_ParamsSpec = {
@@ -3478,7 +3478,7 @@ blink.mojom.LocalFrame_ExtractSmartClipData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrame_ExtractSmartClipData_ResponseParamsSpec = {
   $: {
@@ -3493,7 +3493,7 @@ blink.mojom.LocalFrame_ExtractSmartClipData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleRendererDebugURL
 blink.mojom.LocalFrame_HandleRendererDebugURL_ParamsSpec = {
@@ -3507,7 +3507,7 @@ blink.mojom.LocalFrame_HandleRendererDebugURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCanonicalUrlForSharing
 blink.mojom.LocalFrame_GetCanonicalUrlForSharing_ParamsSpec = {
@@ -3520,7 +3520,7 @@ blink.mojom.LocalFrame_GetCanonicalUrlForSharing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrame_GetCanonicalUrlForSharing_ResponseParamsSpec = {
   $: {
@@ -3533,7 +3533,7 @@ blink.mojom.LocalFrame_GetCanonicalUrlForSharing_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOpenGraphMetadata
 blink.mojom.LocalFrame_GetOpenGraphMetadata_ParamsSpec = {
@@ -3546,7 +3546,7 @@ blink.mojom.LocalFrame_GetOpenGraphMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrame_GetOpenGraphMetadata_ResponseParamsSpec = {
   $: {
@@ -3559,7 +3559,7 @@ blink.mojom.LocalFrame_GetOpenGraphMetadata_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNavigationApiHistoryEntriesForRestore
 blink.mojom.LocalFrame_SetNavigationApiHistoryEntriesForRestore_ParamsSpec = {
@@ -3574,7 +3574,7 @@ blink.mojom.LocalFrame_SetNavigationApiHistoryEntriesForRestore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdatePrerenderURL
 blink.mojom.LocalFrame_UpdatePrerenderURL_ParamsSpec = {
@@ -3588,7 +3588,7 @@ blink.mojom.LocalFrame_UpdatePrerenderURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyNavigationApiOfDisposedEntries
 blink.mojom.LocalFrame_NotifyNavigationApiOfDisposedEntries_ParamsSpec = {
@@ -3602,7 +3602,7 @@ blink.mojom.LocalFrame_NotifyNavigationApiOfDisposedEntries_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TraverseCancelled
 blink.mojom.LocalFrame_TraverseCancelled_ParamsSpec = {
@@ -3617,7 +3617,7 @@ blink.mojom.LocalFrame_TraverseCancelled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchNavigateEventForCrossDocumentTraversal
 blink.mojom.LocalFrame_DispatchNavigateEventForCrossDocumentTraversal_ParamsSpec = {
@@ -3633,7 +3633,7 @@ blink.mojom.LocalFrame_DispatchNavigateEventForCrossDocumentTraversal_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SnapshotDocumentForViewTransition
 blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ParamsSpec = {
@@ -3648,7 +3648,7 @@ blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ResponseParamsSpec = {
   $: {
@@ -3661,7 +3661,7 @@ blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyViewTransitionAbortedToOldDocument
 blink.mojom.LocalFrame_NotifyViewTransitionAbortedToOldDocument_ParamsSpec = {
@@ -3674,7 +3674,7 @@ blink.mojom.LocalFrame_NotifyViewTransitionAbortedToOldDocument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchPageSwap
 blink.mojom.LocalFrame_DispatchPageSwap_ParamsSpec = {
@@ -3688,7 +3688,7 @@ blink.mojom.LocalFrame_DispatchPageSwap_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddResourceTimingEntryForFailedSubframeNavigation
 blink.mojom.LocalFrame_AddResourceTimingEntryForFailedSubframeNavigation_ParamsSpec = {
@@ -3716,7 +3716,7 @@ blink.mojom.LocalFrame_AddResourceTimingEntryForFailedSubframeNavigation_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetScrollPosition
 blink.mojom.LocalFrame_GetScrollPosition_ParamsSpec = {
@@ -3729,7 +3729,7 @@ blink.mojom.LocalFrame_GetScrollPosition_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSpec = {
   $: {
@@ -3742,7 +3742,7 @@ blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PerformSpellCheck
 blink.mojom.LocalFrame_PerformSpellCheck_ParamsSpec = {
@@ -3755,7 +3755,7 @@ blink.mojom.LocalFrame_PerformSpellCheck_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.LocalFramePtr = blink.mojom.LocalFrameRemote;
@@ -3913,7 +3913,7 @@ blink.mojom.LocalMainFrame.getRemote = function() {
     'blink.mojom.LocalMainFrame',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AnimateDoubleTapZoom
 blink.mojom.LocalMainFrame_AnimateDoubleTapZoom_ParamsSpec = {
@@ -3928,7 +3928,7 @@ blink.mojom.LocalMainFrame_AnimateDoubleTapZoom_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetScaleFactor
 blink.mojom.LocalMainFrame_SetScaleFactor_ParamsSpec = {
@@ -3942,7 +3942,7 @@ blink.mojom.LocalMainFrame_SetScaleFactor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClosePage
 blink.mojom.LocalMainFrame_ClosePage_ParamsSpec = {
@@ -3955,7 +3955,7 @@ blink.mojom.LocalMainFrame_ClosePage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFullPageSize
 blink.mojom.LocalMainFrame_GetFullPageSize_ParamsSpec = {
@@ -3968,7 +3968,7 @@ blink.mojom.LocalMainFrame_GetFullPageSize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LocalMainFrame_GetFullPageSize_ResponseParamsSpec = {
   $: {
@@ -3981,7 +3981,7 @@ blink.mojom.LocalMainFrame_GetFullPageSize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetInitialFocus
 blink.mojom.LocalMainFrame_SetInitialFocus_ParamsSpec = {
@@ -3995,7 +3995,7 @@ blink.mojom.LocalMainFrame_SetInitialFocus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnablePreferredSizeChangedMode
 blink.mojom.LocalMainFrame_EnablePreferredSizeChangedMode_ParamsSpec = {
@@ -4008,7 +4008,7 @@ blink.mojom.LocalMainFrame_EnablePreferredSizeChangedMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ZoomToFindInPageRect
 blink.mojom.LocalMainFrame_ZoomToFindInPageRect_ParamsSpec = {
@@ -4022,7 +4022,7 @@ blink.mojom.LocalMainFrame_ZoomToFindInPageRect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InstallCoopAccessMonitor
 blink.mojom.LocalMainFrame_InstallCoopAccessMonitor_ParamsSpec = {
@@ -4037,7 +4037,7 @@ blink.mojom.LocalMainFrame_InstallCoopAccessMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateBrowserControlsState
 blink.mojom.LocalMainFrame_UpdateBrowserControlsState_ParamsSpec = {
@@ -4054,7 +4054,7 @@ blink.mojom.LocalMainFrame_UpdateBrowserControlsState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetV8CompileHints
 blink.mojom.LocalMainFrame_SetV8CompileHints_ParamsSpec = {
@@ -4068,7 +4068,7 @@ blink.mojom.LocalMainFrame_SetV8CompileHints_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Discard
 blink.mojom.LocalMainFrame_Discard_ParamsSpec = {
@@ -4081,7 +4081,7 @@ blink.mojom.LocalMainFrame_Discard_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FinalizeNavigationConfidence
 blink.mojom.LocalMainFrame_FinalizeNavigationConfidence_ParamsSpec = {
@@ -4096,7 +4096,7 @@ blink.mojom.LocalMainFrame_FinalizeNavigationConfidence_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.LocalMainFramePtr = blink.mojom.LocalMainFrameRemote;
@@ -4299,7 +4299,7 @@ blink.mojom.LocalMainFrameHost.getRemote = function() {
     'blink.mojom.LocalMainFrameHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ScaleFactorChanged
 blink.mojom.LocalMainFrameHost_ScaleFactorChanged_ParamsSpec = {
@@ -4313,7 +4313,7 @@ blink.mojom.LocalMainFrameHost_ScaleFactorChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ContentsPreferredSizeChanged
 blink.mojom.LocalMainFrameHost_ContentsPreferredSizeChanged_ParamsSpec = {
@@ -4327,7 +4327,7 @@ blink.mojom.LocalMainFrameHost_ContentsPreferredSizeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TextAutosizerPageInfoChanged
 blink.mojom.LocalMainFrameHost_TextAutosizerPageInfoChanged_ParamsSpec = {
@@ -4341,7 +4341,7 @@ blink.mojom.LocalMainFrameHost_TextAutosizerPageInfoChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FocusPage
 blink.mojom.LocalMainFrameHost_FocusPage_ParamsSpec = {
@@ -4354,7 +4354,7 @@ blink.mojom.LocalMainFrameHost_FocusPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TakeFocus
 blink.mojom.LocalMainFrameHost_TakeFocus_ParamsSpec = {
@@ -4368,7 +4368,7 @@ blink.mojom.LocalMainFrameHost_TakeFocus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateTargetURL
 blink.mojom.LocalMainFrameHost_UpdateTargetURL_ParamsSpec = {
@@ -4382,7 +4382,7 @@ blink.mojom.LocalMainFrameHost_UpdateTargetURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestClose
 blink.mojom.LocalMainFrameHost_RequestClose_ParamsSpec = {
@@ -4395,7 +4395,7 @@ blink.mojom.LocalMainFrameHost_RequestClose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowCreatedWindow
 blink.mojom.LocalMainFrameHost_ShowCreatedWindow_ParamsSpec = {
@@ -4412,7 +4412,7 @@ blink.mojom.LocalMainFrameHost_ShowCreatedWindow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWindowRect
 blink.mojom.LocalMainFrameHost_SetWindowRect_ParamsSpec = {
@@ -4426,7 +4426,7 @@ blink.mojom.LocalMainFrameHost_SetWindowRect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidFirstVisuallyNonEmptyPaint
 blink.mojom.LocalMainFrameHost_DidFirstVisuallyNonEmptyPaint_ParamsSpec = {
@@ -4439,7 +4439,7 @@ blink.mojom.LocalMainFrameHost_DidFirstVisuallyNonEmptyPaint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidAccessInitialMainDocument
 blink.mojom.LocalMainFrameHost_DidAccessInitialMainDocument_ParamsSpec = {
@@ -4452,7 +4452,7 @@ blink.mojom.LocalMainFrameHost_DidAccessInitialMainDocument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Maximize
 blink.mojom.LocalMainFrameHost_Maximize_ParamsSpec = {
@@ -4465,7 +4465,7 @@ blink.mojom.LocalMainFrameHost_Maximize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Minimize
 blink.mojom.LocalMainFrameHost_Minimize_ParamsSpec = {
@@ -4478,7 +4478,7 @@ blink.mojom.LocalMainFrameHost_Minimize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Restore
 blink.mojom.LocalMainFrameHost_Restore_ParamsSpec = {
@@ -4491,7 +4491,7 @@ blink.mojom.LocalMainFrameHost_Restore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetResizable
 blink.mojom.LocalMainFrameHost_SetResizable_ParamsSpec = {
@@ -4505,7 +4505,7 @@ blink.mojom.LocalMainFrameHost_SetResizable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DraggableRegionsChanged
 blink.mojom.LocalMainFrameHost_DraggableRegionsChanged_ParamsSpec = {
@@ -4519,7 +4519,7 @@ blink.mojom.LocalMainFrameHost_DraggableRegionsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFirstContentfulPaint
 blink.mojom.LocalMainFrameHost_OnFirstContentfulPaint_ParamsSpec = {
@@ -4533,7 +4533,7 @@ blink.mojom.LocalMainFrameHost_OnFirstContentfulPaint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.LocalMainFrameHostPtr = blink.mojom.LocalMainFrameHostRemote;

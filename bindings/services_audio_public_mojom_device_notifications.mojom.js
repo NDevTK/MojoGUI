@@ -61,7 +61,7 @@ audio.mojom.DeviceListener.getRemote = function() {
     'audio.mojom.DeviceListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DevicesChanged
 audio.mojom.DeviceListener_DevicesChanged_ParamsSpec = {
@@ -74,7 +74,7 @@ audio.mojom.DeviceListener_DevicesChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 audio.mojom.DeviceListenerPtr = audio.mojom.DeviceListenerRemote;
@@ -133,7 +133,7 @@ audio.mojom.DeviceNotifier.getRemote = function() {
     'audio.mojom.DeviceNotifier',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterListener
 audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec = {
@@ -147,7 +147,7 @@ audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 audio.mojom.DeviceNotifierPtr = audio.mojom.DeviceNotifierRemote;

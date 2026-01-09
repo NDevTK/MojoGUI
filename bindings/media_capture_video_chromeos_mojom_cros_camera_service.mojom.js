@@ -81,7 +81,7 @@ cros.mojom.KioskVisionObserver.getRemote = function() {
     'cros.mojom.KioskVisionObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.KioskVisionObserverPtr = cros.mojom.KioskVisionObserverRemote;
@@ -131,7 +131,7 @@ cros.mojom.CameraHalDispatcher.getRemote = function() {
     'cros.mojom.CameraHalDispatcher',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CameraHalDispatcherPtr = cros.mojom.CameraHalDispatcherRemote;
@@ -181,7 +181,7 @@ cros.mojom.CrosCameraServiceObserver.getRemote = function() {
     'cros.mojom.CrosCameraServiceObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CrosCameraServiceObserverPtr = cros.mojom.CrosCameraServiceObserverRemote;
@@ -231,7 +231,7 @@ cros.mojom.CrosCameraService.getRemote = function() {
     'cros.mojom.CrosCameraService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CrosCameraServicePtr = cros.mojom.CrosCameraServiceRemote;

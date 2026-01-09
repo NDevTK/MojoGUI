@@ -90,7 +90,7 @@ chromeos_camera.mojom.JpegEncodeAccelerator.getRemote = function() {
     'chromeos_camera.mojom.JpegEncodeAccelerator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Initialize
 chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec = {
@@ -103,7 +103,7 @@ chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec = {
   $: {
@@ -116,7 +116,7 @@ chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EncodeWithFD
 chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec = {
@@ -138,7 +138,7 @@ chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec = {
   $: {
@@ -153,7 +153,7 @@ chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EncodeWithDmaBuf
 chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec = {
@@ -177,7 +177,7 @@ chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec = {
   $: {
@@ -191,7 +191,7 @@ chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromeos_camera.mojom.JpegEncodeAcceleratorPtr = chromeos_camera.mojom.JpegEncodeAcceleratorRemote;

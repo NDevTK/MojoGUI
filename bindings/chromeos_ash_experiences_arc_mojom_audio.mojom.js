@@ -78,7 +78,7 @@ arc.mojom.AudioHost.getRemote = function() {
     'arc.mojom.AudioHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.AudioHostPtr = arc.mojom.AudioHostRemote;
@@ -128,7 +128,7 @@ arc.mojom.AudioInstance.getRemote = function() {
     'arc.mojom.AudioInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.AudioInstancePtr = arc.mojom.AudioInstanceRemote;

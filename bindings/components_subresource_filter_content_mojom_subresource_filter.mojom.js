@@ -61,7 +61,7 @@ subresource_filter.mojom.SubresourceFilterAgent.getRemote = function() {
     'subresource_filter.mojom.SubresourceFilterAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ActivateForNextCommittedLoad
 subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec = {
@@ -76,7 +76,7 @@ subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 subresource_filter.mojom.SubresourceFilterAgentPtr = subresource_filter.mojom.SubresourceFilterAgentRemote;
@@ -180,7 +180,7 @@ subresource_filter.mojom.SubresourceFilterHost.getRemote = function() {
     'subresource_filter.mojom.SubresourceFilterHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidDisallowFirstSubresource
 subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec = {
@@ -193,7 +193,7 @@ subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FrameIsAd
 subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec = {
@@ -206,7 +206,7 @@ subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FrameWasCreatedByAdScript
 subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec = {
@@ -219,7 +219,7 @@ subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AdScriptDidCreateFencedFrame
 subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec = {
@@ -233,7 +233,7 @@ subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDocumentLoadStatistics
 subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec = {
@@ -247,7 +247,7 @@ subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAdsViolationTriggered
 subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec = {
@@ -261,7 +261,7 @@ subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 subresource_filter.mojom.SubresourceFilterHostPtr = subresource_filter.mojom.SubresourceFilterHostRemote;

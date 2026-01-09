@@ -85,7 +85,7 @@ blink.mojom.DevToolsAgent.getRemote = function() {
     'blink.mojom.DevToolsAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AttachDevToolsSession
 blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec = {
@@ -107,7 +107,7 @@ blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InspectElement
 blink.mojom.DevToolsAgent_InspectElement_ParamsSpec = {
@@ -121,7 +121,7 @@ blink.mojom.DevToolsAgent_InspectElement_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportChildTargets
 blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec = {
@@ -136,7 +136,7 @@ blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DevToolsAgentPtr = blink.mojom.DevToolsAgentRemote;
@@ -222,7 +222,7 @@ blink.mojom.DevToolsAgentHost.getRemote = function() {
     'blink.mojom.DevToolsAgentHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ChildTargetCreated
 blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec = {
@@ -242,7 +242,7 @@ blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MainThreadDebuggerPaused
 blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec = {
@@ -255,7 +255,7 @@ blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MainThreadDebuggerResumed
 blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec = {
@@ -268,7 +268,7 @@ blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BringToForeground
 blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec = {
@@ -281,7 +281,7 @@ blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DevToolsAgentHostPtr = blink.mojom.DevToolsAgentHostRemote;
@@ -349,7 +349,7 @@ blink.mojom.DevToolsSession.getRemote = function() {
     'blink.mojom.DevToolsSession',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DispatchProtocolCommand
 blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec = {
@@ -365,7 +365,7 @@ blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnpauseAndTerminate
 blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec = {
@@ -378,7 +378,7 @@ blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DevToolsSessionPtr = blink.mojom.DevToolsSessionRemote;
@@ -446,7 +446,7 @@ blink.mojom.DevToolsSessionHost.getRemote = function() {
     'blink.mojom.DevToolsSessionHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DispatchProtocolResponse
 blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec = {
@@ -462,7 +462,7 @@ blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchProtocolNotification
 blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec = {
@@ -477,7 +477,7 @@ blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DevToolsSessionHostPtr = blink.mojom.DevToolsSessionHostRemote;

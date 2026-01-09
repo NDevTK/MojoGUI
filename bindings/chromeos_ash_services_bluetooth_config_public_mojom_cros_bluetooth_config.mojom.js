@@ -111,7 +111,7 @@ ash.bluetooth_config.mojom.SystemPropertiesObserver.getRemote = function() {
     'ash.bluetooth_config.mojom.SystemPropertiesObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPropertiesUpdated
 ash.bluetooth_config.mojom.SystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec = {
@@ -125,7 +125,7 @@ ash.bluetooth_config.mojom.SystemPropertiesObserver_OnPropertiesUpdated_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.bluetooth_config.mojom.SystemPropertiesObserverPtr = ash.bluetooth_config.mojom.SystemPropertiesObserverRemote;
@@ -202,7 +202,7 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver.getRemote = function() 
     'ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDevicePaired
 ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDevicePaired_ParamsSpec = {
@@ -216,7 +216,7 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDevicePaired_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeviceConnected
 ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceConnected_ParamsSpec = {
@@ -230,7 +230,7 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceConnected_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeviceDisconnected
 ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceDisconnected_ParamsSpec = {
@@ -244,7 +244,7 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceDisconnected_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverPtr = ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemote;
@@ -303,7 +303,7 @@ ash.bluetooth_config.mojom.DiscoverySessionStatusObserver.getRemote = function()
     'ash.bluetooth_config.mojom.DiscoverySessionStatusObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnHasAtLeastOneDiscoverySessionChanged
 ash.bluetooth_config.mojom.DiscoverySessionStatusObserver_OnHasAtLeastOneDiscoverySessionChanged_ParamsSpec = {
@@ -317,7 +317,7 @@ ash.bluetooth_config.mojom.DiscoverySessionStatusObserver_OnHasAtLeastOneDiscove
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.bluetooth_config.mojom.DiscoverySessionStatusObserverPtr = ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemote;
@@ -376,7 +376,7 @@ ash.bluetooth_config.mojom.KeyEnteredHandler.getRemote = function() {
     'ash.bluetooth_config.mojom.KeyEnteredHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HandleKeyEntered
 ash.bluetooth_config.mojom.KeyEnteredHandler_HandleKeyEntered_ParamsSpec = {
@@ -390,7 +390,7 @@ ash.bluetooth_config.mojom.KeyEnteredHandler_HandleKeyEntered_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.bluetooth_config.mojom.KeyEnteredHandlerPtr = ash.bluetooth_config.mojom.KeyEnteredHandlerRemote;
@@ -494,7 +494,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate.getRemote = function() {
     'ash.bluetooth_config.mojom.DevicePairingDelegate',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestPinCode
 ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec = {
@@ -507,7 +507,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec = {
   $: {
@@ -520,7 +520,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestPasskey
 ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec = {
@@ -533,7 +533,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec = {
   $: {
@@ -546,7 +546,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisplayPinCode
 ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec = {
@@ -561,7 +561,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisplayPasskey
 ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec = {
@@ -576,7 +576,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConfirmPasskey
 ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ParamsSpec = {
@@ -590,7 +590,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec = {
   $: {
@@ -603,7 +603,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AuthorizePairing
 ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec = {
@@ -616,7 +616,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec = {
   $: {
@@ -629,7 +629,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.bluetooth_config.mojom.DevicePairingDelegatePtr = ash.bluetooth_config.mojom.DevicePairingDelegateRemote;
@@ -697,7 +697,7 @@ ash.bluetooth_config.mojom.DevicePairingHandler.getRemote = function() {
     'ash.bluetooth_config.mojom.DevicePairingHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PairDevice
 ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec = {
@@ -712,7 +712,7 @@ ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec = {
   $: {
@@ -725,7 +725,7 @@ ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchDevice
 ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec = {
@@ -739,7 +739,7 @@ ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec = {
   $: {
@@ -752,7 +752,7 @@ ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.bluetooth_config.mojom.DevicePairingHandlerPtr = ash.bluetooth_config.mojom.DevicePairingHandlerRemote;
@@ -829,7 +829,7 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate.getRemote = function() {
     'ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnBluetoothDiscoveryStarted
 ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec = {
@@ -843,7 +843,7 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarte
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBluetoothDiscoveryStopped
 ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_ParamsSpec = {
@@ -856,7 +856,7 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStoppe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDiscoveredDevicesListChanged
 ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_ParamsSpec = {
@@ -870,7 +870,7 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListCha
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.bluetooth_config.mojom.BluetoothDiscoveryDelegatePtr = ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemote;
@@ -1019,7 +1019,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig.getRemote = function() {
     'ash.bluetooth_config.mojom.CrosBluetoothConfig',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ObserveSystemProperties
 ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec = {
@@ -1033,7 +1033,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveDeviceStatusChanges
 ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec = {
@@ -1047,7 +1047,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveDiscoverySessionStatusChanges
 ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_ParamsSpec = {
@@ -1061,7 +1061,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChan
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBluetoothEnabledState
 ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledState_ParamsSpec = {
@@ -1075,7 +1075,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledState_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBluetoothEnabledWithoutPersistence
 ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersistence_ParamsSpec = {
@@ -1088,7 +1088,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersist
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBluetoothHidDetectionInactive
 ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_ParamsSpec = {
@@ -1102,7 +1102,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartDiscovery
 ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec = {
@@ -1116,7 +1116,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Connect
 ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ParamsSpec = {
@@ -1130,7 +1130,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec = {
   $: {
@@ -1143,7 +1143,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Disconnect
 ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ParamsSpec = {
@@ -1157,7 +1157,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec = {
   $: {
@@ -1170,7 +1170,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Forget
 ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ParamsSpec = {
@@ -1184,7 +1184,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec = {
   $: {
@@ -1197,7 +1197,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDeviceNickname
 ash.bluetooth_config.mojom.CrosBluetoothConfig_SetDeviceNickname_ParamsSpec = {
@@ -1212,7 +1212,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_SetDeviceNickname_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.bluetooth_config.mojom.CrosBluetoothConfigPtr = ash.bluetooth_config.mojom.CrosBluetoothConfigRemote;

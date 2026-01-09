@@ -167,7 +167,7 @@ blink.mojom.PageBroadcast.getRemote = function() {
     'blink.mojom.PageBroadcast',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetPageLifecycleState
 blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec = {
@@ -182,7 +182,7 @@ blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AudioStateChanged
 blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec = {
@@ -196,7 +196,7 @@ blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ActivatePrerenderedPage
 blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec = {
@@ -210,7 +210,7 @@ blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateWebPreferences
 blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec = {
@@ -224,7 +224,7 @@ blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateRendererPreferences
 blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec = {
@@ -238,7 +238,7 @@ blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHistoryIndexAndLength
 blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec = {
@@ -253,7 +253,7 @@ blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPageBaseBackgroundColor
 blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec = {
@@ -267,7 +267,7 @@ blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateRemoteMainFrame
 blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec = {
@@ -288,7 +288,7 @@ blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdatePageBrowsingContextGroup
 blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec = {
@@ -302,7 +302,7 @@ blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPageAttributionSupport
 blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec = {
@@ -316,7 +316,7 @@ blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateColorProviders
 blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec = {
@@ -330,7 +330,7 @@ blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSupportsDraggableRegions
 blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec = {
@@ -344,7 +344,7 @@ blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PageBroadcastPtr = blink.mojom.PageBroadcastRemote;

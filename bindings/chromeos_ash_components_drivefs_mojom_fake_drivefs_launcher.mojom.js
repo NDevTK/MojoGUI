@@ -61,7 +61,7 @@ drivefs.mojom.FakeDriveFsLauncher.getRemote = function() {
     'drivefs.mojom.FakeDriveFsLauncher',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LaunchDriveFs
 drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec = {
@@ -77,7 +77,7 @@ drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 drivefs.mojom.FakeDriveFsLauncherPtr = drivefs.mojom.FakeDriveFsLauncherRemote;

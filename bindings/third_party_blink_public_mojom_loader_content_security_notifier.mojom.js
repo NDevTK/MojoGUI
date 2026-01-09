@@ -79,7 +79,7 @@ blink.mojom.ContentSecurityNotifier.getRemote = function() {
     'blink.mojom.ContentSecurityNotifier',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NotifyContentWithCertificateErrorsRan
 blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec = {
@@ -92,7 +92,7 @@ blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyContentWithCertificateErrorsDisplayed
 blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec = {
@@ -105,7 +105,7 @@ blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyInsecureContentRan
 blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec = {
@@ -120,7 +120,7 @@ blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ContentSecurityNotifierPtr = blink.mojom.ContentSecurityNotifierRemote;

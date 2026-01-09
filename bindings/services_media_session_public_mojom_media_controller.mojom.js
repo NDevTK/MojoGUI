@@ -52,7 +52,7 @@ media_session.mojom.MediaControllerManager.getRemote = function() {
     'media_session.mojom.MediaControllerManager',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media_session.mojom.MediaControllerManagerPtr = media_session.mojom.MediaControllerManagerRemote;
@@ -102,7 +102,7 @@ media_session.mojom.MediaController.getRemote = function() {
     'media_session.mojom.MediaController',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media_session.mojom.MediaControllerPtr = media_session.mojom.MediaControllerRemote;
@@ -152,7 +152,7 @@ media_session.mojom.MediaControllerObserver.getRemote = function() {
     'media_session.mojom.MediaControllerObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media_session.mojom.MediaControllerObserverPtr = media_session.mojom.MediaControllerObserverRemote;
@@ -202,7 +202,7 @@ media_session.mojom.MediaControllerImageObserver.getRemote = function() {
     'media_session.mojom.MediaControllerImageObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media_session.mojom.MediaControllerImageObserverPtr = media_session.mojom.MediaControllerImageObserverRemote;

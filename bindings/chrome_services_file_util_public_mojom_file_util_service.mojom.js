@@ -88,7 +88,7 @@ chrome.mojom.FileUtilService.getRemote = function() {
     'chrome.mojom.FileUtilService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindZipFileCreator
 chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec = {
@@ -102,7 +102,7 @@ chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindSafeArchiveAnalyzer
 chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec = {
@@ -116,7 +116,7 @@ chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindSingleFileTarFileExtractor
 chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec = {
@@ -130,7 +130,7 @@ chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindSingleFileTarXzFileExtractor
 chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec = {
@@ -144,7 +144,7 @@ chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.FileUtilServicePtr = chrome.mojom.FileUtilServiceRemote;

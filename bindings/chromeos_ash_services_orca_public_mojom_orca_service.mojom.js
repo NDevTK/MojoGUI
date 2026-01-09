@@ -76,7 +76,7 @@ ash.orca.mojom.EditorClient.getRemote = function() {
     'ash.orca.mojom.EditorClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.orca.mojom.EditorClientPtr = ash.orca.mojom.EditorClientRemote;
@@ -126,7 +126,7 @@ ash.orca.mojom.EditorClientConnector.getRemote = function() {
     'ash.orca.mojom.EditorClientConnector',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.orca.mojom.EditorClientConnectorPtr = ash.orca.mojom.EditorClientConnectorRemote;
@@ -176,7 +176,7 @@ ash.orca.mojom.EditorEventSink.getRemote = function() {
     'ash.orca.mojom.EditorEventSink',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.orca.mojom.EditorEventSinkPtr = ash.orca.mojom.EditorEventSinkRemote;
@@ -226,7 +226,7 @@ ash.orca.mojom.SystemActuator.getRemote = function() {
     'ash.orca.mojom.SystemActuator',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.orca.mojom.SystemActuatorPtr = ash.orca.mojom.SystemActuatorRemote;
@@ -276,7 +276,7 @@ ash.orca.mojom.TextQueryProvider.getRemote = function() {
     'ash.orca.mojom.TextQueryProvider',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.orca.mojom.TextQueryProviderPtr = ash.orca.mojom.TextQueryProviderRemote;
@@ -326,7 +326,7 @@ ash.orca.mojom.OrcaService.getRemote = function() {
     'ash.orca.mojom.OrcaService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.orca.mojom.OrcaServicePtr = ash.orca.mojom.OrcaServiceRemote;

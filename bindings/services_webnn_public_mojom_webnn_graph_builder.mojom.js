@@ -79,7 +79,7 @@ webnn.mojom.WebNNGraphBuilder.getRemote = function() {
     'webnn.mojom.WebNNGraphBuilder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePendingConstant
 webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec = {
@@ -95,7 +95,7 @@ webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateGraph
 webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec = {
@@ -109,7 +109,7 @@ webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsValidGraphForTesting
 webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec = {
@@ -124,7 +124,7 @@ webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec = {
   $: {
@@ -137,7 +137,7 @@ webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 webnn.mojom.WebNNGraphBuilderPtr = webnn.mojom.WebNNGraphBuilderRemote;

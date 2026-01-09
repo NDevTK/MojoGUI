@@ -78,7 +78,7 @@ emoji_picker.mojom.PageHandlerFactory.getRemote = function() {
     'emoji_picker.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -92,7 +92,7 @@ emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 emoji_picker.mojom.PageHandlerFactoryPtr = emoji_picker.mojom.PageHandlerFactoryRemote;
@@ -277,7 +277,7 @@ emoji_picker.mojom.PageHandler.getRemote = function() {
     'emoji_picker.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShowUI
 emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec = {
@@ -290,7 +290,7 @@ emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InsertEmoji
 emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec = {
@@ -306,7 +306,7 @@ emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InsertGif
 emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec = {
@@ -320,7 +320,7 @@ emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsIncognitoTextField
 emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec = {
@@ -333,7 +333,7 @@ emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec = {
   $: {
@@ -346,7 +346,7 @@ emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFeatureList
 emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec = {
@@ -359,7 +359,7 @@ emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec = {
   $: {
@@ -372,7 +372,7 @@ emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCategories
 emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec = {
@@ -385,7 +385,7 @@ emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec = {
   $: {
@@ -399,7 +399,7 @@ emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFeaturedGifs
 emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec = {
@@ -413,7 +413,7 @@ emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec = {
   $: {
@@ -427,7 +427,7 @@ emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SearchGifs
 emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec = {
@@ -442,7 +442,7 @@ emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec = {
   $: {
@@ -456,7 +456,7 @@ emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetGifsByIds
 emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec = {
@@ -470,7 +470,7 @@ emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec = {
   $: {
@@ -484,7 +484,7 @@ emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnUiFullyLoaded
 emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec = {
@@ -497,7 +497,7 @@ emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetInitialCategory
 emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec = {
@@ -510,7 +510,7 @@ emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec = {
   $: {
@@ -523,7 +523,7 @@ emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetInitialQuery
 emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec = {
@@ -536,7 +536,7 @@ emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec = {
   $: {
@@ -549,7 +549,7 @@ emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateHistoryInPrefs
 emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec = {
@@ -564,7 +564,7 @@ emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdatePreferredVariantsInPrefs
 emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec = {
@@ -578,7 +578,7 @@ emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetHistoryFromPrefs
 emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec = {
@@ -592,7 +592,7 @@ emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec = {
   $: {
@@ -605,7 +605,7 @@ emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 emoji_picker.mojom.PageHandlerPtr = emoji_picker.mojom.PageHandlerRemote;

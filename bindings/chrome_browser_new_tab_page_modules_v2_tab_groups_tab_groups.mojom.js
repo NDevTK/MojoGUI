@@ -98,7 +98,7 @@ ntp.tab_groups.mojom.PageHandler.getRemote = function() {
     'ntp.tab_groups.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateNewTabGroup
 ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec = {
@@ -111,7 +111,7 @@ ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTabGroups
 ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec = {
@@ -124,7 +124,7 @@ ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec = {
   $: {
@@ -138,7 +138,7 @@ ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenTabGroup
 ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
@@ -152,7 +152,7 @@ ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DismissModule
 ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec = {
@@ -165,7 +165,7 @@ ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestoreModule
 ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec = {
@@ -178,7 +178,7 @@ ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ntp.tab_groups.mojom.PageHandlerPtr = ntp.tab_groups.mojom.PageHandlerRemote;

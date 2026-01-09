@@ -61,7 +61,7 @@ blink.mojom.FullscreenVideoElementHandler.getRemote = function() {
     'blink.mojom.FullscreenVideoElementHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestFullscreenVideoElement
 blink.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_ParamsSpec = {
@@ -74,7 +74,7 @@ blink.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FullscreenVideoElementHandlerPtr = blink.mojom.FullscreenVideoElementHandlerRemote;

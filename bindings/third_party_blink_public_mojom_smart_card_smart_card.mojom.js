@@ -61,7 +61,7 @@ blink.mojom.SmartCardService.getRemote = function() {
     'blink.mojom.SmartCardService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateContext
 blink.mojom.SmartCardService_CreateContext_ParamsSpec = {
@@ -74,7 +74,7 @@ blink.mojom.SmartCardService_CreateContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SmartCardServicePtr = blink.mojom.SmartCardServiceRemote;

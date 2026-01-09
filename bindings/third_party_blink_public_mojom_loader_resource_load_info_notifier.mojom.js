@@ -115,7 +115,7 @@ blink.mojom.ResourceLoadInfoNotifier.getRemote = function() {
     'blink.mojom.ResourceLoadInfoNotifier',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NotifyUpdateUserGestureCarryoverInfo
 blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec = {
@@ -128,7 +128,7 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyResourceRedirectReceived
 blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec = {
@@ -143,7 +143,7 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyResourceResponseReceived
 blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec = {
@@ -161,7 +161,7 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyResourceTransferSizeUpdated
 blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec = {
@@ -176,7 +176,7 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyResourceLoadCompleted
 blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec = {
@@ -191,7 +191,7 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyResourceLoadCanceled
 blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec = {
@@ -205,7 +205,7 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec = {
@@ -219,7 +219,7 @@ blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ResourceLoadInfoNotifierPtr = blink.mojom.ResourceLoadInfoNotifierRemote;

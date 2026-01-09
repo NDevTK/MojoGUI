@@ -76,7 +76,7 @@ network.mojom.SharedDictionaryAccessObserver.getRemote = function() {
     'network.mojom.SharedDictionaryAccessObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSharedDictionaryAccessed
 network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec = {
@@ -90,7 +90,7 @@ network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec = {
@@ -104,7 +104,7 @@ network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.SharedDictionaryAccessObserverPtr = network.mojom.SharedDictionaryAccessObserverRemote;

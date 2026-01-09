@@ -97,7 +97,7 @@ storage.mojom.StorageService.getRemote = function() {
     'storage.mojom.StorageService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EnableAggressiveDomStorageFlushing
 storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec = {
@@ -110,7 +110,7 @@ storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDataDirectory
 storage.mojom.StorageService_SetDataDirectory_ParamsSpec = {
@@ -125,7 +125,7 @@ storage.mojom.StorageService_SetDataDirectory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindSessionStorageControl
 storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec = {
@@ -140,7 +140,7 @@ storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindLocalStorageControl
 storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec = {
@@ -155,7 +155,7 @@ storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindTestApi
 storage.mojom.StorageService_BindTestApi_ParamsSpec = {
@@ -169,7 +169,7 @@ storage.mojom.StorageService_BindTestApi_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.StorageServicePtr = storage.mojom.StorageServiceRemote;

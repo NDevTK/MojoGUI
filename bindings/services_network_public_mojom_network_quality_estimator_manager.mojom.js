@@ -61,7 +61,7 @@ network.mojom.NetworkQualityEstimatorManagerClient.getRemote = function() {
     'network.mojom.NetworkQualityEstimatorManagerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnNetworkQualityChanged
 network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec = {
@@ -78,7 +78,7 @@ network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.NetworkQualityEstimatorManagerClientPtr = network.mojom.NetworkQualityEstimatorManagerClientRemote;
@@ -137,7 +137,7 @@ network.mojom.NetworkQualityEstimatorManager.getRemote = function() {
     'network.mojom.NetworkQualityEstimatorManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestNotifications
 network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec = {
@@ -151,7 +151,7 @@ network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.NetworkQualityEstimatorManagerPtr = network.mojom.NetworkQualityEstimatorManagerRemote;

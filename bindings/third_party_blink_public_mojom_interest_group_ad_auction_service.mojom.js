@@ -164,7 +164,7 @@ blink.mojom.AbortableAdAuction.getRemote = function() {
     'blink.mojom.AbortableAdAuction',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ResolvedPromiseParam
 blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec = {
@@ -180,7 +180,7 @@ blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolvedPerBuyerSignalsPromise
 blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec = {
@@ -195,7 +195,7 @@ blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolvedBuyerTkvSignalsPromise
 blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec = {
@@ -211,7 +211,7 @@ blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolvedBuyerTimeoutsPromise
 blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec = {
@@ -227,7 +227,7 @@ blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolvedBuyerCurrenciesPromise
 blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec = {
@@ -242,7 +242,7 @@ blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolvedDirectFromSellerSignalsPromise
 blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec = {
@@ -257,7 +257,7 @@ blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolvedDirectFromSellerSignalsHeaderAdSlotPromise
 blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec = {
@@ -272,7 +272,7 @@ blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromis
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolvedDeprecatedRenderURLReplacementsPromise
 blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec = {
@@ -287,7 +287,7 @@ blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolvedAuctionAdResponsePromise
 blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec = {
@@ -302,7 +302,7 @@ blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolvedAdditionalBids
 blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec = {
@@ -316,7 +316,7 @@ blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Abort
 blink.mojom.AbortableAdAuction_Abort_ParamsSpec = {
@@ -329,7 +329,7 @@ blink.mojom.AbortableAdAuction_Abort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AbortableAdAuctionPtr = blink.mojom.AbortableAdAuctionRemote;
@@ -478,7 +478,7 @@ blink.mojom.AdAuctionService.getRemote = function() {
     'blink.mojom.AdAuctionService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateAdRequest
 blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec = {
@@ -492,7 +492,7 @@ blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec = {
   $: {
@@ -505,7 +505,7 @@ blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FinalizeAd
 blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec = {
@@ -520,7 +520,7 @@ blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec = {
   $: {
@@ -533,7 +533,7 @@ blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RunAdAuction
 blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec = {
@@ -548,7 +548,7 @@ blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec = {
   $: {
@@ -562,7 +562,7 @@ blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for JoinInterestGroup
 blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec = {
@@ -576,7 +576,7 @@ blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec = {
   $: {
@@ -589,7 +589,7 @@ blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LeaveInterestGroup
 blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec = {
@@ -604,7 +604,7 @@ blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec = {
   $: {
@@ -617,7 +617,7 @@ blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LeaveInterestGroupForDocument
 blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec = {
@@ -630,7 +630,7 @@ blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearOriginJoinedInterestGroups
 blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec = {
@@ -645,7 +645,7 @@ blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec = {
   $: {
@@ -658,7 +658,7 @@ blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateAdInterestGroups
 blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec = {
@@ -671,7 +671,7 @@ blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeprecatedGetURLFromURN
 blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec = {
@@ -686,7 +686,7 @@ blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec = {
   $: {
@@ -699,7 +699,7 @@ blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeprecatedReplaceInURN
 blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec = {
@@ -714,7 +714,7 @@ blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetInterestGroupAdAuctionData
 blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec = {
@@ -729,7 +729,7 @@ blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec = {
   $: {
@@ -743,7 +743,7 @@ blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AdAuctionServicePtr = blink.mojom.AdAuctionServiceRemote;

@@ -61,7 +61,7 @@ viz.mojom.VSyncParameterObserver.getRemote = function() {
     'viz.mojom.VSyncParameterObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnUpdateVSyncParameters
 viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec = {
@@ -76,7 +76,7 @@ viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.VSyncParameterObserverPtr = viz.mojom.VSyncParameterObserverRemote;

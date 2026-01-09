@@ -76,7 +76,7 @@ data_decoder.mojom.ImageDecoder.getRemote = function() {
     'data_decoder.mojom.ImageDecoder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DecodeImage
 data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec = {
@@ -94,7 +94,7 @@ data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec = {
   $: {
@@ -108,7 +108,7 @@ data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DecodeAnimation
 data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec = {
@@ -124,7 +124,7 @@ data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec = {
   $: {
@@ -137,7 +137,7 @@ data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 data_decoder.mojom.ImageDecoderPtr = data_decoder.mojom.ImageDecoderRemote;

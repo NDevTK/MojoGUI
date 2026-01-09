@@ -52,7 +52,7 @@ arc.mojom.AppfuseHost.getRemote = function() {
     'arc.mojom.AppfuseHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.AppfuseHostPtr = arc.mojom.AppfuseHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.AppfuseInstance.getRemote = function() {
     'arc.mojom.AppfuseInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.AppfuseInstancePtr = arc.mojom.AppfuseInstanceRemote;

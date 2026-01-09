@@ -157,7 +157,7 @@ storage.mojom.SessionStorageControl.getRemote = function() {
     'storage.mojom.SessionStorageControl',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindNamespace
 storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec = {
@@ -172,7 +172,7 @@ storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindStorageArea
 storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec = {
@@ -188,7 +188,7 @@ storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUsage
 storage.mojom.SessionStorageControl_GetUsage_ParamsSpec = {
@@ -201,7 +201,7 @@ storage.mojom.SessionStorageControl_GetUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec = {
   $: {
@@ -214,7 +214,7 @@ storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteStorage
 storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec = {
@@ -229,7 +229,7 @@ storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CleanUpStorage
 storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec = {
@@ -242,7 +242,7 @@ storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ScavengeUnusedNamespaces
 storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec = {
@@ -255,7 +255,7 @@ storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Flush
 storage.mojom.SessionStorageControl_Flush_ParamsSpec = {
@@ -268,7 +268,7 @@ storage.mojom.SessionStorageControl_Flush_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PurgeMemory
 storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec = {
@@ -281,7 +281,7 @@ storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateNamespace
 storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec = {
@@ -295,7 +295,7 @@ storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloneNamespace
 storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec = {
@@ -311,7 +311,7 @@ storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteNamespace
 storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec = {
@@ -326,7 +326,7 @@ storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.SessionStorageControlPtr = storage.mojom.SessionStorageControlRemote;

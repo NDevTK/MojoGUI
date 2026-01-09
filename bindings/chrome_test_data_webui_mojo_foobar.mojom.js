@@ -61,7 +61,7 @@ test.mojom.Foo.getRemote = function() {
     'test.mojom.Foo',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetFoo
 test.mojom.Foo_GetFoo_ParamsSpec = {
@@ -74,7 +74,7 @@ test.mojom.Foo_GetFoo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 test.mojom.Foo_GetFoo_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ test.mojom.Foo_GetFoo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 test.mojom.FooPtr = test.mojom.FooRemote;
@@ -146,7 +146,7 @@ test.mojom.Bar.getRemote = function() {
     'test.mojom.Bar',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetBar
 test.mojom.Bar_GetBar_ParamsSpec = {
@@ -159,7 +159,7 @@ test.mojom.Bar_GetBar_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 test.mojom.Bar_GetBar_ResponseParamsSpec = {
   $: {
@@ -172,7 +172,7 @@ test.mojom.Bar_GetBar_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 test.mojom.BarPtr = test.mojom.BarRemote;
@@ -231,7 +231,7 @@ test.mojom.Baz.getRemote = function() {
     'test.mojom.Baz',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetBaz
 test.mojom.Baz_GetBaz_ParamsSpec = {
@@ -244,7 +244,7 @@ test.mojom.Baz_GetBaz_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 test.mojom.Baz_GetBaz_ResponseParamsSpec = {
   $: {
@@ -257,7 +257,7 @@ test.mojom.Baz_GetBaz_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 test.mojom.BazPtr = test.mojom.BazRemote;

@@ -78,7 +78,7 @@ auction_worklet.mojom.AuctionSharedStorageHost.getRemote = function() {
     'auction_worklet.mojom.AuctionSharedStorageHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SharedStorageUpdate
 auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec = {
@@ -93,7 +93,7 @@ auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SharedStorageBatchUpdate
 auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec = {
@@ -109,7 +109,7 @@ auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 auction_worklet.mojom.AuctionSharedStorageHostPtr = auction_worklet.mojom.AuctionSharedStorageHostRemote;

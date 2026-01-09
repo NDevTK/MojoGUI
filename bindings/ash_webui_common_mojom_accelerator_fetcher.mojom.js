@@ -62,7 +62,7 @@ ash.common.mojom.AcceleratorFetcherObserver.getRemote = function() {
     'ash.common.mojom.AcceleratorFetcherObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAcceleratorsUpdated
 ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec = {
@@ -77,7 +77,7 @@ ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.common.mojom.AcceleratorFetcherObserverPtr = ash.common.mojom.AcceleratorFetcherObserverRemote;
@@ -145,7 +145,7 @@ ash.common.mojom.AcceleratorFetcher.getRemote = function() {
     'ash.common.mojom.AcceleratorFetcher',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ObserveAcceleratorChanges
 ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec = {
@@ -160,7 +160,7 @@ ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMetaKeyToDisplay
 ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec = {
@@ -173,7 +173,7 @@ ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec = {
   $: {
@@ -186,7 +186,7 @@ ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.common.mojom.AcceleratorFetcherPtr = ash.common.mojom.AcceleratorFetcherRemote;

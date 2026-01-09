@@ -87,7 +87,7 @@ network.mojom.ReportingApiObserver.getRemote = function() {
     'network.mojom.ReportingApiObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnReportAdded
 network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = {
@@ -101,7 +101,7 @@ network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReportUpdated
 network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = {
@@ -115,7 +115,7 @@ network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnEndpointsUpdatedForOrigin
 network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec = {
@@ -129,7 +129,7 @@ network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.ReportingApiObserverPtr = network.mojom.ReportingApiObserverRemote;

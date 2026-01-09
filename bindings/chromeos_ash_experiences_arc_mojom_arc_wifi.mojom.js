@@ -52,7 +52,7 @@ arc.mojom.ArcWifiHost.getRemote = function() {
     'arc.mojom.ArcWifiHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ArcWifiHostPtr = arc.mojom.ArcWifiHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.ArcWifiInstance.getRemote = function() {
     'arc.mojom.ArcWifiInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ArcWifiInstancePtr = arc.mojom.ArcWifiInstanceRemote;

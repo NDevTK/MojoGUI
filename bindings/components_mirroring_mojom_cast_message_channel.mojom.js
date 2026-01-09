@@ -61,7 +61,7 @@ mirroring.mojom.CastMessageChannel.getRemote = function() {
     'mirroring.mojom.CastMessageChannel',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMessage
 mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec = {
@@ -75,7 +75,7 @@ mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mirroring.mojom.CastMessageChannelPtr = mirroring.mojom.CastMessageChannelRemote;

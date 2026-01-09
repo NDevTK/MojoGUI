@@ -61,7 +61,7 @@ blink.mojom.RendererAudioOutputStreamFactory.getRemote = function() {
     'blink.mojom.RendererAudioOutputStreamFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestDeviceAuthorization
 blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec = {
@@ -77,7 +77,7 @@ blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec = {
   $: {
@@ -92,7 +92,7 @@ blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RendererAudioOutputStreamFactoryPtr = blink.mojom.RendererAudioOutputStreamFactoryRemote;

@@ -61,7 +61,7 @@ video_capture.mojom.VideoFrameAccessHandler.getRemote = function() {
     'video_capture.mojom.VideoFrameAccessHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnFinishedConsumingBuffer
 video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec = {
@@ -75,7 +75,7 @@ video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 video_capture.mojom.VideoFrameAccessHandlerPtr = video_capture.mojom.VideoFrameAccessHandlerRemote;
@@ -242,7 +242,7 @@ video_capture.mojom.VideoFrameHandler.getRemote = function() {
     'video_capture.mojom.VideoFrameHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCaptureConfigurationChanged
 video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec = {
@@ -255,7 +255,7 @@ video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNewBuffer
 video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec = {
@@ -270,7 +270,7 @@ video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameAccessHandlerReady
 video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec = {
@@ -284,7 +284,7 @@ video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameReadyInBuffer
 video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec = {
@@ -298,7 +298,7 @@ video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBufferRetired
 video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec = {
@@ -312,7 +312,7 @@ video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec = {
@@ -326,7 +326,7 @@ video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameDropped
 video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec = {
@@ -340,7 +340,7 @@ video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNewCaptureVersion
 video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec = {
@@ -354,7 +354,7 @@ video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameWithEmptyRegionCapture
 video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec = {
@@ -367,7 +367,7 @@ video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLog
 video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec = {
@@ -381,7 +381,7 @@ video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStarted
 video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec = {
@@ -394,7 +394,7 @@ video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStartedUsingGpuDecode
 video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec = {
@@ -407,7 +407,7 @@ video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStopped
 video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec = {
@@ -420,7 +420,7 @@ video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 video_capture.mojom.VideoFrameHandlerPtr = video_capture.mojom.VideoFrameHandlerRemote;

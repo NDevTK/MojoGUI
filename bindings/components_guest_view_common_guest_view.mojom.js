@@ -52,7 +52,7 @@ guest_view.mojom.ViewHandle.getRemote = function() {
     'guest_view.mojom.ViewHandle',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 guest_view.mojom.ViewHandlePtr = guest_view.mojom.ViewHandleRemote;
@@ -120,7 +120,7 @@ guest_view.mojom.GuestViewHost.getRemote = function() {
     'guest_view.mojom.GuestViewHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AttachToEmbedderFrame
 guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec = {
@@ -136,7 +136,7 @@ guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ViewCreated
 guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec = {
@@ -152,7 +152,7 @@ guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 guest_view.mojom.GuestViewHostPtr = guest_view.mojom.GuestViewHostRemote;

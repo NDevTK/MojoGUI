@@ -61,7 +61,7 @@ content.mojom.ResourceUsageReporter.getRemote = function() {
     'content.mojom.ResourceUsageReporter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetUsageData
 content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec = {
@@ -74,7 +74,7 @@ content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.ResourceUsageReporterPtr = content.mojom.ResourceUsageReporterRemote;

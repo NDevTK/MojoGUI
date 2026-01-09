@@ -74,7 +74,7 @@ service_manager.mojom.ProcessMetadata.getRemote = function() {
     'service_manager.mojom.ProcessMetadata',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetPID
 service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec = {
@@ -88,7 +88,7 @@ service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 service_manager.mojom.ProcessMetadataPtr = service_manager.mojom.ProcessMetadataRemote;
@@ -183,7 +183,7 @@ service_manager.mojom.Connector.getRemote = function() {
     'service_manager.mojom.Connector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindInterface
 service_manager.mojom.Connector_BindInterface_ParamsSpec = {
@@ -200,7 +200,7 @@ service_manager.mojom.Connector_BindInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 service_manager.mojom.Connector_BindInterface_ResponseParamsSpec = {
   $: {
@@ -214,7 +214,7 @@ service_manager.mojom.Connector_BindInterface_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueryService
 service_manager.mojom.Connector_QueryService_ParamsSpec = {
@@ -228,7 +228,7 @@ service_manager.mojom.Connector_QueryService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 service_manager.mojom.Connector_QueryService_ResponseParamsSpec = {
   $: {
@@ -241,7 +241,7 @@ service_manager.mojom.Connector_QueryService_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WarmService
 service_manager.mojom.Connector_WarmService_ParamsSpec = {
@@ -255,7 +255,7 @@ service_manager.mojom.Connector_WarmService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 service_manager.mojom.Connector_WarmService_ResponseParamsSpec = {
   $: {
@@ -269,7 +269,7 @@ service_manager.mojom.Connector_WarmService_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterServiceInstance
 service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec = {
@@ -285,7 +285,7 @@ service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec = {
   $: {
@@ -298,7 +298,7 @@ service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 service_manager.mojom.Connector_Clone_ParamsSpec = {
@@ -312,7 +312,7 @@ service_manager.mojom.Connector_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 service_manager.mojom.ConnectorPtr = service_manager.mojom.ConnectorRemote;

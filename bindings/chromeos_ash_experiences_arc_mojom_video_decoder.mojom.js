@@ -61,7 +61,7 @@ arc.mojom.VideoDecoder.getRemote = function() {
     'arc.mojom.VideoDecoder',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.VideoDecoderPtr = arc.mojom.VideoDecoderRemote;
@@ -111,7 +111,7 @@ arc.mojom.VideoDecoderClient.getRemote = function() {
     'arc.mojom.VideoDecoderClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.VideoDecoderClientPtr = arc.mojom.VideoDecoderClientRemote;

@@ -70,7 +70,7 @@ viz.mojom.InfoCollectionGpuService.getRemote = function() {
     'viz.mojom.InfoCollectionGpuService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetGpuSupportedDirectXVersionAndDevicePerfInfo
 viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec = {
@@ -83,7 +83,7 @@ viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInf
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec = {
   $: {
@@ -99,7 +99,7 @@ viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInf
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetGpuSupportedVulkanVersionInfo
 viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec = {
@@ -112,7 +112,7 @@ viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec = {
   $: {
@@ -125,7 +125,7 @@ viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.InfoCollectionGpuServicePtr = viz.mojom.InfoCollectionGpuServiceRemote;

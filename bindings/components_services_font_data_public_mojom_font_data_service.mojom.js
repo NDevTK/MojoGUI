@@ -95,7 +95,7 @@ font_data_service.mojom.FontDataService.getRemote = function() {
     'font_data_service.mojom.FontDataService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for MatchFamilyName
 font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec = {
@@ -110,7 +110,7 @@ font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec = {
   $: {
@@ -123,7 +123,7 @@ font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MatchFamilyNameCharacter
 font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec = {
@@ -140,7 +140,7 @@ font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec = {
   $: {
@@ -153,7 +153,7 @@ font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllFamilyNames
 font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec = {
@@ -166,7 +166,7 @@ font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec = {
   $: {
@@ -179,7 +179,7 @@ font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LegacyMakeTypeface
 font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec = {
@@ -194,7 +194,7 @@ font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec = {
   $: {
@@ -207,7 +207,7 @@ font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 font_data_service.mojom.FontDataServicePtr = font_data_service.mojom.FontDataServiceRemote;

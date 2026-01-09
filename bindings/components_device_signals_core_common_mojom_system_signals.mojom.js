@@ -95,7 +95,7 @@ device_signals.mojom.SystemSignalsService.getRemote = function() {
     'device_signals.mojom.SystemSignalsService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetFileSystemSignals
 device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec = {
@@ -109,7 +109,7 @@ device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec = {
   $: {
@@ -122,7 +122,7 @@ device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAntiVirusSignals
 device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec = {
@@ -135,7 +135,7 @@ device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec = {
   $: {
@@ -148,7 +148,7 @@ device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetHotfixSignals
 device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec = {
@@ -161,7 +161,7 @@ device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec = {
   $: {
@@ -174,7 +174,7 @@ device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device_signals.mojom.SystemSignalsServicePtr = device_signals.mojom.SystemSignalsServiceRemote;

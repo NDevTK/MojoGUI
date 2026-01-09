@@ -59,7 +59,7 @@ arc.mojom.ArcShellExecutionInstance.getRemote = function() {
     'arc.mojom.ArcShellExecutionInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ArcShellExecutionInstancePtr = arc.mojom.ArcShellExecutionInstanceRemote;

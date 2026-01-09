@@ -85,7 +85,7 @@ device.mojom.InputDeviceManagerClient.getRemote = function() {
     'device.mojom.InputDeviceManagerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for InputDeviceAdded
 device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec = {
@@ -99,7 +99,7 @@ device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InputDeviceRemoved
 device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec = {
@@ -113,7 +113,7 @@ device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.InputDeviceManagerClientPtr = device.mojom.InputDeviceManagerClientRemote;
@@ -181,7 +181,7 @@ device.mojom.InputDeviceManager.getRemote = function() {
     'device.mojom.InputDeviceManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDevicesAndSetClient
 device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec = {
@@ -195,7 +195,7 @@ device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec = {
   $: {
@@ -208,7 +208,7 @@ device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDevices
 device.mojom.InputDeviceManager_GetDevices_ParamsSpec = {
@@ -221,7 +221,7 @@ device.mojom.InputDeviceManager_GetDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec = {
   $: {
@@ -234,7 +234,7 @@ device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.InputDeviceManagerPtr = device.mojom.InputDeviceManagerRemote;

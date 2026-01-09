@@ -88,7 +88,7 @@ visitedlink.mojom.VisitedLinkNotificationSink.getRemote = function() {
     'visitedlink.mojom.VisitedLinkNotificationSink',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateVisitedLinks
 visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec = {
@@ -102,7 +102,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddVisitedLinks
 visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec = {
@@ -116,7 +116,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetVisitedLinks
 visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec = {
@@ -130,7 +130,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateOriginSalts
 visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec = {
@@ -144,7 +144,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 visitedlink.mojom.VisitedLinkNotificationSinkPtr = visitedlink.mojom.VisitedLinkNotificationSinkRemote;

@@ -109,7 +109,7 @@ updater.mojom.UpdateService.getRemote = function() {
     'updater.mojom.UpdateService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 updater.mojom.UpdateServicePtr = updater.mojom.UpdateServiceRemote;
@@ -159,7 +159,7 @@ updater.mojom.StateChangeObserver.getRemote = function() {
     'updater.mojom.StateChangeObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 updater.mojom.StateChangeObserverPtr = updater.mojom.StateChangeObserverRemote;

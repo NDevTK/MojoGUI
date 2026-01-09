@@ -70,7 +70,7 @@ remote_cocoa.mojom.MenuHost.getRemote = function() {
     'remote_cocoa.mojom.MenuHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CommandActivated
 remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec = {
@@ -85,7 +85,7 @@ remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MenuClosed
 remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec = {
@@ -98,7 +98,7 @@ remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remote_cocoa.mojom.MenuHostPtr = remote_cocoa.mojom.MenuHostRemote;
@@ -166,7 +166,7 @@ remote_cocoa.mojom.Menu.getRemote = function() {
     'remote_cocoa.mojom.Menu',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Cancel
 remote_cocoa.mojom.Menu_Cancel_ParamsSpec = {
@@ -179,7 +179,7 @@ remote_cocoa.mojom.Menu_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateMenuItem
 remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec = {
@@ -196,7 +196,7 @@ remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remote_cocoa.mojom.MenuPtr = remote_cocoa.mojom.MenuRemote;

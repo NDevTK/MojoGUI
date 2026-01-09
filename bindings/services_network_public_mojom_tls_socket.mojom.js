@@ -52,7 +52,7 @@ network.mojom.TLSClientSocket.getRemote = function() {
     'network.mojom.TLSClientSocket',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 network.mojom.TLSClientSocketPtr = network.mojom.TLSClientSocketRemote;

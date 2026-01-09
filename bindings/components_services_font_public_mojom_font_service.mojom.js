@@ -129,7 +129,7 @@ font_service.mojom.FontService.getRemote = function() {
     'font_service.mojom.FontService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for MatchFamilyName
 font_service.mojom.FontService_MatchFamilyName_ParamsSpec = {
@@ -144,7 +144,7 @@ font_service.mojom.FontService_MatchFamilyName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec = {
   $: {
@@ -159,7 +159,7 @@ font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenStream
 font_service.mojom.FontService_OpenStream_ParamsSpec = {
@@ -173,7 +173,7 @@ font_service.mojom.FontService_OpenStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 font_service.mojom.FontService_OpenStream_ResponseParamsSpec = {
   $: {
@@ -186,7 +186,7 @@ font_service.mojom.FontService_OpenStream_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FallbackFontForCharacter
 font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec = {
@@ -201,7 +201,7 @@ font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec = {
   $: {
@@ -217,7 +217,7 @@ font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FontRenderStyleForStrike
 font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec = {
@@ -235,7 +235,7 @@ font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec = {
   $: {
@@ -248,7 +248,7 @@ font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MatchFontByPostscriptNameOrFullFontName
 font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec = {
@@ -262,7 +262,7 @@ font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec = {
   $: {
@@ -275,7 +275,7 @@ font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ListFamilies
 font_service.mojom.FontService_ListFamilies_ParamsSpec = {
@@ -288,7 +288,7 @@ font_service.mojom.FontService_ListFamilies_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 font_service.mojom.FontService_ListFamilies_ResponseParamsSpec = {
   $: {
@@ -301,7 +301,7 @@ font_service.mojom.FontService_ListFamilies_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MatchFontWithFallback
 font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec = {
@@ -319,7 +319,7 @@ font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec = {
   $: {
@@ -332,7 +332,7 @@ font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 font_service.mojom.FontServicePtr = font_service.mojom.FontServiceRemote;

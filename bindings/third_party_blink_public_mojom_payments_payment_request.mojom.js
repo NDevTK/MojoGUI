@@ -220,7 +220,7 @@ payments.mojom.PaymentRequestClient.getRemote = function() {
     'payments.mojom.PaymentRequestClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPaymentMethodChange
 payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec = {
@@ -235,7 +235,7 @@ payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnShippingAddressChange
 payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec = {
@@ -249,7 +249,7 @@ payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnShippingOptionChange
 payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec = {
@@ -263,7 +263,7 @@ payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPayerDetailChange
 payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec = {
@@ -277,7 +277,7 @@ payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPaymentResponse
 payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec = {
@@ -291,7 +291,7 @@ payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 payments.mojom.PaymentRequestClient_OnError_ParamsSpec = {
@@ -306,7 +306,7 @@ payments.mojom.PaymentRequestClient_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnComplete
 payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec = {
@@ -319,7 +319,7 @@ payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAbort
 payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec = {
@@ -333,7 +333,7 @@ payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCanMakePayment
 payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec = {
@@ -347,7 +347,7 @@ payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHasEnrolledInstrument
 payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec = {
@@ -361,7 +361,7 @@ payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WarnNoFavicon
 payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec = {
@@ -374,7 +374,7 @@ payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AllowConnectToSource
 payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec = {
@@ -390,7 +390,7 @@ payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec = {
   $: {
@@ -403,7 +403,7 @@ payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 payments.mojom.PaymentRequestClientPtr = payments.mojom.PaymentRequestClientRemote;
@@ -534,7 +534,7 @@ payments.mojom.PaymentRequest.getRemote = function() {
     'payments.mojom.PaymentRequest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Init
 payments.mojom.PaymentRequest_Init_ParamsSpec = {
@@ -551,7 +551,7 @@ payments.mojom.PaymentRequest_Init_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Show
 payments.mojom.PaymentRequest_Show_ParamsSpec = {
@@ -566,7 +566,7 @@ payments.mojom.PaymentRequest_Show_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateWith
 payments.mojom.PaymentRequest_UpdateWith_ParamsSpec = {
@@ -580,7 +580,7 @@ payments.mojom.PaymentRequest_UpdateWith_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPaymentDetailsNotUpdated
 payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec = {
@@ -593,7 +593,7 @@ payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Abort
 payments.mojom.PaymentRequest_Abort_ParamsSpec = {
@@ -606,7 +606,7 @@ payments.mojom.PaymentRequest_Abort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Complete
 payments.mojom.PaymentRequest_Complete_ParamsSpec = {
@@ -620,7 +620,7 @@ payments.mojom.PaymentRequest_Complete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Retry
 payments.mojom.PaymentRequest_Retry_ParamsSpec = {
@@ -634,7 +634,7 @@ payments.mojom.PaymentRequest_Retry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CanMakePayment
 payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec = {
@@ -647,7 +647,7 @@ payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HasEnrolledInstrument
 payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec = {
@@ -660,7 +660,7 @@ payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 payments.mojom.PaymentRequestPtr = payments.mojom.PaymentRequestRemote;

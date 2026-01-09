@@ -74,7 +74,7 @@ crosapi.mojom.VideoConferenceManagerClient.getRemote = function() {
     'crosapi.mojom.VideoConferenceManagerClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.VideoConferenceManagerClientPtr = crosapi.mojom.VideoConferenceManagerClientRemote;

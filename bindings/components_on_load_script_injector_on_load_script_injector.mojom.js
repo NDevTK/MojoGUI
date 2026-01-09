@@ -70,7 +70,7 @@ on_load_script_injector.mojom.OnLoadScriptInjector.getRemote = function() {
     'on_load_script_injector.mojom.OnLoadScriptInjector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddOnLoadScript
 on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec = {
@@ -84,7 +84,7 @@ on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearOnLoadScripts
 on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec = {
@@ -97,7 +97,7 @@ on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 on_load_script_injector.mojom.OnLoadScriptInjectorPtr = on_load_script_injector.mojom.OnLoadScriptInjectorRemote;

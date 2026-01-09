@@ -122,7 +122,7 @@ ntp_promo.mojom.NtpPromoHandler.getRemote = function() {
     'ntp_promo.mojom.NtpPromoHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestPromos
 ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec = {
@@ -135,7 +135,7 @@ ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPromosShown
 ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec = {
@@ -150,7 +150,7 @@ ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPromoClicked
 ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec = {
@@ -164,7 +164,7 @@ ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SnoozeSetupList
 ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec = {
@@ -177,7 +177,7 @@ ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnsnoozeSetupList
 ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec = {
@@ -190,7 +190,7 @@ ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableSetupList
 ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec = {
@@ -203,7 +203,7 @@ ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UndisableSetupList
 ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec = {
@@ -216,7 +216,7 @@ ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ntp_promo.mojom.NtpPromoHandlerPtr = ntp_promo.mojom.NtpPromoHandlerRemote;
@@ -275,7 +275,7 @@ ntp_promo.mojom.NtpPromoClient.getRemote = function() {
     'ntp_promo.mojom.NtpPromoClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetPromos
 ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec = {
@@ -290,7 +290,7 @@ ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ntp_promo.mojom.NtpPromoClientPtr = ntp_promo.mojom.NtpPromoClientRemote;
@@ -349,7 +349,7 @@ ntp_promo.mojom.NtpPromoHandlerFactory.getRemote = function() {
     'ntp_promo.mojom.NtpPromoHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateNtpPromoHandler
 ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = {
@@ -364,7 +364,7 @@ ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ntp_promo.mojom.NtpPromoHandlerFactoryPtr = ntp_promo.mojom.NtpPromoHandlerFactoryRemote;

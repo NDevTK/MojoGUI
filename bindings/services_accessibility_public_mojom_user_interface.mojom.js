@@ -119,7 +119,7 @@ ax.mojom.UserInterface.getRemote = function() {
     'ax.mojom.UserInterface',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DarkenScreen
 ax.mojom.UserInterface_DarkenScreen_ParamsSpec = {
@@ -133,7 +133,7 @@ ax.mojom.UserInterface_DarkenScreen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenSettingsSubpage
 ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec = {
@@ -147,7 +147,7 @@ ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowConfirmationDialog
 ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec = {
@@ -163,7 +163,7 @@ ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec = {
   $: {
@@ -176,7 +176,7 @@ ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFocusRings
 ax.mojom.UserInterface_SetFocusRings_ParamsSpec = {
@@ -191,7 +191,7 @@ ax.mojom.UserInterface_SetFocusRings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHighlights
 ax.mojom.UserInterface_SetHighlights_ParamsSpec = {
@@ -206,7 +206,7 @@ ax.mojom.UserInterface_SetHighlights_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVirtualKeyboardVisible
 ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec = {
@@ -220,7 +220,7 @@ ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ax.mojom.UserInterfacePtr = ax.mojom.UserInterfaceRemote;

@@ -62,7 +62,7 @@ ash.vm.mojom.VmDiagnosticsProvider.getRemote = function() {
     'ash.vm.mojom.VmDiagnosticsProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPluginVmDiagnostics
 ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec = {
@@ -75,7 +75,7 @@ ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.vm.mojom.VmDiagnosticsProviderPtr = ash.vm.mojom.VmDiagnosticsProviderRemote;

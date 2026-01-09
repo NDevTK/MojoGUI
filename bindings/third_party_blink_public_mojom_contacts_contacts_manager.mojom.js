@@ -61,7 +61,7 @@ blink.mojom.ContactsManager.getRemote = function() {
     'blink.mojom.ContactsManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Select
 blink.mojom.ContactsManager_Select_ParamsSpec = {
@@ -80,7 +80,7 @@ blink.mojom.ContactsManager_Select_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ContactsManager_Select_ResponseParamsSpec = {
   $: {
@@ -93,7 +93,7 @@ blink.mojom.ContactsManager_Select_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ContactsManagerPtr = blink.mojom.ContactsManagerRemote;

@@ -196,7 +196,7 @@ contextual_tasks.mojom.PageHandler.getRemote = function() {
     'contextual_tasks.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetThreadUrl
 contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec = {
@@ -209,7 +209,7 @@ contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec = {
   $: {
@@ -222,7 +222,7 @@ contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUrlForTask
 contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec = {
@@ -236,7 +236,7 @@ contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec = {
   $: {
@@ -249,7 +249,7 @@ contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTaskId
 contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec = {
@@ -263,7 +263,7 @@ contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsZeroState
 contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec = {
@@ -277,7 +277,7 @@ contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec = {
   $: {
@@ -290,7 +290,7 @@ contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetThreadTitle
 contextual_tasks.mojom.PageHandler_SetThreadTitle_ParamsSpec = {
@@ -304,7 +304,7 @@ contextual_tasks.mojom.PageHandler_SetThreadTitle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseSidePanel
 contextual_tasks.mojom.PageHandler_CloseSidePanel_ParamsSpec = {
@@ -317,7 +317,7 @@ contextual_tasks.mojom.PageHandler_CloseSidePanel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowThreadHistory
 contextual_tasks.mojom.PageHandler_ShowThreadHistory_ParamsSpec = {
@@ -330,7 +330,7 @@ contextual_tasks.mojom.PageHandler_ShowThreadHistory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsShownInTab
 contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec = {
@@ -343,7 +343,7 @@ contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec = {
   $: {
@@ -356,7 +356,7 @@ contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenMyActivityUi
 contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec = {
@@ -369,7 +369,7 @@ contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenHelpUi
 contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec = {
@@ -382,7 +382,7 @@ contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenOnboardingHelpUi
 contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec = {
@@ -395,7 +395,7 @@ contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MoveTaskUiToNewTab
 contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec = {
@@ -408,7 +408,7 @@ contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTabClickedFromSourcesMenu
 contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec = {
@@ -423,7 +423,7 @@ contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWebviewMessage
 contextual_tasks.mojom.PageHandler_OnWebviewMessage_ParamsSpec = {
@@ -437,7 +437,7 @@ contextual_tasks.mojom.PageHandler_OnWebviewMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCommonSearchParams
 contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec = {
@@ -452,7 +452,7 @@ contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec = {
   $: {
@@ -465,7 +465,7 @@ contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnboardingTooltipDismissed
 contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec = {
@@ -478,7 +478,7 @@ contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 contextual_tasks.mojom.PageHandlerPtr = contextual_tasks.mojom.PageHandlerRemote;
@@ -654,7 +654,7 @@ contextual_tasks.mojom.Page.getRemote = function() {
     'contextual_tasks.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetThreadTitle
 contextual_tasks.mojom.Page_SetThreadTitle_ParamsSpec = {
@@ -668,7 +668,7 @@ contextual_tasks.mojom.Page_SetThreadTitle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTaskDetails
 contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec = {
@@ -684,7 +684,7 @@ contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSidePanelStateChanged
 contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec = {
@@ -697,7 +697,7 @@ contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PostMessageToWebview
 contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec = {
@@ -711,7 +711,7 @@ contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHandshakeComplete
 contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec = {
@@ -724,7 +724,7 @@ contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetOAuthToken
 contextual_tasks.mojom.Page_SetOAuthToken_ParamsSpec = {
@@ -738,7 +738,7 @@ contextual_tasks.mojom.Page_SetOAuthToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnContextUpdated
 contextual_tasks.mojom.Page_OnContextUpdated_ParamsSpec = {
@@ -752,7 +752,7 @@ contextual_tasks.mojom.Page_OnContextUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HideInput
 contextual_tasks.mojom.Page_HideInput_ParamsSpec = {
@@ -765,7 +765,7 @@ contextual_tasks.mojom.Page_HideInput_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestoreInput
 contextual_tasks.mojom.Page_RestoreInput_ParamsSpec = {
@@ -778,7 +778,7 @@ contextual_tasks.mojom.Page_RestoreInput_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnZeroStateChange
 contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec = {
@@ -792,7 +792,7 @@ contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAiPageStatusChanged
 contextual_tasks.mojom.Page_OnAiPageStatusChanged_ParamsSpec = {
@@ -806,7 +806,7 @@ contextual_tasks.mojom.Page_OnAiPageStatusChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLensOverlayStateChanged
 contextual_tasks.mojom.Page_OnLensOverlayStateChanged_ParamsSpec = {
@@ -820,7 +820,7 @@ contextual_tasks.mojom.Page_OnLensOverlayStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowErrorPage
 contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec = {
@@ -833,7 +833,7 @@ contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HideErrorPage
 contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec = {
@@ -846,7 +846,7 @@ contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 contextual_tasks.mojom.PagePtr = contextual_tasks.mojom.PageRemote;
@@ -905,7 +905,7 @@ contextual_tasks.mojom.PageHandlerFactory.getRemote = function() {
     'contextual_tasks.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -920,7 +920,7 @@ contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 contextual_tasks.mojom.PageHandlerFactoryPtr = contextual_tasks.mojom.PageHandlerFactoryRemote;

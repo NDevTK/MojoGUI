@@ -121,7 +121,7 @@ crosapi.mojom.SearchResultsPublisher.getRemote = function() {
     'crosapi.mojom.SearchResultsPublisher',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.SearchResultsPublisherPtr = crosapi.mojom.SearchResultsPublisherRemote;
@@ -171,7 +171,7 @@ crosapi.mojom.SearchController.getRemote = function() {
     'crosapi.mojom.SearchController',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.SearchControllerPtr = crosapi.mojom.SearchControllerRemote;
@@ -221,7 +221,7 @@ crosapi.mojom.SearchResultConsumer.getRemote = function() {
     'crosapi.mojom.SearchResultConsumer',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.SearchResultConsumerPtr = crosapi.mojom.SearchResultConsumerRemote;

@@ -53,7 +53,7 @@ chromeos.cdm.mojom.BrowserCdmFactory.getRemote = function() {
     'chromeos.cdm.mojom.BrowserCdmFactory',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cdm.mojom.BrowserCdmFactoryPtr = chromeos.cdm.mojom.BrowserCdmFactoryRemote;

@@ -61,7 +61,7 @@ chromecast.mojom.ActivityUrlFilterConfiguration.getRemote = function() {
     'chromecast.mojom.ActivityUrlFilterConfiguration',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetFilter
 chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec = {
@@ -75,7 +75,7 @@ chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.ActivityUrlFilterConfigurationPtr = chromecast.mojom.ActivityUrlFilterConfigurationRemote;

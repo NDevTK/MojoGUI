@@ -70,7 +70,7 @@ updater.mojom.UpdateServiceInternal.getRemote = function() {
     'updater.mojom.UpdateServiceInternal',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Run
 updater.mojom.UpdateServiceInternal_Run_ParamsSpec = {
@@ -83,7 +83,7 @@ updater.mojom.UpdateServiceInternal_Run_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Hello
 updater.mojom.UpdateServiceInternal_Hello_ParamsSpec = {
@@ -96,7 +96,7 @@ updater.mojom.UpdateServiceInternal_Hello_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 updater.mojom.UpdateServiceInternalPtr = updater.mojom.UpdateServiceInternalRemote;

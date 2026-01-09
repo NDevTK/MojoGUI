@@ -70,7 +70,7 @@ video_capture.mojom.Producer.getRemote = function() {
     'video_capture.mojom.Producer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnNewBuffer
 video_capture.mojom.Producer_OnNewBuffer_ParamsSpec = {
@@ -85,7 +85,7 @@ video_capture.mojom.Producer_OnNewBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBufferRetired
 video_capture.mojom.Producer_OnBufferRetired_ParamsSpec = {
@@ -99,7 +99,7 @@ video_capture.mojom.Producer_OnBufferRetired_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 video_capture.mojom.ProducerPtr = video_capture.mojom.ProducerRemote;

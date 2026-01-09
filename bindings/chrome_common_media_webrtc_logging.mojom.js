@@ -70,7 +70,7 @@ chrome.mojom.WebRtcLoggingClient.getRemote = function() {
     'chrome.mojom.WebRtcLoggingClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAddMessages
 chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec = {
@@ -84,7 +84,7 @@ chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStopped
 chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec = {
@@ -97,7 +97,7 @@ chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.WebRtcLoggingClientPtr = chrome.mojom.WebRtcLoggingClientRemote;
@@ -165,7 +165,7 @@ chrome.mojom.WebRtcLoggingAgent.getRemote = function() {
     'chrome.mojom.WebRtcLoggingAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Start
 chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec = {
@@ -179,7 +179,7 @@ chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Stop
 chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec = {
@@ -192,7 +192,7 @@ chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.WebRtcLoggingAgentPtr = chrome.mojom.WebRtcLoggingAgentRemote;

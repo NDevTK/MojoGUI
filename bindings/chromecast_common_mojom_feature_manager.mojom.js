@@ -62,7 +62,7 @@ chromecast.shell.mojom.FeatureManager.getRemote = function() {
     'chromecast.shell.mojom.FeatureManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ConfigureFeatures
 chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec = {
@@ -76,7 +76,7 @@ chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.shell.mojom.FeatureManagerPtr = chromecast.shell.mojom.FeatureManagerRemote;

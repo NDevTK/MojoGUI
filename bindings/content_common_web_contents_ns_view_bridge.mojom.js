@@ -138,7 +138,7 @@ remote_cocoa.mojom.WebContentsNSView.getRemote = function() {
     'remote_cocoa.mojom.WebContentsNSView',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetParentNSView
 remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec = {
@@ -152,7 +152,7 @@ remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetParentNSView
 remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec = {
@@ -165,7 +165,7 @@ remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBounds
 remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec = {
@@ -179,7 +179,7 @@ remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVisible
 remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec = {
@@ -193,7 +193,7 @@ remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MakeFirstResponder
 remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec = {
@@ -206,7 +206,7 @@ remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TakeFocus
 remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec = {
@@ -220,7 +220,7 @@ remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartDrag
 remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec = {
@@ -239,7 +239,7 @@ remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Destroy
 remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec = {
@@ -252,7 +252,7 @@ remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remote_cocoa.mojom.WebContentsNSViewPtr = remote_cocoa.mojom.WebContentsNSViewRemote;
@@ -392,7 +392,7 @@ remote_cocoa.mojom.WebContentsNSViewHost.getRemote = function() {
     'remote_cocoa.mojom.WebContentsNSViewHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMouseEvent
 remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec = {
@@ -406,7 +406,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBecameFirstResponder
 remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec = {
@@ -420,7 +420,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowVisibilityChanged
 remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec = {
@@ -434,7 +434,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDropData
 remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec = {
@@ -448,7 +448,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DraggingEntered
 remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = {
@@ -462,7 +462,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec = {
   $: {
@@ -475,7 +475,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DraggingExited
 remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec = {
@@ -488,7 +488,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DraggingUpdated
 remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = {
@@ -502,7 +502,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec = {
   $: {
@@ -515,7 +515,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PerformDragOperation
 remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec = {
@@ -529,7 +529,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec = {
   $: {
@@ -542,7 +542,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DragPromisedFileTo
 remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = {
@@ -559,7 +559,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec = {
   $: {
@@ -572,7 +572,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EndDrag
 remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = {
@@ -588,7 +588,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remote_cocoa.mojom.WebContentsNSViewHostPtr = remote_cocoa.mojom.WebContentsNSViewHostRemote;

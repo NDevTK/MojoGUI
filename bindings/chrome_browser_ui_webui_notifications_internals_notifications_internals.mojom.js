@@ -61,7 +61,7 @@ notifications_internals.mojom.PageHandler.getRemote = function() {
     'notifications_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ScheduleNotification
 notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec = {
@@ -75,7 +75,7 @@ notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 notifications_internals.mojom.PageHandlerPtr = notifications_internals.mojom.PageHandlerRemote;

@@ -61,7 +61,7 @@ chromecast.mojom.MessageCallback.getRemote = function() {
     'chromecast.mojom.MessageCallback',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMessage
 chromecast.mojom.MessageCallback_OnMessage_ParamsSpec = {
@@ -75,7 +75,7 @@ chromecast.mojom.MessageCallback_OnMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.MessageCallbackPtr = chromecast.mojom.MessageCallbackRemote;
@@ -143,7 +143,7 @@ chromecast.mojom.WebUi.getRemote = function() {
     'chromecast.mojom.WebUi',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterMessageCallback
 chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec = {
@@ -158,7 +158,7 @@ chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CallJavascriptFunction
 chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec = {
@@ -173,7 +173,7 @@ chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.WebUiPtr = chromecast.mojom.WebUiRemote;
@@ -232,7 +232,7 @@ chromecast.mojom.Resources.getRemote = function() {
     'chromecast.mojom.Resources',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestResourceBytes
 chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec = {
@@ -246,7 +246,7 @@ chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec = {
   $: {
@@ -259,7 +259,7 @@ chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.ResourcesPtr = chromecast.mojom.ResourcesRemote;
@@ -327,7 +327,7 @@ chromecast.mojom.WebUiClient.getRemote = function() {
     'chromecast.mojom.WebUiClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateController
 chromecast.mojom.WebUiClient_CreateController_ParamsSpec = {
@@ -343,7 +343,7 @@ chromecast.mojom.WebUiClient_CreateController_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateResources
 chromecast.mojom.WebUiClient_CreateResources_ParamsSpec = {
@@ -358,7 +358,7 @@ chromecast.mojom.WebUiClient_CreateResources_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.WebUiClientPtr = chromecast.mojom.WebUiClientRemote;

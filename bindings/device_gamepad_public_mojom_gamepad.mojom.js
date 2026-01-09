@@ -115,7 +115,7 @@ device.mojom.GamepadObserver.getRemote = function() {
     'device.mojom.GamepadObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GamepadConnected
 device.mojom.GamepadObserver_GamepadConnected_ParamsSpec = {
@@ -130,7 +130,7 @@ device.mojom.GamepadObserver_GamepadConnected_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GamepadDisconnected
 device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec = {
@@ -145,7 +145,7 @@ device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GamepadRawInputChanged
 device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec = {
@@ -160,7 +160,7 @@ device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.GamepadObserverPtr = device.mojom.GamepadObserverRemote;
@@ -237,7 +237,7 @@ device.mojom.GamepadMonitor.getRemote = function() {
     'device.mojom.GamepadMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GamepadStartPolling
 device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec = {
@@ -250,7 +250,7 @@ device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec = {
   $: {
@@ -263,7 +263,7 @@ device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GamepadStopPolling
 device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec = {
@@ -276,7 +276,7 @@ device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetObserver
 device.mojom.GamepadMonitor_SetObserver_ParamsSpec = {
@@ -290,7 +290,7 @@ device.mojom.GamepadMonitor_SetObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.GamepadMonitorPtr = device.mojom.GamepadMonitorRemote;
@@ -358,7 +358,7 @@ device.mojom.GamepadHapticsManager.getRemote = function() {
     'device.mojom.GamepadHapticsManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PlayVibrationEffectOnce
 device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec = {
@@ -374,7 +374,7 @@ device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec = {
   $: {
@@ -387,7 +387,7 @@ device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetVibrationActuator
 device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec = {
@@ -401,7 +401,7 @@ device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec = {
   $: {
@@ -414,7 +414,7 @@ device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.GamepadHapticsManagerPtr = device.mojom.GamepadHapticsManagerRemote;

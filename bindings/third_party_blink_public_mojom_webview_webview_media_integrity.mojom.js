@@ -70,7 +70,7 @@ blink.mojom.WebViewMediaIntegrityService.getRemote = function() {
     'blink.mojom.WebViewMediaIntegrityService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetIntegrityProvider
 blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec = {
@@ -85,7 +85,7 @@ blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebViewMediaIntegrityServicePtr = blink.mojom.WebViewMediaIntegrityServiceRemote;
@@ -157,7 +157,7 @@ blink.mojom.WebViewMediaIntegrityProvider.getRemote = function() {
     'blink.mojom.WebViewMediaIntegrityProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestToken
 blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec = {
@@ -171,7 +171,7 @@ blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec = {
   $: {
@@ -184,7 +184,7 @@ blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebViewMediaIntegrityProviderPtr = blink.mojom.WebViewMediaIntegrityProviderRemote;

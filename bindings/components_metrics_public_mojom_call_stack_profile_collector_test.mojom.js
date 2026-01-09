@@ -61,7 +61,7 @@ metrics.mojom.CallStackProfileCollectorTest.getRemote = function() {
     'metrics.mojom.CallStackProfileCollectorTest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BounceSampledProfile
 metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec = {
@@ -75,7 +75,7 @@ metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 metrics.mojom.CallStackProfileCollectorTestPtr = metrics.mojom.CallStackProfileCollectorTestRemote;

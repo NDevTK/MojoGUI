@@ -52,7 +52,7 @@ arc.mojom.PrintSessionHost.getRemote = function() {
     'arc.mojom.PrintSessionHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.PrintSessionHostPtr = arc.mojom.PrintSessionHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.PrintSessionInstance.getRemote = function() {
     'arc.mojom.PrintSessionInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.PrintSessionInstancePtr = arc.mojom.PrintSessionInstanceRemote;
@@ -152,7 +152,7 @@ arc.mojom.PrintSpoolerHost.getRemote = function() {
     'arc.mojom.PrintSpoolerHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.PrintSpoolerHostPtr = arc.mojom.PrintSpoolerHostRemote;
@@ -202,7 +202,7 @@ arc.mojom.PrintSpoolerInstance.getRemote = function() {
     'arc.mojom.PrintSpoolerInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.PrintSpoolerInstancePtr = arc.mojom.PrintSpoolerInstanceRemote;

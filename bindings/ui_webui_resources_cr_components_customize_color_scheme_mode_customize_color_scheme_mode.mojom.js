@@ -68,7 +68,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory.getRemo
     'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateCustomizeColorSchemeModeHandler
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec = {
@@ -83,7 +83,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateC
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryPtr = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemote;
@@ -151,7 +151,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler.getRemote = fu
     'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetColorSchemeMode
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec = {
@@ -165,7 +165,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorScheme
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InitializeColorSchemeMode
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec = {
@@ -178,7 +178,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerPtr = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote;
@@ -237,7 +237,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient.getRemote = fun
     'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetColorSchemeMode
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec = {
@@ -251,7 +251,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeM
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientPtr = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote;

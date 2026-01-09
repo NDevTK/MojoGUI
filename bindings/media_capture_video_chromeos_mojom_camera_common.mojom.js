@@ -76,7 +76,7 @@ cros.mojom.CameraModuleCallbacks.getRemote = function() {
     'cros.mojom.CameraModuleCallbacks',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CameraModuleCallbacksPtr = cros.mojom.CameraModuleCallbacksRemote;
@@ -126,7 +126,7 @@ cros.mojom.VendorTagOps.getRemote = function() {
     'cros.mojom.VendorTagOps',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.VendorTagOpsPtr = cros.mojom.VendorTagOpsRemote;
@@ -176,7 +176,7 @@ cros.mojom.CameraModule.getRemote = function() {
     'cros.mojom.CameraModule',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CameraModulePtr = cros.mojom.CameraModuleRemote;

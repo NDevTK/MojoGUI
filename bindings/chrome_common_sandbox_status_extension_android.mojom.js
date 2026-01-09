@@ -61,7 +61,7 @@ chrome.mojom.SandboxStatusExtension.getRemote = function() {
     'chrome.mojom.SandboxStatusExtension',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddSandboxStatusExtension
 chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec = {
@@ -74,7 +74,7 @@ chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.SandboxStatusExtensionPtr = chrome.mojom.SandboxStatusExtensionRemote;

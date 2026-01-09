@@ -190,7 +190,7 @@ webnn.mojom.WebNNGraph.getRemote = function() {
     'webnn.mojom.WebNNGraph',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Dispatch
 webnn.mojom.WebNNGraph_Dispatch_ParamsSpec = {
@@ -205,7 +205,7 @@ webnn.mojom.WebNNGraph_Dispatch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 webnn.mojom.WebNNGraphPtr = webnn.mojom.WebNNGraphRemote;

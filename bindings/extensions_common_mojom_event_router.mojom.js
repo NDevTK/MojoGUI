@@ -160,7 +160,7 @@ extensions.mojom.EventRouter.getRemote = function() {
     'extensions.mojom.EventRouter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddListenerForMainThread
 extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec = {
@@ -174,7 +174,7 @@ extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddListenerForServiceWorker
 extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec = {
@@ -188,7 +188,7 @@ extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddLazyListenerForMainThread
 extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec = {
@@ -203,7 +203,7 @@ extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddLazyListenerForServiceWorker
 extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec = {
@@ -219,7 +219,7 @@ extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddFilteredListenerForMainThread
 extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec = {
@@ -236,7 +236,7 @@ extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddFilteredListenerForServiceWorker
 extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec = {
@@ -254,7 +254,7 @@ extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveListenerForMainThread
 extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec = {
@@ -268,7 +268,7 @@ extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveListenerForServiceWorker
 extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec = {
@@ -282,7 +282,7 @@ extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveLazyListenerForMainThread
 extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec = {
@@ -297,7 +297,7 @@ extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveLazyListenerForServiceWorker
 extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec = {
@@ -313,7 +313,7 @@ extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveFilteredListenerForMainThread
 extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec = {
@@ -330,7 +330,7 @@ extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveFilteredListenerForServiceWorker
 extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec = {
@@ -348,7 +348,7 @@ extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mojom.EventRouterPtr = extensions.mojom.EventRouterRemote;

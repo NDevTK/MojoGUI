@@ -85,7 +85,7 @@ patch.mojom.FilePatcher.getRemote = function() {
     'patch.mojom.FilePatcher',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PatchFilePuffPatch
 patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec = {
@@ -101,7 +101,7 @@ patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec = {
   $: {
@@ -114,7 +114,7 @@ patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PatchFileZucchini
 patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec = {
@@ -130,7 +130,7 @@ patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec = {
   $: {
@@ -143,7 +143,7 @@ patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 patch.mojom.FilePatcherPtr = patch.mojom.FilePatcherRemote;

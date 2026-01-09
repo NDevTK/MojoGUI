@@ -68,7 +68,7 @@ on_device_translation_internals.mojom.PageHandlerFactory.getRemote = function() 
     'on_device_translation_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -83,7 +83,7 @@ on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 on_device_translation_internals.mojom.PageHandlerFactoryPtr = on_device_translation_internals.mojom.PageHandlerFactoryRemote;
@@ -151,7 +151,7 @@ on_device_translation_internals.mojom.PageHandler.getRemote = function() {
     'on_device_translation_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for InstallLanguagePackage
 on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec = {
@@ -165,7 +165,7 @@ on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UninstallLanguagePackage
 on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec = {
@@ -179,7 +179,7 @@ on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 on_device_translation_internals.mojom.PageHandlerPtr = on_device_translation_internals.mojom.PageHandlerRemote;
@@ -238,7 +238,7 @@ on_device_translation_internals.mojom.Page.getRemote = function() {
     'on_device_translation_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnLanguagePackStatus
 on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec = {
@@ -252,7 +252,7 @@ on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 on_device_translation_internals.mojom.PagePtr = on_device_translation_internals.mojom.PageRemote;

@@ -61,7 +61,7 @@ wallet.mojom.BoardingPassExtractor.getRemote = function() {
     'wallet.mojom.BoardingPassExtractor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ExtractBoardingPass
 wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec = {
@@ -74,7 +74,7 @@ wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 wallet.mojom.BoardingPassExtractorPtr = wallet.mojom.BoardingPassExtractorRemote;

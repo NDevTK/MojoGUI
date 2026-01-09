@@ -76,7 +76,7 @@ recording.mojom.DriveFsQuotaDelegate.getRemote = function() {
     'recording.mojom.DriveFsQuotaDelegate',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDriveFsFreeSpaceBytes
 recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec = {
@@ -89,7 +89,7 @@ recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec = {
   $: {
@@ -102,7 +102,7 @@ recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 recording.mojom.DriveFsQuotaDelegatePtr = recording.mojom.DriveFsQuotaDelegateRemote;
@@ -161,7 +161,7 @@ recording.mojom.RecordingServiceClient.getRemote = function() {
     'recording.mojom.RecordingServiceClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnRecordingEnded
 recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec = {
@@ -176,7 +176,7 @@ recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 recording.mojom.RecordingServiceClientPtr = recording.mojom.RecordingServiceClientRemote;
@@ -289,7 +289,7 @@ recording.mojom.RecordingService.getRemote = function() {
     'recording.mojom.RecordingService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RecordFullscreen
 recording.mojom.RecordingService_RecordFullscreen_ParamsSpec = {
@@ -311,7 +311,7 @@ recording.mojom.RecordingService_RecordFullscreen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordWindow
 recording.mojom.RecordingService_RecordWindow_ParamsSpec = {
@@ -335,7 +335,7 @@ recording.mojom.RecordingService_RecordWindow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordRegion
 recording.mojom.RecordingService_RecordRegion_ParamsSpec = {
@@ -358,7 +358,7 @@ recording.mojom.RecordingService_RecordRegion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopRecording
 recording.mojom.RecordingService_StopRecording_ParamsSpec = {
@@ -371,7 +371,7 @@ recording.mojom.RecordingService_StopRecording_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRecordedWindowChangingRoot
 recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec = {
@@ -387,7 +387,7 @@ recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRecordedWindowSizeChanged
 recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec = {
@@ -401,7 +401,7 @@ recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameSinkSizeChanged
 recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec = {
@@ -416,7 +416,7 @@ recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 recording.mojom.RecordingServicePtr = recording.mojom.RecordingServiceRemote;

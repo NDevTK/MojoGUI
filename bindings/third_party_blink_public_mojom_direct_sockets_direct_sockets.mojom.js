@@ -88,7 +88,7 @@ blink.mojom.DirectSocketsService.getRemote = function() {
     'blink.mojom.DirectSocketsService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenTCPSocket
 blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec = {
@@ -104,7 +104,7 @@ blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec = {
   $: {
@@ -121,7 +121,7 @@ blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenConnectedUDPSocket
 blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec = {
@@ -137,7 +137,7 @@ blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec = {
   $: {
@@ -152,7 +152,7 @@ blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenBoundUDPSocket
 blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec = {
@@ -168,7 +168,7 @@ blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec = {
   $: {
@@ -182,7 +182,7 @@ blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenTCPServerSocket
 blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec = {
@@ -197,7 +197,7 @@ blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec = {
   $: {
@@ -211,7 +211,7 @@ blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DirectSocketsServicePtr = blink.mojom.DirectSocketsServiceRemote;

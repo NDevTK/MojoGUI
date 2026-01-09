@@ -61,7 +61,7 @@ arc.mojom.CompatibilityModeInstance.getRemote = function() {
     'arc.mojom.CompatibilityModeInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.CompatibilityModeInstancePtr = arc.mojom.CompatibilityModeInstanceRemote;

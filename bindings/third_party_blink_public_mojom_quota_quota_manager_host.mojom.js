@@ -61,7 +61,7 @@ blink.mojom.QuotaManagerHost.getRemote = function() {
     'blink.mojom.QuotaManagerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for QueryStorageUsageAndQuota
 blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec = {
@@ -74,7 +74,7 @@ blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec = {
   $: {
@@ -90,7 +90,7 @@ blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.QuotaManagerHostPtr = blink.mojom.QuotaManagerHostRemote;

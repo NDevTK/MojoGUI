@@ -106,7 +106,7 @@ ax.mojom.Automation.getRemote = function() {
     'ax.mojom.Automation',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DispatchTreeDestroyedEvent
 ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec = {
@@ -120,7 +120,7 @@ ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchActionResult
 ax.mojom.Automation_DispatchActionResult_ParamsSpec = {
@@ -135,7 +135,7 @@ ax.mojom.Automation_DispatchActionResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchAccessibilityEvents
 ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec = {
@@ -152,7 +152,7 @@ ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchAccessibilityLocationChange
 ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec = {
@@ -168,7 +168,7 @@ ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchAccessibilityScrollChange
 ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec = {
@@ -185,7 +185,7 @@ ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchGetTextLocationResult
 ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec = {
@@ -200,7 +200,7 @@ ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ax.mojom.AutomationPtr = ax.mojom.AutomationRemote;

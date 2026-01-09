@@ -61,7 +61,7 @@ password_manager.mojom.PageHandlerFactory.getRemote = function() {
     'password_manager.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 password_manager.mojom.PageHandlerFactoryPtr = password_manager.mojom.PageHandlerFactoryRemote;
@@ -243,7 +243,7 @@ password_manager.mojom.PageHandler.getRemote = function() {
     'password_manager.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ExtendAuthValidity
 password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec = {
@@ -256,7 +256,7 @@ password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteAllPasswordManagerData
 password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec = {
@@ -269,7 +269,7 @@ password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec = {
   $: {
@@ -282,7 +282,7 @@ password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CopyPlaintextBackupPassword
 password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec = {
@@ -296,7 +296,7 @@ password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec = {
   $: {
@@ -309,7 +309,7 @@ password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveBackupPassword
 password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec = {
@@ -323,7 +323,7 @@ password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetActorLoginPermissions
 password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec = {
@@ -336,7 +336,7 @@ password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec = {
   $: {
@@ -349,7 +349,7 @@ password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RevokeActorLoginPermission
 password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec = {
@@ -363,7 +363,7 @@ password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ChangePasswordManagerPin
 password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec = {
@@ -376,7 +376,7 @@ password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec = {
   $: {
@@ -389,7 +389,7 @@ password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowAddShortcutDialog
 password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec = {
@@ -402,7 +402,7 @@ password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsAccountStorageEnabled
 password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec = {
@@ -415,7 +415,7 @@ password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec = {
   $: {
@@ -428,7 +428,7 @@ password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAccountStorageEnabled
 password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec = {
@@ -442,7 +442,7 @@ password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShouldShowAccountStorageSettingToggle
 password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec = {
@@ -455,7 +455,7 @@ password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec = {
   $: {
@@ -468,7 +468,7 @@ password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsPasswordManagerPinAvailable
 password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec = {
@@ -481,7 +481,7 @@ password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec = {
   $: {
@@ -494,7 +494,7 @@ password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SwitchBiometricAuthBeforeFillingState
 password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec = {
@@ -507,7 +507,7 @@ password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec = {
   $: {
@@ -520,7 +520,7 @@ password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 password_manager.mojom.PageHandlerPtr = password_manager.mojom.PageHandlerRemote;
@@ -570,7 +570,7 @@ password_manager.mojom.Page.getRemote = function() {
     'password_manager.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 password_manager.mojom.PagePtr = password_manager.mojom.PageRemote;

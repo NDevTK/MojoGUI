@@ -60,7 +60,7 @@ mojom.ModuleEventSink.getRemote = function() {
     'mojom.ModuleEventSink',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnModuleEvents
 mojom.ModuleEventSink_OnModuleEvents_ParamsSpec = {
@@ -74,7 +74,7 @@ mojom.ModuleEventSink_OnModuleEvents_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mojom.ModuleEventSinkPtr = mojom.ModuleEventSinkRemote;

@@ -127,7 +127,7 @@ crosapi.mojom.DiagnosticsService.getRemote = function() {
     'crosapi.mojom.DiagnosticsService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.DiagnosticsServicePtr = crosapi.mojom.DiagnosticsServiceRemote;

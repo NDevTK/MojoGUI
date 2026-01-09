@@ -58,7 +58,7 @@ blink.mojom.ObservedFeature.getRemote = function() {
     'blink.mojom.ObservedFeature',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ObservedFeaturePtr = blink.mojom.ObservedFeatureRemote;
@@ -117,7 +117,7 @@ blink.mojom.FeatureObserver.getRemote = function() {
     'blink.mojom.FeatureObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Register
 blink.mojom.FeatureObserver_Register_ParamsSpec = {
@@ -132,7 +132,7 @@ blink.mojom.FeatureObserver_Register_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FeatureObserverPtr = blink.mojom.FeatureObserverRemote;

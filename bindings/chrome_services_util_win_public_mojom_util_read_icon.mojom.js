@@ -68,7 +68,7 @@ chrome.mojom.UtilReadIcon.getRemote = function() {
     'chrome.mojom.UtilReadIcon',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ReadIcon
 chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec = {
@@ -84,7 +84,7 @@ chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.UtilReadIconPtr = chrome.mojom.UtilReadIconRemote;

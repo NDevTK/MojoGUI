@@ -63,7 +63,7 @@ ash.settings.google_drive.mojom.PageHandlerFactory.getRemote = function() {
     'ash.settings.google_drive.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -78,7 +78,7 @@ ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.google_drive.mojom.PageHandlerFactoryPtr = ash.settings.google_drive.mojom.PageHandlerFactoryRemote;
@@ -164,7 +164,7 @@ ash.settings.google_drive.mojom.PageHandler.getRemote = function() {
     'ash.settings.google_drive.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CalculateRequiredSpace
 ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec = {
@@ -177,7 +177,7 @@ ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetContentCacheSize
 ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec = {
@@ -190,7 +190,7 @@ ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec = {
   $: {
@@ -203,7 +203,7 @@ ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearPinnedFiles
 ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec = {
@@ -216,7 +216,7 @@ ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordBulkPinningEnabledMetric
 ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec = {
@@ -229,7 +229,7 @@ ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.google_drive.mojom.PageHandlerPtr = ash.settings.google_drive.mojom.PageHandlerRemote;
@@ -297,7 +297,7 @@ ash.settings.google_drive.mojom.Page.getRemote = function() {
     'ash.settings.google_drive.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnServiceUnavailable
 ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec = {
@@ -310,7 +310,7 @@ ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnProgress
 ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec = {
@@ -324,7 +324,7 @@ ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.google_drive.mojom.PagePtr = ash.settings.google_drive.mojom.PageRemote;

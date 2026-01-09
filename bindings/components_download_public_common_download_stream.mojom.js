@@ -75,7 +75,7 @@ download.mojom.DownloadStreamClient.getRemote = function() {
     'download.mojom.DownloadStreamClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStreamCompleted
 download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
@@ -89,7 +89,7 @@ download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 download.mojom.DownloadStreamClientPtr = download.mojom.DownloadStreamClientRemote;

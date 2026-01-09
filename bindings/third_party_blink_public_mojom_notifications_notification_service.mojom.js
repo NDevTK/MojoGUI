@@ -86,7 +86,7 @@ blink.mojom.NonPersistentNotificationListener.getRemote = function() {
     'blink.mojom.NonPersistentNotificationListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnShow
 blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec = {
@@ -99,7 +99,7 @@ blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClick
 blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec = {
@@ -112,7 +112,7 @@ blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClose
 blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec = {
@@ -125,7 +125,7 @@ blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.NonPersistentNotificationListenerPtr = blink.mojom.NonPersistentNotificationListenerRemote;
@@ -229,7 +229,7 @@ blink.mojom.NotificationService.getRemote = function() {
     'blink.mojom.NotificationService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPermissionStatus
 blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec = {
@@ -242,7 +242,7 @@ blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec = {
   $: {
@@ -255,7 +255,7 @@ blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisplayNonPersistentNotification
 blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec = {
@@ -272,7 +272,7 @@ blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseNonPersistentNotification
 blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec = {
@@ -286,7 +286,7 @@ blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisplayPersistentNotification
 blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec = {
@@ -302,7 +302,7 @@ blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec = {
   $: {
@@ -315,7 +315,7 @@ blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClosePersistentNotification
 blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec = {
@@ -329,7 +329,7 @@ blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNotifications
 blink.mojom.NotificationService_GetNotifications_ParamsSpec = {
@@ -345,7 +345,7 @@ blink.mojom.NotificationService_GetNotifications_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec = {
   $: {
@@ -359,7 +359,7 @@ blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.NotificationServicePtr = blink.mojom.NotificationServiceRemote;

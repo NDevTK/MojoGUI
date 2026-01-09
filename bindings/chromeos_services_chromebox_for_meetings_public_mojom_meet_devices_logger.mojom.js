@@ -88,7 +88,7 @@ chromeos.cfm.mojom.LoggerStateObserver.getRemote = function() {
     'chromeos.cfm.mojom.LoggerStateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cfm.mojom.LoggerStateObserverPtr = chromeos.cfm.mojom.LoggerStateObserverRemote;
@@ -138,7 +138,7 @@ chromeos.cfm.mojom.MeetDevicesLogger.getRemote = function() {
     'chromeos.cfm.mojom.MeetDevicesLogger',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cfm.mojom.MeetDevicesLoggerPtr = chromeos.cfm.mojom.MeetDevicesLoggerRemote;

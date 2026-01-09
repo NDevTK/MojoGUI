@@ -75,7 +75,7 @@ app_home.mojom.PageHandlerFactory.getRemote = function() {
     'app_home.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -90,7 +90,7 @@ app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 app_home.mojom.PageHandlerFactoryPtr = app_home.mojom.PageHandlerFactoryRemote;
@@ -230,7 +230,7 @@ app_home.mojom.PageHandler.getRemote = function() {
     'app_home.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetApps
 app_home.mojom.PageHandler_GetApps_ParamsSpec = {
@@ -243,7 +243,7 @@ app_home.mojom.PageHandler_GetApps_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 app_home.mojom.PageHandler_GetApps_ResponseParamsSpec = {
   $: {
@@ -256,7 +256,7 @@ app_home.mojom.PageHandler_GetApps_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDeprecationLinkString
 app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec = {
@@ -269,7 +269,7 @@ app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec = {
   $: {
@@ -282,7 +282,7 @@ app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UninstallApp
 app_home.mojom.PageHandler_UninstallApp_ParamsSpec = {
@@ -296,7 +296,7 @@ app_home.mojom.PageHandler_UninstallApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowAppSettings
 app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec = {
@@ -310,7 +310,7 @@ app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateAppShortcut
 app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec = {
@@ -324,7 +324,7 @@ app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LaunchApp
 app_home.mojom.PageHandler_LaunchApp_ParamsSpec = {
@@ -339,7 +339,7 @@ app_home.mojom.PageHandler_LaunchApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetRunOnOsLoginMode
 app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
@@ -354,7 +354,7 @@ app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LaunchDeprecatedAppDialog
 app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec = {
@@ -367,7 +367,7 @@ app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InstallAppLocally
 app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec = {
@@ -381,7 +381,7 @@ app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUserDisplayMode
 app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec = {
@@ -396,7 +396,7 @@ app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 app_home.mojom.PageHandlerPtr = app_home.mojom.PageHandlerRemote;
@@ -473,7 +473,7 @@ app_home.mojom.Page.getRemote = function() {
     'app_home.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddApp
 app_home.mojom.Page_AddApp_ParamsSpec = {
@@ -487,7 +487,7 @@ app_home.mojom.Page_AddApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveApp
 app_home.mojom.Page_RemoveApp_ParamsSpec = {
@@ -501,7 +501,7 @@ app_home.mojom.Page_RemoveApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateApp
 app_home.mojom.Page_UpdateApp_ParamsSpec = {
@@ -515,7 +515,7 @@ app_home.mojom.Page_UpdateApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 app_home.mojom.PagePtr = app_home.mojom.PageRemote;

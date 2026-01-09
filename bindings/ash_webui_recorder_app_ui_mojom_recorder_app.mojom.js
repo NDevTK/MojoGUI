@@ -72,7 +72,7 @@ ash.recorder_app.mojom.ModelStateMonitor.getRemote = function() {
     'ash.recorder_app.mojom.ModelStateMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Update
 ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec = {
@@ -86,7 +86,7 @@ ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.recorder_app.mojom.ModelStateMonitorPtr = ash.recorder_app.mojom.ModelStateMonitorRemote;
@@ -145,7 +145,7 @@ ash.recorder_app.mojom.QuietModeMonitor.getRemote = function() {
     'ash.recorder_app.mojom.QuietModeMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Update
 ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec = {
@@ -159,7 +159,7 @@ ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.recorder_app.mojom.QuietModeMonitorPtr = ash.recorder_app.mojom.QuietModeMonitorRemote;
@@ -362,7 +362,7 @@ ash.recorder_app.mojom.PageHandler.getRemote = function() {
     'ash.recorder_app.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetModelInfo
 ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec = {
@@ -376,7 +376,7 @@ ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
   $: {
@@ -389,7 +389,7 @@ ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadModel
 ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec = {
@@ -404,7 +404,7 @@ ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
   $: {
@@ -417,7 +417,7 @@ ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FormatModelInput
 ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec = {
@@ -433,7 +433,7 @@ ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec = {
   $: {
@@ -446,7 +446,7 @@ ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ValidateSafetyResult
 ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec = {
@@ -462,7 +462,7 @@ ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec = {
   $: {
@@ -475,7 +475,7 @@ ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddModelMonitor
 ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec = {
@@ -490,7 +490,7 @@ ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec = {
   $: {
@@ -503,7 +503,7 @@ ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAvailableLangPacks
 ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec = {
@@ -516,7 +516,7 @@ ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec = {
   $: {
@@ -529,7 +529,7 @@ ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDefaultLanguage
 ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec = {
@@ -542,7 +542,7 @@ ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec = {
   $: {
@@ -555,7 +555,7 @@ ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddSodaMonitor
 ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec = {
@@ -570,7 +570,7 @@ ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec = {
   $: {
@@ -583,7 +583,7 @@ ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InstallSoda
 ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec = {
@@ -597,7 +597,7 @@ ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadSpeechRecognizer
 ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec = {
@@ -613,7 +613,7 @@ ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec = {
   $: {
@@ -626,7 +626,7 @@ ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenAiFeedbackDialog
 ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec = {
@@ -640,7 +640,7 @@ ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMicrophoneInfo
 ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec = {
@@ -654,7 +654,7 @@ ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec = {
   $: {
@@ -667,7 +667,7 @@ ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddQuietModeMonitor
 ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec = {
@@ -681,7 +681,7 @@ ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec = {
   $: {
@@ -694,7 +694,7 @@ ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetQuietMode
 ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec = {
@@ -708,7 +708,7 @@ ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CanUseSpeakerLabel
 ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec = {
@@ -721,7 +721,7 @@ ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec = {
   $: {
@@ -734,7 +734,7 @@ ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordSpeakerLabelConsent
 ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec = {
@@ -750,7 +750,7 @@ ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CanCaptureSystemAudioWithLoopback
 ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec = {
@@ -763,7 +763,7 @@ ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec = {
   $: {
@@ -776,7 +776,7 @@ ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.recorder_app.mojom.PageHandlerPtr = ash.recorder_app.mojom.PageHandlerRemote;

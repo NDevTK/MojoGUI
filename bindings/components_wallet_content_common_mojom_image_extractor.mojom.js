@@ -61,7 +61,7 @@ wallet.mojom.ImageExtractor.getRemote = function() {
     'wallet.mojom.ImageExtractor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ExtractImages
 wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec = {
@@ -74,7 +74,7 @@ wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 wallet.mojom.ImageExtractorPtr = wallet.mojom.ImageExtractorRemote;

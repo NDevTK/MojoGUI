@@ -101,7 +101,7 @@ auction_worklet.mojom.GenerateBidClient.getRemote = function() {
     'auction_worklet.mojom.GenerateBidClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnBiddingSignalsReceived
 auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec = {
@@ -117,7 +117,7 @@ auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnGenerateBidComplete
 auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec = {
@@ -143,7 +143,7 @@ auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 auction_worklet.mojom.GenerateBidClientPtr = auction_worklet.mojom.GenerateBidClientRemote;
@@ -202,7 +202,7 @@ auction_worklet.mojom.GenerateBidFinalizer.getRemote = function() {
     'auction_worklet.mojom.GenerateBidFinalizer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FinishGenerateBid
 auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec = {
@@ -223,7 +223,7 @@ auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 auction_worklet.mojom.GenerateBidFinalizerPtr = auction_worklet.mojom.GenerateBidFinalizerRemote;
@@ -309,7 +309,7 @@ auction_worklet.mojom.BidderWorklet.getRemote = function() {
     'auction_worklet.mojom.BidderWorklet',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BeginGenerateBid
 auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec = {
@@ -340,7 +340,7 @@ auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendPendingSignalsRequests
 auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec = {
@@ -353,7 +353,7 @@ auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportWin
 auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec = {
@@ -395,7 +395,7 @@ auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec = {
   $: {
@@ -414,7 +414,7 @@ auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConnectDevToolsAgent
 auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec = {
@@ -429,7 +429,7 @@ auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 auction_worklet.mojom.BidderWorkletPtr = auction_worklet.mojom.BidderWorkletRemote;

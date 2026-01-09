@@ -73,7 +73,7 @@ network.mojom.SSLConfigClient.getRemote = function() {
     'network.mojom.SSLConfigClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSSLConfigUpdated
 network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = {
@@ -87,7 +87,7 @@ network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.SSLConfigClientPtr = network.mojom.SSLConfigClientRemote;

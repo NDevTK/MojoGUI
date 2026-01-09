@@ -82,7 +82,7 @@ heap_profiling.mojom.ProfilingClient.getRemote = function() {
     'heap_profiling.mojom.ProfilingClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartProfiling
 heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec = {
@@ -96,7 +96,7 @@ heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RetrieveHeapProfile
 heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec = {
@@ -109,7 +109,7 @@ heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec = {
   $: {
@@ -122,7 +122,7 @@ heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 heap_profiling.mojom.ProfilingClientPtr = heap_profiling.mojom.ProfilingClientRemote;

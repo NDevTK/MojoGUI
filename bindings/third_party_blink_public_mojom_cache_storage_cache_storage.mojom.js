@@ -127,7 +127,7 @@ blink.mojom.CacheStorageCache.getRemote = function() {
     'blink.mojom.CacheStorageCache',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Match
 blink.mojom.CacheStorageCache_Match_ParamsSpec = {
@@ -145,7 +145,7 @@ blink.mojom.CacheStorageCache_Match_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MatchAll
 blink.mojom.CacheStorageCache_MatchAll_ParamsSpec = {
@@ -161,7 +161,7 @@ blink.mojom.CacheStorageCache_MatchAll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllMatchedEntries
 blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec = {
@@ -177,7 +177,7 @@ blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Keys
 blink.mojom.CacheStorageCache_Keys_ParamsSpec = {
@@ -193,7 +193,7 @@ blink.mojom.CacheStorageCache_Keys_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Batch
 blink.mojom.CacheStorageCache_Batch_ParamsSpec = {
@@ -208,7 +208,7 @@ blink.mojom.CacheStorageCache_Batch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec = {
   $: {
@@ -221,7 +221,7 @@ blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteSideData
 blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec = {
@@ -238,7 +238,7 @@ blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec = {
   $: {
@@ -251,7 +251,7 @@ blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.CacheStorageCachePtr = blink.mojom.CacheStorageCacheRemote;
@@ -346,7 +346,7 @@ blink.mojom.CacheStorage.getRemote = function() {
     'blink.mojom.CacheStorage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Has
 blink.mojom.CacheStorage_Has_ParamsSpec = {
@@ -361,7 +361,7 @@ blink.mojom.CacheStorage_Has_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.CacheStorage_Has_ResponseParamsSpec = {
   $: {
@@ -374,7 +374,7 @@ blink.mojom.CacheStorage_Has_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Delete
 blink.mojom.CacheStorage_Delete_ParamsSpec = {
@@ -389,7 +389,7 @@ blink.mojom.CacheStorage_Delete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.CacheStorage_Delete_ResponseParamsSpec = {
   $: {
@@ -402,7 +402,7 @@ blink.mojom.CacheStorage_Delete_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Keys
 blink.mojom.CacheStorage_Keys_ParamsSpec = {
@@ -416,7 +416,7 @@ blink.mojom.CacheStorage_Keys_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.CacheStorage_Keys_ResponseParamsSpec = {
   $: {
@@ -429,7 +429,7 @@ blink.mojom.CacheStorage_Keys_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Match
 blink.mojom.CacheStorage_Match_ParamsSpec = {
@@ -447,7 +447,7 @@ blink.mojom.CacheStorage_Match_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Open
 blink.mojom.CacheStorage_Open_ParamsSpec = {
@@ -462,7 +462,7 @@ blink.mojom.CacheStorage_Open_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.CacheStoragePtr = blink.mojom.CacheStorageRemote;

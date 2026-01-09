@@ -57,7 +57,7 @@ arc.mojom.PipHost.getRemote = function() {
     'arc.mojom.PipHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.PipHostPtr = arc.mojom.PipHostRemote;
@@ -107,7 +107,7 @@ arc.mojom.PipInstance.getRemote = function() {
     'arc.mojom.PipInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.PipInstancePtr = arc.mojom.PipInstanceRemote;

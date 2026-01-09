@@ -79,7 +79,7 @@ chrome.mojom.NetErrorPageSupport.getRemote = function() {
     'chrome.mojom.NetErrorPageSupport',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DownloadPageLater
 chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = {
@@ -92,7 +92,7 @@ chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsShowingDownloadButtonInErrorPage
 chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec = {
@@ -106,7 +106,7 @@ chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowPortalSignin
 chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = {
@@ -119,7 +119,7 @@ chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.NetErrorPageSupportPtr = chrome.mojom.NetErrorPageSupportRemote;

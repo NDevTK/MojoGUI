@@ -90,7 +90,7 @@ blink.mojom.PushMessaging.getRemote = function() {
     'blink.mojom.PushMessaging',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Subscribe
 blink.mojom.PushMessaging_Subscribe_ParamsSpec = {
@@ -106,7 +106,7 @@ blink.mojom.PushMessaging_Subscribe_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec = {
   $: {
@@ -120,7 +120,7 @@ blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Unsubscribe
 blink.mojom.PushMessaging_Unsubscribe_ParamsSpec = {
@@ -134,7 +134,7 @@ blink.mojom.PushMessaging_Unsubscribe_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec = {
   $: {
@@ -149,7 +149,7 @@ blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSubscription
 blink.mojom.PushMessaging_GetSubscription_ParamsSpec = {
@@ -163,7 +163,7 @@ blink.mojom.PushMessaging_GetSubscription_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec = {
   $: {
@@ -177,7 +177,7 @@ blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PushMessagingPtr = blink.mojom.PushMessagingRemote;

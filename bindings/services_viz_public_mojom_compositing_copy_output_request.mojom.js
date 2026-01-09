@@ -61,7 +61,7 @@ viz.mojom.CopyOutputResultSender.getRemote = function() {
     'viz.mojom.CopyOutputResultSender',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendResult
 viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec = {
@@ -75,7 +75,7 @@ viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.CopyOutputResultSenderPtr = viz.mojom.CopyOutputResultSenderRemote;

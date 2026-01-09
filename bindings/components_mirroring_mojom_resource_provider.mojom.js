@@ -61,7 +61,7 @@ mirroring.mojom.AudioStreamCreatorClient.getRemote = function() {
     'mirroring.mojom.AudioStreamCreatorClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StreamCreated
 mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec = {
@@ -77,7 +77,7 @@ mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mirroring.mojom.AudioStreamCreatorClientPtr = mirroring.mojom.AudioStreamCreatorClientRemote;
@@ -181,7 +181,7 @@ mirroring.mojom.ResourceProvider.getRemote = function() {
     'mirroring.mojom.ResourceProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindGpu
 mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec = {
@@ -195,7 +195,7 @@ mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetVideoCaptureHost
 mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec = {
@@ -209,7 +209,7 @@ mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetVideoEncoderMetricsProvider
 mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec = {
@@ -223,7 +223,7 @@ mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNetworkContext
 mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec = {
@@ -237,7 +237,7 @@ mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateAudioStream
 mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec = {
@@ -253,7 +253,7 @@ mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConnectToRemotingSource
 mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec = {
@@ -268,7 +268,7 @@ mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mirroring.mojom.ResourceProviderPtr = mirroring.mojom.ResourceProviderRemote;

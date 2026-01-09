@@ -61,7 +61,7 @@ enterprise_reporting.mojom.PageHandlerFactory.getRemote = function() {
     'enterprise_reporting.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 enterprise_reporting.mojom.PageHandlerFactoryPtr = enterprise_reporting.mojom.PageHandlerFactoryRemote;
@@ -153,7 +153,7 @@ enterprise_reporting.mojom.PageHandler.getRemote = function() {
     'enterprise_reporting.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RecordDebugState
 enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec = {
@@ -167,7 +167,7 @@ enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDebugState
 enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec = {
@@ -180,7 +180,7 @@ enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec = {
   $: {
@@ -193,7 +193,7 @@ enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetErpHistoryData
 enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec = {
@@ -206,7 +206,7 @@ enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec = {
   $: {
@@ -219,7 +219,7 @@ enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 enterprise_reporting.mojom.PageHandlerPtr = enterprise_reporting.mojom.PageHandlerRemote;
@@ -278,7 +278,7 @@ enterprise_reporting.mojom.Page.getRemote = function() {
     'enterprise_reporting.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetErpHistoryData
 enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec = {
@@ -292,7 +292,7 @@ enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 enterprise_reporting.mojom.PagePtr = enterprise_reporting.mojom.PageRemote;

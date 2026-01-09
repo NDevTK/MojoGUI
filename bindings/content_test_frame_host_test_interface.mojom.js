@@ -61,7 +61,7 @@ content.mojom.FrameHostTestInterface.getRemote = function() {
     'content.mojom.FrameHostTestInterface',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Ping
 content.mojom.FrameHostTestInterface_Ping_ParamsSpec = {
@@ -76,7 +76,7 @@ content.mojom.FrameHostTestInterface_Ping_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.FrameHostTestInterfacePtr = content.mojom.FrameHostTestInterfaceRemote;

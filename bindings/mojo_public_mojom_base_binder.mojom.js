@@ -52,7 +52,7 @@ mojo_base.mojom.Binder.getRemote = function() {
     'mojo_base.mojom.Binder',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 mojo_base.mojom.BinderPtr = mojo_base.mojom.BinderRemote;

@@ -61,7 +61,7 @@ blink.mojom.PaidContentMetadataObserver.getRemote = function() {
     'blink.mojom.PaidContentMetadataObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPaidContentMetadataChanged
 blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PaidContentMetadataObserverPtr = blink.mojom.PaidContentMetadataObserverRemote;
@@ -134,7 +134,7 @@ blink.mojom.MetaTagsObserver.getRemote = function() {
     'blink.mojom.MetaTagsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMetaTagsChanged
 blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec = {
@@ -148,7 +148,7 @@ blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.MetaTagsObserverPtr = blink.mojom.MetaTagsObserverRemote;
@@ -216,7 +216,7 @@ blink.mojom.FrameMetadataObserverRegistry.getRemote = function() {
     'blink.mojom.FrameMetadataObserverRegistry',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddPaidContentMetadataObserver
 blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec = {
@@ -230,7 +230,7 @@ blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddMetaTagsObserver
 blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec = {
@@ -245,7 +245,7 @@ blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FrameMetadataObserverRegistryPtr = blink.mojom.FrameMetadataObserverRegistryRemote;

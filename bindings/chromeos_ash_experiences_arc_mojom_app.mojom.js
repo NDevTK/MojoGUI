@@ -125,7 +125,7 @@ arc.mojom.AppHost.getRemote = function() {
     'arc.mojom.AppHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.AppHostPtr = arc.mojom.AppHostRemote;
@@ -175,7 +175,7 @@ arc.mojom.AppInstance.getRemote = function() {
     'arc.mojom.AppInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.AppInstancePtr = arc.mojom.AppInstanceRemote;

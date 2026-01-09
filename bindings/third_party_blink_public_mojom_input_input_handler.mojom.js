@@ -160,7 +160,7 @@ blink.mojom.WidgetInputHandlerHost.getRemote = function() {
     'blink.mojom.WidgetInputHandlerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetTouchActionFromMain
 blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec = {
@@ -174,7 +174,7 @@ blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPanAction
 blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec = {
@@ -188,7 +188,7 @@ blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidOverscroll
 blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec = {
@@ -202,7 +202,7 @@ blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidStartScrollingViewport
 blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec = {
@@ -215,7 +215,7 @@ blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ImeCancelComposition
 blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec = {
@@ -228,7 +228,7 @@ blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ImeCompositionRangeChanged
 blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec = {
@@ -243,7 +243,7 @@ blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMouseCapture
 blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec = {
@@ -257,7 +257,7 @@ blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAutoscrollSelectionActiveInMainFrame
 blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec = {
@@ -271,7 +271,7 @@ blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestMouseLock
 blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec = {
@@ -286,7 +286,7 @@ blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec = {
   $: {
@@ -300,7 +300,7 @@ blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WidgetInputHandlerHostPtr = blink.mojom.WidgetInputHandlerHostRemote;
@@ -647,7 +647,7 @@ blink.mojom.FrameWidgetInputHandler.getRemote = function() {
     'blink.mojom.FrameWidgetInputHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddImeTextSpansToExistingText
 blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec = {
@@ -663,7 +663,7 @@ blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearImeTextSpansByType
 blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec = {
@@ -679,7 +679,7 @@ blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCompositionFromExistingText
 blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec = {
@@ -695,7 +695,7 @@ blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExtendSelectionAndDelete
 blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec = {
@@ -710,7 +710,7 @@ blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExtendSelectionAndReplace
 blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec = {
@@ -726,7 +726,7 @@ blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteSurroundingText
 blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec = {
@@ -741,7 +741,7 @@ blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteSurroundingTextInCodePoints
 blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec = {
@@ -756,7 +756,7 @@ blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetEditableSelectionOffsets
 blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec = {
@@ -771,7 +771,7 @@ blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleStylusWritingGestureAction
 blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec = {
@@ -785,7 +785,7 @@ blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec = {
   $: {
@@ -798,7 +798,7 @@ blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteEditCommand
 blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec = {
@@ -813,7 +813,7 @@ blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Undo
 blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec = {
@@ -826,7 +826,7 @@ blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Redo
 blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec = {
@@ -839,7 +839,7 @@ blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Cut
 blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec = {
@@ -852,7 +852,7 @@ blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Copy
 blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec = {
@@ -865,7 +865,7 @@ blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CopyToFindPboard
 blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec = {
@@ -878,7 +878,7 @@ blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CenterSelection
 blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec = {
@@ -891,7 +891,7 @@ blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Paste
 blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec = {
@@ -904,7 +904,7 @@ blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PasteAndMatchStyle
 blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec = {
@@ -917,7 +917,7 @@ blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Delete
 blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec = {
@@ -930,7 +930,7 @@ blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectAll
 blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec = {
@@ -943,7 +943,7 @@ blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CollapseSelection
 blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec = {
@@ -956,7 +956,7 @@ blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Replace
 blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec = {
@@ -970,7 +970,7 @@ blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReplaceMisspelling
 blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec = {
@@ -984,7 +984,7 @@ blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectRange
 blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec = {
@@ -999,7 +999,7 @@ blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AdjustSelectionByCharacterOffset
 blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec = {
@@ -1015,7 +1015,7 @@ blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectAroundCaret
 blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec = {
@@ -1031,7 +1031,7 @@ blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec = {
   $: {
@@ -1044,7 +1044,7 @@ blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MoveRangeSelectionExtent
 blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec = {
@@ -1058,7 +1058,7 @@ blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ScrollFocusedEditableNodeIntoView
 blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec = {
@@ -1071,7 +1071,7 @@ blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitForPageScaleAnimationForTesting
 blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec = {
@@ -1084,7 +1084,7 @@ blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MoveCaret
 blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec = {
@@ -1098,7 +1098,7 @@ blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartAutoscrollForSelectionToPoint
 blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec = {
@@ -1112,7 +1112,7 @@ blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopAutoscroll
 blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec = {
@@ -1125,7 +1125,7 @@ blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RectForEditFieldChars
 blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec = {
@@ -1139,7 +1139,7 @@ blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec = {
   $: {
@@ -1152,7 +1152,7 @@ blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FrameWidgetInputHandlerPtr = blink.mojom.FrameWidgetInputHandlerRemote;
@@ -1346,7 +1346,7 @@ blink.mojom.WidgetInputHandler.getRemote = function() {
     'blink.mojom.WidgetInputHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetFocus
 blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec = {
@@ -1360,7 +1360,7 @@ blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MouseCaptureLost
 blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec = {
@@ -1373,7 +1373,7 @@ blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetEditCommandsForNextKeyEvent
 blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec = {
@@ -1387,7 +1387,7 @@ blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CursorVisibilityChanged
 blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec = {
@@ -1401,7 +1401,7 @@ blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ImeSetComposition
 blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec = {
@@ -1420,7 +1420,7 @@ blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ImeCommitText
 blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec = {
@@ -1437,7 +1437,7 @@ blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ImeFinishComposingText
 blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec = {
@@ -1451,7 +1451,7 @@ blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestTextInputStateUpdate
 blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec = {
@@ -1464,7 +1464,7 @@ blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestCompositionUpdates
 blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec = {
@@ -1479,7 +1479,7 @@ blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchEvent
 blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec = {
@@ -1494,7 +1494,7 @@ blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec = {
   $: {
@@ -1511,7 +1511,7 @@ blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchNonBlockingEvent
 blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec = {
@@ -1525,7 +1525,7 @@ blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitForInputProcessed
 blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec = {
@@ -1538,7 +1538,7 @@ blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PingMainThread
 blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec = {
@@ -1551,7 +1551,7 @@ blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AttachSynchronousCompositor
 blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec = {
@@ -1567,7 +1567,7 @@ blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFrameWidgetInputHandler
 blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec = {
@@ -1581,7 +1581,7 @@ blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateBrowserControlsState
 blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec = {
@@ -1598,7 +1598,7 @@ blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WidgetInputHandlerPtr = blink.mojom.WidgetInputHandlerRemote;

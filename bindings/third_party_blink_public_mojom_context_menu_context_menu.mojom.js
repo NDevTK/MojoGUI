@@ -90,7 +90,7 @@ blink.mojom.ContextMenuClient.getRemote = function() {
     'blink.mojom.ContextMenuClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CustomContextMenuAction
 blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = {
@@ -104,7 +104,7 @@ blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ContextMenuClosed
 blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = {
@@ -119,7 +119,7 @@ blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ContextMenuClientPtr = blink.mojom.ContextMenuClientRemote;

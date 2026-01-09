@@ -121,7 +121,7 @@ video_capture.mojom.VideoSourceProvider.getRemote = function() {
     'video_capture.mojom.VideoSourceProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSourceInfos
 video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec = {
@@ -134,7 +134,7 @@ video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec = {
   $: {
@@ -148,7 +148,7 @@ video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetVideoSource
 video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec = {
@@ -163,7 +163,7 @@ video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddSharedMemoryVirtualDevice
 video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec = {
@@ -179,7 +179,7 @@ video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddTextureVirtualDevice
 video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec = {
@@ -194,7 +194,7 @@ video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterVirtualDevicesChangedObserver
 video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec = {
@@ -209,7 +209,7 @@ video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterDevicesChangedObserver
 video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec = {
@@ -223,7 +223,7 @@ video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Close
 video_capture.mojom.VideoSourceProvider_Close_ParamsSpec = {
@@ -236,7 +236,7 @@ video_capture.mojom.VideoSourceProvider_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 video_capture.mojom.VideoSourceProviderPtr = video_capture.mojom.VideoSourceProviderRemote;

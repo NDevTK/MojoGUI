@@ -61,7 +61,7 @@ batch_upload_promo.mojom.PageHandlerFactory.getRemote = function() {
     'batch_upload_promo.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateBatchUploadPromoHandler
 batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 batch_upload_promo.mojom.PageHandlerFactoryPtr = batch_upload_promo.mojom.PageHandlerFactoryRemote;
@@ -144,7 +144,7 @@ batch_upload_promo.mojom.PageHandler.getRemote = function() {
     'batch_upload_promo.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetBatchUploadPromoLocalDataCount
 batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec = {
@@ -157,7 +157,7 @@ batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec = {
   $: {
@@ -170,7 +170,7 @@ batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBatchUploadPromoClicked
 batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec = {
@@ -183,7 +183,7 @@ batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 batch_upload_promo.mojom.PageHandlerPtr = batch_upload_promo.mojom.PageHandlerRemote;
@@ -242,7 +242,7 @@ batch_upload_promo.mojom.Page.getRemote = function() {
     'batch_upload_promo.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnLocalDataCountChanged
 batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec = {
@@ -256,7 +256,7 @@ batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 batch_upload_promo.mojom.PagePtr = batch_upload_promo.mojom.PageRemote;

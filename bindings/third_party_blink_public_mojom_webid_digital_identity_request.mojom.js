@@ -90,7 +90,7 @@ blink.mojom.DigitalIdentityRequest.getRemote = function() {
     'blink.mojom.DigitalIdentityRequest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Get
 blink.mojom.DigitalIdentityRequest_Get_ParamsSpec = {
@@ -104,7 +104,7 @@ blink.mojom.DigitalIdentityRequest_Get_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec = {
   $: {
@@ -119,7 +119,7 @@ blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Create
 blink.mojom.DigitalIdentityRequest_Create_ParamsSpec = {
@@ -133,7 +133,7 @@ blink.mojom.DigitalIdentityRequest_Create_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec = {
   $: {
@@ -148,7 +148,7 @@ blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Abort
 blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec = {
@@ -161,7 +161,7 @@ blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DigitalIdentityRequestPtr = blink.mojom.DigitalIdentityRequestRemote;

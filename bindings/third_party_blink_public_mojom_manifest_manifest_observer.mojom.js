@@ -61,7 +61,7 @@ blink.mojom.ManifestUrlChangeObserver.getRemote = function() {
     'blink.mojom.ManifestUrlChangeObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ManifestUrlChanged
 blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ManifestUrlChangeObserverPtr = blink.mojom.ManifestUrlChangeObserverRemote;

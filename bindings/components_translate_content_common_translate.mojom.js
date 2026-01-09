@@ -86,7 +86,7 @@ translate.mojom.TranslateAgent.getRemote = function() {
     'translate.mojom.TranslateAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for TranslateFrame
 translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec = {
@@ -102,7 +102,7 @@ translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec = {
   $: {
@@ -118,7 +118,7 @@ translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RevertTranslation
 translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec = {
@@ -131,7 +131,7 @@ translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 translate.mojom.TranslateAgentPtr = translate.mojom.TranslateAgentRemote;
@@ -190,7 +190,7 @@ translate.mojom.ContentTranslateDriver.getRemote = function() {
     'translate.mojom.ContentTranslateDriver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterPage
 translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec = {
@@ -206,7 +206,7 @@ translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 translate.mojom.ContentTranslateDriverPtr = translate.mojom.ContentTranslateDriverRemote;

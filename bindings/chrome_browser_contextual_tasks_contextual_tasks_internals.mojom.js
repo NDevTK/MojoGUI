@@ -61,7 +61,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory.getR
     'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_Crea
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryPtr = contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRemote;
@@ -135,7 +135,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler.getRemote =
     'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetRelevantContext
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec = {
@@ -149,7 +149,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevant
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec = {
   $: {
@@ -162,7 +162,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevant
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerPtr = contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemote;
@@ -221,7 +221,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPage.getRemote = functi
     'contextual_tasks_internals.mojom.ContextualTasksInternalsPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnLogMessageAdded
 contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec = {
@@ -238,7 +238,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 contextual_tasks_internals.mojom.ContextualTasksInternalsPagePtr = contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemote;

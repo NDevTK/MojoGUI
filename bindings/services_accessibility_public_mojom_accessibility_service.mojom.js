@@ -61,7 +61,7 @@ ax.mojom.AssistiveTechnologyController.getRemote = function() {
     'ax.mojom.AssistiveTechnologyController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EnableAssistiveTechnology
 ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec = {
@@ -75,7 +75,7 @@ ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ax.mojom.AssistiveTechnologyControllerPtr = ax.mojom.AssistiveTechnologyControllerRemote;
@@ -152,7 +152,7 @@ ax.mojom.AccessibilityService.getRemote = function() {
     'ax.mojom.AccessibilityService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindAccessibilityServiceClient
 ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec = {
@@ -166,7 +166,7 @@ ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindAssistiveTechnologyController
 ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec = {
@@ -181,7 +181,7 @@ ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConnectDevToolsAgent
 ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec = {
@@ -196,7 +196,7 @@ ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ax.mojom.AccessibilityServicePtr = ax.mojom.AccessibilityServiceRemote;
@@ -318,7 +318,7 @@ ax.mojom.AccessibilityServiceClient.getRemote = function() {
     'ax.mojom.AccessibilityServiceClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindAutomation
 ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec = {
@@ -332,7 +332,7 @@ ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindAutomationClient
 ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec = {
@@ -346,7 +346,7 @@ ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindAutoclickClient
 ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec = {
@@ -360,7 +360,7 @@ ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindSpeechRecognition
 ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec = {
@@ -374,7 +374,7 @@ ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindTts
 ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec = {
@@ -388,7 +388,7 @@ ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindUserInput
 ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec = {
@@ -402,7 +402,7 @@ ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindUserInterface
 ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec = {
@@ -416,7 +416,7 @@ ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindAccessibilityFileLoader
 ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec = {
@@ -430,7 +430,7 @@ ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ax.mojom.AccessibilityServiceClientPtr = ax.mojom.AccessibilityServiceClientRemote;

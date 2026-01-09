@@ -68,7 +68,7 @@ chromeos.machine_learning.mojom.TextSuggester.getRemote = function() {
     'chromeos.machine_learning.mojom.TextSuggester',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.machine_learning.mojom.TextSuggesterPtr = chromeos.machine_learning.mojom.TextSuggesterRemote;

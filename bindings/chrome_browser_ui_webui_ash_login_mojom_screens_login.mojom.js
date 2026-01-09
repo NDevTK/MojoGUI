@@ -117,7 +117,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandler.getRemote = function() {
     'ash.screens_login.mojom.ArcVmDataMigrationPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnResumeClicked
 ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec = {
@@ -130,7 +130,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnUpdateClicked
 ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec = {
@@ -143,7 +143,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFinishClicked
 ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec = {
@@ -156,7 +156,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSkipClicked
 ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec = {
@@ -169,7 +169,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReportClicked
 ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec = {
@@ -182,7 +182,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_login.mojom.ArcVmDataMigrationPageHandlerPtr = ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemote;
@@ -286,7 +286,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage.getRemote = function() {
     'ash.screens_login.mojom.ArcVmDataMigrationPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetUIState
 ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec = {
@@ -300,7 +300,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetRequiredFreeDiskSpace
 ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec = {
@@ -314,7 +314,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMinimumBatteryPercent
 ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec = {
@@ -328,7 +328,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBatteryState
 ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec = {
@@ -343,7 +343,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMigrationProgress
 ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec = {
@@ -357,7 +357,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetEstimatedRemainingTime
 ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec = {
@@ -371,7 +371,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_login.mojom.ArcVmDataMigrationPagePtr = ash.screens_login.mojom.ArcVmDataMigrationPageRemote;
@@ -466,7 +466,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandler.getRemote = function() {
     'ash.screens_login.mojom.EncryptionMigrationPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStartMigration
 ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec = {
@@ -479,7 +479,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSkipMigration
 ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec = {
@@ -492,7 +492,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRequestRestartOnLowStorage
 ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec = {
@@ -505,7 +505,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStor
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRequestRestartOnFailure
 ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec = {
@@ -518,7 +518,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnOpenFeedbackDialog
 ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec = {
@@ -531,7 +531,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_login.mojom.EncryptionMigrationPageHandlerPtr = ash.screens_login.mojom.EncryptionMigrationPageHandlerRemote;
@@ -635,7 +635,7 @@ ash.screens_login.mojom.EncryptionMigrationPage.getRemote = function() {
     'ash.screens_login.mojom.EncryptionMigrationPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetUIState
 ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec = {
@@ -649,7 +649,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMigrationProgress
 ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec = {
@@ -663,7 +663,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsResuming
 ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec = {
@@ -677,7 +677,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBatteryState
 ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec = {
@@ -693,7 +693,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNecessaryBatteryPercent
 ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec = {
@@ -707,7 +707,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSpaceInfoInString
 ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec = {
@@ -722,7 +722,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_login.mojom.EncryptionMigrationPagePtr = ash.screens_login.mojom.EncryptionMigrationPageRemote;

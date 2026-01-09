@@ -79,7 +79,7 @@ remoting.mojom.AgentProcess.getRemote = function() {
     'remoting.mojom.AgentProcess',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ResumeProcess
 remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec = {
@@ -92,7 +92,7 @@ remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SuspendProcess
 remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec = {
@@ -105,7 +105,7 @@ remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindRemotingHostControl
 remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec = {
@@ -119,7 +119,7 @@ remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.AgentProcessPtr = remoting.mojom.AgentProcessRemote;
@@ -178,7 +178,7 @@ remoting.mojom.AgentProcessBroker.getRemote = function() {
     'remoting.mojom.AgentProcessBroker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAgentProcessLaunched
 remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec = {
@@ -192,7 +192,7 @@ remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.AgentProcessBrokerPtr = remoting.mojom.AgentProcessBrokerRemote;

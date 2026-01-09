@@ -61,7 +61,7 @@ network.mojom.ObliviousHttpClient.getRemote = function() {
     'network.mojom.ObliviousHttpClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCompleted
 network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = {
@@ -75,7 +75,7 @@ network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.ObliviousHttpClientPtr = network.mojom.ObliviousHttpClientRemote;

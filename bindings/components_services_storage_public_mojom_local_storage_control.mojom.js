@@ -124,7 +124,7 @@ storage.mojom.LocalStorageControl.getRemote = function() {
     'storage.mojom.LocalStorageControl',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindStorageArea
 storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec = {
@@ -139,7 +139,7 @@ storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUsage
 storage.mojom.LocalStorageControl_GetUsage_ParamsSpec = {
@@ -152,7 +152,7 @@ storage.mojom.LocalStorageControl_GetUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec = {
   $: {
@@ -165,7 +165,7 @@ storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteStorage
 storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec = {
@@ -179,7 +179,7 @@ storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CleanUpStorage
 storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec = {
@@ -192,7 +192,7 @@ storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Flush
 storage.mojom.LocalStorageControl_Flush_ParamsSpec = {
@@ -205,7 +205,7 @@ storage.mojom.LocalStorageControl_Flush_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PurgeMemory
 storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec = {
@@ -218,7 +218,7 @@ storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ApplyPolicyUpdates
 storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec = {
@@ -232,7 +232,7 @@ storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForceKeepSessionState
 storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec = {
@@ -245,7 +245,7 @@ storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.LocalStorageControlPtr = storage.mojom.LocalStorageControlRemote;

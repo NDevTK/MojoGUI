@@ -88,7 +88,7 @@ blink.mojom.ManifestManager.getRemote = function() {
     'blink.mojom.ManifestManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestManifest
 blink.mojom.ManifestManager_RequestManifest_ParamsSpec = {
@@ -101,7 +101,7 @@ blink.mojom.ManifestManager_RequestManifest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec = {
   $: {
@@ -116,7 +116,7 @@ blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestManifestAndErrors
 blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec = {
@@ -129,7 +129,7 @@ blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestManifestDebugInfo
 blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec = {
@@ -142,7 +142,7 @@ blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec = {
   $: {
@@ -157,7 +157,7 @@ blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ParseManifestFromString
 blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec = {
@@ -173,7 +173,7 @@ blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec = {
   $: {
@@ -186,7 +186,7 @@ blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ManifestManagerPtr = blink.mojom.ManifestManagerRemote;

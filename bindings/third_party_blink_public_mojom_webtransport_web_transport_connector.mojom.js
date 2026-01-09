@@ -61,7 +61,7 @@ blink.mojom.WebTransportConnector.getRemote = function() {
     'blink.mojom.WebTransportConnector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Connect
 blink.mojom.WebTransportConnector_Connect_ParamsSpec = {
@@ -78,7 +78,7 @@ blink.mojom.WebTransportConnector_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebTransportConnectorPtr = blink.mojom.WebTransportConnectorRemote;

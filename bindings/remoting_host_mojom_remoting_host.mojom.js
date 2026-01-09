@@ -87,7 +87,7 @@ remoting.mojom.RemotingHostControl.getRemote = function() {
     'remoting.mojom.RemotingHostControl',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ApplyHostConfig
 remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec = {
@@ -101,7 +101,7 @@ remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InitializePairingRegistry
 remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec = {
@@ -116,7 +116,7 @@ remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindChromotingHostServices
 remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec = {
@@ -131,7 +131,7 @@ remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.RemotingHostControlPtr = remoting.mojom.RemotingHostControlRemote;
@@ -199,7 +199,7 @@ remoting.mojom.DesktopSessionConnectionEvents.getRemote = function() {
     'remoting.mojom.DesktopSessionConnectionEvents',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnTerminalDisconnected
 remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec = {
@@ -213,7 +213,7 @@ remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDesktopSessionAgentAttached
 remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec = {
@@ -229,7 +229,7 @@ remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.DesktopSessionConnectionEventsPtr = remoting.mojom.DesktopSessionConnectionEventsRemote;
@@ -342,7 +342,7 @@ remoting.mojom.HostStatusObserver.getRemote = function() {
     'remoting.mojom.HostStatusObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnClientAccessDenied
 remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec = {
@@ -356,7 +356,7 @@ remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClientAuthenticated
 remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec = {
@@ -370,7 +370,7 @@ remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClientConnected
 remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec = {
@@ -384,7 +384,7 @@ remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClientDisconnected
 remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec = {
@@ -398,7 +398,7 @@ remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClientRouteChange
 remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec = {
@@ -414,7 +414,7 @@ remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHostStarted
 remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec = {
@@ -428,7 +428,7 @@ remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHostShutdown
 remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec = {
@@ -441,7 +441,7 @@ remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.HostStatusObserverPtr = remoting.mojom.HostStatusObserverRemote;

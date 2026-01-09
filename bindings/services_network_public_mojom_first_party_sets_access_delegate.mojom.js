@@ -70,7 +70,7 @@ network.mojom.FirstPartySetsAccessDelegate.getRemote = function() {
     'network.mojom.FirstPartySetsAccessDelegate',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NotifyReady
 network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = {
@@ -84,7 +84,7 @@ network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetEnabled
 network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec = {
@@ -98,7 +98,7 @@ network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.FirstPartySetsAccessDelegatePtr = network.mojom.FirstPartySetsAccessDelegateRemote;

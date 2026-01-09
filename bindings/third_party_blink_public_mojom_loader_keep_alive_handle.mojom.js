@@ -52,7 +52,7 @@ blink.mojom.KeepAliveHandle.getRemote = function() {
     'blink.mojom.KeepAliveHandle',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 blink.mojom.KeepAliveHandlePtr = blink.mojom.KeepAliveHandleRemote;

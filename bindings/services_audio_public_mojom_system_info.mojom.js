@@ -124,7 +124,7 @@ audio.mojom.SystemInfo.getRemote = function() {
     'audio.mojom.SystemInfo',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetInputStreamParameters
 audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec = {
@@ -138,7 +138,7 @@ audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec = {
   $: {
@@ -151,7 +151,7 @@ audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOutputStreamParameters
 audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec = {
@@ -165,7 +165,7 @@ audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec = {
   $: {
@@ -178,7 +178,7 @@ audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HasInputDevices
 audio.mojom.SystemInfo_HasInputDevices_ParamsSpec = {
@@ -191,7 +191,7 @@ audio.mojom.SystemInfo_HasInputDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec = {
   $: {
@@ -204,7 +204,7 @@ audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HasOutputDevices
 audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec = {
@@ -217,7 +217,7 @@ audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec = {
   $: {
@@ -230,7 +230,7 @@ audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetInputDeviceDescriptions
 audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec = {
@@ -243,7 +243,7 @@ audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec = {
   $: {
@@ -256,7 +256,7 @@ audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOutputDeviceDescriptions
 audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec = {
@@ -269,7 +269,7 @@ audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec = {
   $: {
@@ -282,7 +282,7 @@ audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAssociatedOutputDeviceID
 audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec = {
@@ -296,7 +296,7 @@ audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec = {
   $: {
@@ -309,7 +309,7 @@ audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetInputDeviceInfo
 audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec = {
@@ -323,7 +323,7 @@ audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec = {
   $: {
@@ -337,7 +337,7 @@ audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 audio.mojom.SystemInfoPtr = audio.mojom.SystemInfoRemote;

@@ -61,7 +61,7 @@ media.mojom.FlingingRendererClientExtension.getRemote = function() {
     'media.mojom.FlingingRendererClientExtension',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnRemotePlayStateChange
 media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec = {
@@ -75,7 +75,7 @@ media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.FlingingRendererClientExtensionPtr = media.mojom.FlingingRendererClientExtensionRemote;
@@ -152,7 +152,7 @@ media.mojom.MediaFoundationRendererExtension.getRemote = function() {
     'media.mojom.MediaFoundationRendererExtension',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDCOMPSurface
 media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = {
@@ -165,7 +165,7 @@ media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec = {
   $: {
@@ -179,7 +179,7 @@ media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVideoStreamEnabled
 media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec = {
@@ -193,7 +193,7 @@ media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetOutputRect
 media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = {
@@ -207,7 +207,7 @@ media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec = {
   $: {
@@ -220,7 +220,7 @@ media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaFoundationRendererExtensionPtr = media.mojom.MediaFoundationRendererExtensionRemote;
@@ -270,7 +270,7 @@ media.mojom.MediaFoundationRendererObserver.getRemote = function() {
     'media.mojom.MediaFoundationRendererObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaFoundationRendererObserverPtr = media.mojom.MediaFoundationRendererObserverRemote;
@@ -329,7 +329,7 @@ media.mojom.MediaFoundationRendererNotifier.getRemote = function() {
     'media.mojom.MediaFoundationRendererNotifier',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for MediaFoundationRendererCreated
 media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec = {
@@ -343,7 +343,7 @@ media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaFoundationRendererNotifierPtr = media.mojom.MediaFoundationRendererNotifierRemote;

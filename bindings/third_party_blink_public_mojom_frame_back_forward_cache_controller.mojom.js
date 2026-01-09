@@ -70,7 +70,7 @@ blink.mojom.BackForwardCacheControllerHost.getRemote = function() {
     'blink.mojom.BackForwardCacheControllerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EvictFromBackForwardCache
 blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec = {
@@ -85,7 +85,7 @@ blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidChangeBackForwardCacheDisablingFeatures
 blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec = {
@@ -99,7 +99,7 @@ blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFea
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BackForwardCacheControllerHostPtr = blink.mojom.BackForwardCacheControllerHostRemote;

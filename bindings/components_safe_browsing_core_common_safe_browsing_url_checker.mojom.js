@@ -61,7 +61,7 @@ safe_browsing.mojom.SafeBrowsingUrlChecker.getRemote = function() {
     'safe_browsing.mojom.SafeBrowsingUrlChecker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CheckUrl
 safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec = {
@@ -76,7 +76,7 @@ safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec = {
   $: {
@@ -90,7 +90,7 @@ safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 safe_browsing.mojom.SafeBrowsingUrlCheckerPtr = safe_browsing.mojom.SafeBrowsingUrlCheckerRemote;

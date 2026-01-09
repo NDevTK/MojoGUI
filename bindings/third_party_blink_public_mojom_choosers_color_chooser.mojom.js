@@ -61,7 +61,7 @@ blink.mojom.ColorChooserFactory.getRemote = function() {
     'blink.mojom.ColorChooserFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenColorChooser
 blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec = {
@@ -78,7 +78,7 @@ blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ColorChooserFactoryPtr = blink.mojom.ColorChooserFactoryRemote;
@@ -137,7 +137,7 @@ blink.mojom.ColorChooser.getRemote = function() {
     'blink.mojom.ColorChooser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetSelectedColor
 blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec = {
@@ -151,7 +151,7 @@ blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ColorChooserPtr = blink.mojom.ColorChooserRemote;
@@ -210,7 +210,7 @@ blink.mojom.ColorChooserClient.getRemote = function() {
     'blink.mojom.ColorChooserClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidChooseColor
 blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec = {
@@ -224,7 +224,7 @@ blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ColorChooserClientPtr = blink.mojom.ColorChooserClientRemote;
@@ -283,7 +283,7 @@ blink.mojom.EyeDropperChooser.getRemote = function() {
     'blink.mojom.EyeDropperChooser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Choose
 blink.mojom.EyeDropperChooser_Choose_ParamsSpec = {
@@ -296,7 +296,7 @@ blink.mojom.EyeDropperChooser_Choose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec = {
   $: {
@@ -310,7 +310,7 @@ blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.EyeDropperChooserPtr = blink.mojom.EyeDropperChooserRemote;

@@ -90,7 +90,7 @@ blink.mojom.AIWriter.getRemote = function() {
     'blink.mojom.AIWriter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Write
 blink.mojom.AIWriter_Write_ParamsSpec = {
@@ -106,7 +106,7 @@ blink.mojom.AIWriter_Write_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MeasureUsage
 blink.mojom.AIWriter_MeasureUsage_ParamsSpec = {
@@ -121,7 +121,7 @@ blink.mojom.AIWriter_MeasureUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec = {
   $: {
@@ -134,7 +134,7 @@ blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AIWriterPtr = blink.mojom.AIWriterRemote;

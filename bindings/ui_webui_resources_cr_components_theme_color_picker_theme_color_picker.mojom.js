@@ -61,7 +61,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactory.getRemote = function() {
     'theme_color_picker.mojom.ThemeColorPickerHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateThemeColorPickerHandler
 theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 theme_color_picker.mojom.ThemeColorPickerHandlerFactoryPtr = theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemote;
@@ -189,7 +189,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler.getRemote = function() {
     'theme_color_picker.mojom.ThemeColorPickerHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetChromeColors
 theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = {
@@ -203,7 +203,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec = {
   $: {
@@ -216,7 +216,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateTheme
 theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec = {
@@ -229,7 +229,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDefaultColor
 theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec = {
@@ -242,7 +242,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetGreyDefaultColor
 theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec = {
@@ -255,7 +255,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSeedColor
 theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec = {
@@ -270,7 +270,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSeedColorFromHue
 theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec = {
@@ -284,7 +284,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveBackgroundImage
 theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec = {
@@ -297,7 +297,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 theme_color_picker.mojom.ThemeColorPickerHandlerPtr = theme_color_picker.mojom.ThemeColorPickerHandlerRemote;
@@ -356,7 +356,7 @@ theme_color_picker.mojom.ThemeColorPickerClient.getRemote = function() {
     'theme_color_picker.mojom.ThemeColorPickerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetTheme
 theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = {
@@ -370,7 +370,7 @@ theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 theme_color_picker.mojom.ThemeColorPickerClientPtr = theme_color_picker.mojom.ThemeColorPickerClientRemote;

@@ -61,7 +61,7 @@ network.mojom.ProxyLookupClient.getRemote = function() {
     'network.mojom.ProxyLookupClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnProxyLookupComplete
 network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec = {
@@ -76,7 +76,7 @@ network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.ProxyLookupClientPtr = network.mojom.ProxyLookupClientRemote;

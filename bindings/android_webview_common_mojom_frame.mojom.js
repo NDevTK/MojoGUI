@@ -109,7 +109,7 @@ android_webview.mojom.LocalMainFrame.getRemote = function() {
     'android_webview.mojom.LocalMainFrame',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetInitialPageScale
 android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec = {
@@ -123,7 +123,7 @@ android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTextZoomFactor
 android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec = {
@@ -137,7 +137,7 @@ android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DocumentHasImage
 android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec = {
@@ -150,7 +150,7 @@ android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec = {
   $: {
@@ -163,7 +163,7 @@ android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetScrollAndScaleState
 android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec = {
@@ -176,7 +176,7 @@ android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SmoothScroll
 android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec = {
@@ -192,7 +192,7 @@ android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 android_webview.mojom.LocalMainFramePtr = android_webview.mojom.LocalMainFrameRemote;
@@ -269,7 +269,7 @@ android_webview.mojom.FrameHost.getRemote = function() {
     'android_webview.mojom.FrameHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateHitTestData
 android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec = {
@@ -283,7 +283,7 @@ android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ContentsSizeChanged
 android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec = {
@@ -297,7 +297,7 @@ android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShouldOverrideUrlLoading
 android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec = {
@@ -314,7 +314,7 @@ android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec = {
   $: {
@@ -327,7 +327,7 @@ android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 android_webview.mojom.FrameHostPtr = android_webview.mojom.FrameHostRemote;

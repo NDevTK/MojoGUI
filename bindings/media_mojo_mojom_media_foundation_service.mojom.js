@@ -61,7 +61,7 @@ media.mojom.GpuInfoObserver.getRemote = function() {
     'media.mojom.GpuInfoObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnGpuInfoUpdate
 media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec = {
@@ -75,7 +75,7 @@ media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.GpuInfoObserverPtr = media.mojom.GpuInfoObserverRemote;
@@ -143,7 +143,7 @@ media.mojom.MediaFoundationService.getRemote = function() {
     'media.mojom.MediaFoundationService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for IsKeySystemSupported
 media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec = {
@@ -157,7 +157,7 @@ media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec = {
   $: {
@@ -171,7 +171,7 @@ media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateInterfaceFactory
 media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec = {
@@ -186,7 +186,7 @@ media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaFoundationServicePtr = media.mojom.MediaFoundationServiceRemote;
@@ -254,7 +254,7 @@ media.mojom.MediaFoundationServiceBroker.getRemote = function() {
     'media.mojom.MediaFoundationServiceBroker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateGpuInfo
 media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = {
@@ -268,7 +268,7 @@ media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec = {
   $: {
@@ -281,7 +281,7 @@ media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetService
 media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec = {
@@ -296,7 +296,7 @@ media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaFoundationServiceBrokerPtr = media.mojom.MediaFoundationServiceBrokerRemote;

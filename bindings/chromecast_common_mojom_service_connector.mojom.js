@@ -61,7 +61,7 @@ chromecast.mojom.ServiceConnector.getRemote = function() {
     'chromecast.mojom.ServiceConnector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Connect
 chromecast.mojom.ServiceConnector_Connect_ParamsSpec = {
@@ -76,7 +76,7 @@ chromecast.mojom.ServiceConnector_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.ServiceConnectorPtr = chromecast.mojom.ServiceConnectorRemote;

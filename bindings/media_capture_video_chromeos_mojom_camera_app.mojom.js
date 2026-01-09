@@ -108,7 +108,7 @@ cros.mojom.CameraAppDeviceProvider.getRemote = function() {
     'cros.mojom.CameraAppDeviceProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetCameraAppDevice
 cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec = {
@@ -122,7 +122,7 @@ cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec = {
   $: {
@@ -136,7 +136,7 @@ cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsSupported
 cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec = {
@@ -149,7 +149,7 @@ cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec = {
   $: {
@@ -162,7 +162,7 @@ cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsDeviceInUse
 cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec = {
@@ -176,7 +176,7 @@ cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec = {
   $: {
@@ -189,7 +189,7 @@ cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CameraAppDeviceProviderPtr = cros.mojom.CameraAppDeviceProviderRemote;
@@ -275,7 +275,7 @@ cros.mojom.CameraAppDeviceBridge.getRemote = function() {
     'cros.mojom.CameraAppDeviceBridge',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetCameraAppDevice
 cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec = {
@@ -289,7 +289,7 @@ cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec = {
   $: {
@@ -303,7 +303,7 @@ cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsSupported
 cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec = {
@@ -316,7 +316,7 @@ cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec = {
   $: {
@@ -329,7 +329,7 @@ cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVirtualDeviceEnabled
 cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec = {
@@ -344,7 +344,7 @@ cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec = {
   $: {
@@ -357,7 +357,7 @@ cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsDeviceInUse
 cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec = {
@@ -371,7 +371,7 @@ cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec = {
   $: {
@@ -384,7 +384,7 @@ cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CameraAppDeviceBridgePtr = cros.mojom.CameraAppDeviceBridgeRemote;
@@ -551,7 +551,7 @@ cros.mojom.CameraAppDevice.getRemote = function() {
     'cros.mojom.CameraAppDevice',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for TakePortraitModePhoto
 cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec = {
@@ -565,7 +565,7 @@ cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFpsRange
 cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec = {
@@ -579,7 +579,7 @@ cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec = {
   $: {
@@ -592,7 +592,7 @@ cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetStillCaptureResolution
 cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec = {
@@ -606,7 +606,7 @@ cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCaptureIntent
 cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec = {
@@ -620,7 +620,7 @@ cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddResultMetadataObserver
 cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec = {
@@ -635,7 +635,7 @@ cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddCameraEventObserver
 cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec = {
@@ -649,7 +649,7 @@ cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCameraFrameRotationEnabledAtSource
 cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec = {
@@ -663,7 +663,7 @@ cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec = {
   $: {
@@ -676,7 +676,7 @@ cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCameraFrameRotation
 cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec = {
@@ -689,7 +689,7 @@ cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec = {
   $: {
@@ -702,7 +702,7 @@ cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterDocumentCornersObserver
 cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec = {
@@ -716,7 +716,7 @@ cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMultipleStreamsEnabled
 cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec = {
@@ -730,7 +730,7 @@ cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterCameraInfoObserver
 cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec = {
@@ -744,7 +744,7 @@ cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCropRegion
 cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec = {
@@ -758,7 +758,7 @@ cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetCropRegion
 cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec = {
@@ -771,7 +771,7 @@ cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CameraAppDevicePtr = cros.mojom.CameraAppDeviceRemote;
@@ -830,7 +830,7 @@ cros.mojom.ResultMetadataObserver.getRemote = function() {
     'cros.mojom.ResultMetadataObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMetadataAvailable
 cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec = {
@@ -844,7 +844,7 @@ cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cros.mojom.ResultMetadataObserverPtr = cros.mojom.ResultMetadataObserverRemote;
@@ -903,7 +903,7 @@ cros.mojom.CameraEventObserver.getRemote = function() {
     'cros.mojom.CameraEventObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnShutterDone
 cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec = {
@@ -916,7 +916,7 @@ cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CameraEventObserverPtr = cros.mojom.CameraEventObserverRemote;
@@ -975,7 +975,7 @@ cros.mojom.DocumentCornersObserver.getRemote = function() {
     'cros.mojom.DocumentCornersObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDocumentCornersUpdated
 cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec = {
@@ -989,7 +989,7 @@ cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cros.mojom.DocumentCornersObserverPtr = cros.mojom.DocumentCornersObserverRemote;
@@ -1048,7 +1048,7 @@ cros.mojom.CameraInfoObserver.getRemote = function() {
     'cros.mojom.CameraInfoObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCameraInfoUpdated
 cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec = {
@@ -1062,7 +1062,7 @@ cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CameraInfoObserverPtr = cros.mojom.CameraInfoObserverRemote;
@@ -1121,7 +1121,7 @@ cros.mojom.StillCaptureResultObserver.getRemote = function() {
     'cros.mojom.StillCaptureResultObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStillCaptureDone
 cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec = {
@@ -1137,7 +1137,7 @@ cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cros.mojom.StillCaptureResultObserverPtr = cros.mojom.StillCaptureResultObserverRemote;

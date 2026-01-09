@@ -95,7 +95,7 @@ printing.mojom.PdfNupConverter.getRemote = function() {
     'printing.mojom.PdfNupConverter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NupPageConvert
 printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec = {
@@ -112,7 +112,7 @@ printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec = {
   $: {
@@ -126,7 +126,7 @@ printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NupDocumentConvert
 printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec = {
@@ -143,7 +143,7 @@ printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec = {
   $: {
@@ -157,7 +157,7 @@ printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWebContentsURL
 printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec = {
@@ -171,7 +171,7 @@ printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUseSkiaRendererPolicy
 printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
@@ -185,7 +185,7 @@ printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 printing.mojom.PdfNupConverterPtr = printing.mojom.PdfNupConverterRemote;

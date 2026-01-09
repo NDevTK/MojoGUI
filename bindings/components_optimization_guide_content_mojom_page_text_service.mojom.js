@@ -76,7 +76,7 @@ optimization_guide.mojom.PageTextConsumer.getRemote = function() {
     'optimization_guide.mojom.PageTextConsumer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnTextDumpChunk
 optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec = {
@@ -90,7 +90,7 @@ optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnChunksEnd
 optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec = {
@@ -103,7 +103,7 @@ optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 optimization_guide.mojom.PageTextConsumerPtr = optimization_guide.mojom.PageTextConsumerRemote;
@@ -162,7 +162,7 @@ optimization_guide.mojom.PageTextService.getRemote = function() {
     'optimization_guide.mojom.PageTextService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestPageTextDump
 optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec = {
@@ -177,7 +177,7 @@ optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 optimization_guide.mojom.PageTextServicePtr = optimization_guide.mojom.PageTextServiceRemote;

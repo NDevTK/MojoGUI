@@ -85,7 +85,7 @@ blink.mojom.SubAppsService.getRemote = function() {
     'blink.mojom.SubAppsService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Add
 blink.mojom.SubAppsService_Add_ParamsSpec = {
@@ -99,7 +99,7 @@ blink.mojom.SubAppsService_Add_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SubAppsService_Add_ResponseParamsSpec = {
   $: {
@@ -112,7 +112,7 @@ blink.mojom.SubAppsService_Add_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for List
 blink.mojom.SubAppsService_List_ParamsSpec = {
@@ -125,7 +125,7 @@ blink.mojom.SubAppsService_List_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SubAppsService_List_ResponseParamsSpec = {
   $: {
@@ -138,7 +138,7 @@ blink.mojom.SubAppsService_List_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Remove
 blink.mojom.SubAppsService_Remove_ParamsSpec = {
@@ -152,7 +152,7 @@ blink.mojom.SubAppsService_Remove_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SubAppsService_Remove_ResponseParamsSpec = {
   $: {
@@ -165,7 +165,7 @@ blink.mojom.SubAppsService_Remove_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SubAppsServicePtr = blink.mojom.SubAppsServiceRemote;

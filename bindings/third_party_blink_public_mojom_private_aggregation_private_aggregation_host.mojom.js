@@ -90,7 +90,7 @@ blink.mojom.PrivateAggregationHost.getRemote = function() {
     'blink.mojom.PrivateAggregationHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ContributeToHistogram
 blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec = {
@@ -104,7 +104,7 @@ blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ContributeToHistogramOnEvent
 blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec = {
@@ -119,7 +119,7 @@ blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableDebugMode
 blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec = {
@@ -133,7 +133,7 @@ blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PrivateAggregationHostPtr = blink.mojom.PrivateAggregationHostRemote;

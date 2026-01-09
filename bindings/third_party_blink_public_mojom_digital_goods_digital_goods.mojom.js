@@ -88,7 +88,7 @@ payments.mojom.DigitalGoods.getRemote = function() {
     'payments.mojom.DigitalGoods',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDetails
 payments.mojom.DigitalGoods_GetDetails_ParamsSpec = {
@@ -102,7 +102,7 @@ payments.mojom.DigitalGoods_GetDetails_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = {
   $: {
@@ -116,7 +116,7 @@ payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ListPurchases
 payments.mojom.DigitalGoods_ListPurchases_ParamsSpec = {
@@ -129,7 +129,7 @@ payments.mojom.DigitalGoods_ListPurchases_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec = {
   $: {
@@ -143,7 +143,7 @@ payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ListPurchaseHistory
 payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = {
@@ -156,7 +156,7 @@ payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec = {
   $: {
@@ -170,7 +170,7 @@ payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Consume
 payments.mojom.DigitalGoods_Consume_ParamsSpec = {
@@ -184,7 +184,7 @@ payments.mojom.DigitalGoods_Consume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.DigitalGoods_Consume_ResponseParamsSpec = {
   $: {
@@ -197,7 +197,7 @@ payments.mojom.DigitalGoods_Consume_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 payments.mojom.DigitalGoodsPtr = payments.mojom.DigitalGoodsRemote;
@@ -256,7 +256,7 @@ payments.mojom.DigitalGoodsFactory.getRemote = function() {
     'payments.mojom.DigitalGoodsFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateDigitalGoods
 payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = {
@@ -270,7 +270,7 @@ payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = {
   $: {
@@ -284,7 +284,7 @@ payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 payments.mojom.DigitalGoodsFactoryPtr = payments.mojom.DigitalGoodsFactoryRemote;

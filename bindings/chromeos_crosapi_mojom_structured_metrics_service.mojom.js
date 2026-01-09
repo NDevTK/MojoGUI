@@ -52,7 +52,7 @@ crosapi.mojom.StructuredMetricsService.getRemote = function() {
     'crosapi.mojom.StructuredMetricsService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.StructuredMetricsServicePtr = crosapi.mojom.StructuredMetricsServiceRemote;

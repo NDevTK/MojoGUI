@@ -121,7 +121,7 @@ chromeos.cdm.mojom.ContentDecryptionModule.getRemote = function() {
     'chromeos.cdm.mojom.ContentDecryptionModule',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cdm.mojom.ContentDecryptionModulePtr = chromeos.cdm.mojom.ContentDecryptionModuleRemote;
@@ -171,7 +171,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleClient.getRemote = function() {
     'chromeos.cdm.mojom.ContentDecryptionModuleClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cdm.mojom.ContentDecryptionModuleClientPtr = chromeos.cdm.mojom.ContentDecryptionModuleClientRemote;

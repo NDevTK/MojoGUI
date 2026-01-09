@@ -70,7 +70,7 @@ blink.mojom.FileSystemAccessObserverHost.getRemote = function() {
     'blink.mojom.FileSystemAccessObserverHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Observe
 blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec = {
@@ -85,7 +85,7 @@ blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec = {
   $: {
@@ -99,7 +99,7 @@ blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Unobserve
 blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec = {
@@ -113,7 +113,7 @@ blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileSystemAccessObserverHostPtr = blink.mojom.FileSystemAccessObserverHostRemote;

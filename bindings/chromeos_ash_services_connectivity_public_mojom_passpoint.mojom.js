@@ -71,7 +71,7 @@ chromeos.connectivity.mojom.PasspointEventsListener.getRemote = function() {
     'chromeos.connectivity.mojom.PasspointEventsListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPasspointSubscriptionAdded
 chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec = {
@@ -85,7 +85,7 @@ chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPasspointSubscriptionRemoved
 chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec = {
@@ -99,7 +99,7 @@ chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemov
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromeos.connectivity.mojom.PasspointEventsListenerPtr = chromeos.connectivity.mojom.PasspointEventsListenerRemote;
@@ -185,7 +185,7 @@ chromeos.connectivity.mojom.PasspointService.getRemote = function() {
     'chromeos.connectivity.mojom.PasspointService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPasspointSubscription
 chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec = {
@@ -199,7 +199,7 @@ chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec = {
   $: {
@@ -212,7 +212,7 @@ chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ListPasspointSubscriptions
 chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec = {
@@ -225,7 +225,7 @@ chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec = {
   $: {
@@ -238,7 +238,7 @@ chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeletePasspointSubscription
 chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec = {
@@ -252,7 +252,7 @@ chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec = {
   $: {
@@ -265,7 +265,7 @@ chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterPasspointListener
 chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec = {
@@ -279,7 +279,7 @@ chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromeos.connectivity.mojom.PasspointServicePtr = chromeos.connectivity.mojom.PasspointServiceRemote;

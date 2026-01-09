@@ -61,7 +61,7 @@ media.mojom.ProvisionFetcher.getRemote = function() {
     'media.mojom.ProvisionFetcher',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Retrieve
 media.mojom.ProvisionFetcher_Retrieve_ParamsSpec = {
@@ -76,7 +76,7 @@ media.mojom.ProvisionFetcher_Retrieve_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec = {
   $: {
@@ -90,7 +90,7 @@ media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.ProvisionFetcherPtr = media.mojom.ProvisionFetcherRemote;

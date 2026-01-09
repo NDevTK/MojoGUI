@@ -93,7 +93,7 @@ ash.settings.mojom.TabletModeObserver.getRemote = function() {
     'ash.settings.mojom.TabletModeObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnTabletModeChanged
 ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = {
@@ -107,7 +107,7 @@ ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.TabletModeObserverPtr = ash.settings.mojom.TabletModeObserverRemote;
@@ -166,7 +166,7 @@ ash.settings.mojom.DisplayConfigurationObserver.getRemote = function() {
     'ash.settings.mojom.DisplayConfigurationObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDisplayConfigurationChanged
 ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec = {
@@ -179,7 +179,7 @@ ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.DisplayConfigurationObserverPtr = ash.settings.mojom.DisplayConfigurationObserverRemote;
@@ -238,7 +238,7 @@ ash.settings.mojom.DisplayBrightnessSettingsObserver.getRemote = function() {
     'ash.settings.mojom.DisplayBrightnessSettingsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDisplayBrightnessChanged
 ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec = {
@@ -253,7 +253,7 @@ ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.DisplayBrightnessSettingsObserverPtr = ash.settings.mojom.DisplayBrightnessSettingsObserverRemote;
@@ -312,7 +312,7 @@ ash.settings.mojom.AmbientLightSensorObserver.getRemote = function() {
     'ash.settings.mojom.AmbientLightSensorObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAmbientLightSensorEnabledChanged
 ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec = {
@@ -326,7 +326,7 @@ ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.AmbientLightSensorObserverPtr = ash.settings.mojom.AmbientLightSensorObserverRemote;
@@ -466,7 +466,7 @@ ash.settings.mojom.DisplaySettingsProvider.getRemote = function() {
     'ash.settings.mojom.DisplaySettingsProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ObserveTabletMode
 ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec = {
@@ -480,7 +480,7 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec = {
   $: {
@@ -493,7 +493,7 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveDisplayConfiguration
 ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec = {
@@ -507,7 +507,7 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveDisplayBrightnessSettings
 ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec = {
@@ -521,7 +521,7 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec = {
   $: {
@@ -534,7 +534,7 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_Resp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveAmbientLightSensor
 ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec = {
@@ -548,7 +548,7 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec = {
   $: {
@@ -561,7 +561,7 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordChangingDisplaySettings
 ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec = {
@@ -576,7 +576,7 @@ ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetShinyPerformance
 ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec = {
@@ -590,7 +590,7 @@ ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetInternalDisplayScreenBrightness
 ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec = {
@@ -604,7 +604,7 @@ ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetInternalDisplayAmbientLightSensorEnabled
 ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec = {
@@ -618,7 +618,7 @@ ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorE
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartNativeTouchscreenMappingExperience
 ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec = {
@@ -631,7 +631,7 @@ ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperien
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HasAmbientLightSensor
 ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec = {
@@ -644,7 +644,7 @@ ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec = {
   $: {
@@ -657,7 +657,7 @@ ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.DisplaySettingsProviderPtr = ash.settings.mojom.DisplaySettingsProviderRemote;

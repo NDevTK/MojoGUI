@@ -173,7 +173,7 @@ blink.mojom.ServiceWorkerHost.getRemote = function() {
     'blink.mojom.ServiceWorkerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetCachedMetadata
 blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec = {
@@ -188,7 +188,7 @@ blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearCachedMetadata
 blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec = {
@@ -202,7 +202,7 @@ blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetClients
 blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec = {
@@ -216,7 +216,7 @@ blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec = {
   $: {
@@ -229,7 +229,7 @@ blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetClient
 blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec = {
@@ -243,7 +243,7 @@ blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec = {
   $: {
@@ -256,7 +256,7 @@ blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenNewTab
 blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec = {
@@ -270,7 +270,7 @@ blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec = {
   $: {
@@ -285,7 +285,7 @@ blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenPaymentHandlerWindow
 blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec = {
@@ -299,7 +299,7 @@ blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec = {
   $: {
@@ -314,7 +314,7 @@ blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PostMessageToClient
 blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec = {
@@ -329,7 +329,7 @@ blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FocusClient
 blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec = {
@@ -343,7 +343,7 @@ blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec = {
   $: {
@@ -356,7 +356,7 @@ blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NavigateClient
 blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec = {
@@ -371,7 +371,7 @@ blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec = {
   $: {
@@ -386,7 +386,7 @@ blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SkipWaiting
 blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec = {
@@ -399,7 +399,7 @@ blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec = {
   $: {
@@ -412,7 +412,7 @@ blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClaimClients
 blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec = {
@@ -425,7 +425,7 @@ blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec = {
   $: {
@@ -439,7 +439,7 @@ blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddRoutes
 blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec = {
@@ -453,7 +453,7 @@ blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec = {
   $: {
@@ -466,7 +466,7 @@ blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerHostPtr = blink.mojom.ServiceWorkerHostRemote;
@@ -759,7 +759,7 @@ blink.mojom.ServiceWorker.getRemote = function() {
     'blink.mojom.ServiceWorker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for InitializeGlobalScope
 blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec = {
@@ -780,7 +780,7 @@ blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchInstallEvent
 blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec = {
@@ -793,7 +793,7 @@ blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec = {
   $: {
@@ -807,7 +807,7 @@ blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchActivateEvent
 blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec = {
@@ -820,7 +820,7 @@ blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec = {
   $: {
@@ -833,7 +833,7 @@ blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchBackgroundFetchAbortEvent
 blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec = {
@@ -847,7 +847,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec = {
   $: {
@@ -860,7 +860,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchBackgroundFetchClickEvent
 blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec = {
@@ -874,7 +874,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec = {
   $: {
@@ -887,7 +887,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchBackgroundFetchFailEvent
 blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec = {
@@ -901,7 +901,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec = {
   $: {
@@ -914,7 +914,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchBackgroundFetchSuccessEvent
 blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec = {
@@ -928,7 +928,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec = {
   $: {
@@ -941,7 +941,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchCookieChangeEvent
 blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec = {
@@ -955,7 +955,7 @@ blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec = {
   $: {
@@ -968,7 +968,7 @@ blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchFetchEventForMainResource
 blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec = {
@@ -983,7 +983,7 @@ blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec = {
   $: {
@@ -996,7 +996,7 @@ blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchNotificationClickEvent
 blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec = {
@@ -1013,7 +1013,7 @@ blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec = {
   $: {
@@ -1026,7 +1026,7 @@ blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchNotificationCloseEvent
 blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec = {
@@ -1041,7 +1041,7 @@ blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec = {
   $: {
@@ -1054,7 +1054,7 @@ blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchPushEvent
 blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec = {
@@ -1068,7 +1068,7 @@ blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec = {
   $: {
@@ -1081,7 +1081,7 @@ blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchPushEventRecordingNetworkRequests
 blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec = {
@@ -1095,7 +1095,7 @@ blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec = {
   $: {
@@ -1109,7 +1109,7 @@ blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchPushSubscriptionChangeEvent
 blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec = {
@@ -1124,7 +1124,7 @@ blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec = {
   $: {
@@ -1137,7 +1137,7 @@ blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchSyncEvent
 blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec = {
@@ -1153,7 +1153,7 @@ blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec = {
   $: {
@@ -1166,7 +1166,7 @@ blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchPeriodicSyncEvent
 blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec = {
@@ -1181,7 +1181,7 @@ blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec = {
   $: {
@@ -1194,7 +1194,7 @@ blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchAbortPaymentEvent
 blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec = {
@@ -1208,7 +1208,7 @@ blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec = {
   $: {
@@ -1221,7 +1221,7 @@ blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchCanMakePaymentEvent
 blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec = {
@@ -1236,7 +1236,7 @@ blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec = {
   $: {
@@ -1249,7 +1249,7 @@ blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchPaymentRequestEvent
 blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec = {
@@ -1264,7 +1264,7 @@ blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec = {
   $: {
@@ -1277,7 +1277,7 @@ blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchExtendableMessageEvent
 blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec = {
@@ -1291,7 +1291,7 @@ blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec = {
   $: {
@@ -1304,7 +1304,7 @@ blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchContentDeleteEvent
 blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec = {
@@ -1318,7 +1318,7 @@ blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec = {
   $: {
@@ -1331,7 +1331,7 @@ blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Ping
 blink.mojom.ServiceWorker_Ping_ParamsSpec = {
@@ -1344,7 +1344,7 @@ blink.mojom.ServiceWorker_Ping_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIdleDelay
 blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec = {
@@ -1358,7 +1358,7 @@ blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddKeepAlive
 blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec = {
@@ -1371,7 +1371,7 @@ blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearKeepAlive
 blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec = {
@@ -1384,7 +1384,7 @@ blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddMessageToConsole
 blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec = {
@@ -1399,7 +1399,7 @@ blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteScriptForTest
 blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec = {
@@ -1414,7 +1414,7 @@ blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec = {
   $: {
@@ -1428,7 +1428,7 @@ blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerPtr = blink.mojom.ServiceWorkerRemote;

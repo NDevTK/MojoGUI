@@ -142,7 +142,7 @@ network.mojom.WebTransport.getRemote = function() {
     'network.mojom.WebTransport',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendDatagram
 network.mojom.WebTransport_SendDatagram_ParamsSpec = {
@@ -156,7 +156,7 @@ network.mojom.WebTransport_SendDatagram_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.WebTransport_SendDatagram_ResponseParamsSpec = {
   $: {
@@ -169,7 +169,7 @@ network.mojom.WebTransport_SendDatagram_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateStream
 network.mojom.WebTransport_CreateStream_ParamsSpec = {
@@ -184,7 +184,7 @@ network.mojom.WebTransport_CreateStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.WebTransport_CreateStream_ResponseParamsSpec = {
   $: {
@@ -198,7 +198,7 @@ network.mojom.WebTransport_CreateStream_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AcceptBidirectionalStream
 network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec = {
@@ -211,7 +211,7 @@ network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec = {
   $: {
@@ -226,7 +226,7 @@ network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AcceptUnidirectionalStream
 network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec = {
@@ -239,7 +239,7 @@ network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec = {
   $: {
@@ -253,7 +253,7 @@ network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendFin
 network.mojom.WebTransport_SendFin_ParamsSpec = {
@@ -267,7 +267,7 @@ network.mojom.WebTransport_SendFin_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AbortStream
 network.mojom.WebTransport_AbortStream_ParamsSpec = {
@@ -282,7 +282,7 @@ network.mojom.WebTransport_AbortStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopSending
 network.mojom.WebTransport_StopSending_ParamsSpec = {
@@ -297,7 +297,7 @@ network.mojom.WebTransport_StopSending_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetOutgoingDatagramExpirationDuration
 network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec = {
@@ -311,7 +311,7 @@ network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStats
 network.mojom.WebTransport_GetStats_ParamsSpec = {
@@ -324,7 +324,7 @@ network.mojom.WebTransport_GetStats_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.WebTransport_GetStats_ResponseParamsSpec = {
   $: {
@@ -337,7 +337,7 @@ network.mojom.WebTransport_GetStats_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Close
 network.mojom.WebTransport_Close_ParamsSpec = {
@@ -351,7 +351,7 @@ network.mojom.WebTransport_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.WebTransportPtr = network.mojom.WebTransportRemote;
@@ -455,7 +455,7 @@ network.mojom.WebTransportClient.getRemote = function() {
     'network.mojom.WebTransportClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDatagramReceived
 network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec = {
@@ -469,7 +469,7 @@ network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnIncomingStreamClosed
 network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec = {
@@ -484,7 +484,7 @@ network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnOutgoingStreamClosed
 network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec = {
@@ -498,7 +498,7 @@ network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReceivedStopSending
 network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec = {
@@ -513,7 +513,7 @@ network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReceivedResetStream
 network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec = {
@@ -528,7 +528,7 @@ network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClosed
 network.mojom.WebTransportClient_OnClosed_ParamsSpec = {
@@ -543,7 +543,7 @@ network.mojom.WebTransportClient_OnClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.WebTransportClientPtr = network.mojom.WebTransportClientRemote;
@@ -620,7 +620,7 @@ network.mojom.WebTransportHandshakeClient.getRemote = function() {
     'network.mojom.WebTransportHandshakeClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnBeforeConnect
 network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec = {
@@ -634,7 +634,7 @@ network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnConnectionEstablished
 network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec = {
@@ -652,7 +652,7 @@ network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHandshakeFailed
 network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec = {
@@ -666,7 +666,7 @@ network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.WebTransportHandshakeClientPtr = network.mojom.WebTransportHandshakeClientRemote;

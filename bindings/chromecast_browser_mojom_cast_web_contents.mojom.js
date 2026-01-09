@@ -161,7 +161,7 @@ chromecast.mojom.CastWebContentsObserver.getRemote = function() {
     'chromecast.mojom.CastWebContentsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PageStateChanged
 chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec = {
@@ -175,7 +175,7 @@ chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PageStopped
 chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec = {
@@ -190,7 +190,7 @@ chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RenderFrameCreated
 chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec = {
@@ -205,7 +205,7 @@ chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MainFrameFinishedNavigation
 chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec = {
@@ -218,7 +218,7 @@ chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateTitle
 chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec = {
@@ -232,7 +232,7 @@ chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateFaviconURL
 chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec = {
@@ -246,7 +246,7 @@ chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidFirstVisuallyNonEmptyPaint
 chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec = {
@@ -259,7 +259,7 @@ chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResourceLoadFailed
 chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec = {
@@ -272,7 +272,7 @@ chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRenderProcessReady
 chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec = {
@@ -286,7 +286,7 @@ chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MediaPlaybackChanged
 chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec = {
@@ -300,7 +300,7 @@ chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InnerContentsCreated
 chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec = {
@@ -314,7 +314,7 @@ chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.CastWebContentsObserverPtr = chromecast.mojom.CastWebContentsObserverRemote;
@@ -490,7 +490,7 @@ chromecast.mojom.CastWebContents.getRemote = function() {
     'chromecast.mojom.CastWebContents',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetAppProperties
 chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec = {
@@ -510,7 +510,7 @@ chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetGroupInfo
 chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec = {
@@ -525,7 +525,7 @@ chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddRendererFeatures
 chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec = {
@@ -539,7 +539,7 @@ chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetInterfacesForRenderer
 chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec = {
@@ -553,7 +553,7 @@ chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadUrl
 chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec = {
@@ -567,7 +567,7 @@ chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClosePage
 chromecast.mojom.CastWebContents_ClosePage_ParamsSpec = {
@@ -580,7 +580,7 @@ chromecast.mojom.CastWebContents_ClosePage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWebVisibilityAndPaint
 chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec = {
@@ -594,7 +594,7 @@ chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BlockMediaLoading
 chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec = {
@@ -608,7 +608,7 @@ chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BlockMediaStarting
 chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec = {
@@ -622,7 +622,7 @@ chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableBackgroundVideoPlayback
 chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec = {
@@ -636,7 +636,7 @@ chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConnectToBindingsService
 chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec = {
@@ -650,7 +650,7 @@ chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddObserver
 chromecast.mojom.CastWebContents_AddObserver_ParamsSpec = {
@@ -664,7 +664,7 @@ chromecast.mojom.CastWebContents_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetEnabledForRemoteDebugging
 chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec = {
@@ -678,7 +678,7 @@ chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMainFramePid
 chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec = {
@@ -691,7 +691,7 @@ chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec = {
   $: {
@@ -704,7 +704,7 @@ chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.CastWebContentsPtr = chromecast.mojom.CastWebContentsRemote;

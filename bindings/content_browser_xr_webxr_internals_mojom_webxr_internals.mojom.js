@@ -79,7 +79,7 @@ webxr.mojom.WebXrInternalsHandler.getRemote = function() {
     'webxr.mojom.WebXrInternalsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDeviceInfo
 webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec = {
@@ -92,7 +92,7 @@ webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec = {
   $: {
@@ -105,7 +105,7 @@ webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetActiveRuntimes
 webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec = {
@@ -118,7 +118,7 @@ webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec = {
   $: {
@@ -131,7 +131,7 @@ webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SubscribeToEvents
 webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec = {
@@ -145,7 +145,7 @@ webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 webxr.mojom.WebXrInternalsHandlerPtr = webxr.mojom.WebXrInternalsHandlerRemote;
@@ -267,7 +267,7 @@ webxr.mojom.XRInternalsSessionListener.getRemote = function() {
     'webxr.mojom.XRInternalsSessionListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LogXrSessionRequested
 webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec = {
@@ -281,7 +281,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogXrSessionRejected
 webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec = {
@@ -295,7 +295,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogXrSessionStarted
 webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec = {
@@ -309,7 +309,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogXrSessionStopped
 webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec = {
@@ -323,7 +323,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogXrRuntimeAdded
 webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec = {
@@ -337,7 +337,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogXrRuntimeRemoved
 webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec = {
@@ -351,7 +351,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogFrameData
 webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec = {
@@ -365,7 +365,7 @@ webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogConsoleMessages
 webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec = {
@@ -379,7 +379,7 @@ webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 webxr.mojom.XRInternalsSessionListenerPtr = webxr.mojom.XRInternalsSessionListenerRemote;

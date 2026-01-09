@@ -61,7 +61,7 @@ device.mojom.TimeZoneMonitor.getRemote = function() {
     'device.mojom.TimeZoneMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddClient
 device.mojom.TimeZoneMonitor_AddClient_ParamsSpec = {
@@ -75,7 +75,7 @@ device.mojom.TimeZoneMonitor_AddClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.TimeZoneMonitorPtr = device.mojom.TimeZoneMonitorRemote;
@@ -134,7 +134,7 @@ device.mojom.TimeZoneMonitorClient.getRemote = function() {
     'device.mojom.TimeZoneMonitorClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnTimeZoneChange
 device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec = {
@@ -148,7 +148,7 @@ device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.TimeZoneMonitorClientPtr = device.mojom.TimeZoneMonitorClientRemote;

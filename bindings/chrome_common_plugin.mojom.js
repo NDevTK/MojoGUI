@@ -71,7 +71,7 @@ chrome.mojom.PluginHost.getRemote = function() {
     'chrome.mojom.PluginHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenPDF
 chrome.mojom.PluginHost_OpenPDF_ParamsSpec = {
@@ -85,7 +85,7 @@ chrome.mojom.PluginHost_OpenPDF_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.PluginHostPtr = chrome.mojom.PluginHostRemote;
@@ -144,7 +144,7 @@ chrome.mojom.PluginAuthHost.getRemote = function() {
     'chrome.mojom.PluginAuthHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BlockedUnauthorizedPlugin
 chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec = {
@@ -159,7 +159,7 @@ chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.PluginAuthHostPtr = chrome.mojom.PluginAuthHostRemote;
@@ -218,7 +218,7 @@ chrome.mojom.PluginInfoHost.getRemote = function() {
     'chrome.mojom.PluginInfoHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPluginInfo
 chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec = {
@@ -234,7 +234,7 @@ chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec = {
   $: {
@@ -247,7 +247,7 @@ chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.PluginInfoHostPtr = chrome.mojom.PluginInfoHostRemote;

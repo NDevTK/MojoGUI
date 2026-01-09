@@ -115,7 +115,7 @@ viz.mojom.CompositorFrameSink.getRemote = function() {
     'viz.mojom.CompositorFrameSink',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetParams
 viz.mojom.CompositorFrameSink_SetParams_ParamsSpec = {
@@ -129,7 +129,7 @@ viz.mojom.CompositorFrameSink_SetParams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNeedsBeginFrame
 viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec = {
@@ -143,7 +143,7 @@ viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SubmitCompositorFrame
 viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec = {
@@ -160,7 +160,7 @@ viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidNotProduceFrame
 viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec = {
@@ -174,7 +174,7 @@ viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyNewLocalSurfaceIdExpectedWhilePaused
 viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec = {
@@ -187,7 +187,7 @@ viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindLayerContext
 viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec = {
@@ -202,7 +202,7 @@ viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetThreads
 viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec = {
@@ -216,7 +216,7 @@ viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.CompositorFrameSinkPtr = viz.mojom.CompositorFrameSinkRemote;
@@ -320,7 +320,7 @@ viz.mojom.CompositorFrameSinkClient.getRemote = function() {
     'viz.mojom.CompositorFrameSinkClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidReceiveCompositorFrameAck
 viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec = {
@@ -334,7 +334,7 @@ viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBeginFrame
 viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec = {
@@ -350,7 +350,7 @@ viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBeginFramePausedChanged
 viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec = {
@@ -364,7 +364,7 @@ viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReclaimResources
 viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec = {
@@ -378,7 +378,7 @@ viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCompositorFrameTransitionDirectiveProcessed
 viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = {
@@ -392,7 +392,7 @@ viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcesse
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSurfaceEvicted
 viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec = {
@@ -406,7 +406,7 @@ viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.CompositorFrameSinkClientPtr = viz.mojom.CompositorFrameSinkClientRemote;

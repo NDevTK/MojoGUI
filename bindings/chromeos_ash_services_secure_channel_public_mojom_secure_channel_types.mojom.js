@@ -70,7 +70,7 @@ ash.secure_channel.mojom.FilePayloadListener.getRemote = function() {
     'ash.secure_channel.mojom.FilePayloadListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnFileTransferUpdate
 ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec = {
@@ -84,7 +84,7 @@ ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.secure_channel.mojom.FilePayloadListenerPtr = ash.secure_channel.mojom.FilePayloadListenerRemote;

@@ -61,7 +61,7 @@ blink.mojom.MemoryUsageMonitorLinux.getRemote = function() {
     'blink.mojom.MemoryUsageMonitorLinux',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetProcFiles
 blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec = {
@@ -76,7 +76,7 @@ blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.MemoryUsageMonitorLinuxPtr = blink.mojom.MemoryUsageMonitorLinuxRemote;

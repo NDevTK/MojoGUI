@@ -106,7 +106,7 @@ arc.mojom.ProcessInstance.getRemote = function() {
     'arc.mojom.ProcessInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ProcessInstancePtr = arc.mojom.ProcessInstanceRemote;

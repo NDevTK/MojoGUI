@@ -129,7 +129,7 @@ memory_instrumentation.mojom.ClientProcess.getRemote = function() {
     'memory_instrumentation.mojom.ClientProcess',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestChromeMemoryDump
 memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec = {
@@ -143,7 +143,7 @@ memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec = {
   $: {
@@ -158,7 +158,7 @@ memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestOSMemoryDump
 memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec = {
@@ -174,7 +174,7 @@ memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec = {
   $: {
@@ -188,7 +188,7 @@ memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 memory_instrumentation.mojom.ClientProcessPtr = memory_instrumentation.mojom.ClientProcessRemote;
@@ -247,7 +247,7 @@ memory_instrumentation.mojom.HeapProfiler.getRemote = function() {
     'memory_instrumentation.mojom.HeapProfiler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DumpProcessesForTracing
 memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec = {
@@ -262,7 +262,7 @@ memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec = {
   $: {
@@ -275,7 +275,7 @@ memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 memory_instrumentation.mojom.HeapProfilerPtr = memory_instrumentation.mojom.HeapProfilerRemote;
@@ -334,7 +334,7 @@ memory_instrumentation.mojom.HeapProfilerHelper.getRemote = function() {
     'memory_instrumentation.mojom.HeapProfilerHelper',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetVmRegionsForHeapProfiler
 memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec = {
@@ -348,7 +348,7 @@ memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec = {
   $: {
@@ -361,7 +361,7 @@ memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_Resp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 memory_instrumentation.mojom.HeapProfilerHelperPtr = memory_instrumentation.mojom.HeapProfilerHelperRemote;
@@ -447,7 +447,7 @@ memory_instrumentation.mojom.Coordinator.getRemote = function() {
     'memory_instrumentation.mojom.Coordinator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestGlobalMemoryDump
 memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec = {
@@ -464,7 +464,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec = {
   $: {
@@ -478,7 +478,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestGlobalMemoryDumpForPid
 memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec = {
@@ -493,7 +493,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec = {
   $: {
@@ -507,7 +507,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestPrivateMemoryFootprint
 memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec = {
@@ -521,7 +521,7 @@ memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec = {
   $: {
@@ -535,7 +535,7 @@ memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestGlobalMemoryDumpAndAppendToTrace
 memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec = {
@@ -551,7 +551,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec = {
   $: {
@@ -565,7 +565,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 memory_instrumentation.mojom.CoordinatorPtr = memory_instrumentation.mojom.CoordinatorRemote;
@@ -624,7 +624,7 @@ memory_instrumentation.mojom.CoordinatorConnector.getRemote = function() {
     'memory_instrumentation.mojom.CoordinatorConnector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterCoordinatorClient
 memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec = {
@@ -639,7 +639,7 @@ memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 memory_instrumentation.mojom.CoordinatorConnectorPtr = memory_instrumentation.mojom.CoordinatorConnectorRemote;

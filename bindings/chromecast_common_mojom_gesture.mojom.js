@@ -133,7 +133,7 @@ chromecast.mojom.GestureHandler.getRemote = function() {
     'chromecast.mojom.GestureHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnBackGesture
 chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec = {
@@ -146,7 +146,7 @@ chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec = {
   $: {
@@ -159,7 +159,7 @@ chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBackGestureProgress
 chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec = {
@@ -173,7 +173,7 @@ chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTopDragGestureProgress
 chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec = {
@@ -187,7 +187,7 @@ chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTopDragGestureDone
 chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec = {
@@ -200,7 +200,7 @@ chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRightDragGestureProgress
 chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec = {
@@ -214,7 +214,7 @@ chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRightDragGestureDone
 chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec = {
@@ -227,7 +227,7 @@ chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBackGestureCancel
 chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec = {
@@ -240,7 +240,7 @@ chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTapGesture
 chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec = {
@@ -253,7 +253,7 @@ chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTapDownGesture
 chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec = {
@@ -266,7 +266,7 @@ chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.GestureHandlerPtr = chromecast.mojom.GestureHandlerRemote;
@@ -352,7 +352,7 @@ chromecast.mojom.GestureSource.getRemote = function() {
     'chromecast.mojom.GestureSource',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Subscribe
 chromecast.mojom.GestureSource_Subscribe_ParamsSpec = {
@@ -366,7 +366,7 @@ chromecast.mojom.GestureSource_Subscribe_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCanGoBack
 chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec = {
@@ -380,7 +380,7 @@ chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCanTopDrag
 chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec = {
@@ -394,7 +394,7 @@ chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCanRightDrag
 chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec = {
@@ -408,7 +408,7 @@ chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.GestureSourcePtr = chromecast.mojom.GestureSourceRemote;

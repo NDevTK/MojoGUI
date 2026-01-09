@@ -112,7 +112,7 @@ downloads.mojom.PageHandlerFactory.getRemote = function() {
     'downloads.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -127,7 +127,7 @@ downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 downloads.mojom.PageHandlerFactoryPtr = downloads.mojom.PageHandlerFactoryRemote;
@@ -393,7 +393,7 @@ downloads.mojom.PageHandler.getRemote = function() {
     'downloads.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDownloads
 downloads.mojom.PageHandler_GetDownloads_ParamsSpec = {
@@ -407,7 +407,7 @@ downloads.mojom.PageHandler_GetDownloads_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenFileRequiringGesture
 downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec = {
@@ -421,7 +421,7 @@ downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Drag
 downloads.mojom.PageHandler_Drag_ParamsSpec = {
@@ -435,7 +435,7 @@ downloads.mojom.PageHandler_Drag_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SaveSuspiciousRequiringGesture
 downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec = {
@@ -449,7 +449,7 @@ downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordOpenBypassWarningDialog
 downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec = {
@@ -463,7 +463,7 @@ downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SaveDangerousFromDialogRequiringGesture
 downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec = {
@@ -477,7 +477,7 @@ downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordCancelBypassWarningDialog
 downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec = {
@@ -491,7 +491,7 @@ downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DiscardDangerous
 downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec = {
@@ -505,7 +505,7 @@ downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RetryDownload
 downloads.mojom.PageHandler_RetryDownload_ParamsSpec = {
@@ -519,7 +519,7 @@ downloads.mojom.PageHandler_RetryDownload_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Show
 downloads.mojom.PageHandler_Show_ParamsSpec = {
@@ -533,7 +533,7 @@ downloads.mojom.PageHandler_Show_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Pause
 downloads.mojom.PageHandler_Pause_ParamsSpec = {
@@ -547,7 +547,7 @@ downloads.mojom.PageHandler_Pause_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Resume
 downloads.mojom.PageHandler_Resume_ParamsSpec = {
@@ -561,7 +561,7 @@ downloads.mojom.PageHandler_Resume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Remove
 downloads.mojom.PageHandler_Remove_ParamsSpec = {
@@ -575,7 +575,7 @@ downloads.mojom.PageHandler_Remove_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Undo
 downloads.mojom.PageHandler_Undo_ParamsSpec = {
@@ -588,7 +588,7 @@ downloads.mojom.PageHandler_Undo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Cancel
 downloads.mojom.PageHandler_Cancel_ParamsSpec = {
@@ -602,7 +602,7 @@ downloads.mojom.PageHandler_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearAll
 downloads.mojom.PageHandler_ClearAll_ParamsSpec = {
@@ -615,7 +615,7 @@ downloads.mojom.PageHandler_ClearAll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenDownloadsFolderRequiringGesture
 downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec = {
@@ -628,7 +628,7 @@ downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenEsbSettings
 downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec = {
@@ -641,7 +641,7 @@ downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogEsbPromotionRowViewed
 downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec = {
@@ -654,7 +654,7 @@ downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenDuringScanningRequiringGesture
 downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec = {
@@ -668,7 +668,7 @@ downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReviewDangerousRequiringGesture
 downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec = {
@@ -682,7 +682,7 @@ downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeepScan
 downloads.mojom.PageHandler_DeepScan_ParamsSpec = {
@@ -696,7 +696,7 @@ downloads.mojom.PageHandler_DeepScan_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BypassDeepScanRequiringGesture
 downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec = {
@@ -710,7 +710,7 @@ downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsEligibleForEsbPromo
 downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec = {
@@ -723,7 +723,7 @@ downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec = {
   $: {
@@ -736,7 +736,7 @@ downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 downloads.mojom.PageHandlerPtr = downloads.mojom.PageHandlerRemote;
@@ -822,7 +822,7 @@ downloads.mojom.Page.getRemote = function() {
     'downloads.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RemoveItem
 downloads.mojom.Page_RemoveItem_ParamsSpec = {
@@ -836,7 +836,7 @@ downloads.mojom.Page_RemoveItem_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateItem
 downloads.mojom.Page_UpdateItem_ParamsSpec = {
@@ -851,7 +851,7 @@ downloads.mojom.Page_UpdateItem_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InsertItems
 downloads.mojom.Page_InsertItems_ParamsSpec = {
@@ -866,7 +866,7 @@ downloads.mojom.Page_InsertItems_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearAll
 downloads.mojom.Page_ClearAll_ParamsSpec = {
@@ -879,7 +879,7 @@ downloads.mojom.Page_ClearAll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 downloads.mojom.PagePtr = downloads.mojom.PageRemote;

@@ -68,7 +68,7 @@ chromeos.mojo_service_manager.mojom.ServiceManager.getRemote = function() {
     'chromeos.mojo_service_manager.mojom.ServiceManager',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.mojo_service_manager.mojom.ServiceManagerPtr = chromeos.mojo_service_manager.mojom.ServiceManagerRemote;
@@ -118,7 +118,7 @@ chromeos.mojo_service_manager.mojom.ServiceProvider.getRemote = function() {
     'chromeos.mojo_service_manager.mojom.ServiceProvider',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.mojo_service_manager.mojom.ServiceProviderPtr = chromeos.mojo_service_manager.mojom.ServiceProviderRemote;
@@ -168,7 +168,7 @@ chromeos.mojo_service_manager.mojom.ServiceObserver.getRemote = function() {
     'chromeos.mojo_service_manager.mojom.ServiceObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.mojo_service_manager.mojom.ServiceObserverPtr = chromeos.mojo_service_manager.mojom.ServiceObserverRemote;

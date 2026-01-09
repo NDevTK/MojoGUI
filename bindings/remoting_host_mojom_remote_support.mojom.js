@@ -57,7 +57,7 @@ remoting.mojom.SupportHostObserver.getRemote = function() {
     'remoting.mojom.SupportHostObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.SupportHostObserverPtr = remoting.mojom.SupportHostObserverRemote;

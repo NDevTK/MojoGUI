@@ -68,7 +68,7 @@ password_manager.mojom.CSVPasswordParser.getRemote = function() {
     'password_manager.mojom.CSVPasswordParser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ParseCSV
 password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec = {
@@ -82,7 +82,7 @@ password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec = {
   $: {
@@ -95,7 +95,7 @@ password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 password_manager.mojom.CSVPasswordParserPtr = password_manager.mojom.CSVPasswordParserRemote;

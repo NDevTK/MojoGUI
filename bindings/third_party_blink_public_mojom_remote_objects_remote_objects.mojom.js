@@ -106,7 +106,7 @@ blink.mojom.RemoteObjectHost.getRemote = function() {
     'blink.mojom.RemoteObjectHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetObject
 blink.mojom.RemoteObjectHost_GetObject_ParamsSpec = {
@@ -121,7 +121,7 @@ blink.mojom.RemoteObjectHost_GetObject_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AcquireObject
 blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec = {
@@ -135,7 +135,7 @@ blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReleaseObject
 blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec = {
@@ -149,7 +149,7 @@ blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RemoteObjectHostPtr = blink.mojom.RemoteObjectHostRemote;
@@ -235,7 +235,7 @@ blink.mojom.RemoteObject.getRemote = function() {
     'blink.mojom.RemoteObject',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HasMethod
 blink.mojom.RemoteObject_HasMethod_ParamsSpec = {
@@ -249,7 +249,7 @@ blink.mojom.RemoteObject_HasMethod_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec = {
   $: {
@@ -262,7 +262,7 @@ blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMethods
 blink.mojom.RemoteObject_GetMethods_ParamsSpec = {
@@ -275,7 +275,7 @@ blink.mojom.RemoteObject_GetMethods_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec = {
   $: {
@@ -288,7 +288,7 @@ blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InvokeMethod
 blink.mojom.RemoteObject_InvokeMethod_ParamsSpec = {
@@ -303,7 +303,7 @@ blink.mojom.RemoteObject_InvokeMethod_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec = {
   $: {
@@ -316,7 +316,7 @@ blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyReleasedObject
 blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec = {
@@ -329,7 +329,7 @@ blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RemoteObjectPtr = blink.mojom.RemoteObjectRemote;
@@ -388,7 +388,7 @@ blink.mojom.RemoteObjectGatewayFactory.getRemote = function() {
     'blink.mojom.RemoteObjectGatewayFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateRemoteObjectGateway
 blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec = {
@@ -403,7 +403,7 @@ blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RemoteObjectGatewayFactoryPtr = blink.mojom.RemoteObjectGatewayFactoryRemote;
@@ -471,7 +471,7 @@ blink.mojom.RemoteObjectGateway.getRemote = function() {
     'blink.mojom.RemoteObjectGateway',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddNamedObject
 blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec = {
@@ -486,7 +486,7 @@ blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveNamedObject
 blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec = {
@@ -500,7 +500,7 @@ blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RemoteObjectGatewayPtr = blink.mojom.RemoteObjectGatewayRemote;

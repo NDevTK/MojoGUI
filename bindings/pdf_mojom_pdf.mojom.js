@@ -76,7 +76,7 @@ pdf.mojom.SaveDataBufferHandler.getRemote = function() {
     'pdf.mojom.SaveDataBufferHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Read
 pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec = {
@@ -91,7 +91,7 @@ pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec = {
   $: {
@@ -104,7 +104,7 @@ pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 pdf.mojom.SaveDataBufferHandlerPtr = pdf.mojom.SaveDataBufferHandlerRemote;
@@ -217,7 +217,7 @@ pdf.mojom.PdfListener.getRemote = function() {
     'pdf.mojom.PdfListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetCaretPosition
 pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec = {
@@ -231,7 +231,7 @@ pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MoveRangeSelectionExtent
 pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec = {
@@ -245,7 +245,7 @@ pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSelectionBounds
 pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec = {
@@ -260,7 +260,7 @@ pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPdfBytes
 pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec = {
@@ -274,7 +274,7 @@ pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec = {
   $: {
@@ -289,7 +289,7 @@ pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPageText
 pdf.mojom.PdfListener_GetPageText_ParamsSpec = {
@@ -303,7 +303,7 @@ pdf.mojom.PdfListener_GetPageText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec = {
   $: {
@@ -316,7 +316,7 @@ pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMostVisiblePageIndex
 pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec = {
@@ -329,7 +329,7 @@ pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec = {
   $: {
@@ -342,7 +342,7 @@ pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSaveDataBufferHandlerForDrive
 pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec = {
@@ -356,7 +356,7 @@ pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec = {
   $: {
@@ -369,7 +369,7 @@ pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 pdf.mojom.PdfListenerPtr = pdf.mojom.PdfListenerRemote;
@@ -482,7 +482,7 @@ pdf.mojom.PdfHost.getRemote = function() {
     'pdf.mojom.PdfHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetListener
 pdf.mojom.PdfHost_SetListener_ParamsSpec = {
@@ -496,7 +496,7 @@ pdf.mojom.PdfHost_SetListener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDocumentLoadComplete
 pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec = {
@@ -509,7 +509,7 @@ pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateContentRestrictions
 pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec = {
@@ -523,7 +523,7 @@ pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SaveUrlAs
 pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec = {
@@ -538,7 +538,7 @@ pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectionChanged
 pdf.mojom.PdfHost_SelectionChanged_ParamsSpec = {
@@ -555,7 +555,7 @@ pdf.mojom.PdfHost_SelectionChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPluginCanSave
 pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec = {
@@ -569,7 +569,7 @@ pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSearchifyStarted
 pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec = {
@@ -582,7 +582,7 @@ pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 pdf.mojom.PdfHostPtr = pdf.mojom.PdfHostRemote;

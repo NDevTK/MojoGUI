@@ -123,7 +123,7 @@ echo.mojom.EchoService.getRemote = function() {
     'echo.mojom.EchoService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EchoString
 echo.mojom.EchoService_EchoString_ParamsSpec = {
@@ -137,7 +137,7 @@ echo.mojom.EchoService_EchoString_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 echo.mojom.EchoService_EchoString_ResponseParamsSpec = {
   $: {
@@ -150,7 +150,7 @@ echo.mojom.EchoService_EchoString_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoStringToSharedMemory
 echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec = {
@@ -165,7 +165,7 @@ echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Quit
 echo.mojom.EchoService_Quit_ParamsSpec = {
@@ -178,7 +178,7 @@ echo.mojom.EchoService_Quit_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Crash
 echo.mojom.EchoService_Crash_ParamsSpec = {
@@ -191,7 +191,7 @@ echo.mojom.EchoService_Crash_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DelayLoad
 echo.mojom.EchoService_DelayLoad_ParamsSpec = {
@@ -204,7 +204,7 @@ echo.mojom.EchoService_DelayLoad_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadNativeLibrary
 echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec = {
@@ -219,7 +219,7 @@ echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec = {
   $: {
@@ -233,7 +233,7 @@ echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DecryptEncrypt
 echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = {
@@ -248,7 +248,7 @@ echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec = {
   $: {
@@ -261,7 +261,7 @@ echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 echo.mojom.EchoServicePtr = echo.mojom.EchoServiceRemote;

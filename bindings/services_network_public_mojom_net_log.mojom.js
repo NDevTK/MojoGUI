@@ -85,7 +85,7 @@ network.mojom.NetLogExporter.getRemote = function() {
     'network.mojom.NetLogExporter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Start
 network.mojom.NetLogExporter_Start_ParamsSpec = {
@@ -102,7 +102,7 @@ network.mojom.NetLogExporter_Start_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetLogExporter_Start_ResponseParamsSpec = {
   $: {
@@ -115,7 +115,7 @@ network.mojom.NetLogExporter_Start_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Stop
 network.mojom.NetLogExporter_Stop_ParamsSpec = {
@@ -129,7 +129,7 @@ network.mojom.NetLogExporter_Stop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.NetLogExporter_Stop_ResponseParamsSpec = {
   $: {
@@ -142,7 +142,7 @@ network.mojom.NetLogExporter_Stop_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.NetLogExporterPtr = network.mojom.NetLogExporterRemote;
@@ -201,7 +201,7 @@ network.mojom.NetLogProxySource.getRemote = function() {
     'network.mojom.NetLogProxySource',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateCaptureModes
 network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec = {
@@ -215,7 +215,7 @@ network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.NetLogProxySourcePtr = network.mojom.NetLogProxySourceRemote;
@@ -274,7 +274,7 @@ network.mojom.NetLogProxySink.getRemote = function() {
     'network.mojom.NetLogProxySink',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddEntry
 network.mojom.NetLogProxySink_AddEntry_ParamsSpec = {
@@ -292,7 +292,7 @@ network.mojom.NetLogProxySink_AddEntry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.NetLogProxySinkPtr = network.mojom.NetLogProxySinkRemote;

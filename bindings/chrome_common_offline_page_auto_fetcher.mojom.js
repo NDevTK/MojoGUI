@@ -78,7 +78,7 @@ chrome.mojom.OfflinePageAutoFetcher.getRemote = function() {
     'chrome.mojom.OfflinePageAutoFetcher',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for TrySchedule
 chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec = {
@@ -92,7 +92,7 @@ chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec = {
   $: {
@@ -105,7 +105,7 @@ chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelSchedule
 chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec = {
@@ -118,7 +118,7 @@ chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.OfflinePageAutoFetcherPtr = chrome.mojom.OfflinePageAutoFetcherRemote;

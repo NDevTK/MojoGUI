@@ -52,7 +52,7 @@ arc.mojom.DiskSpaceHost.getRemote = function() {
     'arc.mojom.DiskSpaceHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.DiskSpaceHostPtr = arc.mojom.DiskSpaceHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.DiskSpaceInstance.getRemote = function() {
     'arc.mojom.DiskSpaceInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.DiskSpaceInstancePtr = arc.mojom.DiskSpaceInstanceRemote;

@@ -337,7 +337,7 @@ ax.android.mojom.AccessibilityHelperHost.getRemote = function() {
     'ax.android.mojom.AccessibilityHelperHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ax.android.mojom.AccessibilityHelperHostPtr = ax.android.mojom.AccessibilityHelperHostRemote;
@@ -387,7 +387,7 @@ ax.android.mojom.AccessibilityHelperInstance.getRemote = function() {
     'ax.android.mojom.AccessibilityHelperInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ax.android.mojom.AccessibilityHelperInstancePtr = ax.android.mojom.AccessibilityHelperInstanceRemote;

@@ -61,7 +61,7 @@ network.mojom.ProxyResolvingSocket.getRemote = function() {
     'network.mojom.ProxyResolvingSocket',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpgradeToTLS
 network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec = {
@@ -78,7 +78,7 @@ network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec = {
   $: {
@@ -93,7 +93,7 @@ network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.ProxyResolvingSocketPtr = network.mojom.ProxyResolvingSocketRemote;
@@ -152,7 +152,7 @@ network.mojom.ProxyResolvingSocketFactory.getRemote = function() {
     'network.mojom.ProxyResolvingSocketFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateProxyResolvingSocket
 network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec = {
@@ -171,7 +171,7 @@ network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec = {
   $: {
@@ -188,7 +188,7 @@ network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.ProxyResolvingSocketFactoryPtr = network.mojom.ProxyResolvingSocketFactoryRemote;

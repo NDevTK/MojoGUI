@@ -70,7 +70,7 @@ gfx.mojom.ImageTraitsTestService.getRemote = function() {
     'gfx.mojom.ImageTraitsTestService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EchoImageSkiaRep
 gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = {
@@ -84,7 +84,7 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoImageSkia
 gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = {
@@ -111,7 +111,7 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = {
   $: {
@@ -124,7 +124,7 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 gfx.mojom.ImageTraitsTestServicePtr = gfx.mojom.ImageTraitsTestServiceRemote;

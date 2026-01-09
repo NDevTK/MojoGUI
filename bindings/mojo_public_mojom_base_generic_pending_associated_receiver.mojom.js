@@ -52,7 +52,7 @@ mojo_base.mojom.GenericAssociatedInterface.getRemote = function() {
     'mojo_base.mojom.GenericAssociatedInterface',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 mojo_base.mojom.GenericAssociatedInterfacePtr = mojo_base.mojom.GenericAssociatedInterfaceRemote;

@@ -61,7 +61,7 @@ actor_internals.mojom.Page.getRemote = function() {
     'actor_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for JournalEntryAdded
 actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec = {
@@ -75,7 +75,7 @@ actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 actor_internals.mojom.PagePtr = actor_internals.mojom.PageRemote;
@@ -143,7 +143,7 @@ actor_internals.mojom.PageHandler.getRemote = function() {
     'actor_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartLogging
 actor_internals.mojom.PageHandler_StartLogging_ParamsSpec = {
@@ -156,7 +156,7 @@ actor_internals.mojom.PageHandler_StartLogging_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopLogging
 actor_internals.mojom.PageHandler_StopLogging_ParamsSpec = {
@@ -169,7 +169,7 @@ actor_internals.mojom.PageHandler_StopLogging_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 actor_internals.mojom.PageHandlerPtr = actor_internals.mojom.PageHandlerRemote;
@@ -228,7 +228,7 @@ actor_internals.mojom.PageHandlerFactory.getRemote = function() {
     'actor_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -243,7 +243,7 @@ actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 actor_internals.mojom.PageHandlerFactoryPtr = actor_internals.mojom.PageHandlerFactoryRemote;

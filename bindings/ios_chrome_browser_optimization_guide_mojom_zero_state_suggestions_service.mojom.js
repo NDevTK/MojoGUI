@@ -61,7 +61,7 @@ ai.mojom.ZeroStateSuggestionsService.getRemote = function() {
     'ai.mojom.ZeroStateSuggestionsService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FetchZeroStateSuggestions
 ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec = {
@@ -74,7 +74,7 @@ ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ai.mojom.ZeroStateSuggestionsServicePtr = ai.mojom.ZeroStateSuggestionsServiceRemote;

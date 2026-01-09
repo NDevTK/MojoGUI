@@ -69,7 +69,7 @@ remoting.mojom.RemoteUrlOpener.getRemote = function() {
     'remoting.mojom.RemoteUrlOpener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenUrl
 remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec = {
@@ -83,7 +83,7 @@ remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec = {
   $: {
@@ -96,7 +96,7 @@ remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.RemoteUrlOpenerPtr = remoting.mojom.RemoteUrlOpenerRemote;

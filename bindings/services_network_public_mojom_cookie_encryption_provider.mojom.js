@@ -61,7 +61,7 @@ network.mojom.CookieEncryptionProvider.getRemote = function() {
     'network.mojom.CookieEncryptionProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetEncryptor
 network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec = {
@@ -74,7 +74,7 @@ network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.CookieEncryptionProviderPtr = network.mojom.CookieEncryptionProviderRemote;

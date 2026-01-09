@@ -88,7 +88,7 @@ blink.mojom.AIManagerCreateLanguageModelClient.getRemote = function() {
     'blink.mojom.AIManagerCreateLanguageModelClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnResult
 blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec = {
@@ -103,7 +103,7 @@ blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec = {
@@ -118,7 +118,7 @@ blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AIManagerCreateLanguageModelClientPtr = blink.mojom.AIManagerCreateLanguageModelClientRemote;
@@ -213,7 +213,7 @@ blink.mojom.AILanguageModel.getRemote = function() {
     'blink.mojom.AILanguageModel',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Prompt
 blink.mojom.AILanguageModel_Prompt_ParamsSpec = {
@@ -229,7 +229,7 @@ blink.mojom.AILanguageModel_Prompt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Append
 blink.mojom.AILanguageModel_Append_ParamsSpec = {
@@ -244,7 +244,7 @@ blink.mojom.AILanguageModel_Append_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Fork
 blink.mojom.AILanguageModel_Fork_ParamsSpec = {
@@ -258,7 +258,7 @@ blink.mojom.AILanguageModel_Fork_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Destroy
 blink.mojom.AILanguageModel_Destroy_ParamsSpec = {
@@ -271,7 +271,7 @@ blink.mojom.AILanguageModel_Destroy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MeasureInputUsage
 blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec = {
@@ -285,7 +285,7 @@ blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec = {
   $: {
@@ -298,7 +298,7 @@ blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AILanguageModelPtr = blink.mojom.AILanguageModelRemote;

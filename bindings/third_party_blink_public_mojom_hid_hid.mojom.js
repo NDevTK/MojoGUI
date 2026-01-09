@@ -97,7 +97,7 @@ blink.mojom.HidService.getRemote = function() {
     'blink.mojom.HidService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterClient
 blink.mojom.HidService_RegisterClient_ParamsSpec = {
@@ -111,7 +111,7 @@ blink.mojom.HidService_RegisterClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDevices
 blink.mojom.HidService_GetDevices_ParamsSpec = {
@@ -124,7 +124,7 @@ blink.mojom.HidService_GetDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.HidService_GetDevices_ResponseParamsSpec = {
   $: {
@@ -137,7 +137,7 @@ blink.mojom.HidService_GetDevices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestDevice
 blink.mojom.HidService_RequestDevice_ParamsSpec = {
@@ -152,7 +152,7 @@ blink.mojom.HidService_RequestDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.HidService_RequestDevice_ResponseParamsSpec = {
   $: {
@@ -165,7 +165,7 @@ blink.mojom.HidService_RequestDevice_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Connect
 blink.mojom.HidService_Connect_ParamsSpec = {
@@ -180,7 +180,7 @@ blink.mojom.HidService_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.HidService_Connect_ResponseParamsSpec = {
   $: {
@@ -193,7 +193,7 @@ blink.mojom.HidService_Connect_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Forget
 blink.mojom.HidService_Forget_ParamsSpec = {
@@ -207,7 +207,7 @@ blink.mojom.HidService_Forget_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.HidServicePtr = blink.mojom.HidServiceRemote;

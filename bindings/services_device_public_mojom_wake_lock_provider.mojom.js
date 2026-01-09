@@ -88,7 +88,7 @@ device.mojom.WakeLockProvider.getRemote = function() {
     'device.mojom.WakeLockProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetWakeLockContextForID
 device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec = {
@@ -103,7 +103,7 @@ device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetWakeLockWithoutContext
 device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec = {
@@ -120,7 +120,7 @@ device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyOnWakeLockDeactivation
 device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec = {
@@ -135,7 +135,7 @@ device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetActiveWakeLocksForTests
 device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec = {
@@ -149,7 +149,7 @@ device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec = {
   $: {
@@ -162,7 +162,7 @@ device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.WakeLockProviderPtr = device.mojom.WakeLockProviderRemote;
@@ -221,7 +221,7 @@ device.mojom.WakeLockObserver.getRemote = function() {
     'device.mojom.WakeLockObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnWakeLockDeactivated
 device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec = {
@@ -235,7 +235,7 @@ device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.WakeLockObserverPtr = device.mojom.WakeLockObserverRemote;

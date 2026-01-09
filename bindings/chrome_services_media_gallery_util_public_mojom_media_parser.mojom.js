@@ -88,7 +88,7 @@ chrome.mojom.MediaParser.getRemote = function() {
     'chrome.mojom.MediaParser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ParseMediaMetadata
 chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec = {
@@ -105,7 +105,7 @@ chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec = {
   $: {
@@ -120,7 +120,7 @@ chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExtractVideoFrame
 chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec = {
@@ -136,7 +136,7 @@ chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec = {
   $: {
@@ -149,7 +149,7 @@ chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CheckMediaFile
 chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec = {
@@ -164,7 +164,7 @@ chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec = {
   $: {
@@ -177,7 +177,7 @@ chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCpuInfo
 chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec = {
@@ -190,7 +190,7 @@ chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec = {
   $: {
@@ -204,7 +204,7 @@ chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.MediaParserPtr = chrome.mojom.MediaParserRemote;
@@ -263,7 +263,7 @@ chrome.mojom.MediaParserFactory.getRemote = function() {
     'chrome.mojom.MediaParserFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateMediaParser
 chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec = {
@@ -278,7 +278,7 @@ chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec = {
   $: {
@@ -291,7 +291,7 @@ chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.MediaParserFactoryPtr = chrome.mojom.MediaParserFactoryRemote;
@@ -350,7 +350,7 @@ chrome.mojom.MediaDataSource.getRemote = function() {
     'chrome.mojom.MediaDataSource',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Read
 chrome.mojom.MediaDataSource_Read_ParamsSpec = {
@@ -365,7 +365,7 @@ chrome.mojom.MediaDataSource_Read_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.MediaDataSource_Read_ResponseParamsSpec = {
   $: {
@@ -378,7 +378,7 @@ chrome.mojom.MediaDataSource_Read_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.MediaDataSourcePtr = chrome.mojom.MediaDataSourceRemote;

@@ -75,7 +75,7 @@ blink.mojom.MediaSessionClient.getRemote = function() {
     'blink.mojom.MediaSessionClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidReceiveAction
 blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = {
@@ -90,7 +90,7 @@ blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.MediaSessionClientPtr = blink.mojom.MediaSessionClientRemote;
@@ -212,7 +212,7 @@ blink.mojom.MediaSessionService.getRemote = function() {
     'blink.mojom.MediaSessionService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetClient
 blink.mojom.MediaSessionService_SetClient_ParamsSpec = {
@@ -226,7 +226,7 @@ blink.mojom.MediaSessionService_SetClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPlaybackState
 blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec = {
@@ -240,7 +240,7 @@ blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPositionState
 blink.mojom.MediaSessionService_SetPositionState_ParamsSpec = {
@@ -254,7 +254,7 @@ blink.mojom.MediaSessionService_SetPositionState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMetadata
 blink.mojom.MediaSessionService_SetMetadata_ParamsSpec = {
@@ -268,7 +268,7 @@ blink.mojom.MediaSessionService_SetMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMicrophoneState
 blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec = {
@@ -282,7 +282,7 @@ blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCameraState
 blink.mojom.MediaSessionService_SetCameraState_ParamsSpec = {
@@ -296,7 +296,7 @@ blink.mojom.MediaSessionService_SetCameraState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableAction
 blink.mojom.MediaSessionService_EnableAction_ParamsSpec = {
@@ -310,7 +310,7 @@ blink.mojom.MediaSessionService_EnableAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableAction
 blink.mojom.MediaSessionService_DisableAction_ParamsSpec = {
@@ -324,7 +324,7 @@ blink.mojom.MediaSessionService_DisableAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.MediaSessionServicePtr = blink.mojom.MediaSessionServiceRemote;

@@ -53,7 +53,7 @@ chromeos.media_perception.mojom.MediaPerceptionService.getRemote = function() {
     'chromeos.media_perception.mojom.MediaPerceptionService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.media_perception.mojom.MediaPerceptionServicePtr = chromeos.media_perception.mojom.MediaPerceptionServiceRemote;
@@ -103,7 +103,7 @@ chromeos.media_perception.mojom.MediaPerceptionController.getRemote = function()
     'chromeos.media_perception.mojom.MediaPerceptionController',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.media_perception.mojom.MediaPerceptionControllerPtr = chromeos.media_perception.mojom.MediaPerceptionControllerRemote;
@@ -153,7 +153,7 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClient.getRemote = func
     'chromeos.media_perception.mojom.MediaPerceptionControllerClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.media_perception.mojom.MediaPerceptionControllerClientPtr = chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote;

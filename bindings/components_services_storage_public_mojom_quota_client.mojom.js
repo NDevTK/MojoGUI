@@ -88,7 +88,7 @@ storage.mojom.QuotaClient.getRemote = function() {
     'storage.mojom.QuotaClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetBucketUsage
 storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec = {
@@ -102,7 +102,7 @@ storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec = {
   $: {
@@ -115,7 +115,7 @@ storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDefaultStorageKeys
 storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec = {
@@ -128,7 +128,7 @@ storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec = {
   $: {
@@ -141,7 +141,7 @@ storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteBucketData
 storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec = {
@@ -155,7 +155,7 @@ storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec = {
   $: {
@@ -168,7 +168,7 @@ storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PerformStorageCleanup
 storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec = {
@@ -181,7 +181,7 @@ storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.QuotaClientPtr = storage.mojom.QuotaClientRemote;

@@ -124,7 +124,7 @@ blink.mojom.StorageAccessHandle.getRemote = function() {
     'blink.mojom.StorageAccessHandle',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindIndexedDB
 blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec = {
@@ -138,7 +138,7 @@ blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindLocks
 blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec = {
@@ -152,7 +152,7 @@ blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindCaches
 blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec = {
@@ -166,7 +166,7 @@ blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDirectory
 blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec = {
@@ -179,7 +179,7 @@ blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec = {
   $: {
@@ -193,7 +193,7 @@ blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Estimate
 blink.mojom.StorageAccessHandle_Estimate_ParamsSpec = {
@@ -206,7 +206,7 @@ blink.mojom.StorageAccessHandle_Estimate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec = {
   $: {
@@ -221,7 +221,7 @@ blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindBlobStorage
 blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec = {
@@ -235,7 +235,7 @@ blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindBroadcastChannel
 blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec = {
@@ -249,7 +249,7 @@ blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindSharedWorker
 blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec = {
@@ -263,7 +263,7 @@ blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.StorageAccessHandlePtr = blink.mojom.StorageAccessHandleRemote;

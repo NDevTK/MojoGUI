@@ -61,7 +61,7 @@ content.mojom.MediaInternalLogRecords.getRemote = function() {
     'content.mojom.MediaInternalLogRecords',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Log
 content.mojom.MediaInternalLogRecords_Log_ParamsSpec = {
@@ -75,7 +75,7 @@ content.mojom.MediaInternalLogRecords_Log_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.MediaInternalLogRecordsPtr = content.mojom.MediaInternalLogRecordsRemote;

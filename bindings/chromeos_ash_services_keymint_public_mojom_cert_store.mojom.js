@@ -53,7 +53,7 @@ arc.keymint.mojom.CertStoreInstance.getRemote = function() {
     'arc.keymint.mojom.CertStoreInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.keymint.mojom.CertStoreInstancePtr = arc.keymint.mojom.CertStoreInstanceRemote;

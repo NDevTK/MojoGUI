@@ -61,7 +61,7 @@ updater_ui.mojom.PageHandlerFactory.getRemote = function() {
     'updater_ui.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 updater_ui.mojom.PageHandlerFactoryPtr = updater_ui.mojom.PageHandlerFactoryRemote;
@@ -135,7 +135,7 @@ updater_ui.mojom.PageHandler.getRemote = function() {
     'updater_ui.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetAllUpdaterEvents
 updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec = {
@@ -148,7 +148,7 @@ updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec = {
   $: {
@@ -161,7 +161,7 @@ updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 updater_ui.mojom.PageHandlerPtr = updater_ui.mojom.PageHandlerRemote;
@@ -211,7 +211,7 @@ updater_ui.mojom.Page.getRemote = function() {
     'updater_ui.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 updater_ui.mojom.PagePtr = updater_ui.mojom.PageRemote;

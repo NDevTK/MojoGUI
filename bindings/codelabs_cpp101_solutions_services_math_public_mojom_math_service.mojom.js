@@ -61,7 +61,7 @@ math.mojom.MathService.getRemote = function() {
     'math.mojom.MathService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Divide
 math.mojom.MathService_Divide_ParamsSpec = {
@@ -76,7 +76,7 @@ math.mojom.MathService_Divide_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 math.mojom.MathService_Divide_ResponseParamsSpec = {
   $: {
@@ -89,7 +89,7 @@ math.mojom.MathService_Divide_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 math.mojom.MathServicePtr = math.mojom.MathServiceRemote;

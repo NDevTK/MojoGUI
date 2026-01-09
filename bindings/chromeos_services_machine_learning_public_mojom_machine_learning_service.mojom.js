@@ -62,7 +62,7 @@ chromeos.machine_learning.mojom.MachineLearningService.getRemote = function() {
     'chromeos.machine_learning.mojom.MachineLearningService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.machine_learning.mojom.MachineLearningServicePtr = chromeos.machine_learning.mojom.MachineLearningServiceRemote;

@@ -74,7 +74,7 @@ metrics.mojom.ChildHistogramFetcherFactory.getRemote = function() {
     'metrics.mojom.ChildHistogramFetcherFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateFetcher
 metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec = {
@@ -89,7 +89,7 @@ metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 metrics.mojom.ChildHistogramFetcherFactoryPtr = metrics.mojom.ChildHistogramFetcherFactoryRemote;
@@ -157,7 +157,7 @@ metrics.mojom.ChildHistogramFetcher.getRemote = function() {
     'metrics.mojom.ChildHistogramFetcher',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetChildNonPersistentHistogramData
 metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec = {
@@ -170,7 +170,7 @@ metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec = {
   $: {
@@ -183,7 +183,7 @@ metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Ping
 metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec = {
@@ -197,7 +197,7 @@ metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 metrics.mojom.ChildHistogramFetcherPtr = metrics.mojom.ChildHistogramFetcherRemote;

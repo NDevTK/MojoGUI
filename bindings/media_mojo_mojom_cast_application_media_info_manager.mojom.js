@@ -61,7 +61,7 @@ media.mojom.CastApplicationMediaInfoManager.getRemote = function() {
     'media.mojom.CastApplicationMediaInfoManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetCastApplicationMediaInfo
 media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec = {
@@ -74,7 +74,7 @@ media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.CastApplicationMediaInfoManagerPtr = media.mojom.CastApplicationMediaInfoManagerRemote;

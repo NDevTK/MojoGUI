@@ -70,7 +70,7 @@ extensions.mojom.GuestView.getRemote = function() {
     'extensions.mojom.GuestView',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ReadyToCreateMimeHandlerView
 extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = {
@@ -84,7 +84,7 @@ extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CanExecuteContentScript
 extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = {
@@ -98,7 +98,7 @@ extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec = {
   $: {
@@ -111,7 +111,7 @@ extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mojom.GuestViewPtr = extensions.mojom.GuestViewRemote;
@@ -197,7 +197,7 @@ extensions.mojom.MimeHandlerViewContainerManager.getRemote = function() {
     'extensions.mojom.MimeHandlerViewContainerManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetInternalId
 extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec = {
@@ -211,7 +211,7 @@ extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateBeforeUnloadControl
 extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec = {
@@ -224,7 +224,7 @@ extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec = {
   $: {
@@ -237,7 +237,7 @@ extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DestroyFrameContainer
 extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec = {
@@ -251,7 +251,7 @@ extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidLoad
 extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = {
@@ -266,7 +266,7 @@ extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mojom.MimeHandlerViewContainerManagerPtr = extensions.mojom.MimeHandlerViewContainerManagerRemote;

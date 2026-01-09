@@ -111,7 +111,7 @@ blink.mojom.BackgroundFetchRegistrationObserver.getRemote = function() {
     'blink.mojom.BackgroundFetchRegistrationObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnProgress
 blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec = {
@@ -130,7 +130,7 @@ blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRecordsUnavailable
 blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec = {
@@ -143,7 +143,7 @@ blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRequestCompleted
 blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec = {
@@ -158,7 +158,7 @@ blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BackgroundFetchRegistrationObserverPtr = blink.mojom.BackgroundFetchRegistrationObserverRemote;
@@ -244,7 +244,7 @@ blink.mojom.BackgroundFetchService.getRemote = function() {
     'blink.mojom.BackgroundFetchService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Fetch
 blink.mojom.BackgroundFetchService_Fetch_ParamsSpec = {
@@ -263,7 +263,7 @@ blink.mojom.BackgroundFetchService_Fetch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec = {
   $: {
@@ -277,7 +277,7 @@ blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRegistration
 blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec = {
@@ -292,7 +292,7 @@ blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec = {
   $: {
@@ -306,7 +306,7 @@ blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDeveloperIds
 blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec = {
@@ -320,7 +320,7 @@ blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec = {
   $: {
@@ -334,7 +334,7 @@ blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetIconDisplaySize
 blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec = {
@@ -347,7 +347,7 @@ blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec = {
   $: {
@@ -360,7 +360,7 @@ blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BackgroundFetchServicePtr = blink.mojom.BackgroundFetchServiceRemote;
@@ -446,7 +446,7 @@ blink.mojom.BackgroundFetchRegistrationService.getRemote = function() {
     'blink.mojom.BackgroundFetchRegistrationService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateUI
 blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec = {
@@ -461,7 +461,7 @@ blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec = {
   $: {
@@ -474,7 +474,7 @@ blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Abort
 blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec = {
@@ -487,7 +487,7 @@ blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec = {
   $: {
@@ -500,7 +500,7 @@ blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MatchRequests
 blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec = {
@@ -516,7 +516,7 @@ blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec = {
   $: {
@@ -529,7 +529,7 @@ blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddRegistrationObserver
 blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec = {
@@ -543,7 +543,7 @@ blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BackgroundFetchRegistrationServicePtr = blink.mojom.BackgroundFetchRegistrationServiceRemote;

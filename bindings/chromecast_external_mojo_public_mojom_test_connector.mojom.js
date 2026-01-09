@@ -62,7 +62,7 @@ chromecast.external_mojo.mojom.TestExternalConnector.getRemote = function() {
     'chromecast.external_mojo.mojom.TestExternalConnector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindInterfaceInternal
 chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec = {
@@ -78,7 +78,7 @@ chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.external_mojo.mojom.TestExternalConnectorPtr = chromecast.external_mojo.mojom.TestExternalConnectorRemote;

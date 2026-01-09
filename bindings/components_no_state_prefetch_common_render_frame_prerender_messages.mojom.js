@@ -61,7 +61,7 @@ prerender.mojom.NoStatePrefetchMessages.getRemote = function() {
     'prerender.mojom.NoStatePrefetchMessages',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetIsNoStatePrefetching
 prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec = {
@@ -75,7 +75,7 @@ prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 prerender.mojom.NoStatePrefetchMessagesPtr = prerender.mojom.NoStatePrefetchMessagesRemote;

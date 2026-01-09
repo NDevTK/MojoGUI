@@ -70,7 +70,7 @@ lens.mojom.LensSidePanelPageHandlerFactory.getRemote = function() {
     'lens.mojom.LensSidePanelPageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateSidePanelPageHandler
 lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec = {
@@ -85,7 +85,7 @@ lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 lens.mojom.LensSidePanelPageHandlerFactoryPtr = lens.mojom.LensSidePanelPageHandlerFactoryRemote;
@@ -189,7 +189,7 @@ lens.mojom.LensSidePanelPageHandler.getRemote = function() {
     'lens.mojom.LensSidePanelPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PopAndLoadQueryFromHistory
 lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec = {
@@ -202,7 +202,7 @@ lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetIsContextualSearchbox
 lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec = {
@@ -215,7 +215,7 @@ lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec = {
   $: {
@@ -228,7 +228,7 @@ lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnScrollToMessage
 lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec = {
@@ -243,7 +243,7 @@ lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestSendFeedback
 lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec = {
@@ -256,7 +256,7 @@ lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAimMessage
 lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec = {
@@ -270,7 +270,7 @@ lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnImageQueryWithEmptyText
 lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec = {
@@ -283,7 +283,7 @@ lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 lens.mojom.LensSidePanelPageHandlerPtr = lens.mojom.LensSidePanelPageHandlerRemote;
@@ -459,7 +459,7 @@ lens.mojom.LensSidePanelPage.getRemote = function() {
     'lens.mojom.LensSidePanelPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LoadResultsInFrame
 lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec = {
@@ -473,7 +473,7 @@ lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsLoadingResults
 lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec = {
@@ -487,7 +487,7 @@ lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPageContentUploadProgress
 lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec = {
@@ -501,7 +501,7 @@ lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBackArrowVisible
 lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec = {
@@ -515,7 +515,7 @@ lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetShowErrorPage
 lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec = {
@@ -530,7 +530,7 @@ lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SuppressGhostLoader
 lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec = {
@@ -543,7 +543,7 @@ lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PageContentTypeChanged
 lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec = {
@@ -557,7 +557,7 @@ lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowToast
 lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec = {
@@ -571,7 +571,7 @@ lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendClientMessageToAim
 lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec = {
@@ -585,7 +585,7 @@ lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AimHandshakeReceived
 lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec = {
@@ -598,7 +598,7 @@ lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AimResultsChanged
 lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec = {
@@ -612,7 +612,7 @@ lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FocusResultsFrame
 lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec = {
@@ -625,7 +625,7 @@ lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsOverlayShowing
 lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec = {
@@ -639,7 +639,7 @@ lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FocusSearchbox
 lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec = {
@@ -652,7 +652,7 @@ lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 lens.mojom.LensSidePanelPagePtr = lens.mojom.LensSidePanelPageRemote;

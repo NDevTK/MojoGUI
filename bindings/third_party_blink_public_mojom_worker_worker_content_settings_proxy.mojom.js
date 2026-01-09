@@ -88,7 +88,7 @@ blink.mojom.WorkerContentSettingsProxy.getRemote = function() {
     'blink.mojom.WorkerContentSettingsProxy',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AllowIndexedDB
 blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec = {
@@ -101,7 +101,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec = {
   $: {
@@ -114,7 +114,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AllowCacheStorage
 blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec = {
@@ -127,7 +127,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec = {
   $: {
@@ -140,7 +140,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AllowWebLocks
 blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec = {
@@ -153,7 +153,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec = {
   $: {
@@ -166,7 +166,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestFileSystemAccessSync
 blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec = {
@@ -179,7 +179,7 @@ blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec = {
   $: {
@@ -192,7 +192,7 @@ blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WorkerContentSettingsProxyPtr = blink.mojom.WorkerContentSettingsProxyRemote;

@@ -70,7 +70,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManager.getRemote = function() {
     'discardable_memory.mojom.DiscardableSharedMemoryManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AllocateLockedDiscardableSharedMemory
 discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec = {
@@ -85,7 +85,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardabl
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardabl
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeletedDiscardableSharedMemory
 discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec = {
@@ -112,7 +112,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableShared
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 discardable_memory.mojom.DiscardableSharedMemoryManagerPtr = discardable_memory.mojom.DiscardableSharedMemoryManagerRemote;

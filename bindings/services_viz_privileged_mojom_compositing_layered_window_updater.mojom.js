@@ -70,7 +70,7 @@ viz.mojom.LayeredWindowUpdater.getRemote = function() {
     'viz.mojom.LayeredWindowUpdater',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAllocatedSharedMemory
 viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec = {
@@ -85,7 +85,7 @@ viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Draw
 viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec = {
@@ -98,7 +98,7 @@ viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.LayeredWindowUpdaterPtr = viz.mojom.LayeredWindowUpdaterRemote;

@@ -169,7 +169,7 @@ blink.mojom.SynchronousCompositor.getRemote = function() {
     'blink.mojom.SynchronousCompositor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DemandDrawHwAsync
 blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec = {
@@ -183,7 +183,7 @@ blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DemandDrawHw
 blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec = {
@@ -197,7 +197,7 @@ blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec = {
   $: {
@@ -215,7 +215,7 @@ blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSharedMemory
 blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec = {
@@ -229,7 +229,7 @@ blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec = {
   $: {
@@ -243,7 +243,7 @@ blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DemandDrawSw
 blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec = {
@@ -257,7 +257,7 @@ blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec = {
   $: {
@@ -272,7 +272,7 @@ blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WillSkipDraw
 blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec = {
@@ -285,7 +285,7 @@ blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ZeroSharedMemory
 blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec = {
@@ -298,7 +298,7 @@ blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ZoomBy
 blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec = {
@@ -313,7 +313,7 @@ blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec = {
   $: {
@@ -326,7 +326,7 @@ blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMemoryPolicy
 blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec = {
@@ -340,7 +340,7 @@ blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReclaimResources
 blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec = {
@@ -355,7 +355,7 @@ blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCompositorFrameTransitionDirectiveProcessed
 blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = {
@@ -370,7 +370,7 @@ blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetScroll
 blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec = {
@@ -384,7 +384,7 @@ blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BeginFrame
 blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec = {
@@ -399,7 +399,7 @@ blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBeginFrameSourcePaused
 blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec = {
@@ -413,7 +413,7 @@ blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SynchronousCompositorPtr = blink.mojom.SynchronousCompositorRemote;
@@ -499,7 +499,7 @@ blink.mojom.SynchronousCompositorHost.getRemote = function() {
     'blink.mojom.SynchronousCompositorHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LayerTreeFrameSinkCreated
 blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec = {
@@ -512,7 +512,7 @@ blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateState
 blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec = {
@@ -526,7 +526,7 @@ blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNeedsBeginFrames
 blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec = {
@@ -540,7 +540,7 @@ blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetThreads
 blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec = {
@@ -554,7 +554,7 @@ blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SynchronousCompositorHostPtr = blink.mojom.SynchronousCompositorHostRemote;
@@ -622,7 +622,7 @@ blink.mojom.SynchronousCompositorControlHost.getRemote = function() {
     'blink.mojom.SynchronousCompositorControlHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ReturnFrame
 blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec = {
@@ -640,7 +640,7 @@ blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BeginFrameResponse
 blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec = {
@@ -654,7 +654,7 @@ blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SynchronousCompositorControlHostPtr = blink.mojom.SynchronousCompositorControlHostRemote;

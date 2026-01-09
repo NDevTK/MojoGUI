@@ -61,7 +61,7 @@ printing.mojom.UnsandboxedPrintBackendHost.getRemote = function() {
     'printing.mojom.UnsandboxedPrintBackendHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindBackend
 printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec = {
@@ -75,7 +75,7 @@ printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 printing.mojom.UnsandboxedPrintBackendHostPtr = printing.mojom.UnsandboxedPrintBackendHostRemote;
@@ -134,7 +134,7 @@ printing.mojom.SandboxedPrintBackendHost.getRemote = function() {
     'printing.mojom.SandboxedPrintBackendHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindBackend
 printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec = {
@@ -148,7 +148,7 @@ printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 printing.mojom.SandboxedPrintBackendHostPtr = printing.mojom.SandboxedPrintBackendHostRemote;
@@ -342,7 +342,7 @@ printing.mojom.PrintBackendService.getRemote = function() {
     'printing.mojom.PrintBackendService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Init
 printing.mojom.PrintBackendService_Init_ParamsSpec = {
@@ -357,7 +357,7 @@ printing.mojom.PrintBackendService_Init_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Poke
 printing.mojom.PrintBackendService_Poke_ParamsSpec = {
@@ -370,7 +370,7 @@ printing.mojom.PrintBackendService_Poke_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnumeratePrinters
 printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec = {
@@ -383,7 +383,7 @@ printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDefaultPrinterName
 printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec = {
@@ -396,7 +396,7 @@ printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPrinterSemanticCapsAndDefaults
 printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec = {
@@ -410,7 +410,7 @@ printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchCapabilities
 printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec = {
@@ -424,7 +424,7 @@ printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPaperPrintableArea
 printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec = {
@@ -439,7 +439,7 @@ printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec = {
   $: {
@@ -452,7 +452,7 @@ printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EstablishPrintingContext
 printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec = {
@@ -467,7 +467,7 @@ printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UseDefaultSettings
 printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec = {
@@ -481,7 +481,7 @@ printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AskUserForSettings
 printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec = {
@@ -498,7 +498,7 @@ printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdatePrintSettings
 printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec = {
@@ -513,7 +513,7 @@ printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartPrinting
 printing.mojom.PrintBackendService_StartPrinting_ParamsSpec = {
@@ -530,7 +530,7 @@ printing.mojom.PrintBackendService_StartPrinting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec = {
   $: {
@@ -544,7 +544,7 @@ printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RenderPrintedPage
 printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec = {
@@ -564,7 +564,7 @@ printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec = {
   $: {
@@ -577,7 +577,7 @@ printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RenderPrintedDocument
 printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec = {
@@ -594,7 +594,7 @@ printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec = {
   $: {
@@ -607,7 +607,7 @@ printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DocumentDone
 printing.mojom.PrintBackendService_DocumentDone_ParamsSpec = {
@@ -621,7 +621,7 @@ printing.mojom.PrintBackendService_DocumentDone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec = {
   $: {
@@ -634,7 +634,7 @@ printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Cancel
 printing.mojom.PrintBackendService_Cancel_ParamsSpec = {
@@ -648,7 +648,7 @@ printing.mojom.PrintBackendService_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 printing.mojom.PrintBackendServicePtr = printing.mojom.PrintBackendServiceRemote;

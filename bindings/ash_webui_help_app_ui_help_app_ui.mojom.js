@@ -95,7 +95,7 @@ ash.help_app.mojom.PageHandlerFactory.getRemote = function() {
     'ash.help_app.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -109,7 +109,7 @@ ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.help_app.mojom.PageHandlerFactoryPtr = ash.help_app.mojom.PageHandlerFactoryRemote;
@@ -267,7 +267,7 @@ ash.help_app.mojom.PageHandler.getRemote = function() {
     'ash.help_app.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenFeedbackDialog
 ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
@@ -280,7 +280,7 @@ ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = {
   $: {
@@ -293,7 +293,7 @@ ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowOnDeviceAppControls
 ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec = {
@@ -306,7 +306,7 @@ ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowParentalControls
 ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec = {
@@ -319,7 +319,7 @@ ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TriggerWelcomeTipCallToAction
 ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec = {
@@ -333,7 +333,7 @@ ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsLauncherSearchEnabled
 ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec = {
@@ -346,7 +346,7 @@ ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec = {
   $: {
@@ -359,7 +359,7 @@ ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LaunchMicrosoft365Setup
 ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec = {
@@ -372,7 +372,7 @@ ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MaybeShowReleaseNotesNotification
 ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec = {
@@ -385,7 +385,7 @@ ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDeviceInfo
 ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec = {
@@ -398,7 +398,7 @@ ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec = {
   $: {
@@ -411,7 +411,7 @@ ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenUrlInBrowserAndTriggerInstallDialog
 ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec = {
@@ -425,7 +425,7 @@ ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenSettings
 ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec = {
@@ -439,7 +439,7 @@ ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHasCompletedNewDeviceChecklist
 ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec = {
@@ -452,7 +452,7 @@ ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHasVisitedHowToPage
 ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec = {
@@ -465,7 +465,7 @@ ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.help_app.mojom.PageHandlerPtr = ash.help_app.mojom.PageHandlerRemote;

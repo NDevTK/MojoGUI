@@ -109,7 +109,7 @@ blink.mojom.OneShotBackgroundSyncService.getRemote = function() {
     'blink.mojom.OneShotBackgroundSyncService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Register
 blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec = {
@@ -124,7 +124,7 @@ blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec = {
   $: {
@@ -138,7 +138,7 @@ blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidResolveRegistration
 blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec = {
@@ -152,7 +152,7 @@ blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRegistrations
 blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec = {
@@ -166,7 +166,7 @@ blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec = {
   $: {
@@ -180,7 +180,7 @@ blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.OneShotBackgroundSyncServicePtr = blink.mojom.OneShotBackgroundSyncServiceRemote;
@@ -257,7 +257,7 @@ blink.mojom.PeriodicBackgroundSyncService.getRemote = function() {
     'blink.mojom.PeriodicBackgroundSyncService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Register
 blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec = {
@@ -272,7 +272,7 @@ blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec = {
   $: {
@@ -286,7 +286,7 @@ blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Unregister
 blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec = {
@@ -301,7 +301,7 @@ blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec = {
   $: {
@@ -314,7 +314,7 @@ blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRegistrations
 blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec = {
@@ -328,7 +328,7 @@ blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec = {
   $: {
@@ -342,7 +342,7 @@ blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PeriodicBackgroundSyncServicePtr = blink.mojom.PeriodicBackgroundSyncServiceRemote;

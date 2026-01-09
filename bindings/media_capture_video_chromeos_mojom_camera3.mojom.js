@@ -141,7 +141,7 @@ cros.mojom.Camera3CallbackOps.getRemote = function() {
     'cros.mojom.Camera3CallbackOps',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.Camera3CallbackOpsPtr = cros.mojom.Camera3CallbackOpsRemote;
@@ -191,7 +191,7 @@ cros.mojom.Camera3DeviceOps.getRemote = function() {
     'cros.mojom.Camera3DeviceOps',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.Camera3DeviceOpsPtr = cros.mojom.Camera3DeviceOpsRemote;

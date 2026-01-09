@@ -64,7 +64,7 @@ mantis.mojom.PlatformModelProgressObserver.getRemote = function() {
     'mantis.mojom.PlatformModelProgressObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 mantis.mojom.PlatformModelProgressObserverPtr = mantis.mojom.PlatformModelProgressObserverRemote;
@@ -114,7 +114,7 @@ mantis.mojom.MantisService.getRemote = function() {
     'mantis.mojom.MantisService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 mantis.mojom.MantisServicePtr = mantis.mojom.MantisServiceRemote;

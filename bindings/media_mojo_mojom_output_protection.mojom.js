@@ -88,7 +88,7 @@ media.mojom.OutputProtection.getRemote = function() {
     'media.mojom.OutputProtection',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for QueryStatus
 media.mojom.OutputProtection_QueryStatus_ParamsSpec = {
@@ -101,7 +101,7 @@ media.mojom.OutputProtection_QueryStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
   $: {
@@ -116,7 +116,7 @@ media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableProtection
 media.mojom.OutputProtection_EnableProtection_ParamsSpec = {
@@ -130,7 +130,7 @@ media.mojom.OutputProtection_EnableProtection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
   $: {
@@ -143,7 +143,7 @@ media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.OutputProtectionPtr = media.mojom.OutputProtectionRemote;

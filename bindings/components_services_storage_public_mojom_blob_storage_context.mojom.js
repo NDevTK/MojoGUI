@@ -87,7 +87,7 @@ storage.mojom.BlobDataItemReader.getRemote = function() {
     'storage.mojom.BlobDataItemReader',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Read
 storage.mojom.BlobDataItemReader_Read_ParamsSpec = {
@@ -103,7 +103,7 @@ storage.mojom.BlobDataItemReader_Read_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec = {
   $: {
@@ -116,7 +116,7 @@ storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadSideData
 storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec = {
@@ -129,7 +129,7 @@ storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec = {
   $: {
@@ -143,7 +143,7 @@ storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.BlobDataItemReaderPtr = storage.mojom.BlobDataItemReaderRemote;
@@ -229,7 +229,7 @@ storage.mojom.BlobStorageContext.getRemote = function() {
     'storage.mojom.BlobStorageContext',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterFromDataItem
 storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec = {
@@ -245,7 +245,7 @@ storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterFromMemory
 storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec = {
@@ -261,7 +261,7 @@ storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteBlobToFile
 storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec = {
@@ -278,7 +278,7 @@ storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec = {
   $: {
@@ -291,7 +291,7 @@ storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 storage.mojom.BlobStorageContext_Clone_ParamsSpec = {
@@ -305,7 +305,7 @@ storage.mojom.BlobStorageContext_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.BlobStorageContextPtr = storage.mojom.BlobStorageContextRemote;

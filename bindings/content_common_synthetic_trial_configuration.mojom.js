@@ -70,7 +70,7 @@ content.mojom.SyntheticTrialConfiguration.getRemote = function() {
     'content.mojom.SyntheticTrialConfiguration',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddOrUpdateSyntheticTrialGroups
 content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec = {
@@ -84,7 +84,7 @@ content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveSyntheticTrialGroups
 content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec = {
@@ -98,7 +98,7 @@ content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.SyntheticTrialConfigurationPtr = content.mojom.SyntheticTrialConfigurationRemote;

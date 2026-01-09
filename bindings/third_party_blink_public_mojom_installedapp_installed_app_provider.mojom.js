@@ -61,7 +61,7 @@ blink.mojom.InstalledAppProvider.getRemote = function() {
     'blink.mojom.InstalledAppProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FilterInstalledApps
 blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = {
@@ -77,7 +77,7 @@ blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec = {
   $: {
@@ -90,7 +90,7 @@ blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.InstalledAppProviderPtr = blink.mojom.InstalledAppProviderRemote;

@@ -58,7 +58,7 @@ arc.mojom.ChromeFeatureFlagsInstance.getRemote = function() {
     'arc.mojom.ChromeFeatureFlagsInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ChromeFeatureFlagsInstancePtr = arc.mojom.ChromeFeatureFlagsInstanceRemote;

@@ -67,7 +67,7 @@ blink.mojom.IdleMonitor.getRemote = function() {
     'blink.mojom.IdleMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Update
 blink.mojom.IdleMonitor_Update_ParamsSpec = {
@@ -82,7 +82,7 @@ blink.mojom.IdleMonitor_Update_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.IdleMonitorPtr = blink.mojom.IdleMonitorRemote;
@@ -141,7 +141,7 @@ blink.mojom.IdleManager.getRemote = function() {
     'blink.mojom.IdleManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddMonitor
 blink.mojom.IdleManager_AddMonitor_ParamsSpec = {
@@ -155,7 +155,7 @@ blink.mojom.IdleManager_AddMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec = {
   $: {
@@ -169,7 +169,7 @@ blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.IdleManagerPtr = blink.mojom.IdleManagerRemote;

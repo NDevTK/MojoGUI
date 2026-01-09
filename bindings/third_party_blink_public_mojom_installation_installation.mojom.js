@@ -61,7 +61,7 @@ blink.mojom.InstallationService.getRemote = function() {
     'blink.mojom.InstallationService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnInstall
 blink.mojom.InstallationService_OnInstall_ParamsSpec = {
@@ -74,7 +74,7 @@ blink.mojom.InstallationService_OnInstall_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.InstallationServicePtr = blink.mojom.InstallationServiceRemote;

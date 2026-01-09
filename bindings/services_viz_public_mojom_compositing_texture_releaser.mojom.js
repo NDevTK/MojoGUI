@@ -61,7 +61,7 @@ viz.mojom.TextureReleaser.getRemote = function() {
     'viz.mojom.TextureReleaser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Release
 viz.mojom.TextureReleaser_Release_ParamsSpec = {
@@ -76,7 +76,7 @@ viz.mojom.TextureReleaser_Release_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.TextureReleaserPtr = viz.mojom.TextureReleaserRemote;

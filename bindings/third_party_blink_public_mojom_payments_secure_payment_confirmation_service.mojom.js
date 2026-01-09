@@ -94,7 +94,7 @@ payments.mojom.SecurePaymentConfirmationService.getRemote = function() {
     'payments.mojom.SecurePaymentConfirmationService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SecurePaymentConfirmationAvailability
 payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec = {
@@ -107,7 +107,7 @@ payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailab
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec = {
   $: {
@@ -120,7 +120,7 @@ payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailab
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StorePaymentCredential
 payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec = {
@@ -136,7 +136,7 @@ payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec = {
   $: {
@@ -149,7 +149,7 @@ payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MakePaymentCredential
 payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec = {
@@ -163,7 +163,7 @@ payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec = {
   $: {
@@ -178,7 +178,7 @@ payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 payments.mojom.SecurePaymentConfirmationServicePtr = payments.mojom.SecurePaymentConfirmationServiceRemote;

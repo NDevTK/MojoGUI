@@ -81,7 +81,7 @@ ash.cros_healthd.connectivity.mojom.State.getRemote = function() {
     'ash.cros_healthd.connectivity.mojom.State',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LastCallHasNext
 ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec = {
@@ -94,7 +94,7 @@ ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec = {
   $: {
@@ -107,7 +107,7 @@ ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitLastCall
 ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec = {
@@ -120,7 +120,7 @@ ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FulfillLastCallCallback
 ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec = {
@@ -133,7 +133,7 @@ ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.connectivity.mojom.StatePtr = ash.cros_healthd.connectivity.mojom.StateRemote;
@@ -201,7 +201,7 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider.getRemote = functio
     'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindContext
 ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec = {
@@ -216,7 +216,7 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindTestProvider
 ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec = {
@@ -231,7 +231,7 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderPtr = ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemote;

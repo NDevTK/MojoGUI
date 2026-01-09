@@ -98,7 +98,7 @@ ash.camera_app.mojom.PdfBuilder.getRemote = function() {
     'ash.camera_app.mojom.PdfBuilder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddPage
 ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec = {
@@ -113,7 +113,7 @@ ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddPageInline
 ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec = {
@@ -128,7 +128,7 @@ ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeletePage
 ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec = {
@@ -142,7 +142,7 @@ ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Save
 ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec = {
@@ -155,7 +155,7 @@ ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec = {
   $: {
@@ -168,7 +168,7 @@ ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SaveInline
 ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec = {
@@ -181,7 +181,7 @@ ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec = {
   $: {
@@ -194,7 +194,7 @@ ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.camera_app.mojom.PdfBuilderPtr = ash.camera_app.mojom.PdfBuilderRemote;

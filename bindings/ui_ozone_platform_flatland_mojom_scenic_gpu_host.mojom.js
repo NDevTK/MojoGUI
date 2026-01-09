@@ -61,7 +61,7 @@ ui.mojom.ScenicGpuHost.getRemote = function() {
     'ui.mojom.ScenicGpuHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AttachSurfaceToWindow
 ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec = {
@@ -76,7 +76,7 @@ ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ui.mojom.ScenicGpuHostPtr = ui.mojom.ScenicGpuHostRemote;

@@ -137,7 +137,7 @@ read_anything.mojom.UntrustedPageHandlerFactory.getRemote = function() {
     'read_anything.mojom.UntrustedPageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateUntrustedPageHandler
 read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec = {
@@ -152,7 +152,7 @@ read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShouldShowUI
 read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec = {
@@ -165,7 +165,7 @@ read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 read_anything.mojom.UntrustedPageHandlerFactoryPtr = read_anything.mojom.UntrustedPageHandlerFactoryRemote;
@@ -494,7 +494,7 @@ read_anything.mojom.UntrustedPageHandler.getRemote = function() {
     'read_anything.mojom.UntrustedPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDependencyParserModel
 read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec = {
@@ -507,7 +507,7 @@ read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParamsSpec = {
   $: {
@@ -520,7 +520,7 @@ read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPresentationState
 read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec = {
@@ -533,7 +533,7 @@ read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetVoicePackInfo
 read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec = {
@@ -547,7 +547,7 @@ read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InstallVoicePack
 read_anything.mojom.UntrustedPageHandler_InstallVoicePack_ParamsSpec = {
@@ -561,7 +561,7 @@ read_anything.mojom.UntrustedPageHandler_InstallVoicePack_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UninstallVoice
 read_anything.mojom.UntrustedPageHandler_UninstallVoice_ParamsSpec = {
@@ -575,7 +575,7 @@ read_anything.mojom.UntrustedPageHandler_UninstallVoice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCopy
 read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec = {
@@ -588,7 +588,7 @@ read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLineSpaceChange
 read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec = {
@@ -602,7 +602,7 @@ read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLetterSpaceChange
 read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec = {
@@ -616,7 +616,7 @@ read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFontChange
 read_anything.mojom.UntrustedPageHandler_OnFontChange_ParamsSpec = {
@@ -630,7 +630,7 @@ read_anything.mojom.UntrustedPageHandler_OnFontChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFontSizeChange
 read_anything.mojom.UntrustedPageHandler_OnFontSizeChange_ParamsSpec = {
@@ -644,7 +644,7 @@ read_anything.mojom.UntrustedPageHandler_OnFontSizeChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLinksEnabledChanged
 read_anything.mojom.UntrustedPageHandler_OnLinksEnabledChanged_ParamsSpec = {
@@ -658,7 +658,7 @@ read_anything.mojom.UntrustedPageHandler_OnLinksEnabledChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnImagesEnabledChanged
 read_anything.mojom.UntrustedPageHandler_OnImagesEnabledChanged_ParamsSpec = {
@@ -672,7 +672,7 @@ read_anything.mojom.UntrustedPageHandler_OnImagesEnabledChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnColorChange
 read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec = {
@@ -686,7 +686,7 @@ read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSpeechRateChange
 read_anything.mojom.UntrustedPageHandler_OnSpeechRateChange_ParamsSpec = {
@@ -700,7 +700,7 @@ read_anything.mojom.UntrustedPageHandler_OnSpeechRateChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnVoiceChange
 read_anything.mojom.UntrustedPageHandler_OnVoiceChange_ParamsSpec = {
@@ -715,7 +715,7 @@ read_anything.mojom.UntrustedPageHandler_OnVoiceChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLanguagePrefChange
 read_anything.mojom.UntrustedPageHandler_OnLanguagePrefChange_ParamsSpec = {
@@ -730,7 +730,7 @@ read_anything.mojom.UntrustedPageHandler_OnLanguagePrefChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogExtensionState
 read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec = {
@@ -743,7 +743,7 @@ read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHighlightGranularityChanged
 read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpec = {
@@ -757,7 +757,7 @@ read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLineFocusChanged
 read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec = {
@@ -771,7 +771,7 @@ read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReadAloudAudioStateChange
 read_anything.mojom.UntrustedPageHandler_OnReadAloudAudioStateChange_ParamsSpec = {
@@ -785,7 +785,7 @@ read_anything.mojom.UntrustedPageHandler_OnReadAloudAudioStateChange_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLinkClicked
 read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec = {
@@ -800,7 +800,7 @@ read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnImageDataRequested
 read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec = {
@@ -815,7 +815,7 @@ read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSelectionChange
 read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec = {
@@ -833,7 +833,7 @@ read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCollapseSelection
 read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec = {
@@ -846,7 +846,7 @@ read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnScreenshotRequested
 read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec = {
@@ -859,7 +859,7 @@ read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDistillationStatus
 read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec = {
@@ -874,7 +874,7 @@ read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ScrollToTargetNode
 read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec = {
@@ -889,7 +889,7 @@ read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseUI
 read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec = {
@@ -902,7 +902,7 @@ read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TogglePinState
 read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec = {
@@ -915,7 +915,7 @@ read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendPinStateRequest
 read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec = {
@@ -928,7 +928,7 @@ read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TogglePresentation
 read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec = {
@@ -941,7 +941,7 @@ read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 read_anything.mojom.UntrustedPageHandlerPtr = read_anything.mojom.UntrustedPageHandlerRemote;
@@ -1144,7 +1144,7 @@ read_anything.mojom.UntrustedPage.getRemote = function() {
     'read_anything.mojom.UntrustedPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AccessibilityEventReceived
 read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec = {
@@ -1160,7 +1160,7 @@ read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnGetPresentationState
 read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec = {
@@ -1174,7 +1174,7 @@ read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnGetVoicePackInfo
 read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec = {
@@ -1188,7 +1188,7 @@ read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AccessibilityLocationChangesReceived
 read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec = {
@@ -1203,7 +1203,7 @@ read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnActiveAXTreeIDChanged
 read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec = {
@@ -1219,7 +1219,7 @@ read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAXTreeDestroyed
 read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec = {
@@ -1233,7 +1233,7 @@ read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetLanguageCode
 read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec = {
@@ -1247,7 +1247,7 @@ read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeviceLocked
 read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec = {
@@ -1260,7 +1260,7 @@ read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTtsEngineInstalled
 read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec = {
@@ -1273,7 +1273,7 @@ read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDefaultLanguageCode
 read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec = {
@@ -1287,7 +1287,7 @@ read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSettingsRestoredFromPrefs
 read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec = {
@@ -1312,7 +1312,7 @@ read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ScreenAIServiceReady
 read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec = {
@@ -1325,7 +1325,7 @@ read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReadingModeHidden
 read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec = {
@@ -1339,7 +1339,7 @@ read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTabWillDetach
 read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec = {
@@ -1352,7 +1352,7 @@ read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTabMuteStateChange
 read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec = {
@@ -1366,7 +1366,7 @@ read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnImageDataDownloaded
 read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec = {
@@ -1382,7 +1382,7 @@ read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPinStatusReceived
 read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec = {
@@ -1396,7 +1396,7 @@ read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 read_anything.mojom.UntrustedPagePtr = read_anything.mojom.UntrustedPageRemote;

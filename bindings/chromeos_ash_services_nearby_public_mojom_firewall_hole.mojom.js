@@ -52,7 +52,7 @@ sharing.mojom.FirewallHole.getRemote = function() {
     'sharing.mojom.FirewallHole',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 sharing.mojom.FirewallHolePtr = sharing.mojom.FirewallHoleRemote;
@@ -111,7 +111,7 @@ sharing.mojom.FirewallHoleFactory.getRemote = function() {
     'sharing.mojom.FirewallHoleFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenFirewallHole
 sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = {
@@ -125,7 +125,7 @@ sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec = {
   $: {
@@ -138,7 +138,7 @@ sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 sharing.mojom.FirewallHoleFactoryPtr = sharing.mojom.FirewallHoleFactoryRemote;

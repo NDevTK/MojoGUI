@@ -85,7 +85,7 @@ chromecast.mojom.SettingsClient.getRemote = function() {
     'chromecast.mojom.SettingsClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HandleSideSwipe
 chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec = {
@@ -101,7 +101,7 @@ chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendPlatformInfo
 chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec = {
@@ -115,7 +115,7 @@ chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.SettingsClientPtr = chromecast.mojom.SettingsClientRemote;
@@ -183,7 +183,7 @@ chromecast.mojom.SettingsPlatform.getRemote = function() {
     'chromecast.mojom.SettingsPlatform',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Connect
 chromecast.mojom.SettingsPlatform_Connect_ParamsSpec = {
@@ -197,7 +197,7 @@ chromecast.mojom.SettingsPlatform_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestVisible
 chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec = {
@@ -211,7 +211,7 @@ chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.SettingsPlatformPtr = chromecast.mojom.SettingsPlatformRemote;

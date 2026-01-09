@@ -59,7 +59,7 @@ chromeos.machine_learning.mojom.TextClassifier.getRemote = function() {
     'chromeos.machine_learning.mojom.TextClassifier',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.machine_learning.mojom.TextClassifierPtr = chromeos.machine_learning.mojom.TextClassifierRemote;

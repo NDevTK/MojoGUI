@@ -52,7 +52,7 @@ arc.mojom.WallpaperHost.getRemote = function() {
     'arc.mojom.WallpaperHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.WallpaperHostPtr = arc.mojom.WallpaperHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.WallpaperInstance.getRemote = function() {
     'arc.mojom.WallpaperInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.WallpaperInstancePtr = arc.mojom.WallpaperInstanceRemote;

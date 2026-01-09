@@ -69,7 +69,7 @@ action_chips.mojom.ActionChipsHandler.getRemote = function() {
     'action_chips.mojom.ActionChipsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartActionChipsRetrieval
 action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec = {
@@ -82,7 +82,7 @@ action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 action_chips.mojom.ActionChipsHandlerPtr = action_chips.mojom.ActionChipsHandlerRemote;
@@ -141,7 +141,7 @@ action_chips.mojom.Page.getRemote = function() {
     'action_chips.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnActionChipsChanged
 action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec = {
@@ -155,7 +155,7 @@ action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 action_chips.mojom.PagePtr = action_chips.mojom.PageRemote;
@@ -214,7 +214,7 @@ action_chips.mojom.ActionChipsHandlerFactory.getRemote = function() {
     'action_chips.mojom.ActionChipsHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateActionChipsHandler
 action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec = {
@@ -229,7 +229,7 @@ action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 action_chips.mojom.ActionChipsHandlerFactoryPtr = action_chips.mojom.ActionChipsHandlerFactoryRemote;

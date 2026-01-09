@@ -61,7 +61,7 @@ service_manager.mojom.InterfaceProvider.getRemote = function() {
     'service_manager.mojom.InterfaceProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetInterface
 service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec = {
@@ -76,7 +76,7 @@ service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 service_manager.mojom.InterfaceProviderPtr = service_manager.mojom.InterfaceProviderRemote;

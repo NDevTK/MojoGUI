@@ -106,7 +106,7 @@ blink.mojom.SharedWorkerHost.getRemote = function() {
     'blink.mojom.SharedWorkerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnConnected
 blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec = {
@@ -120,7 +120,7 @@ blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnContextClosed
 blink.mojom.SharedWorkerHost_OnContextClosed_ParamsSpec = {
@@ -133,7 +133,7 @@ blink.mojom.SharedWorkerHost_OnContextClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReadyForInspection
 blink.mojom.SharedWorkerHost_OnReadyForInspection_ParamsSpec = {
@@ -148,7 +148,7 @@ blink.mojom.SharedWorkerHost_OnReadyForInspection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnScriptLoadFailed
 blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpec = {
@@ -162,7 +162,7 @@ blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReportException
 blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec = {
@@ -176,7 +176,7 @@ blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFeatureUsed
 blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec = {
@@ -190,7 +190,7 @@ blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SharedWorkerHostPtr = blink.mojom.SharedWorkerHostRemote;

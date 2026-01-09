@@ -222,7 +222,7 @@ blink.mojom.Authenticator.getRemote = function() {
     'blink.mojom.Authenticator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for MakeCredential
 blink.mojom.Authenticator_MakeCredential_ParamsSpec = {
@@ -236,7 +236,7 @@ blink.mojom.Authenticator_MakeCredential_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec = {
   $: {
@@ -251,7 +251,7 @@ blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCredential
 blink.mojom.Authenticator_GetCredential_ParamsSpec = {
@@ -265,7 +265,7 @@ blink.mojom.Authenticator_GetCredential_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.Authenticator_GetCredential_ResponseParamsSpec = {
   $: {
@@ -278,7 +278,7 @@ blink.mojom.Authenticator_GetCredential_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsUserVerifyingPlatformAuthenticatorAvailable
 blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec = {
@@ -291,7 +291,7 @@ blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec = {
   $: {
@@ -304,7 +304,7 @@ blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsConditionalMediationAvailable
 blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec = {
@@ -317,7 +317,7 @@ blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec = {
   $: {
@@ -330,7 +330,7 @@ blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Report
 blink.mojom.Authenticator_Report_ParamsSpec = {
@@ -344,7 +344,7 @@ blink.mojom.Authenticator_Report_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.Authenticator_Report_ResponseParamsSpec = {
   $: {
@@ -358,7 +358,7 @@ blink.mojom.Authenticator_Report_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetClientCapabilities
 blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec = {
@@ -371,7 +371,7 @@ blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec = {
   $: {
@@ -384,7 +384,7 @@ blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Cancel
 blink.mojom.Authenticator_Cancel_ParamsSpec = {
@@ -397,7 +397,7 @@ blink.mojom.Authenticator_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AuthenticatorPtr = blink.mojom.AuthenticatorRemote;

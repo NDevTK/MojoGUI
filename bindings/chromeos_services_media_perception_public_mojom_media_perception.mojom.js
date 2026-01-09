@@ -53,7 +53,7 @@ chromeos.media_perception.mojom.MediaPerception.getRemote = function() {
     'chromeos.media_perception.mojom.MediaPerception',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.media_perception.mojom.MediaPerceptionPtr = chromeos.media_perception.mojom.MediaPerceptionRemote;

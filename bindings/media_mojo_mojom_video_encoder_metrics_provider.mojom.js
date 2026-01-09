@@ -96,7 +96,7 @@ media.mojom.VideoEncoderMetricsProvider.getRemote = function() {
     'media.mojom.VideoEncoderMetricsProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Initialize
 media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec = {
@@ -115,7 +115,7 @@ media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetEncodedFrameCount
 media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec = {
@@ -130,7 +130,7 @@ media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetError
 media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec = {
@@ -145,7 +145,7 @@ media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Complete
 media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec = {
@@ -159,7 +159,7 @@ media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.VideoEncoderMetricsProviderPtr = media.mojom.VideoEncoderMetricsProviderRemote;

@@ -90,7 +90,7 @@ blink.mojom.SharedStorageWorkletHost.getRemote = function() {
     'blink.mojom.SharedStorageWorkletHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SelectURL
 blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec = {
@@ -111,7 +111,7 @@ blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec = {
   $: {
@@ -126,7 +126,7 @@ blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Run
 blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec = {
@@ -144,7 +144,7 @@ blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec = {
   $: {
@@ -158,7 +158,7 @@ blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SharedStorageWorkletHostPtr = blink.mojom.SharedStorageWorkletHostRemote;
@@ -244,7 +244,7 @@ blink.mojom.SharedStorageDocumentService.getRemote = function() {
     'blink.mojom.SharedStorageDocumentService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateWorklet
 blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec = {
@@ -264,7 +264,7 @@ blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec = {
   $: {
@@ -278,7 +278,7 @@ blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SharedStorageGet
 blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec = {
@@ -292,7 +292,7 @@ blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec = {
   $: {
@@ -307,7 +307,7 @@ blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SharedStorageUpdate
 blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec = {
@@ -321,7 +321,7 @@ blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec = {
   $: {
@@ -334,7 +334,7 @@ blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SharedStorageBatchUpdate
 blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec = {
@@ -349,7 +349,7 @@ blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec = {
   $: {
@@ -362,7 +362,7 @@ blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SharedStorageDocumentServicePtr = blink.mojom.SharedStorageDocumentServiceRemote;

@@ -79,7 +79,7 @@ device.mojom.UsbDeviceManagerTest.getRemote = function() {
     'device.mojom.UsbDeviceManagerTest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddDeviceForTesting
 device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec = {
@@ -95,7 +95,7 @@ device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec = {
   $: {
@@ -109,7 +109,7 @@ device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveDeviceForTesting
 device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec = {
@@ -123,7 +123,7 @@ device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTestDevices
 device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec = {
@@ -136,7 +136,7 @@ device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec = {
   $: {
@@ -149,7 +149,7 @@ device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.UsbDeviceManagerTestPtr = device.mojom.UsbDeviceManagerTestRemote;

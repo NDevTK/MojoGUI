@@ -61,7 +61,7 @@ user_data_importer.mojom.BookmarkHtmlParser.getRemote = function() {
     'user_data_importer.mojom.BookmarkHtmlParser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Parse
 user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = {
@@ -75,7 +75,7 @@ user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 user_data_importer.mojom.BookmarkHtmlParserPtr = user_data_importer.mojom.BookmarkHtmlParserRemote;

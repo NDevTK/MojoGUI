@@ -61,7 +61,7 @@ chrome.mojom.FontPrewarmer.getRemote = function() {
     'chrome.mojom.FontPrewarmer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PrewarmFonts
 chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec = {
@@ -75,7 +75,7 @@ chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.FontPrewarmerPtr = chrome.mojom.FontPrewarmerRemote;
@@ -134,7 +134,7 @@ chrome.mojom.RenderFrameFontFamilyAccessor.getRemote = function() {
     'chrome.mojom.RenderFrameFontFamilyAccessor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetFontFamilyNames
 chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec = {
@@ -147,7 +147,7 @@ chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec = {
   $: {
@@ -160,7 +160,7 @@ chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.RenderFrameFontFamilyAccessorPtr = chrome.mojom.RenderFrameFontFamilyAccessorRemote;

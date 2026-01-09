@@ -61,7 +61,7 @@ on_device_internals.mojom.PageHandlerFactory.getRemote = function() {
     'on_device_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 on_device_internals.mojom.PageHandlerFactoryPtr = on_device_internals.mojom.PageHandlerFactoryRemote;
@@ -207,7 +207,7 @@ on_device_internals.mojom.PageHandler.getRemote = function() {
     'on_device_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LoadModel
 on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec = {
@@ -223,7 +223,7 @@ on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
   $: {
@@ -237,7 +237,7 @@ on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadPlatformModel
 on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec = {
@@ -252,7 +252,7 @@ on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec = {
   $: {
@@ -265,7 +265,7 @@ on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDeviceAndPerformanceInfo
 on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec = {
@@ -278,7 +278,7 @@ on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec = {
   $: {
@@ -292,7 +292,7 @@ on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDefaultModelPath
 on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec = {
@@ -305,7 +305,7 @@ on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec = {
   $: {
@@ -318,7 +318,7 @@ on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UninstallDefaultModel
 on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec = {
@@ -331,7 +331,7 @@ on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPageData
 on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec = {
@@ -344,7 +344,7 @@ on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec = {
   $: {
@@ -357,7 +357,7 @@ on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFeatureRecentlyUsedState
 on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec = {
@@ -372,7 +372,7 @@ on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DecodeBitmap
 on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec = {
@@ -386,7 +386,7 @@ on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec = {
   $: {
@@ -399,7 +399,7 @@ on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetModelCrashCount
 on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec = {
@@ -412,7 +412,7 @@ on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 on_device_internals.mojom.PageHandlerPtr = on_device_internals.mojom.PageHandlerRemote;
@@ -480,7 +480,7 @@ on_device_internals.mojom.Page.getRemote = function() {
     'on_device_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnLogMessageAdded
 on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
@@ -497,7 +497,7 @@ on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDownloadProgressUpdate
 on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec = {
@@ -512,7 +512,7 @@ on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 on_device_internals.mojom.PagePtr = on_device_internals.mojom.PageRemote;

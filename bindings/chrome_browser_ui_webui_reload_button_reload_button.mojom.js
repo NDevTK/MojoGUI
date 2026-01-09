@@ -68,7 +68,7 @@ reload_button.mojom.PageHandlerFactory.getRemote = function() {
     'reload_button.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -83,7 +83,7 @@ reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 reload_button.mojom.PageHandlerFactoryPtr = reload_button.mojom.PageHandlerFactoryRemote;
@@ -160,7 +160,7 @@ reload_button.mojom.PageHandler.getRemote = function() {
     'reload_button.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Reload
 reload_button.mojom.PageHandler_Reload_ParamsSpec = {
@@ -175,7 +175,7 @@ reload_button.mojom.PageHandler_Reload_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopReload
 reload_button.mojom.PageHandler_StopReload_ParamsSpec = {
@@ -188,7 +188,7 @@ reload_button.mojom.PageHandler_StopReload_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowContextMenu
 reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
@@ -203,7 +203,7 @@ reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 reload_button.mojom.PageHandlerPtr = reload_button.mojom.PageHandlerRemote;
@@ -262,7 +262,7 @@ reload_button.mojom.Page.getRemote = function() {
     'reload_button.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetReloadButtonState
 reload_button.mojom.Page_SetReloadButtonState_ParamsSpec = {
@@ -277,7 +277,7 @@ reload_button.mojom.Page_SetReloadButtonState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 reload_button.mojom.PagePtr = reload_button.mojom.PageRemote;

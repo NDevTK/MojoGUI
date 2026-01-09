@@ -79,7 +79,7 @@ mirroring.mojom.MirroringService.getRemote = function() {
     'mirroring.mojom.MirroringService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Start
 mirroring.mojom.MirroringService_Start_ParamsSpec = {
@@ -98,7 +98,7 @@ mirroring.mojom.MirroringService_Start_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SwitchMirroringSourceTab
 mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec = {
@@ -111,7 +111,7 @@ mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMirroringStats
 mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec = {
@@ -124,7 +124,7 @@ mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec = {
   $: {
@@ -137,7 +137,7 @@ mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mirroring.mojom.MirroringServicePtr = mirroring.mojom.MirroringServiceRemote;

@@ -68,7 +68,7 @@ fuzz.mojom.FuzzDummyInterface.getRemote = function() {
     'fuzz.mojom.FuzzDummyInterface',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Ping
 fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec = {
@@ -81,7 +81,7 @@ fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 fuzz.mojom.FuzzDummyInterfacePtr = fuzz.mojom.FuzzDummyInterfaceRemote;
@@ -194,7 +194,7 @@ fuzz.mojom.FuzzInterface.getRemote = function() {
     'fuzz.mojom.FuzzInterface',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FuzzBasic
 fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec = {
@@ -207,7 +207,7 @@ fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FuzzBasicResp
 fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec = {
@@ -220,7 +220,7 @@ fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FuzzBasicSyncResp
 fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec = {
@@ -233,7 +233,7 @@ fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FuzzArgs
 fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec = {
@@ -248,7 +248,7 @@ fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FuzzArgsResp
 fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec = {
@@ -263,7 +263,7 @@ fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FuzzArgsSyncResp
 fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec = {
@@ -278,7 +278,7 @@ fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FuzzAssociated
 fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec = {
@@ -292,7 +292,7 @@ fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 fuzz.mojom.FuzzInterfacePtr = fuzz.mojom.FuzzInterfaceRemote;

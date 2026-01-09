@@ -61,7 +61,7 @@ blink.mojom.GeolocationService.getRemote = function() {
     'blink.mojom.GeolocationService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateGeolocation
 blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec = {
@@ -76,7 +76,7 @@ blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec = {
   $: {
@@ -89,7 +89,7 @@ blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.GeolocationServicePtr = blink.mojom.GeolocationServiceRemote;

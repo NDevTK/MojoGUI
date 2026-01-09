@@ -143,7 +143,7 @@ device.mojom.NFC.getRemote = function() {
     'device.mojom.NFC',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetClient
 device.mojom.NFC_SetClient_ParamsSpec = {
@@ -157,7 +157,7 @@ device.mojom.NFC_SetClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Push
 device.mojom.NFC_Push_ParamsSpec = {
@@ -172,7 +172,7 @@ device.mojom.NFC_Push_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.NFC_Push_ResponseParamsSpec = {
   $: {
@@ -185,7 +185,7 @@ device.mojom.NFC_Push_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelPush
 device.mojom.NFC_CancelPush_ParamsSpec = {
@@ -198,7 +198,7 @@ device.mojom.NFC_CancelPush_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MakeReadOnly
 device.mojom.NFC_MakeReadOnly_ParamsSpec = {
@@ -211,7 +211,7 @@ device.mojom.NFC_MakeReadOnly_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.NFC_MakeReadOnly_ResponseParamsSpec = {
   $: {
@@ -224,7 +224,7 @@ device.mojom.NFC_MakeReadOnly_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelMakeReadOnly
 device.mojom.NFC_CancelMakeReadOnly_ParamsSpec = {
@@ -237,7 +237,7 @@ device.mojom.NFC_CancelMakeReadOnly_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Watch
 device.mojom.NFC_Watch_ParamsSpec = {
@@ -251,7 +251,7 @@ device.mojom.NFC_Watch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.NFC_Watch_ResponseParamsSpec = {
   $: {
@@ -264,7 +264,7 @@ device.mojom.NFC_Watch_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelWatch
 device.mojom.NFC_CancelWatch_ParamsSpec = {
@@ -278,7 +278,7 @@ device.mojom.NFC_CancelWatch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.NFCPtr = device.mojom.NFCRemote;
@@ -346,7 +346,7 @@ device.mojom.NFCClient.getRemote = function() {
     'device.mojom.NFCClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnWatch
 device.mojom.NFCClient_OnWatch_ParamsSpec = {
@@ -362,7 +362,7 @@ device.mojom.NFCClient_OnWatch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 device.mojom.NFCClient_OnError_ParamsSpec = {
@@ -376,7 +376,7 @@ device.mojom.NFCClient_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.NFCClientPtr = device.mojom.NFCClientRemote;
@@ -444,7 +444,7 @@ device.mojom.RawNFCClient.getRemote = function() {
     'device.mojom.RawNFCClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnWatch
 device.mojom.RawNFCClient_OnWatch_ParamsSpec = {
@@ -459,7 +459,7 @@ device.mojom.RawNFCClient_OnWatch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 device.mojom.RawNFCClient_OnError_ParamsSpec = {
@@ -473,7 +473,7 @@ device.mojom.RawNFCClient_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.RawNFCClientPtr = device.mojom.RawNFCClientRemote;

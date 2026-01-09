@@ -66,7 +66,7 @@ mantis.mojom.MantisProcessor.getRemote = function() {
     'mantis.mojom.MantisProcessor',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 mantis.mojom.MantisProcessorPtr = mantis.mojom.MantisProcessorRemote;

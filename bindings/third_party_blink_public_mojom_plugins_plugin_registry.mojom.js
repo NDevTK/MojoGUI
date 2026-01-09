@@ -61,7 +61,7 @@ blink.mojom.PluginRegistry.getRemote = function() {
     'blink.mojom.PluginRegistry',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPlugins
 blink.mojom.PluginRegistry_GetPlugins_ParamsSpec = {
@@ -74,7 +74,7 @@ blink.mojom.PluginRegistry_GetPlugins_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PluginRegistryPtr = blink.mojom.PluginRegistryRemote;

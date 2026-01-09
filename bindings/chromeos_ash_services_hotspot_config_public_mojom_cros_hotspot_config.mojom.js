@@ -187,7 +187,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig.getRemote = function() {
     'ash.hotspot_config.mojom.CrosHotspotConfig',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddObserver
 ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec = {
@@ -201,7 +201,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveEnabledStateChanges
 ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec = {
@@ -215,7 +215,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetHotspotInfo
 ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec = {
@@ -228,7 +228,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec = {
   $: {
@@ -241,7 +241,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHotspotConfig
 ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec = {
@@ -255,7 +255,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec = {
   $: {
@@ -268,7 +268,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableHotspot
 ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec = {
@@ -281,7 +281,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec = {
   $: {
@@ -294,7 +294,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableHotspot
 ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec = {
@@ -307,7 +307,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec = {
   $: {
@@ -320,7 +320,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.hotspot_config.mojom.CrosHotspotConfigPtr = ash.hotspot_config.mojom.CrosHotspotConfigRemote;
@@ -379,7 +379,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserver.getRemote = function() {
     'ash.hotspot_config.mojom.CrosHotspotConfigObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnHotspotInfoChanged
 ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec = {
@@ -392,7 +392,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.hotspot_config.mojom.CrosHotspotConfigObserverPtr = ash.hotspot_config.mojom.CrosHotspotConfigObserverRemote;
@@ -460,7 +460,7 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserver.getRemote = function() {
     'ash.hotspot_config.mojom.HotspotEnabledStateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnHotspotTurnedOn
 ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec = {
@@ -473,7 +473,7 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHotspotTurnedOff
 ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec = {
@@ -487,7 +487,7 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.hotspot_config.mojom.HotspotEnabledStateObserverPtr = ash.hotspot_config.mojom.HotspotEnabledStateObserverRemote;

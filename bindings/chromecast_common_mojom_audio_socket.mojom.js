@@ -61,7 +61,7 @@ chromecast.mojom.AudioSocketBroker.getRemote = function() {
     'chromecast.mojom.AudioSocketBroker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSocketDescriptor
 chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec = {
@@ -74,7 +74,7 @@ chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.AudioSocketBrokerPtr = chromecast.mojom.AudioSocketBrokerRemote;

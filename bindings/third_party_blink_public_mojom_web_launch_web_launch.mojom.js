@@ -70,7 +70,7 @@ blink.mojom.WebLaunchService.getRemote = function() {
     'blink.mojom.WebLaunchService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetLaunchFiles
 blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec = {
@@ -84,7 +84,7 @@ blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnqueueLaunchParams
 blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec = {
@@ -100,7 +100,7 @@ blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebLaunchServicePtr = blink.mojom.WebLaunchServiceRemote;

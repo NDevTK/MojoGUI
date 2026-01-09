@@ -61,7 +61,7 @@ chromecast.mojom.JsChannel.getRemote = function() {
     'chromecast.mojom.JsChannel',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PostMessage
 chromecast.mojom.JsChannel_PostMessage_ParamsSpec = {
@@ -75,7 +75,7 @@ chromecast.mojom.JsChannel_PostMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.JsChannelPtr = chromecast.mojom.JsChannelRemote;
@@ -143,7 +143,7 @@ chromecast.mojom.JsChannelClient.getRemote = function() {
     'chromecast.mojom.JsChannelClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateChannel
 chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec = {
@@ -158,7 +158,7 @@ chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveChannel
 chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec = {
@@ -172,7 +172,7 @@ chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.JsChannelClientPtr = chromecast.mojom.JsChannelClientRemote;
@@ -231,7 +231,7 @@ chromecast.mojom.JsChannelBindingProvider.getRemote = function() {
     'chromecast.mojom.JsChannelBindingProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Register
 chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec = {
@@ -246,7 +246,7 @@ chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.JsChannelBindingProviderPtr = chromecast.mojom.JsChannelBindingProviderRemote;

@@ -81,7 +81,7 @@ arc.mojom.ImeHost.getRemote = function() {
     'arc.mojom.ImeHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ImeHostPtr = arc.mojom.ImeHostRemote;
@@ -131,7 +131,7 @@ arc.mojom.ImeInstance.getRemote = function() {
     'arc.mojom.ImeInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ImeInstancePtr = arc.mojom.ImeInstanceRemote;

@@ -79,7 +79,7 @@ payments.mojom.PaymentHandlerHost.getRemote = function() {
     'payments.mojom.PaymentHandlerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ChangePaymentMethod
 payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec = {
@@ -93,7 +93,7 @@ payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec = {
   $: {
@@ -106,7 +106,7 @@ payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ChangeShippingOption
 payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec = {
@@ -120,7 +120,7 @@ payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec = {
   $: {
@@ -133,7 +133,7 @@ payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ChangeShippingAddress
 payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec = {
@@ -147,7 +147,7 @@ payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec = {
   $: {
@@ -160,7 +160,7 @@ payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 payments.mojom.PaymentHandlerHostPtr = payments.mojom.PaymentHandlerHostRemote;

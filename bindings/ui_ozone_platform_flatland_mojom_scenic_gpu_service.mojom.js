@@ -61,7 +61,7 @@ ui.mojom.ScenicGpuService.getRemote = function() {
     'ui.mojom.ScenicGpuService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Initialize
 ui.mojom.ScenicGpuService_Initialize_ParamsSpec = {
@@ -75,7 +75,7 @@ ui.mojom.ScenicGpuService_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ui.mojom.ScenicGpuServicePtr = ui.mojom.ScenicGpuServiceRemote;

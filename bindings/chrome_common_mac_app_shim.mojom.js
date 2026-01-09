@@ -170,7 +170,7 @@ chrome.mojom.AppShim.getRemote = function() {
     'chrome.mojom.AppShim',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateRemoteCocoaApplication
 chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec = {
@@ -184,7 +184,7 @@ chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateCommandDispatcherForWidget
 chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec = {
@@ -198,7 +198,7 @@ chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUserAttention
 chrome.mojom.AppShim_SetUserAttention_ParamsSpec = {
@@ -212,7 +212,7 @@ chrome.mojom.AppShim_SetUserAttention_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBadgeLabel
 chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec = {
@@ -226,7 +226,7 @@ chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateProfileMenu
 chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec = {
@@ -240,7 +240,7 @@ chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateApplicationDockMenu
 chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec = {
@@ -254,7 +254,7 @@ chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindNotificationProvider
 chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec = {
@@ -268,7 +268,7 @@ chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestNotificationPermission
 chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec = {
@@ -281,7 +281,7 @@ chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec = {
   $: {
@@ -294,7 +294,7 @@ chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindChildHistogramFetcherFactory
 chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec = {
@@ -308,7 +308,7 @@ chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.AppShimPtr = chrome.mojom.AppShimRemote;
@@ -448,7 +448,7 @@ chrome.mojom.AppShimHost.getRemote = function() {
     'chrome.mojom.AppShimHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FocusApp
 chrome.mojom.AppShimHost_FocusApp_ParamsSpec = {
@@ -461,7 +461,7 @@ chrome.mojom.AppShimHost_FocusApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReopenApp
 chrome.mojom.AppShimHost_ReopenApp_ParamsSpec = {
@@ -474,7 +474,7 @@ chrome.mojom.AppShimHost_ReopenApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FilesOpened
 chrome.mojom.AppShimHost_FilesOpened_ParamsSpec = {
@@ -488,7 +488,7 @@ chrome.mojom.AppShimHost_FilesOpened_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ProfileSelectedFromMenu
 chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec = {
@@ -502,7 +502,7 @@ chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenAppSettings
 chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec = {
@@ -515,7 +515,7 @@ chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UrlsOpened
 chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec = {
@@ -529,7 +529,7 @@ chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenAppWithOverrideUrl
 chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec = {
@@ -543,7 +543,7 @@ chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableAccessibilitySupport
 chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec = {
@@ -557,7 +557,7 @@ chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ApplicationWillTerminate
 chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec = {
@@ -570,7 +570,7 @@ chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotificationPermissionStatusChanged
 chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec = {
@@ -584,7 +584,7 @@ chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.AppShimHostPtr = chrome.mojom.AppShimHostRemote;
@@ -643,7 +643,7 @@ chrome.mojom.AppShimHostBootstrap.getRemote = function() {
     'chrome.mojom.AppShimHostBootstrap',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnShimConnected
 chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec = {
@@ -658,7 +658,7 @@ chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec = {
   $: {
@@ -673,7 +673,7 @@ chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.AppShimHostBootstrapPtr = chrome.mojom.AppShimHostBootstrapRemote;

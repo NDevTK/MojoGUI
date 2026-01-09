@@ -89,7 +89,7 @@ subresource_filter.mojom.SubresourceFilterRulesetObserver.getRemote = function()
     'subresource_filter.mojom.SubresourceFilterRulesetObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetRulesetForProcess
 subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec = {
@@ -103,7 +103,7 @@ subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 subresource_filter.mojom.SubresourceFilterRulesetObserverPtr = subresource_filter.mojom.SubresourceFilterRulesetObserverRemote;

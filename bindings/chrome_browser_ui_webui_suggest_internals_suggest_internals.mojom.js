@@ -79,7 +79,7 @@ suggest_internals.mojom.PageHandler.getRemote = function() {
     'suggest_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetPage
 suggest_internals.mojom.PageHandler_SetPage_ParamsSpec = {
@@ -93,7 +93,7 @@ suggest_internals.mojom.PageHandler_SetPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HardcodeResponse
 suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec = {
@@ -108,7 +108,7 @@ suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec = {
   $: {
@@ -121,7 +121,7 @@ suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 suggest_internals.mojom.PageHandlerPtr = suggest_internals.mojom.PageHandlerRemote;
@@ -198,7 +198,7 @@ suggest_internals.mojom.Page.getRemote = function() {
     'suggest_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnRequestCreated
 suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec = {
@@ -212,7 +212,7 @@ suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRequestStarted
 suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec = {
@@ -226,7 +226,7 @@ suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRequestCompleted
 suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec = {
@@ -240,7 +240,7 @@ suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 suggest_internals.mojom.PagePtr = suggest_internals.mojom.PageRemote;

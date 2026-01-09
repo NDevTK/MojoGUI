@@ -70,7 +70,7 @@ IPC.mojom.Channel.getRemote = function() {
     'IPC.mojom.Channel',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetPeerPid
 IPC.mojom.Channel_SetPeerPid_ParamsSpec = {
@@ -84,7 +84,7 @@ IPC.mojom.Channel_SetPeerPid_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAssociatedInterface
 IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec = {
@@ -98,7 +98,7 @@ IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 IPC.mojom.ChannelPtr = IPC.mojom.ChannelRemote;
@@ -148,7 +148,7 @@ IPC.mojom.ChannelBootstrap.getRemote = function() {
     'IPC.mojom.ChannelBootstrap',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 IPC.mojom.ChannelBootstrapPtr = IPC.mojom.ChannelBootstrapRemote;

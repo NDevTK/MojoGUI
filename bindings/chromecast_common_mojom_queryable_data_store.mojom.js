@@ -62,7 +62,7 @@ chromecast.shell.mojom.QueryableDataStore.getRemote = function() {
     'chromecast.shell.mojom.QueryableDataStore',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Set
 chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec = {
@@ -77,7 +77,7 @@ chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.shell.mojom.QueryableDataStorePtr = chromecast.shell.mojom.QueryableDataStoreRemote;

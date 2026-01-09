@@ -91,7 +91,7 @@ network.mojom.WebBundleHandle.getRemote = function() {
     'network.mojom.WebBundleHandle',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Clone
 network.mojom.WebBundleHandle_Clone_ParamsSpec = {
@@ -105,7 +105,7 @@ network.mojom.WebBundleHandle_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWebBundleError
 network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec = {
@@ -120,7 +120,7 @@ network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWebBundleLoadFinished
 network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec = {
@@ -134,7 +134,7 @@ network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.WebBundleHandlePtr = network.mojom.WebBundleHandleRemote;

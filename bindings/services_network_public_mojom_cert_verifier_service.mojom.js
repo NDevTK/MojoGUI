@@ -61,7 +61,7 @@ cert_verifier.mojom.URLLoaderFactoryConnector.getRemote = function() {
     'cert_verifier.mojom.URLLoaderFactoryConnector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateURLLoaderFactory
 cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec = {
@@ -75,7 +75,7 @@ cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cert_verifier.mojom.URLLoaderFactoryConnectorPtr = cert_verifier.mojom.URLLoaderFactoryConnectorRemote;
@@ -161,7 +161,7 @@ cert_verifier.mojom.CertVerifierService.getRemote = function() {
     'cert_verifier.mojom.CertVerifierService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EnableNetworkAccess
 cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec = {
@@ -176,7 +176,7 @@ cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Verify
 cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec = {
@@ -192,7 +192,7 @@ cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Verify2QwacBinding
 cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec = {
@@ -209,7 +209,7 @@ cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec = {
   $: {
@@ -222,7 +222,7 @@ cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetConfig
 cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec = {
@@ -236,7 +236,7 @@ cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cert_verifier.mojom.CertVerifierServicePtr = cert_verifier.mojom.CertVerifierServiceRemote;
@@ -295,7 +295,7 @@ cert_verifier.mojom.CertVerifierServiceClient.getRemote = function() {
     'cert_verifier.mojom.CertVerifierServiceClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCertVerifierChanged
 cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec = {
@@ -308,7 +308,7 @@ cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cert_verifier.mojom.CertVerifierServiceClientPtr = cert_verifier.mojom.CertVerifierServiceClientRemote;
@@ -367,7 +367,7 @@ cert_verifier.mojom.CertVerifierRequest.getRemote = function() {
     'cert_verifier.mojom.CertVerifierRequest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Complete
 cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec = {
@@ -382,7 +382,7 @@ cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cert_verifier.mojom.CertVerifierRequestPtr = cert_verifier.mojom.CertVerifierRequestRemote;

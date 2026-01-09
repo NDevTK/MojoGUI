@@ -77,7 +77,7 @@ auction_worklet.mojom.TrustedSignalsCacheClient.getRemote = function() {
     'auction_worklet.mojom.TrustedSignalsCacheClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSuccess
 auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec = {
@@ -92,7 +92,7 @@ auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec = {
@@ -106,7 +106,7 @@ auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 auction_worklet.mojom.TrustedSignalsCacheClientPtr = auction_worklet.mojom.TrustedSignalsCacheClientRemote;
@@ -165,7 +165,7 @@ auction_worklet.mojom.TrustedSignalsCache.getRemote = function() {
     'auction_worklet.mojom.TrustedSignalsCache',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetTrustedSignals
 auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec = {
@@ -180,7 +180,7 @@ auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 auction_worklet.mojom.TrustedSignalsCachePtr = auction_worklet.mojom.TrustedSignalsCacheRemote;

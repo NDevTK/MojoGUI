@@ -58,7 +58,7 @@ device.mojom.HidManagerClient.getRemote = function() {
     'device.mojom.HidManagerClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 device.mojom.HidManagerClientPtr = device.mojom.HidManagerClientRemote;
@@ -108,7 +108,7 @@ device.mojom.HidManager.getRemote = function() {
     'device.mojom.HidManager',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 device.mojom.HidManagerPtr = device.mojom.HidManagerRemote;
@@ -158,7 +158,7 @@ device.mojom.HidConnection.getRemote = function() {
     'device.mojom.HidConnection',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 device.mojom.HidConnectionPtr = device.mojom.HidConnectionRemote;
@@ -208,7 +208,7 @@ device.mojom.HidConnectionClient.getRemote = function() {
     'device.mojom.HidConnectionClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 device.mojom.HidConnectionClientPtr = device.mojom.HidConnectionClientRemote;
@@ -258,7 +258,7 @@ device.mojom.HidConnectionWatcher.getRemote = function() {
     'device.mojom.HidConnectionWatcher',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 device.mojom.HidConnectionWatcherPtr = device.mojom.HidConnectionWatcherRemote;

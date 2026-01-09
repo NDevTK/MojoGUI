@@ -76,7 +76,7 @@ image_annotation.mojom.ImageProcessor.getRemote = function() {
     'image_annotation.mojom.ImageProcessor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetJpgImageData
 image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec = {
@@ -89,7 +89,7 @@ image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec = {
   $: {
@@ -104,7 +104,7 @@ image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 image_annotation.mojom.ImageProcessorPtr = image_annotation.mojom.ImageProcessorRemote;
@@ -163,7 +163,7 @@ image_annotation.mojom.Annotator.getRemote = function() {
     'image_annotation.mojom.Annotator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AnnotateImage
 image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec = {
@@ -179,7 +179,7 @@ image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec = {
   $: {
@@ -192,7 +192,7 @@ image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 image_annotation.mojom.AnnotatorPtr = image_annotation.mojom.AnnotatorRemote;
@@ -251,7 +251,7 @@ image_annotation.mojom.ImageAnnotationService.getRemote = function() {
     'image_annotation.mojom.ImageAnnotationService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindAnnotator
 image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec = {
@@ -265,7 +265,7 @@ image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 image_annotation.mojom.ImageAnnotationServicePtr = image_annotation.mojom.ImageAnnotationServiceRemote;

@@ -119,7 +119,7 @@ arc.mojom.NotificationsHost.getRemote = function() {
     'arc.mojom.NotificationsHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.NotificationsHostPtr = arc.mojom.NotificationsHostRemote;
@@ -169,7 +169,7 @@ arc.mojom.NotificationsInstance.getRemote = function() {
     'arc.mojom.NotificationsInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.NotificationsInstancePtr = arc.mojom.NotificationsInstanceRemote;

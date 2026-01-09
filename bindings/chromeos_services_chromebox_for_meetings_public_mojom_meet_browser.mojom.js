@@ -53,7 +53,7 @@ ash.cfm.mojom.MeetBrowser.getRemote = function() {
     'ash.cfm.mojom.MeetBrowser',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cfm.mojom.MeetBrowserPtr = ash.cfm.mojom.MeetBrowserRemote;

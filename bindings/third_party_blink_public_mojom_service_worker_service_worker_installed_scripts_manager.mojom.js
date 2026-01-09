@@ -61,7 +61,7 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHost.getRemote = function() {
     'blink.mojom.ServiceWorkerInstalledScriptsManagerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestInstalledScript
 blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerInstalledScriptsManagerHostPtr = blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote;
@@ -134,7 +134,7 @@ blink.mojom.ServiceWorkerInstalledScriptsManager.getRemote = function() {
     'blink.mojom.ServiceWorkerInstalledScriptsManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for TransferInstalledScript
 blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec = {
@@ -148,7 +148,7 @@ blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerInstalledScriptsManagerPtr = blink.mojom.ServiceWorkerInstalledScriptsManagerRemote;

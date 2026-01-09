@@ -129,7 +129,7 @@ network.mojom.ResolveHostHandle.getRemote = function() {
     'network.mojom.ResolveHostHandle',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Cancel
 network.mojom.ResolveHostHandle_Cancel_ParamsSpec = {
@@ -143,7 +143,7 @@ network.mojom.ResolveHostHandle_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.ResolveHostHandlePtr = network.mojom.ResolveHostHandleRemote;
@@ -220,7 +220,7 @@ network.mojom.ResolveHostClient.getRemote = function() {
     'network.mojom.ResolveHostClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnComplete
 network.mojom.ResolveHostClient_OnComplete_ParamsSpec = {
@@ -237,7 +237,7 @@ network.mojom.ResolveHostClient_OnComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTextResults
 network.mojom.ResolveHostClient_OnTextResults_ParamsSpec = {
@@ -251,7 +251,7 @@ network.mojom.ResolveHostClient_OnTextResults_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHostnameResults
 network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec = {
@@ -265,7 +265,7 @@ network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.ResolveHostClientPtr = network.mojom.ResolveHostClientRemote;
@@ -351,7 +351,7 @@ network.mojom.MdnsListenClient.getRemote = function() {
     'network.mojom.MdnsListenClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAddressResult
 network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec = {
@@ -367,7 +367,7 @@ network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTextResult
 network.mojom.MdnsListenClient_OnTextResult_ParamsSpec = {
@@ -383,7 +383,7 @@ network.mojom.MdnsListenClient_OnTextResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHostnameResult
 network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec = {
@@ -399,7 +399,7 @@ network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnUnhandledResult
 network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec = {
@@ -414,7 +414,7 @@ network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.MdnsListenClientPtr = network.mojom.MdnsListenClientRemote;
@@ -482,7 +482,7 @@ network.mojom.HostResolver.getRemote = function() {
     'network.mojom.HostResolver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ResolveHost
 network.mojom.HostResolver_ResolveHost_ParamsSpec = {
@@ -499,7 +499,7 @@ network.mojom.HostResolver_ResolveHost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MdnsListen
 network.mojom.HostResolver_MdnsListen_ParamsSpec = {
@@ -515,7 +515,7 @@ network.mojom.HostResolver_MdnsListen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.HostResolver_MdnsListen_ResponseParamsSpec = {
   $: {
@@ -528,7 +528,7 @@ network.mojom.HostResolver_MdnsListen_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.HostResolverPtr = network.mojom.HostResolverRemote;
@@ -587,7 +587,7 @@ network.mojom.DnsConfigChangeManagerClient.getRemote = function() {
     'network.mojom.DnsConfigChangeManagerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDnsConfigChanged
 network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec = {
@@ -600,7 +600,7 @@ network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.DnsConfigChangeManagerClientPtr = network.mojom.DnsConfigChangeManagerClientRemote;
@@ -659,7 +659,7 @@ network.mojom.DnsConfigChangeManager.getRemote = function() {
     'network.mojom.DnsConfigChangeManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestNotifications
 network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec = {
@@ -673,7 +673,7 @@ network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.DnsConfigChangeManagerPtr = network.mojom.DnsConfigChangeManagerRemote;

@@ -127,7 +127,7 @@ ash.device_sync.mojom.DeviceSyncObserver.getRemote = function() {
     'ash.device_sync.mojom.DeviceSyncObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnEnrollmentFinished
 ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec = {
@@ -140,7 +140,7 @@ ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNewDevicesSynced
 ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec = {
@@ -153,7 +153,7 @@ ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.device_sync.mojom.DeviceSyncObserverPtr = ash.device_sync.mojom.DeviceSyncObserverRemote;
@@ -320,7 +320,7 @@ ash.device_sync.mojom.DeviceSync.getRemote = function() {
     'ash.device_sync.mojom.DeviceSync',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddObserver
 ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec = {
@@ -334,7 +334,7 @@ ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForceEnrollmentNow
 ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec = {
@@ -347,7 +347,7 @@ ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec = {
   $: {
@@ -360,7 +360,7 @@ ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForceSyncNow
 ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec = {
@@ -373,7 +373,7 @@ ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec = {
   $: {
@@ -386,7 +386,7 @@ ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetGroupPrivateKeyStatus
 ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec = {
@@ -399,7 +399,7 @@ ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec = {
   $: {
@@ -412,7 +412,7 @@ ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetBetterTogetherMetadataStatus
 ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec = {
@@ -425,7 +425,7 @@ ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec = {
   $: {
@@ -438,7 +438,7 @@ ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSyncedDevices
 ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec = {
@@ -451,7 +451,7 @@ ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec = {
   $: {
@@ -464,7 +464,7 @@ ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLocalDeviceMetadata
 ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec = {
@@ -477,7 +477,7 @@ ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec = {
   $: {
@@ -490,7 +490,7 @@ ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSoftwareFeatureState
 ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec = {
@@ -507,7 +507,7 @@ ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec = {
   $: {
@@ -520,7 +520,7 @@ ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFeatureStatus
 ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec = {
@@ -536,7 +536,7 @@ ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec = {
   $: {
@@ -549,7 +549,7 @@ ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FindEligibleDevices
 ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec = {
@@ -563,7 +563,7 @@ ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec = {
   $: {
@@ -577,7 +577,7 @@ ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyDevices
 ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec = {
@@ -593,7 +593,7 @@ ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec = {
   $: {
@@ -606,7 +606,7 @@ ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDevicesActivityStatus
 ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec = {
@@ -619,7 +619,7 @@ ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec = {
   $: {
@@ -633,7 +633,7 @@ ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDebugInfo
 ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec = {
@@ -646,7 +646,7 @@ ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec = {
   $: {
@@ -659,7 +659,7 @@ ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.device_sync.mojom.DeviceSyncPtr = ash.device_sync.mojom.DeviceSyncRemote;

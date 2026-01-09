@@ -70,7 +70,7 @@ blink.mojom.BlobReaderClient.getRemote = function() {
     'blink.mojom.BlobReaderClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCalculatedSize
 blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec = {
@@ -85,7 +85,7 @@ blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnComplete
 blink.mojom.BlobReaderClient_OnComplete_ParamsSpec = {
@@ -100,7 +100,7 @@ blink.mojom.BlobReaderClient_OnComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BlobReaderClientPtr = blink.mojom.BlobReaderClientRemote;
@@ -222,7 +222,7 @@ blink.mojom.Blob.getRemote = function() {
     'blink.mojom.Blob',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Clone
 blink.mojom.Blob_Clone_ParamsSpec = {
@@ -236,7 +236,7 @@ blink.mojom.Blob_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AsDataPipeGetter
 blink.mojom.Blob_AsDataPipeGetter_ParamsSpec = {
@@ -250,7 +250,7 @@ blink.mojom.Blob_AsDataPipeGetter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadAll
 blink.mojom.Blob_ReadAll_ParamsSpec = {
@@ -265,7 +265,7 @@ blink.mojom.Blob_ReadAll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadRange
 blink.mojom.Blob_ReadRange_ParamsSpec = {
@@ -282,7 +282,7 @@ blink.mojom.Blob_ReadRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Load
 blink.mojom.Blob_Load_ParamsSpec = {
@@ -299,7 +299,7 @@ blink.mojom.Blob_Load_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadSideData
 blink.mojom.Blob_ReadSideData_ParamsSpec = {
@@ -312,7 +312,7 @@ blink.mojom.Blob_ReadSideData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.Blob_ReadSideData_ResponseParamsSpec = {
   $: {
@@ -325,7 +325,7 @@ blink.mojom.Blob_ReadSideData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CaptureSnapshot
 blink.mojom.Blob_CaptureSnapshot_ParamsSpec = {
@@ -338,7 +338,7 @@ blink.mojom.Blob_CaptureSnapshot_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec = {
   $: {
@@ -352,7 +352,7 @@ blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetInternalUUID
 blink.mojom.Blob_GetInternalUUID_ParamsSpec = {
@@ -365,7 +365,7 @@ blink.mojom.Blob_GetInternalUUID_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec = {
   $: {
@@ -378,7 +378,7 @@ blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BlobPtr = blink.mojom.BlobRemote;

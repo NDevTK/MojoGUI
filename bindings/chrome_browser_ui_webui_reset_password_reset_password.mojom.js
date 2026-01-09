@@ -60,7 +60,7 @@ mojom.ResetPasswordHandler.getRemote = function() {
     'mojom.ResetPasswordHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HandlePasswordReset
 mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec = {
@@ -73,7 +73,7 @@ mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mojom.ResetPasswordHandlerPtr = mojom.ResetPasswordHandlerRemote;

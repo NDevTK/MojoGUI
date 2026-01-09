@@ -59,7 +59,7 @@ remote_cocoa.mojom.StubInterface.getRemote = function() {
     'remote_cocoa.mojom.StubInterface',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 remote_cocoa.mojom.StubInterfacePtr = remote_cocoa.mojom.StubInterfaceRemote;
@@ -163,7 +163,7 @@ remote_cocoa.mojom.Application.getRemote = function() {
     'remote_cocoa.mojom.Application',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateAlert
 remote_cocoa.mojom.Application_CreateAlert_ParamsSpec = {
@@ -177,7 +177,7 @@ remote_cocoa.mojom.Application_CreateAlert_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateNativeWidgetNSWindow
 remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec = {
@@ -194,7 +194,7 @@ remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateRenderWidgetHostNSView
 remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec = {
@@ -210,7 +210,7 @@ remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateSystemMediaControlsBridge
 remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec = {
@@ -225,7 +225,7 @@ remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateWebContentsNSView
 remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec = {
@@ -241,7 +241,7 @@ remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForwardCutCopyPaste
 remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec = {
@@ -255,7 +255,7 @@ remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remote_cocoa.mojom.ApplicationPtr = remote_cocoa.mojom.ApplicationRemote;

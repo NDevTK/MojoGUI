@@ -97,7 +97,7 @@ media.mojom.VideoEncodeAcceleratorProvider.getRemote = function() {
     'media.mojom.VideoEncodeAcceleratorProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateVideoEncodeAccelerator
 media.mojom.VideoEncodeAcceleratorProvider_CreateVideoEncodeAccelerator_ParamsSpec = {
@@ -112,7 +112,7 @@ media.mojom.VideoEncodeAcceleratorProvider_CreateVideoEncodeAccelerator_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetVideoEncodeAcceleratorSupportedProfiles
 media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ParamsSpec = {
@@ -125,7 +125,7 @@ media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedPro
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ResponseParamsSpec = {
   $: {
@@ -138,7 +138,7 @@ media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedPro
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.VideoEncodeAcceleratorProviderPtr = media.mojom.VideoEncodeAcceleratorProviderRemote;
@@ -197,7 +197,7 @@ media.mojom.VideoEncodeAcceleratorProviderFactory.getRemote = function() {
     'media.mojom.VideoEncodeAcceleratorProviderFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateVideoEncodeAcceleratorProvider
 media.mojom.VideoEncodeAcceleratorProviderFactory_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
@@ -211,7 +211,7 @@ media.mojom.VideoEncodeAcceleratorProviderFactory_CreateVideoEncodeAcceleratorPr
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.VideoEncodeAcceleratorProviderFactoryPtr = media.mojom.VideoEncodeAcceleratorProviderFactoryRemote;
@@ -324,7 +324,7 @@ media.mojom.VideoEncodeAccelerator.getRemote = function() {
     'media.mojom.VideoEncodeAccelerator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Initialize
 media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec = {
@@ -340,7 +340,7 @@ media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec = {
   $: {
@@ -353,7 +353,7 @@ media.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Encode
 media.mojom.VideoEncodeAccelerator_Encode_ParamsSpec = {
@@ -368,7 +368,7 @@ media.mojom.VideoEncodeAccelerator_Encode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UseOutputBitstreamBuffer
 media.mojom.VideoEncodeAccelerator_UseOutputBitstreamBuffer_ParamsSpec = {
@@ -383,7 +383,7 @@ media.mojom.VideoEncodeAccelerator_UseOutputBitstreamBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestEncodingParametersChangeWithLayers
 media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithLayers_ParamsSpec = {
@@ -399,7 +399,7 @@ media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithLayers_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestEncodingParametersChangeWithBitrate
 media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithBitrate_ParamsSpec = {
@@ -415,7 +415,7 @@ media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithBitrate_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsFlushSupported
 media.mojom.VideoEncodeAccelerator_IsFlushSupported_ParamsSpec = {
@@ -428,7 +428,7 @@ media.mojom.VideoEncodeAccelerator_IsFlushSupported_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.VideoEncodeAccelerator_IsFlushSupported_ResponseParamsSpec = {
   $: {
@@ -441,7 +441,7 @@ media.mojom.VideoEncodeAccelerator_IsFlushSupported_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Flush
 media.mojom.VideoEncodeAccelerator_Flush_ParamsSpec = {
@@ -454,7 +454,7 @@ media.mojom.VideoEncodeAccelerator_Flush_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec = {
   $: {
@@ -467,7 +467,7 @@ media.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.VideoEncodeAcceleratorPtr = media.mojom.VideoEncodeAcceleratorRemote;
@@ -553,7 +553,7 @@ media.mojom.VideoEncodeAcceleratorClient.getRemote = function() {
     'media.mojom.VideoEncodeAcceleratorClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequireBitstreamBuffers
 media.mojom.VideoEncodeAcceleratorClient_RequireBitstreamBuffers_ParamsSpec = {
@@ -569,7 +569,7 @@ media.mojom.VideoEncodeAcceleratorClient_RequireBitstreamBuffers_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BitstreamBufferReady
 media.mojom.VideoEncodeAcceleratorClient_BitstreamBufferReady_ParamsSpec = {
@@ -584,7 +584,7 @@ media.mojom.VideoEncodeAcceleratorClient_BitstreamBufferReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyErrorStatus
 media.mojom.VideoEncodeAcceleratorClient_NotifyErrorStatus_ParamsSpec = {
@@ -598,7 +598,7 @@ media.mojom.VideoEncodeAcceleratorClient_NotifyErrorStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyEncoderInfoChange
 media.mojom.VideoEncodeAcceleratorClient_NotifyEncoderInfoChange_ParamsSpec = {
@@ -612,7 +612,7 @@ media.mojom.VideoEncodeAcceleratorClient_NotifyEncoderInfoChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.VideoEncodeAcceleratorClientPtr = media.mojom.VideoEncodeAcceleratorClientRemote;

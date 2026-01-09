@@ -58,7 +58,7 @@ ash.cfm.mojom.DataWatchDog.getRemote = function() {
     'ash.cfm.mojom.DataWatchDog',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cfm.mojom.DataWatchDogPtr = ash.cfm.mojom.DataWatchDogRemote;
@@ -108,7 +108,7 @@ ash.cfm.mojom.DataSource.getRemote = function() {
     'ash.cfm.mojom.DataSource',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cfm.mojom.DataSourcePtr = ash.cfm.mojom.DataSourceRemote;
@@ -158,7 +158,7 @@ ash.cfm.mojom.DataAggregator.getRemote = function() {
     'ash.cfm.mojom.DataAggregator',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cfm.mojom.DataAggregatorPtr = ash.cfm.mojom.DataAggregatorRemote;

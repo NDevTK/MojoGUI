@@ -88,7 +88,7 @@ printing.mojom.PrintingService.getRemote = function() {
     'printing.mojom.PrintingService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindPdfNupConverter
 printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec = {
@@ -102,7 +102,7 @@ printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindPdfToPwgRasterConverter
 printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec = {
@@ -116,7 +116,7 @@ printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindPdfFlattener
 printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec = {
@@ -130,7 +130,7 @@ printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindPdfToEmfConverterFactory
 printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec = {
@@ -144,7 +144,7 @@ printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 printing.mojom.PrintingServicePtr = printing.mojom.PrintingServiceRemote;

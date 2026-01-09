@@ -52,7 +52,7 @@ arc.mojom.NearbyShareSessionHost.getRemote = function() {
     'arc.mojom.NearbyShareSessionHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.NearbyShareSessionHostPtr = arc.mojom.NearbyShareSessionHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.NearbyShareSessionInstance.getRemote = function() {
     'arc.mojom.NearbyShareSessionInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.NearbyShareSessionInstancePtr = arc.mojom.NearbyShareSessionInstanceRemote;
@@ -152,7 +152,7 @@ arc.mojom.NearbyShareHost.getRemote = function() {
     'arc.mojom.NearbyShareHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.NearbyShareHostPtr = arc.mojom.NearbyShareHostRemote;
@@ -202,7 +202,7 @@ arc.mojom.NearbyShareInstance.getRemote = function() {
     'arc.mojom.NearbyShareInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.NearbyShareInstancePtr = arc.mojom.NearbyShareInstanceRemote;

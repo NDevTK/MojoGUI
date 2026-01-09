@@ -112,7 +112,7 @@ add_supervision.mojom.AddSupervisionHandler.getRemote = function() {
     'add_supervision.mojom.AddSupervisionHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestClose
 add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec = {
@@ -125,7 +125,7 @@ add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec = {
   $: {
@@ -138,7 +138,7 @@ add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetInstalledArcApps
 add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec = {
@@ -151,7 +151,7 @@ add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec = {
   $: {
@@ -164,7 +164,7 @@ add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOAuthToken
 add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec = {
@@ -177,7 +177,7 @@ add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec = {
   $: {
@@ -191,7 +191,7 @@ add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogOut
 add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec = {
@@ -204,7 +204,7 @@ add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifySupervisionEnabled
 add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec = {
@@ -217,7 +217,7 @@ add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCloseOnEscape
 add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec = {
@@ -231,7 +231,7 @@ add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 add_supervision.mojom.AddSupervisionHandlerPtr = add_supervision.mojom.AddSupervisionHandlerRemote;

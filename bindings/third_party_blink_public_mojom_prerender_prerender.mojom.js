@@ -76,7 +76,7 @@ blink.mojom.NoStatePrefetchProcessor.getRemote = function() {
     'blink.mojom.NoStatePrefetchProcessor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Start
 blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec = {
@@ -90,7 +90,7 @@ blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Cancel
 blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec = {
@@ -103,7 +103,7 @@ blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.NoStatePrefetchProcessorPtr = blink.mojom.NoStatePrefetchProcessorRemote;

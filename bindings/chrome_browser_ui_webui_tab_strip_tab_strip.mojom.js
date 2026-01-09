@@ -61,7 +61,7 @@ tab_strip.mojom.PageHandlerFactory.getRemote = function() {
     'tab_strip.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 tab_strip.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ tab_strip.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tab_strip.mojom.PageHandlerFactoryPtr = tab_strip.mojom.PageHandlerFactoryRemote;
@@ -279,7 +279,7 @@ tab_strip.mojom.PageHandler.getRemote = function() {
     'tab_strip.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetGroupVisualData
 tab_strip.mojom.PageHandler_GetGroupVisualData_ParamsSpec = {
@@ -292,7 +292,7 @@ tab_strip.mojom.PageHandler_GetGroupVisualData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec = {
   $: {
@@ -305,7 +305,7 @@ tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTabs
 tab_strip.mojom.PageHandler_GetTabs_ParamsSpec = {
@@ -318,7 +318,7 @@ tab_strip.mojom.PageHandler_GetTabs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec = {
   $: {
@@ -331,7 +331,7 @@ tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseTab
 tab_strip.mojom.PageHandler_CloseTab_ParamsSpec = {
@@ -346,7 +346,7 @@ tab_strip.mojom.PageHandler_CloseTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GroupTab
 tab_strip.mojom.PageHandler_GroupTab_ParamsSpec = {
@@ -361,7 +361,7 @@ tab_strip.mojom.PageHandler_GroupTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MoveGroup
 tab_strip.mojom.PageHandler_MoveGroup_ParamsSpec = {
@@ -376,7 +376,7 @@ tab_strip.mojom.PageHandler_MoveGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MoveTab
 tab_strip.mojom.PageHandler_MoveTab_ParamsSpec = {
@@ -391,7 +391,7 @@ tab_strip.mojom.PageHandler_MoveTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetThumbnailTracked
 tab_strip.mojom.PageHandler_SetThumbnailTracked_ParamsSpec = {
@@ -406,7 +406,7 @@ tab_strip.mojom.PageHandler_SetThumbnailTracked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UngroupTab
 tab_strip.mojom.PageHandler_UngroupTab_ParamsSpec = {
@@ -420,7 +420,7 @@ tab_strip.mojom.PageHandler_UngroupTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLayout
 tab_strip.mojom.PageHandler_GetLayout_ParamsSpec = {
@@ -433,7 +433,7 @@ tab_strip.mojom.PageHandler_GetLayout_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec = {
   $: {
@@ -446,7 +446,7 @@ tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowEditDialogForGroup
 tab_strip.mojom.PageHandler_ShowEditDialogForGroup_ParamsSpec = {
@@ -464,7 +464,7 @@ tab_strip.mojom.PageHandler_ShowEditDialogForGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowTabContextMenu
 tab_strip.mojom.PageHandler_ShowTabContextMenu_ParamsSpec = {
@@ -480,7 +480,7 @@ tab_strip.mojom.PageHandler_ShowTabContextMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowBackgroundContextMenu
 tab_strip.mojom.PageHandler_ShowBackgroundContextMenu_ParamsSpec = {
@@ -495,7 +495,7 @@ tab_strip.mojom.PageHandler_ShowBackgroundContextMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseContainer
 tab_strip.mojom.PageHandler_CloseContainer_ParamsSpec = {
@@ -508,7 +508,7 @@ tab_strip.mojom.PageHandler_CloseContainer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportTabActivationDuration
 tab_strip.mojom.PageHandler_ReportTabActivationDuration_ParamsSpec = {
@@ -522,7 +522,7 @@ tab_strip.mojom.PageHandler_ReportTabActivationDuration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportTabDataReceivedDuration
 tab_strip.mojom.PageHandler_ReportTabDataReceivedDuration_ParamsSpec = {
@@ -537,7 +537,7 @@ tab_strip.mojom.PageHandler_ReportTabDataReceivedDuration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportTabCreationDuration
 tab_strip.mojom.PageHandler_ReportTabCreationDuration_ParamsSpec = {
@@ -552,7 +552,7 @@ tab_strip.mojom.PageHandler_ReportTabCreationDuration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ActivateTab
 tab_strip.mojom.PageHandler_ActivateTab_ParamsSpec = {
@@ -566,7 +566,7 @@ tab_strip.mojom.PageHandler_ActivateTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tab_strip.mojom.PageHandlerPtr = tab_strip.mojom.PageHandlerRemote;
@@ -778,7 +778,7 @@ tab_strip.mojom.Page.getRemote = function() {
     'tab_strip.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LayoutChanged
 tab_strip.mojom.Page_LayoutChanged_ParamsSpec = {
@@ -792,7 +792,7 @@ tab_strip.mojom.Page_LayoutChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReceivedKeyboardFocus
 tab_strip.mojom.Page_ReceivedKeyboardFocus_ParamsSpec = {
@@ -805,7 +805,7 @@ tab_strip.mojom.Page_ReceivedKeyboardFocus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ContextMenuClosed
 tab_strip.mojom.Page_ContextMenuClosed_ParamsSpec = {
@@ -818,7 +818,7 @@ tab_strip.mojom.Page_ContextMenuClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LongPress
 tab_strip.mojom.Page_LongPress_ParamsSpec = {
@@ -831,7 +831,7 @@ tab_strip.mojom.Page_LongPress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabGroupVisualsChanged
 tab_strip.mojom.Page_TabGroupVisualsChanged_ParamsSpec = {
@@ -846,7 +846,7 @@ tab_strip.mojom.Page_TabGroupVisualsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabGroupMoved
 tab_strip.mojom.Page_TabGroupMoved_ParamsSpec = {
@@ -861,7 +861,7 @@ tab_strip.mojom.Page_TabGroupMoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabGroupClosed
 tab_strip.mojom.Page_TabGroupClosed_ParamsSpec = {
@@ -875,7 +875,7 @@ tab_strip.mojom.Page_TabGroupClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabGroupStateChanged
 tab_strip.mojom.Page_TabGroupStateChanged_ParamsSpec = {
@@ -891,7 +891,7 @@ tab_strip.mojom.Page_TabGroupStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabCloseCancelled
 tab_strip.mojom.Page_TabCloseCancelled_ParamsSpec = {
@@ -905,7 +905,7 @@ tab_strip.mojom.Page_TabCloseCancelled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabCreated
 tab_strip.mojom.Page_TabCreated_ParamsSpec = {
@@ -919,7 +919,7 @@ tab_strip.mojom.Page_TabCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabRemoved
 tab_strip.mojom.Page_TabRemoved_ParamsSpec = {
@@ -933,7 +933,7 @@ tab_strip.mojom.Page_TabRemoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabMoved
 tab_strip.mojom.Page_TabMoved_ParamsSpec = {
@@ -949,7 +949,7 @@ tab_strip.mojom.Page_TabMoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabReplaced
 tab_strip.mojom.Page_TabReplaced_ParamsSpec = {
@@ -964,7 +964,7 @@ tab_strip.mojom.Page_TabReplaced_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabActiveChanged
 tab_strip.mojom.Page_TabActiveChanged_ParamsSpec = {
@@ -978,7 +978,7 @@ tab_strip.mojom.Page_TabActiveChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabUpdated
 tab_strip.mojom.Page_TabUpdated_ParamsSpec = {
@@ -992,7 +992,7 @@ tab_strip.mojom.Page_TabUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TabThumbnailUpdated
 tab_strip.mojom.Page_TabThumbnailUpdated_ParamsSpec = {
@@ -1007,7 +1007,7 @@ tab_strip.mojom.Page_TabThumbnailUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowContextMenu
 tab_strip.mojom.Page_ShowContextMenu_ParamsSpec = {
@@ -1020,7 +1020,7 @@ tab_strip.mojom.Page_ShowContextMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ThemeChanged
 tab_strip.mojom.Page_ThemeChanged_ParamsSpec = {
@@ -1033,7 +1033,7 @@ tab_strip.mojom.Page_ThemeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tab_strip.mojom.PagePtr = tab_strip.mojom.PageRemote;

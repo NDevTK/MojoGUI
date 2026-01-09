@@ -157,7 +157,7 @@ device_test.mojom.XRTestHook.getRemote = function() {
     'device_test.mojom.XRTestHook',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnFrameSubmitted
 device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = {
@@ -171,7 +171,7 @@ device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitGetDeviceConfig
 device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec = {
@@ -184,7 +184,7 @@ device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec = {
   $: {
@@ -197,7 +197,7 @@ device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitGetPresentingPose
 device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec = {
@@ -210,7 +210,7 @@ device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec = {
   $: {
@@ -223,7 +223,7 @@ device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitGetMagicWindowPose
 device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec = {
@@ -236,7 +236,7 @@ device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec = {
   $: {
@@ -249,7 +249,7 @@ device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitGetControllerRoleForTrackedDeviceIndex
 device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec = {
@@ -263,7 +263,7 @@ device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec = {
   $: {
@@ -276,7 +276,7 @@ device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitGetControllerData
 device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = {
@@ -290,7 +290,7 @@ device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec = {
   $: {
@@ -303,7 +303,7 @@ device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitGetEventData
 device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec = {
@@ -316,7 +316,7 @@ device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec = {
   $: {
@@ -329,7 +329,7 @@ device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitGetCanCreateSession
 device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec = {
@@ -342,7 +342,7 @@ device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec = {
   $: {
@@ -355,7 +355,7 @@ device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitGetVisibilityMask
 device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = {
@@ -369,7 +369,7 @@ device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = {
   $: {
@@ -382,7 +382,7 @@ device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device_test.mojom.XRTestHookPtr = device_test.mojom.XRTestHookRemote;
@@ -450,7 +450,7 @@ device_test.mojom.XRServiceTestHook.getRemote = function() {
     'device_test.mojom.XRServiceTestHook',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetTestHook
 device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = {
@@ -464,7 +464,7 @@ device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TerminateDeviceServiceProcessForTesting
 device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec = {
@@ -477,7 +477,7 @@ device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device_test.mojom.XRServiceTestHookPtr = device_test.mojom.XRServiceTestHookRemote;

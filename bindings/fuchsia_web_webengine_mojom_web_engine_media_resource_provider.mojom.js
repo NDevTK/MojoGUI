@@ -69,7 +69,7 @@ mojom.WebEngineMediaResourceProvider.getRemote = function() {
     'mojom.WebEngineMediaResourceProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShouldUseAudioConsumer
 mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec = {
@@ -82,7 +82,7 @@ mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec = {
   $: {
@@ -95,7 +95,7 @@ mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateAudioConsumer
 mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec = {
@@ -109,7 +109,7 @@ mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mojom.WebEngineMediaResourceProviderPtr = mojom.WebEngineMediaResourceProviderRemote;

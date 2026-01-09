@@ -74,7 +74,7 @@ glic.mojom.FrePageHandlerFactory.getRemote = function() {
     'glic.mojom.FrePageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -88,7 +88,7 @@ glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 glic.mojom.FrePageHandlerFactoryPtr = glic.mojom.FrePageHandlerFactoryRemote;
@@ -219,7 +219,7 @@ glic.mojom.FrePageHandler.getRemote = function() {
     'glic.mojom.FrePageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AcceptFre
 glic.mojom.FrePageHandler_AcceptFre_ParamsSpec = {
@@ -232,7 +232,7 @@ glic.mojom.FrePageHandler_AcceptFre_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RejectFre
 glic.mojom.FrePageHandler_RejectFre_ParamsSpec = {
@@ -245,7 +245,7 @@ glic.mojom.FrePageHandler_RejectFre_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DismissFre
 glic.mojom.FrePageHandler_DismissFre_ParamsSpec = {
@@ -259,7 +259,7 @@ glic.mojom.FrePageHandler_DismissFre_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FreReloaded
 glic.mojom.FrePageHandler_FreReloaded_ParamsSpec = {
@@ -272,7 +272,7 @@ glic.mojom.FrePageHandler_FreReloaded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrepareForClient
 glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec = {
@@ -285,7 +285,7 @@ glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec = {
   $: {
@@ -298,7 +298,7 @@ glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ValidateAndOpenLinkInNewTab
 glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec = {
@@ -312,7 +312,7 @@ glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WebUiStateChanged
 glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec = {
@@ -326,7 +326,7 @@ glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExceededTimeoutError
 glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec = {
@@ -339,7 +339,7 @@ glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogWebUiLoadComplete
 glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec = {
@@ -352,7 +352,7 @@ glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 glic.mojom.FrePageHandlerPtr = glic.mojom.FrePageHandlerRemote;

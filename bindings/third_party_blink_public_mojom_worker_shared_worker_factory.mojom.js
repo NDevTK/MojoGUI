@@ -61,7 +61,7 @@ blink.mojom.SharedWorkerFactory.getRemote = function() {
     'blink.mojom.SharedWorkerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateSharedWorker
 blink.mojom.SharedWorkerFactory_CreateSharedWorker_ParamsSpec = {
@@ -98,7 +98,7 @@ blink.mojom.SharedWorkerFactory_CreateSharedWorker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SharedWorkerFactoryPtr = blink.mojom.SharedWorkerFactoryRemote;

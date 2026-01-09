@@ -61,7 +61,7 @@ media.mojom.CdmService.getRemote = function() {
     'media.mojom.CdmService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateCdmFactory
 media.mojom.CdmService_CreateCdmFactory_ParamsSpec = {
@@ -76,7 +76,7 @@ media.mojom.CdmService_CreateCdmFactory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.CdmServicePtr = media.mojom.CdmServiceRemote;
@@ -135,7 +135,7 @@ media.mojom.SeatbeltExtensionTokenProvider.getRemote = function() {
     'media.mojom.SeatbeltExtensionTokenProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetTokens
 media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = {
@@ -148,7 +148,7 @@ media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec = {
   $: {
@@ -161,7 +161,7 @@ media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.SeatbeltExtensionTokenProviderPtr = media.mojom.SeatbeltExtensionTokenProviderRemote;
@@ -220,7 +220,7 @@ media.mojom.CdmServiceBroker.getRemote = function() {
     'media.mojom.CdmServiceBroker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetService
 media.mojom.CdmServiceBroker_GetService_ParamsSpec = {
@@ -236,7 +236,7 @@ media.mojom.CdmServiceBroker_GetService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.CdmServiceBrokerPtr = media.mojom.CdmServiceBrokerRemote;

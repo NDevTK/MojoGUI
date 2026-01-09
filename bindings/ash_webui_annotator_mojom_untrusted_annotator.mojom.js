@@ -89,7 +89,7 @@ ash.annotator.mojom.UntrustedAnnotatorPage.getRemote = function() {
     'ash.annotator.mojom.UntrustedAnnotatorPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Clear
 ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec = {
@@ -102,7 +102,7 @@ ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Undo
 ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec = {
@@ -115,7 +115,7 @@ ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Redo
 ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec = {
@@ -128,7 +128,7 @@ ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTool
 ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = {
@@ -142,7 +142,7 @@ ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.annotator.mojom.UntrustedAnnotatorPagePtr = ash.annotator.mojom.UntrustedAnnotatorPageRemote;
@@ -210,7 +210,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandler.getRemote = function() {
     'ash.annotator.mojom.UntrustedAnnotatorPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnUndoRedoAvailabilityChanged
 ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec = {
@@ -225,7 +225,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCanvasInitialized
 ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec = {
@@ -239,7 +239,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerPtr = ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote;
@@ -298,7 +298,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.getRemote = function() 
     'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Create
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = {
@@ -313,7 +313,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryPtr = ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemote;

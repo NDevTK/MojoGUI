@@ -67,7 +67,7 @@ chromeos.machine_learning.mojom.GraphExecutor.getRemote = function() {
     'chromeos.machine_learning.mojom.GraphExecutor',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.machine_learning.mojom.GraphExecutorPtr = chromeos.machine_learning.mojom.GraphExecutorRemote;

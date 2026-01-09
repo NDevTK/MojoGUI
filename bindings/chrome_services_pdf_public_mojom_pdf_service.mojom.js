@@ -61,7 +61,7 @@ pdf.mojom.Ocr.getRemote = function() {
     'pdf.mojom.Ocr',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PerformOcr
 pdf.mojom.Ocr_PerformOcr_ParamsSpec = {
@@ -75,7 +75,7 @@ pdf.mojom.Ocr_PerformOcr_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 pdf.mojom.OcrPtr = pdf.mojom.OcrRemote;
@@ -165,7 +165,7 @@ pdf.mojom.PdfService.getRemote = function() {
     'pdf.mojom.PdfService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindPdfProgressiveSearchifier
 pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec = {
@@ -180,7 +180,7 @@ pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindPdfSearchifier
 pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec = {
@@ -195,7 +195,7 @@ pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindPdfThumbnailer
 pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec = {
@@ -209,7 +209,7 @@ pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 pdf.mojom.PdfServicePtr = pdf.mojom.PdfServiceRemote;

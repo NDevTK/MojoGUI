@@ -61,7 +61,7 @@ blink.mojom.BrowsingTopicsDocumentService.getRemote = function() {
     'blink.mojom.BrowsingTopicsDocumentService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetBrowsingTopics
 blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BrowsingTopicsDocumentServicePtr = blink.mojom.BrowsingTopicsDocumentServiceRemote;

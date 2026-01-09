@@ -68,7 +68,7 @@ media.mojom.FuchsiaMediaCdmProvider.getRemote = function() {
     'media.mojom.FuchsiaMediaCdmProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateCdm
 media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec = {
@@ -83,7 +83,7 @@ media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.FuchsiaMediaCdmProviderPtr = media.mojom.FuchsiaMediaCdmProviderRemote;
@@ -151,7 +151,7 @@ media.mojom.FuchsiaMediaCodecProvider.getRemote = function() {
     'media.mojom.FuchsiaMediaCodecProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateVideoDecoder
 media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec = {
@@ -167,7 +167,7 @@ media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSupportedVideoDecoderConfigs
 media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec = {
@@ -180,7 +180,7 @@ media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec = {
   $: {
@@ -193,7 +193,7 @@ media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.FuchsiaMediaCodecProviderPtr = media.mojom.FuchsiaMediaCodecProviderRemote;

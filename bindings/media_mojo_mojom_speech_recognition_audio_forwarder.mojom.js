@@ -52,7 +52,7 @@ media.mojom.SpeechRecognitionAudioForwarder.getRemote = function() {
     'media.mojom.SpeechRecognitionAudioForwarder',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media.mojom.SpeechRecognitionAudioForwarderPtr = media.mojom.SpeechRecognitionAudioForwarderRemote;

@@ -204,7 +204,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.getRemote = functi
     'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesPtr = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemote;

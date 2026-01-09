@@ -59,7 +59,7 @@ crosapi.mojom.PrintPreviewCrosDelegate.getRemote = function() {
     'crosapi.mojom.PrintPreviewCrosDelegate',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.PrintPreviewCrosDelegatePtr = crosapi.mojom.PrintPreviewCrosDelegateRemote;
@@ -109,7 +109,7 @@ crosapi.mojom.PrintPreviewCrosClient.getRemote = function() {
     'crosapi.mojom.PrintPreviewCrosClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.PrintPreviewCrosClientPtr = crosapi.mojom.PrintPreviewCrosClientRemote;

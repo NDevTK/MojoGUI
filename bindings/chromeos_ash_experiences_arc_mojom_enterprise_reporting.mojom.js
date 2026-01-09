@@ -70,7 +70,7 @@ arc.mojom.EnterpriseReportingHost.getRemote = function() {
     'arc.mojom.EnterpriseReportingHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.EnterpriseReportingHostPtr = arc.mojom.EnterpriseReportingHostRemote;
@@ -120,7 +120,7 @@ arc.mojom.EnterpriseReportingInstance.getRemote = function() {
     'arc.mojom.EnterpriseReportingInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.EnterpriseReportingInstancePtr = arc.mojom.EnterpriseReportingInstanceRemote;

@@ -52,7 +52,7 @@ arc.mojom.VideoFramePool.getRemote = function() {
     'arc.mojom.VideoFramePool',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.VideoFramePoolPtr = arc.mojom.VideoFramePoolRemote;
@@ -102,7 +102,7 @@ arc.mojom.VideoFramePoolClient.getRemote = function() {
     'arc.mojom.VideoFramePoolClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.VideoFramePoolClientPtr = arc.mojom.VideoFramePoolClientRemote;

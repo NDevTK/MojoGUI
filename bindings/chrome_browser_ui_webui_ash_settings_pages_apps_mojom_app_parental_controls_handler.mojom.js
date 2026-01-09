@@ -133,7 +133,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.getRemote = 
     'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetApps
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec = {
@@ -146,7 +146,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec = {
   $: {
@@ -159,7 +159,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_Resp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateApp
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec = {
@@ -174,7 +174,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddObserver
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec = {
@@ -188,7 +188,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnControlsDisabled
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec = {
@@ -201,7 +201,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDi
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ValidatePin
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec = {
@@ -215,7 +215,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec = {
   $: {
@@ -228,7 +228,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUpPin
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec = {
@@ -242,7 +242,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec = {
   $: {
@@ -255,7 +255,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_Res
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for VerifyPin
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec = {
@@ -269,7 +269,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec = {
   $: {
@@ -282,7 +282,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_Re
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsSetupCompleted
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec = {
@@ -295,7 +295,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompl
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec = {
   $: {
@@ -308,7 +308,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompl
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerPtr = ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemote;
@@ -376,7 +376,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserver.getRemote =
     'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAppInstalledOrUpdated
 ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec = {
@@ -390,7 +390,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstal
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAppUninstalled
 ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec = {
@@ -404,7 +404,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninst
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.app_parental_controls.mojom.AppParentalControlsObserverPtr = ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemote;

@@ -61,7 +61,7 @@ chrome.mojom.SingleFileExtractor.getRemote = function() {
     'chrome.mojom.SingleFileExtractor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Extract
 chrome.mojom.SingleFileExtractor_Extract_ParamsSpec = {
@@ -77,7 +77,7 @@ chrome.mojom.SingleFileExtractor_Extract_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec = {
   $: {
@@ -90,7 +90,7 @@ chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.SingleFileExtractorPtr = chrome.mojom.SingleFileExtractorRemote;
@@ -149,7 +149,7 @@ chrome.mojom.SingleFileExtractorListener.getRemote = function() {
     'chrome.mojom.SingleFileExtractorListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnProgress
 chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec = {
@@ -164,7 +164,7 @@ chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.SingleFileExtractorListenerPtr = chrome.mojom.SingleFileExtractorListenerRemote;

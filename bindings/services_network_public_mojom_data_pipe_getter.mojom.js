@@ -70,7 +70,7 @@ network.mojom.DataPipeGetter.getRemote = function() {
     'network.mojom.DataPipeGetter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Read
 network.mojom.DataPipeGetter_Read_ParamsSpec = {
@@ -84,7 +84,7 @@ network.mojom.DataPipeGetter_Read_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.DataPipeGetter_Read_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ network.mojom.DataPipeGetter_Read_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 network.mojom.DataPipeGetter_Clone_ParamsSpec = {
@@ -112,7 +112,7 @@ network.mojom.DataPipeGetter_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.DataPipeGetterPtr = network.mojom.DataPipeGetterRemote;

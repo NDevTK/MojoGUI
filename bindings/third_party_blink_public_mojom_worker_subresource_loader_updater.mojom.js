@@ -61,7 +61,7 @@ blink.mojom.SubresourceLoaderUpdater.getRemote = function() {
     'blink.mojom.SubresourceLoaderUpdater',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateSubresourceLoaderFactories
 blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SubresourceLoaderUpdaterPtr = blink.mojom.SubresourceLoaderUpdaterRemote;

@@ -61,7 +61,7 @@ blink.mojom.InnerHtmlAgent.getRemote = function() {
     'blink.mojom.InnerHtmlAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetInnerHtml
 blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = {
@@ -74,7 +74,7 @@ blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.InnerHtmlAgentPtr = blink.mojom.InnerHtmlAgentRemote;

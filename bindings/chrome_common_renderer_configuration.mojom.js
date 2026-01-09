@@ -73,7 +73,7 @@ chrome.mojom.BoundSessionRequestThrottledHandler.getRemote = function() {
     'chrome.mojom.BoundSessionRequestThrottledHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HandleRequestBlockedOnCookie
 chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec = {
@@ -87,7 +87,7 @@ chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec = {
   $: {
@@ -100,7 +100,7 @@ chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Re
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.BoundSessionRequestThrottledHandlerPtr = chrome.mojom.BoundSessionRequestThrottledHandlerRemote;
@@ -159,7 +159,7 @@ chrome.mojom.ChromeOSListener.getRemote = function() {
     'chrome.mojom.ChromeOSListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for MergeSessionComplete
 chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec = {
@@ -172,7 +172,7 @@ chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.ChromeOSListenerPtr = chrome.mojom.ChromeOSListenerRemote;
@@ -249,7 +249,7 @@ chrome.mojom.RendererConfiguration.getRemote = function() {
     'chrome.mojom.RendererConfiguration',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetInitialConfiguration
 chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec = {
@@ -266,7 +266,7 @@ chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetConfiguration
 chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec = {
@@ -280,7 +280,7 @@ chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetConfigurationOnProcessLockUpdate
 chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec = {
@@ -294,7 +294,7 @@ chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.RendererConfigurationPtr = chrome.mojom.RendererConfigurationRemote;

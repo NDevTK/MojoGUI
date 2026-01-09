@@ -61,7 +61,7 @@ mojom.app_service_internals.AppServiceInternalsPageHandler.getRemote = function(
     'mojom.app_service_internals.AppServiceInternalsPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDebugInfo
 mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec = {
@@ -74,7 +74,7 @@ mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mojom.app_service_internals.AppServiceInternalsPageHandlerPtr = mojom.app_service_internals.AppServiceInternalsPageHandlerRemote;

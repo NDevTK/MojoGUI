@@ -61,7 +61,7 @@ content.mojom.ThreadTypeSwitcher.getRemote = function() {
     'content.mojom.ThreadTypeSwitcher',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetThreadType
 content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec = {
@@ -76,7 +76,7 @@ content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.ThreadTypeSwitcherPtr = content.mojom.ThreadTypeSwitcherRemote;

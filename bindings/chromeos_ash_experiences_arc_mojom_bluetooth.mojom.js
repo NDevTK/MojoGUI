@@ -185,7 +185,7 @@ arc.mojom.RfcommListeningSocketClient.getRemote = function() {
     'arc.mojom.RfcommListeningSocketClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.RfcommListeningSocketClientPtr = arc.mojom.RfcommListeningSocketClientRemote;
@@ -235,7 +235,7 @@ arc.mojom.RfcommConnectingSocketClient.getRemote = function() {
     'arc.mojom.RfcommConnectingSocketClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.RfcommConnectingSocketClientPtr = arc.mojom.RfcommConnectingSocketClientRemote;
@@ -285,7 +285,7 @@ arc.mojom.BluetoothListenSocketClient.getRemote = function() {
     'arc.mojom.BluetoothListenSocketClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.BluetoothListenSocketClientPtr = arc.mojom.BluetoothListenSocketClientRemote;
@@ -335,7 +335,7 @@ arc.mojom.BluetoothConnectSocketClient.getRemote = function() {
     'arc.mojom.BluetoothConnectSocketClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.BluetoothConnectSocketClientPtr = arc.mojom.BluetoothConnectSocketClientRemote;
@@ -385,7 +385,7 @@ arc.mojom.BluetoothHost.getRemote = function() {
     'arc.mojom.BluetoothHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.BluetoothHostPtr = arc.mojom.BluetoothHostRemote;
@@ -435,7 +435,7 @@ arc.mojom.BluetoothInstance.getRemote = function() {
     'arc.mojom.BluetoothInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.BluetoothInstancePtr = arc.mojom.BluetoothInstanceRemote;

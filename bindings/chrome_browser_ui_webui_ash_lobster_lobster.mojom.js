@@ -79,7 +79,7 @@ lobster.mojom.UntrustedLobsterPageHandler.getRemote = function() {
     'lobster.mojom.UntrustedLobsterPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 lobster.mojom.UntrustedLobsterPageHandlerPtr = lobster.mojom.UntrustedLobsterPageHandlerRemote;

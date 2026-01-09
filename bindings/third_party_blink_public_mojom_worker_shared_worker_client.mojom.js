@@ -97,7 +97,7 @@ blink.mojom.SharedWorkerClient.getRemote = function() {
     'blink.mojom.SharedWorkerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCreated
 blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec = {
@@ -111,7 +111,7 @@ blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnConnected
 blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec = {
@@ -125,7 +125,7 @@ blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnScriptLoadFailed
 blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec = {
@@ -139,7 +139,7 @@ blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReportException
 blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec = {
@@ -153,7 +153,7 @@ blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFeatureUsed
 blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec = {
@@ -167,7 +167,7 @@ blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SharedWorkerClientPtr = blink.mojom.SharedWorkerClientRemote;

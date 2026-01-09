@@ -61,7 +61,7 @@ ui.mojom.IMEStructTraitsTest.getRemote = function() {
     'ui.mojom.IMEStructTraitsTest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EchoTextInputType
 ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = {
@@ -75,7 +75,7 @@ ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ui.mojom.IMEStructTraitsTestPtr = ui.mojom.IMEStructTraitsTestRemote;

@@ -80,7 +80,7 @@ blink.mojom.WebOTPService.getRemote = function() {
     'blink.mojom.WebOTPService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Receive
 blink.mojom.WebOTPService_Receive_ParamsSpec = {
@@ -93,7 +93,7 @@ blink.mojom.WebOTPService_Receive_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebOTPService_Receive_ResponseParamsSpec = {
   $: {
@@ -107,7 +107,7 @@ blink.mojom.WebOTPService_Receive_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Abort
 blink.mojom.WebOTPService_Abort_ParamsSpec = {
@@ -120,7 +120,7 @@ blink.mojom.WebOTPService_Abort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebOTPServicePtr = blink.mojom.WebOTPServiceRemote;

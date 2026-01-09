@@ -61,7 +61,7 @@ service_manager.mojom.ServiceControl.getRemote = function() {
     'service_manager.mojom.ServiceControl',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestQuit
 service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec = {
@@ -74,7 +74,7 @@ service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 service_manager.mojom.ServiceControlPtr = service_manager.mojom.ServiceControlRemote;

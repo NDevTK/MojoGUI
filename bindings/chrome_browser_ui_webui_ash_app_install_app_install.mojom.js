@@ -71,7 +71,7 @@ ash.app_install.mojom.AppInfoActions.getRemote = function() {
     'ash.app_install.mojom.AppInfoActions',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for InstallApp
 ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = {
@@ -84,7 +84,7 @@ ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LaunchApp
 ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec = {
@@ -110,7 +110,7 @@ ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.app_install.mojom.AppInfoActionsPtr = ash.app_install.mojom.AppInfoActionsRemote;
@@ -169,7 +169,7 @@ ash.app_install.mojom.ConnectionErrorActions.getRemote = function() {
     'ash.app_install.mojom.ConnectionErrorActions',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for TryAgain
 ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec = {
@@ -182,7 +182,7 @@ ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.app_install.mojom.ConnectionErrorActionsPtr = ash.app_install.mojom.ConnectionErrorActionsRemote;
@@ -241,7 +241,7 @@ ash.app_install.mojom.PageHandlerFactory.getRemote = function() {
     'ash.app_install.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -255,7 +255,7 @@ ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.app_install.mojom.PageHandlerFactoryPtr = ash.app_install.mojom.PageHandlerFactoryRemote;
@@ -323,7 +323,7 @@ ash.app_install.mojom.PageHandler.getRemote = function() {
     'ash.app_install.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDialogArgs
 ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
@@ -336,7 +336,7 @@ ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
   $: {
@@ -349,7 +349,7 @@ ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseDialog
 ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec = {
@@ -362,7 +362,7 @@ ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.app_install.mojom.PageHandlerPtr = ash.app_install.mojom.PageHandlerRemote;

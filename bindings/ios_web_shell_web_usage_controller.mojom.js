@@ -61,7 +61,7 @@ web.mojom.WebUsageController.getRemote = function() {
     'web.mojom.WebUsageController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetWebUsageEnabled
 web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec = {
@@ -75,7 +75,7 @@ web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 web.mojom.WebUsageControllerPtr = web.mojom.WebUsageControllerRemote;

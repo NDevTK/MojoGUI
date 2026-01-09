@@ -134,7 +134,7 @@ history_embeddings.mojom.PageHandler.getRemote = function() {
     'history_embeddings.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetPage
 history_embeddings.mojom.PageHandler_SetPage_ParamsSpec = {
@@ -148,7 +148,7 @@ history_embeddings.mojom.PageHandler_SetPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Search
 history_embeddings.mojom.PageHandler_Search_ParamsSpec = {
@@ -162,7 +162,7 @@ history_embeddings.mojom.PageHandler_Search_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendQualityLog
 history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec = {
@@ -177,7 +177,7 @@ history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordSearchResultsMetrics
 history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec = {
@@ -196,7 +196,7 @@ history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUserFeedback
 history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
@@ -210,7 +210,7 @@ history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MaybeShowFeaturePromo
 history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec = {
@@ -223,7 +223,7 @@ history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenSettingsPage
 history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec = {
@@ -236,7 +236,7 @@ history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 history_embeddings.mojom.PageHandlerPtr = history_embeddings.mojom.PageHandlerRemote;
@@ -295,7 +295,7 @@ history_embeddings.mojom.Page.getRemote = function() {
     'history_embeddings.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SearchResultChanged
 history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec = {
@@ -309,7 +309,7 @@ history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 history_embeddings.mojom.PagePtr = history_embeddings.mojom.PageRemote;

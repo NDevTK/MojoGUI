@@ -52,7 +52,7 @@ crosapi.mojom.Crosapi.getRemote = function() {
     'crosapi.mojom.Crosapi',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.CrosapiPtr = crosapi.mojom.CrosapiRemote;

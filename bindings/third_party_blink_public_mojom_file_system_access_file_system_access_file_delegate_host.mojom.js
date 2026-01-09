@@ -88,7 +88,7 @@ blink.mojom.FileSystemAccessFileDelegateHost.getRemote = function() {
     'blink.mojom.FileSystemAccessFileDelegateHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Read
 blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec = {
@@ -103,7 +103,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec = {
   $: {
@@ -118,7 +118,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Write
 blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec = {
@@ -133,7 +133,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec = {
   $: {
@@ -147,7 +147,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLength
 blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec = {
@@ -160,7 +160,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec = {
   $: {
@@ -174,7 +174,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetLength
 blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec = {
@@ -188,7 +188,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec = {
   $: {
@@ -201,7 +201,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileSystemAccessFileDelegateHostPtr = blink.mojom.FileSystemAccessFileDelegateHostRemote;

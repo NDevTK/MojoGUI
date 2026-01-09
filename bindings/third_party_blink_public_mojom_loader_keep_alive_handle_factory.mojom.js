@@ -61,7 +61,7 @@ blink.mojom.KeepAliveHandleFactory.getRemote = function() {
     'blink.mojom.KeepAliveHandleFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for IssueKeepAliveHandle
 blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.KeepAliveHandleFactoryPtr = blink.mojom.KeepAliveHandleFactoryRemote;

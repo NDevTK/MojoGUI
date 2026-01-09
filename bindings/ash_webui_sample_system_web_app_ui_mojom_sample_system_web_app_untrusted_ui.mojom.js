@@ -62,7 +62,7 @@ ash.mojom.sample_swa.UntrustedPageInterfacesFactory.getRemote = function() {
     'ash.mojom.sample_swa.UntrustedPageInterfacesFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateParentPage
 ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec = {
@@ -77,7 +77,7 @@ ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.mojom.sample_swa.UntrustedPageInterfacesFactoryPtr = ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRemote;

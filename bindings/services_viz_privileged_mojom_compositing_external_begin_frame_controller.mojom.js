@@ -88,7 +88,7 @@ viz.mojom.ExternalBeginFrameController.getRemote = function() {
     'viz.mojom.ExternalBeginFrameController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for IssueExternalBeginFrame
 viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = {
@@ -103,7 +103,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec = {
   $: {
@@ -116,7 +116,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IssueExternalBeginFrameNoAck
 viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec = {
@@ -130,7 +130,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IssueExternalVSync
 viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = {
@@ -144,7 +144,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSupportedDisplayLinkId
 viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec = {
@@ -159,7 +159,7 @@ viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.ExternalBeginFrameControllerPtr = viz.mojom.ExternalBeginFrameControllerRemote;
@@ -236,7 +236,7 @@ viz.mojom.ExternalBeginFrameControllerClient.getRemote = function() {
     'viz.mojom.ExternalBeginFrameControllerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetNeedsBeginFrame
 viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec = {
@@ -250,7 +250,7 @@ viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NeedsBeginFrameWithId
 viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec = {
@@ -265,7 +265,7 @@ viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPreferredInterval
 viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec = {
@@ -279,7 +279,7 @@ viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.ExternalBeginFrameControllerClientPtr = viz.mojom.ExternalBeginFrameControllerClientRemote;

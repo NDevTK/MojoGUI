@@ -79,7 +79,7 @@ blink.mojom.DedicatedWorkerHostFactoryClient.getRemote = function() {
     'blink.mojom.DedicatedWorkerHostFactoryClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnWorkerHostCreated
 blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec = {
@@ -95,7 +95,7 @@ blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnScriptLoadStarted
 blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec = {
@@ -116,7 +116,7 @@ blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnScriptLoadStartFailed
 blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec = {
@@ -129,7 +129,7 @@ blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DedicatedWorkerHostFactoryClientPtr = blink.mojom.DedicatedWorkerHostFactoryClientRemote;
@@ -188,7 +188,7 @@ blink.mojom.DedicatedWorkerHostFactory.getRemote = function() {
     'blink.mojom.DedicatedWorkerHostFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateWorkerHostAndStartScriptLoad
 blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec = {
@@ -208,7 +208,7 @@ blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DedicatedWorkerHostFactoryPtr = blink.mojom.DedicatedWorkerHostFactoryRemote;

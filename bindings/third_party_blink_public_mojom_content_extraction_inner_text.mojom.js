@@ -66,7 +66,7 @@ blink.mojom.InnerTextAgent.getRemote = function() {
     'blink.mojom.InnerTextAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetInnerText
 blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec = {
@@ -80,7 +80,7 @@ blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec = {
   $: {
@@ -93,7 +93,7 @@ blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.InnerTextAgentPtr = blink.mojom.InnerTextAgentRemote;

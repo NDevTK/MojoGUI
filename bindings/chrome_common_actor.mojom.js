@@ -184,7 +184,7 @@ actor.mojom.JournalClient.getRemote = function() {
     'actor.mojom.JournalClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddEntriesToJournal
 actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec = {
@@ -198,7 +198,7 @@ actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 actor.mojom.JournalClientPtr = actor.mojom.JournalClientRemote;
@@ -257,7 +257,7 @@ actor.mojom.PageStabilityMonitor.getRemote = function() {
     'actor.mojom.PageStabilityMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NotifyWhenStable
 actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec = {
@@ -271,7 +271,7 @@ actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 actor.mojom.PageStabilityMonitorPtr = actor.mojom.PageStabilityMonitorRemote;

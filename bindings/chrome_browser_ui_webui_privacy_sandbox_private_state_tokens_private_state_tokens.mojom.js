@@ -61,7 +61,7 @@ private_state_tokens.mojom.PrivateStateTokensPageHandler.getRemote = function() 
     'private_state_tokens.mojom.PrivateStateTokensPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetIssuerTokenCounts
 private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec = {
@@ -74,7 +74,7 @@ private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_Re
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 private_state_tokens.mojom.PrivateStateTokensPageHandlerPtr = private_state_tokens.mojom.PrivateStateTokensPageHandlerRemote;

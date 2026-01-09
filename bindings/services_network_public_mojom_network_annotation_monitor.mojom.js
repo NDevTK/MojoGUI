@@ -61,7 +61,7 @@ network.mojom.NetworkAnnotationMonitor.getRemote = function() {
     'network.mojom.NetworkAnnotationMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Report
 network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec = {
@@ -75,7 +75,7 @@ network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.NetworkAnnotationMonitorPtr = network.mojom.NetworkAnnotationMonitorRemote;

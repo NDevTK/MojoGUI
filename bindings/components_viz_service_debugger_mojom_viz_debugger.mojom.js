@@ -61,7 +61,7 @@ viz.mojom.VizDebugOutput.getRemote = function() {
     'viz.mojom.VizDebugOutput',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LogFrame
 viz.mojom.VizDebugOutput_LogFrame_ParamsSpec = {
@@ -75,7 +75,7 @@ viz.mojom.VizDebugOutput_LogFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.VizDebugOutputPtr = viz.mojom.VizDebugOutputRemote;

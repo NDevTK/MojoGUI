@@ -61,7 +61,7 @@ blink.mojom.WebSensorProvider.getRemote = function() {
     'blink.mojom.WebSensorProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSensor
 blink.mojom.WebSensorProvider_GetSensor_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.WebSensorProvider_GetSensor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec = {
   $: {
@@ -89,7 +89,7 @@ blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebSensorProviderPtr = blink.mojom.WebSensorProviderRemote;

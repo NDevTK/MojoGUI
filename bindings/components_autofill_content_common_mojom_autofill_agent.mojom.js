@@ -196,7 +196,7 @@ autofill.mojom.AutofillAgent.getRemote = function() {
     'autofill.mojom.AutofillAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for TriggerFormExtraction
 autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec = {
@@ -209,7 +209,7 @@ autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TriggerFormExtractionWithResponse
 autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec = {
@@ -222,7 +222,7 @@ autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec = {
   $: {
@@ -235,7 +235,7 @@ autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ApplyFieldsAction
 autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec = {
@@ -253,7 +253,7 @@ autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ApplyFieldAction
 autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec = {
@@ -270,7 +270,7 @@ autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExtractFormWithField
 autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec = {
@@ -284,7 +284,7 @@ autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec = {
   $: {
@@ -297,7 +297,7 @@ autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExtractLabeledTextNodeValue
 autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec = {
@@ -313,7 +313,7 @@ autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec = {
   $: {
@@ -326,7 +326,7 @@ autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FieldTypePredictionsAvailable
 autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec = {
@@ -340,7 +340,7 @@ autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExposeDomNodeIds
 autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec = {
@@ -353,7 +353,7 @@ autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearPreviewedForm
 autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec = {
@@ -366,7 +366,7 @@ autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TriggerSuggestions
 autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec = {
@@ -381,7 +381,7 @@ autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSuggestionAvailability
 autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec = {
@@ -396,7 +396,7 @@ autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AcceptDataListSuggestion
 autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec = {
@@ -411,7 +411,7 @@ autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PreviewPasswordSuggestion
 autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec = {
@@ -426,7 +426,7 @@ autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PreviewPasswordGenerationSuggestion
 autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec = {
@@ -440,7 +440,7 @@ autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPotentialLastFourCombinationsForStandaloneCvc
 autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec = {
@@ -453,7 +453,7 @@ autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec = {
   $: {
@@ -466,7 +466,7 @@ autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_Re
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchEmailVerifiedEvent
 autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec = {
@@ -481,7 +481,7 @@ autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 autofill.mojom.AutofillAgentPtr = autofill.mojom.AutofillAgentRemote;
@@ -648,7 +648,7 @@ autofill.mojom.PasswordAutofillAgent.getRemote = function() {
     'autofill.mojom.PasswordAutofillAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ApplyFillDataOnParsingCompletion
 autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec = {
@@ -662,7 +662,7 @@ autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FillPasswordSuggestion
 autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec = {
@@ -677,7 +677,7 @@ autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec = {
   $: {
@@ -690,7 +690,7 @@ autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FillPasswordSuggestionById
 autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec = {
@@ -708,7 +708,7 @@ autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PreviewPasswordSuggestionById
 autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec = {
@@ -725,7 +725,7 @@ autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InformNoSavedCredentials
 autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec = {
@@ -739,7 +739,7 @@ autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FillIntoFocusedField
 autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec = {
@@ -754,7 +754,7 @@ autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PreviewField
 autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec = {
@@ -769,7 +769,7 @@ autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FillField
 autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec = {
@@ -785,7 +785,7 @@ autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec = {
   $: {
@@ -798,7 +798,7 @@ autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FillChangePasswordForm
 autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec = {
@@ -816,7 +816,7 @@ autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec = {
   $: {
@@ -829,7 +829,7 @@ autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetLoggingState
 autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec = {
@@ -843,7 +843,7 @@ autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TriggerFormSubmission
 autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec = {
@@ -856,7 +856,7 @@ autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AnnotateFieldsWithParsingResult
 autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec = {
@@ -870,7 +870,7 @@ autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CheckViewAreaVisible
 autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec = {
@@ -884,7 +884,7 @@ autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec = {
   $: {
@@ -897,7 +897,7 @@ autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 autofill.mojom.PasswordAutofillAgentPtr = autofill.mojom.PasswordAutofillAgentRemote;
@@ -992,7 +992,7 @@ autofill.mojom.PasswordGenerationAgent.getRemote = function() {
     'autofill.mojom.PasswordGenerationAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GeneratedPasswordAccepted
 autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec = {
@@ -1006,7 +1006,7 @@ autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GeneratedPasswordRejected
 autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec = {
@@ -1019,7 +1019,7 @@ autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TriggeredGeneratePassword
 autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec = {
@@ -1032,7 +1032,7 @@ autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec = {
   $: {
@@ -1045,7 +1045,7 @@ autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FoundFormEligibleForGeneration
 autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec = {
@@ -1059,7 +1059,7 @@ autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FocusNextFieldAfterPasswords
 autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec = {
@@ -1072,7 +1072,7 @@ autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 autofill.mojom.PasswordGenerationAgentPtr = autofill.mojom.PasswordGenerationAgentRemote;

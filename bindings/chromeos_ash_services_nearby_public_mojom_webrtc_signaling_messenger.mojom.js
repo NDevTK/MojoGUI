@@ -76,7 +76,7 @@ sharing.mojom.IncomingMessagesListener.getRemote = function() {
     'sharing.mojom.IncomingMessagesListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMessage
 sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec = {
@@ -90,7 +90,7 @@ sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnComplete
 sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec = {
@@ -104,7 +104,7 @@ sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 sharing.mojom.IncomingMessagesListenerPtr = sharing.mojom.IncomingMessagesListenerRemote;
@@ -163,7 +163,7 @@ sharing.mojom.ReceiveMessagesSession.getRemote = function() {
     'sharing.mojom.ReceiveMessagesSession',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StopReceivingMessages
 sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec = {
@@ -176,7 +176,7 @@ sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 sharing.mojom.ReceiveMessagesSessionPtr = sharing.mojom.ReceiveMessagesSessionRemote;
@@ -244,7 +244,7 @@ sharing.mojom.WebRtcSignalingMessenger.getRemote = function() {
     'sharing.mojom.WebRtcSignalingMessenger',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendMessage
 sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = {
@@ -261,7 +261,7 @@ sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec = {
   $: {
@@ -274,7 +274,7 @@ sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartReceivingMessages
 sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec = {
@@ -290,7 +290,7 @@ sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec = {
   $: {
@@ -304,7 +304,7 @@ sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 sharing.mojom.WebRtcSignalingMessengerPtr = sharing.mojom.WebRtcSignalingMessengerRemote;

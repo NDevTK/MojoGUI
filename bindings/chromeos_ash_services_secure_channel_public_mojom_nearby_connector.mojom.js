@@ -102,7 +102,7 @@ ash.secure_channel.mojom.NearbyConnectionStateListener.getRemote = function() {
     'ash.secure_channel.mojom.NearbyConnectionStateListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnNearbyConnectionStateChanged
 ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec = {
@@ -117,7 +117,7 @@ ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateCh
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.secure_channel.mojom.NearbyConnectionStateListenerPtr = ash.secure_channel.mojom.NearbyConnectionStateListenerRemote;
@@ -176,7 +176,7 @@ ash.secure_channel.mojom.NearbyMessageSender.getRemote = function() {
     'ash.secure_channel.mojom.NearbyMessageSender',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendMessage
 ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec = {
@@ -190,7 +190,7 @@ ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec = {
   $: {
@@ -203,7 +203,7 @@ ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.secure_channel.mojom.NearbyMessageSenderPtr = ash.secure_channel.mojom.NearbyMessageSenderRemote;
@@ -262,7 +262,7 @@ ash.secure_channel.mojom.NearbyMessageReceiver.getRemote = function() {
     'ash.secure_channel.mojom.NearbyMessageReceiver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMessageReceived
 ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec = {
@@ -276,7 +276,7 @@ ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.secure_channel.mojom.NearbyMessageReceiverPtr = ash.secure_channel.mojom.NearbyMessageReceiverRemote;
@@ -335,7 +335,7 @@ ash.secure_channel.mojom.NearbyFilePayloadHandler.getRemote = function() {
     'ash.secure_channel.mojom.NearbyFilePayloadHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterPayloadFile
 ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec = {
@@ -351,7 +351,7 @@ ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec = {
   $: {
@@ -364,7 +364,7 @@ ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.secure_channel.mojom.NearbyFilePayloadHandlerPtr = ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote;
@@ -423,7 +423,7 @@ ash.secure_channel.mojom.NearbyConnector.getRemote = function() {
     'ash.secure_channel.mojom.NearbyConnector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Connect
 ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec = {
@@ -440,7 +440,7 @@ ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec = {
   $: {
@@ -454,7 +454,7 @@ ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.secure_channel.mojom.NearbyConnectorPtr = ash.secure_channel.mojom.NearbyConnectorRemote;

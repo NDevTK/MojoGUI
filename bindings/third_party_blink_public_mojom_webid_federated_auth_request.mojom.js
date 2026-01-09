@@ -198,7 +198,7 @@ blink.mojom.FederatedAuthRequest.getRemote = function() {
     'blink.mojom.FederatedAuthRequest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestToken
 blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec = {
@@ -213,7 +213,7 @@ blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec = {
   $: {
@@ -230,7 +230,7 @@ blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestUserInfo
 blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec = {
@@ -244,7 +244,7 @@ blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec = {
   $: {
@@ -258,7 +258,7 @@ blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelTokenRequest
 blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec = {
@@ -271,7 +271,7 @@ blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolveTokenRequest
 blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec = {
@@ -286,7 +286,7 @@ blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec = {
   $: {
@@ -299,7 +299,7 @@ blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIdpSigninStatus
 blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec = {
@@ -315,7 +315,7 @@ blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterIdP
 blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec = {
@@ -329,7 +329,7 @@ blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec = {
   $: {
@@ -342,7 +342,7 @@ blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnregisterIdP
 blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec = {
@@ -356,7 +356,7 @@ blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec = {
   $: {
@@ -369,7 +369,7 @@ blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseModalDialogView
 blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec = {
@@ -382,7 +382,7 @@ blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PreventSilentAccess
 blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec = {
@@ -395,7 +395,7 @@ blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Disconnect
 blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec = {
@@ -409,7 +409,7 @@ blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec = {
   $: {
@@ -422,7 +422,7 @@ blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FederatedAuthRequestPtr = blink.mojom.FederatedAuthRequestRemote;

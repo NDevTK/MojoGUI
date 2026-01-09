@@ -154,7 +154,7 @@ arc.mojom.OemCryptoService.getRemote = function() {
     'arc.mojom.OemCryptoService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.OemCryptoServicePtr = arc.mojom.OemCryptoServiceRemote;
@@ -204,7 +204,7 @@ arc.mojom.OemCryptoHost.getRemote = function() {
     'arc.mojom.OemCryptoHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.OemCryptoHostPtr = arc.mojom.OemCryptoHostRemote;
@@ -254,7 +254,7 @@ arc.mojom.OemCryptoInstance.getRemote = function() {
     'arc.mojom.OemCryptoInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.OemCryptoInstancePtr = arc.mojom.OemCryptoInstanceRemote;

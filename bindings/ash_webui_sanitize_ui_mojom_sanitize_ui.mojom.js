@@ -62,7 +62,7 @@ ash.sanitize_ui.mojom.SettingsResetter.getRemote = function() {
     'ash.sanitize_ui.mojom.SettingsResetter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PerformSanitizeSettings
 ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec = {
@@ -75,7 +75,7 @@ ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.sanitize_ui.mojom.SettingsResetterPtr = ash.sanitize_ui.mojom.SettingsResetterRemote;

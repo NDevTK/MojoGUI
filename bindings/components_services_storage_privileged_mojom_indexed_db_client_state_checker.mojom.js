@@ -78,7 +78,7 @@ storage.mojom.IndexedDBClientStateChecker.getRemote = function() {
     'storage.mojom.IndexedDBClientStateChecker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DisallowInactiveClient
 storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec = {
@@ -94,7 +94,7 @@ storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec = {
   $: {
@@ -107,7 +107,7 @@ storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MakeClone
 storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec = {
@@ -121,7 +121,7 @@ storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.IndexedDBClientStateCheckerPtr = storage.mojom.IndexedDBClientStateCheckerRemote;
@@ -171,7 +171,7 @@ storage.mojom.IndexedDBClientKeepActive.getRemote = function() {
     'storage.mojom.IndexedDBClientKeepActive',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 storage.mojom.IndexedDBClientKeepActivePtr = storage.mojom.IndexedDBClientKeepActiveRemote;

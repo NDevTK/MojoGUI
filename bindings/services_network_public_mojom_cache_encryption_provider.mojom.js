@@ -61,7 +61,7 @@ network.mojom.CacheEncryptionProvider.getRemote = function() {
     'network.mojom.CacheEncryptionProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetEncryptor
 network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec = {
@@ -74,7 +74,7 @@ network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.CacheEncryptionProviderPtr = network.mojom.CacheEncryptionProviderRemote;

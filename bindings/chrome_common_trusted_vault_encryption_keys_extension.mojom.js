@@ -70,7 +70,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtension.getRemote = function() {
     'chrome.mojom.TrustedVaultEncryptionKeysExtension',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetEncryptionKeys
 chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec = {
@@ -85,7 +85,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddTrustedRecoveryMethod
 chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec = {
@@ -101,7 +101,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.TrustedVaultEncryptionKeysExtensionPtr = chrome.mojom.TrustedVaultEncryptionKeysExtensionRemote;

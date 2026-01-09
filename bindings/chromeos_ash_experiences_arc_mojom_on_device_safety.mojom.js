@@ -59,7 +59,7 @@ arc.mojom.OnDeviceSafetyHost.getRemote = function() {
     'arc.mojom.OnDeviceSafetyHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.OnDeviceSafetyHostPtr = arc.mojom.OnDeviceSafetyHostRemote;
@@ -109,7 +109,7 @@ arc.mojom.OnDeviceSafetyInstance.getRemote = function() {
     'arc.mojom.OnDeviceSafetyInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.OnDeviceSafetyInstancePtr = arc.mojom.OnDeviceSafetyInstanceRemote;

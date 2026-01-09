@@ -70,7 +70,7 @@ network.mojom.SocketBroker.getRemote = function() {
     'network.mojom.SocketBroker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateTcpSocket
 network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec = {
@@ -84,7 +84,7 @@ network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateUdpSocket
 network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec = {
@@ -112,7 +112,7 @@ network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec = {
   $: {
@@ -126,7 +126,7 @@ network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.SocketBrokerPtr = network.mojom.SocketBrokerRemote;

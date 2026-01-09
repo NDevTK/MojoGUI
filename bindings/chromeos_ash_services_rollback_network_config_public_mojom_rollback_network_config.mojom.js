@@ -71,7 +71,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig.getRemote = function() {
     'ash.rollback_network_config.mojom.RollbackNetworkConfig',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RollbackConfigImport
 ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec = {
@@ -85,7 +85,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_Res
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RollbackConfigExport
 ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec = {
@@ -111,7 +111,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec = {
   $: {
@@ -124,7 +124,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_Res
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.rollback_network_config.mojom.RollbackNetworkConfigPtr = ash.rollback_network_config.mojom.RollbackNetworkConfigRemote;

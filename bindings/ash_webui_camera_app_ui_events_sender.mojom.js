@@ -342,7 +342,7 @@ ash.camera_app.mojom.EventsSender.getRemote = function() {
     'ash.camera_app.mojom.EventsSender',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendStartSessionEvent
 ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec = {
@@ -356,7 +356,7 @@ ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendCaptureEvent
 ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec = {
@@ -370,7 +370,7 @@ ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendAndroidIntentEvent
 ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec = {
@@ -384,7 +384,7 @@ ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOpenPTZPanelEvent
 ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec = {
@@ -398,7 +398,7 @@ ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendDocScanActionEvent
 ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec = {
@@ -412,7 +412,7 @@ ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendDocScanResultEvent
 ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec = {
@@ -426,7 +426,7 @@ ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOpenCameraEvent
 ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec = {
@@ -440,7 +440,7 @@ ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendLowStorageActionEvent
 ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec = {
@@ -454,7 +454,7 @@ ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendBarcodeDetectedEvent
 ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec = {
@@ -468,7 +468,7 @@ ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendPerfEvent
 ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec = {
@@ -482,7 +482,7 @@ ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendUnsupportedProtocolEvent
 ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec = {
@@ -495,7 +495,7 @@ ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateMemoryUsageEventParams
 ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec = {
@@ -509,7 +509,7 @@ ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendOcrEvent
 ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec = {
@@ -523,7 +523,7 @@ ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.camera_app.mojom.EventsSenderPtr = ash.camera_app.mojom.EventsSenderRemote;

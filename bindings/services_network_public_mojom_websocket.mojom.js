@@ -69,7 +69,7 @@ network.mojom.WebSocketAuthenticationHandler.getRemote = function() {
     'network.mojom.WebSocketAuthenticationHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAuthRequired
 network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec = {
@@ -85,7 +85,7 @@ network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.WebSocketAuthenticationHandlerPtr = network.mojom.WebSocketAuthenticationHandlerRemote;
@@ -175,7 +175,7 @@ network.mojom.WebSocketHandshakeClient.getRemote = function() {
     'network.mojom.WebSocketHandshakeClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnOpeningHandshakeStarted
 network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec = {
@@ -189,7 +189,7 @@ network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFailure
 network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec = {
@@ -205,7 +205,7 @@ network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnConnectionEstablished
 network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec = {
@@ -223,7 +223,7 @@ network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.WebSocketHandshakeClientPtr = network.mojom.WebSocketHandshakeClientRemote;
@@ -300,7 +300,7 @@ network.mojom.WebSocketClient.getRemote = function() {
     'network.mojom.WebSocketClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDataFrame
 network.mojom.WebSocketClient_OnDataFrame_ParamsSpec = {
@@ -316,7 +316,7 @@ network.mojom.WebSocketClient_OnDataFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDropChannel
 network.mojom.WebSocketClient_OnDropChannel_ParamsSpec = {
@@ -332,7 +332,7 @@ network.mojom.WebSocketClient_OnDropChannel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClosingHandshake
 network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec = {
@@ -345,7 +345,7 @@ network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.WebSocketClientPtr = network.mojom.WebSocketClientRemote;
@@ -422,7 +422,7 @@ network.mojom.WebSocket.getRemote = function() {
     'network.mojom.WebSocket',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendMessage
 network.mojom.WebSocket_SendMessage_ParamsSpec = {
@@ -437,7 +437,7 @@ network.mojom.WebSocket_SendMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartReceiving
 network.mojom.WebSocket_StartReceiving_ParamsSpec = {
@@ -450,7 +450,7 @@ network.mojom.WebSocket_StartReceiving_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartClosingHandshake
 network.mojom.WebSocket_StartClosingHandshake_ParamsSpec = {
@@ -465,7 +465,7 @@ network.mojom.WebSocket_StartClosingHandshake_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.WebSocketPtr = network.mojom.WebSocketRemote;

@@ -59,7 +59,7 @@ chromeos.machine_learning.mojom.GrammarChecker.getRemote = function() {
     'chromeos.machine_learning.mojom.GrammarChecker',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.machine_learning.mojom.GrammarCheckerPtr = chromeos.machine_learning.mojom.GrammarCheckerRemote;

@@ -70,7 +70,7 @@ network.mojom.ChunkedDataPipeGetter.getRemote = function() {
     'network.mojom.ChunkedDataPipeGetter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSize
 network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec = {
@@ -83,7 +83,7 @@ network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartReading
 network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec = {
@@ -111,7 +111,7 @@ network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.ChunkedDataPipeGetterPtr = network.mojom.ChunkedDataPipeGetterRemote;

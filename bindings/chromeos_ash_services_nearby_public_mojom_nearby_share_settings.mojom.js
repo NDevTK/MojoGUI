@@ -156,7 +156,7 @@ nearby_share.mojom.NearbyShareSettingsObserver.getRemote = function() {
     'nearby_share.mojom.NearbyShareSettingsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnEnabledChanged
 nearby_share.mojom.NearbyShareSettingsObserver_OnEnabledChanged_ParamsSpec = {
@@ -170,7 +170,7 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnEnabledChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFastInitiationNotificationStateChanged
 nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationStateChanged_ParamsSpec = {
@@ -184,7 +184,7 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationState
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnIsFastInitiationHardwareSupportedChanged
 nearby_share.mojom.NearbyShareSettingsObserver_OnIsFastInitiationHardwareSupportedChanged_ParamsSpec = {
@@ -198,7 +198,7 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnIsFastInitiationHardwareSupport
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeviceNameChanged
 nearby_share.mojom.NearbyShareSettingsObserver_OnDeviceNameChanged_ParamsSpec = {
@@ -212,7 +212,7 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnDeviceNameChanged_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDataUsageChanged
 nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_ParamsSpec = {
@@ -226,7 +226,7 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnVisibilityChanged
 nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_ParamsSpec = {
@@ -240,7 +240,7 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAllowedContactsChanged
 nearby_share.mojom.NearbyShareSettingsObserver_OnAllowedContactsChanged_ParamsSpec = {
@@ -254,7 +254,7 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnAllowedContactsChanged_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnIsOnboardingCompleteChanged
 nearby_share.mojom.NearbyShareSettingsObserver_OnIsOnboardingCompleteChanged_ParamsSpec = {
@@ -268,7 +268,7 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnIsOnboardingCompleteChanged_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby_share.mojom.NearbyShareSettingsObserverPtr = nearby_share.mojom.NearbyShareSettingsObserverRemote;
@@ -471,7 +471,7 @@ nearby_share.mojom.NearbyShareSettings.getRemote = function() {
     'nearby_share.mojom.NearbyShareSettings',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddSettingsObserver
 nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec = {
@@ -485,7 +485,7 @@ nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetEnabled
 nearby_share.mojom.NearbyShareSettings_GetEnabled_ParamsSpec = {
@@ -498,7 +498,7 @@ nearby_share.mojom.NearbyShareSettings_GetEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec = {
   $: {
@@ -511,7 +511,7 @@ nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetEnabled
 nearby_share.mojom.NearbyShareSettings_SetEnabled_ParamsSpec = {
@@ -525,7 +525,7 @@ nearby_share.mojom.NearbyShareSettings_SetEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsOnboardingComplete
 nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ParamsSpec = {
@@ -538,7 +538,7 @@ nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec = {
   $: {
@@ -551,7 +551,7 @@ nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsOnboardingComplete
 nearby_share.mojom.NearbyShareSettings_SetIsOnboardingComplete_ParamsSpec = {
@@ -565,7 +565,7 @@ nearby_share.mojom.NearbyShareSettings_SetIsOnboardingComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFastInitiationNotificationState
 nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ParamsSpec = {
@@ -578,7 +578,7 @@ nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec = {
   $: {
@@ -591,7 +591,7 @@ nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFastInitiationNotificationState
 nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_ParamsSpec = {
@@ -605,7 +605,7 @@ nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetIsFastInitiationHardwareSupported
 nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ParamsSpec = {
@@ -618,7 +618,7 @@ nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec = {
   $: {
@@ -631,7 +631,7 @@ nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_Resp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDeviceName
 nearby_share.mojom.NearbyShareSettings_GetDeviceName_ParamsSpec = {
@@ -644,7 +644,7 @@ nearby_share.mojom.NearbyShareSettings_GetDeviceName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec = {
   $: {
@@ -657,7 +657,7 @@ nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ValidateDeviceName
 nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ParamsSpec = {
@@ -671,7 +671,7 @@ nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec = {
   $: {
@@ -684,7 +684,7 @@ nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDeviceName
 nearby_share.mojom.NearbyShareSettings_SetDeviceName_ParamsSpec = {
@@ -698,7 +698,7 @@ nearby_share.mojom.NearbyShareSettings_SetDeviceName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec = {
   $: {
@@ -711,7 +711,7 @@ nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDataUsage
 nearby_share.mojom.NearbyShareSettings_GetDataUsage_ParamsSpec = {
@@ -724,7 +724,7 @@ nearby_share.mojom.NearbyShareSettings_GetDataUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec = {
   $: {
@@ -737,7 +737,7 @@ nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDataUsage
 nearby_share.mojom.NearbyShareSettings_SetDataUsage_ParamsSpec = {
@@ -751,7 +751,7 @@ nearby_share.mojom.NearbyShareSettings_SetDataUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetVisibility
 nearby_share.mojom.NearbyShareSettings_GetVisibility_ParamsSpec = {
@@ -764,7 +764,7 @@ nearby_share.mojom.NearbyShareSettings_GetVisibility_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec = {
   $: {
@@ -777,7 +777,7 @@ nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVisibility
 nearby_share.mojom.NearbyShareSettings_SetVisibility_ParamsSpec = {
@@ -791,7 +791,7 @@ nearby_share.mojom.NearbyShareSettings_SetVisibility_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllowedContacts
 nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ParamsSpec = {
@@ -804,7 +804,7 @@ nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec = {
   $: {
@@ -817,7 +817,7 @@ nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAllowedContacts
 nearby_share.mojom.NearbyShareSettings_SetAllowedContacts_ParamsSpec = {
@@ -831,7 +831,7 @@ nearby_share.mojom.NearbyShareSettings_SetAllowedContacts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby_share.mojom.NearbyShareSettingsPtr = nearby_share.mojom.NearbyShareSettingsRemote;
@@ -899,7 +899,7 @@ nearby_share.mojom.DownloadContactsObserver.getRemote = function() {
     'nearby_share.mojom.DownloadContactsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnContactsDownloaded
 nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec = {
@@ -915,7 +915,7 @@ nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnContactsDownloadFailed
 nearby_share.mojom.DownloadContactsObserver_OnContactsDownloadFailed_ParamsSpec = {
@@ -928,7 +928,7 @@ nearby_share.mojom.DownloadContactsObserver_OnContactsDownloadFailed_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby_share.mojom.DownloadContactsObserverPtr = nearby_share.mojom.DownloadContactsObserverRemote;
@@ -1005,7 +1005,7 @@ nearby_share.mojom.ContactManager.getRemote = function() {
     'nearby_share.mojom.ContactManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddDownloadContactsObserver
 nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec = {
@@ -1019,7 +1019,7 @@ nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DownloadContacts
 nearby_share.mojom.ContactManager_DownloadContacts_ParamsSpec = {
@@ -1032,7 +1032,7 @@ nearby_share.mojom.ContactManager_DownloadContacts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAllowedContacts
 nearby_share.mojom.ContactManager_SetAllowedContacts_ParamsSpec = {
@@ -1046,7 +1046,7 @@ nearby_share.mojom.ContactManager_SetAllowedContacts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby_share.mojom.ContactManagerPtr = nearby_share.mojom.ContactManagerRemote;

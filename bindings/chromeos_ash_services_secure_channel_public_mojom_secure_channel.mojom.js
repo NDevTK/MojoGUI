@@ -156,7 +156,7 @@ ash.secure_channel.mojom.Channel.getRemote = function() {
     'ash.secure_channel.mojom.Channel',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendMessage
 ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec = {
@@ -170,7 +170,7 @@ ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterPayloadFile
 ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec = {
@@ -186,7 +186,7 @@ ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec = {
   $: {
@@ -199,7 +199,7 @@ ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetConnectionMetadata
 ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec = {
@@ -212,7 +212,7 @@ ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec = {
   $: {
@@ -225,7 +225,7 @@ ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.secure_channel.mojom.ChannelPtr = ash.secure_channel.mojom.ChannelRemote;
@@ -284,7 +284,7 @@ ash.secure_channel.mojom.MessageReceiver.getRemote = function() {
     'ash.secure_channel.mojom.MessageReceiver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMessageReceived
 ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec = {
@@ -298,7 +298,7 @@ ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.secure_channel.mojom.MessageReceiverPtr = ash.secure_channel.mojom.MessageReceiverRemote;
@@ -366,7 +366,7 @@ ash.secure_channel.mojom.ConnectionDelegate.getRemote = function() {
     'ash.secure_channel.mojom.ConnectionDelegate',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnConnectionAttemptFailure
 ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec = {
@@ -380,7 +380,7 @@ ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnConnection
 ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec = {
@@ -396,7 +396,7 @@ ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.secure_channel.mojom.ConnectionDelegatePtr = ash.secure_channel.mojom.ConnectionDelegateRemote;
@@ -473,7 +473,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger.getRemote = functi
     'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LogDiscoveryAttempt
 ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec = {
@@ -488,7 +488,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttemp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogNearbyConnectionState
 ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec = {
@@ -503,7 +503,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectio
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogSecureChannelState
 ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec = {
@@ -517,7 +517,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelSt
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerPtr = ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote;
@@ -603,7 +603,7 @@ ash.secure_channel.mojom.SecureChannel.getRemote = function() {
     'ash.secure_channel.mojom.SecureChannel',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ListenForConnectionFromDevice
 ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec = {
@@ -622,7 +622,7 @@ ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InitiateConnectionToDevice
 ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec = {
@@ -642,7 +642,7 @@ ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNearbyConnector
 ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec = {
@@ -656,7 +656,7 @@ ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLastSeenTimestamp
 ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec = {
@@ -670,7 +670,7 @@ ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec = {
   $: {
@@ -683,7 +683,7 @@ ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.secure_channel.mojom.SecureChannelPtr = ash.secure_channel.mojom.SecureChannelRemote;

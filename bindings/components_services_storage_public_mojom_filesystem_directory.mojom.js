@@ -89,7 +89,7 @@ storage.mojom.FileLock.getRemote = function() {
     'storage.mojom.FileLock',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Release
 storage.mojom.FileLock_Release_ParamsSpec = {
@@ -102,7 +102,7 @@ storage.mojom.FileLock_Release_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.FileLock_Release_ResponseParamsSpec = {
   $: {
@@ -115,7 +115,7 @@ storage.mojom.FileLock_Release_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.FileLockPtr = storage.mojom.FileLockRemote;
@@ -255,7 +255,7 @@ storage.mojom.Directory.getRemote = function() {
     'storage.mojom.Directory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Clone
 storage.mojom.Directory_Clone_ParamsSpec = {
@@ -269,7 +269,7 @@ storage.mojom.Directory_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PathExists
 storage.mojom.Directory_PathExists_ParamsSpec = {
@@ -283,7 +283,7 @@ storage.mojom.Directory_PathExists_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.Directory_PathExists_ResponseParamsSpec = {
   $: {
@@ -296,7 +296,7 @@ storage.mojom.Directory_PathExists_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetEntries
 storage.mojom.Directory_GetEntries_ParamsSpec = {
@@ -311,7 +311,7 @@ storage.mojom.Directory_GetEntries_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.Directory_GetEntries_ResponseParamsSpec = {
   $: {
@@ -325,7 +325,7 @@ storage.mojom.Directory_GetEntries_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenFile
 storage.mojom.Directory_OpenFile_ParamsSpec = {
@@ -342,7 +342,7 @@ storage.mojom.Directory_OpenFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.Directory_OpenFile_ResponseParamsSpec = {
   $: {
@@ -356,7 +356,7 @@ storage.mojom.Directory_OpenFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateDirectory
 storage.mojom.Directory_CreateDirectory_ParamsSpec = {
@@ -370,7 +370,7 @@ storage.mojom.Directory_CreateDirectory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.Directory_CreateDirectory_ResponseParamsSpec = {
   $: {
@@ -383,7 +383,7 @@ storage.mojom.Directory_CreateDirectory_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteFile
 storage.mojom.Directory_DeleteFile_ParamsSpec = {
@@ -397,7 +397,7 @@ storage.mojom.Directory_DeleteFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.Directory_DeleteFile_ResponseParamsSpec = {
   $: {
@@ -410,7 +410,7 @@ storage.mojom.Directory_DeleteFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFileInfo
 storage.mojom.Directory_GetFileInfo_ParamsSpec = {
@@ -424,7 +424,7 @@ storage.mojom.Directory_GetFileInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.Directory_GetFileInfo_ResponseParamsSpec = {
   $: {
@@ -437,7 +437,7 @@ storage.mojom.Directory_GetFileInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPathAccess
 storage.mojom.Directory_GetPathAccess_ParamsSpec = {
@@ -451,7 +451,7 @@ storage.mojom.Directory_GetPathAccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.Directory_GetPathAccess_ResponseParamsSpec = {
   $: {
@@ -464,7 +464,7 @@ storage.mojom.Directory_GetPathAccess_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RenameFile
 storage.mojom.Directory_RenameFile_ParamsSpec = {
@@ -479,7 +479,7 @@ storage.mojom.Directory_RenameFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.Directory_RenameFile_ResponseParamsSpec = {
   $: {
@@ -492,7 +492,7 @@ storage.mojom.Directory_RenameFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LockFile
 storage.mojom.Directory_LockFile_ParamsSpec = {
@@ -506,7 +506,7 @@ storage.mojom.Directory_LockFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.Directory_LockFile_ResponseParamsSpec = {
   $: {
@@ -520,7 +520,7 @@ storage.mojom.Directory_LockFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.DirectoryPtr = storage.mojom.DirectoryRemote;

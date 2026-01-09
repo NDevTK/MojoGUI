@@ -63,7 +63,7 @@ ash.cros_safety.mojom.CrosSafetyService.getRemote = function() {
     'ash.cros_safety.mojom.CrosSafetyService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_safety.mojom.CrosSafetyServicePtr = ash.cros_safety.mojom.CrosSafetyServiceRemote;

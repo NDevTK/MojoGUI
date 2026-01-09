@@ -94,7 +94,7 @@ network.mojom.ClientCertificateResponder.getRemote = function() {
     'network.mojom.ClientCertificateResponder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ContinueWithCertificate
 network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec = {
@@ -111,7 +111,7 @@ network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ContinueWithoutCertificate
 network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec = {
@@ -124,7 +124,7 @@ network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelRequest
 network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec = {
@@ -137,7 +137,7 @@ network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.ClientCertificateResponderPtr = network.mojom.ClientCertificateResponderRemote;
@@ -196,7 +196,7 @@ network.mojom.SSLPrivateKey.getRemote = function() {
     'network.mojom.SSLPrivateKey',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Sign
 network.mojom.SSLPrivateKey_Sign_ParamsSpec = {
@@ -211,7 +211,7 @@ network.mojom.SSLPrivateKey_Sign_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec = {
   $: {
@@ -225,7 +225,7 @@ network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.SSLPrivateKeyPtr = network.mojom.SSLPrivateKeyRemote;
@@ -284,7 +284,7 @@ network.mojom.AuthChallengeResponder.getRemote = function() {
     'network.mojom.AuthChallengeResponder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAuthCredentials
 network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec = {
@@ -298,7 +298,7 @@ network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.AuthChallengeResponderPtr = network.mojom.AuthChallengeResponderRemote;
@@ -456,7 +456,7 @@ network.mojom.URLLoaderNetworkServiceObserver.getRemote = function() {
     'network.mojom.URLLoaderNetworkServiceObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSSLCertificateError
 network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec = {
@@ -473,7 +473,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec = {
   $: {
@@ -486,7 +486,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCertificateRequested
 network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec = {
@@ -502,7 +502,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAuthRequired
 network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec = {
@@ -522,7 +522,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLocalNetworkAccessPermissionRequired
 network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec = {
@@ -537,7 +537,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequ
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec = {
   $: {
@@ -550,7 +550,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequ
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClearSiteData
 network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec = {
@@ -568,7 +568,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLoadingStateUpdate
 network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec = {
@@ -582,7 +582,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDataUseUpdate
 network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec = {
@@ -598,7 +598,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSharedStorageHeaderReceived
 network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec = {
@@ -614,7 +614,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAdAuctionEventRecordHeaderReceived
 network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec = {
@@ -629,7 +629,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceiv
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec = {
@@ -643,7 +643,7 @@ network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWebSocketConnectedToPrivateNetwork
 network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec = {
@@ -658,7 +658,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnUrlLoaderConnectedToPrivateNetwork
 network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec = {
@@ -675,7 +675,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.URLLoaderNetworkServiceObserverPtr = network.mojom.URLLoaderNetworkServiceObserverRemote;

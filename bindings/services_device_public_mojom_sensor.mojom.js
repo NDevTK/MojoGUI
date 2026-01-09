@@ -126,7 +126,7 @@ device.mojom.Sensor.getRemote = function() {
     'device.mojom.Sensor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDefaultConfiguration
 device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec = {
@@ -139,7 +139,7 @@ device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec = {
   $: {
@@ -152,7 +152,7 @@ device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddConfiguration
 device.mojom.Sensor_AddConfiguration_ParamsSpec = {
@@ -166,7 +166,7 @@ device.mojom.Sensor_AddConfiguration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.Sensor_AddConfiguration_ResponseParamsSpec = {
   $: {
@@ -179,7 +179,7 @@ device.mojom.Sensor_AddConfiguration_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveConfiguration
 device.mojom.Sensor_RemoveConfiguration_ParamsSpec = {
@@ -193,7 +193,7 @@ device.mojom.Sensor_RemoveConfiguration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Suspend
 device.mojom.Sensor_Suspend_ParamsSpec = {
@@ -206,7 +206,7 @@ device.mojom.Sensor_Suspend_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Resume
 device.mojom.Sensor_Resume_ParamsSpec = {
@@ -219,7 +219,7 @@ device.mojom.Sensor_Resume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConfigureReadingChangeNotifications
 device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec = {
@@ -233,7 +233,7 @@ device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.SensorPtr = device.mojom.SensorRemote;
@@ -301,7 +301,7 @@ device.mojom.SensorClient.getRemote = function() {
     'device.mojom.SensorClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RaiseError
 device.mojom.SensorClient_RaiseError_ParamsSpec = {
@@ -314,7 +314,7 @@ device.mojom.SensorClient_RaiseError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SensorReadingChanged
 device.mojom.SensorClient_SensorReadingChanged_ParamsSpec = {
@@ -327,7 +327,7 @@ device.mojom.SensorClient_SensorReadingChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.SensorClientPtr = device.mojom.SensorClientRemote;

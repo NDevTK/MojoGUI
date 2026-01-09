@@ -93,7 +93,7 @@ extensions.mojom.MessagePort.getRemote = function() {
     'extensions.mojom.MessagePort',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DispatchDisconnect
 extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec = {
@@ -107,7 +107,7 @@ extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeliverMessage
 extensions.mojom.MessagePort_DeliverMessage_ParamsSpec = {
@@ -121,7 +121,7 @@ extensions.mojom.MessagePort_DeliverMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mojom.MessagePortPtr = extensions.mojom.MessagePortRemote;
@@ -198,7 +198,7 @@ extensions.mojom.MessagePortHost.getRemote = function() {
     'extensions.mojom.MessagePortHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ClosePort
 extensions.mojom.MessagePortHost_ClosePort_ParamsSpec = {
@@ -213,7 +213,7 @@ extensions.mojom.MessagePortHost_ClosePort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PostMessage
 extensions.mojom.MessagePortHost_PostMessage_ParamsSpec = {
@@ -227,7 +227,7 @@ extensions.mojom.MessagePortHost_PostMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResponsePending
 extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec = {
@@ -240,7 +240,7 @@ extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mojom.MessagePortHostPtr = extensions.mojom.MessagePortHostRemote;

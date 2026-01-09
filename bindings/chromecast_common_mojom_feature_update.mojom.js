@@ -61,7 +61,7 @@ chromecast.mojom.FeatureUpdateObserver.getRemote = function() {
     'chromecast.mojom.FeatureUpdateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnFeaturesUpdated
 chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec = {
@@ -75,7 +75,7 @@ chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.FeatureUpdateObserverPtr = chromecast.mojom.FeatureUpdateObserverRemote;
@@ -134,7 +134,7 @@ chromecast.mojom.FeatureUpdateService.getRemote = function() {
     'chromecast.mojom.FeatureUpdateService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterFeatureUpdateObserver
 chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec = {
@@ -148,7 +148,7 @@ chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.FeatureUpdateServicePtr = chromecast.mojom.FeatureUpdateServiceRemote;

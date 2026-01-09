@@ -61,7 +61,7 @@ sharing.mojom.IceConfigFetcher.getRemote = function() {
     'sharing.mojom.IceConfigFetcher',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetIceServers
 sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = {
@@ -74,7 +74,7 @@ sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 sharing.mojom.IceConfigFetcherPtr = sharing.mojom.IceConfigFetcherRemote;
@@ -146,7 +146,7 @@ sharing.mojom.MdnsResponderFactory.getRemote = function() {
     'sharing.mojom.MdnsResponderFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateMdnsResponder
 sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = {
@@ -160,7 +160,7 @@ sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 sharing.mojom.MdnsResponderFactoryPtr = sharing.mojom.MdnsResponderFactoryRemote;

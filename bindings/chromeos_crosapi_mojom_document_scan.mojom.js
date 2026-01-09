@@ -123,7 +123,7 @@ crosapi.mojom.DocumentScan.getRemote = function() {
     'crosapi.mojom.DocumentScan',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.DocumentScanPtr = crosapi.mojom.DocumentScanRemote;

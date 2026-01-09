@@ -70,7 +70,7 @@ video_capture.mojom.SharedMemoryVirtualDevice.getRemote = function() {
     'video_capture.mojom.SharedMemoryVirtualDevice',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestFrameBuffer
 video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec = {
@@ -86,7 +86,7 @@ video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec = {
   $: {
@@ -99,7 +99,7 @@ video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameReadyInBuffer
 video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
@@ -114,7 +114,7 @@ video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 video_capture.mojom.SharedMemoryVirtualDevicePtr = video_capture.mojom.SharedMemoryVirtualDeviceRemote;
@@ -200,7 +200,7 @@ video_capture.mojom.TextureVirtualDevice.getRemote = function() {
     'video_capture.mojom.TextureVirtualDevice',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnNewSharedImageBufferHandle
 video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec = {
@@ -215,7 +215,7 @@ video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameAccessHandlerReady
 video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec = {
@@ -229,7 +229,7 @@ video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameReadyInBuffer
 video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
@@ -244,7 +244,7 @@ video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBufferRetired
 video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec = {
@@ -258,7 +258,7 @@ video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 video_capture.mojom.TextureVirtualDevicePtr = video_capture.mojom.TextureVirtualDeviceRemote;
@@ -344,7 +344,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice.getRemote = function() {
     'video_capture.mojom.GpuMemoryBufferVirtualDevice',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnNewGpuMemoryBufferHandle
 video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec = {
@@ -359,7 +359,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameAccessHandlerReady
 video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec = {
@@ -373,7 +373,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameReadyInBuffer
 video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
@@ -388,7 +388,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBufferRetired
 video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec = {
@@ -402,7 +402,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 video_capture.mojom.GpuMemoryBufferVirtualDevicePtr = video_capture.mojom.GpuMemoryBufferVirtualDeviceRemote;

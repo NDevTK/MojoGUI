@@ -61,7 +61,7 @@ ai.mojom.SmartTabGroupingService.getRemote = function() {
     'ai.mojom.SmartTabGroupingService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ExecuteSmartTabGroupingRequest
 ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec = {
@@ -74,7 +74,7 @@ ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ai.mojom.SmartTabGroupingServicePtr = ai.mojom.SmartTabGroupingServiceRemote;

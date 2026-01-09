@@ -79,7 +79,7 @@ chromeos.machine_learning.mojom.Model.getRemote = function() {
     'chromeos.machine_learning.mojom.Model',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.machine_learning.mojom.ModelPtr = chromeos.machine_learning.mojom.ModelRemote;

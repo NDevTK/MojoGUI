@@ -70,7 +70,7 @@ blink.mojom.SharedWorker.getRemote = function() {
     'blink.mojom.SharedWorker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Connect
 blink.mojom.SharedWorker_Connect_ParamsSpec = {
@@ -85,7 +85,7 @@ blink.mojom.SharedWorker_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Terminate
 blink.mojom.SharedWorker_Terminate_ParamsSpec = {
@@ -98,7 +98,7 @@ blink.mojom.SharedWorker_Terminate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SharedWorkerPtr = blink.mojom.SharedWorkerRemote;

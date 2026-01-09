@@ -61,7 +61,7 @@ wl.mojom.ConfigTraitsTestService.getRemote = function() {
     'wl.mojom.ConfigTraitsTestService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EchoTransform
 wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = {
@@ -75,7 +75,7 @@ wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 wl.mojom.ConfigTraitsTestServicePtr = wl.mojom.ConfigTraitsTestServiceRemote;

@@ -79,7 +79,7 @@ cert_verifier.mojom.CertVerifierServiceUpdater.getRemote = function() {
     'cert_verifier.mojom.CertVerifierServiceUpdater',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateAdditionalCertificates
 cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec = {
@@ -93,7 +93,7 @@ cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitUntilNextUpdateForTesting
 cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec = {
@@ -106,7 +106,7 @@ cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCTPolicy
 cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec = {
@@ -120,7 +120,7 @@ cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cert_verifier.mojom.CertVerifierServiceUpdaterPtr = cert_verifier.mojom.CertVerifierServiceUpdaterRemote;

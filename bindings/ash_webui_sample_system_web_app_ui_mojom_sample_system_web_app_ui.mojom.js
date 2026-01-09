@@ -62,7 +62,7 @@ ash.mojom.sample_swa.PageHandlerFactory.getRemote = function() {
     'ash.mojom.sample_swa.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -77,7 +77,7 @@ ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.mojom.sample_swa.PageHandlerFactoryPtr = ash.mojom.sample_swa.PageHandlerFactoryRemote;
@@ -154,7 +154,7 @@ ash.mojom.sample_swa.PageHandler.getRemote = function() {
     'ash.mojom.sample_swa.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPreferences
 ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec = {
@@ -167,7 +167,7 @@ ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = {
   $: {
@@ -180,7 +180,7 @@ ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Send
 ash.mojom.sample_swa.PageHandler_Send_ParamsSpec = {
@@ -194,7 +194,7 @@ ash.mojom.sample_swa.PageHandler_Send_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DoSomething
 ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec = {
@@ -207,7 +207,7 @@ ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.mojom.sample_swa.PageHandlerPtr = ash.mojom.sample_swa.PageHandlerRemote;
@@ -275,7 +275,7 @@ ash.mojom.sample_swa.Page.getRemote = function() {
     'ash.mojom.sample_swa.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnEventOccurred
 ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec = {
@@ -289,7 +289,7 @@ ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateParentPage
 ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec = {
@@ -304,7 +304,7 @@ ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.mojom.sample_swa.PagePtr = ash.mojom.sample_swa.PageRemote;

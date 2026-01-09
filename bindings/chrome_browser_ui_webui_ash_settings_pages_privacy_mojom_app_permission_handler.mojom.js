@@ -117,7 +117,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler.getRemote = function() {
     'ash.settings.app_permission.mojom.AppPermissionsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddObserver
 ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec = {
@@ -131,7 +131,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetApps
 ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec = {
@@ -144,7 +144,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec = {
   $: {
@@ -157,7 +157,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSystemAppsThatUseCamera
 ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec = {
@@ -170,7 +170,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCame
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec = {
   $: {
@@ -183,7 +183,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCame
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSystemAppsThatUseMicrophone
 ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec = {
@@ -196,7 +196,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicr
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec = {
   $: {
@@ -209,7 +209,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicr
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenBrowserPermissionSettings
 ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec = {
@@ -223,7 +223,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSet
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenNativeSettings
 ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec = {
@@ -237,7 +237,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPermission
 ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec = {
@@ -252,7 +252,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.app_permission.mojom.AppPermissionsHandlerPtr = ash.settings.app_permission.mojom.AppPermissionsHandlerRemote;
@@ -320,7 +320,7 @@ ash.settings.app_permission.mojom.AppPermissionsObserver.getRemote = function() 
     'ash.settings.app_permission.mojom.AppPermissionsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAppRemoved
 ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec = {
@@ -334,7 +334,7 @@ ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAppUpdated
 ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec = {
@@ -348,7 +348,7 @@ ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.app_permission.mojom.AppPermissionsObserverPtr = ash.settings.app_permission.mojom.AppPermissionsObserverRemote;

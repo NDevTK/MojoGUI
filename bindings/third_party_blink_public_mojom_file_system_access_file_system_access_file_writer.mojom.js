@@ -88,7 +88,7 @@ blink.mojom.FileSystemAccessFileWriter.getRemote = function() {
     'blink.mojom.FileSystemAccessFileWriter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Write
 blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec = {
@@ -103,7 +103,7 @@ blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec = {
   $: {
@@ -117,7 +117,7 @@ blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Truncate
 blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec = {
@@ -131,7 +131,7 @@ blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec = {
   $: {
@@ -144,7 +144,7 @@ blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Close
 blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec = {
@@ -157,7 +157,7 @@ blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec = {
   $: {
@@ -170,7 +170,7 @@ blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Abort
 blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec = {
@@ -183,7 +183,7 @@ blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec = {
   $: {
@@ -196,7 +196,7 @@ blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileSystemAccessFileWriterPtr = blink.mojom.FileSystemAccessFileWriterRemote;

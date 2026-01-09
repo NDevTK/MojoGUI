@@ -61,7 +61,7 @@ printing.mojom.PrinterXmlParser.getRemote = function() {
     'printing.mojom.PrinterXmlParser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ParseXmlForPrinterCapabilities
 printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec = {
@@ -75,7 +75,7 @@ printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 printing.mojom.PrinterXmlParserPtr = printing.mojom.PrinterXmlParserRemote;

@@ -70,7 +70,7 @@ content.mojom.RendererVariationsConfiguration.getRemote = function() {
     'content.mojom.RendererVariationsConfiguration',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetVariationsHeaders
 content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = {
@@ -84,7 +84,7 @@ content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFieldTrialGroup
 content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = {
@@ -99,7 +99,7 @@ content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.RendererVariationsConfigurationPtr = content.mojom.RendererVariationsConfigurationRemote;

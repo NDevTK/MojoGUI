@@ -61,7 +61,7 @@ content.mojom.AgentSchedulingGroupHost.getRemote = function() {
     'content.mojom.AgentSchedulingGroupHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidUnloadRenderFrame
 content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = {
@@ -75,7 +75,7 @@ content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.AgentSchedulingGroupHostPtr = content.mojom.AgentSchedulingGroupHostRemote;
@@ -161,7 +161,7 @@ content.mojom.AgentSchedulingGroup.getRemote = function() {
     'content.mojom.AgentSchedulingGroup',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindAssociatedInterfaces
 content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec = {
@@ -176,7 +176,7 @@ content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateView
 content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = {
@@ -190,7 +190,7 @@ content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateFrame
 content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = {
@@ -204,7 +204,7 @@ content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateSharedStorageWorkletService
 content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec = {
@@ -219,7 +219,7 @@ content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.AgentSchedulingGroupPtr = content.mojom.AgentSchedulingGroupRemote;

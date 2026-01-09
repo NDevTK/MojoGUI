@@ -61,7 +61,7 @@ auction_worklet.mojom.ScoreAdClient.getRemote = function() {
     'auction_worklet.mojom.ScoreAdClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnScoreAdComplete
 auction_worklet.mojom.ScoreAdClient_OnScoreAdComplete_ParamsSpec = {
@@ -86,7 +86,7 @@ auction_worklet.mojom.ScoreAdClient_OnScoreAdComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 auction_worklet.mojom.ScoreAdClientPtr = auction_worklet.mojom.ScoreAdClientRemote;
@@ -172,7 +172,7 @@ auction_worklet.mojom.SellerWorklet.getRemote = function() {
     'auction_worklet.mojom.SellerWorklet',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ScoreAd
 auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec = {
@@ -210,7 +210,7 @@ auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendPendingSignalsRequests
 auction_worklet.mojom.SellerWorklet_SendPendingSignalsRequests_ParamsSpec = {
@@ -223,7 +223,7 @@ auction_worklet.mojom.SellerWorklet_SendPendingSignalsRequests_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportResult
 auction_worklet.mojom.SellerWorklet_ReportResult_ParamsSpec = {
@@ -254,7 +254,7 @@ auction_worklet.mojom.SellerWorklet_ReportResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec = {
   $: {
@@ -272,7 +272,7 @@ auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConnectDevToolsAgent
 auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_ParamsSpec = {
@@ -287,7 +287,7 @@ auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 auction_worklet.mojom.SellerWorkletPtr = auction_worklet.mojom.SellerWorkletRemote;

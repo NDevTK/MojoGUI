@@ -85,7 +85,7 @@ blink.mojom.DevicePostureProvider.getRemote = function() {
     'blink.mojom.DevicePostureProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddListenerAndGetCurrentPosture
 blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec = {
@@ -99,7 +99,7 @@ blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec = {
   $: {
@@ -112,7 +112,7 @@ blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OverrideDevicePostureForEmulation
 blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec = {
@@ -126,7 +126,7 @@ blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableDevicePostureOverrideForEmulation
 blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec = {
@@ -139,7 +139,7 @@ blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DevicePostureProviderPtr = blink.mojom.DevicePostureProviderRemote;
@@ -198,7 +198,7 @@ blink.mojom.DevicePostureClient.getRemote = function() {
     'blink.mojom.DevicePostureClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPostureChanged
 blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec = {
@@ -212,7 +212,7 @@ blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DevicePostureClientPtr = blink.mojom.DevicePostureClientRemote;

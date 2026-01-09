@@ -70,7 +70,7 @@ device.mojom.Geolocation.getRemote = function() {
     'device.mojom.Geolocation',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetHighAccuracyHint
 device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec = {
@@ -84,7 +84,7 @@ device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueryNextPosition
 device.mojom.Geolocation_QueryNextPosition_ParamsSpec = {
@@ -97,7 +97,7 @@ device.mojom.Geolocation_QueryNextPosition_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec = {
   $: {
@@ -110,7 +110,7 @@ device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.GeolocationPtr = device.mojom.GeolocationRemote;

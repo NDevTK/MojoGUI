@@ -70,7 +70,7 @@ blink.mojom.RendererAudioInputStreamFactory.getRemote = function() {
     'blink.mojom.RendererAudioInputStreamFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateStream
 blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec = {
@@ -89,7 +89,7 @@ blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AssociateInputAndOutputForAec
 blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec = {
@@ -104,7 +104,7 @@ blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RendererAudioInputStreamFactoryPtr = blink.mojom.RendererAudioInputStreamFactoryRemote;
@@ -163,7 +163,7 @@ blink.mojom.RendererAudioInputStreamFactoryClient.getRemote = function() {
     'blink.mojom.RendererAudioInputStreamFactoryClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StreamCreated
 blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = {
@@ -181,7 +181,7 @@ blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RendererAudioInputStreamFactoryClientPtr = blink.mojom.RendererAudioInputStreamFactoryClientRemote;

@@ -61,7 +61,7 @@ blink.mojom.ShareService.getRemote = function() {
     'blink.mojom.ShareService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Share
 blink.mojom.ShareService_Share_ParamsSpec = {
@@ -78,7 +78,7 @@ blink.mojom.ShareService_Share_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ShareService_Share_ResponseParamsSpec = {
   $: {
@@ -91,7 +91,7 @@ blink.mojom.ShareService_Share_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ShareServicePtr = blink.mojom.ShareServiceRemote;

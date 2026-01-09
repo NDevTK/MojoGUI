@@ -196,7 +196,7 @@ autofill.mojom.AutofillDriver.getRemote = function() {
     'autofill.mojom.AutofillDriver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FormsSeen
 autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec = {
@@ -211,7 +211,7 @@ autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FormSubmitted
 autofill.mojom.AutofillDriver_FormSubmitted_ParamsSpec = {
@@ -226,7 +226,7 @@ autofill.mojom.AutofillDriver_FormSubmitted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CaretMovedInFormField
 autofill.mojom.AutofillDriver_CaretMovedInFormField_ParamsSpec = {
@@ -242,7 +242,7 @@ autofill.mojom.AutofillDriver_CaretMovedInFormField_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TextFieldValueChanged
 autofill.mojom.AutofillDriver_TextFieldValueChanged_ParamsSpec = {
@@ -258,7 +258,7 @@ autofill.mojom.AutofillDriver_TextFieldValueChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidEndTextFieldEditing
 autofill.mojom.AutofillDriver_DidEndTextFieldEditing_ParamsSpec = {
@@ -271,7 +271,7 @@ autofill.mojom.AutofillDriver_DidEndTextFieldEditing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TextFieldDidScroll
 autofill.mojom.AutofillDriver_TextFieldDidScroll_ParamsSpec = {
@@ -286,7 +286,7 @@ autofill.mojom.AutofillDriver_TextFieldDidScroll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectControlSelectionChanged
 autofill.mojom.AutofillDriver_SelectControlSelectionChanged_ParamsSpec = {
@@ -301,7 +301,7 @@ autofill.mojom.AutofillDriver_SelectControlSelectionChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectFieldOptionsDidChange
 autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_ParamsSpec = {
@@ -316,7 +316,7 @@ autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FocusOnFormField
 autofill.mojom.AutofillDriver_FocusOnFormField_ParamsSpec = {
@@ -331,7 +331,7 @@ autofill.mojom.AutofillDriver_FocusOnFormField_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FocusOnNonFormField
 autofill.mojom.AutofillDriver_FocusOnNonFormField_ParamsSpec = {
@@ -344,7 +344,7 @@ autofill.mojom.AutofillDriver_FocusOnNonFormField_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AskForValuesToFill
 autofill.mojom.AutofillDriver_AskForValuesToFill_ParamsSpec = {
@@ -362,7 +362,7 @@ autofill.mojom.AutofillDriver_AskForValuesToFill_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HidePopup
 autofill.mojom.AutofillDriver_HidePopup_ParamsSpec = {
@@ -375,7 +375,7 @@ autofill.mojom.AutofillDriver_HidePopup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidAutofillForm
 autofill.mojom.AutofillDriver_DidAutofillForm_ParamsSpec = {
@@ -389,7 +389,7 @@ autofill.mojom.AutofillDriver_DidAutofillForm_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SuppressAutomaticRefills
 autofill.mojom.AutofillDriver_SuppressAutomaticRefills_ParamsSpec = {
@@ -403,7 +403,7 @@ autofill.mojom.AutofillDriver_SuppressAutomaticRefills_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestRefill
 autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec = {
@@ -417,7 +417,7 @@ autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for JavaScriptChangedAutofilledValue
 autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec = {
@@ -433,7 +433,7 @@ autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 autofill.mojom.AutofillDriverPtr = autofill.mojom.AutofillDriverRemote;
@@ -600,7 +600,7 @@ autofill.mojom.PasswordManagerDriver.getRemote = function() {
     'autofill.mojom.PasswordManagerDriver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PasswordFormsParsed
 autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec = {
@@ -614,7 +614,7 @@ autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PasswordFormsRendered
 autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_ParamsSpec = {
@@ -628,7 +628,7 @@ autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PasswordFormSubmitted
 autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_ParamsSpec = {
@@ -642,7 +642,7 @@ autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InformAboutUserInput
 autofill.mojom.PasswordManagerDriver_InformAboutUserInput_ParamsSpec = {
@@ -656,7 +656,7 @@ autofill.mojom.PasswordManagerDriver_InformAboutUserInput_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DynamicFormSubmission
 autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_ParamsSpec = {
@@ -670,7 +670,7 @@ autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PasswordFormCleared
 autofill.mojom.PasswordManagerDriver_PasswordFormCleared_ParamsSpec = {
@@ -684,7 +684,7 @@ autofill.mojom.PasswordManagerDriver_PasswordFormCleared_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordSavePasswordProgress
 autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_ParamsSpec = {
@@ -698,7 +698,7 @@ autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UserModifiedPasswordField
 autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec = {
@@ -711,7 +711,7 @@ autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UserModifiedNonPasswordField
 autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec = {
@@ -728,7 +728,7 @@ autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowPasswordSuggestions
 autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec = {
@@ -742,7 +742,7 @@ autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CheckSafeBrowsingReputation
 autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec = {
@@ -757,7 +757,7 @@ autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FocusedInputChanged
 autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec = {
@@ -772,7 +772,7 @@ autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogFirstFillingResult
 autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec = {
@@ -787,7 +787,7 @@ autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 autofill.mojom.PasswordManagerDriverPtr = autofill.mojom.PasswordManagerDriverRemote;
@@ -900,7 +900,7 @@ autofill.mojom.PasswordGenerationDriver.getRemote = function() {
     'autofill.mojom.PasswordGenerationDriver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AutomaticGenerationAvailable
 autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec = {
@@ -914,7 +914,7 @@ autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PresaveGeneratedPassword
 autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_ParamsSpec = {
@@ -929,7 +929,7 @@ autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PasswordNoLongerGenerated
 autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_ParamsSpec = {
@@ -943,7 +943,7 @@ autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowPasswordEditingPopup
 autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_ParamsSpec = {
@@ -960,7 +960,7 @@ autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PasswordGenerationRejectedByTyping
 autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_ParamsSpec = {
@@ -973,7 +973,7 @@ autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FrameWasScrolled
 autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_ParamsSpec = {
@@ -986,7 +986,7 @@ autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GenerationElementLostFocus
 autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec = {
@@ -999,7 +999,7 @@ autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 autofill.mojom.PasswordGenerationDriverPtr = autofill.mojom.PasswordGenerationDriverRemote;

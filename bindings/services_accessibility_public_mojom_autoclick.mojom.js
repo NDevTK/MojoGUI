@@ -61,7 +61,7 @@ ax.mojom.Autoclick.getRemote = function() {
     'ax.mojom.Autoclick',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestScrollableBoundsForPoint
 ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec = {
@@ -75,7 +75,7 @@ ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ax.mojom.AutoclickPtr = ax.mojom.AutoclickRemote;
@@ -143,7 +143,7 @@ ax.mojom.AutoclickClient.getRemote = function() {
     'ax.mojom.AutoclickClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HandleScrollableBoundsForPointFound
 ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec = {
@@ -157,7 +157,7 @@ ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindAutoclick
 ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec = {
@@ -170,7 +170,7 @@ ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec = {
   $: {
@@ -183,7 +183,7 @@ ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ax.mojom.AutoclickClientPtr = ax.mojom.AutoclickClientRemote;

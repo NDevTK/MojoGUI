@@ -86,7 +86,7 @@ access_code_cast.mojom.PageHandlerFactory.getRemote = function() {
     'access_code_cast.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -101,7 +101,7 @@ access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 access_code_cast.mojom.PageHandlerFactoryPtr = access_code_cast.mojom.PageHandlerFactoryRemote;
@@ -169,7 +169,7 @@ access_code_cast.mojom.PageHandler.getRemote = function() {
     'access_code_cast.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddSink
 access_code_cast.mojom.PageHandler_AddSink_ParamsSpec = {
@@ -184,7 +184,7 @@ access_code_cast.mojom.PageHandler_AddSink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec = {
   $: {
@@ -197,7 +197,7 @@ access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CastToSink
 access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec = {
@@ -210,7 +210,7 @@ access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec = {
   $: {
@@ -223,7 +223,7 @@ access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 access_code_cast.mojom.PageHandlerPtr = access_code_cast.mojom.PageHandlerRemote;
@@ -273,7 +273,7 @@ access_code_cast.mojom.Page.getRemote = function() {
     'access_code_cast.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 access_code_cast.mojom.PagePtr = access_code_cast.mojom.PageRemote;

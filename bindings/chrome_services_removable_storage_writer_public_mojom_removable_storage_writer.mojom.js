@@ -70,7 +70,7 @@ chrome.mojom.RemovableStorageWriter.getRemote = function() {
     'chrome.mojom.RemovableStorageWriter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Write
 chrome.mojom.RemovableStorageWriter_Write_ParamsSpec = {
@@ -86,7 +86,7 @@ chrome.mojom.RemovableStorageWriter_Write_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Verify
 chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec = {
@@ -102,7 +102,7 @@ chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.RemovableStorageWriterPtr = chrome.mojom.RemovableStorageWriterRemote;
@@ -170,7 +170,7 @@ chrome.mojom.RemovableStorageWriterClient.getRemote = function() {
     'chrome.mojom.RemovableStorageWriterClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Progress
 chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec = {
@@ -184,7 +184,7 @@ chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Complete
 chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec = {
@@ -198,7 +198,7 @@ chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.RemovableStorageWriterClientPtr = chrome.mojom.RemovableStorageWriterClientRemote;

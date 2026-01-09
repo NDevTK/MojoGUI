@@ -62,7 +62,7 @@ sandbox.mac.mojom.TraitsTestService.getRemote = function() {
     'sandbox.mac.mojom.TraitsTestService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EchoSeatbeltExtensionToken
 sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec = {
@@ -76,7 +76,7 @@ sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec = {
   $: {
@@ -89,7 +89,7 @@ sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 sandbox.mac.mojom.TraitsTestServicePtr = sandbox.mac.mojom.TraitsTestServiceRemote;

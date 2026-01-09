@@ -61,7 +61,7 @@ content.mojom.DomAutomationControllerHost.getRemote = function() {
     'content.mojom.DomAutomationControllerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DomOperationResponse
 content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec = {
@@ -75,7 +75,7 @@ content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.DomAutomationControllerHostPtr = content.mojom.DomAutomationControllerHostRemote;

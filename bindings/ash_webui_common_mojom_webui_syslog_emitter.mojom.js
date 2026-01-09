@@ -62,7 +62,7 @@ ash.common.mojom.WebUiSyslogEmitter.getRemote = function() {
     'ash.common.mojom.WebUiSyslogEmitter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EmitSyslog
 ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec = {
@@ -77,7 +77,7 @@ ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.common.mojom.WebUiSyslogEmitterPtr = ash.common.mojom.WebUiSyslogEmitterRemote;

@@ -77,7 +77,7 @@ ash.local_search_service.mojom.SearchMetricsReporter.getRemote = function() {
     'ash.local_search_service.mojom.SearchMetricsReporter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSearchPerformed
 ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec = {
@@ -91,7 +91,7 @@ ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.local_search_service.mojom.SearchMetricsReporterPtr = ash.local_search_service.mojom.SearchMetricsReporterRemote;
@@ -150,7 +150,7 @@ ash.local_search_service.mojom.LocalSearchService.getRemote = function() {
     'ash.local_search_service.mojom.LocalSearchService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindIndex
 ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec = {
@@ -167,7 +167,7 @@ ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec = {
   $: {
@@ -180,7 +180,7 @@ ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.local_search_service.mojom.LocalSearchServicePtr = ash.local_search_service.mojom.LocalSearchServiceRemote;

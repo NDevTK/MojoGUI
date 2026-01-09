@@ -128,7 +128,7 @@ blink.mojom.FindInPage.getRemote = function() {
     'blink.mojom.FindInPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Find
 blink.mojom.FindInPage_Find_ParamsSpec = {
@@ -144,7 +144,7 @@ blink.mojom.FindInPage_Find_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopFinding
 blink.mojom.FindInPage_StopFinding_ParamsSpec = {
@@ -158,7 +158,7 @@ blink.mojom.FindInPage_StopFinding_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearActiveFindMatch
 blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec = {
@@ -171,7 +171,7 @@ blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetClient
 blink.mojom.FindInPage_SetClient_ParamsSpec = {
@@ -185,7 +185,7 @@ blink.mojom.FindInPage_SetClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNearestFindResult
 blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec = {
@@ -199,7 +199,7 @@ blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec = {
   $: {
@@ -212,7 +212,7 @@ blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ActivateNearestFindResult
 blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec = {
@@ -227,7 +227,7 @@ blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FindMatchRects
 blink.mojom.FindInPage_FindMatchRects_ParamsSpec = {
@@ -241,7 +241,7 @@ blink.mojom.FindInPage_FindMatchRects_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec = {
   $: {
@@ -256,7 +256,7 @@ blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FindInPagePtr = blink.mojom.FindInPageRemote;
@@ -324,7 +324,7 @@ blink.mojom.FindInPageClient.getRemote = function() {
     'blink.mojom.FindInPageClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetNumberOfMatches
 blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec = {
@@ -340,7 +340,7 @@ blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetActiveMatch
 blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec = {
@@ -357,7 +357,7 @@ blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FindInPageClientPtr = blink.mojom.FindInPageClientRemote;

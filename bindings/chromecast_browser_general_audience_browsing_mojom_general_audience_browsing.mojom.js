@@ -61,7 +61,7 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver.getRemote = function() {
     'chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnGeneralAudienceBrowsingAPIKeyChanged
 chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec = {
@@ -75,7 +75,7 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsing
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverPtr = chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemote;
@@ -134,7 +134,7 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject.getRemote = function() {
     'chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddGeneralAudienceBrowsingAPIKeyObserver
 chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec = {
@@ -148,7 +148,7 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsing
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectPtr = chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemote;

@@ -76,7 +76,7 @@ storage.mojom.CacheStorageObserver.getRemote = function() {
     'storage.mojom.CacheStorageObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCacheListChanged
 storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec = {
@@ -90,7 +90,7 @@ storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCacheContentChanged
 storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec = {
@@ -105,7 +105,7 @@ storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.CacheStorageObserverPtr = storage.mojom.CacheStorageObserverRemote;
@@ -182,7 +182,7 @@ storage.mojom.CacheStorageControl.getRemote = function() {
     'storage.mojom.CacheStorageControl',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddReceiver
 storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec = {
@@ -202,7 +202,7 @@ storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddObserver
 storage.mojom.CacheStorageControl_AddObserver_ParamsSpec = {
@@ -216,7 +216,7 @@ storage.mojom.CacheStorageControl_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ApplyPolicyUpdates
 storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec = {
@@ -230,7 +230,7 @@ storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.CacheStorageControlPtr = storage.mojom.CacheStorageControlRemote;

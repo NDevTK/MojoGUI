@@ -77,7 +77,7 @@ blink.mojom.WebInstallService.getRemote = function() {
     'blink.mojom.WebInstallService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Install
 blink.mojom.WebInstallService_Install_ParamsSpec = {
@@ -91,7 +91,7 @@ blink.mojom.WebInstallService_Install_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebInstallService_Install_ResponseParamsSpec = {
   $: {
@@ -105,7 +105,7 @@ blink.mojom.WebInstallService_Install_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InstallFromElement
 blink.mojom.WebInstallService_InstallFromElement_ParamsSpec = {
@@ -119,7 +119,7 @@ blink.mojom.WebInstallService_InstallFromElement_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec = {
   $: {
@@ -133,7 +133,7 @@ blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebInstallServicePtr = blink.mojom.WebInstallServiceRemote;

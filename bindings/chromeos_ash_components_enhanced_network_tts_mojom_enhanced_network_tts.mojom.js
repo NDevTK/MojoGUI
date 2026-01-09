@@ -71,7 +71,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts.getRemote = function() {
     'ash.enhanced_network_tts.mojom.EnhancedNetworkTts',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetAudioData
 ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = {
@@ -85,7 +85,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.enhanced_network_tts.mojom.EnhancedNetworkTtsPtr = ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemote;
@@ -157,7 +157,7 @@ ash.enhanced_network_tts.mojom.AudioDataObserver.getRemote = function() {
     'ash.enhanced_network_tts.mojom.AudioDataObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAudioDataReceived
 ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec = {
@@ -171,7 +171,7 @@ ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.enhanced_network_tts.mojom.AudioDataObserverPtr = ash.enhanced_network_tts.mojom.AudioDataObserverRemote;

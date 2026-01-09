@@ -286,7 +286,7 @@ media.mojom.MediaMetricsProvider.getRemote = function() {
     'media.mojom.MediaMetricsProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Initialize
 media.mojom.MediaMetricsProvider_Initialize_ParamsSpec = {
@@ -302,7 +302,7 @@ media.mojom.MediaMetricsProvider_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStarted
 media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec = {
@@ -316,7 +316,7 @@ media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 media.mojom.MediaMetricsProvider_OnError_ParamsSpec = {
@@ -330,7 +330,7 @@ media.mojom.MediaMetricsProvider_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFallback
 media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec = {
@@ -344,7 +344,7 @@ media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHasPlayed
 media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec = {
@@ -357,7 +357,7 @@ media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHaveEnough
 media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec = {
@@ -370,7 +370,7 @@ media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsEME
 media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec = {
@@ -383,7 +383,7 @@ media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTimeToMetadata
 media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec = {
@@ -397,7 +397,7 @@ media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTimeToFirstFrame
 media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec = {
@@ -411,7 +411,7 @@ media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTimeToPlayReady
 media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec = {
@@ -425,7 +425,7 @@ media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetRendererType
 media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec = {
@@ -439,7 +439,7 @@ media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDemuxerType
 media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec = {
@@ -453,7 +453,7 @@ media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetKeySystem
 media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec = {
@@ -467,7 +467,7 @@ media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHasWaitingForKey
 media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec = {
@@ -480,7 +480,7 @@ media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsHardwareSecure
 media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec = {
@@ -493,7 +493,7 @@ media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHasTrackChange
 media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec = {
@@ -506,7 +506,7 @@ media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetContainerName
 media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec = {
@@ -520,7 +520,7 @@ media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AcquireWatchTimeRecorder
 media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec = {
@@ -535,7 +535,7 @@ media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AcquireVideoDecodeStatsRecorder
 media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec = {
@@ -549,7 +549,7 @@ media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AcquirePlaybackEventsRecorder
 media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec = {
@@ -563,7 +563,7 @@ media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHasAudio
 media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec = {
@@ -577,7 +577,7 @@ media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHasVideo
 media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec = {
@@ -591,7 +591,7 @@ media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVideoPipelineInfo
 media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec = {
@@ -605,7 +605,7 @@ media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAudioPipelineInfo
 media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec = {
@@ -619,7 +619,7 @@ media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaMetricsProviderPtr = media.mojom.MediaMetricsProviderRemote;

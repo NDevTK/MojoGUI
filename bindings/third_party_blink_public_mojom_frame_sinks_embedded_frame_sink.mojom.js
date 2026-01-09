@@ -70,7 +70,7 @@ blink.mojom.SurfaceEmbedder.getRemote = function() {
     'blink.mojom.SurfaceEmbedder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetLocalSurfaceId
 blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec = {
@@ -84,7 +84,7 @@ blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnOpacityChanged
 blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec = {
@@ -98,7 +98,7 @@ blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SurfaceEmbedderPtr = blink.mojom.SurfaceEmbedderRemote;
@@ -157,7 +157,7 @@ blink.mojom.EmbeddedFrameSinkClient.getRemote = function() {
     'blink.mojom.EmbeddedFrameSinkClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindSurfaceEmbedder
 blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec = {
@@ -171,7 +171,7 @@ blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.EmbeddedFrameSinkClientPtr = blink.mojom.EmbeddedFrameSinkClientRemote;
@@ -293,7 +293,7 @@ blink.mojom.EmbeddedFrameSinkProvider.getRemote = function() {
     'blink.mojom.EmbeddedFrameSinkProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterEmbeddedFrameSink
 blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec = {
@@ -309,7 +309,7 @@ blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterEmbeddedFrameSinkBundle
 blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec = {
@@ -325,7 +325,7 @@ blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateCompositorFrameSink
 blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec = {
@@ -341,7 +341,7 @@ blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateBundledCompositorFrameSink
 blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec = {
@@ -358,7 +358,7 @@ blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateSimpleCompositorFrameSink
 blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec = {
@@ -376,7 +376,7 @@ blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConnectToEmbedder
 blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec = {
@@ -391,7 +391,7 @@ blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterFrameSinkHierarchy
 blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec = {
@@ -405,7 +405,7 @@ blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnregisterFrameSinkHierarchy
 blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec = {
@@ -419,7 +419,7 @@ blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.EmbeddedFrameSinkProviderPtr = blink.mojom.EmbeddedFrameSinkProviderRemote;

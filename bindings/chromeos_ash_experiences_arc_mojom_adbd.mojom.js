@@ -52,7 +52,7 @@ arc.mojom.AdbdMonitorHost.getRemote = function() {
     'arc.mojom.AdbdMonitorHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.AdbdMonitorHostPtr = arc.mojom.AdbdMonitorHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.AdbdMonitorInstance.getRemote = function() {
     'arc.mojom.AdbdMonitorInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.AdbdMonitorInstancePtr = arc.mojom.AdbdMonitorInstanceRemote;

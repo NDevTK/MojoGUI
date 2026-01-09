@@ -61,7 +61,7 @@ blink.mojom.FileUtilitiesHost.getRemote = function() {
     'blink.mojom.FileUtilitiesHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetFileInfo
 blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileUtilitiesHostPtr = blink.mojom.FileUtilitiesHostRemote;

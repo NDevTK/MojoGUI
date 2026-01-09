@@ -79,7 +79,7 @@ file_suggestion.mojom.DriveSuggestionHandler.getRemote = function() {
     'file_suggestion.mojom.DriveSuggestionHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetFiles
 file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec = {
@@ -92,7 +92,7 @@ file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec = {
   $: {
@@ -105,7 +105,7 @@ file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DismissModule
 file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec = {
@@ -118,7 +118,7 @@ file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestoreModule
 file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec = {
@@ -131,7 +131,7 @@ file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 file_suggestion.mojom.DriveSuggestionHandlerPtr = file_suggestion.mojom.DriveSuggestionHandlerRemote;

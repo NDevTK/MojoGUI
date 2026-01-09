@@ -177,7 +177,7 @@ history.mojom.PageHandler.getRemote = function() {
     'history.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetPage
 history.mojom.PageHandler_SetPage_ParamsSpec = {
@@ -191,7 +191,7 @@ history.mojom.PageHandler_SetPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueryHistory
 history.mojom.PageHandler_QueryHistory_ParamsSpec = {
@@ -207,7 +207,7 @@ history.mojom.PageHandler_QueryHistory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 history.mojom.PageHandler_QueryHistory_ResponseParamsSpec = {
   $: {
@@ -220,7 +220,7 @@ history.mojom.PageHandler_QueryHistory_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueryHistoryContinuation
 history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec = {
@@ -233,7 +233,7 @@ history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec = {
   $: {
@@ -246,7 +246,7 @@ history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveVisits
 history.mojom.PageHandler_RemoveVisits_ParamsSpec = {
@@ -260,7 +260,7 @@ history.mojom.PageHandler_RemoveVisits_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenClearBrowsingDataDialog
 history.mojom.PageHandler_OpenClearBrowsingDataDialog_ParamsSpec = {
@@ -273,7 +273,7 @@ history.mojom.PageHandler_OpenClearBrowsingDataDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveBookmark
 history.mojom.PageHandler_RemoveBookmark_ParamsSpec = {
@@ -287,7 +287,7 @@ history.mojom.PageHandler_RemoveBookmark_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetLastSelectedTab
 history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec = {
@@ -301,7 +301,7 @@ history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowSidePanelUI
 history.mojom.PageHandler_ShowSidePanelUI_ParamsSpec = {
@@ -314,7 +314,7 @@ history.mojom.PageHandler_ShowSidePanelUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestAccountInfo
 history.mojom.PageHandler_RequestAccountInfo_ParamsSpec = {
@@ -327,7 +327,7 @@ history.mojom.PageHandler_RequestAccountInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec = {
   $: {
@@ -340,7 +340,7 @@ history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TurnOnHistorySync
 history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec = {
@@ -353,7 +353,7 @@ history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShouldShowHistoryPageHistorySyncPromo
 history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec = {
@@ -366,7 +366,7 @@ history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec = {
   $: {
@@ -379,7 +379,7 @@ history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordHistoryPageHistorySyncPromoDismissed
 history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec = {
@@ -392,7 +392,7 @@ history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IncrementHistoryPageHistorySyncPromoShownCount
 history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec = {
@@ -405,7 +405,7 @@ history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 history.mojom.PageHandlerPtr = history.mojom.PageHandlerRemote;
@@ -482,7 +482,7 @@ history.mojom.Page.getRemote = function() {
     'history.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnHistoryDeleted
 history.mojom.Page_OnHistoryDeleted_ParamsSpec = {
@@ -495,7 +495,7 @@ history.mojom.Page_OnHistoryDeleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHasOtherFormsChanged
 history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec = {
@@ -509,7 +509,7 @@ history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendAccountInfo
 history.mojom.Page_SendAccountInfo_ParamsSpec = {
@@ -523,7 +523,7 @@ history.mojom.Page_SendAccountInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 history.mojom.PagePtr = history.mojom.PageRemote;

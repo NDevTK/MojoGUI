@@ -61,7 +61,7 @@ content.mojom.RouteProvider.getRemote = function() {
     'content.mojom.RouteProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetRoute
 content.mojom.RouteProvider_GetRoute_ParamsSpec = {
@@ -76,7 +76,7 @@ content.mojom.RouteProvider_GetRoute_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.RouteProviderPtr = content.mojom.RouteProviderRemote;

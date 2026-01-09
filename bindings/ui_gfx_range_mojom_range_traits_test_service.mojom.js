@@ -70,7 +70,7 @@ gfx.mojom.RangeTraitsTestService.getRemote = function() {
     'gfx.mojom.RangeTraitsTestService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EchoRange
 gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec = {
@@ -84,7 +84,7 @@ gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoRangeF
 gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec = {
@@ -111,7 +111,7 @@ gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec = {
   $: {
@@ -124,7 +124,7 @@ gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 gfx.mojom.RangeTraitsTestServicePtr = gfx.mojom.RangeTraitsTestServiceRemote;

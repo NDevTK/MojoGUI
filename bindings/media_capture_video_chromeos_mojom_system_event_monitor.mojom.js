@@ -74,7 +74,7 @@ cros.mojom.CrosDisplayObserver.getRemote = function() {
     'cros.mojom.CrosDisplayObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CrosDisplayObserverPtr = cros.mojom.CrosDisplayObserverRemote;
@@ -124,7 +124,7 @@ cros.mojom.CrosLidObserver.getRemote = function() {
     'cros.mojom.CrosLidObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CrosLidObserverPtr = cros.mojom.CrosLidObserverRemote;
@@ -174,7 +174,7 @@ cros.mojom.CrosPowerObserver.getRemote = function() {
     'cros.mojom.CrosPowerObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CrosPowerObserverPtr = cros.mojom.CrosPowerObserverRemote;
@@ -224,7 +224,7 @@ cros.mojom.CrosSystemEventMonitor.getRemote = function() {
     'cros.mojom.CrosSystemEventMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CrosSystemEventMonitorPtr = cros.mojom.CrosSystemEventMonitorRemote;

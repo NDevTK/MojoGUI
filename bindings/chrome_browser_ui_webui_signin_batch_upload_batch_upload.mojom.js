@@ -61,7 +61,7 @@ batch_upload.mojom.PageHandlerFactory.getRemote = function() {
     'batch_upload.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateBatchUploadHandler
 batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 batch_upload.mojom.PageHandlerFactoryPtr = batch_upload.mojom.PageHandlerFactoryRemote;
@@ -153,7 +153,7 @@ batch_upload.mojom.PageHandler.getRemote = function() {
     'batch_upload.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateViewHeight
 batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
@@ -167,7 +167,7 @@ batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SaveToAccount
 batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec = {
@@ -181,7 +181,7 @@ batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Close
 batch_upload.mojom.PageHandler_Close_ParamsSpec = {
@@ -194,7 +194,7 @@ batch_upload.mojom.PageHandler_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 batch_upload.mojom.PageHandlerPtr = batch_upload.mojom.PageHandlerRemote;
@@ -253,7 +253,7 @@ batch_upload.mojom.Page.getRemote = function() {
     'batch_upload.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendBatchUploadData
 batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec = {
@@ -267,7 +267,7 @@ batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 batch_upload.mojom.PagePtr = batch_upload.mojom.PageRemote;

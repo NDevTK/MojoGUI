@@ -69,7 +69,7 @@ arc.mojom.AppPermissionsInstance.getRemote = function() {
     'arc.mojom.AppPermissionsInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.AppPermissionsInstancePtr = arc.mojom.AppPermissionsInstanceRemote;

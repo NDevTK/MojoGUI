@@ -125,7 +125,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler.getRemote = function() {
     'commerce.price_tracking.mojom.PriceTrackingHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for TrackPriceForBookmark
 commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec = {
@@ -139,7 +139,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UntrackPriceForBookmark
 commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec = {
@@ -153,7 +153,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPriceTrackingStatusForCurrentUrl
 commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec = {
@@ -167,7 +167,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurr
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllShoppingBookmarkProductInfo
 commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec = {
@@ -180,7 +180,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProduct
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec = {
   $: {
@@ -193,7 +193,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProduct
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllPriceTrackedBookmarkProductInfo
 commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec = {
@@ -206,7 +206,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkPro
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec = {
   $: {
@@ -219,7 +219,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkPro
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetShoppingCollectionBookmarkFolderId
 commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec = {
@@ -232,7 +232,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmark
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec = {
   $: {
@@ -245,7 +245,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmark
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetParentBookmarkFolderNameForCurrentUrl
 commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec = {
@@ -258,7 +258,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameFo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec = {
   $: {
@@ -271,7 +271,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameFo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowBookmarkEditorForCurrentUrl
 commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec = {
@@ -284,7 +284,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentU
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 commerce.price_tracking.mojom.PriceTrackingHandlerPtr = commerce.price_tracking.mojom.PriceTrackingHandlerRemote;
@@ -370,7 +370,7 @@ commerce.price_tracking.mojom.Page.getRemote = function() {
     'commerce.price_tracking.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PriceTrackedForBookmark
 commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec = {
@@ -384,7 +384,7 @@ commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PriceUntrackedForBookmark
 commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec = {
@@ -398,7 +398,7 @@ commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OperationFailedForBookmark
 commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec = {
@@ -413,7 +413,7 @@ commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnProductBookmarkMoved
 commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec = {
@@ -427,7 +427,7 @@ commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 commerce.price_tracking.mojom.PagePtr = commerce.price_tracking.mojom.PageRemote;
@@ -486,7 +486,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactory.getRemote = function()
     'commerce.price_tracking.mojom.PriceTrackingHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePriceTrackingHandler
 commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec = {
@@ -501,7 +501,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHan
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 commerce.price_tracking.mojom.PriceTrackingHandlerFactoryPtr = commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemote;

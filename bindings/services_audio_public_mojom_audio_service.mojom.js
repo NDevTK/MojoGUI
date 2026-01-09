@@ -115,7 +115,7 @@ audio.mojom.AudioService.getRemote = function() {
     'audio.mojom.AudioService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindSystemInfo
 audio.mojom.AudioService_BindSystemInfo_ParamsSpec = {
@@ -129,7 +129,7 @@ audio.mojom.AudioService_BindSystemInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindDebugRecording
 audio.mojom.AudioService_BindDebugRecording_ParamsSpec = {
@@ -143,7 +143,7 @@ audio.mojom.AudioService_BindDebugRecording_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindStreamFactory
 audio.mojom.AudioService_BindStreamFactory_ParamsSpec = {
@@ -157,7 +157,7 @@ audio.mojom.AudioService_BindStreamFactory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindDeviceNotifier
 audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec = {
@@ -171,7 +171,7 @@ audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindLogFactoryManager
 audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec = {
@@ -185,7 +185,7 @@ audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindTestingApi
 audio.mojom.AudioService_BindTestingApi_ParamsSpec = {
@@ -199,7 +199,7 @@ audio.mojom.AudioService_BindTestingApi_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindMlModelManager
 audio.mojom.AudioService_BindMlModelManager_ParamsSpec = {
@@ -213,7 +213,7 @@ audio.mojom.AudioService_BindMlModelManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 audio.mojom.AudioServicePtr = audio.mojom.AudioServiceRemote;

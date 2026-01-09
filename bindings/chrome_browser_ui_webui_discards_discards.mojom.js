@@ -138,7 +138,7 @@ discards.mojom.DetailsProvider.getRemote = function() {
     'discards.mojom.DetailsProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetTabDiscardsInfo
 discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = {
@@ -151,7 +151,7 @@ discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec = {
   $: {
@@ -164,7 +164,7 @@ discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAutoDiscardable
 discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec = {
@@ -179,7 +179,7 @@ discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DiscardById
 discards.mojom.DetailsProvider_DiscardById_ParamsSpec = {
@@ -194,7 +194,7 @@ discards.mojom.DetailsProvider_DiscardById_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FreezeById
 discards.mojom.DetailsProvider_FreezeById_ParamsSpec = {
@@ -208,7 +208,7 @@ discards.mojom.DetailsProvider_FreezeById_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadById
 discards.mojom.DetailsProvider_LoadById_ParamsSpec = {
@@ -222,7 +222,7 @@ discards.mojom.DetailsProvider_LoadById_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Discard
 discards.mojom.DetailsProvider_Discard_ParamsSpec = {
@@ -235,7 +235,7 @@ discards.mojom.DetailsProvider_Discard_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ToggleBatterySaverMode
 discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec = {
@@ -248,7 +248,7 @@ discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RefreshPerformanceTabCpuMeasurements
 discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec = {
@@ -261,7 +261,7 @@ discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 discards.mojom.DetailsProviderPtr = discards.mojom.DetailsProviderRemote;
@@ -401,7 +401,7 @@ discards.mojom.GraphChangeStream.getRemote = function() {
     'discards.mojom.GraphChangeStream',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FrameCreated
 discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec = {
@@ -415,7 +415,7 @@ discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PageCreated
 discards.mojom.GraphChangeStream_PageCreated_ParamsSpec = {
@@ -429,7 +429,7 @@ discards.mojom.GraphChangeStream_PageCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ProcessCreated
 discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = {
@@ -443,7 +443,7 @@ discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WorkerCreated
 discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = {
@@ -457,7 +457,7 @@ discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FrameChanged
 discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec = {
@@ -471,7 +471,7 @@ discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PageChanged
 discards.mojom.GraphChangeStream_PageChanged_ParamsSpec = {
@@ -485,7 +485,7 @@ discards.mojom.GraphChangeStream_PageChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ProcessChanged
 discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = {
@@ -499,7 +499,7 @@ discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WorkerChanged
 discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = {
@@ -513,7 +513,7 @@ discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FavIconDataAvailable
 discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = {
@@ -527,7 +527,7 @@ discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NodeDeleted
 discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = {
@@ -541,7 +541,7 @@ discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 discards.mojom.GraphChangeStreamPtr = discards.mojom.GraphChangeStreamRemote;
@@ -609,7 +609,7 @@ discards.mojom.GraphDump.getRemote = function() {
     'discards.mojom.GraphDump',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SubscribeToChanges
 discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec = {
@@ -623,7 +623,7 @@ discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestNodeDescriptions
 discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = {
@@ -637,7 +637,7 @@ discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec = {
   $: {
@@ -650,7 +650,7 @@ discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 discards.mojom.GraphDumpPtr = discards.mojom.GraphDumpRemote;

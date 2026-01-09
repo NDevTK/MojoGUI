@@ -61,7 +61,7 @@ media.mojom.MediaFoundationPreferences.getRemote = function() {
     'media.mojom.MediaFoundationPreferences',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for IsHardwareSecureDecryptionAllowed
 media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsSpec = {
@@ -74,7 +74,7 @@ media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaFoundationPreferencesPtr = media.mojom.MediaFoundationPreferencesRemote;

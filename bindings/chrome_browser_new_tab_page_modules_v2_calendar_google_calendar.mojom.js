@@ -80,7 +80,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandler.getRemote = function() {
     'ntp.calendar.mojom.GoogleCalendarPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetEvents
 ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec = {
@@ -93,7 +93,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec = {
   $: {
@@ -106,7 +106,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DismissModule
 ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec = {
@@ -119,7 +119,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestoreModule
 ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec = {
@@ -132,7 +132,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ntp.calendar.mojom.GoogleCalendarPageHandlerPtr = ntp.calendar.mojom.GoogleCalendarPageHandlerRemote;

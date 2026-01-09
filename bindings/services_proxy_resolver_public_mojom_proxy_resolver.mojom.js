@@ -84,7 +84,7 @@ proxy_resolver.mojom.HostResolverRequestClient.getRemote = function() {
     'proxy_resolver.mojom.HostResolverRequestClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ReportResult
 proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec = {
@@ -99,7 +99,7 @@ proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 proxy_resolver.mojom.HostResolverRequestClientPtr = proxy_resolver.mojom.HostResolverRequestClientRemote;
@@ -158,7 +158,7 @@ proxy_resolver.mojom.ProxyResolver.getRemote = function() {
     'proxy_resolver.mojom.ProxyResolver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetProxyForUrl
 proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec = {
@@ -174,7 +174,7 @@ proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 proxy_resolver.mojom.ProxyResolverPtr = proxy_resolver.mojom.ProxyResolverRemote;
@@ -260,7 +260,7 @@ proxy_resolver.mojom.ProxyResolverRequestClient.getRemote = function() {
     'proxy_resolver.mojom.ProxyResolverRequestClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ReportResult
 proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec = {
@@ -275,7 +275,7 @@ proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Alert
 proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec = {
@@ -289,7 +289,7 @@ proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec = {
@@ -304,7 +304,7 @@ proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolveDns
 proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec = {
@@ -321,7 +321,7 @@ proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 proxy_resolver.mojom.ProxyResolverRequestClientPtr = proxy_resolver.mojom.ProxyResolverRequestClientRemote;
@@ -380,7 +380,7 @@ proxy_resolver.mojom.ProxyResolverFactory.getRemote = function() {
     'proxy_resolver.mojom.ProxyResolverFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateResolver
 proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec = {
@@ -396,7 +396,7 @@ proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 proxy_resolver.mojom.ProxyResolverFactoryPtr = proxy_resolver.mojom.ProxyResolverFactoryRemote;
@@ -482,7 +482,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClient.getRemote = function() {
     'proxy_resolver.mojom.ProxyResolverFactoryRequestClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ReportResult
 proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec = {
@@ -496,7 +496,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Alert
 proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec = {
@@ -510,7 +510,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec = {
@@ -525,7 +525,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolveDns
 proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec = {
@@ -542,7 +542,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 proxy_resolver.mojom.ProxyResolverFactoryRequestClientPtr = proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemote;
@@ -601,7 +601,7 @@ proxy_resolver.mojom.SystemProxyResolver.getRemote = function() {
     'proxy_resolver.mojom.SystemProxyResolver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetProxyForUrl
 proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec = {
@@ -615,7 +615,7 @@ proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec = {
   $: {
@@ -629,7 +629,7 @@ proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 proxy_resolver.mojom.SystemProxyResolverPtr = proxy_resolver.mojom.SystemProxyResolverRemote;

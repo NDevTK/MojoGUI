@@ -61,7 +61,7 @@ blink.mojom.ProgressClient.getRemote = function() {
     'blink.mojom.ProgressClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnProgress
 blink.mojom.ProgressClient_OnProgress_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.ProgressClient_OnProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ProgressClientPtr = blink.mojom.ProgressClientRemote;
@@ -143,7 +143,7 @@ blink.mojom.BlobRegistry.getRemote = function() {
     'blink.mojom.BlobRegistry',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Register
 blink.mojom.BlobRegistry_Register_ParamsSpec = {
@@ -161,7 +161,7 @@ blink.mojom.BlobRegistry_Register_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterFromStream
 blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec = {
@@ -179,7 +179,7 @@ blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec = {
   $: {
@@ -192,7 +192,7 @@ blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BlobRegistryPtr = blink.mojom.BlobRegistryRemote;

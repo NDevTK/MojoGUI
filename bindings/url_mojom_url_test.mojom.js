@@ -70,7 +70,7 @@ url.mojom.UrlTest.getRemote = function() {
     'url.mojom.UrlTest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BounceUrl
 url.mojom.UrlTest_BounceUrl_ParamsSpec = {
@@ -84,7 +84,7 @@ url.mojom.UrlTest_BounceUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 url.mojom.UrlTest_BounceUrl_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ url.mojom.UrlTest_BounceUrl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BounceOrigin
 url.mojom.UrlTest_BounceOrigin_ParamsSpec = {
@@ -111,7 +111,7 @@ url.mojom.UrlTest_BounceOrigin_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec = {
   $: {
@@ -124,7 +124,7 @@ url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 url.mojom.UrlTestPtr = url.mojom.UrlTestRemote;

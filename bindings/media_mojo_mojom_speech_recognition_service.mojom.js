@@ -61,7 +61,7 @@ media.mojom.AudioSourceSpeechRecognitionContext.getRemote = function() {
     'media.mojom.AudioSourceSpeechRecognitionContext',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindAudioSourceFetcher
 media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec = {
@@ -77,7 +77,7 @@ media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseParamsSpec = {
   $: {
@@ -90,7 +90,7 @@ media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioSourceSpeechRecognitionContextPtr = media.mojom.AudioSourceSpeechRecognitionContextRemote;
@@ -185,7 +185,7 @@ media.mojom.SpeechRecognitionService.getRemote = function() {
     'media.mojom.SpeechRecognitionService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindSpeechRecognitionContext
 media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec = {
@@ -199,7 +199,7 @@ media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindAudioSourceSpeechRecognitionContext
 media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec = {
@@ -213,7 +213,7 @@ media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSodaPaths
 media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec = {
@@ -229,7 +229,7 @@ media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSodaParams
 media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec = {
@@ -243,7 +243,7 @@ media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSodaConfigPaths
 media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec = {
@@ -257,7 +257,7 @@ media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.SpeechRecognitionServicePtr = media.mojom.SpeechRecognitionServiceRemote;
@@ -325,7 +325,7 @@ media.mojom.AudioSourceFetcher.getRemote = function() {
     'media.mojom.AudioSourceFetcher',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Start
 media.mojom.AudioSourceFetcher_Start_ParamsSpec = {
@@ -341,7 +341,7 @@ media.mojom.AudioSourceFetcher_Start_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Stop
 media.mojom.AudioSourceFetcher_Stop_ParamsSpec = {
@@ -354,7 +354,7 @@ media.mojom.AudioSourceFetcher_Stop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioSourceFetcherPtr = media.mojom.AudioSourceFetcherRemote;

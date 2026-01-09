@@ -62,7 +62,7 @@ ash.quick_pair.mojom.QuickPairService.getRemote = function() {
     'ash.quick_pair.mojom.QuickPairService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Connect
 ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec = {
@@ -76,7 +76,7 @@ ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.quick_pair.mojom.QuickPairServicePtr = ash.quick_pair.mojom.QuickPairServiceRemote;

@@ -70,7 +70,7 @@ blink.mojom.Translator.getRemote = function() {
     'blink.mojom.Translator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Translate
 blink.mojom.Translator_Translate_ParamsSpec = {
@@ -85,7 +85,7 @@ blink.mojom.Translator_Translate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TranslateStreaming
 blink.mojom.Translator_TranslateStreaming_ParamsSpec = {
@@ -100,7 +100,7 @@ blink.mojom.Translator_TranslateStreaming_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.TranslatorPtr = blink.mojom.TranslatorRemote;

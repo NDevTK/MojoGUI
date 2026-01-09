@@ -61,7 +61,7 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBroker.getRemote = function() {
     'gcpw_hid.mojom.GaiaCredentialProviderHidBroker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenDevice
 gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec = {
@@ -75,7 +75,7 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 gcpw_hid.mojom.GaiaCredentialProviderHidBrokerPtr = gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemote;

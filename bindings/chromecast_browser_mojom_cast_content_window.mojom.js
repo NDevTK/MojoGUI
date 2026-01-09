@@ -92,7 +92,7 @@ chromecast.mojom.CastContentWindowObserver.getRemote = function() {
     'chromecast.mojom.CastContentWindowObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnVisibilityChange
 chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec = {
@@ -106,7 +106,7 @@ chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowDestroyed
 chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec = {
@@ -119,7 +119,7 @@ chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.CastContentWindowObserverPtr = chromecast.mojom.CastContentWindowObserverRemote;
@@ -223,7 +223,7 @@ chromecast.mojom.CastContentWindow.getRemote = function() {
     'chromecast.mojom.CastContentWindow',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateWindow
 chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec = {
@@ -238,7 +238,7 @@ chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddObserver
 chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec = {
@@ -252,7 +252,7 @@ chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GrantScreenAccess
 chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec = {
@@ -265,7 +265,7 @@ chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RevokeScreenAccess
 chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec = {
@@ -278,7 +278,7 @@ chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestVisibility
 chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec = {
@@ -292,7 +292,7 @@ chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableTouchInput
 chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec = {
@@ -306,7 +306,7 @@ chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.CastContentWindowPtr = chromecast.mojom.CastContentWindowRemote;

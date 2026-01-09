@@ -88,7 +88,7 @@ webnn.mojom.WebNNTensor.getRemote = function() {
     'webnn.mojom.WebNNTensor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ReadTensor
 webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec = {
@@ -101,7 +101,7 @@ webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec = {
   $: {
@@ -114,7 +114,7 @@ webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteTensor
 webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec = {
@@ -128,7 +128,7 @@ webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExportTensor
 webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec = {
@@ -141,7 +141,7 @@ webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ImportTensor
 webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec = {
@@ -155,7 +155,7 @@ webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 webnn.mojom.WebNNTensorPtr = webnn.mojom.WebNNTensorRemote;

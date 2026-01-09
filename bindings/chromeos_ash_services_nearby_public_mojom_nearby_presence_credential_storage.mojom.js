@@ -90,7 +90,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.getRemote = function()
     'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SaveCredentials
 ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec = {
@@ -106,7 +106,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec = {
   $: {
@@ -119,7 +119,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPublicCredentials
 ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec = {
@@ -133,7 +133,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec = {
   $: {
@@ -147,7 +147,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_R
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPrivateCredentials
 ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec = {
@@ -160,7 +160,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec = {
   $: {
@@ -174,7 +174,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateLocalCredential
 ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec = {
@@ -188,7 +188,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec = {
   $: {
@@ -201,7 +201,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.nearby.presence.mojom.NearbyPresenceCredentialStoragePtr = ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemote;

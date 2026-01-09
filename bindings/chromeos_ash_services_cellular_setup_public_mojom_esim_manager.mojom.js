@@ -120,7 +120,7 @@ ash.cellular_setup.mojom.ESimManagerObserver.getRemote = function() {
     'ash.cellular_setup.mojom.ESimManagerObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAvailableEuiccListChanged
 ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec = {
@@ -133,7 +133,7 @@ ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnProfileListChanged
 ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec = {
@@ -147,7 +147,7 @@ ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnEuiccChanged
 ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec = {
@@ -161,7 +161,7 @@ ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnProfileChanged
 ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec = {
@@ -175,7 +175,7 @@ ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.cellular_setup.mojom.ESimManagerObserverPtr = ash.cellular_setup.mojom.ESimManagerObserverRemote;
@@ -243,7 +243,7 @@ ash.cellular_setup.mojom.ESimManager.getRemote = function() {
     'ash.cellular_setup.mojom.ESimManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddObserver
 ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec = {
@@ -257,7 +257,7 @@ ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAvailableEuiccs
 ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec = {
@@ -270,7 +270,7 @@ ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec = {
   $: {
@@ -283,7 +283,7 @@ ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.cellular_setup.mojom.ESimManagerPtr = ash.cellular_setup.mojom.ESimManagerRemote;
@@ -387,7 +387,7 @@ ash.cellular_setup.mojom.Euicc.getRemote = function() {
     'ash.cellular_setup.mojom.Euicc',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetProperties
 ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec = {
@@ -400,7 +400,7 @@ ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec = {
   $: {
@@ -413,7 +413,7 @@ ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetProfileList
 ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec = {
@@ -426,7 +426,7 @@ ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec = {
   $: {
@@ -439,7 +439,7 @@ ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestAvailableProfiles
 ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec = {
@@ -452,7 +452,7 @@ ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec = {
   $: {
@@ -466,7 +466,7 @@ ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RefreshInstalledProfiles
 ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec = {
@@ -479,7 +479,7 @@ ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec = {
   $: {
@@ -492,7 +492,7 @@ ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InstallProfileFromActivationCode
 ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec = {
@@ -508,7 +508,7 @@ ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec = {
   $: {
@@ -522,7 +522,7 @@ ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetEidQRCode
 ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec = {
@@ -535,7 +535,7 @@ ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec = {
   $: {
@@ -548,7 +548,7 @@ ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.cellular_setup.mojom.EuiccPtr = ash.cellular_setup.mojom.EuiccRemote;
@@ -634,7 +634,7 @@ ash.cellular_setup.mojom.ESimProfile.getRemote = function() {
     'ash.cellular_setup.mojom.ESimProfile',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetProperties
 ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec = {
@@ -647,7 +647,7 @@ ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec = {
   $: {
@@ -660,7 +660,7 @@ ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InstallProfile
 ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec = {
@@ -674,7 +674,7 @@ ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec = {
   $: {
@@ -687,7 +687,7 @@ ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UninstallProfile
 ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec = {
@@ -700,7 +700,7 @@ ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec = {
   $: {
@@ -713,7 +713,7 @@ ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetProfileNickname
 ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec = {
@@ -727,7 +727,7 @@ ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec = {
   $: {
@@ -740,7 +740,7 @@ ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.cellular_setup.mojom.ESimProfilePtr = ash.cellular_setup.mojom.ESimProfileRemote;

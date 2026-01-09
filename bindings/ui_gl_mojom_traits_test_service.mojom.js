@@ -70,7 +70,7 @@ gl.mojom.TraitsTestService.getRemote = function() {
     'gl.mojom.TraitsTestService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EchoGpuPreference
 gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec = {
@@ -84,7 +84,7 @@ gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoGLImplementationParts
 gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec = {
@@ -111,7 +111,7 @@ gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec = {
   $: {
@@ -124,7 +124,7 @@ gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 gl.mojom.TraitsTestServicePtr = gl.mojom.TraitsTestServiceRemote;

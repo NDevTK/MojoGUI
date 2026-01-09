@@ -53,7 +53,7 @@ chromeos.cdm.mojom.CdmStorage.getRemote = function() {
     'chromeos.cdm.mojom.CdmStorage',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cdm.mojom.CdmStoragePtr = chromeos.cdm.mojom.CdmStorageRemote;

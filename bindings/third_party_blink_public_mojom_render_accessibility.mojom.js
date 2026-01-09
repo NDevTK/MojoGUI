@@ -70,7 +70,7 @@ blink.mojom.RenderAccessibilityHost.getRemote = function() {
     'blink.mojom.RenderAccessibilityHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HandleAXEvents
 blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec = {
@@ -86,7 +86,7 @@ blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleAXLocationChanges
 blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec = {
@@ -101,7 +101,7 @@ blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RenderAccessibilityHostPtr = blink.mojom.RenderAccessibilityHostRemote;
@@ -196,7 +196,7 @@ blink.mojom.RenderAccessibility.getRemote = function() {
     'blink.mojom.RenderAccessibility',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetMode
 blink.mojom.RenderAccessibility_SetMode_ParamsSpec = {
@@ -211,7 +211,7 @@ blink.mojom.RenderAccessibility_SetMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FatalError
 blink.mojom.RenderAccessibility_FatalError_ParamsSpec = {
@@ -224,7 +224,7 @@ blink.mojom.RenderAccessibility_FatalError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HitTest
 blink.mojom.RenderAccessibility_HitTest_ParamsSpec = {
@@ -240,7 +240,7 @@ blink.mojom.RenderAccessibility_HitTest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec = {
   $: {
@@ -253,7 +253,7 @@ blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PerformAction
 blink.mojom.RenderAccessibility_PerformAction_ParamsSpec = {
@@ -267,7 +267,7 @@ blink.mojom.RenderAccessibility_PerformAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Reset
 blink.mojom.RenderAccessibility_Reset_ParamsSpec = {
@@ -281,7 +281,7 @@ blink.mojom.RenderAccessibility_Reset_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RenderAccessibilityPtr = blink.mojom.RenderAccessibilityRemote;

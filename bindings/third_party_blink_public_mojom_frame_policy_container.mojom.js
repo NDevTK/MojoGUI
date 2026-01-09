@@ -70,7 +70,7 @@ blink.mojom.PolicyContainerHost.getRemote = function() {
     'blink.mojom.PolicyContainerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetReferrerPolicy
 blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = {
@@ -84,7 +84,7 @@ blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddContentSecurityPolicies
 blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = {
@@ -98,7 +98,7 @@ blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PolicyContainerHostPtr = blink.mojom.PolicyContainerHostRemote;

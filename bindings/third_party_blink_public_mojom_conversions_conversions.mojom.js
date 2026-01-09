@@ -79,7 +79,7 @@ blink.mojom.AttributionHost.getRemote = function() {
     'blink.mojom.AttributionHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterDataHost
 blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = {
@@ -96,7 +96,7 @@ blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterNavigationDataHost
 blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = {
@@ -111,7 +111,7 @@ blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyNavigationWithBackgroundRegistrationsWillStart
 blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec = {
@@ -126,7 +126,7 @@ blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AttributionHostPtr = blink.mojom.AttributionHostRemote;

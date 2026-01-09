@@ -85,7 +85,7 @@ media.mojom.AudioEncoder.getRemote = function() {
     'media.mojom.AudioEncoder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Initialize
 media.mojom.AudioEncoder_Initialize_ParamsSpec = {
@@ -100,7 +100,7 @@ media.mojom.AudioEncoder_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.AudioEncoder_Initialize_ResponseParamsSpec = {
   $: {
@@ -113,7 +113,7 @@ media.mojom.AudioEncoder_Initialize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Encode
 media.mojom.AudioEncoder_Encode_ParamsSpec = {
@@ -127,7 +127,7 @@ media.mojom.AudioEncoder_Encode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.AudioEncoder_Encode_ResponseParamsSpec = {
   $: {
@@ -140,7 +140,7 @@ media.mojom.AudioEncoder_Encode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Flush
 media.mojom.AudioEncoder_Flush_ParamsSpec = {
@@ -153,7 +153,7 @@ media.mojom.AudioEncoder_Flush_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.AudioEncoder_Flush_ResponseParamsSpec = {
   $: {
@@ -166,7 +166,7 @@ media.mojom.AudioEncoder_Flush_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioEncoderPtr = media.mojom.AudioEncoderRemote;
@@ -225,7 +225,7 @@ media.mojom.AudioEncoderClient.getRemote = function() {
     'media.mojom.AudioEncoderClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnEncodedBufferReady
 media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec = {
@@ -240,7 +240,7 @@ media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioEncoderClientPtr = media.mojom.AudioEncoderClientRemote;

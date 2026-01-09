@@ -95,7 +95,7 @@ ash.diagnostics.mojom.RoutineRunner.getRemote = function() {
     'ash.diagnostics.mojom.RoutineRunner',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnRoutineResult
 ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = {
@@ -109,7 +109,7 @@ ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.RoutineRunnerPtr = ash.diagnostics.mojom.RoutineRunnerRemote;
@@ -177,7 +177,7 @@ ash.diagnostics.mojom.SystemRoutineController.getRemote = function() {
     'ash.diagnostics.mojom.SystemRoutineController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSupportedRoutines
 ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = {
@@ -190,7 +190,7 @@ ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec = {
   $: {
@@ -203,7 +203,7 @@ ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RunRoutine
 ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = {
@@ -218,7 +218,7 @@ ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.SystemRoutineControllerPtr = ash.diagnostics.mojom.SystemRoutineControllerRemote;

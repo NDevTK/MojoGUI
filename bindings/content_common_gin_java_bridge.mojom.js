@@ -91,7 +91,7 @@ content.mojom.GinJavaBridge.getRemote = function() {
     'content.mojom.GinJavaBridge',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddNamedObject
 content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec = {
@@ -107,7 +107,7 @@ content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveNamedObject
 content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec = {
@@ -121,7 +121,7 @@ content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHost
 content.mojom.GinJavaBridge_SetHost_ParamsSpec = {
@@ -135,7 +135,7 @@ content.mojom.GinJavaBridge_SetHost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.GinJavaBridgePtr = content.mojom.GinJavaBridgeRemote;
@@ -212,7 +212,7 @@ content.mojom.GinJavaBridgeRemoteObject.getRemote = function() {
     'content.mojom.GinJavaBridgeRemoteObject',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetMethods
 content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec = {
@@ -225,7 +225,7 @@ content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec = {
   $: {
@@ -238,7 +238,7 @@ content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HasMethod
 content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec = {
@@ -252,7 +252,7 @@ content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec = {
   $: {
@@ -265,7 +265,7 @@ content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InvokeMethod
 content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec = {
@@ -280,7 +280,7 @@ content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec = {
   $: {
@@ -294,7 +294,7 @@ content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.GinJavaBridgeRemoteObjectPtr = content.mojom.GinJavaBridgeRemoteObjectRemote;
@@ -362,7 +362,7 @@ content.mojom.GinJavaBridgeHost.getRemote = function() {
     'content.mojom.GinJavaBridgeHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetObject
 content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec = {
@@ -377,7 +377,7 @@ content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObjectWrapperDeleted
 content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec = {
@@ -391,7 +391,7 @@ content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.GinJavaBridgeHostPtr = content.mojom.GinJavaBridgeHostRemote;

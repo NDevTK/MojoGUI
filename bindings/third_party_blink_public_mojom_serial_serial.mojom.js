@@ -97,7 +97,7 @@ blink.mojom.SerialService.getRemote = function() {
     'blink.mojom.SerialService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetClient
 blink.mojom.SerialService_SetClient_ParamsSpec = {
@@ -111,7 +111,7 @@ blink.mojom.SerialService_SetClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPorts
 blink.mojom.SerialService_GetPorts_ParamsSpec = {
@@ -124,7 +124,7 @@ blink.mojom.SerialService_GetPorts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SerialService_GetPorts_ResponseParamsSpec = {
   $: {
@@ -137,7 +137,7 @@ blink.mojom.SerialService_GetPorts_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestPort
 blink.mojom.SerialService_RequestPort_ParamsSpec = {
@@ -152,7 +152,7 @@ blink.mojom.SerialService_RequestPort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SerialService_RequestPort_ResponseParamsSpec = {
   $: {
@@ -165,7 +165,7 @@ blink.mojom.SerialService_RequestPort_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenPort
 blink.mojom.SerialService_OpenPort_ParamsSpec = {
@@ -181,7 +181,7 @@ blink.mojom.SerialService_OpenPort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SerialService_OpenPort_ResponseParamsSpec = {
   $: {
@@ -194,7 +194,7 @@ blink.mojom.SerialService_OpenPort_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForgetPort
 blink.mojom.SerialService_ForgetPort_ParamsSpec = {
@@ -208,7 +208,7 @@ blink.mojom.SerialService_ForgetPort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SerialServicePtr = blink.mojom.SerialServiceRemote;
@@ -267,7 +267,7 @@ blink.mojom.SerialServiceClient.getRemote = function() {
     'blink.mojom.SerialServiceClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPortConnectedStateChanged
 blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec = {
@@ -281,7 +281,7 @@ blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SerialServiceClientPtr = blink.mojom.SerialServiceClientRemote;

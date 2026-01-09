@@ -94,7 +94,7 @@ chromeos.machine_learning.mojom.SodaClient.getRemote = function() {
     'chromeos.machine_learning.mojom.SodaClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.machine_learning.mojom.SodaClientPtr = chromeos.machine_learning.mojom.SodaClientRemote;
@@ -144,7 +144,7 @@ chromeos.machine_learning.mojom.SodaRecognizer.getRemote = function() {
     'chromeos.machine_learning.mojom.SodaRecognizer',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.machine_learning.mojom.SodaRecognizerPtr = chromeos.machine_learning.mojom.SodaRecognizerRemote;

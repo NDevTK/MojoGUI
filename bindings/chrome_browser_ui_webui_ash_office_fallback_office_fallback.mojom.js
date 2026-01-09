@@ -70,7 +70,7 @@ ash.office_fallback.mojom.PageHandlerFactory.getRemote = function() {
     'ash.office_fallback.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -84,7 +84,7 @@ ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.office_fallback.mojom.PageHandlerFactoryPtr = ash.office_fallback.mojom.PageHandlerFactoryRemote;
@@ -143,7 +143,7 @@ ash.office_fallback.mojom.PageHandler.getRemote = function() {
     'ash.office_fallback.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Close
 ash.office_fallback.mojom.PageHandler_Close_ParamsSpec = {
@@ -157,7 +157,7 @@ ash.office_fallback.mojom.PageHandler_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.office_fallback.mojom.PageHandlerPtr = ash.office_fallback.mojom.PageHandlerRemote;

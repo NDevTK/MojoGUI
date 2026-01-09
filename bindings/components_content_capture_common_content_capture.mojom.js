@@ -88,7 +88,7 @@ content_capture.mojom.ContentCaptureReceiver.getRemote = function() {
     'content_capture.mojom.ContentCaptureReceiver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidCompleteBatchCaptureContent
 content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec = {
@@ -101,7 +101,7 @@ content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidCaptureContent
 content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec = {
@@ -116,7 +116,7 @@ content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidUpdateContent
 content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec = {
@@ -130,7 +130,7 @@ content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidRemoveContent
 content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec = {
@@ -144,7 +144,7 @@ content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content_capture.mojom.ContentCaptureReceiverPtr = content_capture.mojom.ContentCaptureReceiverRemote;
@@ -212,7 +212,7 @@ content_capture.mojom.ContentCaptureSender.getRemote = function() {
     'content_capture.mojom.ContentCaptureSender',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartCapture
 content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec = {
@@ -225,7 +225,7 @@ content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopCapture
 content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec = {
@@ -238,7 +238,7 @@ content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content_capture.mojom.ContentCaptureSenderPtr = content_capture.mojom.ContentCaptureSenderRemote;

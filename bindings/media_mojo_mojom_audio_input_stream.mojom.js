@@ -81,7 +81,7 @@ media.mojom.AudioInputStream.getRemote = function() {
     'media.mojom.AudioInputStream',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Record
 media.mojom.AudioInputStream_Record_ParamsSpec = {
@@ -94,7 +94,7 @@ media.mojom.AudioInputStream_Record_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVolume
 media.mojom.AudioInputStream_SetVolume_ParamsSpec = {
@@ -108,7 +108,7 @@ media.mojom.AudioInputStream_SetVolume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioInputStreamPtr = media.mojom.AudioInputStreamRemote;
@@ -176,7 +176,7 @@ media.mojom.AudioInputStreamClient.getRemote = function() {
     'media.mojom.AudioInputStreamClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnError
 media.mojom.AudioInputStreamClient_OnError_ParamsSpec = {
@@ -190,7 +190,7 @@ media.mojom.AudioInputStreamClient_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMutedStateChanged
 media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec = {
@@ -204,7 +204,7 @@ media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioInputStreamClientPtr = media.mojom.AudioInputStreamClientRemote;
@@ -263,7 +263,7 @@ media.mojom.AudioInputStreamObserver.getRemote = function() {
     'media.mojom.AudioInputStreamObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidStartRecording
 media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec = {
@@ -276,7 +276,7 @@ media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioInputStreamObserverPtr = media.mojom.AudioInputStreamObserverRemote;

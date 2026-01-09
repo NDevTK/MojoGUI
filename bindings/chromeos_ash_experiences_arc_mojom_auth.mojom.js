@@ -162,7 +162,7 @@ arc.mojom.AuthHost.getRemote = function() {
     'arc.mojom.AuthHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.AuthHostPtr = arc.mojom.AuthHostRemote;
@@ -212,7 +212,7 @@ arc.mojom.AuthInstance.getRemote = function() {
     'arc.mojom.AuthInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.AuthInstancePtr = arc.mojom.AuthInstanceRemote;

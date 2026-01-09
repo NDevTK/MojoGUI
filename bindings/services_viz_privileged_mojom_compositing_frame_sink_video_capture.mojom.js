@@ -77,7 +77,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacks.getRemote = function() {
     'viz.mojom.FrameSinkVideoConsumerFrameCallbacks',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Done
 viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec = {
@@ -90,7 +90,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ProvideFeedback
 viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec = {
@@ -104,7 +104,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.FrameSinkVideoConsumerFrameCallbacksPtr = viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemote;
@@ -199,7 +199,7 @@ viz.mojom.FrameSinkVideoConsumer.getRemote = function() {
     'viz.mojom.FrameSinkVideoConsumer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnFrameCaptured
 viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec = {
@@ -216,7 +216,7 @@ viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNewCaptureVersion
 viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec = {
@@ -230,7 +230,7 @@ viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameWithEmptyRegionCapture
 viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec = {
@@ -243,7 +243,7 @@ viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStopped
 viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec = {
@@ -256,7 +256,7 @@ viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLog
 viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec = {
@@ -270,7 +270,7 @@ viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.FrameSinkVideoConsumerPtr = viz.mojom.FrameSinkVideoConsumerRemote;
@@ -419,7 +419,7 @@ viz.mojom.FrameSinkVideoCapturer.getRemote = function() {
     'viz.mojom.FrameSinkVideoCapturer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetFormat
 viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec = {
@@ -433,7 +433,7 @@ viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMinCapturePeriod
 viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec = {
@@ -447,7 +447,7 @@ viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMinSizeChangePeriod
 viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec = {
@@ -461,7 +461,7 @@ viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetResolutionConstraints
 viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec = {
@@ -477,7 +477,7 @@ viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAutoThrottlingEnabled
 viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec = {
@@ -491,7 +491,7 @@ viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAnimationFpsLockIn
 viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec = {
@@ -506,7 +506,7 @@ viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ChangeTarget
 viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec = {
@@ -521,7 +521,7 @@ viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Start
 viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec = {
@@ -536,7 +536,7 @@ viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Stop
 viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec = {
@@ -549,7 +549,7 @@ viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestRefreshFrame
 viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec = {
@@ -562,7 +562,7 @@ viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateOverlay
 viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec = {
@@ -577,7 +577,7 @@ viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.FrameSinkVideoCapturerPtr = viz.mojom.FrameSinkVideoCapturerRemote;
@@ -654,7 +654,7 @@ viz.mojom.FrameSinkVideoCaptureOverlay.getRemote = function() {
     'viz.mojom.FrameSinkVideoCaptureOverlay',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetImageAndBounds
 viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec = {
@@ -669,7 +669,7 @@ viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBounds
 viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec = {
@@ -683,7 +683,7 @@ viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCapturedMouseEvent
 viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec = {
@@ -697,7 +697,7 @@ viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.FrameSinkVideoCaptureOverlayPtr = viz.mojom.FrameSinkVideoCaptureOverlayRemote;

@@ -52,7 +52,7 @@ crosapi.mojom.TelemetryManagementService.getRemote = function() {
     'crosapi.mojom.TelemetryManagementService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.TelemetryManagementServicePtr = crosapi.mojom.TelemetryManagementServiceRemote;

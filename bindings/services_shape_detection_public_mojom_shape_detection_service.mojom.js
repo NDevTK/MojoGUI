@@ -79,7 +79,7 @@ shape_detection.mojom.ShapeDetectionService.getRemote = function() {
     'shape_detection.mojom.ShapeDetectionService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindBarcodeDetectionProvider
 shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec = {
@@ -93,7 +93,7 @@ shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindFaceDetectionProvider
 shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec = {
@@ -107,7 +107,7 @@ shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindTextDetection
 shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec = {
@@ -121,7 +121,7 @@ shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 shape_detection.mojom.ShapeDetectionServicePtr = shape_detection.mojom.ShapeDetectionServiceRemote;

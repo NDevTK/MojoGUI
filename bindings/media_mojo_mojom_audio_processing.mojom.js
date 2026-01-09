@@ -70,7 +70,7 @@ media.mojom.AudioProcessorControls.getRemote = function() {
     'media.mojom.AudioProcessorControls',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetStats
 media.mojom.AudioProcessorControls_GetStats_ParamsSpec = {
@@ -83,7 +83,7 @@ media.mojom.AudioProcessorControls_GetStats_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec = {
   $: {
@@ -96,7 +96,7 @@ media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPreferredNumCaptureChannels
 media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec = {
@@ -110,7 +110,7 @@ media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioProcessorControlsPtr = media.mojom.AudioProcessorControlsRemote;

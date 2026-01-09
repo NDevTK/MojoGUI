@@ -519,7 +519,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost.getRemote = function() {
     'remote_cocoa.mojom.NativeWidgetNSWindowHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnVisibilityChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnVisibilityChanged_ParamsSpec = {
@@ -533,7 +533,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnVisibilityChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSpaceActivationChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSpaceActivationChanged_ParamsSpec = {
@@ -547,7 +547,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSpaceActivationChanged_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowNativeThemeChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowNativeThemeChanged_ParamsSpec = {
@@ -560,7 +560,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowNativeThemeChanged_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnViewSizeChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnViewSizeChanged_ParamsSpec = {
@@ -574,7 +574,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnViewSizeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSheetOffsetY
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ParamsSpec = {
@@ -587,7 +587,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ResponseParamsSpec = {
   $: {
@@ -600,7 +600,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetKeyboardAccessible
 remote_cocoa.mojom.NativeWidgetNSWindowHost_SetKeyboardAccessible_ParamsSpec = {
@@ -614,7 +614,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_SetKeyboardAccessible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnIsFirstResponderChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnIsFirstResponderChanged_ParamsSpec = {
@@ -628,7 +628,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnIsFirstResponderChanged_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMouseCaptureActiveChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseCaptureActiveChanged_ParamsSpec = {
@@ -642,7 +642,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseCaptureActiveChanged_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnScrollEvent
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnScrollEvent_ParamsSpec = {
@@ -656,7 +656,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnScrollEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMouseEvent
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseEvent_ParamsSpec = {
@@ -670,7 +670,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnGestureEvent
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnGestureEvent_ParamsSpec = {
@@ -684,7 +684,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnGestureEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchKeyEventRemote
 remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ParamsSpec = {
@@ -698,7 +698,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ResponseParamsSpec = {
   $: {
@@ -711,7 +711,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchKeyEventToMenuControllerRemote
 remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ParamsSpec = {
@@ -725,7 +725,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ResponseParamsSpec = {
   $: {
@@ -739,7 +739,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchMonitorEvent
 remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ParamsSpec = {
@@ -754,7 +754,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ResponseParamsSpec = {
   $: {
@@ -767,7 +767,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetHasMenuController
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ParamsSpec = {
@@ -780,7 +780,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ResponseParamsSpec = {
   $: {
@@ -793,7 +793,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetHitTestResult
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ParamsSpec = {
@@ -807,7 +807,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec = {
   $: {
@@ -820,7 +820,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTooltipTextAt
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ParamsSpec = {
@@ -834,7 +834,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParamsSpec = {
   $: {
@@ -847,7 +847,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetWidgetIsModal
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ParamsSpec = {
@@ -860,7 +860,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ResponseParamsSpec = {
   $: {
@@ -873,7 +873,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetIsFocusedViewTextual
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ParamsSpec = {
@@ -886,7 +886,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ResponseParamsSpec = {
   $: {
@@ -899,7 +899,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowGeometryChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowGeometryChanged_ParamsSpec = {
@@ -914,7 +914,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowGeometryChanged_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowWillStartLiveResize
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillStartLiveResize_ParamsSpec = {
@@ -927,7 +927,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillStartLiveResize_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowDidEndLiveResize
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDidEndLiveResize_ParamsSpec = {
@@ -940,7 +940,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDidEndLiveResize_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowFullscreenTransitionStart
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionStart_ParamsSpec = {
@@ -954,7 +954,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionStart_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowFullscreenTransitionComplete
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionComplete_ParamsSpec = {
@@ -968,7 +968,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionComplete
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowMiniaturizedChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowMiniaturizedChanged_ParamsSpec = {
@@ -982,7 +982,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowMiniaturizedChanged_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowZoomedChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowZoomedChanged_ParamsSpec = {
@@ -996,7 +996,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowZoomedChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowDisplayChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDisplayChanged_ParamsSpec = {
@@ -1010,7 +1010,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDisplayChanged_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowWillClose
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillClose_ParamsSpec = {
@@ -1023,7 +1023,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillClose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowHasClosed
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowHasClosed_ParamsSpec = {
@@ -1036,7 +1036,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowHasClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowKeyStatusChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowKeyStatusChanged_ParamsSpec = {
@@ -1052,7 +1052,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowKeyStatusChanged_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowStateRestorationDataChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowStateRestorationDataChanged_ParamsSpec = {
@@ -1066,7 +1066,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowStateRestorationDataChanged_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSheetModalShown
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalShown_ParamsSpec = {
@@ -1079,7 +1079,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalShown_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSheetModalClosed
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalClosed_ParamsSpec = {
@@ -1092,7 +1092,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnImmersiveFullscreenToolbarRevealChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenToolbarRevealChanged_ParamsSpec = {
@@ -1106,7 +1106,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenToolbarRevealCh
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnImmersiveFullscreenMenuBarRevealChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenMenuBarRevealChanged_ParamsSpec = {
@@ -1120,7 +1120,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenMenuBarRevealCh
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAutohidingMenuBarHeightChanged
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnAutohidingMenuBarHeightChanged_ParamsSpec = {
@@ -1134,7 +1134,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnAutohidingMenuBarHeightChanged_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DoDialogButtonAction
 remote_cocoa.mojom.NativeWidgetNSWindowHost_DoDialogButtonAction_ParamsSpec = {
@@ -1148,7 +1148,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_DoDialogButtonAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDialogButtonInfo
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ParamsSpec = {
@@ -1162,7 +1162,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSpec = {
   $: {
@@ -1178,7 +1178,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDoDialogButtonsExist
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ParamsSpec = {
@@ -1191,7 +1191,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ResponseParamsSpec = {
   $: {
@@ -1204,7 +1204,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetShouldShowWindowTitle
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ParamsSpec = {
@@ -1217,7 +1217,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ResponseParamsSpec = {
   $: {
@@ -1230,7 +1230,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCanWindowBecomeKey
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ParamsSpec = {
@@ -1243,7 +1243,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ResponseParamsSpec = {
   $: {
@@ -1256,7 +1256,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAlwaysRenderWindowAsKey
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ParamsSpec = {
@@ -1269,7 +1269,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ResponseParamsSpec = {
   $: {
@@ -1282,7 +1282,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowCloseRequested
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ParamsSpec = {
@@ -1295,7 +1295,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ResponseParamsSpec = {
   $: {
@@ -1308,7 +1308,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetWindowFrameTitlebarHeight
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ParamsSpec = {
@@ -1321,7 +1321,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ResponseParamsSpec = {
   $: {
@@ -1335,7 +1335,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFocusWindowToolbar
 remote_cocoa.mojom.NativeWidgetNSWindowHost_OnFocusWindowToolbar_ParamsSpec = {
@@ -1348,7 +1348,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnFocusWindowToolbar_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetRemoteAccessibilityTokens
 remote_cocoa.mojom.NativeWidgetNSWindowHost_SetRemoteAccessibilityTokens_ParamsSpec = {
@@ -1363,7 +1363,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_SetRemoteAccessibilityTokens_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRootViewAccessibilityToken
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ParamsSpec = {
@@ -1376,7 +1376,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ResponseParamsSpec = {
   $: {
@@ -1390,7 +1390,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ValidateUserInterfaceItem
 remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ParamsSpec = {
@@ -1404,7 +1404,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParamsSpec = {
   $: {
@@ -1417,7 +1417,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WillExecuteCommand
 remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ParamsSpec = {
@@ -1433,7 +1433,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ResponseParamsSpec = {
   $: {
@@ -1446,7 +1446,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteCommand
 remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ParamsSpec = {
@@ -1462,7 +1462,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ResponseParamsSpec = {
   $: {
@@ -1475,7 +1475,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleAccelerator
 remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ParamsSpec = {
@@ -1490,7 +1490,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ResponseParamsSpec = {
   $: {
@@ -1503,7 +1503,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remote_cocoa.mojom.NativeWidgetNSWindowHostPtr = remote_cocoa.mojom.NativeWidgetNSWindowHostRemote;

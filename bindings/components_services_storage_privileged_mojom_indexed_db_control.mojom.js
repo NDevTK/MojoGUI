@@ -77,7 +77,7 @@ storage.mojom.IndexedDBObserver.getRemote = function() {
     'storage.mojom.IndexedDBObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnIndexedDBListChanged
 storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec = {
@@ -91,7 +91,7 @@ storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnIndexedDBContentChanged
 storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec = {
@@ -107,7 +107,7 @@ storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.IndexedDBObserverPtr = storage.mojom.IndexedDBObserverRemote;
@@ -247,7 +247,7 @@ storage.mojom.IndexedDBControl.getRemote = function() {
     'storage.mojom.IndexedDBControl',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindIndexedDB
 storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec = {
@@ -264,7 +264,7 @@ storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForceClose
 storage.mojom.IndexedDBControl_ForceClose_ParamsSpec = {
@@ -279,7 +279,7 @@ storage.mojom.IndexedDBControl_ForceClose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DownloadBucketData
 storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec = {
@@ -293,7 +293,7 @@ storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec = {
   $: {
@@ -308,7 +308,7 @@ storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllBucketsDetails
 storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec = {
@@ -321,7 +321,7 @@ storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec = {
   $: {
@@ -335,7 +335,7 @@ storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartMetadataRecording
 storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec = {
@@ -349,7 +349,7 @@ storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopMetadataRecording
 storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec = {
@@ -363,7 +363,7 @@ storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec = {
   $: {
@@ -376,7 +376,7 @@ storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetForceKeepSessionState
 storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec = {
@@ -389,7 +389,7 @@ storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddObserver
 storage.mojom.IndexedDBControl_AddObserver_ParamsSpec = {
@@ -403,7 +403,7 @@ storage.mojom.IndexedDBControl_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ApplyPolicyUpdates
 storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec = {
@@ -417,7 +417,7 @@ storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindTestInterfaceForTesting
 storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec = {
@@ -431,7 +431,7 @@ storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.IndexedDBControlPtr = storage.mojom.IndexedDBControlRemote;

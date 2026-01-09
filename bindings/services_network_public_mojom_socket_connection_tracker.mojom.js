@@ -52,7 +52,7 @@ network.mojom.SocketConnectionTracker.getRemote = function() {
     'network.mojom.SocketConnectionTracker',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 network.mojom.SocketConnectionTrackerPtr = network.mojom.SocketConnectionTrackerRemote;

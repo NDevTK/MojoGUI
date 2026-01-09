@@ -61,7 +61,7 @@ web_cache.mojom.WebCache.getRemote = function() {
     'web_cache.mojom.WebCache',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ClearCache
 web_cache.mojom.WebCache_ClearCache_ParamsSpec = {
@@ -75,7 +75,7 @@ web_cache.mojom.WebCache_ClearCache_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 web_cache.mojom.WebCachePtr = web_cache.mojom.WebCacheRemote;

@@ -61,7 +61,7 @@ pdf.mojom.PdfSearchifier.getRemote = function() {
     'pdf.mojom.PdfSearchifier',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Searchify
 pdf.mojom.PdfSearchifier_Searchify_ParamsSpec = {
@@ -75,7 +75,7 @@ pdf.mojom.PdfSearchifier_Searchify_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 pdf.mojom.PdfSearchifierPtr = pdf.mojom.PdfSearchifierRemote;

@@ -70,7 +70,7 @@ bookmark_bar.mojom.PageHandlerFactory.getRemote = function() {
     'bookmark_bar.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -85,7 +85,7 @@ bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 bookmark_bar.mojom.PageHandlerFactoryPtr = bookmark_bar.mojom.PageHandlerFactoryRemote;
@@ -153,7 +153,7 @@ bookmark_bar.mojom.PageHandler.getRemote = function() {
     'bookmark_bar.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetBookmarkBar
 bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec = {
@@ -166,7 +166,7 @@ bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec = {
   $: {
@@ -179,7 +179,7 @@ bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenInNewTab
 bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec = {
@@ -193,7 +193,7 @@ bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 bookmark_bar.mojom.PageHandlerPtr = bookmark_bar.mojom.PageHandlerRemote;
@@ -279,7 +279,7 @@ bookmark_bar.mojom.Page.getRemote = function() {
     'bookmark_bar.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BookmarkLoaded
 bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec = {
@@ -292,7 +292,7 @@ bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FavIconChanged
 bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec = {
@@ -306,7 +306,7 @@ bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Show
 bookmark_bar.mojom.Page_Show_ParamsSpec = {
@@ -319,7 +319,7 @@ bookmark_bar.mojom.Page_Show_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Hide
 bookmark_bar.mojom.Page_Hide_ParamsSpec = {
@@ -332,7 +332,7 @@ bookmark_bar.mojom.Page_Hide_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 bookmark_bar.mojom.PagePtr = bookmark_bar.mojom.PageRemote;

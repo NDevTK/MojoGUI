@@ -80,7 +80,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandler.getRemote = function() {
     'ntp.authentication.mojom.MicrosoftAuthPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DismissModule
 ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec = {
@@ -93,7 +93,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestoreModule
 ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec = {
@@ -106,7 +106,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShouldShowModule
 ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec = {
@@ -119,7 +119,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec = {
   $: {
@@ -132,7 +132,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ntp.authentication.mojom.MicrosoftAuthPageHandlerPtr = ntp.authentication.mojom.MicrosoftAuthPageHandlerRemote;

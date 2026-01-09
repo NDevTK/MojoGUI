@@ -69,7 +69,7 @@ network.mojom.P2PNetworkNotificationClient.getRemote = function() {
     'network.mojom.P2PNetworkNotificationClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NetworkListChanged
 network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec = {
@@ -85,7 +85,7 @@ network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.P2PNetworkNotificationClientPtr = network.mojom.P2PNetworkNotificationClientRemote;
@@ -162,7 +162,7 @@ network.mojom.P2PSocketManager.getRemote = function() {
     'network.mojom.P2PSocketManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartNetworkNotifications
 network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec = {
@@ -176,7 +176,7 @@ network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetHostAddress
 network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec = {
@@ -192,7 +192,7 @@ network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec = {
   $: {
@@ -205,7 +205,7 @@ network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateSocket
 network.mojom.P2PSocketManager_CreateSocket_ParamsSpec = {
@@ -226,7 +226,7 @@ network.mojom.P2PSocketManager_CreateSocket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.P2PSocketManagerPtr = network.mojom.P2PSocketManagerRemote;
@@ -303,7 +303,7 @@ network.mojom.P2PSocket.getRemote = function() {
     'network.mojom.P2PSocket',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Send
 network.mojom.P2PSocket_Send_ParamsSpec = {
@@ -318,7 +318,7 @@ network.mojom.P2PSocket_Send_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendBatch
 network.mojom.P2PSocket_SendBatch_ParamsSpec = {
@@ -332,7 +332,7 @@ network.mojom.P2PSocket_SendBatch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetOption
 network.mojom.P2PSocket_SetOption_ParamsSpec = {
@@ -347,7 +347,7 @@ network.mojom.P2PSocket_SetOption_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.P2PSocketPtr = network.mojom.P2PSocketRemote;
@@ -433,7 +433,7 @@ network.mojom.P2PSocketClient.getRemote = function() {
     'network.mojom.P2PSocketClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SocketCreated
 network.mojom.P2PSocketClient_SocketCreated_ParamsSpec = {
@@ -448,7 +448,7 @@ network.mojom.P2PSocketClient_SocketCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendComplete
 network.mojom.P2PSocketClient_SendComplete_ParamsSpec = {
@@ -462,7 +462,7 @@ network.mojom.P2PSocketClient_SendComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendBatchComplete
 network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec = {
@@ -476,7 +476,7 @@ network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DataReceived
 network.mojom.P2PSocketClient_DataReceived_ParamsSpec = {
@@ -490,7 +490,7 @@ network.mojom.P2PSocketClient_DataReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.P2PSocketClientPtr = network.mojom.P2PSocketClientRemote;

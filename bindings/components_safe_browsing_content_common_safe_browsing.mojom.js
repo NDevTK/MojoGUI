@@ -121,7 +121,7 @@ safe_browsing.mojom.SafeBrowsing.getRemote = function() {
     'safe_browsing.mojom.SafeBrowsing',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateCheckerAndCheck
 safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec = {
@@ -142,7 +142,7 @@ safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec = {
   $: {
@@ -156,7 +156,7 @@ safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec = {
@@ -170,7 +170,7 @@ safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 safe_browsing.mojom.SafeBrowsingPtr = safe_browsing.mojom.SafeBrowsingRemote;
@@ -229,7 +229,7 @@ safe_browsing.mojom.ThreatReporter.getRemote = function() {
     'safe_browsing.mojom.ThreatReporter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetThreatDOMDetails
 safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec = {
@@ -242,7 +242,7 @@ safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec = {
   $: {
@@ -255,7 +255,7 @@ safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 safe_browsing.mojom.ThreatReporterPtr = safe_browsing.mojom.ThreatReporterRemote;
@@ -314,7 +314,7 @@ safe_browsing.mojom.PhishingDetector.getRemote = function() {
     'safe_browsing.mojom.PhishingDetector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartPhishingDetection
 safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec = {
@@ -329,7 +329,7 @@ safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec = {
   $: {
@@ -343,7 +343,7 @@ safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 safe_browsing.mojom.PhishingDetectorPtr = safe_browsing.mojom.PhishingDetectorRemote;
@@ -438,7 +438,7 @@ safe_browsing.mojom.PhishingModelSetter.getRemote = function() {
     'safe_browsing.mojom.PhishingModelSetter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetImageEmbeddingAndPhishingFlatBufferModel
 safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec = {
@@ -454,7 +454,7 @@ safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferMo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AttachImageEmbeddingModel
 safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec = {
@@ -468,7 +468,7 @@ safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPhishingFlatBufferModel
 safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec = {
@@ -483,7 +483,7 @@ safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearScorer
 safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec = {
@@ -496,7 +496,7 @@ safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTestObserver
 safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec = {
@@ -510,7 +510,7 @@ safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 safe_browsing.mojom.PhishingModelSetterPtr = safe_browsing.mojom.PhishingModelSetterRemote;
@@ -569,7 +569,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserver.getRemote = function() {
     'safe_browsing.mojom.PhishingModelSetterTestObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PhishingModelUpdated
 safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec = {
@@ -582,7 +582,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 safe_browsing.mojom.PhishingModelSetterTestObserverPtr = safe_browsing.mojom.PhishingModelSetterTestObserverRemote;
@@ -641,7 +641,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetector.getRemote = function() {
     'safe_browsing.mojom.PhishingImageEmbedderDetector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartImageEmbedding
 safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec = {
@@ -655,7 +655,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec = {
   $: {
@@ -669,7 +669,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 safe_browsing.mojom.PhishingImageEmbedderDetectorPtr = safe_browsing.mojom.PhishingImageEmbedderDetectorRemote;
@@ -737,7 +737,7 @@ safe_browsing.mojom.ExtensionWebRequestReporter.getRemote = function() {
     'safe_browsing.mojom.ExtensionWebRequestReporter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendWebRequestData
 safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec = {
@@ -754,7 +754,7 @@ safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec = {
@@ -768,7 +768,7 @@ safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 safe_browsing.mojom.ExtensionWebRequestReporterPtr = safe_browsing.mojom.ExtensionWebRequestReporterRemote;

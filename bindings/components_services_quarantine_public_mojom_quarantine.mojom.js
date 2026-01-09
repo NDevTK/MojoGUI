@@ -72,7 +72,7 @@ quarantine.mojom.Quarantine.getRemote = function() {
     'quarantine.mojom.Quarantine',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for QuarantineFile
 quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec = {
@@ -90,7 +90,7 @@ quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec = {
   $: {
@@ -103,7 +103,7 @@ quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 quarantine.mojom.QuarantinePtr = quarantine.mojom.QuarantineRemote;

@@ -61,7 +61,7 @@ blink.mojom.RendererPreferenceWatcher.getRemote = function() {
     'blink.mojom.RendererPreferenceWatcher',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NotifyUpdate
 blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.RendererPreferenceWatcherPtr = blink.mojom.RendererPreferenceWatcherRemote;

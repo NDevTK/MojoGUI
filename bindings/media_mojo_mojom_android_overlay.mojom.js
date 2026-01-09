@@ -61,7 +61,7 @@ media.mojom.AndroidOverlayProvider.getRemote = function() {
     'media.mojom.AndroidOverlayProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateOverlay
 media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec = {
@@ -77,7 +77,7 @@ media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AndroidOverlayProviderPtr = media.mojom.AndroidOverlayProviderRemote;
@@ -136,7 +136,7 @@ media.mojom.AndroidOverlay.getRemote = function() {
     'media.mojom.AndroidOverlay',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ScheduleLayout
 media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec = {
@@ -150,7 +150,7 @@ media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AndroidOverlayPtr = media.mojom.AndroidOverlayRemote;
@@ -236,7 +236,7 @@ media.mojom.AndroidOverlayClient.getRemote = function() {
     'media.mojom.AndroidOverlayClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSurfaceReady
 media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec = {
@@ -250,7 +250,7 @@ media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDestroyed
 media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec = {
@@ -263,7 +263,7 @@ media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSynchronouslyDestroyed
 media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec = {
@@ -276,7 +276,7 @@ media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPowerEfficientState
 media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec = {
@@ -290,7 +290,7 @@ media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AndroidOverlayClientPtr = media.mojom.AndroidOverlayClientRemote;

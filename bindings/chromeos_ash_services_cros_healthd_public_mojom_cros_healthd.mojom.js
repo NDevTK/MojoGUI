@@ -53,7 +53,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.getRemote = function() {
     'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsServicePtr = ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemote;
@@ -103,7 +103,7 @@ ash.cros_healthd.mojom.CrosHealthdEventService.getRemote = function() {
     'ash.cros_healthd.mojom.CrosHealthdEventService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.CrosHealthdEventServicePtr = ash.cros_healthd.mojom.CrosHealthdEventServiceRemote;
@@ -153,7 +153,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeService.getRemote = function() {
     'ash.cros_healthd.mojom.CrosHealthdProbeService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.CrosHealthdProbeServicePtr = ash.cros_healthd.mojom.CrosHealthdProbeServiceRemote;

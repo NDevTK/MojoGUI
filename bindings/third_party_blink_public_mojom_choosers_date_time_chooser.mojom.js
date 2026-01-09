@@ -70,7 +70,7 @@ blink.mojom.DateTimeChooser.getRemote = function() {
     'blink.mojom.DateTimeChooser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenDateTimeDialog
 blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = {
@@ -84,7 +84,7 @@ blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseDateTimeDialog
 blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec = {
@@ -111,7 +111,7 @@ blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DateTimeChooserPtr = blink.mojom.DateTimeChooserRemote;

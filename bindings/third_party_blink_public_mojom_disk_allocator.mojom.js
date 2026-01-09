@@ -61,7 +61,7 @@ blink.mojom.DiskAllocator.getRemote = function() {
     'blink.mojom.DiskAllocator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ProvideTemporaryFile
 blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DiskAllocatorPtr = blink.mojom.DiskAllocatorRemote;

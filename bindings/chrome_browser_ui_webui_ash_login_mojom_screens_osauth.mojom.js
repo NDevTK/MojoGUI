@@ -89,7 +89,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.getRemote = function() 
     'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPowerwash
 ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec = {
@@ -102,7 +102,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRecreateUser
 ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec = {
@@ -115,7 +115,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCancel
 ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec = {
@@ -128,7 +128,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBack
 ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec = {
@@ -141,7 +141,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPtr = ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemote;

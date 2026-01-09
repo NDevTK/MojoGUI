@@ -61,7 +61,7 @@ userspace_swap.mojom.UserspaceSwapInitialization.getRemote = function() {
     'userspace_swap.mojom.UserspaceSwapInitialization',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for TransferUserfaultFD
 userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec = {
@@ -78,7 +78,7 @@ userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 userspace_swap.mojom.UserspaceSwapInitializationPtr = userspace_swap.mojom.UserspaceSwapInitializationRemote;
@@ -155,7 +155,7 @@ userspace_swap.mojom.UserspaceSwap.getRemote = function() {
     'userspace_swap.mojom.UserspaceSwap',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for MovePTEsLeavingMapping
 userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec = {
@@ -170,7 +170,7 @@ userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MapArea
 userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec = {
@@ -184,7 +184,7 @@ userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPartitionAllocSuperPagesUsed
 userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec = {
@@ -198,7 +198,7 @@ userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec = {
   $: {
@@ -211,7 +211,7 @@ userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 userspace_swap.mojom.UserspaceSwapPtr = userspace_swap.mojom.UserspaceSwapRemote;

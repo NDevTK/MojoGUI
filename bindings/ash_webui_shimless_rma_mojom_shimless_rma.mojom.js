@@ -311,7 +311,7 @@ ash.shimless_rma.mojom.ErrorObserver.getRemote = function() {
     'ash.shimless_rma.mojom.ErrorObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnError
 ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec = {
@@ -325,7 +325,7 @@ ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shimless_rma.mojom.ErrorObserverPtr = ash.shimless_rma.mojom.ErrorObserverRemote;
@@ -384,7 +384,7 @@ ash.shimless_rma.mojom.OsUpdateObserver.getRemote = function() {
     'ash.shimless_rma.mojom.OsUpdateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnOsUpdateProgressUpdated
 ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec = {
@@ -400,7 +400,7 @@ ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shimless_rma.mojom.OsUpdateObserverPtr = ash.shimless_rma.mojom.OsUpdateObserverRemote;
@@ -468,7 +468,7 @@ ash.shimless_rma.mojom.CalibrationObserver.getRemote = function() {
     'ash.shimless_rma.mojom.CalibrationObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCalibrationUpdated
 ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec = {
@@ -482,7 +482,7 @@ ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCalibrationStepComplete
 ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec = {
@@ -496,7 +496,7 @@ ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shimless_rma.mojom.CalibrationObserverPtr = ash.shimless_rma.mojom.CalibrationObserverRemote;
@@ -555,7 +555,7 @@ ash.shimless_rma.mojom.ProvisioningObserver.getRemote = function() {
     'ash.shimless_rma.mojom.ProvisioningObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnProvisioningUpdated
 ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec = {
@@ -571,7 +571,7 @@ ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shimless_rma.mojom.ProvisioningObserverPtr = ash.shimless_rma.mojom.ProvisioningObserverRemote;
@@ -630,7 +630,7 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver.getRemote = function
     'ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnHardwareWriteProtectionStateChanged
 ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec = {
@@ -644,7 +644,7 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProte
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverPtr = ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemote;
@@ -703,7 +703,7 @@ ash.shimless_rma.mojom.PowerCableStateObserver.getRemote = function() {
     'ash.shimless_rma.mojom.PowerCableStateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPowerCableStateChanged
 ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec = {
@@ -717,7 +717,7 @@ ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shimless_rma.mojom.PowerCableStateObserverPtr = ash.shimless_rma.mojom.PowerCableStateObserverRemote;
@@ -776,7 +776,7 @@ ash.shimless_rma.mojom.ExternalDiskStateObserver.getRemote = function() {
     'ash.shimless_rma.mojom.ExternalDiskStateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnExternalDiskStateChanged
 ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec = {
@@ -790,7 +790,7 @@ ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shimless_rma.mojom.ExternalDiskStateObserverPtr = ash.shimless_rma.mojom.ExternalDiskStateObserverRemote;
@@ -849,7 +849,7 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserver.getRemote = function()
     'ash.shimless_rma.mojom.HardwareVerificationStatusObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnHardwareVerificationResult
 ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec = {
@@ -863,7 +863,7 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerification
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shimless_rma.mojom.HardwareVerificationStatusObserverPtr = ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemote;
@@ -922,7 +922,7 @@ ash.shimless_rma.mojom.FinalizationObserver.getRemote = function() {
     'ash.shimless_rma.mojom.FinalizationObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnFinalizationUpdated
 ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec = {
@@ -938,7 +938,7 @@ ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shimless_rma.mojom.FinalizationObserverPtr = ash.shimless_rma.mojom.FinalizationObserverRemote;
@@ -997,7 +997,7 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserver.getRemote = function() {
     'ash.shimless_rma.mojom.UpdateRoFirmwareObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnUpdateRoFirmwareStatusChanged
 ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec = {
@@ -1011,7 +1011,7 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shimless_rma.mojom.UpdateRoFirmwareObserverPtr = ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemote;
@@ -1727,7 +1727,7 @@ ash.shimless_rma.mojom.ShimlessRmaService.getRemote = function() {
     'ash.shimless_rma.mojom.ShimlessRmaService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetCurrentState
 ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec = {
@@ -1740,7 +1740,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec = {
   $: {
@@ -1753,7 +1753,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStateProperties
 ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec = {
@@ -1766,7 +1766,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec = {
   $: {
@@ -1779,7 +1779,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TransitionPreviousState
 ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec = {
@@ -1792,7 +1792,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec = {
   $: {
@@ -1805,7 +1805,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AbortRma
 ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec = {
@@ -1818,7 +1818,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec = {
   $: {
@@ -1831,7 +1831,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BeginFinalization
 ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec = {
@@ -1844,7 +1844,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec = {
   $: {
@@ -1857,7 +1857,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TrackConfiguredNetworks
 ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec = {
@@ -1870,7 +1870,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NetworkSelectionComplete
 ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec = {
@@ -1883,7 +1883,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec = {
   $: {
@@ -1896,7 +1896,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCurrentOsVersion
 ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec = {
@@ -1909,7 +1909,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec = {
   $: {
@@ -1922,7 +1922,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CheckForOsUpdates
 ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec = {
@@ -1935,7 +1935,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec = {
   $: {
@@ -1949,7 +1949,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateOs
 ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec = {
@@ -1962,7 +1962,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec = {
   $: {
@@ -1975,7 +1975,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateOsSkipped
 ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec = {
@@ -1988,7 +1988,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec = {
   $: {
@@ -2001,7 +2001,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSameOwner
 ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec = {
@@ -2014,7 +2014,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec = {
   $: {
@@ -2027,7 +2027,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDifferentOwner
 ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec = {
@@ -2040,7 +2040,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec = {
   $: {
@@ -2053,7 +2053,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWipeDevice
 ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec = {
@@ -2067,7 +2067,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec = {
   $: {
@@ -2080,7 +2080,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetManuallyDisableWriteProtect
 ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec = {
@@ -2093,7 +2093,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec = {
   $: {
@@ -2106,7 +2106,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetRsuDisableWriteProtect
 ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec = {
@@ -2119,7 +2119,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec = {
   $: {
@@ -2132,7 +2132,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRsuDisableWriteProtectChallenge
 ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec = {
@@ -2145,7 +2145,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec = {
   $: {
@@ -2158,7 +2158,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_Res
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRsuDisableWriteProtectHwid
 ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec = {
@@ -2171,7 +2171,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec = {
   $: {
@@ -2184,7 +2184,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRsuDisableWriteProtectChallengeQrCode
 ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec = {
@@ -2197,7 +2197,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec = {
   $: {
@@ -2210,7 +2210,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetRsuDisableWriteProtectCode
 ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec = {
@@ -2224,7 +2224,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec = {
   $: {
@@ -2237,7 +2237,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteProtectManuallyDisabled
 ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec = {
@@ -2250,7 +2250,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec = {
   $: {
@@ -2263,7 +2263,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetWriteProtectDisableCompleteAction
 ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec = {
@@ -2276,7 +2276,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec = {
   $: {
@@ -2289,7 +2289,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_R
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConfirmManualWpDisableComplete
 ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec = {
@@ -2302,7 +2302,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec = {
   $: {
@@ -2315,7 +2315,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetComponentList
 ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec = {
@@ -2328,7 +2328,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec = {
   $: {
@@ -2341,7 +2341,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetComponentList
 ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec = {
@@ -2355,7 +2355,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec = {
   $: {
@@ -2368,7 +2368,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReworkMainboard
 ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec = {
@@ -2381,7 +2381,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec = {
   $: {
@@ -2394,7 +2394,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RoFirmwareUpdateComplete
 ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec = {
@@ -2407,7 +2407,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec = {
   $: {
@@ -2420,7 +2420,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShutdownForRestock
 ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec = {
@@ -2433,7 +2433,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec = {
   $: {
@@ -2446,7 +2446,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ContinueFinalizationAfterRestock
 ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec = {
@@ -2459,7 +2459,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec = {
   $: {
@@ -2472,7 +2472,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRegionList
 ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec = {
@@ -2485,7 +2485,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec = {
   $: {
@@ -2498,7 +2498,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSkuList
 ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec = {
@@ -2511,7 +2511,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec = {
   $: {
@@ -2524,7 +2524,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCustomLabelList
 ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec = {
@@ -2537,7 +2537,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec = {
   $: {
@@ -2550,7 +2550,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSkuDescriptionList
 ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec = {
@@ -2563,7 +2563,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec = {
   $: {
@@ -2576,7 +2576,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOriginalSerialNumber
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec = {
@@ -2589,7 +2589,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec = {
   $: {
@@ -2602,7 +2602,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOriginalRegion
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec = {
@@ -2615,7 +2615,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec = {
   $: {
@@ -2628,7 +2628,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOriginalSku
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec = {
@@ -2641,7 +2641,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec = {
   $: {
@@ -2654,7 +2654,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOriginalCustomLabel
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec = {
@@ -2667,7 +2667,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec = {
   $: {
@@ -2680,7 +2680,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOriginalDramPartNumber
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec = {
@@ -2693,7 +2693,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec = {
   $: {
@@ -2706,7 +2706,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOriginalFeatureLevel
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec = {
@@ -2719,7 +2719,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec = {
   $: {
@@ -2732,7 +2732,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDeviceInformation
 ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec = {
@@ -2752,7 +2752,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec = {
   $: {
@@ -2765,7 +2765,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCalibrationComponentList
 ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec = {
@@ -2778,7 +2778,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec = {
   $: {
@@ -2791,7 +2791,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCalibrationSetupInstructions
 ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec = {
@@ -2804,7 +2804,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec = {
   $: {
@@ -2817,7 +2817,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartCalibration
 ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec = {
@@ -2831,7 +2831,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec = {
   $: {
@@ -2844,7 +2844,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RunCalibrationStep
 ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec = {
@@ -2857,7 +2857,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec = {
   $: {
@@ -2870,7 +2870,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ContinueCalibration
 ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec = {
@@ -2883,7 +2883,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec = {
   $: {
@@ -2896,7 +2896,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CalibrationComplete
 ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec = {
@@ -2909,7 +2909,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec = {
   $: {
@@ -2922,7 +2922,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RetryProvisioning
 ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec = {
@@ -2935,7 +2935,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec = {
   $: {
@@ -2948,7 +2948,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ProvisioningComplete
 ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec = {
@@ -2961,7 +2961,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec = {
   $: {
@@ -2974,7 +2974,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RetryFinalization
 ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec = {
@@ -2987,7 +2987,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec = {
   $: {
@@ -3000,7 +3000,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FinalizationComplete
 ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec = {
@@ -3013,7 +3013,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec = {
   $: {
@@ -3026,7 +3026,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteProtectManuallyEnabled
 ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec = {
@@ -3039,7 +3039,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec = {
   $: {
@@ -3052,7 +3052,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLog
 ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec = {
@@ -3065,7 +3065,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec = {
   $: {
@@ -3079,7 +3079,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SaveLog
 ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec = {
@@ -3092,7 +3092,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec = {
   $: {
@@ -3106,7 +3106,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPowerwashRequired
 ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec = {
@@ -3119,7 +3119,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec = {
   $: {
@@ -3132,7 +3132,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LaunchDiagnostics
 ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec = {
@@ -3145,7 +3145,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EndRma
 ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec = {
@@ -3159,7 +3159,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec = {
   $: {
@@ -3172,7 +3172,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShutDownAfterHardwareError
 ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec = {
@@ -3185,7 +3185,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CriticalErrorExitToLogin
 ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec = {
@@ -3198,7 +3198,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec = {
   $: {
@@ -3211,7 +3211,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CriticalErrorReboot
 ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec = {
@@ -3224,7 +3224,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec = {
   $: {
@@ -3237,7 +3237,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Get3pDiagnosticsProvider
 ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec = {
@@ -3250,7 +3250,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec = {
   $: {
@@ -3263,7 +3263,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetInstallable3pDiagnosticsAppPath
 ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec = {
@@ -3276,7 +3276,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec = {
   $: {
@@ -3289,7 +3289,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_Res
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InstallLastFound3pDiagnosticsApp
 ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec = {
@@ -3302,7 +3302,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec = {
   $: {
@@ -3315,7 +3315,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CompleteLast3pDiagnosticsInstallation
 ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec = {
@@ -3329,7 +3329,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Show3pDiagnosticsApp
 ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec = {
@@ -3342,7 +3342,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec = {
   $: {
@@ -3355,7 +3355,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveError
 ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec = {
@@ -3369,7 +3369,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveOsUpdateProgress
 ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec = {
@@ -3383,7 +3383,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveCalibrationProgress
 ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec = {
@@ -3397,7 +3397,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveProvisioningProgress
 ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec = {
@@ -3411,7 +3411,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveHardwareWriteProtectionState
 ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec = {
@@ -3425,7 +3425,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObservePowerCableState
 ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec = {
@@ -3439,7 +3439,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveExternalDiskState
 ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec = {
@@ -3453,7 +3453,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveHardwareVerificationStatus
 ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec = {
@@ -3467,7 +3467,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveFinalizationStatus
 ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec = {
@@ -3481,7 +3481,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveRoFirmwareUpdateProgress
 ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec = {
@@ -3495,7 +3495,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shimless_rma.mojom.ShimlessRmaServicePtr = ash.shimless_rma.mojom.ShimlessRmaServiceRemote;

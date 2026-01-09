@@ -70,7 +70,7 @@ blink.mojom.ControllerServiceWorker.getRemote = function() {
     'blink.mojom.ControllerServiceWorker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DispatchFetchEventForSubresource
 blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec = {
@@ -85,7 +85,7 @@ blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 blink.mojom.ControllerServiceWorker_Clone_ParamsSpec = {
@@ -116,7 +116,7 @@ blink.mojom.ControllerServiceWorker_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ControllerServiceWorkerPtr = blink.mojom.ControllerServiceWorkerRemote;
@@ -175,7 +175,7 @@ blink.mojom.ControllerServiceWorkerConnector.getRemote = function() {
     'blink.mojom.ControllerServiceWorkerConnector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateController
 blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec = {
@@ -189,7 +189,7 @@ blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ControllerServiceWorkerConnectorPtr = blink.mojom.ControllerServiceWorkerConnectorRemote;

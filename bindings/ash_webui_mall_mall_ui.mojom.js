@@ -62,7 +62,7 @@ ash.mall.mojom.PageHandler.getRemote = function() {
     'ash.mall.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetMallEmbedUrl
 ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec = {
@@ -76,7 +76,7 @@ ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec = {
   $: {
@@ -89,7 +89,7 @@ ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.mall.mojom.PageHandlerPtr = ash.mall.mojom.PageHandlerRemote;

@@ -61,7 +61,7 @@ android_webview.mojom.RenderMessageFilter.getRemote = function() {
     'android_webview.mojom.RenderMessageFilter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SubFrameCreated
 android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec = {
@@ -76,7 +76,7 @@ android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 android_webview.mojom.RenderMessageFilterPtr = android_webview.mojom.RenderMessageFilterRemote;

@@ -61,7 +61,7 @@ codelabs.mojom.ObjectA.getRemote = function() {
     'codelabs.mojom.ObjectA',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DoA
 codelabs.mojom.ObjectA_DoA_ParamsSpec = {
@@ -74,7 +74,7 @@ codelabs.mojom.ObjectA_DoA_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 codelabs.mojom.ObjectAPtr = codelabs.mojom.ObjectARemote;
@@ -133,7 +133,7 @@ codelabs.mojom.ObjectB.getRemote = function() {
     'codelabs.mojom.ObjectB',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DoB
 codelabs.mojom.ObjectB_DoB_ParamsSpec = {
@@ -146,7 +146,7 @@ codelabs.mojom.ObjectB_DoB_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 codelabs.mojom.ObjectBPtr = codelabs.mojom.ObjectBRemote;
@@ -205,7 +205,7 @@ codelabs.mojom.AssociatedProcess.getRemote = function() {
     'codelabs.mojom.AssociatedProcess',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetProcess
 codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec = {
@@ -219,7 +219,7 @@ codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 codelabs.mojom.AssociatedProcessPtr = codelabs.mojom.AssociatedProcessRemote;
@@ -269,7 +269,7 @@ codelabs.mojom.GenericInterface.getRemote = function() {
     'codelabs.mojom.GenericInterface',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 codelabs.mojom.GenericInterfacePtr = codelabs.mojom.GenericInterfaceRemote;
@@ -337,7 +337,7 @@ codelabs.mojom.Process.getRemote = function() {
     'codelabs.mojom.Process',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SayHello
 codelabs.mojom.Process_SayHello_ParamsSpec = {
@@ -350,7 +350,7 @@ codelabs.mojom.Process_SayHello_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAssociatedInterface
 codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec = {
@@ -365,7 +365,7 @@ codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 codelabs.mojom.ProcessPtr = codelabs.mojom.ProcessRemote;

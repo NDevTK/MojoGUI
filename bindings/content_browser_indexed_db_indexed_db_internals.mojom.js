@@ -106,7 +106,7 @@ storage.mojom.IdbInternalsHandler.getRemote = function() {
     'storage.mojom.IdbInternalsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetAllBucketsAcrossAllStorageKeys
 storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec = {
@@ -119,7 +119,7 @@ storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec = {
   $: {
@@ -133,7 +133,7 @@ storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DownloadBucketData
 storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec = {
@@ -147,7 +147,7 @@ storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec = {
   $: {
@@ -160,7 +160,7 @@ storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForceClose
 storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec = {
@@ -174,7 +174,7 @@ storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec = {
   $: {
@@ -187,7 +187,7 @@ storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartMetadataRecording
 storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec = {
@@ -201,7 +201,7 @@ storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec = {
   $: {
@@ -214,7 +214,7 @@ storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopMetadataRecording
 storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec = {
@@ -228,7 +228,7 @@ storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec = {
   $: {
@@ -242,7 +242,7 @@ storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InspectClient
 storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec = {
@@ -256,7 +256,7 @@ storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec = {
   $: {
@@ -269,7 +269,7 @@ storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.IdbInternalsHandlerPtr = storage.mojom.IdbInternalsHandlerRemote;

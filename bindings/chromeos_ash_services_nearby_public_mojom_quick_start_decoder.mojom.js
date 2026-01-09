@@ -62,7 +62,7 @@ ash.quick_start.mojom.QuickStartDecoder.getRemote = function() {
     'ash.quick_start.mojom.QuickStartDecoder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DecodeQuickStartMessage
 ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec = {
@@ -76,7 +76,7 @@ ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec = {
   $: {
@@ -90,7 +90,7 @@ ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.quick_start.mojom.QuickStartDecoderPtr = ash.quick_start.mojom.QuickStartDecoderRemote;

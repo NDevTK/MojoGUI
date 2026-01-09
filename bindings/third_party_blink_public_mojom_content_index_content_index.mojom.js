@@ -105,7 +105,7 @@ blink.mojom.ContentIndexService.getRemote = function() {
     'blink.mojom.ContentIndexService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetIconSizes
 blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec = {
@@ -119,7 +119,7 @@ blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec = {
   $: {
@@ -132,7 +132,7 @@ blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Add
 blink.mojom.ContentIndexService_Add_ParamsSpec = {
@@ -149,7 +149,7 @@ blink.mojom.ContentIndexService_Add_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ContentIndexService_Add_ResponseParamsSpec = {
   $: {
@@ -162,7 +162,7 @@ blink.mojom.ContentIndexService_Add_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Delete
 blink.mojom.ContentIndexService_Delete_ParamsSpec = {
@@ -177,7 +177,7 @@ blink.mojom.ContentIndexService_Delete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ContentIndexService_Delete_ResponseParamsSpec = {
   $: {
@@ -190,7 +190,7 @@ blink.mojom.ContentIndexService_Delete_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDescriptions
 blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec = {
@@ -204,7 +204,7 @@ blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec = {
   $: {
@@ -218,7 +218,7 @@ blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ContentIndexServicePtr = blink.mojom.ContentIndexServiceRemote;

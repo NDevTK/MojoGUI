@@ -53,7 +53,7 @@ chromeos.cfm.mojom.ExternalDisplayBrightness.getRemote = function() {
     'chromeos.cfm.mojom.ExternalDisplayBrightness',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cfm.mojom.ExternalDisplayBrightnessPtr = chromeos.cfm.mojom.ExternalDisplayBrightnessRemote;

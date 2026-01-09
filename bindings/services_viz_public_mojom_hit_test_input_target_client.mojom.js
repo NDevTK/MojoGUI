@@ -61,7 +61,7 @@ viz.mojom.InputTargetClient.getRemote = function() {
     'viz.mojom.InputTargetClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FrameSinkIdAt
 viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec = {
@@ -76,7 +76,7 @@ viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec = {
   $: {
@@ -90,7 +90,7 @@ viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.InputTargetClientPtr = viz.mojom.InputTargetClientRemote;

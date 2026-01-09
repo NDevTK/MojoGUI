@@ -70,7 +70,7 @@ blink.mojom.AIProofreader.getRemote = function() {
     'blink.mojom.AIProofreader',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Proofread
 blink.mojom.AIProofreader_Proofread_ParamsSpec = {
@@ -85,7 +85,7 @@ blink.mojom.AIProofreader_Proofread_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCorrectionType
 blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec = {
@@ -102,7 +102,7 @@ blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AIProofreaderPtr = blink.mojom.AIProofreaderRemote;

@@ -70,7 +70,7 @@ device.mojom.UsbDeviceManagerClient.getRemote = function() {
     'device.mojom.UsbDeviceManagerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDeviceAdded
 device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec = {
@@ -84,7 +84,7 @@ device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDeviceRemoved
 device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec = {
@@ -98,7 +98,7 @@ device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.UsbDeviceManagerClientPtr = device.mojom.UsbDeviceManagerClientRemote;

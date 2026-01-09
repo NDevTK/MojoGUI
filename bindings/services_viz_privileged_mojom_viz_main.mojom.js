@@ -133,7 +133,7 @@ viz.mojom.VizMain.getRemote = function() {
     'viz.mojom.VizMain',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateFrameSinkManager
 viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec = {
@@ -147,7 +147,7 @@ viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateGpuService
 viz.mojom.VizMain_CreateGpuService_ParamsSpec = {
@@ -166,7 +166,7 @@ viz.mojom.VizMain_CreateGpuService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetRenderParams
 viz.mojom.VizMain_SetRenderParams_ParamsSpec = {
@@ -182,7 +182,7 @@ viz.mojom.VizMain_SetRenderParams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateInfoCollectionGpuService
 viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec = {
@@ -196,7 +196,7 @@ viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHostProcessId
 viz.mojom.VizMain_SetHostProcessId_ParamsSpec = {
@@ -210,7 +210,7 @@ viz.mojom.VizMain_SetHostProcessId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyWorkloadIncrease
 viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec = {
@@ -223,7 +223,7 @@ viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartDebugStream
 viz.mojom.VizMain_StartDebugStream_ParamsSpec = {
@@ -237,7 +237,7 @@ viz.mojom.VizMain_StartDebugStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FilterDebugStream
 viz.mojom.VizMain_FilterDebugStream_ParamsSpec = {
@@ -251,7 +251,7 @@ viz.mojom.VizMain_FilterDebugStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopDebugStream
 viz.mojom.VizMain_StopDebugStream_ParamsSpec = {
@@ -264,7 +264,7 @@ viz.mojom.VizMain_StopDebugStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.VizMainPtr = viz.mojom.VizMainRemote;

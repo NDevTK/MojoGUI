@@ -131,7 +131,7 @@ media.mojom.AudioLog.getRemote = function() {
     'media.mojom.AudioLog',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCreated
 media.mojom.AudioLog_OnCreated_ParamsSpec = {
@@ -146,7 +146,7 @@ media.mojom.AudioLog_OnCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStarted
 media.mojom.AudioLog_OnStarted_ParamsSpec = {
@@ -159,7 +159,7 @@ media.mojom.AudioLog_OnStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStopped
 media.mojom.AudioLog_OnStopped_ParamsSpec = {
@@ -172,7 +172,7 @@ media.mojom.AudioLog_OnStopped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClosed
 media.mojom.AudioLog_OnClosed_ParamsSpec = {
@@ -185,7 +185,7 @@ media.mojom.AudioLog_OnClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 media.mojom.AudioLog_OnError_ParamsSpec = {
@@ -198,7 +198,7 @@ media.mojom.AudioLog_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSetVolume
 media.mojom.AudioLog_OnSetVolume_ParamsSpec = {
@@ -212,7 +212,7 @@ media.mojom.AudioLog_OnSetVolume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnProcessingStateChanged
 media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec = {
@@ -226,7 +226,7 @@ media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLogMessage
 media.mojom.AudioLog_OnLogMessage_ParamsSpec = {
@@ -240,7 +240,7 @@ media.mojom.AudioLog_OnLogMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioLogPtr = media.mojom.AudioLogRemote;
@@ -299,7 +299,7 @@ media.mojom.AudioLogFactory.getRemote = function() {
     'media.mojom.AudioLogFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateAudioLog
 media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec = {
@@ -315,7 +315,7 @@ media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.AudioLogFactoryPtr = media.mojom.AudioLogFactoryRemote;

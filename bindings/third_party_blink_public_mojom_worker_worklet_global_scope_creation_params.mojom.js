@@ -61,7 +61,7 @@ blink.mojom.WorkletDevToolsHost.getRemote = function() {
     'blink.mojom.WorkletDevToolsHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnReadyForInspection
 blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec = {
@@ -76,7 +76,7 @@ blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WorkletDevToolsHostPtr = blink.mojom.WorkletDevToolsHostRemote;

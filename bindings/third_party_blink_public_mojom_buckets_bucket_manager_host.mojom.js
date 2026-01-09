@@ -158,7 +158,7 @@ blink.mojom.BucketHost.getRemote = function() {
     'blink.mojom.BucketHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Persist
 blink.mojom.BucketHost_Persist_ParamsSpec = {
@@ -171,7 +171,7 @@ blink.mojom.BucketHost_Persist_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BucketHost_Persist_ResponseParamsSpec = {
   $: {
@@ -185,7 +185,7 @@ blink.mojom.BucketHost_Persist_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Persisted
 blink.mojom.BucketHost_Persisted_ParamsSpec = {
@@ -198,7 +198,7 @@ blink.mojom.BucketHost_Persisted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BucketHost_Persisted_ResponseParamsSpec = {
   $: {
@@ -212,7 +212,7 @@ blink.mojom.BucketHost_Persisted_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Estimate
 blink.mojom.BucketHost_Estimate_ParamsSpec = {
@@ -225,7 +225,7 @@ blink.mojom.BucketHost_Estimate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BucketHost_Estimate_ResponseParamsSpec = {
   $: {
@@ -240,7 +240,7 @@ blink.mojom.BucketHost_Estimate_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Durability
 blink.mojom.BucketHost_Durability_ParamsSpec = {
@@ -253,7 +253,7 @@ blink.mojom.BucketHost_Durability_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BucketHost_Durability_ResponseParamsSpec = {
   $: {
@@ -267,7 +267,7 @@ blink.mojom.BucketHost_Durability_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetExpires
 blink.mojom.BucketHost_SetExpires_ParamsSpec = {
@@ -281,7 +281,7 @@ blink.mojom.BucketHost_SetExpires_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BucketHost_SetExpires_ResponseParamsSpec = {
   $: {
@@ -294,7 +294,7 @@ blink.mojom.BucketHost_SetExpires_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Expires
 blink.mojom.BucketHost_Expires_ParamsSpec = {
@@ -307,7 +307,7 @@ blink.mojom.BucketHost_Expires_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BucketHost_Expires_ResponseParamsSpec = {
   $: {
@@ -321,7 +321,7 @@ blink.mojom.BucketHost_Expires_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetIdbFactory
 blink.mojom.BucketHost_GetIdbFactory_ParamsSpec = {
@@ -335,7 +335,7 @@ blink.mojom.BucketHost_GetIdbFactory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLockManager
 blink.mojom.BucketHost_GetLockManager_ParamsSpec = {
@@ -349,7 +349,7 @@ blink.mojom.BucketHost_GetLockManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCaches
 blink.mojom.BucketHost_GetCaches_ParamsSpec = {
@@ -363,7 +363,7 @@ blink.mojom.BucketHost_GetCaches_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDirectory
 blink.mojom.BucketHost_GetDirectory_ParamsSpec = {
@@ -376,7 +376,7 @@ blink.mojom.BucketHost_GetDirectory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec = {
   $: {
@@ -390,7 +390,7 @@ blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDirectoryForDevtools
 blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec = {
@@ -404,7 +404,7 @@ blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec = {
   $: {
@@ -418,7 +418,7 @@ blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BucketHostPtr = blink.mojom.BucketHostRemote;
@@ -504,7 +504,7 @@ blink.mojom.BucketManagerHost.getRemote = function() {
     'blink.mojom.BucketManagerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenBucket
 blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec = {
@@ -519,7 +519,7 @@ blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec = {
   $: {
@@ -533,7 +533,7 @@ blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetBucketForDevtools
 blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec = {
@@ -548,7 +548,7 @@ blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Keys
 blink.mojom.BucketManagerHost_Keys_ParamsSpec = {
@@ -561,7 +561,7 @@ blink.mojom.BucketManagerHost_Keys_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec = {
   $: {
@@ -575,7 +575,7 @@ blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteBucket
 blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec = {
@@ -589,7 +589,7 @@ blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec = {
   $: {
@@ -602,7 +602,7 @@ blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BucketManagerHostPtr = blink.mojom.BucketManagerHostRemote;

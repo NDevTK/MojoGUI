@@ -110,7 +110,7 @@ ash.diagnostics.mojom.NetworkListObserver.getRemote = function() {
     'ash.diagnostics.mojom.NetworkListObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnNetworkListChanged
 ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec = {
@@ -125,7 +125,7 @@ ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.NetworkListObserverPtr = ash.diagnostics.mojom.NetworkListObserverRemote;
@@ -184,7 +184,7 @@ ash.diagnostics.mojom.NetworkStateObserver.getRemote = function() {
     'ash.diagnostics.mojom.NetworkStateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnNetworkStateChanged
 ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec = {
@@ -198,7 +198,7 @@ ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.NetworkStateObserverPtr = ash.diagnostics.mojom.NetworkStateObserverRemote;
@@ -266,7 +266,7 @@ ash.diagnostics.mojom.NetworkHealthProvider.getRemote = function() {
     'ash.diagnostics.mojom.NetworkHealthProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ObserveNetworkList
 ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec = {
@@ -280,7 +280,7 @@ ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveNetwork
 ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec = {
@@ -295,7 +295,7 @@ ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.NetworkHealthProviderPtr = ash.diagnostics.mojom.NetworkHealthProviderRemote;

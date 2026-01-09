@@ -79,7 +79,7 @@ data_decoder.mojom.StructuredHeadersParser.getRemote = function() {
     'data_decoder.mojom.StructuredHeadersParser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ParseItem
 data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec = {
@@ -93,7 +93,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec = {
   $: {
@@ -106,7 +106,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ParseList
 data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec = {
@@ -120,7 +120,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec = {
   $: {
@@ -133,7 +133,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ParseDictionary
 data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec = {
@@ -147,7 +147,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec = {
   $: {
@@ -160,7 +160,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 data_decoder.mojom.StructuredHeadersParserPtr = data_decoder.mojom.StructuredHeadersParserRemote;

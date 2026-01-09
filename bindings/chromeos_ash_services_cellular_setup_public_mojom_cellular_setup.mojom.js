@@ -77,7 +77,7 @@ ash.cellular_setup.mojom.CarrierPortalHandler.getRemote = function() {
     'ash.cellular_setup.mojom.CarrierPortalHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCarrierPortalStatusChange
 ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec = {
@@ -91,7 +91,7 @@ ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.cellular_setup.mojom.CarrierPortalHandlerPtr = ash.cellular_setup.mojom.CarrierPortalHandlerRemote;
@@ -159,7 +159,7 @@ ash.cellular_setup.mojom.ActivationDelegate.getRemote = function() {
     'ash.cellular_setup.mojom.ActivationDelegate',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnActivationStarted
 ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec = {
@@ -173,7 +173,7 @@ ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnActivationFinished
 ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec = {
@@ -187,7 +187,7 @@ ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.cellular_setup.mojom.ActivationDelegatePtr = ash.cellular_setup.mojom.ActivationDelegateRemote;
@@ -246,7 +246,7 @@ ash.cellular_setup.mojom.CellularSetup.getRemote = function() {
     'ash.cellular_setup.mojom.CellularSetup',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartActivation
 ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec = {
@@ -260,7 +260,7 @@ ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec = {
   $: {
@@ -273,7 +273,7 @@ ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.cellular_setup.mojom.CellularSetupPtr = ash.cellular_setup.mojom.CellularSetupRemote;

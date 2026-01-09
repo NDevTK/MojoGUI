@@ -295,7 +295,7 @@ ash.ime.mojom.InputMethod.getRemote = function() {
     'ash.ime.mojom.InputMethod',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.ime.mojom.InputMethodPtr = ash.ime.mojom.InputMethodRemote;

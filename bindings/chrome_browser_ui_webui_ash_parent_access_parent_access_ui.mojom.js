@@ -135,7 +135,7 @@ parent_access_ui.mojom.ParentAccessUiHandler.getRemote = function() {
     'parent_access_ui.mojom.ParentAccessUiHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetOauthToken
 parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec = {
@@ -148,7 +148,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec = {
   $: {
@@ -162,7 +162,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnParentAccessCallbackReceived
 parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec = {
@@ -176,7 +176,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec = {
   $: {
@@ -189,7 +189,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_Resp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetParentAccessParams
 parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec = {
@@ -202,7 +202,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec = {
   $: {
@@ -215,7 +215,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetParentAccessUrl
 parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec = {
@@ -228,7 +228,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec = {
   $: {
@@ -241,7 +241,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnParentAccessDone
 parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec = {
@@ -255,7 +255,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBeforeScreenDone
 parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec = {
@@ -268,7 +268,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 parent_access_ui.mojom.ParentAccessUiHandlerPtr = parent_access_ui.mojom.ParentAccessUiHandlerRemote;

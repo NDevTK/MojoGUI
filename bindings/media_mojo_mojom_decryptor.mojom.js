@@ -133,7 +133,7 @@ media.mojom.Decryptor.getRemote = function() {
     'media.mojom.Decryptor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Initialize
 media.mojom.Decryptor_Initialize_ParamsSpec = {
@@ -150,7 +150,7 @@ media.mojom.Decryptor_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Decrypt
 media.mojom.Decryptor_Decrypt_ParamsSpec = {
@@ -165,7 +165,7 @@ media.mojom.Decryptor_Decrypt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.Decryptor_Decrypt_ResponseParamsSpec = {
   $: {
@@ -179,7 +179,7 @@ media.mojom.Decryptor_Decrypt_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelDecrypt
 media.mojom.Decryptor_CancelDecrypt_ParamsSpec = {
@@ -193,7 +193,7 @@ media.mojom.Decryptor_CancelDecrypt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InitializeAudioDecoder
 media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec = {
@@ -207,7 +207,7 @@ media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec = {
   $: {
@@ -220,7 +220,7 @@ media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InitializeVideoDecoder
 media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec = {
@@ -234,7 +234,7 @@ media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec = {
   $: {
@@ -247,7 +247,7 @@ media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DecryptAndDecodeAudio
 media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec = {
@@ -261,7 +261,7 @@ media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec = {
   $: {
@@ -275,7 +275,7 @@ media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DecryptAndDecodeVideo
 media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec = {
@@ -289,7 +289,7 @@ media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec = {
   $: {
@@ -304,7 +304,7 @@ media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetDecoder
 media.mojom.Decryptor_ResetDecoder_ParamsSpec = {
@@ -318,7 +318,7 @@ media.mojom.Decryptor_ResetDecoder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeinitializeDecoder
 media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec = {
@@ -332,7 +332,7 @@ media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.DecryptorPtr = media.mojom.DecryptorRemote;
@@ -382,7 +382,7 @@ media.mojom.FrameResourceReleaser.getRemote = function() {
     'media.mojom.FrameResourceReleaser',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media.mojom.FrameResourceReleaserPtr = media.mojom.FrameResourceReleaserRemote;

@@ -70,7 +70,7 @@ network_hints.mojom.NetworkHintsHandler.getRemote = function() {
     'network_hints.mojom.NetworkHintsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PrefetchDNS
 network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec = {
@@ -84,7 +84,7 @@ network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Preconnect
 network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec = {
@@ -99,7 +99,7 @@ network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network_hints.mojom.NetworkHintsHandlerPtr = network_hints.mojom.NetworkHintsHandlerRemote;

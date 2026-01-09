@@ -68,7 +68,7 @@ media_router.mojom.MediaStatusObserver.getRemote = function() {
     'media_router.mojom.MediaStatusObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMediaStatusUpdated
 media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec = {
@@ -82,7 +82,7 @@ media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media_router.mojom.MediaStatusObserverPtr = media_router.mojom.MediaStatusObserverRemote;

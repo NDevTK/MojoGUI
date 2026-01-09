@@ -88,7 +88,7 @@ metrics_reporter.mojom.PageMetricsHost.getRemote = function() {
     'metrics_reporter.mojom.PageMetricsHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPageRemoteCreated
 metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec = {
@@ -102,7 +102,7 @@ metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnGetMark
 metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec = {
@@ -116,7 +116,7 @@ metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec = {
   $: {
@@ -129,7 +129,7 @@ metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClearMark
 metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec = {
@@ -143,7 +143,7 @@ metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnUmaReportTime
 metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = {
@@ -158,7 +158,7 @@ metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 metrics_reporter.mojom.PageMetricsHostPtr = metrics_reporter.mojom.PageMetricsHostRemote;
@@ -226,7 +226,7 @@ metrics_reporter.mojom.PageMetrics.getRemote = function() {
     'metrics_reporter.mojom.PageMetrics',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnGetMark
 metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec = {
@@ -240,7 +240,7 @@ metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec = {
   $: {
@@ -253,7 +253,7 @@ metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnClearMark
 metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec = {
@@ -267,7 +267,7 @@ metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 metrics_reporter.mojom.PageMetricsPtr = metrics_reporter.mojom.PageMetricsRemote;

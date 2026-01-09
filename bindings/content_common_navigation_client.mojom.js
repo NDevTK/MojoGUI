@@ -79,7 +79,7 @@ content.mojom.NavigationClient.getRemote = function() {
     'content.mojom.NavigationClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CommitNavigation
 content.mojom.NavigationClient_CommitNavigation_ParamsSpec = {
@@ -113,7 +113,7 @@ content.mojom.NavigationClient_CommitNavigation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec = {
   $: {
@@ -127,7 +127,7 @@ content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CommitFailedNavigation
 content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec = {
@@ -152,7 +152,7 @@ content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec = {
   $: {
@@ -166,7 +166,7 @@ content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.NavigationClientPtr = content.mojom.NavigationClientRemote;

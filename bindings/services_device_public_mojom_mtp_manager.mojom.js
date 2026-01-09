@@ -70,7 +70,7 @@ device.mojom.MtpManagerClient.getRemote = function() {
     'device.mojom.MtpManagerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StorageAttached
 device.mojom.MtpManagerClient_StorageAttached_ParamsSpec = {
@@ -84,7 +84,7 @@ device.mojom.MtpManagerClient_StorageAttached_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StorageDetached
 device.mojom.MtpManagerClient_StorageDetached_ParamsSpec = {
@@ -98,7 +98,7 @@ device.mojom.MtpManagerClient_StorageDetached_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.MtpManagerClientPtr = device.mojom.MtpManagerClientRemote;
@@ -256,7 +256,7 @@ device.mojom.MtpManager.getRemote = function() {
     'device.mojom.MtpManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EnumerateStoragesAndSetClient
 device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec = {
@@ -270,7 +270,7 @@ device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec = {
   $: {
@@ -283,7 +283,7 @@ device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStorageInfo
 device.mojom.MtpManager_GetStorageInfo_ParamsSpec = {
@@ -297,7 +297,7 @@ device.mojom.MtpManager_GetStorageInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec = {
   $: {
@@ -310,7 +310,7 @@ device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStorageInfoFromDevice
 device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec = {
@@ -324,7 +324,7 @@ device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec = {
   $: {
@@ -338,7 +338,7 @@ device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenStorage
 device.mojom.MtpManager_OpenStorage_ParamsSpec = {
@@ -353,7 +353,7 @@ device.mojom.MtpManager_OpenStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.MtpManager_OpenStorage_ResponseParamsSpec = {
   $: {
@@ -367,7 +367,7 @@ device.mojom.MtpManager_OpenStorage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseStorage
 device.mojom.MtpManager_CloseStorage_ParamsSpec = {
@@ -381,7 +381,7 @@ device.mojom.MtpManager_CloseStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.MtpManager_CloseStorage_ResponseParamsSpec = {
   $: {
@@ -394,7 +394,7 @@ device.mojom.MtpManager_CloseStorage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateDirectory
 device.mojom.MtpManager_CreateDirectory_ParamsSpec = {
@@ -410,7 +410,7 @@ device.mojom.MtpManager_CreateDirectory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec = {
   $: {
@@ -423,7 +423,7 @@ device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadDirectoryEntryIds
 device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec = {
@@ -438,7 +438,7 @@ device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec = {
   $: {
@@ -452,7 +452,7 @@ device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadFileChunk
 device.mojom.MtpManager_ReadFileChunk_ParamsSpec = {
@@ -469,7 +469,7 @@ device.mojom.MtpManager_ReadFileChunk_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec = {
   $: {
@@ -483,7 +483,7 @@ device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFileInfo
 device.mojom.MtpManager_GetFileInfo_ParamsSpec = {
@@ -498,7 +498,7 @@ device.mojom.MtpManager_GetFileInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec = {
   $: {
@@ -512,7 +512,7 @@ device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RenameObject
 device.mojom.MtpManager_RenameObject_ParamsSpec = {
@@ -528,7 +528,7 @@ device.mojom.MtpManager_RenameObject_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.MtpManager_RenameObject_ResponseParamsSpec = {
   $: {
@@ -541,7 +541,7 @@ device.mojom.MtpManager_RenameObject_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CopyFileFromLocal
 device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec = {
@@ -558,7 +558,7 @@ device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec = {
   $: {
@@ -571,7 +571,7 @@ device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteObject
 device.mojom.MtpManager_DeleteObject_ParamsSpec = {
@@ -586,7 +586,7 @@ device.mojom.MtpManager_DeleteObject_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.MtpManager_DeleteObject_ResponseParamsSpec = {
   $: {
@@ -599,7 +599,7 @@ device.mojom.MtpManager_DeleteObject_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.MtpManagerPtr = device.mojom.MtpManagerRemote;

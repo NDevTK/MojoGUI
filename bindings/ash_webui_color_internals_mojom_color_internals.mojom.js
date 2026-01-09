@@ -62,7 +62,7 @@ ash.color_internals.mojom.WallpaperColorsObserver.getRemote = function() {
     'ash.color_internals.mojom.WallpaperColorsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnWallpaperColorsChanged
 ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec = {
@@ -76,7 +76,7 @@ ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.color_internals.mojom.WallpaperColorsObserverPtr = ash.color_internals.mojom.WallpaperColorsObserverRemote;
@@ -135,7 +135,7 @@ ash.color_internals.mojom.WallpaperColorsHandler.getRemote = function() {
     'ash.color_internals.mojom.WallpaperColorsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetWallpaperColorsObserver
 ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec = {
@@ -149,7 +149,7 @@ ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.color_internals.mojom.WallpaperColorsHandlerPtr = ash.color_internals.mojom.WallpaperColorsHandlerRemote;

@@ -71,7 +71,7 @@ blink.mojom.FontAccessManager.getRemote = function() {
     'blink.mojom.FontAccessManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EnumerateLocalFonts
 blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec = {
@@ -84,7 +84,7 @@ blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FontAccessManagerPtr = blink.mojom.FontAccessManagerRemote;

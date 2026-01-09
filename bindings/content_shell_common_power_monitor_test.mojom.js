@@ -61,7 +61,7 @@ content.mojom.PowerMonitorTest.getRemote = function() {
     'content.mojom.PowerMonitorTest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for QueryNextState
 content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec = {
@@ -74,7 +74,7 @@ content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.PowerMonitorTestPtr = content.mojom.PowerMonitorTestRemote;

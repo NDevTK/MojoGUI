@@ -63,7 +63,7 @@ ash.settings.magic_boost_handler.mojom.PageHandlerFactory.getRemote = function()
     'ash.settings.magic_boost_handler.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -77,7 +77,7 @@ ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.magic_boost_handler.mojom.PageHandlerFactoryPtr = ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemote;
@@ -136,7 +136,7 @@ ash.settings.magic_boost_handler.mojom.PageHandler.getRemote = function() {
     'ash.settings.magic_boost_handler.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShowNotice
 ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec = {
@@ -149,7 +149,7 @@ ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.magic_boost_handler.mojom.PageHandlerPtr = ash.settings.magic_boost_handler.mojom.PageHandlerRemote;

@@ -79,7 +79,7 @@ data_sharing.mojom.PageHandlerFactory.getRemote = function() {
     'data_sharing.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -94,7 +94,7 @@ data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 data_sharing.mojom.PageHandlerFactoryPtr = data_sharing.mojom.PageHandlerFactoryRemote;
@@ -234,7 +234,7 @@ data_sharing.mojom.PageHandler.getRemote = function() {
     'data_sharing.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShowUI
 data_sharing.mojom.PageHandler_ShowUI_ParamsSpec = {
@@ -247,7 +247,7 @@ data_sharing.mojom.PageHandler_ShowUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseUI
 data_sharing.mojom.PageHandler_CloseUI_ParamsSpec = {
@@ -261,7 +261,7 @@ data_sharing.mojom.PageHandler_CloseUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ApiInitComplete
 data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec = {
@@ -274,7 +274,7 @@ data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MakeTabGroupShared
 data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec = {
@@ -290,7 +290,7 @@ data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec = {
   $: {
@@ -303,7 +303,7 @@ data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetShareLink
 data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec = {
@@ -318,7 +318,7 @@ data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec = {
   $: {
@@ -331,7 +331,7 @@ data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTabGroupPreview
 data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec = {
@@ -346,7 +346,7 @@ data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec = {
   $: {
@@ -359,7 +359,7 @@ data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenTabGroup
 data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
@@ -373,7 +373,7 @@ data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AboutToUnShareTabGroup
 data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec = {
@@ -387,7 +387,7 @@ data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTabGroupUnShareComplete
 data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec = {
@@ -401,7 +401,7 @@ data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnGroupAction
 data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec = {
@@ -416,7 +416,7 @@ data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 data_sharing.mojom.PageHandlerPtr = data_sharing.mojom.PageHandlerRemote;
@@ -511,7 +511,7 @@ data_sharing.mojom.Page.getRemote = function() {
     'data_sharing.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAccessTokenFetched
 data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec = {
@@ -525,7 +525,7 @@ data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadGroups
 data_sharing.mojom.Page_ReadGroups_ParamsSpec = {
@@ -539,7 +539,7 @@ data_sharing.mojom.Page_ReadGroups_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec = {
   $: {
@@ -552,7 +552,7 @@ data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadGroupWithToken
 data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec = {
@@ -566,7 +566,7 @@ data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec = {
   $: {
@@ -579,7 +579,7 @@ data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteGroup
 data_sharing.mojom.Page_DeleteGroup_ParamsSpec = {
@@ -593,7 +593,7 @@ data_sharing.mojom.Page_DeleteGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec = {
   $: {
@@ -606,7 +606,7 @@ data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LeaveGroup
 data_sharing.mojom.Page_LeaveGroup_ParamsSpec = {
@@ -620,7 +620,7 @@ data_sharing.mojom.Page_LeaveGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec = {
   $: {
@@ -633,7 +633,7 @@ data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 data_sharing.mojom.PagePtr = data_sharing.mojom.PageRemote;

@@ -79,7 +79,7 @@ chrome.mojom.NetworkEasterEgg.getRemote = function() {
     'chrome.mojom.NetworkEasterEgg',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetHighScore
 chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec = {
@@ -92,7 +92,7 @@ chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec = {
   $: {
@@ -105,7 +105,7 @@ chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateHighScore
 chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec = {
@@ -119,7 +119,7 @@ chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetHighScore
 chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec = {
@@ -132,7 +132,7 @@ chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.NetworkEasterEggPtr = chrome.mojom.NetworkEasterEggRemote;

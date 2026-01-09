@@ -88,7 +88,7 @@ blink.mojom.AudioContextManager.getRemote = function() {
     'blink.mojom.AudioContextManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AudioContextAudiblePlaybackStarted
 blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec = {
@@ -102,7 +102,7 @@ blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AudioContextAudiblePlaybackStopped
 blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec = {
@@ -116,7 +116,7 @@ blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AudioContextCreated
 blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec = {
@@ -130,7 +130,7 @@ blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AudioContextClosed
 blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec = {
@@ -144,7 +144,7 @@ blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AudioContextManagerPtr = blink.mojom.AudioContextManagerRemote;

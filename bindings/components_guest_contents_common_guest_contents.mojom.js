@@ -61,7 +61,7 @@ guest_contents.mojom.GuestContentsHost.getRemote = function() {
     'guest_contents.mojom.GuestContentsHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Attach
 guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec = {
@@ -76,7 +76,7 @@ guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec = {
   $: {
@@ -89,7 +89,7 @@ guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 guest_contents.mojom.GuestContentsHostPtr = guest_contents.mojom.GuestContentsHostRemote;

@@ -70,7 +70,7 @@ blink.mojom.FencedFrameOwnerHost.getRemote = function() {
     'blink.mojom.FencedFrameOwnerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Navigate
 blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec = {
@@ -86,7 +86,7 @@ blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidChangeFramePolicy
 blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec = {
@@ -100,7 +100,7 @@ blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FencedFrameOwnerHostPtr = blink.mojom.FencedFrameOwnerHostRemote;

@@ -52,7 +52,7 @@ arc.mojom.CameraService.getRemote = function() {
     'arc.mojom.CameraService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.CameraServicePtr = arc.mojom.CameraServiceRemote;
@@ -102,7 +102,7 @@ arc.mojom.CameraHost.getRemote = function() {
     'arc.mojom.CameraHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.CameraHostPtr = arc.mojom.CameraHostRemote;
@@ -152,7 +152,7 @@ arc.mojom.CameraInstance.getRemote = function() {
     'arc.mojom.CameraInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.CameraInstancePtr = arc.mojom.CameraInstanceRemote;

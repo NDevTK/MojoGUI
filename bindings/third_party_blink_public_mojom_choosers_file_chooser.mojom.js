@@ -79,7 +79,7 @@ blink.mojom.FileChooser.getRemote = function() {
     'blink.mojom.FileChooser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenFileChooser
 blink.mojom.FileChooser_OpenFileChooser_ParamsSpec = {
@@ -93,7 +93,7 @@ blink.mojom.FileChooser_OpenFileChooser_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec = {
   $: {
@@ -106,7 +106,7 @@ blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnumerateChosenDirectory
 blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec = {
@@ -120,7 +120,7 @@ blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec = {
   $: {
@@ -133,7 +133,7 @@ blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileChooserPtr = blink.mojom.FileChooserRemote;

@@ -94,7 +94,7 @@ side_panel.mojom.CustomizeChromePageHandlerFactory.getRemote = function() {
     'side_panel.mojom.CustomizeChromePageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -109,7 +109,7 @@ side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 side_panel.mojom.CustomizeChromePageHandlerFactoryPtr = side_panel.mojom.CustomizeChromePageHandlerFactoryRemote;
@@ -420,7 +420,7 @@ side_panel.mojom.CustomizeChromePageHandler.getRemote = function() {
     'side_panel.mojom.CustomizeChromePageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetMostVisitedSettings
 side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec = {
@@ -436,7 +436,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateMostVisitedSettings
 side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec = {
@@ -449,7 +449,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetBackgroundCollections
 side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec = {
@@ -462,7 +462,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec = {
   $: {
@@ -475,7 +475,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetReplacementCollectionPreviewImage
 side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec = {
@@ -489,7 +489,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec = {
   $: {
@@ -502,7 +502,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetBackgroundImages
 side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec = {
@@ -516,7 +516,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec = {
   $: {
@@ -529,7 +529,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateModulesSettings
 side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec = {
@@ -542,7 +542,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateTheme
 side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec = {
@@ -555,7 +555,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateThemeEditable
 side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec = {
@@ -569,7 +569,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDefaultColor
 side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec = {
@@ -582,7 +582,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFollowDeviceTheme
 side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec = {
@@ -596,7 +596,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveBackgroundImage
 side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec = {
@@ -609,7 +609,7 @@ side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ChooseLocalCustomBackground
 side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSpec = {
@@ -622,7 +622,7 @@ side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec = {
   $: {
@@ -635,7 +635,7 @@ side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBackgroundImage
 side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec = {
@@ -654,7 +654,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDailyRefreshCollectionId
 side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec = {
@@ -668,7 +668,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenChromeWebStore
 side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec = {
@@ -681,7 +681,7 @@ side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenChromeWebStoreHomePage
 side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpec = {
@@ -694,7 +694,7 @@ side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenThirdPartyThemePage
 side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec = {
@@ -708,7 +708,7 @@ side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenChromeWebStoreCategoryPage
 side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec = {
@@ -722,7 +722,7 @@ side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenChromeWebStoreCollectionPage
 side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec = {
@@ -736,7 +736,7 @@ side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenNtpManagedByPage
 side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec = {
@@ -749,7 +749,7 @@ side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetModulesVisible
 side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec = {
@@ -763,7 +763,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetModuleDisabled
 side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec = {
@@ -778,7 +778,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetToolChipsVisible
 side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec = {
@@ -792,7 +792,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateToolChipsSettings
 side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec = {
@@ -805,7 +805,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateScrollToSection
 side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec = {
@@ -818,7 +818,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateAttachedTabState
 side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec = {
@@ -831,7 +831,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateNtpManagedByName
 side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec = {
@@ -844,7 +844,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFooterVisible
 side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec = {
@@ -858,7 +858,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateFooterSettings
 side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec = {
@@ -871,7 +871,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 side_panel.mojom.CustomizeChromePageHandlerPtr = side_panel.mojom.CustomizeChromePageHandlerRemote;
@@ -1002,7 +1002,7 @@ side_panel.mojom.CustomizeChromePage.getRemote = function() {
     'side_panel.mojom.CustomizeChromePage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetModulesSettings
 side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec = {
@@ -1018,7 +1018,7 @@ side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMostVisitedSettings
 side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec = {
@@ -1035,7 +1035,7 @@ side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetToolsSettings
 side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec = {
@@ -1049,7 +1049,7 @@ side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFooterSettings
 side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec = {
@@ -1065,7 +1065,7 @@ side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTheme
 side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec = {
@@ -1079,7 +1079,7 @@ side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetThemeEditable
 side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec = {
@@ -1093,7 +1093,7 @@ side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ScrollToSection
 side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec = {
@@ -1107,7 +1107,7 @@ side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AttachedTabStateUpdated
 side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec = {
@@ -1121,7 +1121,7 @@ side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NtpManagedByNameUpdated
 side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec = {
@@ -1136,7 +1136,7 @@ side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 side_panel.mojom.CustomizeChromePagePtr = side_panel.mojom.CustomizeChromePageRemote;

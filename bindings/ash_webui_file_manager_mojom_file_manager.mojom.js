@@ -62,7 +62,7 @@ ash.file_manager.mojom.PageHandlerFactory.getRemote = function() {
     'ash.file_manager.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -77,7 +77,7 @@ ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.file_manager.mojom.PageHandlerFactoryPtr = ash.file_manager.mojom.PageHandlerFactoryRemote;
@@ -127,7 +127,7 @@ ash.file_manager.mojom.PageHandler.getRemote = function() {
     'ash.file_manager.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.file_manager.mojom.PageHandlerPtr = ash.file_manager.mojom.PageHandlerRemote;
@@ -177,7 +177,7 @@ ash.file_manager.mojom.Page.getRemote = function() {
     'ash.file_manager.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.file_manager.mojom.PagePtr = ash.file_manager.mojom.PageRemote;

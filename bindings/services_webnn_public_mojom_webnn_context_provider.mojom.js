@@ -68,7 +68,7 @@ webnn.mojom.WebNNContextProvider.getRemote = function() {
     'webnn.mojom.WebNNContextProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateWebNNContext
 webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
@@ -82,7 +82,7 @@ webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
   $: {
@@ -95,7 +95,7 @@ webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 webnn.mojom.WebNNContextProviderPtr = webnn.mojom.WebNNContextProviderRemote;

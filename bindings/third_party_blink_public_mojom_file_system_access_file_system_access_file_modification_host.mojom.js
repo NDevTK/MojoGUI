@@ -70,7 +70,7 @@ blink.mojom.FileSystemAccessFileModificationHost.getRemote = function() {
     'blink.mojom.FileSystemAccessFileModificationHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestCapacityChange
 blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec = {
@@ -84,7 +84,7 @@ blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnContentsModified
 blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec = {
@@ -110,7 +110,7 @@ blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileSystemAccessFileModificationHostPtr = blink.mojom.FileSystemAccessFileModificationHostRemote;

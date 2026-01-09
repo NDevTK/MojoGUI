@@ -67,7 +67,7 @@ arc.mojom.WebApkInstance.getRemote = function() {
     'arc.mojom.WebApkInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.WebApkInstancePtr = arc.mojom.WebApkInstanceRemote;

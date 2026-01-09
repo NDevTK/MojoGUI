@@ -52,7 +52,7 @@ media.mojom.VideoDecoderTracker.getRemote = function() {
     'media.mojom.VideoDecoderTracker',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media.mojom.VideoDecoderTrackerPtr = media.mojom.VideoDecoderTrackerRemote;
@@ -183,7 +183,7 @@ media.mojom.InterfaceFactory.getRemote = function() {
     'media.mojom.InterfaceFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateAudioDecoder
 media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec = {
@@ -197,7 +197,7 @@ media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateVideoDecoder
 media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec = {
@@ -212,7 +212,7 @@ media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateVideoDecoderWithTracker
 media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec = {
@@ -227,7 +227,7 @@ media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateAudioEncoder
 media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec = {
@@ -241,7 +241,7 @@ media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateDefaultRenderer
 media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec = {
@@ -256,7 +256,7 @@ media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateCastRenderer
 media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec = {
@@ -271,7 +271,7 @@ media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateMediaFoundationRenderer
 media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec = {
@@ -287,7 +287,7 @@ media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateFlingingRenderer
 media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec = {
@@ -303,7 +303,7 @@ media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateCdm
 media.mojom.InterfaceFactory_CreateCdm_ParamsSpec = {
@@ -317,7 +317,7 @@ media.mojom.InterfaceFactory_CreateCdm_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec = {
   $: {
@@ -332,7 +332,7 @@ media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.InterfaceFactoryPtr = media.mojom.InterfaceFactoryRemote;

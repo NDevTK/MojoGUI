@@ -70,7 +70,7 @@ blink.mojom.AecDumpAgent.getRemote = function() {
     'blink.mojom.AecDumpAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Start
 blink.mojom.AecDumpAgent_Start_ParamsSpec = {
@@ -84,7 +84,7 @@ blink.mojom.AecDumpAgent_Start_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Stop
 blink.mojom.AecDumpAgent_Stop_ParamsSpec = {
@@ -97,7 +97,7 @@ blink.mojom.AecDumpAgent_Stop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AecDumpAgentPtr = blink.mojom.AecDumpAgentRemote;
@@ -156,7 +156,7 @@ blink.mojom.AecDumpManager.getRemote = function() {
     'blink.mojom.AecDumpManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Add
 blink.mojom.AecDumpManager_Add_ParamsSpec = {
@@ -170,7 +170,7 @@ blink.mojom.AecDumpManager_Add_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AecDumpManagerPtr = blink.mojom.AecDumpManagerRemote;

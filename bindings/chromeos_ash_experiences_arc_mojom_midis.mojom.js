@@ -52,7 +52,7 @@ arc.mojom.MidisClient.getRemote = function() {
     'arc.mojom.MidisClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.MidisClientPtr = arc.mojom.MidisClientRemote;
@@ -102,7 +102,7 @@ arc.mojom.MidisServer.getRemote = function() {
     'arc.mojom.MidisServer',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.MidisServerPtr = arc.mojom.MidisServerRemote;
@@ -152,7 +152,7 @@ arc.mojom.MidisHost.getRemote = function() {
     'arc.mojom.MidisHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.MidisHostPtr = arc.mojom.MidisHostRemote;
@@ -202,7 +202,7 @@ arc.mojom.MidisInstance.getRemote = function() {
     'arc.mojom.MidisInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.MidisInstancePtr = arc.mojom.MidisInstanceRemote;

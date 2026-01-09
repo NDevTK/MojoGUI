@@ -130,7 +130,7 @@ video_capture.mojom.PushVideoStreamSubscription.getRemote = function() {
     'video_capture.mojom.PushVideoStreamSubscription',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Activate
 video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec = {
@@ -143,7 +143,7 @@ video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Suspend
 video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec = {
@@ -156,7 +156,7 @@ video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Resume
 video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec = {
@@ -169,7 +169,7 @@ video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPhotoState
 video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec = {
@@ -182,7 +182,7 @@ video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec = {
   $: {
@@ -195,7 +195,7 @@ video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPhotoOptions
 video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = {
@@ -209,7 +209,7 @@ video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec = {
   $: {
@@ -222,7 +222,7 @@ video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TakePhoto
 video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec = {
@@ -235,7 +235,7 @@ video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec = {
   $: {
@@ -248,7 +248,7 @@ video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Close
 video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec = {
@@ -261,7 +261,7 @@ video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ProcessFeedback
 video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec = {
@@ -275,7 +275,7 @@ video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 video_capture.mojom.PushVideoStreamSubscriptionPtr = video_capture.mojom.PushVideoStreamSubscriptionRemote;
@@ -334,7 +334,7 @@ video_capture.mojom.VideoSource.getRemote = function() {
     'video_capture.mojom.VideoSource',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePushSubscription
 video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = {
@@ -351,7 +351,7 @@ video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = {
   $: {
@@ -365,7 +365,7 @@ video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 video_capture.mojom.VideoSourcePtr = video_capture.mojom.VideoSourceRemote;

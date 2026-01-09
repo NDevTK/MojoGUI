@@ -70,7 +70,7 @@ js_injection.mojom.JsToBrowserMessaging.getRemote = function() {
     'js_injection.mojom.JsToBrowserMessaging',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PostMessage
 js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec = {
@@ -85,7 +85,7 @@ js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBrowserToJsMessaging
 js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec = {
@@ -99,7 +99,7 @@ js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 js_injection.mojom.JsToBrowserMessagingPtr = js_injection.mojom.JsToBrowserMessagingRemote;
@@ -158,7 +158,7 @@ js_injection.mojom.JsObjectsClient.getRemote = function() {
     'js_injection.mojom.JsObjectsClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnWindowObjectCleared
 js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec = {
@@ -171,7 +171,7 @@ js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 js_injection.mojom.JsObjectsClientPtr = js_injection.mojom.JsObjectsClientRemote;
@@ -230,7 +230,7 @@ js_injection.mojom.BrowserToJsMessagingFactory.getRemote = function() {
     'js_injection.mojom.BrowserToJsMessagingFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendBrowserToJsMessaging
 js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec = {
@@ -244,7 +244,7 @@ js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 js_injection.mojom.BrowserToJsMessagingFactoryPtr = js_injection.mojom.BrowserToJsMessagingFactoryRemote;
@@ -303,7 +303,7 @@ js_injection.mojom.BrowserToJsMessaging.getRemote = function() {
     'js_injection.mojom.BrowserToJsMessaging',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPostMessage
 js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec = {
@@ -317,7 +317,7 @@ js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 js_injection.mojom.BrowserToJsMessagingPtr = js_injection.mojom.BrowserToJsMessagingRemote;
@@ -394,7 +394,7 @@ js_injection.mojom.JsCommunication.getRemote = function() {
     'js_injection.mojom.JsCommunication',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetJsObjects
 js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec = {
@@ -409,7 +409,7 @@ js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddPersistentJavaScript
 js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec = {
@@ -423,7 +423,7 @@ js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemovePersistentJavaScript
 js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec = {
@@ -437,7 +437,7 @@ js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 js_injection.mojom.JsCommunicationPtr = js_injection.mojom.JsCommunicationRemote;

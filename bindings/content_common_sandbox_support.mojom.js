@@ -113,7 +113,7 @@ content.mojom.SandboxSupport.getRemote = function() {
     'content.mojom.SandboxSupport',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSystemColors
 content.mojom.SandboxSupport_GetSystemColors_ParamsSpec = {
@@ -126,7 +126,7 @@ content.mojom.SandboxSupport_GetSystemColors_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec = {
   $: {
@@ -139,7 +139,7 @@ content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LcidAndFirstDayOfWeek
 content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec = {
@@ -155,7 +155,7 @@ content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec = {
   $: {
@@ -169,7 +169,7 @@ content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DigitsAndSigns
 content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec = {
@@ -184,7 +184,7 @@ content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec = {
   $: {
@@ -202,7 +202,7 @@ content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LocaleString
 content.mojom.SandboxSupport_LocaleString_ParamsSpec = {
@@ -218,7 +218,7 @@ content.mojom.SandboxSupport_LocaleString_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec = {
   $: {
@@ -231,7 +231,7 @@ content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LocaleStrings
 content.mojom.SandboxSupport_LocaleStrings_ParamsSpec = {
@@ -247,7 +247,7 @@ content.mojom.SandboxSupport_LocaleStrings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec = {
   $: {
@@ -260,7 +260,7 @@ content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.SandboxSupportPtr = content.mojom.SandboxSupportRemote;

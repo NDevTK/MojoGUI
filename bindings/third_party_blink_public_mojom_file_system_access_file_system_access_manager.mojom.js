@@ -125,7 +125,7 @@ blink.mojom.FileSystemAccessManager.getRemote = function() {
     'blink.mojom.FileSystemAccessManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSandboxedFileSystem
 blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ParamsSpec = {
@@ -138,7 +138,7 @@ blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec = {
   $: {
@@ -152,7 +152,7 @@ blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSandboxedFileSystemForDevtools
 blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ParamsSpec = {
@@ -166,7 +166,7 @@ blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec = {
   $: {
@@ -180,7 +180,7 @@ blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ChooseEntries
 blink.mojom.FileSystemAccessManager_ChooseEntries_ParamsSpec = {
@@ -194,7 +194,7 @@ blink.mojom.FileSystemAccessManager_ChooseEntries_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec = {
   $: {
@@ -208,7 +208,7 @@ blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFileHandleFromToken
 blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_ParamsSpec = {
@@ -223,7 +223,7 @@ blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDirectoryHandleFromToken
 blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_ParamsSpec = {
@@ -238,7 +238,7 @@ blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetEntryFromDataTransferToken
 blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ParamsSpec = {
@@ -252,7 +252,7 @@ blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec = {
   $: {
@@ -266,7 +266,7 @@ blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindObserverHost
 blink.mojom.FileSystemAccessManager_BindObserverHost_ParamsSpec = {
@@ -280,7 +280,7 @@ blink.mojom.FileSystemAccessManager_BindObserverHost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileSystemAccessManagerPtr = blink.mojom.FileSystemAccessManagerRemote;

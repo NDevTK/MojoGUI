@@ -108,7 +108,7 @@ blink.mojom.ModelStreamingResponder.getRemote = function() {
     'blink.mojom.ModelStreamingResponder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCompletion
 blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec = {
@@ -122,7 +122,7 @@ blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 blink.mojom.ModelStreamingResponder_OnError_ParamsSpec = {
@@ -137,7 +137,7 @@ blink.mojom.ModelStreamingResponder_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStreaming
 blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec = {
@@ -151,7 +151,7 @@ blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnQuotaOverflow
 blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec = {
@@ -164,7 +164,7 @@ blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ModelStreamingResponderPtr = blink.mojom.ModelStreamingResponderRemote;

@@ -52,7 +52,7 @@ arc.mojom.ScreenCaptureHost.getRemote = function() {
     'arc.mojom.ScreenCaptureHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ScreenCaptureHostPtr = arc.mojom.ScreenCaptureHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.ScreenCaptureSession.getRemote = function() {
     'arc.mojom.ScreenCaptureSession',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ScreenCaptureSessionPtr = arc.mojom.ScreenCaptureSessionRemote;
@@ -152,7 +152,7 @@ arc.mojom.ScreenCaptureInstance.getRemote = function() {
     'arc.mojom.ScreenCaptureInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ScreenCaptureInstancePtr = arc.mojom.ScreenCaptureInstanceRemote;
@@ -202,7 +202,7 @@ arc.mojom.ScreenCaptureSessionNotifier.getRemote = function() {
     'arc.mojom.ScreenCaptureSessionNotifier',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ScreenCaptureSessionNotifierPtr = arc.mojom.ScreenCaptureSessionNotifierRemote;

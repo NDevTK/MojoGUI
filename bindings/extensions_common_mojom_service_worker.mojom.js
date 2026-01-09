@@ -70,7 +70,7 @@ extensions.mojom.ServiceWorker.getRemote = function() {
     'extensions.mojom.ServiceWorker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdatePermissions
 extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec = {
@@ -85,7 +85,7 @@ extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchOnConnect
 extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec = {
@@ -105,7 +105,7 @@ extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec = {
   $: {
@@ -118,7 +118,7 @@ extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mojom.ServiceWorkerPtr = extensions.mojom.ServiceWorkerRemote;

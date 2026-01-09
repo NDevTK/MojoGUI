@@ -167,7 +167,7 @@ blink.mojom.WebPrintJobStateObserver.getRemote = function() {
     'blink.mojom.WebPrintJobStateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnWebPrintJobUpdate
 blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec = {
@@ -181,7 +181,7 @@ blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebPrintJobStateObserverPtr = blink.mojom.WebPrintJobStateObserverRemote;
@@ -240,7 +240,7 @@ blink.mojom.WebPrintJobController.getRemote = function() {
     'blink.mojom.WebPrintJobController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Cancel
 blink.mojom.WebPrintJobController_Cancel_ParamsSpec = {
@@ -253,7 +253,7 @@ blink.mojom.WebPrintJobController_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebPrintJobControllerPtr = blink.mojom.WebPrintJobControllerRemote;
@@ -321,7 +321,7 @@ blink.mojom.WebPrinter.getRemote = function() {
     'blink.mojom.WebPrinter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FetchAttributes
 blink.mojom.WebPrinter_FetchAttributes_ParamsSpec = {
@@ -334,7 +334,7 @@ blink.mojom.WebPrinter_FetchAttributes_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec = {
   $: {
@@ -347,7 +347,7 @@ blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Print
 blink.mojom.WebPrinter_Print_ParamsSpec = {
@@ -362,7 +362,7 @@ blink.mojom.WebPrinter_Print_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebPrinter_Print_ResponseParamsSpec = {
   $: {
@@ -375,7 +375,7 @@ blink.mojom.WebPrinter_Print_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebPrinterPtr = blink.mojom.WebPrinterRemote;
@@ -434,7 +434,7 @@ blink.mojom.WebPrintingService.getRemote = function() {
     'blink.mojom.WebPrintingService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPrinters
 blink.mojom.WebPrintingService_GetPrinters_ParamsSpec = {
@@ -447,7 +447,7 @@ blink.mojom.WebPrintingService_GetPrinters_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec = {
   $: {
@@ -460,7 +460,7 @@ blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebPrintingServicePtr = blink.mojom.WebPrintingServiceRemote;

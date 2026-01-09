@@ -53,7 +53,7 @@ chromeos.sensors.mojom.SensorHalServer.getRemote = function() {
     'chromeos.sensors.mojom.SensorHalServer',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.sensors.mojom.SensorHalServerPtr = chromeos.sensors.mojom.SensorHalServerRemote;
@@ -103,7 +103,7 @@ chromeos.sensors.mojom.SensorHalClient.getRemote = function() {
     'chromeos.sensors.mojom.SensorHalClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.sensors.mojom.SensorHalClientPtr = chromeos.sensors.mojom.SensorHalClientRemote;

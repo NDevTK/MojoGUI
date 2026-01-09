@@ -76,7 +76,7 @@ ash.screens_common.mojom.AiIntroPageHandler.getRemote = function() {
     'ash.screens_common.mojom.AiIntroPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnNextClicked
 ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec = {
@@ -89,7 +89,7 @@ ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_common.mojom.AiIntroPageHandlerPtr = ash.screens_common.mojom.AiIntroPageHandlerRemote;
@@ -148,7 +148,7 @@ ash.screens_common.mojom.AiIntroPage.getRemote = function() {
     'ash.screens_common.mojom.AiIntroPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetAutoTransition
 ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec = {
@@ -162,7 +162,7 @@ ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_common.mojom.AiIntroPagePtr = ash.screens_common.mojom.AiIntroPageRemote;
@@ -221,7 +221,7 @@ ash.screens_common.mojom.AppDownloadingPageHandler.getRemote = function() {
     'ash.screens_common.mojom.AppDownloadingPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnContinueClicked
 ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec = {
@@ -234,7 +234,7 @@ ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_common.mojom.AppDownloadingPageHandlerPtr = ash.screens_common.mojom.AppDownloadingPageHandlerRemote;
@@ -302,7 +302,7 @@ ash.screens_common.mojom.DrivePinningPageHandler.getRemote = function() {
     'ash.screens_common.mojom.DrivePinningPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnReturnClicked
 ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec = {
@@ -316,7 +316,7 @@ ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNextClicked
 ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec = {
@@ -330,7 +330,7 @@ ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_common.mojom.DrivePinningPageHandlerPtr = ash.screens_common.mojom.DrivePinningPageHandlerRemote;
@@ -389,7 +389,7 @@ ash.screens_common.mojom.DrivePinningPage.getRemote = function() {
     'ash.screens_common.mojom.DrivePinningPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetRequiredSpaceInfo
 ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec = {
@@ -404,7 +404,7 @@ ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_common.mojom.DrivePinningPagePtr = ash.screens_common.mojom.DrivePinningPageRemote;
@@ -463,7 +463,7 @@ ash.screens_common.mojom.FjordStationSetupPageHandler.getRemote = function() {
     'ash.screens_common.mojom.FjordStationSetupPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSetupComplete
 ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec = {
@@ -476,7 +476,7 @@ ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_common.mojom.FjordStationSetupPageHandlerPtr = ash.screens_common.mojom.FjordStationSetupPageHandlerRemote;
@@ -544,7 +544,7 @@ ash.screens_common.mojom.GaiaInfoPageHandler.getRemote = function() {
     'ash.screens_common.mojom.GaiaInfoPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnBackClicked
 ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec = {
@@ -557,7 +557,7 @@ ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNextClicked
 ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec = {
@@ -571,7 +571,7 @@ ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_common.mojom.GaiaInfoPageHandlerPtr = ash.screens_common.mojom.GaiaInfoPageHandlerRemote;
@@ -630,7 +630,7 @@ ash.screens_common.mojom.GaiaInfoPage.getRemote = function() {
     'ash.screens_common.mojom.GaiaInfoPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetQuickStartVisible
 ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec = {
@@ -643,7 +643,7 @@ ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_common.mojom.GaiaInfoPagePtr = ash.screens_common.mojom.GaiaInfoPageRemote;
@@ -720,7 +720,7 @@ ash.screens_common.mojom.GestureNavigationPageHandler.getRemote = function() {
     'ash.screens_common.mojom.GestureNavigationPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPageChange
 ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec = {
@@ -734,7 +734,7 @@ ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSkipClicked
 ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec = {
@@ -747,7 +747,7 @@ ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnExitClicked
 ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec = {
@@ -760,7 +760,7 @@ ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_common.mojom.GestureNavigationPageHandlerPtr = ash.screens_common.mojom.GestureNavigationPageHandlerRemote;
@@ -828,7 +828,7 @@ ash.screens_common.mojom.GeminiIntroPageHandler.getRemote = function() {
     'ash.screens_common.mojom.GeminiIntroPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnBackClicked
 ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec = {
@@ -841,7 +841,7 @@ ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNextClicked
 ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec = {
@@ -854,7 +854,7 @@ ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_common.mojom.GeminiIntroPageHandlerPtr = ash.screens_common.mojom.GeminiIntroPageHandlerRemote;

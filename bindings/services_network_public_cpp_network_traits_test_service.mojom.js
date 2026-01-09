@@ -61,7 +61,7 @@ network.mojom.TraitsTestService.getRemote = function() {
     'network.mojom.TraitsTestService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EchoHttpRequestHeaders
 network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec = {
@@ -75,7 +75,7 @@ network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.TraitsTestServicePtr = network.mojom.TraitsTestServiceRemote;

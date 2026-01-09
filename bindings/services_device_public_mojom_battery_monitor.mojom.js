@@ -61,7 +61,7 @@ device.mojom.BatteryMonitor.getRemote = function() {
     'device.mojom.BatteryMonitor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for QueryNextStatus
 device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec = {
@@ -74,7 +74,7 @@ device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.BatteryMonitorPtr = device.mojom.BatteryMonitorRemote;

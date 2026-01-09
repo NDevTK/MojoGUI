@@ -170,7 +170,7 @@ ash.mojom.status_area_internals.PageHandler.getRemote = function() {
     'ash.mojom.status_area_internals.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ToggleImeTray
 ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec = {
@@ -184,7 +184,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TogglePaletteTray
 ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec = {
@@ -198,7 +198,7 @@ ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ToggleLogoutTray
 ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec = {
@@ -212,7 +212,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ToggleVirtualKeyboardTray
 ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec = {
@@ -226,7 +226,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ToggleDictationTray
 ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec = {
@@ -240,7 +240,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ToggleVideoConferenceTray
 ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec = {
@@ -254,7 +254,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ToggleAnnotationTray
 ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec = {
@@ -268,7 +268,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsInUserChildSession
 ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec = {
@@ -282,7 +282,7 @@ ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TriggerPrivacyIndicators
 ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec = {
@@ -299,7 +299,7 @@ ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetHmrConsentStatus
 ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec = {
@@ -312,7 +312,7 @@ ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBatteryIcon
 ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec = {
@@ -326,7 +326,7 @@ ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBatteryPercent
 ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec = {
@@ -340,7 +340,7 @@ ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.mojom.status_area_internals.PageHandlerPtr = ash.mojom.status_area_internals.PageHandlerRemote;

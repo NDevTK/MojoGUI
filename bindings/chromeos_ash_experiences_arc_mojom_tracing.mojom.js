@@ -52,7 +52,7 @@ arc.mojom.TracingInstance.getRemote = function() {
     'arc.mojom.TracingInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.TracingInstancePtr = arc.mojom.TracingInstanceRemote;

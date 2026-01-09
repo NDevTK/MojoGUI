@@ -61,7 +61,7 @@ blink.mojom.CloseListener.getRemote = function() {
     'blink.mojom.CloseListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Signal
 blink.mojom.CloseListener_Signal_ParamsSpec = {
@@ -74,7 +74,7 @@ blink.mojom.CloseListener_Signal_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.CloseListenerPtr = blink.mojom.CloseListenerRemote;

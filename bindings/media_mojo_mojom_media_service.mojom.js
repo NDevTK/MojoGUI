@@ -61,7 +61,7 @@ media.mojom.MediaService.getRemote = function() {
     'media.mojom.MediaService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateInterfaceFactory
 media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec = {
@@ -76,7 +76,7 @@ media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MediaServicePtr = media.mojom.MediaServiceRemote;

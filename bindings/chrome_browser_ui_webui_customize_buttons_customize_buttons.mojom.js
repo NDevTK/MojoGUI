@@ -67,7 +67,7 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactory.getRemote = function() {
     'customize_buttons.mojom.CustomizeButtonsHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateCustomizeButtonsHandler
 customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec = {
@@ -82,7 +82,7 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHan
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 customize_buttons.mojom.CustomizeButtonsHandlerFactoryPtr = customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemote;
@@ -159,7 +159,7 @@ customize_buttons.mojom.CustomizeButtonsHandler.getRemote = function() {
     'customize_buttons.mojom.CustomizeButtonsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for IncrementCustomizeChromeButtonOpenCount
 customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec = {
@@ -172,7 +172,7 @@ customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IncrementWallpaperSearchButtonShownCount
 customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec = {
@@ -185,7 +185,7 @@ customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonSh
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCustomizeChromeSidePanelVisible
 customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec = {
@@ -201,7 +201,7 @@ customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisib
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 customize_buttons.mojom.CustomizeButtonsHandlerPtr = customize_buttons.mojom.CustomizeButtonsHandlerRemote;
@@ -260,7 +260,7 @@ customize_buttons.mojom.CustomizeButtonsDocument.getRemote = function() {
     'customize_buttons.mojom.CustomizeButtonsDocument',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetCustomizeChromeSidePanelVisibility
 customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec = {
@@ -274,7 +274,7 @@ customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisi
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 customize_buttons.mojom.CustomizeButtonsDocumentPtr = customize_buttons.mojom.CustomizeButtonsDocumentRemote;

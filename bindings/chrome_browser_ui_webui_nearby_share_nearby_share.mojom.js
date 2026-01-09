@@ -123,7 +123,7 @@ nearby_share.mojom.ShareTargetListener.getRemote = function() {
     'nearby_share.mojom.ShareTargetListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnShareTargetDiscovered
 nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec = {
@@ -137,7 +137,7 @@ nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnShareTargetLost
 nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec = {
@@ -151,7 +151,7 @@ nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby_share.mojom.ShareTargetListenerPtr = nearby_share.mojom.ShareTargetListenerRemote;
@@ -210,7 +210,7 @@ nearby_share.mojom.TransferUpdateListener.getRemote = function() {
     'nearby_share.mojom.TransferUpdateListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnTransferUpdate
 nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec = {
@@ -225,7 +225,7 @@ nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby_share.mojom.TransferUpdateListenerPtr = nearby_share.mojom.TransferUpdateListenerRemote;
@@ -293,7 +293,7 @@ nearby_share.mojom.DiscoveryObserver.getRemote = function() {
     'nearby_share.mojom.DiscoveryObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnNearbyProcessStopped
 nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec = {
@@ -306,7 +306,7 @@ nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStartDiscoveryResult
 nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec = {
@@ -320,7 +320,7 @@ nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby_share.mojom.DiscoveryObserverPtr = nearby_share.mojom.DiscoveryObserverRemote;
@@ -415,7 +415,7 @@ nearby_share.mojom.DiscoveryManager.getRemote = function() {
     'nearby_share.mojom.DiscoveryManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddDiscoveryObserver
 nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec = {
@@ -429,7 +429,7 @@ nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartDiscovery
 nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec = {
@@ -443,7 +443,7 @@ nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec = {
   $: {
@@ -456,7 +456,7 @@ nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopDiscovery
 nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec = {
@@ -469,7 +469,7 @@ nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectShareTarget
 nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec = {
@@ -483,7 +483,7 @@ nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec = {
   $: {
@@ -498,7 +498,7 @@ nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPayloadPreview
 nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec = {
@@ -511,7 +511,7 @@ nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec = {
   $: {
@@ -524,7 +524,7 @@ nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby_share.mojom.DiscoveryManagerPtr = nearby_share.mojom.DiscoveryManagerRemote;
@@ -601,7 +601,7 @@ nearby_share.mojom.ConfirmationManager.getRemote = function() {
     'nearby_share.mojom.ConfirmationManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Accept
 nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec = {
@@ -614,7 +614,7 @@ nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec = {
   $: {
@@ -627,7 +627,7 @@ nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Reject
 nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec = {
@@ -640,7 +640,7 @@ nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec = {
   $: {
@@ -653,7 +653,7 @@ nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Cancel
 nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec = {
@@ -666,7 +666,7 @@ nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec = {
   $: {
@@ -679,7 +679,7 @@ nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby_share.mojom.ConfirmationManagerPtr = nearby_share.mojom.ConfirmationManagerRemote;
@@ -765,7 +765,7 @@ nearby_share.mojom.ReceiveObserver.getRemote = function() {
     'nearby_share.mojom.ReceiveObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnHighVisibilityChanged
 nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec = {
@@ -779,7 +779,7 @@ nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTransferUpdate
 nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec = {
@@ -794,7 +794,7 @@ nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNearbyProcessStopped
 nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec = {
@@ -807,7 +807,7 @@ nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStartAdvertisingFailure
 nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec = {
@@ -820,7 +820,7 @@ nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby_share.mojom.ReceiveObserverPtr = nearby_share.mojom.ReceiveObserverRemote;
@@ -933,7 +933,7 @@ nearby_share.mojom.ReceiveManager.getRemote = function() {
     'nearby_share.mojom.ReceiveManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddReceiveObserver
 nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec = {
@@ -947,7 +947,7 @@ nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsInHighVisibility
 nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec = {
@@ -960,7 +960,7 @@ nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec = {
   $: {
@@ -973,7 +973,7 @@ nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterForegroundReceiveSurface
 nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec = {
@@ -986,7 +986,7 @@ nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec = {
   $: {
@@ -999,7 +999,7 @@ nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnregisterForegroundReceiveSurface
 nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec = {
@@ -1012,7 +1012,7 @@ nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec = {
   $: {
@@ -1025,7 +1025,7 @@ nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Accept
 nearby_share.mojom.ReceiveManager_Accept_ParamsSpec = {
@@ -1039,7 +1039,7 @@ nearby_share.mojom.ReceiveManager_Accept_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec = {
   $: {
@@ -1052,7 +1052,7 @@ nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Reject
 nearby_share.mojom.ReceiveManager_Reject_ParamsSpec = {
@@ -1066,7 +1066,7 @@ nearby_share.mojom.ReceiveManager_Reject_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec = {
   $: {
@@ -1079,7 +1079,7 @@ nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordFastInitiationNotificationUsage
 nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec = {
@@ -1093,7 +1093,7 @@ nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby_share.mojom.ReceiveManagerPtr = nearby_share.mojom.ReceiveManagerRemote;

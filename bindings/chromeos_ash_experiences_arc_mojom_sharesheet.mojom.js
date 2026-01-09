@@ -52,7 +52,7 @@ arc.mojom.SharesheetHost.getRemote = function() {
     'arc.mojom.SharesheetHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.SharesheetHostPtr = arc.mojom.SharesheetHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.SharesheetInstance.getRemote = function() {
     'arc.mojom.SharesheetInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.SharesheetInstancePtr = arc.mojom.SharesheetInstanceRemote;

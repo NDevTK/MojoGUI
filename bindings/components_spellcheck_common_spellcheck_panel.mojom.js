@@ -70,7 +70,7 @@ spellcheck.mojom.SpellCheckPanel.getRemote = function() {
     'spellcheck.mojom.SpellCheckPanel',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ToggleSpellPanel
 spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec = {
@@ -84,7 +84,7 @@ spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AdvanceToNextMisspelling
 spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec = {
@@ -97,7 +97,7 @@ spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 spellcheck.mojom.SpellCheckPanelPtr = spellcheck.mojom.SpellCheckPanelRemote;
@@ -165,7 +165,7 @@ spellcheck.mojom.SpellCheckPanelHost.getRemote = function() {
     'spellcheck.mojom.SpellCheckPanelHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShowSpellingPanel
 spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec = {
@@ -179,7 +179,7 @@ spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateSpellingPanelWithMisspelledWord
 spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec = {
@@ -193,7 +193,7 @@ spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 spellcheck.mojom.SpellCheckPanelHostPtr = spellcheck.mojom.SpellCheckPanelHostRemote;

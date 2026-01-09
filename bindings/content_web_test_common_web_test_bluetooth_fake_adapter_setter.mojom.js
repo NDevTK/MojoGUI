@@ -61,7 +61,7 @@ content.mojom.WebTestBluetoothFakeAdapterSetter.getRemote = function() {
     'content.mojom.WebTestBluetoothFakeAdapterSetter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Set
 content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec = {
@@ -75,7 +75,7 @@ content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.WebTestBluetoothFakeAdapterSetterPtr = content.mojom.WebTestBluetoothFakeAdapterSetterRemote;

@@ -143,7 +143,7 @@ ash.scanning.mojom.ScanJobObserver.getRemote = function() {
     'ash.scanning.mojom.ScanJobObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPageProgress
 ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = {
@@ -158,7 +158,7 @@ ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPageComplete
 ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec = {
@@ -173,7 +173,7 @@ ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnScanComplete
 ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec = {
@@ -188,7 +188,7 @@ ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCancelComplete
 ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec = {
@@ -202,7 +202,7 @@ ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMultiPageScanFail
 ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec = {
@@ -216,7 +216,7 @@ ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.scanning.mojom.ScanJobObserverPtr = ash.scanning.mojom.ScanJobObserverRemote;
@@ -311,7 +311,7 @@ ash.scanning.mojom.ScanService.getRemote = function() {
     'ash.scanning.mojom.ScanService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetScanners
 ash.scanning.mojom.ScanService_GetScanners_ParamsSpec = {
@@ -324,7 +324,7 @@ ash.scanning.mojom.ScanService_GetScanners_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec = {
   $: {
@@ -337,7 +337,7 @@ ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetScannerCapabilities
 ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec = {
@@ -351,7 +351,7 @@ ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec = {
   $: {
@@ -364,7 +364,7 @@ ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartScan
 ash.scanning.mojom.ScanService_StartScan_ParamsSpec = {
@@ -380,7 +380,7 @@ ash.scanning.mojom.ScanService_StartScan_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec = {
   $: {
@@ -393,7 +393,7 @@ ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartMultiPageScan
 ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec = {
@@ -409,7 +409,7 @@ ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec = {
   $: {
@@ -422,7 +422,7 @@ ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelScan
 ash.scanning.mojom.ScanService_CancelScan_ParamsSpec = {
@@ -435,7 +435,7 @@ ash.scanning.mojom.ScanService_CancelScan_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.scanning.mojom.ScanServicePtr = ash.scanning.mojom.ScanServiceRemote;
@@ -521,7 +521,7 @@ ash.scanning.mojom.MultiPageScanController.getRemote = function() {
     'ash.scanning.mojom.MultiPageScanController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ScanNextPage
 ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = {
@@ -536,7 +536,7 @@ ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec = {
   $: {
@@ -549,7 +549,7 @@ ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemovePage
 ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec = {
@@ -563,7 +563,7 @@ ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RescanPage
 ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec = {
@@ -579,7 +579,7 @@ ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec = {
   $: {
@@ -592,7 +592,7 @@ ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CompleteMultiPageScan
 ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec = {
@@ -605,7 +605,7 @@ ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.scanning.mojom.MultiPageScanControllerPtr = ash.scanning.mojom.MultiPageScanControllerRemote;

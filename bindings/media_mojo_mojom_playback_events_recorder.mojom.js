@@ -133,7 +133,7 @@ media.mojom.PlaybackEventsRecorder.getRemote = function() {
     'media.mojom.PlaybackEventsRecorder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPlaying
 media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec = {
@@ -146,7 +146,7 @@ media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPaused
 media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec = {
@@ -159,7 +159,7 @@ media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSeeking
 media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec = {
@@ -172,7 +172,7 @@ media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnEnded
 media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec = {
@@ -185,7 +185,7 @@ media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec = {
@@ -199,7 +199,7 @@ media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBuffering
 media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec = {
@@ -212,7 +212,7 @@ media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBufferingComplete
 media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec = {
@@ -225,7 +225,7 @@ media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNaturalSizeChanged
 media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec = {
@@ -239,7 +239,7 @@ media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPipelineStatistics
 media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec = {
@@ -253,7 +253,7 @@ media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.PlaybackEventsRecorderPtr = media.mojom.PlaybackEventsRecorderRemote;

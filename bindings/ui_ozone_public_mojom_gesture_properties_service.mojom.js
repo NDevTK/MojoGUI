@@ -99,7 +99,7 @@ ui.ozone.mojom.GesturePropertiesService.getRemote = function() {
     'ui.ozone.mojom.GesturePropertiesService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ListDevices
 ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec = {
@@ -112,7 +112,7 @@ ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec = {
   $: {
@@ -125,7 +125,7 @@ ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ListProperties
 ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec = {
@@ -139,7 +139,7 @@ ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec = {
   $: {
@@ -152,7 +152,7 @@ ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetProperty
 ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec = {
@@ -167,7 +167,7 @@ ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec = {
   $: {
@@ -181,7 +181,7 @@ ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetProperty
 ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec = {
@@ -197,7 +197,7 @@ ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec = {
   $: {
@@ -210,7 +210,7 @@ ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ui.ozone.mojom.GesturePropertiesServicePtr = ui.ozone.mojom.GesturePropertiesServiceRemote;

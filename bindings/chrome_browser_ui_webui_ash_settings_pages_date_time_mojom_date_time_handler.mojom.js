@@ -63,7 +63,7 @@ ash.settings.date_time.mojom.PageHandlerFactory.getRemote = function() {
     'ash.settings.date_time.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -78,7 +78,7 @@ ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.date_time.mojom.PageHandlerFactoryPtr = ash.settings.date_time.mojom.PageHandlerFactoryRemote;
@@ -155,7 +155,7 @@ ash.settings.date_time.mojom.PageHandler.getRemote = function() {
     'ash.settings.date_time.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShowParentAccessForTimezone
 ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec = {
@@ -168,7 +168,7 @@ ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTimezones
 ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec = {
@@ -181,7 +181,7 @@ ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec = {
   $: {
@@ -194,7 +194,7 @@ ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowSetDateTimeUI
 ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec = {
@@ -207,7 +207,7 @@ ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.date_time.mojom.PageHandlerPtr = ash.settings.date_time.mojom.PageHandlerRemote;
@@ -275,7 +275,7 @@ ash.settings.date_time.mojom.Page.getRemote = function() {
     'ash.settings.date_time.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSystemClockCanSetTimeChanged
 ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec = {
@@ -289,7 +289,7 @@ ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnParentAccessValidationComplete
 ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec = {
@@ -303,7 +303,7 @@ ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.date_time.mojom.PagePtr = ash.settings.date_time.mojom.PageRemote;

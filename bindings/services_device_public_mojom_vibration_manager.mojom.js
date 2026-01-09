@@ -70,7 +70,7 @@ device.mojom.VibrationManager.getRemote = function() {
     'device.mojom.VibrationManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Vibrate
 device.mojom.VibrationManager_Vibrate_ParamsSpec = {
@@ -84,7 +84,7 @@ device.mojom.VibrationManager_Vibrate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Cancel
 device.mojom.VibrationManager_Cancel_ParamsSpec = {
@@ -97,7 +97,7 @@ device.mojom.VibrationManager_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.VibrationManagerPtr = device.mojom.VibrationManagerRemote;
@@ -156,7 +156,7 @@ device.mojom.VibrationManagerListener.getRemote = function() {
     'device.mojom.VibrationManagerListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnVibrate
 device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec = {
@@ -169,7 +169,7 @@ device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.VibrationManagerListenerPtr = device.mojom.VibrationManagerListenerRemote;

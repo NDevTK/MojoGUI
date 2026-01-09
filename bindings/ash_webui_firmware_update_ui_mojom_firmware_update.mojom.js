@@ -99,7 +99,7 @@ ash.firmware_update.mojom.UpdateObserver.getRemote = function() {
     'ash.firmware_update.mojom.UpdateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnUpdateListChanged
 ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec = {
@@ -113,7 +113,7 @@ ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.firmware_update.mojom.UpdateObserverPtr = ash.firmware_update.mojom.UpdateObserverRemote;
@@ -172,7 +172,7 @@ ash.firmware_update.mojom.DeviceRequestObserver.getRemote = function() {
     'ash.firmware_update.mojom.DeviceRequestObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDeviceRequest
 ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec = {
@@ -186,7 +186,7 @@ ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.firmware_update.mojom.DeviceRequestObserverPtr = ash.firmware_update.mojom.DeviceRequestObserverRemote;
@@ -245,7 +245,7 @@ ash.firmware_update.mojom.UpdateProgressObserver.getRemote = function() {
     'ash.firmware_update.mojom.UpdateProgressObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStatusChanged
 ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec = {
@@ -259,7 +259,7 @@ ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.firmware_update.mojom.UpdateProgressObserverPtr = ash.firmware_update.mojom.UpdateProgressObserverRemote;
@@ -336,7 +336,7 @@ ash.firmware_update.mojom.UpdateProvider.getRemote = function() {
     'ash.firmware_update.mojom.UpdateProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ObservePeripheralUpdates
 ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec = {
@@ -350,7 +350,7 @@ ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PrepareForUpdate
 ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec = {
@@ -364,7 +364,7 @@ ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec = {
   $: {
@@ -377,7 +377,7 @@ ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchInProgressUpdate
 ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec = {
@@ -390,7 +390,7 @@ ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec = {
   $: {
@@ -403,7 +403,7 @@ ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.firmware_update.mojom.UpdateProviderPtr = ash.firmware_update.mojom.UpdateProviderRemote;
@@ -480,7 +480,7 @@ ash.firmware_update.mojom.InstallController.getRemote = function() {
     'ash.firmware_update.mojom.InstallController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BeginUpdate
 ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec = {
@@ -495,7 +495,7 @@ ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddDeviceRequestObserver
 ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec = {
@@ -509,7 +509,7 @@ ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddUpdateProgressObserver
 ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec = {
@@ -523,7 +523,7 @@ ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.firmware_update.mojom.InstallControllerPtr = ash.firmware_update.mojom.InstallControllerRemote;
@@ -582,7 +582,7 @@ ash.firmware_update.mojom.SystemUtils.getRemote = function() {
     'ash.firmware_update.mojom.SystemUtils',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Restart
 ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec = {
@@ -595,7 +595,7 @@ ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.firmware_update.mojom.SystemUtilsPtr = ash.firmware_update.mojom.SystemUtilsRemote;

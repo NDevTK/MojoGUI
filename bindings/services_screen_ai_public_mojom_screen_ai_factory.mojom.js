@@ -61,7 +61,7 @@ screen_ai.mojom.ScreenAIServiceShutdownHandler.getRemote = function() {
     'screen_ai.mojom.ScreenAIServiceShutdownHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShuttingDownOnIdle
 screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec = {
@@ -74,7 +74,7 @@ screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 screen_ai.mojom.ScreenAIServiceShutdownHandlerPtr = screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote;
@@ -151,7 +151,7 @@ screen_ai.mojom.ScreenAIServiceFactory.getRemote = function() {
     'screen_ai.mojom.ScreenAIServiceFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for InitializeOCR
 screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = {
@@ -167,7 +167,7 @@ screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec = {
   $: {
@@ -180,7 +180,7 @@ screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InitializeMainContentExtraction
 screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec = {
@@ -196,7 +196,7 @@ screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec = {
   $: {
@@ -209,7 +209,7 @@ screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindShutdownHandler
 screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = {
@@ -223,7 +223,7 @@ screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 screen_ai.mojom.ScreenAIServiceFactoryPtr = screen_ai.mojom.ScreenAIServiceFactoryRemote;

@@ -77,7 +77,7 @@ language_detection.mojom.ContentLanguageDetectionDriver.getRemote = function() {
     'language_detection.mojom.ContentLanguageDetectionDriver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetLanguageDetectionModel
 language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec = {
@@ -90,7 +90,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec = {
   $: {
@@ -103,7 +103,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLanguageDetectionModelStatus
 language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec = {
@@ -116,7 +116,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec = {
   $: {
@@ -129,7 +129,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 language_detection.mojom.ContentLanguageDetectionDriverPtr = language_detection.mojom.ContentLanguageDetectionDriverRemote;

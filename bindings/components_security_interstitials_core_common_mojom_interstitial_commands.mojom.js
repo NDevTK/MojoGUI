@@ -241,7 +241,7 @@ security_interstitials.mojom.InterstitialCommands.getRemote = function() {
     'security_interstitials.mojom.InterstitialCommands',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DontProceed
 security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec = {
@@ -254,7 +254,7 @@ security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Proceed
 security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec = {
@@ -267,7 +267,7 @@ security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowMoreSection
 security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec = {
@@ -280,7 +280,7 @@ security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenHelpCenter
 security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec = {
@@ -293,7 +293,7 @@ security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenDiagnostic
 security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec = {
@@ -306,7 +306,7 @@ security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Reload
 security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec = {
@@ -319,7 +319,7 @@ security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenDateSettings
 security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec = {
@@ -332,7 +332,7 @@ security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenLogin
 security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec = {
@@ -345,7 +345,7 @@ security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DoReport
 security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec = {
@@ -358,7 +358,7 @@ security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DontReport
 security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec = {
@@ -371,7 +371,7 @@ security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenReportingPrivacy
 security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec = {
@@ -384,7 +384,7 @@ security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenWhitepaper
 security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec = {
@@ -397,7 +397,7 @@ security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenHelpCenterInNewTab
 security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec = {
@@ -410,7 +410,7 @@ security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenDiagnosticInNewTab
 security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec = {
@@ -423,7 +423,7 @@ security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenReportingPrivacyInNewTab
 security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec = {
@@ -436,7 +436,7 @@ security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenWhitepaperInNewTab
 security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec = {
@@ -449,7 +449,7 @@ security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportPhishingErrorInNewTab
 security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec = {
@@ -462,7 +462,7 @@ security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportPhishingError
 security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec = {
@@ -475,7 +475,7 @@ security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenEnhancedProtectionSettings
 security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec = {
@@ -488,7 +488,7 @@ security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowCertificateViewer
 security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec = {
@@ -501,7 +501,7 @@ security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenAndroidAdvancedProtectionSettings
 security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec = {
@@ -514,7 +514,7 @@ security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 security_interstitials.mojom.InterstitialCommandsPtr = security_interstitials.mojom.InterstitialCommandsRemote;

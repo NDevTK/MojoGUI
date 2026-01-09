@@ -79,7 +79,7 @@ tracked_element.mojom.TrackedElementHandler.getRemote = function() {
     'tracked_element.mojom.TrackedElementHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for TrackedElementVisibilityChanged
 tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec = {
@@ -95,7 +95,7 @@ tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TrackedElementActivated
 tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec = {
@@ -109,7 +109,7 @@ tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TrackedElementCustomEvent
 tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec = {
@@ -124,7 +124,7 @@ tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tracked_element.mojom.TrackedElementHandlerPtr = tracked_element.mojom.TrackedElementHandlerRemote;

@@ -94,7 +94,7 @@ device.mojom.PressureManager.getRemote = function() {
     'device.mojom.PressureManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddVirtualPressureSource
 device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec = {
@@ -110,7 +110,7 @@ device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveVirtualPressureSource
 device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec = {
@@ -125,7 +125,7 @@ device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateVirtualPressureSourceData
 device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec = {
@@ -142,7 +142,7 @@ device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddClient
 device.mojom.PressureManager_AddClient_ParamsSpec = {
@@ -158,7 +158,7 @@ device.mojom.PressureManager_AddClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.PressureManager_AddClient_ResponseParamsSpec = {
   $: {
@@ -171,7 +171,7 @@ device.mojom.PressureManager_AddClient_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.PressureManagerPtr = device.mojom.PressureManagerRemote;
@@ -230,7 +230,7 @@ device.mojom.PressureClient.getRemote = function() {
     'device.mojom.PressureClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPressureUpdated
 device.mojom.PressureClient_OnPressureUpdated_ParamsSpec = {
@@ -244,7 +244,7 @@ device.mojom.PressureClient_OnPressureUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.PressureClientPtr = device.mojom.PressureClientRemote;

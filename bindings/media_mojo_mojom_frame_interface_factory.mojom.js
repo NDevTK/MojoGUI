@@ -61,7 +61,7 @@ media.mojom.MuteStateObserver.getRemote = function() {
     'media.mojom.MuteStateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMuteStateChange
 media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec = {
@@ -75,7 +75,7 @@ media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.MuteStateObserverPtr = media.mojom.MuteStateObserverRemote;
@@ -179,7 +179,7 @@ media.mojom.FrameInterfaceFactory.getRemote = function() {
     'media.mojom.FrameInterfaceFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateProvisionFetcher
 media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec = {
@@ -193,7 +193,7 @@ media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateCdmStorage
 media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec = {
@@ -207,7 +207,7 @@ media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterMuteStateObserver
 media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec = {
@@ -221,7 +221,7 @@ media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateDCOMPSurfaceRegistry
 media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec = {
@@ -235,7 +235,7 @@ media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCdmOrigin
 media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec = {
@@ -248,7 +248,7 @@ media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec = {
   $: {
@@ -261,7 +261,7 @@ media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindEmbedderReceiver
 media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec = {
@@ -275,7 +275,7 @@ media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.FrameInterfaceFactoryPtr = media.mojom.FrameInterfaceFactoryRemote;

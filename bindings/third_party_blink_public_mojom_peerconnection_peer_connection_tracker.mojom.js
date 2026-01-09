@@ -133,7 +133,7 @@ blink.mojom.PeerConnectionManager.getRemote = function() {
     'blink.mojom.PeerConnectionManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSuspend
 blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec = {
@@ -146,7 +146,7 @@ blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnThermalStateChange
 blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec = {
@@ -160,7 +160,7 @@ blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartEventLog
 blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec = {
@@ -175,7 +175,7 @@ blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopEventLog
 blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec = {
@@ -189,7 +189,7 @@ blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartDataChannelLog
 blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec = {
@@ -203,7 +203,7 @@ blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopDataChannelLog
 blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec = {
@@ -217,7 +217,7 @@ blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStandardStats
 blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec = {
@@ -230,7 +230,7 @@ blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCurrentState
 blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec = {
@@ -243,7 +243,7 @@ blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PeerConnectionManagerPtr = blink.mojom.PeerConnectionManagerRemote;
@@ -410,7 +410,7 @@ blink.mojom.PeerConnectionTrackerHost.getRemote = function() {
     'blink.mojom.PeerConnectionTrackerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddPeerConnection
 blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec = {
@@ -424,7 +424,7 @@ blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemovePeerConnection
 blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec = {
@@ -438,7 +438,7 @@ blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdatePeerConnection
 blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec = {
@@ -454,7 +454,7 @@ blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPeerConnectionSessionIdSet
 blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec = {
@@ -469,7 +469,7 @@ blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUserMedia
 blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec = {
@@ -487,7 +487,7 @@ blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUserMediaSuccess
 blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec = {
@@ -504,7 +504,7 @@ blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUserMediaFailure
 blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec = {
@@ -520,7 +520,7 @@ blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDisplayMedia
 blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec = {
@@ -538,7 +538,7 @@ blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDisplayMediaSuccess
 blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec = {
@@ -555,7 +555,7 @@ blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDisplayMediaFailure
 blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec = {
@@ -571,7 +571,7 @@ blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WebRtcEventLogWrite
 blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec = {
@@ -586,7 +586,7 @@ blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WebRtcDataChannelLogWrite
 blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec = {
@@ -601,7 +601,7 @@ blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddStandardStats
 blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec = {
@@ -616,7 +616,7 @@ blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PeerConnectionTrackerHostPtr = blink.mojom.PeerConnectionTrackerHostRemote;

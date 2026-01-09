@@ -232,7 +232,7 @@ device.mojom.DeviceService.getRemote = function() {
     'device.mojom.DeviceService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindFingerprint
 device.mojom.DeviceService_BindFingerprint_ParamsSpec = {
@@ -246,7 +246,7 @@ device.mojom.DeviceService_BindFingerprint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindGeolocationContext
 device.mojom.DeviceService_BindGeolocationContext_ParamsSpec = {
@@ -260,7 +260,7 @@ device.mojom.DeviceService_BindGeolocationContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindGeolocationControl
 device.mojom.DeviceService_BindGeolocationControl_ParamsSpec = {
@@ -274,7 +274,7 @@ device.mojom.DeviceService_BindGeolocationControl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindGeolocationInternals
 device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec = {
@@ -288,7 +288,7 @@ device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindInputDeviceManager
 device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec = {
@@ -302,7 +302,7 @@ device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindBatteryMonitor
 device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec = {
@@ -316,7 +316,7 @@ device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindPressureManager
 device.mojom.DeviceService_BindPressureManager_ParamsSpec = {
@@ -330,7 +330,7 @@ device.mojom.DeviceService_BindPressureManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindNFCProvider
 device.mojom.DeviceService_BindNFCProvider_ParamsSpec = {
@@ -344,7 +344,7 @@ device.mojom.DeviceService_BindNFCProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindVibrationManager
 device.mojom.DeviceService_BindVibrationManager_ParamsSpec = {
@@ -359,7 +359,7 @@ device.mojom.DeviceService_BindVibrationManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindHidManager
 device.mojom.DeviceService_BindHidManager_ParamsSpec = {
@@ -373,7 +373,7 @@ device.mojom.DeviceService_BindHidManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindMtpManager
 device.mojom.DeviceService_BindMtpManager_ParamsSpec = {
@@ -387,7 +387,7 @@ device.mojom.DeviceService_BindMtpManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindPowerMonitor
 device.mojom.DeviceService_BindPowerMonitor_ParamsSpec = {
@@ -401,7 +401,7 @@ device.mojom.DeviceService_BindPowerMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindPublicIpAddressGeolocationProvider
 device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec = {
@@ -415,7 +415,7 @@ device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindScreenOrientationListener
 device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec = {
@@ -429,7 +429,7 @@ device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindSensorProvider
 device.mojom.DeviceService_BindSensorProvider_ParamsSpec = {
@@ -443,7 +443,7 @@ device.mojom.DeviceService_BindSensorProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindSerialPortManager
 device.mojom.DeviceService_BindSerialPortManager_ParamsSpec = {
@@ -457,7 +457,7 @@ device.mojom.DeviceService_BindSerialPortManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindTimeZoneMonitor
 device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec = {
@@ -471,7 +471,7 @@ device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindWakeLockProvider
 device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec = {
@@ -485,7 +485,7 @@ device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindUsbDeviceManager
 device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec = {
@@ -499,7 +499,7 @@ device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindUsbDeviceManagerTest
 device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec = {
@@ -513,7 +513,7 @@ device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.DeviceServicePtr = device.mojom.DeviceServiceRemote;

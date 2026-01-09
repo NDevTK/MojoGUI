@@ -88,7 +88,7 @@ legion.mojom.OakSession.getRemote = function() {
     'legion.mojom.OakSession',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for InitiateHandshake
 legion.mojom.OakSession_InitiateHandshake_ParamsSpec = {
@@ -101,7 +101,7 @@ legion.mojom.OakSession_InitiateHandshake_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec = {
   $: {
@@ -114,7 +114,7 @@ legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CompleteHandshake
 legion.mojom.OakSession_CompleteHandshake_ParamsSpec = {
@@ -128,7 +128,7 @@ legion.mojom.OakSession_CompleteHandshake_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec = {
   $: {
@@ -141,7 +141,7 @@ legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Encrypt
 legion.mojom.OakSession_Encrypt_ParamsSpec = {
@@ -155,7 +155,7 @@ legion.mojom.OakSession_Encrypt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 legion.mojom.OakSession_Encrypt_ResponseParamsSpec = {
   $: {
@@ -168,7 +168,7 @@ legion.mojom.OakSession_Encrypt_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Decrypt
 legion.mojom.OakSession_Decrypt_ParamsSpec = {
@@ -182,7 +182,7 @@ legion.mojom.OakSession_Decrypt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 legion.mojom.OakSession_Decrypt_ResponseParamsSpec = {
   $: {
@@ -195,7 +195,7 @@ legion.mojom.OakSession_Decrypt_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 legion.mojom.OakSessionPtr = legion.mojom.OakSessionRemote;

@@ -112,7 +112,7 @@ blink.mojom.PresentationConnection.getRemote = function() {
     'blink.mojom.PresentationConnection',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMessage
 blink.mojom.PresentationConnection_OnMessage_ParamsSpec = {
@@ -126,7 +126,7 @@ blink.mojom.PresentationConnection_OnMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidChangeState
 blink.mojom.PresentationConnection_DidChangeState_ParamsSpec = {
@@ -140,7 +140,7 @@ blink.mojom.PresentationConnection_DidChangeState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidClose
 blink.mojom.PresentationConnection_DidClose_ParamsSpec = {
@@ -154,7 +154,7 @@ blink.mojom.PresentationConnection_DidClose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PresentationConnectionPtr = blink.mojom.PresentationConnectionRemote;
@@ -285,7 +285,7 @@ blink.mojom.PresentationService.getRemote = function() {
     'blink.mojom.PresentationService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetController
 blink.mojom.PresentationService_SetController_ParamsSpec = {
@@ -299,7 +299,7 @@ blink.mojom.PresentationService_SetController_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetReceiver
 blink.mojom.PresentationService_SetReceiver_ParamsSpec = {
@@ -313,7 +313,7 @@ blink.mojom.PresentationService_SetReceiver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDefaultPresentationUrls
 blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec = {
@@ -327,7 +327,7 @@ blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ListenForScreenAvailability
 blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec = {
@@ -341,7 +341,7 @@ blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopListeningForScreenAvailability
 blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec = {
@@ -355,7 +355,7 @@ blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartPresentation
 blink.mojom.PresentationService_StartPresentation_ParamsSpec = {
@@ -369,7 +369,7 @@ blink.mojom.PresentationService_StartPresentation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec = {
   $: {
@@ -383,7 +383,7 @@ blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReconnectPresentation
 blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec = {
@@ -398,7 +398,7 @@ blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec = {
   $: {
@@ -412,7 +412,7 @@ blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseConnection
 blink.mojom.PresentationService_CloseConnection_ParamsSpec = {
@@ -427,7 +427,7 @@ blink.mojom.PresentationService_CloseConnection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Terminate
 blink.mojom.PresentationService_Terminate_ParamsSpec = {
@@ -442,7 +442,7 @@ blink.mojom.PresentationService_Terminate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PresentationServicePtr = blink.mojom.PresentationServiceRemote;
@@ -528,7 +528,7 @@ blink.mojom.PresentationController.getRemote = function() {
     'blink.mojom.PresentationController',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnScreenAvailabilityUpdated
 blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec = {
@@ -543,7 +543,7 @@ blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDefaultPresentationStarted
 blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec = {
@@ -557,7 +557,7 @@ blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnConnectionStateChanged
 blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec = {
@@ -572,7 +572,7 @@ blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnConnectionClosed
 blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec = {
@@ -588,7 +588,7 @@ blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PresentationControllerPtr = blink.mojom.PresentationControllerRemote;
@@ -647,7 +647,7 @@ blink.mojom.PresentationReceiver.getRemote = function() {
     'blink.mojom.PresentationReceiver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnReceiverConnectionAvailable
 blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec = {
@@ -661,7 +661,7 @@ blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PresentationReceiverPtr = blink.mojom.PresentationReceiverRemote;

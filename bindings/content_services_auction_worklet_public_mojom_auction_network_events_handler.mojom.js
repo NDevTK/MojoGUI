@@ -88,7 +88,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandler.getRemote = function() {
     'auction_worklet.mojom.AuctionNetworkEventsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnNetworkSendRequest
 auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec = {
@@ -103,7 +103,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNetworkResponseReceived
 auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec = {
@@ -120,7 +120,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNetworkRequestComplete
 auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec = {
@@ -135,7 +135,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec = {
@@ -149,7 +149,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 auction_worklet.mojom.AuctionNetworkEventsHandlerPtr = auction_worklet.mojom.AuctionNetworkEventsHandlerRemote;

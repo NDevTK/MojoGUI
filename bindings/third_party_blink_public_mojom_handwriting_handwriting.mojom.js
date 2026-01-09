@@ -80,7 +80,7 @@ handwriting.mojom.HandwritingRecognizer.getRemote = function() {
     'handwriting.mojom.HandwritingRecognizer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPrediction
 handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = {
@@ -95,7 +95,7 @@ handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec = {
   $: {
@@ -108,7 +108,7 @@ handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 handwriting.mojom.HandwritingRecognizerPtr = handwriting.mojom.HandwritingRecognizerRemote;
@@ -176,7 +176,7 @@ handwriting.mojom.HandwritingRecognitionService.getRemote = function() {
     'handwriting.mojom.HandwritingRecognitionService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateHandwritingRecognizer
 handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec = {
@@ -190,7 +190,7 @@ handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec = {
   $: {
@@ -204,7 +204,7 @@ handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_Resp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueryHandwritingRecognizer
 handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec = {
@@ -218,7 +218,7 @@ handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec = {
   $: {
@@ -231,7 +231,7 @@ handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 handwriting.mojom.HandwritingRecognitionServicePtr = handwriting.mojom.HandwritingRecognitionServiceRemote;

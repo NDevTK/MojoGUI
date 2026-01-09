@@ -69,7 +69,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory.getRemote = function() {
     'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateCustomHelpBubbleHandler
 custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec = {
@@ -83,7 +83,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryPtr = custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemote;
@@ -142,7 +142,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandler.getRemote = function() {
     'custom_help_bubble.mojom.CustomHelpBubbleHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NotifyUserAction
 custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec = {
@@ -156,7 +156,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 custom_help_bubble.mojom.CustomHelpBubbleHandlerPtr = custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote;

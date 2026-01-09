@@ -236,7 +236,7 @@ network.mojom.DeviceBoundSessionManager.getRemote = function() {
     'network.mojom.DeviceBoundSessionManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetAllSessions
 network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec = {
@@ -249,7 +249,7 @@ network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec = {
   $: {
@@ -262,7 +262,7 @@ network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteSession
 network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec = {
@@ -277,7 +277,7 @@ network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteAllSessions
 network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec = {
@@ -294,7 +294,7 @@ network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddObserver
 network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec = {
@@ -309,7 +309,7 @@ network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddEventObserver
 network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec = {
@@ -323,7 +323,7 @@ network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateBoundSessions
 network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec = {
@@ -340,7 +340,7 @@ network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec = {
   $: {
@@ -354,7 +354,7 @@ network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.DeviceBoundSessionManagerPtr = network.mojom.DeviceBoundSessionManagerRemote;
@@ -422,7 +422,7 @@ network.mojom.DeviceBoundSessionAccessObserver.getRemote = function() {
     'network.mojom.DeviceBoundSessionAccessObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDeviceBoundSessionAccessed
 network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec = {
@@ -436,7 +436,7 @@ network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec = {
@@ -450,7 +450,7 @@ network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.DeviceBoundSessionAccessObserverPtr = network.mojom.DeviceBoundSessionAccessObserverRemote;
@@ -518,7 +518,7 @@ network.mojom.DeviceBoundSessionEventObserver.getRemote = function() {
     'network.mojom.DeviceBoundSessionEventObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDeviceBoundSessionEventReceived
 network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec = {
@@ -532,7 +532,7 @@ network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddDeviceBoundSessionDisplays
 network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec = {
@@ -546,7 +546,7 @@ network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.DeviceBoundSessionEventObserverPtr = network.mojom.DeviceBoundSessionEventObserverRemote;

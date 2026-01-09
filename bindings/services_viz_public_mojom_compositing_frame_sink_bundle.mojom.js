@@ -79,7 +79,7 @@ viz.mojom.FrameSinkBundle.getRemote = function() {
     'viz.mojom.FrameSinkBundle',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetNeedsBeginFrame
 viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec = {
@@ -94,7 +94,7 @@ viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Submit
 viz.mojom.FrameSinkBundle_Submit_ParamsSpec = {
@@ -108,7 +108,7 @@ viz.mojom.FrameSinkBundle_Submit_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetThreads
 viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec = {
@@ -123,7 +123,7 @@ viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.FrameSinkBundlePtr = viz.mojom.FrameSinkBundleRemote;
@@ -200,7 +200,7 @@ viz.mojom.FrameSinkBundleClient.getRemote = function() {
     'viz.mojom.FrameSinkBundleClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FlushNotifications
 viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec = {
@@ -216,7 +216,7 @@ viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBeginFramePausedChanged
 viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec = {
@@ -231,7 +231,7 @@ viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCompositorFrameTransitionDirectiveProcessed
 viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = {
@@ -246,7 +246,7 @@ viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.FrameSinkBundleClientPtr = viz.mojom.FrameSinkBundleClientRemote;

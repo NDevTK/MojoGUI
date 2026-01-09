@@ -70,7 +70,7 @@ emoji_search.mojom.EmojiSearch.getRemote = function() {
     'emoji_search.mojom.EmojiSearch',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SearchEmoji
 emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec = {
@@ -85,7 +85,7 @@ emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec = {
   $: {
@@ -100,7 +100,7 @@ emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadEmojiLanguages
 emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec = {
@@ -114,7 +114,7 @@ emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 emoji_search.mojom.EmojiSearchPtr = emoji_search.mojom.EmojiSearchRemote;

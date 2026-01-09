@@ -84,7 +84,7 @@ side_panel.mojom.BookmarksPageHandlerFactory.getRemote = function() {
     'side_panel.mojom.BookmarksPageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateBookmarksPageHandler
 side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec = {
@@ -99,7 +99,7 @@ side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 side_panel.mojom.BookmarksPageHandlerFactoryPtr = side_panel.mojom.BookmarksPageHandlerFactoryRemote;
@@ -356,7 +356,7 @@ side_panel.mojom.BookmarksPageHandler.getRemote = function() {
     'side_panel.mojom.BookmarksPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BookmarkCurrentTabInFolder
 side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec = {
@@ -370,7 +370,7 @@ side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateFolder
 side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec = {
@@ -385,7 +385,7 @@ side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec = {
   $: {
@@ -398,7 +398,7 @@ side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DropBookmarks
 side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec = {
@@ -412,7 +412,7 @@ side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteEditCommand
 side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec = {
@@ -427,7 +427,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteMoveCommand
 side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec = {
@@ -442,7 +442,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteOpenInNewTabCommand
 side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec = {
@@ -457,7 +457,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteOpenInNewWindowCommand
 side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec = {
@@ -472,7 +472,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteOpenInIncognitoWindowCommand
 side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec = {
@@ -487,7 +487,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteOpenInNewTabGroupCommand
 side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec = {
@@ -502,7 +502,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteOpenInSplitViewCommand
 side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec = {
@@ -517,7 +517,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteAddToBookmarksBarCommand
 side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec = {
@@ -532,7 +532,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteRemoveFromBookmarksBarCommand
 side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec = {
@@ -547,7 +547,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteDeleteCommand
 side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec = {
@@ -562,7 +562,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenBookmark
 side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec = {
@@ -579,7 +579,7 @@ side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Undo
 side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec = {
@@ -592,7 +592,7 @@ side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RenameBookmark
 side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec = {
@@ -607,7 +607,7 @@ side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MoveBookmark
 side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec = {
@@ -622,7 +622,7 @@ side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveBookmarks
 side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec = {
@@ -636,7 +636,7 @@ side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSortOrder
 side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec = {
@@ -650,7 +650,7 @@ side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetViewType
 side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec = {
@@ -664,7 +664,7 @@ side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowContextMenu
 side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec = {
@@ -680,7 +680,7 @@ side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowUI
 side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec = {
@@ -693,7 +693,7 @@ side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllBookmarks
 side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec = {
@@ -706,7 +706,7 @@ side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec = {
   $: {
@@ -719,7 +719,7 @@ side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 side_panel.mojom.BookmarksPageHandlerPtr = side_panel.mojom.BookmarksPageHandlerRemote;
@@ -814,7 +814,7 @@ side_panel.mojom.BookmarksPage.getRemote = function() {
     'side_panel.mojom.BookmarksPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnBookmarkNodeAdded
 side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec = {
@@ -828,7 +828,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBookmarkNodesRemoved
 side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec = {
@@ -842,7 +842,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBookmarkParentFolderChildrenReordered
 side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec = {
@@ -857,7 +857,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBookmarkNodeMoved
 side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec = {
@@ -874,7 +874,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBookmarkNodeChanged
 side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec = {
@@ -890,7 +890,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 side_panel.mojom.BookmarksPagePtr = side_panel.mojom.BookmarksPageRemote;

@@ -69,7 +69,7 @@ passage_embeddings.mojom.PassageEmbedder.getRemote = function() {
     'passage_embeddings.mojom.PassageEmbedder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GenerateEmbeddings
 passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec = {
@@ -84,7 +84,7 @@ passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 passage_embeddings.mojom.PassageEmbedderPtr = passage_embeddings.mojom.PassageEmbedderRemote;
@@ -156,7 +156,7 @@ passage_embeddings.mojom.PassageEmbeddingsService.getRemote = function() {
     'passage_embeddings.mojom.PassageEmbeddingsService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LoadModels
 passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec = {
@@ -172,7 +172,7 @@ passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec = {
   $: {
@@ -185,7 +185,7 @@ passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 passage_embeddings.mojom.PassageEmbeddingsServicePtr = passage_embeddings.mojom.PassageEmbeddingsServiceRemote;

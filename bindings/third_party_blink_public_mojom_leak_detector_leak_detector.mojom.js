@@ -61,7 +61,7 @@ blink.mojom.LeakDetector.getRemote = function() {
     'blink.mojom.LeakDetector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PerformLeakDetection
 blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = {
@@ -74,7 +74,7 @@ blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.LeakDetectorPtr = blink.mojom.LeakDetectorRemote;

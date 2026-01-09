@@ -101,7 +101,7 @@ ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver.getRemote = functio
     'ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAcceleratorsUpdated
 ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec = {
@@ -115,7 +115,7 @@ ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdat
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverPtr = ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemote;
@@ -174,7 +174,7 @@ ash.shortcut_customization.mojom.PolicyUpdatedObserver.getRemote = function() {
     'ash.shortcut_customization.mojom.PolicyUpdatedObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCustomizationPolicyUpdated
 ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec = {
@@ -187,7 +187,7 @@ ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpda
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shortcut_customization.mojom.PolicyUpdatedObserverPtr = ash.shortcut_customization.mojom.PolicyUpdatedObserverRemote;
@@ -417,7 +417,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.getRemote = fu
     'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for IsMutable
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec = {
@@ -431,7 +431,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec = {
   $: {
@@ -444,7 +444,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_Resp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsCustomizationAllowedByPolicy
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec = {
@@ -457,7 +457,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizatio
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParamsSpec = {
   $: {
@@ -470,7 +470,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizatio
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMetaKeyToDisplay
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec = {
@@ -483,7 +483,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDi
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParamsSpec = {
   $: {
@@ -496,7 +496,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDi
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetConflictAccelerator
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec = {
@@ -512,7 +512,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAcc
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParamsSpec = {
   $: {
@@ -525,7 +525,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAcc
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDefaultAcceleratorsForId
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec = {
@@ -539,7 +539,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcce
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParamsSpec = {
   $: {
@@ -552,7 +552,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcce
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAccelerators
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec = {
@@ -565,7 +565,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerator
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParamsSpec = {
   $: {
@@ -578,7 +578,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerator
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddObserver
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec = {
@@ -592,7 +592,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddPolicyObserver
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec = {
@@ -606,7 +606,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObser
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAcceleratorLayoutInfos
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec = {
@@ -619,7 +619,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerator
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParamsSpec = {
   $: {
@@ -632,7 +632,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerator
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PreventProcessingAccelerators
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec = {
@@ -646,7 +646,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcess
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddAccelerator
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec = {
@@ -662,7 +662,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParamsSpec = {
   $: {
@@ -675,7 +675,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveAccelerator
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec = {
@@ -691,7 +691,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelera
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParamsSpec = {
   $: {
@@ -704,7 +704,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelera
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReplaceAccelerator
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec = {
@@ -721,7 +721,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAcceler
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParamsSpec = {
   $: {
@@ -734,7 +734,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAcceler
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestoreDefault
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec = {
@@ -749,7 +749,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParamsSpec = {
   $: {
@@ -762,7 +762,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestoreAllDefaults
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec = {
@@ -775,7 +775,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParamsSpec = {
   $: {
@@ -788,7 +788,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordUserAction
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec = {
@@ -802,7 +802,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserActi
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordMainCategoryNavigation
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec = {
@@ -816,7 +816,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCate
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordEditDialogCompletedActions
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec = {
@@ -830,7 +830,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDial
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordAddOrEditSubactions
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec = {
@@ -845,7 +845,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEdi
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HasCustomAccelerators
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec = {
@@ -858,7 +858,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccel
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParamsSpec = {
   $: {
@@ -871,7 +871,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccel
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.shortcut_customization.mojom.AcceleratorConfigurationProviderPtr = ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemote;

@@ -91,7 +91,7 @@ traces_internals.mojom.TracesInternalsHandlerFactory.getRemote = function() {
     'traces_internals.mojom.TracesInternalsHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -106,7 +106,7 @@ traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 traces_internals.mojom.TracesInternalsHandlerFactoryPtr = traces_internals.mojom.TracesInternalsHandlerFactoryRemote;
@@ -336,7 +336,7 @@ traces_internals.mojom.PageHandler.getRemote = function() {
     'traces_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartTraceSession
 traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec = {
@@ -351,7 +351,7 @@ traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec = {
   $: {
@@ -364,7 +364,7 @@ traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloneTraceSession
 traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec = {
@@ -377,7 +377,7 @@ traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec = {
   $: {
@@ -391,7 +391,7 @@ traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopTraceSession
 traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec = {
@@ -404,7 +404,7 @@ traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec = {
   $: {
@@ -417,7 +417,7 @@ traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTrackEventCategories
 traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec = {
@@ -430,7 +430,7 @@ traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec = {
   $: {
@@ -443,7 +443,7 @@ traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetBufferUsage
 traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec = {
@@ -456,7 +456,7 @@ traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec = {
   $: {
@@ -471,7 +471,7 @@ traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllTraceReports
 traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec = {
@@ -484,7 +484,7 @@ traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec = {
   $: {
@@ -497,7 +497,7 @@ traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteSingleTrace
 traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec = {
@@ -511,7 +511,7 @@ traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec = {
   $: {
@@ -524,7 +524,7 @@ traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteAllTraces
 traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec = {
@@ -537,7 +537,7 @@ traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec = {
   $: {
@@ -550,7 +550,7 @@ traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UserUploadSingleTrace
 traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec = {
@@ -564,7 +564,7 @@ traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec = {
   $: {
@@ -577,7 +577,7 @@ traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DownloadTrace
 traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec = {
@@ -591,7 +591,7 @@ traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec = {
   $: {
@@ -604,7 +604,7 @@ traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllScenarios
 traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec = {
@@ -617,7 +617,7 @@ traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec = {
   $: {
@@ -630,7 +630,7 @@ traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetEnabledScenarios
 traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec = {
@@ -644,7 +644,7 @@ traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec = {
   $: {
@@ -657,7 +657,7 @@ traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetScenariosConfigFromString
 traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec = {
@@ -671,7 +671,7 @@ traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec = {
   $: {
@@ -684,7 +684,7 @@ traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetScenariosConfigFromBuffer
 traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec = {
@@ -698,7 +698,7 @@ traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec = {
   $: {
@@ -711,7 +711,7 @@ traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPrivacyFilterEnabled
 traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec = {
@@ -724,7 +724,7 @@ traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec = {
   $: {
@@ -737,7 +737,7 @@ traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPrivacyFilterEnabled
 traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec = {
@@ -751,7 +751,7 @@ traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSystemTracingState
 traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec = {
@@ -764,7 +764,7 @@ traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec = {
   $: {
@@ -778,7 +778,7 @@ traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSecurityShieldIconUrl
 traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec = {
@@ -791,7 +791,7 @@ traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec = {
   $: {
@@ -804,7 +804,7 @@ traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableSystemTracing
 traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec = {
@@ -817,7 +817,7 @@ traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec = {
   $: {
@@ -830,7 +830,7 @@ traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableSystemTracing
 traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec = {
@@ -843,7 +843,7 @@ traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec = {
   $: {
@@ -856,7 +856,7 @@ traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 traces_internals.mojom.PageHandlerPtr = traces_internals.mojom.PageHandlerRemote;
@@ -915,7 +915,7 @@ traces_internals.mojom.Page.getRemote = function() {
     'traces_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnTraceComplete
 traces_internals.mojom.Page_OnTraceComplete_ParamsSpec = {
@@ -930,7 +930,7 @@ traces_internals.mojom.Page_OnTraceComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 traces_internals.mojom.PagePtr = traces_internals.mojom.PageRemote;

@@ -89,7 +89,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler.getRemote = function() {
     'ntp.safe_browsing.mojom.SafeBrowsingHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CanShowModule
 ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec = {
@@ -102,7 +102,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec = {
   $: {
@@ -115,7 +115,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ProcessModuleClick
 ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec = {
@@ -128,7 +128,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DismissModule
 ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec = {
@@ -141,7 +141,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestoreModule
 ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec = {
@@ -154,7 +154,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ntp.safe_browsing.mojom.SafeBrowsingHandlerPtr = ntp.safe_browsing.mojom.SafeBrowsingHandlerRemote;

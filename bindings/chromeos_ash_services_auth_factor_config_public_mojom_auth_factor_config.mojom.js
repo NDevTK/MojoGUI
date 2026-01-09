@@ -107,7 +107,7 @@ ash.auth.mojom.FactorObserver.getRemote = function() {
     'ash.auth.mojom.FactorObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnFactorChanged
 ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec = {
@@ -121,7 +121,7 @@ ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.auth.mojom.FactorObserverPtr = ash.auth.mojom.FactorObserverRemote;
@@ -216,7 +216,7 @@ ash.auth.mojom.AuthFactorConfig.getRemote = function() {
     'ash.auth.mojom.AuthFactorConfig',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ObserveFactorChanges
 ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec = {
@@ -230,7 +230,7 @@ ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsSupported
 ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec = {
@@ -245,7 +245,7 @@ ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec = {
   $: {
@@ -258,7 +258,7 @@ ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsConfigured
 ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec = {
@@ -273,7 +273,7 @@ ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec = {
   $: {
@@ -286,7 +286,7 @@ ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetManagementType
 ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec = {
@@ -301,7 +301,7 @@ ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec = {
   $: {
@@ -314,7 +314,7 @@ ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsEditable
 ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec = {
@@ -329,7 +329,7 @@ ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec = {
   $: {
@@ -342,7 +342,7 @@ ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.auth.mojom.AuthFactorConfigPtr = ash.auth.mojom.AuthFactorConfigRemote;
@@ -401,7 +401,7 @@ ash.auth.mojom.RecoveryFactorEditor.getRemote = function() {
     'ash.auth.mojom.RecoveryFactorEditor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Configure
 ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec = {
@@ -416,7 +416,7 @@ ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec = {
   $: {
@@ -429,7 +429,7 @@ ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.auth.mojom.RecoveryFactorEditorPtr = ash.auth.mojom.RecoveryFactorEditorRemote;
@@ -524,7 +524,7 @@ ash.auth.mojom.PinFactorEditor.getRemote = function() {
     'ash.auth.mojom.PinFactorEditor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetPin
 ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec = {
@@ -539,7 +539,7 @@ ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec = {
   $: {
@@ -552,7 +552,7 @@ ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdatePin
 ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec = {
@@ -567,7 +567,7 @@ ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec = {
   $: {
@@ -580,7 +580,7 @@ ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemovePin
 ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec = {
@@ -594,7 +594,7 @@ ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec = {
   $: {
@@ -607,7 +607,7 @@ ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetConfiguredPinFactor
 ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec = {
@@ -621,7 +621,7 @@ ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec = {
   $: {
@@ -634,7 +634,7 @@ ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CheckPinComplexity
 ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec = {
@@ -649,7 +649,7 @@ ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec = {
   $: {
@@ -662,7 +662,7 @@ ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.auth.mojom.PinFactorEditorPtr = ash.auth.mojom.PinFactorEditorRemote;
@@ -766,7 +766,7 @@ ash.auth.mojom.PasswordFactorEditor.getRemote = function() {
     'ash.auth.mojom.PasswordFactorEditor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateOrSetLocalPassword
 ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec = {
@@ -781,7 +781,7 @@ ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec = {
   $: {
@@ -794,7 +794,7 @@ ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateOrSetOnlinePassword
 ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec = {
@@ -809,7 +809,7 @@ ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec = {
   $: {
@@ -822,7 +822,7 @@ ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetLocalPassword
 ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec = {
@@ -837,7 +837,7 @@ ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec = {
   $: {
@@ -850,7 +850,7 @@ ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetOnlinePassword
 ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec = {
@@ -865,7 +865,7 @@ ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec = {
   $: {
@@ -878,7 +878,7 @@ ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CheckLocalPasswordComplexity
 ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec = {
@@ -892,7 +892,7 @@ ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec = {
   $: {
@@ -905,7 +905,7 @@ ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemovePassword
 ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec = {
@@ -919,7 +919,7 @@ ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec = {
   $: {
@@ -932,7 +932,7 @@ ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.auth.mojom.PasswordFactorEditorPtr = ash.auth.mojom.PasswordFactorEditorRemote;

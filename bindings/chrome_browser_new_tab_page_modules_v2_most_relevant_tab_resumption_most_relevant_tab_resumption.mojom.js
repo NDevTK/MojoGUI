@@ -115,7 +115,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler.getRemote = function() {
     'ntp.most_relevant_tab_resumption.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetURLVisits
 ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec = {
@@ -128,7 +128,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec = {
   $: {
@@ -141,7 +141,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DismissModule
 ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec = {
@@ -155,7 +155,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DismissURLVisit
 ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec = {
@@ -169,7 +169,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestoreModule
 ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec = {
@@ -183,7 +183,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestoreURLVisit
 ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec = {
@@ -197,7 +197,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordAction
 ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec = {
@@ -213,7 +213,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ntp.most_relevant_tab_resumption.mojom.PageHandlerPtr = ntp.most_relevant_tab_resumption.mojom.PageHandlerRemote;

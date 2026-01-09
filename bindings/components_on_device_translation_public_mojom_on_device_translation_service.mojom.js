@@ -80,7 +80,7 @@ on_device_translation.mojom.FileOperationProxy.getRemote = function() {
     'on_device_translation.mojom.FileOperationProxy',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FileExists
 on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec = {
@@ -95,7 +95,7 @@ on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec = {
   $: {
@@ -109,7 +109,7 @@ on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Open
 on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec = {
@@ -124,7 +124,7 @@ on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec = {
   $: {
@@ -137,7 +137,7 @@ on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 on_device_translation.mojom.FileOperationProxyPtr = on_device_translation.mojom.FileOperationProxyRemote;
@@ -214,7 +214,7 @@ on_device_translation.mojom.OnDeviceTranslationService.getRemote = function() {
     'on_device_translation.mojom.OnDeviceTranslationService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetServiceConfig
 on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec = {
@@ -228,7 +228,7 @@ on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateTranslator
 on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec = {
@@ -244,7 +244,7 @@ on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec = {
   $: {
@@ -257,7 +257,7 @@ on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CanTranslate
 on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec = {
@@ -272,7 +272,7 @@ on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec = {
   $: {
@@ -285,7 +285,7 @@ on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 on_device_translation.mojom.OnDeviceTranslationServicePtr = on_device_translation.mojom.OnDeviceTranslationServiceRemote;

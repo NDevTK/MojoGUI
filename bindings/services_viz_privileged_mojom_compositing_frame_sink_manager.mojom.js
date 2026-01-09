@@ -286,7 +286,7 @@ viz.mojom.FrameSinkManager.getRemote = function() {
     'viz.mojom.FrameSinkManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterFrameSinkId
 viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec = {
@@ -301,7 +301,7 @@ viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InvalidateFrameSinkId
 viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec = {
@@ -315,7 +315,7 @@ viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFrameSinkDebugLabel
 viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec = {
@@ -330,7 +330,7 @@ viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateRootCompositorFrameSink
 viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec = {
@@ -344,7 +344,7 @@ viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateCompositorDisplayLink
 viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec = {
@@ -358,7 +358,7 @@ viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateFrameSinkBundle
 viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec = {
@@ -374,7 +374,7 @@ viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateCompositorFrameSink
 viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec = {
@@ -392,7 +392,7 @@ viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DestroyCompositorFrameSink
 viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec = {
@@ -406,7 +406,7 @@ viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterFrameSinkHierarchy
 viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec = {
@@ -421,7 +421,7 @@ viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnregisterFrameSinkHierarchy
 viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec = {
@@ -436,7 +436,7 @@ viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddVideoDetectorObserver
 viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec = {
@@ -450,7 +450,7 @@ viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateVideoCapturer
 viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec = {
@@ -465,7 +465,7 @@ viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EvictSurfaces
 viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec = {
@@ -479,7 +479,7 @@ viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Throttle
 viz.mojom.FrameSinkManager_Throttle_ParamsSpec = {
@@ -494,7 +494,7 @@ viz.mojom.FrameSinkManager_Throttle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartThrottlingAllFrameSinks
 viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec = {
@@ -508,7 +508,7 @@ viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopThrottlingAllFrameSinks
 viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec = {
@@ -521,7 +521,7 @@ viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestCopyOfOutput
 viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec = {
@@ -537,7 +537,7 @@ viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CacheBackBuffer
 viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec = {
@@ -552,7 +552,7 @@ viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EvictBackBuffer
 viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec = {
@@ -566,7 +566,7 @@ viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateDebugRendererSettings
 viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec = {
@@ -580,7 +580,7 @@ viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearUnclaimedViewTransitionResources
 viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec = {
@@ -594,7 +594,7 @@ viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateMetricsRecorderForTest
 viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec = {
@@ -608,7 +608,7 @@ viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableFrameSinkManagerTestApi
 viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec = {
@@ -622,7 +622,7 @@ viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetupRendererInputRouterDelegateRegistry
 viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec = {
@@ -636,7 +636,7 @@ viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyRendererBlockStateChanged
 viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec = {
@@ -651,7 +651,7 @@ viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestInputBack
 viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec = {
@@ -664,7 +664,7 @@ viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.FrameSinkManagerPtr = viz.mojom.FrameSinkManagerRemote;
@@ -777,7 +777,7 @@ viz.mojom.FrameSinkManagerClient.getRemote = function() {
     'viz.mojom.FrameSinkManagerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnFirstSurfaceActivation
 viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec = {
@@ -791,7 +791,7 @@ viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAggregatedHitTestRegionListUpdated
 viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec = {
@@ -806,7 +806,7 @@ viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameTokenChanged
 viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec = {
@@ -822,7 +822,7 @@ viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for VerifyThreadIdsDoNotBelongToHost
 viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec = {
@@ -836,7 +836,7 @@ viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParamsSpec = {
   $: {
@@ -849,7 +849,7 @@ viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnScreenshotCaptured
 viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec = {
@@ -864,7 +864,7 @@ viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnVizTouchStateAvailable
 viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec = {
@@ -878,7 +878,7 @@ viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnViewTransitionResourcesCaptured
 viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec = {
@@ -892,7 +892,7 @@ viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.FrameSinkManagerClientPtr = viz.mojom.FrameSinkManagerClientRemote;
@@ -951,7 +951,7 @@ viz.mojom.RendererInputRouterDelegateRegistry.getRemote = function() {
     'viz.mojom.RendererInputRouterDelegateRegistry',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetupRenderInputRouterDelegateConnection
 viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec = {
@@ -967,7 +967,7 @@ viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConn
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.RendererInputRouterDelegateRegistryPtr = viz.mojom.RendererInputRouterDelegateRegistryRemote;

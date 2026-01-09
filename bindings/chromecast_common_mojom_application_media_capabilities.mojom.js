@@ -62,7 +62,7 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver.getRemote = function
     'chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnSupportedBitstreamAudioCodecsChanged
 chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec = {
@@ -76,7 +76,7 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstream
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverPtr = chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemote;
@@ -135,7 +135,7 @@ chromecast.shell.mojom.ApplicationMediaCapabilities.getRemote = function() {
     'chromecast.shell.mojom.ApplicationMediaCapabilities',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddObserver
 chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec = {
@@ -149,7 +149,7 @@ chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.shell.mojom.ApplicationMediaCapabilitiesPtr = chromecast.shell.mojom.ApplicationMediaCapabilitiesRemote;

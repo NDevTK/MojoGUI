@@ -133,7 +133,7 @@ mirroring.mojom.SessionObserver.getRemote = function() {
     'mirroring.mojom.SessionObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnError
 mirroring.mojom.SessionObserver_OnError_ParamsSpec = {
@@ -147,7 +147,7 @@ mirroring.mojom.SessionObserver_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidStart
 mirroring.mojom.SessionObserver_DidStart_ParamsSpec = {
@@ -160,7 +160,7 @@ mirroring.mojom.SessionObserver_DidStart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidStop
 mirroring.mojom.SessionObserver_DidStop_ParamsSpec = {
@@ -173,7 +173,7 @@ mirroring.mojom.SessionObserver_DidStop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogInfoMessage
 mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec = {
@@ -187,7 +187,7 @@ mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LogErrorMessage
 mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec = {
@@ -201,7 +201,7 @@ mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSourceChanged
 mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec = {
@@ -214,7 +214,7 @@ mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRemotingStateChanged
 mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec = {
@@ -228,7 +228,7 @@ mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 mirroring.mojom.SessionObserverPtr = mirroring.mojom.SessionObserverRemote;

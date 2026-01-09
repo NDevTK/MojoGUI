@@ -57,7 +57,7 @@ arc.mojom.ErrorNotificationHost.getRemote = function() {
     'arc.mojom.ErrorNotificationHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ErrorNotificationHostPtr = arc.mojom.ErrorNotificationHostRemote;
@@ -107,7 +107,7 @@ arc.mojom.ErrorNotificationInstance.getRemote = function() {
     'arc.mojom.ErrorNotificationInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ErrorNotificationInstancePtr = arc.mojom.ErrorNotificationInstanceRemote;
@@ -157,7 +157,7 @@ arc.mojom.ErrorNotificationItem.getRemote = function() {
     'arc.mojom.ErrorNotificationItem',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ErrorNotificationItemPtr = arc.mojom.ErrorNotificationItemRemote;
@@ -207,7 +207,7 @@ arc.mojom.ErrorNotificationActionHandler.getRemote = function() {
     'arc.mojom.ErrorNotificationActionHandler',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ErrorNotificationActionHandlerPtr = arc.mojom.ErrorNotificationActionHandlerRemote;

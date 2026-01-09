@@ -52,7 +52,7 @@ arc.mojom.IioSensorHost.getRemote = function() {
     'arc.mojom.IioSensorHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.IioSensorHostPtr = arc.mojom.IioSensorHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.IioSensorInstance.getRemote = function() {
     'arc.mojom.IioSensorInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.IioSensorInstancePtr = arc.mojom.IioSensorInstanceRemote;

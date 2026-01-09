@@ -103,7 +103,7 @@ network.mojom.RestrictedUDPSocket.getRemote = function() {
     'network.mojom.RestrictedUDPSocket',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for JoinGroup
 network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = {
@@ -117,7 +117,7 @@ network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec = {
   $: {
@@ -130,7 +130,7 @@ network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LeaveGroup
 network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = {
@@ -144,7 +144,7 @@ network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec = {
   $: {
@@ -157,7 +157,7 @@ network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReceiveMore
 network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec = {
@@ -171,7 +171,7 @@ network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Send
 network.mojom.RestrictedUDPSocket_Send_ParamsSpec = {
@@ -185,7 +185,7 @@ network.mojom.RestrictedUDPSocket_Send_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec = {
   $: {
@@ -198,7 +198,7 @@ network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendTo
 network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = {
@@ -214,7 +214,7 @@ network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec = {
   $: {
@@ -227,7 +227,7 @@ network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.RestrictedUDPSocketPtr = network.mojom.RestrictedUDPSocketRemote;

@@ -127,7 +127,7 @@ media_session.mojom.MediaSessionObserver.getRemote = function() {
     'media_session.mojom.MediaSessionObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media_session.mojom.MediaSessionObserverPtr = media_session.mojom.MediaSessionObserverRemote;
@@ -177,7 +177,7 @@ media_session.mojom.MediaSession.getRemote = function() {
     'media_session.mojom.MediaSession',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media_session.mojom.MediaSessionPtr = media_session.mojom.MediaSessionRemote;

@@ -96,7 +96,7 @@ device.mojom.GeolocationInternalsObserver.getRemote = function() {
     'device.mojom.GeolocationInternalsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDiagnosticsChanged
 device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec = {
@@ -110,7 +110,7 @@ device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNetworkLocationRequested
 device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec = {
@@ -124,7 +124,7 @@ device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNetworkLocationReceived
 device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec = {
@@ -138,7 +138,7 @@ device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.GeolocationInternalsObserverPtr = device.mojom.GeolocationInternalsObserverRemote;
@@ -197,7 +197,7 @@ device.mojom.GeolocationInternals.getRemote = function() {
     'device.mojom.GeolocationInternals',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddInternalsObserver
 device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec = {
@@ -211,7 +211,7 @@ device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec = {
   $: {
@@ -224,7 +224,7 @@ device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.GeolocationInternalsPtr = device.mojom.GeolocationInternalsRemote;

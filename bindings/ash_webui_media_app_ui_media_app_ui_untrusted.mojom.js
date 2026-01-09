@@ -89,7 +89,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory.getRemote = function() {
     'ash.media_app_ui.mojom.UntrustedServiceFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateOcrUntrustedService
 ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec = {
@@ -104,7 +104,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateMahiUntrustedService
 ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec = {
@@ -120,7 +120,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsMantisAvailable
 ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec = {
@@ -133,7 +133,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec = {
   $: {
@@ -146,7 +146,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateMantisUntrustedService
 ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec = {
@@ -161,7 +161,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec = {
   $: {
@@ -174,7 +174,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_Resp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.media_app_ui.mojom.UntrustedServiceFactoryPtr = ash.media_app_ui.mojom.UntrustedServiceFactoryRemote;
@@ -251,7 +251,7 @@ ash.media_app_ui.mojom.OcrUntrustedService.getRemote = function() {
     'ash.media_app_ui.mojom.OcrUntrustedService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PageMetadataUpdated
 ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec = {
@@ -265,7 +265,7 @@ ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PageContentsUpdated
 ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec = {
@@ -279,7 +279,7 @@ ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ViewportUpdated
 ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec = {
@@ -294,7 +294,7 @@ ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.media_app_ui.mojom.OcrUntrustedServicePtr = ash.media_app_ui.mojom.OcrUntrustedServiceRemote;
@@ -371,7 +371,7 @@ ash.media_app_ui.mojom.OcrUntrustedPage.getRemote = function() {
     'ash.media_app_ui.mojom.OcrUntrustedPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestBitmap
 ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec = {
@@ -385,7 +385,7 @@ ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec = {
   $: {
@@ -398,7 +398,7 @@ ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetViewport
 ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec = {
@@ -412,7 +412,7 @@ ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPdfOcrEnabled
 ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec = {
@@ -426,7 +426,7 @@ ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.media_app_ui.mojom.OcrUntrustedPagePtr = ash.media_app_ui.mojom.OcrUntrustedPageRemote;
@@ -512,7 +512,7 @@ ash.media_app_ui.mojom.MahiUntrustedService.getRemote = function() {
     'ash.media_app_ui.mojom.MahiUntrustedService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPdfLoaded
 ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec = {
@@ -525,7 +525,7 @@ ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPdfFileNameUpdated
 ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec = {
@@ -539,7 +539,7 @@ ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPdfContextMenuShow
 ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec = {
@@ -554,7 +554,7 @@ ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPdfContextMenuHide
 ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec = {
@@ -567,7 +567,7 @@ ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.media_app_ui.mojom.MahiUntrustedServicePtr = ash.media_app_ui.mojom.MahiUntrustedServiceRemote;
@@ -635,7 +635,7 @@ ash.media_app_ui.mojom.MahiUntrustedPage.getRemote = function() {
     'ash.media_app_ui.mojom.MahiUntrustedPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HidePdfContextMenu
 ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec = {
@@ -648,7 +648,7 @@ ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPdfContent
 ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec = {
@@ -662,7 +662,7 @@ ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec = {
   $: {
@@ -675,7 +675,7 @@ ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.media_app_ui.mojom.MahiUntrustedPagePtr = ash.media_app_ui.mojom.MahiUntrustedPageRemote;
@@ -779,7 +779,7 @@ ash.media_app_ui.mojom.MantisUntrustedService.getRemote = function() {
     'ash.media_app_ui.mojom.MantisUntrustedService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SegmentImage
 ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec = {
@@ -794,7 +794,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec = {
   $: {
@@ -807,7 +807,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GenerativeFillImage
 ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec = {
@@ -824,7 +824,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec = {
   $: {
@@ -837,7 +837,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InpaintImage
 ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec = {
@@ -853,7 +853,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec = {
   $: {
@@ -866,7 +866,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OutpaintImage
 ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec = {
@@ -882,7 +882,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec = {
   $: {
@@ -895,7 +895,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClassifyImageSafety
 ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec = {
@@ -909,7 +909,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec = {
   $: {
@@ -922,7 +922,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InferSegmentationMode
 ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec = {
@@ -936,7 +936,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec = {
   $: {
@@ -949,7 +949,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.media_app_ui.mojom.MantisUntrustedServicePtr = ash.media_app_ui.mojom.MantisUntrustedServiceRemote;
@@ -1008,7 +1008,7 @@ ash.media_app_ui.mojom.MantisUntrustedPage.getRemote = function() {
     'ash.media_app_ui.mojom.MantisUntrustedPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ReportMantisProgress
 ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec = {
@@ -1022,7 +1022,7 @@ ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.media_app_ui.mojom.MantisUntrustedPagePtr = ash.media_app_ui.mojom.MantisUntrustedPageRemote;

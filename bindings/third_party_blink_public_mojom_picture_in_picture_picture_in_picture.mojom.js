@@ -70,7 +70,7 @@ blink.mojom.PictureInPictureSessionObserver.getRemote = function() {
     'blink.mojom.PictureInPictureSessionObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnWindowSizeChanged
 blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec = {
@@ -84,7 +84,7 @@ blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStopped
 blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec = {
@@ -97,7 +97,7 @@ blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PictureInPictureSessionObserverPtr = blink.mojom.PictureInPictureSessionObserverRemote;
@@ -174,7 +174,7 @@ blink.mojom.PictureInPictureSession.getRemote = function() {
     'blink.mojom.PictureInPictureSession',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Update
 blink.mojom.PictureInPictureSession_Update_ParamsSpec = {
@@ -192,7 +192,7 @@ blink.mojom.PictureInPictureSession_Update_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Stop
 blink.mojom.PictureInPictureSession_Stop_ParamsSpec = {
@@ -205,7 +205,7 @@ blink.mojom.PictureInPictureSession_Stop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateMediaPosition
 blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec = {
@@ -219,7 +219,7 @@ blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PictureInPictureSessionPtr = blink.mojom.PictureInPictureSessionRemote;
@@ -278,7 +278,7 @@ blink.mojom.PictureInPictureService.getRemote = function() {
     'blink.mojom.PictureInPictureService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartSession
 blink.mojom.PictureInPictureService_StartSession_ParamsSpec = {
@@ -298,7 +298,7 @@ blink.mojom.PictureInPictureService_StartSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec = {
   $: {
@@ -312,7 +312,7 @@ blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PictureInPictureServicePtr = blink.mojom.PictureInPictureServiceRemote;

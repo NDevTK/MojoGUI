@@ -83,7 +83,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory.getRemote = func
     'side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateWallpaperSearchHandler
 side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec = {
@@ -98,7 +98,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPtr = side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote;
@@ -247,7 +247,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler.getRemote = function() 
     'side_panel.customize_chrome.mojom.WallpaperSearchHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDescriptors
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec = {
@@ -260,7 +260,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec = {
   $: {
@@ -273,7 +273,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetInspirations
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec = {
@@ -286,7 +286,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec = {
   $: {
@@ -299,7 +299,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetWallpaperSearchResults
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec = {
@@ -313,7 +313,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResul
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec = {
   $: {
@@ -327,7 +327,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResul
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetResultRenderTime
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec = {
@@ -342,7 +342,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBackgroundToHistoryImage
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec = {
@@ -357,7 +357,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryI
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBackgroundToInspirationImage
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec = {
@@ -372,7 +372,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirat
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBackgroundToWallpaperSearchResult
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec = {
@@ -388,7 +388,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpape
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateHistory
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec = {
@@ -401,7 +401,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUserFeedback
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec = {
@@ -415,7 +415,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenHelpArticle
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec = {
@@ -428,7 +428,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LaunchHatsSurvey
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec = {
@@ -441,7 +441,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 side_panel.customize_chrome.mojom.WallpaperSearchHandlerPtr = side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote;
@@ -500,7 +500,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchClient.getRemote = function() {
     'side_panel.customize_chrome.mojom.WallpaperSearchClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetHistory
 side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec = {
@@ -514,7 +514,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 side_panel.customize_chrome.mojom.WallpaperSearchClientPtr = side_panel.customize_chrome.mojom.WallpaperSearchClientRemote;

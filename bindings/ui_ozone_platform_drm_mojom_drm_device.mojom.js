@@ -224,7 +224,7 @@ ui.ozone.mojom.DrmDevice.getRemote = function() {
     'ui.ozone.mojom.DrmDevice',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateWindow
 ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec = {
@@ -239,7 +239,7 @@ ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DestroyWindow
 ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec = {
@@ -253,7 +253,7 @@ ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWindowBounds
 ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec = {
@@ -268,7 +268,7 @@ ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TakeDisplayControl
 ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec = {
@@ -281,7 +281,7 @@ ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec = {
   $: {
@@ -294,7 +294,7 @@ ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RelinquishDisplayControl
 ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec = {
@@ -307,7 +307,7 @@ ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec = {
   $: {
@@ -320,7 +320,7 @@ ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RefreshNativeDisplays
 ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec = {
@@ -333,7 +333,7 @@ ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec = {
   $: {
@@ -346,7 +346,7 @@ ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddGraphicsDevice
 ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec = {
@@ -361,7 +361,7 @@ ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveGraphicsDevice
 ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec = {
@@ -375,7 +375,7 @@ ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShouldDisplayEventTriggerConfiguration
 ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec = {
@@ -389,7 +389,7 @@ ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec = {
   $: {
@@ -402,7 +402,7 @@ ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConfigureNativeDisplays
 ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec = {
@@ -417,7 +417,7 @@ ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec = {
   $: {
@@ -431,7 +431,7 @@ ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHdcpKeyProp
 ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec = {
@@ -446,7 +446,7 @@ ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec = {
   $: {
@@ -460,7 +460,7 @@ ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetHDCPState
 ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec = {
@@ -474,7 +474,7 @@ ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec = {
   $: {
@@ -490,7 +490,7 @@ ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHDCPState
 ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec = {
@@ -506,7 +506,7 @@ ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec = {
   $: {
@@ -520,7 +520,7 @@ ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetColorTemperatureAdjustment
 ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec = {
@@ -535,7 +535,7 @@ ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetColorCalibration
 ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec = {
@@ -550,7 +550,7 @@ ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetGammaAdjustment
 ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec = {
@@ -565,7 +565,7 @@ ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPrivacyScreen
 ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec = {
@@ -580,7 +580,7 @@ ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec = {
   $: {
@@ -593,7 +593,7 @@ ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSeamlessRefreshRates
 ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec = {
@@ -607,7 +607,7 @@ ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec = {
   $: {
@@ -620,7 +620,7 @@ ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDeviceCursor
 ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec = {
@@ -634,7 +634,7 @@ ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ui.ozone.mojom.DrmDevicePtr = ui.ozone.mojom.DrmDeviceRemote;

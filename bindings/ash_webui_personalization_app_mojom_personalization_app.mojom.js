@@ -172,7 +172,7 @@ ash.personalization_app.mojom.WallpaperObserver.getRemote = function() {
     'ash.personalization_app.mojom.WallpaperObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnWallpaperPreviewEnded
 ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec = {
@@ -185,7 +185,7 @@ ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAttributionChanged
 ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec = {
@@ -199,7 +199,7 @@ ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWallpaperChanged
 ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec = {
@@ -213,7 +213,7 @@ ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.personalization_app.mojom.WallpaperObserverPtr = ash.personalization_app.mojom.WallpaperObserverRemote;
@@ -497,7 +497,7 @@ ash.personalization_app.mojom.WallpaperProvider.getRemote = function() {
     'ash.personalization_app.mojom.WallpaperProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for MakeTransparent
 ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec = {
@@ -510,7 +510,7 @@ ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MakeOpaque
 ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec = {
@@ -523,7 +523,7 @@ ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchCollections
 ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec = {
@@ -536,7 +536,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec = {
   $: {
@@ -549,7 +549,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchImagesForCollection
 ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec = {
@@ -563,7 +563,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec = {
   $: {
@@ -576,7 +576,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchGooglePhotosAlbums
 ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec = {
@@ -590,7 +590,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec = {
   $: {
@@ -603,7 +603,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchGooglePhotosSharedAlbums
 ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec = {
@@ -617,7 +617,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec = {
   $: {
@@ -630,7 +630,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_Re
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchGooglePhotosEnabled
 ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec = {
@@ -643,7 +643,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec = {
   $: {
@@ -656,7 +656,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchGooglePhotosPhotos
 ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec = {
@@ -672,7 +672,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec = {
   $: {
@@ -685,7 +685,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLocalImages
 ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec = {
@@ -698,7 +698,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec = {
   $: {
@@ -711,7 +711,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDefaultImageThumbnail
 ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec = {
@@ -724,7 +724,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec = {
   $: {
@@ -737,7 +737,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetLocalImageThumbnail
 ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec = {
@@ -751,7 +751,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec = {
   $: {
@@ -764,7 +764,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWallpaperObserver
 ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec = {
@@ -778,7 +778,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectWallpaper
 ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec = {
@@ -793,7 +793,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec = {
   $: {
@@ -806,7 +806,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectDefaultImage
 ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec = {
@@ -819,7 +819,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec = {
   $: {
@@ -832,7 +832,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectLocalImage
 ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec = {
@@ -848,7 +848,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec = {
   $: {
@@ -861,7 +861,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectGooglePhotosPhoto
 ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec = {
@@ -877,7 +877,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec = {
   $: {
@@ -890,7 +890,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectGooglePhotosAlbum
 ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec = {
@@ -904,7 +904,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec = {
   $: {
@@ -917,7 +917,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetGooglePhotosDailyRefreshAlbumId
 ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec = {
@@ -930,7 +930,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbum
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec = {
   $: {
@@ -943,7 +943,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbum
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCurrentWallpaperLayout
 ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec = {
@@ -957,7 +957,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDailyRefreshCollectionId
 ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec = {
@@ -971,7 +971,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec = {
   $: {
@@ -984,7 +984,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_Resp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDailyRefreshCollectionId
 ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec = {
@@ -997,7 +997,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec = {
   $: {
@@ -1010,7 +1010,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_Resp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateDailyRefreshWallpaper
 ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec = {
@@ -1023,7 +1023,7 @@ ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec = {
   $: {
@@ -1036,7 +1036,7 @@ ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_Resp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsInTabletMode
 ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec = {
@@ -1049,7 +1049,7 @@ ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec = {
   $: {
@@ -1062,7 +1062,7 @@ ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConfirmPreviewWallpaper
 ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec = {
@@ -1075,7 +1075,7 @@ ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelPreviewWallpaper
 ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec = {
@@ -1088,7 +1088,7 @@ ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShouldShowTimeOfDayWallpaperDialog
 ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec = {
@@ -1101,7 +1101,7 @@ ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDial
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec = {
   $: {
@@ -1114,7 +1114,7 @@ ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDial
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.personalization_app.mojom.WallpaperProviderPtr = ash.personalization_app.mojom.WallpaperProviderRemote;
@@ -1227,7 +1227,7 @@ ash.personalization_app.mojom.ThemeObserver.getRemote = function() {
     'ash.personalization_app.mojom.ThemeObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnColorModeChanged
 ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec = {
@@ -1241,7 +1241,7 @@ ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnColorModeAutoScheduleChanged
 ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec = {
@@ -1255,7 +1255,7 @@ ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnColorSchemeChanged
 ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec = {
@@ -1269,7 +1269,7 @@ ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSampleColorSchemesChanged
 ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec = {
@@ -1283,7 +1283,7 @@ ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStaticColorChanged
 ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec = {
@@ -1297,7 +1297,7 @@ ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnGeolocationPermissionForSystemServicesChanged
 ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec = {
@@ -1312,7 +1312,7 @@ ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServ
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDaylightTimeChanged
 ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec = {
@@ -1327,7 +1327,7 @@ ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.personalization_app.mojom.ThemeObserverPtr = ash.personalization_app.mojom.ThemeObserverRemote;
@@ -1494,7 +1494,7 @@ ash.personalization_app.mojom.ThemeProvider.getRemote = function() {
     'ash.personalization_app.mojom.ThemeProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetThemeObserver
 ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec = {
@@ -1508,7 +1508,7 @@ ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetColorModePref
 ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec = {
@@ -1522,7 +1522,7 @@ ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetColorModeAutoScheduleEnabled
 ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec = {
@@ -1536,7 +1536,7 @@ ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetColorScheme
 ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec = {
@@ -1550,7 +1550,7 @@ ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetStaticColor
 ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec = {
@@ -1564,7 +1564,7 @@ ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableGeolocationForSystemServices
 ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec = {
@@ -1577,7 +1577,7 @@ ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetColorScheme
 ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec = {
@@ -1590,7 +1590,7 @@ ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec = {
   $: {
@@ -1603,7 +1603,7 @@ ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStaticColor
 ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec = {
@@ -1616,7 +1616,7 @@ ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec = {
   $: {
@@ -1629,7 +1629,7 @@ ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GenerateSampleColorSchemes
 ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec = {
@@ -1642,7 +1642,7 @@ ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec = {
   $: {
@@ -1655,7 +1655,7 @@ ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsColorModeAutoScheduleEnabled
 ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec = {
@@ -1668,7 +1668,7 @@ ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec = {
   $: {
@@ -1681,7 +1681,7 @@ ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsDarkModeEnabled
 ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec = {
@@ -1694,7 +1694,7 @@ ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec = {
   $: {
@@ -1707,7 +1707,7 @@ ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsGeolocationEnabledForSystemServices
 ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec = {
@@ -1720,7 +1720,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemService
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec = {
   $: {
@@ -1733,7 +1733,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemService
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsGeolocationUserModifiable
 ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec = {
@@ -1746,7 +1746,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec = {
   $: {
@@ -1759,7 +1759,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.personalization_app.mojom.ThemeProviderPtr = ash.personalization_app.mojom.ThemeProviderRemote;
@@ -1845,7 +1845,7 @@ ash.personalization_app.mojom.UserImageObserver.getRemote = function() {
     'ash.personalization_app.mojom.UserImageObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnUserImageChanged
 ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec = {
@@ -1859,7 +1859,7 @@ ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnUserProfileImageUpdated
 ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec = {
@@ -1873,7 +1873,7 @@ ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnCameraPresenceCheckDone
 ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec = {
@@ -1887,7 +1887,7 @@ ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnIsEnterpriseManagedChanged
 ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec = {
@@ -1901,7 +1901,7 @@ ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.personalization_app.mojom.UserImageObserverPtr = ash.personalization_app.mojom.UserImageObserverRemote;
@@ -2023,7 +2023,7 @@ ash.personalization_app.mojom.UserProvider.getRemote = function() {
     'ash.personalization_app.mojom.UserProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetUserImageObserver
 ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec = {
@@ -2037,7 +2037,7 @@ ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUserInfo
 ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec = {
@@ -2050,7 +2050,7 @@ ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec = {
   $: {
@@ -2063,7 +2063,7 @@ ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDefaultUserImages
 ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec = {
@@ -2076,7 +2076,7 @@ ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec = {
   $: {
@@ -2089,7 +2089,7 @@ ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectDefaultImage
 ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec = {
@@ -2103,7 +2103,7 @@ ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectProfileImage
 ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec = {
@@ -2116,7 +2116,7 @@ ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectCameraImage
 ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec = {
@@ -2130,7 +2130,7 @@ ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectImageFromDisk
 ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec = {
@@ -2143,7 +2143,7 @@ ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectLastExternalUserImage
 ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec = {
@@ -2156,7 +2156,7 @@ ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.personalization_app.mojom.UserProviderPtr = ash.personalization_app.mojom.UserProviderRemote;
@@ -2296,7 +2296,7 @@ ash.personalization_app.mojom.AmbientObserver.getRemote = function() {
     'ash.personalization_app.mojom.AmbientObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnAmbientModeEnabledChanged
 ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec = {
@@ -2310,7 +2310,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAmbientThemeChanged
 ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec = {
@@ -2324,7 +2324,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTopicSourceChanged
 ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec = {
@@ -2338,7 +2338,7 @@ ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnScreenSaverDurationChanged
 ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec = {
@@ -2352,7 +2352,7 @@ ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTemperatureUnitChanged
 ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec = {
@@ -2366,7 +2366,7 @@ ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAlbumsChanged
 ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec = {
@@ -2380,7 +2380,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPreviewsFetched
 ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec = {
@@ -2394,7 +2394,7 @@ ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAmbientUiVisibilityChanged
 ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec = {
@@ -2408,7 +2408,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnGeolocationPermissionForSystemServicesChanged
 ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec = {
@@ -2423,7 +2423,7 @@ ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemSe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAmbientThemePreviewImagesChanged
 ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec = {
@@ -2437,7 +2437,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.personalization_app.mojom.AmbientObserverPtr = ash.personalization_app.mojom.AmbientObserverRemote;
@@ -2631,7 +2631,7 @@ ash.personalization_app.mojom.AmbientProvider.getRemote = function() {
     'ash.personalization_app.mojom.AmbientProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for IsAmbientModeEnabled
 ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec = {
@@ -2644,7 +2644,7 @@ ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec = {
   $: {
@@ -2657,7 +2657,7 @@ ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAmbientModeEnabled
 ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec = {
@@ -2671,7 +2671,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAmbientObserver
 ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec = {
@@ -2685,7 +2685,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAmbientTheme
 ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec = {
@@ -2699,7 +2699,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetScreenSaverDuration
 ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec = {
@@ -2713,7 +2713,7 @@ ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTopicSource
 ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec = {
@@ -2727,7 +2727,7 @@ ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTemperatureUnit
 ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec = {
@@ -2741,7 +2741,7 @@ ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAlbumSelected
 ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec = {
@@ -2757,7 +2757,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPageViewed
 ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec = {
@@ -2770,7 +2770,7 @@ ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchSettingsAndAlbums
 ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec = {
@@ -2783,7 +2783,7 @@ ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartScreenSaverPreview
 ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec = {
@@ -2796,7 +2796,7 @@ ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShouldShowTimeOfDayBanner
 ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec = {
@@ -2809,7 +2809,7 @@ ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec = {
   $: {
@@ -2822,7 +2822,7 @@ ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleTimeOfDayBannerDismissed
 ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec = {
@@ -2835,7 +2835,7 @@ ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsGeolocationEnabledForSystemServices
 ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec = {
@@ -2848,7 +2848,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServi
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec = {
   $: {
@@ -2861,7 +2861,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServi
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsGeolocationUserModifiable
 ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec = {
@@ -2874,7 +2874,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec = {
   $: {
@@ -2887,7 +2887,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableGeolocationForSystemServices
 ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec = {
@@ -2900,7 +2900,7 @@ ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.personalization_app.mojom.AmbientProviderPtr = ash.personalization_app.mojom.AmbientProviderRemote;
@@ -2968,7 +2968,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserver.getRemote = function() {
     'ash.personalization_app.mojom.KeyboardBacklightObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnBacklightStateChanged
 ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec = {
@@ -2982,7 +2982,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWallpaperColorChanged
 ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec = {
@@ -2996,7 +2996,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.personalization_app.mojom.KeyboardBacklightObserverPtr = ash.personalization_app.mojom.KeyboardBacklightObserverRemote;
@@ -3091,7 +3091,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider.getRemote = function() {
     'ash.personalization_app.mojom.KeyboardBacklightProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetKeyboardBacklightObserver
 ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec = {
@@ -3105,7 +3105,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObse
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBacklightColor
 ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec = {
@@ -3119,7 +3119,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBacklightZoneColor
 ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec = {
@@ -3134,7 +3134,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShouldShowNudge
 ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec = {
@@ -3147,7 +3147,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec = {
   $: {
@@ -3160,7 +3160,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleNudgeShown
 ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec = {
@@ -3173,7 +3173,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.personalization_app.mojom.KeyboardBacklightProviderPtr = ash.personalization_app.mojom.KeyboardBacklightProviderRemote;

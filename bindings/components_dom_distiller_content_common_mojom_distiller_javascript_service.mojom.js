@@ -88,7 +88,7 @@ dom_distiller.mojom.DistillerJavaScriptService.getRemote = function() {
     'dom_distiller.mojom.DistillerJavaScriptService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HandleDistillerOpenSettingsCall
 dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec = {
@@ -101,7 +101,7 @@ dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleStoreThemePref
 dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec = {
@@ -115,7 +115,7 @@ dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleStoreFontFamilyPref
 dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec = {
@@ -129,7 +129,7 @@ dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleStoreFontScalingPref
 dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec = {
@@ -143,7 +143,7 @@ dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 dom_distiller.mojom.DistillerJavaScriptServicePtr = dom_distiller.mojom.DistillerJavaScriptServiceRemote;

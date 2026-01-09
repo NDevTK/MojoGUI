@@ -85,7 +85,7 @@ printing.mojom.PdfToPwgRasterConverter.getRemote = function() {
     'printing.mojom.PdfToPwgRasterConverter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Convert
 printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = {
@@ -101,7 +101,7 @@ printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec = {
   $: {
@@ -115,7 +115,7 @@ printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUseSkiaRendererPolicy
 printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
@@ -129,7 +129,7 @@ printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 printing.mojom.PdfToPwgRasterConverterPtr = printing.mojom.PdfToPwgRasterConverterRemote;

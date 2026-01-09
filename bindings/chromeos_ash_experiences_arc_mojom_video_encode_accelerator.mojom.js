@@ -75,7 +75,7 @@ arc.mojom.VideoEncodeAccelerator.getRemote = function() {
     'arc.mojom.VideoEncodeAccelerator',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.VideoEncodeAcceleratorPtr = arc.mojom.VideoEncodeAcceleratorRemote;
@@ -125,7 +125,7 @@ arc.mojom.VideoEncodeClient.getRemote = function() {
     'arc.mojom.VideoEncodeClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.VideoEncodeClientPtr = arc.mojom.VideoEncodeClientRemote;

@@ -97,7 +97,7 @@ content.mojom.RendererHost.getRemote = function() {
     'content.mojom.RendererHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetBrowserHistogram
 content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec = {
@@ -111,7 +111,7 @@ content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec = {
   $: {
@@ -124,7 +124,7 @@ content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SuddenTerminationAllowedChanged
 content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec = {
@@ -138,7 +138,7 @@ content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordUserMetricsAction
 content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec = {
@@ -152,7 +152,7 @@ content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPrivateMemoryFootprint
 content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec = {
@@ -166,7 +166,7 @@ content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HasGpuProcess
 content.mojom.RendererHost_HasGpuProcess_ParamsSpec = {
@@ -179,7 +179,7 @@ content.mojom.RendererHost_HasGpuProcess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = {
   $: {
@@ -192,7 +192,7 @@ content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.RendererHostPtr = content.mojom.RendererHostRemote;

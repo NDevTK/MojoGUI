@@ -70,7 +70,7 @@ blink.mojom.BadgeService.getRemote = function() {
     'blink.mojom.BadgeService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetBadge
 blink.mojom.BadgeService_SetBadge_ParamsSpec = {
@@ -84,7 +84,7 @@ blink.mojom.BadgeService_SetBadge_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearBadge
 blink.mojom.BadgeService_ClearBadge_ParamsSpec = {
@@ -97,7 +97,7 @@ blink.mojom.BadgeService_ClearBadge_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BadgeServicePtr = blink.mojom.BadgeServiceRemote;

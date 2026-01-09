@@ -70,7 +70,7 @@ network.mojom.TrustTokenAccessObserver.getRemote = function() {
     'network.mojom.TrustTokenAccessObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnTrustTokensAccessed
 network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec = {
@@ -84,7 +84,7 @@ network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec = {
@@ -98,7 +98,7 @@ network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.TrustTokenAccessObserverPtr = network.mojom.TrustTokenAccessObserverRemote;

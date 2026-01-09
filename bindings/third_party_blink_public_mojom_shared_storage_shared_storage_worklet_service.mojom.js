@@ -61,7 +61,7 @@ blink.mojom.SharedStorageEntriesListener.getRemote = function() {
     'blink.mojom.SharedStorageEntriesListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidReadEntries
 blink.mojom.SharedStorageEntriesListener_DidReadEntries_ParamsSpec = {
@@ -79,7 +79,7 @@ blink.mojom.SharedStorageEntriesListener_DidReadEntries_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SharedStorageEntriesListenerPtr = blink.mojom.SharedStorageEntriesListenerRemote;
@@ -219,7 +219,7 @@ blink.mojom.SharedStorageWorkletServiceClient.getRemote = function() {
     'blink.mojom.SharedStorageWorkletServiceClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SharedStorageUpdate
 blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ParamsSpec = {
@@ -233,7 +233,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ResponseParamsSpec = {
   $: {
@@ -246,7 +246,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SharedStorageBatchUpdate
 blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ParamsSpec = {
@@ -261,7 +261,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ResponseParamsSpec = {
   $: {
@@ -274,7 +274,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SharedStorageGet
 blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ParamsSpec = {
@@ -288,7 +288,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpec = {
   $: {
@@ -303,7 +303,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SharedStorageKeys
 blink.mojom.SharedStorageWorkletServiceClient_SharedStorageKeys_ParamsSpec = {
@@ -317,7 +317,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageKeys_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SharedStorageEntries
 blink.mojom.SharedStorageWorkletServiceClient_SharedStorageEntries_ParamsSpec = {
@@ -332,7 +332,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageEntries_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SharedStorageLength
 blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ParamsSpec = {
@@ -345,7 +345,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ResponseParamsSpec = {
   $: {
@@ -360,7 +360,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SharedStorageRemainingBudget
 blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ParamsSpec = {
@@ -373,7 +373,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ResponseParamsSpec = {
   $: {
@@ -388,7 +388,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetInterestGroups
 blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ParamsSpec = {
@@ -401,7 +401,7 @@ blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSpec = {
   $: {
@@ -414,7 +414,7 @@ blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidAddMessageToConsole
 blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_ParamsSpec = {
@@ -429,7 +429,7 @@ blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordUseCounters
 blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_ParamsSpec = {
@@ -443,7 +443,7 @@ blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SharedStorageWorkletServiceClientPtr = blink.mojom.SharedStorageWorkletServiceClientRemote;
@@ -529,7 +529,7 @@ blink.mojom.SharedStorageWorkletService.getRemote = function() {
     'blink.mojom.SharedStorageWorkletService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Initialize
 blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec = {
@@ -545,7 +545,7 @@ blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec = {
   $: {
@@ -558,7 +558,7 @@ blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddModule
 blink.mojom.SharedStorageWorkletService_AddModule_ParamsSpec = {
@@ -573,7 +573,7 @@ blink.mojom.SharedStorageWorkletService_AddModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageWorkletService_AddModule_ResponseParamsSpec = {
   $: {
@@ -587,7 +587,7 @@ blink.mojom.SharedStorageWorkletService_AddModule_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RunURLSelectionOperation
 blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ParamsSpec = {
@@ -604,7 +604,7 @@ blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ResponseParamsSpec = {
   $: {
@@ -619,7 +619,7 @@ blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RunOperation
 blink.mojom.SharedStorageWorkletService_RunOperation_ParamsSpec = {
@@ -635,7 +635,7 @@ blink.mojom.SharedStorageWorkletService_RunOperation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.SharedStorageWorkletService_RunOperation_ResponseParamsSpec = {
   $: {
@@ -649,7 +649,7 @@ blink.mojom.SharedStorageWorkletService_RunOperation_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.SharedStorageWorkletServicePtr = blink.mojom.SharedStorageWorkletServiceRemote;

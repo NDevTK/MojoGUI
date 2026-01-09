@@ -214,7 +214,7 @@ viz.mojom.DisplayPrivate.getRemote = function() {
     'viz.mojom.DisplayPrivate',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetDisplayVisible
 viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec = {
@@ -228,7 +228,7 @@ viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableSwapUntilResize
 viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec = {
@@ -241,7 +241,7 @@ viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Resize
 viz.mojom.DisplayPrivate_Resize_ParamsSpec = {
@@ -255,7 +255,7 @@ viz.mojom.DisplayPrivate_Resize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDisplayColorMatrix
 viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec = {
@@ -269,7 +269,7 @@ viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDisplayColorSpaces
 viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec = {
@@ -283,7 +283,7 @@ viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetOutputIsSecure
 viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec = {
@@ -297,7 +297,7 @@ viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVSyncDisplayID
 viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec = {
@@ -311,7 +311,7 @@ viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDisplayVSyncParameters
 viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec = {
@@ -326,7 +326,7 @@ viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForceImmediateDrawAndSwapIfPossible
 viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec = {
@@ -339,7 +339,7 @@ viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateRefreshRate
 viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec = {
@@ -353,7 +353,7 @@ viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAdaptiveRefreshRateInfo
 viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec = {
@@ -369,7 +369,7 @@ viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSupportedRefreshRates
 viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec = {
@@ -383,7 +383,7 @@ viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PreserveChildSurfaceControls
 viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec = {
@@ -396,7 +396,7 @@ viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSwapCompletionCallbackEnabled
 viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec = {
@@ -410,7 +410,7 @@ viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddVSyncParameterObserver
 viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec = {
@@ -424,7 +424,7 @@ viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDelegatedInkPointRenderer
 viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec = {
@@ -438,7 +438,7 @@ viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetStandaloneBeginFrameObserver
 viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec = {
@@ -452,7 +452,7 @@ viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMaxVSyncAndVrr
 viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec = {
@@ -467,7 +467,7 @@ viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.DisplayPrivatePtr = viz.mojom.DisplayPrivateRemote;
@@ -589,7 +589,7 @@ viz.mojom.DisplayClient.getRemote = function() {
     'viz.mojom.DisplayClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDisplayReceivedCALayerParams
 viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec = {
@@ -603,7 +603,7 @@ viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateLayeredWindowUpdater
 viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec = {
@@ -617,7 +617,7 @@ viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddChildWindowToBrowser
 viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec = {
@@ -631,7 +631,7 @@ viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidCompleteSwapWithSize
 viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec = {
@@ -645,7 +645,7 @@ viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidCompleteSwapWithNewSize
 viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec = {
@@ -659,7 +659,7 @@ viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnContextCreationResult
 viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec = {
@@ -673,7 +673,7 @@ viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWideColorEnabled
 viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec = {
@@ -687,7 +687,7 @@ viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPreferredRefreshRate
 viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec = {
@@ -701,7 +701,7 @@ viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.DisplayClientPtr = viz.mojom.DisplayClientRemote;

@@ -97,7 +97,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost.getRemote = function() {
     'blink.mojom.ServiceWorkerRegistrationObjectHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Update
 blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec = {
@@ -111,7 +111,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec = {
   $: {
@@ -125,7 +125,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Unregister
 blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec = {
@@ -138,7 +138,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec = {
   $: {
@@ -152,7 +152,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableNavigationPreload
 blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec = {
@@ -166,7 +166,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec = {
   $: {
@@ -180,7 +180,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetNavigationPreloadState
 blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec = {
@@ -193,7 +193,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec = {
   $: {
@@ -208,7 +208,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNavigationPreloadHeader
 blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec = {
@@ -222,7 +222,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec = {
   $: {
@@ -236,7 +236,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerRegistrationObjectHostPtr = blink.mojom.ServiceWorkerRegistrationObjectHostRemote;
@@ -313,7 +313,7 @@ blink.mojom.ServiceWorkerRegistrationObject.getRemote = function() {
     'blink.mojom.ServiceWorkerRegistrationObject',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetServiceWorkerObjects
 blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec = {
@@ -330,7 +330,7 @@ blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUpdateViaCache
 blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec = {
@@ -344,7 +344,7 @@ blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateFound
 blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec = {
@@ -357,7 +357,7 @@ blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerRegistrationObjectPtr = blink.mojom.ServiceWorkerRegistrationObjectRemote;

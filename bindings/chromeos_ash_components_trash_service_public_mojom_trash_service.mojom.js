@@ -62,7 +62,7 @@ ash.trash_service.mojom.TrashService.getRemote = function() {
     'ash.trash_service.mojom.TrashService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ParseTrashInfoFile
 ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec = {
@@ -76,7 +76,7 @@ ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec = {
   $: {
@@ -91,7 +91,7 @@ ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.trash_service.mojom.TrashServicePtr = ash.trash_service.mojom.TrashServiceRemote;

@@ -88,7 +88,7 @@ ax.mojom.TtsUtteranceClient.getRemote = function() {
     'ax.mojom.TtsUtteranceClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnEvent
 ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
@@ -102,7 +102,7 @@ ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ax.mojom.TtsUtteranceClientPtr = ax.mojom.TtsUtteranceClientRemote;
@@ -206,7 +206,7 @@ ax.mojom.Tts.getRemote = function() {
     'ax.mojom.Tts',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Speak
 ax.mojom.Tts_Speak_ParamsSpec = {
@@ -221,7 +221,7 @@ ax.mojom.Tts_Speak_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ax.mojom.Tts_Speak_ResponseParamsSpec = {
   $: {
@@ -234,7 +234,7 @@ ax.mojom.Tts_Speak_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Stop
 ax.mojom.Tts_Stop_ParamsSpec = {
@@ -247,7 +247,7 @@ ax.mojom.Tts_Stop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Pause
 ax.mojom.Tts_Pause_ParamsSpec = {
@@ -260,7 +260,7 @@ ax.mojom.Tts_Pause_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Resume
 ax.mojom.Tts_Resume_ParamsSpec = {
@@ -273,7 +273,7 @@ ax.mojom.Tts_Resume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsSpeaking
 ax.mojom.Tts_IsSpeaking_ParamsSpec = {
@@ -286,7 +286,7 @@ ax.mojom.Tts_IsSpeaking_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ax.mojom.Tts_IsSpeaking_ResponseParamsSpec = {
   $: {
@@ -299,7 +299,7 @@ ax.mojom.Tts_IsSpeaking_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetVoices
 ax.mojom.Tts_GetVoices_ParamsSpec = {
@@ -312,7 +312,7 @@ ax.mojom.Tts_GetVoices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ax.mojom.Tts_GetVoices_ResponseParamsSpec = {
   $: {
@@ -325,7 +325,7 @@ ax.mojom.Tts_GetVoices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ax.mojom.TtsPtr = ax.mojom.TtsRemote;

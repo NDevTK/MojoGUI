@@ -106,7 +106,7 @@ crosapi.mojom.CrosDisplayConfigController.getRemote = function() {
     'crosapi.mojom.CrosDisplayConfigController',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.CrosDisplayConfigControllerPtr = crosapi.mojom.CrosDisplayConfigControllerRemote;
@@ -156,7 +156,7 @@ crosapi.mojom.CrosDisplayConfigObserver.getRemote = function() {
     'crosapi.mojom.CrosDisplayConfigObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.CrosDisplayConfigObserverPtr = crosapi.mojom.CrosDisplayConfigObserverRemote;

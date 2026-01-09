@@ -115,7 +115,7 @@ ash.boca_receiver.mojom.UntrustedPage.getRemote = function() {
     'ash.boca_receiver.mojom.UntrustedPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnInitReceiverInfo
 ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec = {
@@ -129,7 +129,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnInitReceiverError
 ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec = {
@@ -142,7 +142,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameReceived
 ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec = {
@@ -156,7 +156,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAudioPacket
 ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec = {
@@ -170,7 +170,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnConnecting
 ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec = {
@@ -185,7 +185,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnConnectionClosed
 ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec = {
@@ -199,7 +199,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.boca_receiver.mojom.UntrustedPagePtr = ash.boca_receiver.mojom.UntrustedPageRemote;
@@ -258,7 +258,7 @@ ash.boca_receiver.mojom.UntrustedPageHandlerFactory.getRemote = function() {
     'ash.boca_receiver.mojom.UntrustedPageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateUntrustedPageHandler
 ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec = {
@@ -272,7 +272,7 @@ ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.boca_receiver.mojom.UntrustedPageHandlerFactoryPtr = ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRemote;

@@ -62,7 +62,7 @@ ash.borealis_installer.mojom.PageHandlerFactory.getRemote = function() {
     'ash.borealis_installer.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -77,7 +77,7 @@ ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.borealis_installer.mojom.PageHandlerFactoryPtr = ash.borealis_installer.mojom.PageHandlerFactoryRemote;
@@ -181,7 +181,7 @@ ash.borealis_installer.mojom.PageHandler.getRemote = function() {
     'ash.borealis_installer.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Install
 ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec = {
@@ -194,7 +194,7 @@ ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShutDown
 ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec = {
@@ -207,7 +207,7 @@ ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Launch
 ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec = {
@@ -220,7 +220,7 @@ ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelInstall
 ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec = {
@@ -233,7 +233,7 @@ ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPageClosed
 ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = {
@@ -246,7 +246,7 @@ ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenStoragePage
 ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec = {
@@ -259,7 +259,7 @@ ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.borealis_installer.mojom.PageHandlerPtr = ash.borealis_installer.mojom.PageHandlerRemote;
@@ -336,7 +336,7 @@ ash.borealis_installer.mojom.Page.getRemote = function() {
     'ash.borealis_installer.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnProgressUpdate
 ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec = {
@@ -351,7 +351,7 @@ ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnInstallFinished
 ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec = {
@@ -365,7 +365,7 @@ ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestClose
 ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec = {
@@ -378,7 +378,7 @@ ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.borealis_installer.mojom.PagePtr = ash.borealis_installer.mojom.PageRemote;

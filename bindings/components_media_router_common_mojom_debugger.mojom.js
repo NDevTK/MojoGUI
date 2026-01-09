@@ -79,7 +79,7 @@ media_router.mojom.Debugger.getRemote = function() {
     'media_router.mojom.Debugger',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShouldFetchMirroringStats
 media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec = {
@@ -92,7 +92,7 @@ media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec = {
   $: {
@@ -105,7 +105,7 @@ media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMirroringStats
 media_router.mojom.Debugger_OnMirroringStats_ParamsSpec = {
@@ -119,7 +119,7 @@ media_router.mojom.Debugger_OnMirroringStats_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindReceiver
 media_router.mojom.Debugger_BindReceiver_ParamsSpec = {
@@ -133,7 +133,7 @@ media_router.mojom.Debugger_BindReceiver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media_router.mojom.DebuggerPtr = media_router.mojom.DebuggerRemote;

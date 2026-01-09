@@ -120,7 +120,7 @@ crosapi.mojom.TelemetryEventObserver.getRemote = function() {
     'crosapi.mojom.TelemetryEventObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.TelemetryEventObserverPtr = crosapi.mojom.TelemetryEventObserverRemote;
@@ -170,7 +170,7 @@ crosapi.mojom.TelemetryEventService.getRemote = function() {
     'crosapi.mojom.TelemetryEventService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.TelemetryEventServicePtr = crosapi.mojom.TelemetryEventServiceRemote;

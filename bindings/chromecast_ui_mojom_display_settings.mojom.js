@@ -133,7 +133,7 @@ chromecast.mojom.DisplaySettings.getRemote = function() {
     'chromecast.mojom.DisplaySettings',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetColorTemperature
 chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec = {
@@ -147,7 +147,7 @@ chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetColorTemperatureSmooth
 chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec = {
@@ -162,7 +162,7 @@ chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetColorTemperature
 chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec = {
@@ -175,7 +175,7 @@ chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBrightness
 chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec = {
@@ -189,7 +189,7 @@ chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBrightnessSmooth
 chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec = {
@@ -204,7 +204,7 @@ chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetBrightness
 chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec = {
@@ -217,7 +217,7 @@ chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetScreenOn
 chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec = {
@@ -231,7 +231,7 @@ chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAllowScreenPowerOff
 chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec = {
@@ -245,7 +245,7 @@ chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddDisplaySettingsObserver
 chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec = {
@@ -259,7 +259,7 @@ chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.DisplaySettingsPtr = chromecast.mojom.DisplaySettingsRemote;
@@ -318,7 +318,7 @@ chromecast.mojom.DisplaySettingsObserver.getRemote = function() {
     'chromecast.mojom.DisplaySettingsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnDisplayBrightnessChanged
 chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec = {
@@ -332,7 +332,7 @@ chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.DisplaySettingsObserverPtr = chromecast.mojom.DisplaySettingsObserverRemote;

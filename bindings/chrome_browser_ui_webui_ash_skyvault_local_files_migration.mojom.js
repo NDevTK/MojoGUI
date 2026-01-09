@@ -75,7 +75,7 @@ policy.local_user_files.mojom.PageHandlerFactory.getRemote = function() {
     'policy.local_user_files.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -90,7 +90,7 @@ policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 policy.local_user_files.mojom.PageHandlerFactoryPtr = policy.local_user_files.mojom.PageHandlerFactoryRemote;
@@ -167,7 +167,7 @@ policy.local_user_files.mojom.PageHandler.getRemote = function() {
     'policy.local_user_files.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetInitialDialogInfo
 policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec = {
@@ -180,7 +180,7 @@ policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec = {
   $: {
@@ -195,7 +195,7 @@ policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UploadOrDeleteNow
 policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec = {
@@ -208,7 +208,7 @@ policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Close
 policy.local_user_files.mojom.PageHandler_Close_ParamsSpec = {
@@ -221,7 +221,7 @@ policy.local_user_files.mojom.PageHandler_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 policy.local_user_files.mojom.PageHandlerPtr = policy.local_user_files.mojom.PageHandlerRemote;
@@ -280,7 +280,7 @@ policy.local_user_files.mojom.Page.getRemote = function() {
     'policy.local_user_files.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateRemainingTime
 policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec = {
@@ -294,7 +294,7 @@ policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 policy.local_user_files.mojom.PagePtr = policy.local_user_files.mojom.PageRemote;

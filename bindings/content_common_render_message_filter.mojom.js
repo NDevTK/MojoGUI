@@ -70,7 +70,7 @@ content.mojom.RenderMessageFilter.getRemote = function() {
     'content.mojom.RenderMessageFilter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GenerateSingleFrameRoutingInfo
 content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec = {
@@ -83,7 +83,7 @@ content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec = {
   $: {
@@ -96,7 +96,7 @@ content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GenerateFrameRoutingInfos
 content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = {
@@ -109,7 +109,7 @@ content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec = {
   $: {
@@ -122,7 +122,7 @@ content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.RenderMessageFilterPtr = content.mojom.RenderMessageFilterRemote;

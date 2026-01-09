@@ -150,7 +150,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate.getRemote = function() {
     'ash.multidevice_setup.mojom.AccountStatusChangeDelegate',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPotentialHostExistsForNewUser
 ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec = {
@@ -163,7 +163,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsFor
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNoLongerNewUser
 ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec = {
@@ -176,7 +176,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnConnectedHostSwitchedForExistingUser
 ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec = {
@@ -190,7 +190,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedF
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNewChromebookAddedForExistingUser
 ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec = {
@@ -204,7 +204,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForE
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBecameEligibleForWifiSync
 ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec = {
@@ -217,7 +217,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.multidevice_setup.mojom.AccountStatusChangeDelegatePtr = ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemote;
@@ -276,7 +276,7 @@ ash.multidevice_setup.mojom.HostStatusObserver.getRemote = function() {
     'ash.multidevice_setup.mojom.HostStatusObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnHostStatusChanged
 ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec = {
@@ -291,7 +291,7 @@ ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.multidevice_setup.mojom.HostStatusObserverPtr = ash.multidevice_setup.mojom.HostStatusObserverRemote;
@@ -350,7 +350,7 @@ ash.multidevice_setup.mojom.FeatureStateObserver.getRemote = function() {
     'ash.multidevice_setup.mojom.FeatureStateObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnFeatureStatesChanged
 ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec = {
@@ -364,7 +364,7 @@ ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.multidevice_setup.mojom.FeatureStateObserverPtr = ash.multidevice_setup.mojom.FeatureStateObserverRemote;
@@ -540,7 +540,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup.getRemote = function() {
     'ash.multidevice_setup.mojom.MultiDeviceSetup',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetAccountStatusChangeDelegate
 ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec = {
@@ -554,7 +554,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddHostStatusObserver
 ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec = {
@@ -568,7 +568,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddFeatureStateObserver
 ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec = {
@@ -582,7 +582,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetEligibleHostDevices
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec = {
@@ -595,7 +595,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec = {
   $: {
@@ -608,7 +608,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetEligibleActiveHostDevices
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec = {
@@ -621,7 +621,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec = {
   $: {
@@ -634,7 +634,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetHostDevice
 ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec = {
@@ -649,7 +649,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec = {
   $: {
@@ -662,7 +662,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveHostDevice
 ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec = {
@@ -675,7 +675,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetHostStatus
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec = {
@@ -688,7 +688,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec = {
   $: {
@@ -702,7 +702,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFeatureEnabledState
 ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec = {
@@ -718,7 +718,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec = {
   $: {
@@ -731,7 +731,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFeatureStates
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec = {
@@ -744,7 +744,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec = {
   $: {
@@ -757,7 +757,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RetrySetHostNow
 ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec = {
@@ -770,7 +770,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec = {
   $: {
@@ -783,7 +783,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TriggerEventForDebugging
 ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec = {
@@ -797,7 +797,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec = {
   $: {
@@ -810,7 +810,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetQuickStartPhoneInstanceID
 ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec = {
@@ -824,7 +824,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetQuickStartPhoneInstanceID
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec = {
@@ -837,7 +837,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec = {
   $: {
@@ -850,7 +850,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.multidevice_setup.mojom.MultiDeviceSetupPtr = ash.multidevice_setup.mojom.MultiDeviceSetupRemote;
@@ -909,7 +909,7 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter.getRemote = function() {
     'ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetHostDevice
 ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec = {
@@ -923,7 +923,7 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec = {
   $: {
@@ -936,7 +936,7 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterPtr = ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemote;

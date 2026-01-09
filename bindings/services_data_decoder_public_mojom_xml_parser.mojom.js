@@ -67,7 +67,7 @@ data_decoder.mojom.XmlParser.getRemote = function() {
     'data_decoder.mojom.XmlParser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Parse
 data_decoder.mojom.XmlParser_Parse_ParamsSpec = {
@@ -82,7 +82,7 @@ data_decoder.mojom.XmlParser_Parse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec = {
   $: {
@@ -96,7 +96,7 @@ data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 data_decoder.mojom.XmlParserPtr = data_decoder.mojom.XmlParserRemote;

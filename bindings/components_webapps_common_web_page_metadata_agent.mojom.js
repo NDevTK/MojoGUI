@@ -61,7 +61,7 @@ webapps.mojom.WebPageMetadataAgent.getRemote = function() {
     'webapps.mojom.WebPageMetadataAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetWebPageMetadata
 webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec = {
@@ -74,7 +74,7 @@ webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 webapps.mojom.WebPageMetadataAgentPtr = webapps.mojom.WebPageMetadataAgentRemote;

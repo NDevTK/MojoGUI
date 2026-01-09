@@ -58,7 +58,7 @@ arc.mojom.MemoryInstance.getRemote = function() {
     'arc.mojom.MemoryInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.MemoryInstancePtr = arc.mojom.MemoryInstanceRemote;

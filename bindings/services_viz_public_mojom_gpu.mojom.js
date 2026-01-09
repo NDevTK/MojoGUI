@@ -79,7 +79,7 @@ viz.mojom.Gpu.getRemote = function() {
     'viz.mojom.Gpu',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EstablishGpuChannel
 viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = {
@@ -92,7 +92,7 @@ viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = {
   $: {
@@ -109,7 +109,7 @@ viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateJpegDecodeAccelerator
 viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec = {
@@ -123,7 +123,7 @@ viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateVideoEncodeAcceleratorProvider
 viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
@@ -137,7 +137,7 @@ viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.GpuPtr = viz.mojom.GpuRemote;

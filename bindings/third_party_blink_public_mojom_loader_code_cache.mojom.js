@@ -103,7 +103,7 @@ blink.mojom.CodeCacheHost.getRemote = function() {
     'blink.mojom.CodeCacheHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPendingBackend
 blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec = {
@@ -117,7 +117,7 @@ blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec = {
   $: {
@@ -130,7 +130,7 @@ blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidGenerateCacheableMetadata
 blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec = {
@@ -147,7 +147,7 @@ blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchCachedCode
 blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec = {
@@ -162,7 +162,7 @@ blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec = {
   $: {
@@ -176,7 +176,7 @@ blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearCodeCacheEntry
 blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec = {
@@ -191,7 +191,7 @@ blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidGenerateCacheableMetadataInCacheStorage
 blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec = {
@@ -208,7 +208,7 @@ blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.CodeCacheHostPtr = blink.mojom.CodeCacheHostRemote;

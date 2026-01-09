@@ -70,7 +70,7 @@ pdf.mojom.PdfThumbnailer.getRemote = function() {
     'pdf.mojom.PdfThumbnailer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetThumbnail
 pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec = {
@@ -85,7 +85,7 @@ pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUseSkiaRendererPolicy
 pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec = {
@@ -112,7 +112,7 @@ pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 pdf.mojom.PdfThumbnailerPtr = pdf.mojom.PdfThumbnailerRemote;

@@ -52,7 +52,7 @@ arc.mojom.BackupSettingsInstance.getRemote = function() {
     'arc.mojom.BackupSettingsInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.BackupSettingsInstancePtr = arc.mojom.BackupSettingsInstanceRemote;

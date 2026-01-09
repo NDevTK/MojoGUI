@@ -68,7 +68,7 @@ search_engine_choice.mojom.PageHandlerFactory.getRemote = function() {
     'search_engine_choice.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -82,7 +82,7 @@ search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 search_engine_choice.mojom.PageHandlerFactoryPtr = search_engine_choice.mojom.PageHandlerFactoryRemote;
@@ -177,7 +177,7 @@ search_engine_choice.mojom.PageHandler.getRemote = function() {
     'search_engine_choice.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DisplayDialog
 search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec = {
@@ -190,7 +190,7 @@ search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleSearchEngineChoiceSelected
 search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec = {
@@ -205,7 +205,7 @@ search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleLearnMoreLinkClicked
 search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec = {
@@ -218,7 +218,7 @@ search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HandleMoreButtonClicked
 search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec = {
@@ -231,7 +231,7 @@ search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordScrollState
 search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec = {
@@ -245,7 +245,7 @@ search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 search_engine_choice.mojom.PageHandlerPtr = search_engine_choice.mojom.PageHandlerRemote;

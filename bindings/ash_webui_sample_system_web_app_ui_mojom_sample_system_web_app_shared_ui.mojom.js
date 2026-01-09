@@ -62,7 +62,7 @@ ash.mojom.sample_swa.ChildUntrustedPage.getRemote = function() {
     'ash.mojom.sample_swa.ChildUntrustedPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DoSomethingForParent
 ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec = {
@@ -76,7 +76,7 @@ ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.mojom.sample_swa.ChildUntrustedPagePtr = ash.mojom.sample_swa.ChildUntrustedPageRemote;
@@ -135,7 +135,7 @@ ash.mojom.sample_swa.ParentTrustedPage.getRemote = function() {
     'ash.mojom.sample_swa.ParentTrustedPage',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DoSomethingForChild
 ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec = {
@@ -149,7 +149,7 @@ ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec = {
   $: {
@@ -162,7 +162,7 @@ ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.mojom.sample_swa.ParentTrustedPagePtr = ash.mojom.sample_swa.ParentTrustedPageRemote;

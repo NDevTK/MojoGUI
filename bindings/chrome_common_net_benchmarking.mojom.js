@@ -88,7 +88,7 @@ chrome.mojom.NetBenchmarking.getRemote = function() {
     'chrome.mojom.NetBenchmarking',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CloseCurrentConnections
 chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec = {
@@ -101,7 +101,7 @@ chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearCache
 chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec = {
@@ -114,7 +114,7 @@ chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearHostResolverCache
 chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec = {
@@ -127,7 +127,7 @@ chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearPredictorCache
 chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec = {
@@ -140,7 +140,7 @@ chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.NetBenchmarkingPtr = chrome.mojom.NetBenchmarkingRemote;

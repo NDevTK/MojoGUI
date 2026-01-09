@@ -161,7 +161,7 @@ ash.screens_factory.mojom.ScreensFactory.getRemote = function() {
     'ash.screens_factory.mojom.ScreensFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EstablishAiIntroScreenPipe
 ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec = {
@@ -175,7 +175,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec = {
   $: {
@@ -188,7 +188,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EstablishAppDownloadingScreenPipe
 ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec = {
@@ -202,7 +202,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EstablishDrivePinningScreenPipe
 ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec = {
@@ -216,7 +216,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec = {
   $: {
@@ -229,7 +229,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EstablishFjordStationSetupScreenPipe
 ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec = {
@@ -243,7 +243,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EstablishGaiaInfoScreenPipe
 ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec = {
@@ -257,7 +257,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec = {
   $: {
@@ -270,7 +270,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EstablishGestureNavigationScreenPipe
 ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec = {
@@ -284,7 +284,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_Pa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EstablishGeminiIntroScreenPipe
 ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec = {
@@ -298,7 +298,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EstablishConsumerUpdateScreenPipe
 ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec = {
@@ -312,7 +312,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec = {
   $: {
@@ -325,7 +325,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EstablishPackagedLicenseScreenPipe
 ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec = {
@@ -339,7 +339,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EstablishArcVmDataMigrationScreenPipe
 ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec = {
@@ -353,7 +353,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec = {
   $: {
@@ -366,7 +366,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_R
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EstablishEncryptionMigrationScreenPipe
 ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec = {
@@ -380,7 +380,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec = {
   $: {
@@ -393,7 +393,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EstablishLocalDataLossWarningScreenPipe
 ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec = {
@@ -407,7 +407,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.screens_factory.mojom.ScreensFactoryPtr = ash.screens_factory.mojom.ScreensFactoryRemote;

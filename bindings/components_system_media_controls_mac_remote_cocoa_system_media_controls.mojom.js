@@ -167,7 +167,7 @@ system_media_controls.mojom.SystemMediaControls.getRemote = function() {
     'system_media_controls.mojom.SystemMediaControls',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetIsNextEnabled
 system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec = {
@@ -181,7 +181,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsPreviousEnabled
 system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec = {
@@ -195,7 +195,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsPlayPauseEnabled
 system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec = {
@@ -209,7 +209,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsStopEnabled
 system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec = {
@@ -223,7 +223,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetIsSeekToEnabled
 system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec = {
@@ -237,7 +237,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPlaybackStatus
 system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec = {
@@ -251,7 +251,7 @@ system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTitle
 system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec = {
@@ -265,7 +265,7 @@ system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetArtist
 system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec = {
@@ -279,7 +279,7 @@ system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAlbum
 system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec = {
@@ -293,7 +293,7 @@ system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetThumbnail
 system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec = {
@@ -307,7 +307,7 @@ system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPosition
 system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec = {
@@ -321,7 +321,7 @@ system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearMetadata
 system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec = {
@@ -334,7 +334,7 @@ system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 system_media_controls.mojom.SystemMediaControlsPtr = system_media_controls.mojom.SystemMediaControlsRemote;
@@ -465,7 +465,7 @@ system_media_controls.mojom.SystemMediaControlsObserver.getRemote = function() {
     'system_media_controls.mojom.SystemMediaControlsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnNext
 system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec = {
@@ -478,7 +478,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPrevious
 system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec = {
@@ -491,7 +491,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPause
 system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec = {
@@ -504,7 +504,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPlayPause
 system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec = {
@@ -517,7 +517,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStop
 system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec = {
@@ -530,7 +530,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPlay
 system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec = {
@@ -543,7 +543,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSeekTo
 system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec = {
@@ -557,7 +557,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBridgeCreatedForTesting
 system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec = {
@@ -570,7 +570,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTestin
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMetadataClearedForTesting
 system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec = {
@@ -583,7 +583,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTest
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 system_media_controls.mojom.SystemMediaControlsObserverPtr = system_media_controls.mojom.SystemMediaControlsObserverRemote;

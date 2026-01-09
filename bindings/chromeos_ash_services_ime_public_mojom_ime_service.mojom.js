@@ -71,7 +71,7 @@ ash.ime.mojom.InputEngineManager.getRemote = function() {
     'ash.ime.mojom.InputEngineManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ConnectToImeEngine
 ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec = {
@@ -88,7 +88,7 @@ ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec = {
   $: {
@@ -101,7 +101,7 @@ ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InitializeConnectionFactory
 ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec = {
@@ -115,7 +115,7 @@ ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec = {
   $: {
@@ -128,7 +128,7 @@ ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.ime.mojom.InputEngineManagerPtr = ash.ime.mojom.InputEngineManagerRemote;
@@ -187,7 +187,7 @@ ash.ime.mojom.PlatformAccessProvider.getRemote = function() {
     'ash.ime.mojom.PlatformAccessProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DownloadImeFileTo
 ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec = {
@@ -202,7 +202,7 @@ ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec = {
   $: {
@@ -215,7 +215,7 @@ ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.ime.mojom.PlatformAccessProviderPtr = ash.ime.mojom.PlatformAccessProviderRemote;
@@ -292,7 +292,7 @@ ash.ime.mojom.ImeService.getRemote = function() {
     'ash.ime.mojom.ImeService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetPlatformAccessProvider
 ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec = {
@@ -306,7 +306,7 @@ ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindInputEngineManager
 ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec = {
@@ -320,7 +320,7 @@ ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindInputMethodUserDataService
 ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec = {
@@ -334,7 +334,7 @@ ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.ime.mojom.ImeServicePtr = ash.ime.mojom.ImeServiceRemote;

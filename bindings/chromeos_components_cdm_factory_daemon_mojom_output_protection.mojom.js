@@ -72,7 +72,7 @@ chromeos.cdm.mojom.OutputProtection.getRemote = function() {
     'chromeos.cdm.mojom.OutputProtection',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cdm.mojom.OutputProtectionPtr = chromeos.cdm.mojom.OutputProtectionRemote;

@@ -117,7 +117,7 @@ ash.os_feedback_ui.mojom.HelpContentProvider.getRemote = function() {
     'ash.os_feedback_ui.mojom.HelpContentProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetHelpContents
 ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec = {
@@ -131,7 +131,7 @@ ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec = {
   $: {
@@ -144,7 +144,7 @@ ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.os_feedback_ui.mojom.HelpContentProviderPtr = ash.os_feedback_ui.mojom.HelpContentProviderRemote;
@@ -311,7 +311,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider.getRemote = function() {
     'ash.os_feedback_ui.mojom.FeedbackServiceProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetFeedbackContext
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec = {
@@ -324,7 +324,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec = {
   $: {
@@ -337,7 +337,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetScreenshotPng
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec = {
@@ -350,7 +350,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec = {
   $: {
@@ -363,7 +363,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendReport
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec = {
@@ -377,7 +377,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec = {
   $: {
@@ -390,7 +390,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenDiagnosticsApp
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec = {
@@ -403,7 +403,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenExploreApp
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec = {
@@ -416,7 +416,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenMetricsDialog
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec = {
@@ -429,7 +429,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenSystemInfoDialog
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec = {
@@ -442,7 +442,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenAutofillDialog
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec = {
@@ -456,7 +456,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordPostSubmitAction
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec = {
@@ -470,7 +470,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordPreSubmitAction
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec = {
@@ -484,7 +484,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordExitPath
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec = {
@@ -498,7 +498,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordHelpContentOutcome
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec = {
@@ -512,7 +512,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordHelpContentSearchResultCount
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec = {
@@ -526,7 +526,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.os_feedback_ui.mojom.FeedbackServiceProviderPtr = ash.os_feedback_ui.mojom.FeedbackServiceProviderRemote;

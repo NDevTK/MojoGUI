@@ -211,7 +211,7 @@ arc.mojom.keymint.KeyMintHost.getRemote = function() {
     'arc.mojom.keymint.KeyMintHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.keymint.KeyMintHostPtr = arc.mojom.keymint.KeyMintHostRemote;
@@ -261,7 +261,7 @@ arc.mojom.keymint.KeyMintInstance.getRemote = function() {
     'arc.mojom.keymint.KeyMintInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.keymint.KeyMintInstancePtr = arc.mojom.keymint.KeyMintInstanceRemote;
@@ -311,7 +311,7 @@ arc.mojom.keymint.KeyMintServer.getRemote = function() {
     'arc.mojom.keymint.KeyMintServer',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.keymint.KeyMintServerPtr = arc.mojom.keymint.KeyMintServerRemote;

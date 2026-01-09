@@ -69,7 +69,7 @@ blink.mojom.FileSystemCancellableOperation.getRemote = function() {
     'blink.mojom.FileSystemCancellableOperation',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Cancel
 blink.mojom.FileSystemCancellableOperation_Cancel_ParamsSpec = {
@@ -82,7 +82,7 @@ blink.mojom.FileSystemCancellableOperation_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec = {
   $: {
@@ -95,7 +95,7 @@ blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileSystemCancellableOperationPtr = blink.mojom.FileSystemCancellableOperationRemote;
@@ -172,7 +172,7 @@ blink.mojom.FileSystemOperationListener.getRemote = function() {
     'blink.mojom.FileSystemOperationListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ResultsRetrieved
 blink.mojom.FileSystemOperationListener_ResultsRetrieved_ParamsSpec = {
@@ -187,7 +187,7 @@ blink.mojom.FileSystemOperationListener_ResultsRetrieved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidWrite
 blink.mojom.FileSystemOperationListener_DidWrite_ParamsSpec = {
@@ -202,7 +202,7 @@ blink.mojom.FileSystemOperationListener_DidWrite_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ErrorOccurred
 blink.mojom.FileSystemOperationListener_ErrorOccurred_ParamsSpec = {
@@ -216,7 +216,7 @@ blink.mojom.FileSystemOperationListener_ErrorOccurred_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileSystemOperationListenerPtr = blink.mojom.FileSystemOperationListenerRemote;
@@ -275,7 +275,7 @@ blink.mojom.ReceivedSnapshotListener.getRemote = function() {
     'blink.mojom.ReceivedSnapshotListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidReceiveSnapshotFile
 blink.mojom.ReceivedSnapshotListener_DidReceiveSnapshotFile_ParamsSpec = {
@@ -288,7 +288,7 @@ blink.mojom.ReceivedSnapshotListener_DidReceiveSnapshotFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ReceivedSnapshotListenerPtr = blink.mojom.ReceivedSnapshotListenerRemote;
@@ -491,7 +491,7 @@ blink.mojom.FileSystemManager.getRemote = function() {
     'blink.mojom.FileSystemManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Open
 blink.mojom.FileSystemManager_Open_ParamsSpec = {
@@ -506,7 +506,7 @@ blink.mojom.FileSystemManager_Open_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_Open_ResponseParamsSpec = {
   $: {
@@ -521,7 +521,7 @@ blink.mojom.FileSystemManager_Open_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResolveURL
 blink.mojom.FileSystemManager_ResolveURL_ParamsSpec = {
@@ -535,7 +535,7 @@ blink.mojom.FileSystemManager_ResolveURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec = {
   $: {
@@ -551,7 +551,7 @@ blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Move
 blink.mojom.FileSystemManager_Move_ParamsSpec = {
@@ -566,7 +566,7 @@ blink.mojom.FileSystemManager_Move_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_Move_ResponseParamsSpec = {
   $: {
@@ -579,7 +579,7 @@ blink.mojom.FileSystemManager_Move_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Copy
 blink.mojom.FileSystemManager_Copy_ParamsSpec = {
@@ -594,7 +594,7 @@ blink.mojom.FileSystemManager_Copy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_Copy_ResponseParamsSpec = {
   $: {
@@ -607,7 +607,7 @@ blink.mojom.FileSystemManager_Copy_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Remove
 blink.mojom.FileSystemManager_Remove_ParamsSpec = {
@@ -622,7 +622,7 @@ blink.mojom.FileSystemManager_Remove_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_Remove_ResponseParamsSpec = {
   $: {
@@ -635,7 +635,7 @@ blink.mojom.FileSystemManager_Remove_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadMetadata
 blink.mojom.FileSystemManager_ReadMetadata_ParamsSpec = {
@@ -649,7 +649,7 @@ blink.mojom.FileSystemManager_ReadMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_ReadMetadata_ResponseParamsSpec = {
   $: {
@@ -663,7 +663,7 @@ blink.mojom.FileSystemManager_ReadMetadata_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Create
 blink.mojom.FileSystemManager_Create_ParamsSpec = {
@@ -680,7 +680,7 @@ blink.mojom.FileSystemManager_Create_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_Create_ResponseParamsSpec = {
   $: {
@@ -693,7 +693,7 @@ blink.mojom.FileSystemManager_Create_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Exists
 blink.mojom.FileSystemManager_Exists_ParamsSpec = {
@@ -708,7 +708,7 @@ blink.mojom.FileSystemManager_Exists_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_Exists_ResponseParamsSpec = {
   $: {
@@ -721,7 +721,7 @@ blink.mojom.FileSystemManager_Exists_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadDirectory
 blink.mojom.FileSystemManager_ReadDirectory_ParamsSpec = {
@@ -736,7 +736,7 @@ blink.mojom.FileSystemManager_ReadDirectory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadDirectorySync
 blink.mojom.FileSystemManager_ReadDirectorySync_ParamsSpec = {
@@ -750,7 +750,7 @@ blink.mojom.FileSystemManager_ReadDirectorySync_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParamsSpec = {
   $: {
@@ -764,7 +764,7 @@ blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Write
 blink.mojom.FileSystemManager_Write_ParamsSpec = {
@@ -782,7 +782,7 @@ blink.mojom.FileSystemManager_Write_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WriteSync
 blink.mojom.FileSystemManager_WriteSync_ParamsSpec = {
@@ -798,7 +798,7 @@ blink.mojom.FileSystemManager_WriteSync_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_WriteSync_ResponseParamsSpec = {
   $: {
@@ -812,7 +812,7 @@ blink.mojom.FileSystemManager_WriteSync_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Truncate
 blink.mojom.FileSystemManager_Truncate_ParamsSpec = {
@@ -828,7 +828,7 @@ blink.mojom.FileSystemManager_Truncate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_Truncate_ResponseParamsSpec = {
   $: {
@@ -841,7 +841,7 @@ blink.mojom.FileSystemManager_Truncate_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TruncateSync
 blink.mojom.FileSystemManager_TruncateSync_ParamsSpec = {
@@ -856,7 +856,7 @@ blink.mojom.FileSystemManager_TruncateSync_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_TruncateSync_ResponseParamsSpec = {
   $: {
@@ -869,7 +869,7 @@ blink.mojom.FileSystemManager_TruncateSync_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateSnapshotFile
 blink.mojom.FileSystemManager_CreateSnapshotFile_ParamsSpec = {
@@ -883,7 +883,7 @@ blink.mojom.FileSystemManager_CreateSnapshotFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec = {
   $: {
@@ -899,7 +899,7 @@ blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPlatformPath
 blink.mojom.FileSystemManager_GetPlatformPath_ParamsSpec = {
@@ -913,7 +913,7 @@ blink.mojom.FileSystemManager_GetPlatformPath_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_GetPlatformPath_ResponseParamsSpec = {
   $: {
@@ -926,7 +926,7 @@ blink.mojom.FileSystemManager_GetPlatformPath_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterBlob
 blink.mojom.FileSystemManager_RegisterBlob_ParamsSpec = {
@@ -943,7 +943,7 @@ blink.mojom.FileSystemManager_RegisterBlob_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec = {
   $: {
@@ -956,7 +956,7 @@ blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileSystemManagerPtr = blink.mojom.FileSystemManagerRemote;

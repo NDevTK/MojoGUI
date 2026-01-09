@@ -69,7 +69,7 @@ media.mojom.SpeechRecognizer.getRemote = function() {
     'media.mojom.SpeechRecognizer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Start
 media.mojom.SpeechRecognizer_Start_ParamsSpec = {
@@ -83,7 +83,7 @@ media.mojom.SpeechRecognizer_Start_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.SpeechRecognizerPtr = media.mojom.SpeechRecognizerRemote;
@@ -151,7 +151,7 @@ media.mojom.OnDeviceSpeechRecognition.getRemote = function() {
     'media.mojom.OnDeviceSpeechRecognition',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Available
 media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec = {
@@ -165,7 +165,7 @@ media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec = {
   $: {
@@ -178,7 +178,7 @@ media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Install
 media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec = {
@@ -192,7 +192,7 @@ media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec = {
   $: {
@@ -205,7 +205,7 @@ media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.OnDeviceSpeechRecognitionPtr = media.mojom.OnDeviceSpeechRecognitionRemote;
@@ -255,7 +255,7 @@ media.mojom.SpeechRecognitionSession.getRemote = function() {
     'media.mojom.SpeechRecognitionSession',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media.mojom.SpeechRecognitionSessionPtr = media.mojom.SpeechRecognitionSessionRemote;
@@ -305,7 +305,7 @@ media.mojom.SpeechRecognitionSessionClient.getRemote = function() {
     'media.mojom.SpeechRecognitionSessionClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media.mojom.SpeechRecognitionSessionClientPtr = media.mojom.SpeechRecognitionSessionClientRemote;

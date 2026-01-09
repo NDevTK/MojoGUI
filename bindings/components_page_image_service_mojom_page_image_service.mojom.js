@@ -72,7 +72,7 @@ page_image_service.mojom.PageImageServiceHandler.getRemote = function() {
     'page_image_service.mojom.PageImageServiceHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetPageImageUrl
 page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = {
@@ -88,7 +88,7 @@ page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec = {
   $: {
@@ -101,7 +101,7 @@ page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 page_image_service.mojom.PageImageServiceHandlerPtr = page_image_service.mojom.PageImageServiceHandlerRemote;

@@ -61,7 +61,7 @@ network.mojom.SystemDnsResolver.getRemote = function() {
     'network.mojom.SystemDnsResolver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Resolve
 network.mojom.SystemDnsResolver_Resolve_ParamsSpec = {
@@ -78,7 +78,7 @@ network.mojom.SystemDnsResolver_Resolve_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec = {
   $: {
@@ -93,7 +93,7 @@ network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.SystemDnsResolverPtr = network.mojom.SystemDnsResolverRemote;

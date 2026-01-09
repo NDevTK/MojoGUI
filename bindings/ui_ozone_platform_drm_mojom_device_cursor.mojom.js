@@ -71,7 +71,7 @@ ui.ozone.mojom.DeviceCursor.getRemote = function() {
     'ui.ozone.mojom.DeviceCursor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetCursor
 ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec = {
@@ -88,7 +88,7 @@ ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MoveCursor
 ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec = {
@@ -103,7 +103,7 @@ ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ui.ozone.mojom.DeviceCursorPtr = ui.ozone.mojom.DeviceCursorRemote;

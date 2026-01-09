@@ -62,7 +62,7 @@ payments.facilitated.mojom.PaymentLinkHandler.getRemote = function() {
     'payments.facilitated.mojom.PaymentLinkHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HandlePaymentLink
 payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec = {
@@ -76,7 +76,7 @@ payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 payments.facilitated.mojom.PaymentLinkHandlerPtr = payments.facilitated.mojom.PaymentLinkHandlerRemote;

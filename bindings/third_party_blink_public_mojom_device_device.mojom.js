@@ -61,7 +61,7 @@ blink.mojom.ManagedConfigurationObserver.getRemote = function() {
     'blink.mojom.ManagedConfigurationObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnConfigurationChanged
 blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec = {
@@ -74,7 +74,7 @@ blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ManagedConfigurationObserverPtr = blink.mojom.ManagedConfigurationObserverRemote;
@@ -169,7 +169,7 @@ blink.mojom.DeviceAPIService.getRemote = function() {
     'blink.mojom.DeviceAPIService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDirectoryId
 blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec = {
@@ -182,7 +182,7 @@ blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec = {
   $: {
@@ -195,7 +195,7 @@ blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetHostname
 blink.mojom.DeviceAPIService_GetHostname_ParamsSpec = {
@@ -208,7 +208,7 @@ blink.mojom.DeviceAPIService_GetHostname_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec = {
   $: {
@@ -221,7 +221,7 @@ blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSerialNumber
 blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec = {
@@ -234,7 +234,7 @@ blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec = {
   $: {
@@ -247,7 +247,7 @@ blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAnnotatedAssetId
 blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec = {
@@ -260,7 +260,7 @@ blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec = {
   $: {
@@ -273,7 +273,7 @@ blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAnnotatedLocation
 blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec = {
@@ -286,7 +286,7 @@ blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec = {
   $: {
@@ -299,7 +299,7 @@ blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DeviceAPIServicePtr = blink.mojom.DeviceAPIServiceRemote;
@@ -367,7 +367,7 @@ blink.mojom.ManagedConfigurationService.getRemote = function() {
     'blink.mojom.ManagedConfigurationService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetManagedConfiguration
 blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec = {
@@ -381,7 +381,7 @@ blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec = {
   $: {
@@ -394,7 +394,7 @@ blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SubscribeToManagedConfiguration
 blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec = {
@@ -408,7 +408,7 @@ blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ManagedConfigurationServicePtr = blink.mojom.ManagedConfigurationServiceRemote;

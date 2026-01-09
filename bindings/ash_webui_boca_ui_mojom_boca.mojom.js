@@ -486,7 +486,7 @@ ash.boca.mojom.PageHandler.getRemote = function() {
     'ash.boca.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AuthenticateWebview
 ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec = {
@@ -499,7 +499,7 @@ ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec = {
   $: {
@@ -512,7 +512,7 @@ ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetWindowsTabsList
 ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec = {
@@ -525,7 +525,7 @@ ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec = {
   $: {
@@ -538,7 +538,7 @@ ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ListCourses
 ash.boca.mojom.PageHandler_ListCourses_ParamsSpec = {
@@ -551,7 +551,7 @@ ash.boca.mojom.PageHandler_ListCourses_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec = {
   $: {
@@ -564,7 +564,7 @@ ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ListStudents
 ash.boca.mojom.PageHandler_ListStudents_ParamsSpec = {
@@ -578,7 +578,7 @@ ash.boca.mojom.PageHandler_ListStudents_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec = {
   $: {
@@ -591,7 +591,7 @@ ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ListAssignments
 ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec = {
@@ -605,7 +605,7 @@ ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec = {
   $: {
@@ -618,7 +618,7 @@ ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateSession
 ash.boca.mojom.PageHandler_CreateSession_ParamsSpec = {
@@ -632,7 +632,7 @@ ash.boca.mojom.PageHandler_CreateSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec = {
   $: {
@@ -645,7 +645,7 @@ ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSession
 ash.boca.mojom.PageHandler_GetSession_ParamsSpec = {
@@ -658,7 +658,7 @@ ash.boca.mojom.PageHandler_GetSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec = {
   $: {
@@ -671,7 +671,7 @@ ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EndSession
 ash.boca.mojom.PageHandler_EndSession_ParamsSpec = {
@@ -684,7 +684,7 @@ ash.boca.mojom.PageHandler_EndSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec = {
   $: {
@@ -697,7 +697,7 @@ ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExtendSessionDuration
 ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec = {
@@ -711,7 +711,7 @@ ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec = {
   $: {
@@ -724,7 +724,7 @@ ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveStudent
 ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec = {
@@ -738,7 +738,7 @@ ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec = {
   $: {
@@ -751,7 +751,7 @@ ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RenotifyStudent
 ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec = {
@@ -765,7 +765,7 @@ ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec = {
   $: {
@@ -778,7 +778,7 @@ ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddStudents
 ash.boca.mojom.PageHandler_AddStudents_ParamsSpec = {
@@ -792,7 +792,7 @@ ash.boca.mojom.PageHandler_AddStudents_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec = {
   $: {
@@ -805,7 +805,7 @@ ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateOnTaskConfig
 ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec = {
@@ -819,7 +819,7 @@ ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec = {
   $: {
@@ -832,7 +832,7 @@ ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateCaptionConfig
 ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec = {
@@ -846,7 +846,7 @@ ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec = {
   $: {
@@ -859,7 +859,7 @@ ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetFloatMode
 ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec = {
@@ -873,7 +873,7 @@ ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec = {
   $: {
@@ -886,7 +886,7 @@ ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SubmitAccessCode
 ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec = {
@@ -900,7 +900,7 @@ ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec = {
   $: {
@@ -913,7 +913,7 @@ ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ViewStudentScreen
 ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec = {
@@ -927,7 +927,7 @@ ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec = {
   $: {
@@ -940,7 +940,7 @@ ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EndViewScreenSession
 ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec = {
@@ -954,7 +954,7 @@ ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec = {
   $: {
@@ -967,7 +967,7 @@ ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetViewScreenSessionActive
 ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec = {
@@ -981,7 +981,7 @@ ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec = {
   $: {
@@ -994,7 +994,7 @@ ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUserPref
 ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec = {
@@ -1008,7 +1008,7 @@ ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec = {
   $: {
@@ -1021,7 +1021,7 @@ ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUserPref
 ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec = {
@@ -1036,7 +1036,7 @@ ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSitePermission
 ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec = {
@@ -1052,7 +1052,7 @@ ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec = {
   $: {
@@ -1065,7 +1065,7 @@ ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseTab
 ash.boca.mojom.PageHandler_CloseTab_ParamsSpec = {
@@ -1079,7 +1079,7 @@ ash.boca.mojom.PageHandler_CloseTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec = {
   $: {
@@ -1092,7 +1092,7 @@ ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenFeedbackDialog
 ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
@@ -1105,7 +1105,7 @@ ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RefreshWorkbook
 ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec = {
@@ -1118,7 +1118,7 @@ ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSpeechRecognitionInstallationStatus
 ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec = {
@@ -1131,7 +1131,7 @@ ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec = {
   $: {
@@ -1144,7 +1144,7 @@ ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartSpotlight
 ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec = {
@@ -1158,7 +1158,7 @@ ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PresentStudentScreen
 ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec = {
@@ -1173,7 +1173,7 @@ ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec = {
   $: {
@@ -1186,7 +1186,7 @@ ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopPresentingStudentScreen
 ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec = {
@@ -1199,7 +1199,7 @@ ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec = {
   $: {
@@ -1212,7 +1212,7 @@ ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PresentOwnScreen
 ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec = {
@@ -1226,7 +1226,7 @@ ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec = {
   $: {
@@ -1239,7 +1239,7 @@ ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopPresentingOwnScreen
 ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec = {
@@ -1252,7 +1252,7 @@ ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec = {
   $: {
@@ -1265,7 +1265,7 @@ ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.boca.mojom.PageHandlerPtr = ash.boca.mojom.PageHandlerRemote;
@@ -1405,7 +1405,7 @@ ash.boca.mojom.Page.getRemote = function() {
     'ash.boca.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStudentActivityUpdated
 ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec = {
@@ -1419,7 +1419,7 @@ ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSessionConfigUpdated
 ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec = {
@@ -1433,7 +1433,7 @@ ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnActiveNetworkStateChanged
 ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec = {
@@ -1447,7 +1447,7 @@ ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLocalCaptionDisabled
 ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec = {
@@ -1460,7 +1460,7 @@ ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSpeechRecognitionInstallStateUpdated
 ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec = {
@@ -1474,7 +1474,7 @@ ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSessionCaptionDisabled
 ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec = {
@@ -1488,7 +1488,7 @@ ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameDataReceived
 ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec = {
@@ -1502,7 +1502,7 @@ ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSpotlightCrdSessionStatusUpdated
 ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec = {
@@ -1516,7 +1516,7 @@ ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPresentStudentScreenEnded
 ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec = {
@@ -1529,7 +1529,7 @@ ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPresentOwnScreenEnded
 ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec = {
@@ -1542,7 +1542,7 @@ ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.boca.mojom.PagePtr = ash.boca.mojom.PageRemote;
@@ -1601,7 +1601,7 @@ ash.boca.mojom.BocaPageHandlerFactory.getRemote = function() {
     'ash.boca.mojom.BocaPageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Create
 ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec = {
@@ -1616,7 +1616,7 @@ ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.boca.mojom.BocaPageHandlerFactoryPtr = ash.boca.mojom.BocaPageHandlerFactoryRemote;

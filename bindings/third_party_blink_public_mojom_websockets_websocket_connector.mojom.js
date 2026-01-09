@@ -61,7 +61,7 @@ blink.mojom.WebSocketConnector.getRemote = function() {
     'blink.mojom.WebSocketConnector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Connect
 blink.mojom.WebSocketConnector_Connect_ParamsSpec = {
@@ -81,7 +81,7 @@ blink.mojom.WebSocketConnector_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.WebSocketConnectorPtr = blink.mojom.WebSocketConnectorRemote;

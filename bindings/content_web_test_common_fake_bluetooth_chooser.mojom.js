@@ -93,7 +93,7 @@ content.mojom.FakeBluetoothChooser.getRemote = function() {
     'content.mojom.FakeBluetoothChooser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SelectPeripheral
 content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec = {
@@ -107,7 +107,7 @@ content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Cancel
 content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec = {
@@ -120,7 +120,7 @@ content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Rescan
 content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec = {
@@ -133,7 +133,7 @@ content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.FakeBluetoothChooserPtr = content.mojom.FakeBluetoothChooserRemote;
@@ -192,7 +192,7 @@ content.mojom.FakeBluetoothChooserFactory.getRemote = function() {
     'content.mojom.FakeBluetoothChooserFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateFakeBluetoothChooser
 content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec = {
@@ -207,7 +207,7 @@ content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.FakeBluetoothChooserFactoryPtr = content.mojom.FakeBluetoothChooserFactoryRemote;
@@ -266,7 +266,7 @@ content.mojom.FakeBluetoothChooserClient.getRemote = function() {
     'content.mojom.FakeBluetoothChooserClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnEvent
 content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec = {
@@ -280,7 +280,7 @@ content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.FakeBluetoothChooserClientPtr = content.mojom.FakeBluetoothChooserClientRemote;

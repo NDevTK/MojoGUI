@@ -82,7 +82,7 @@ on_device_model.mojom.StreamingResponder.getRemote = function() {
     'on_device_model.mojom.StreamingResponder',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 on_device_model.mojom.StreamingResponderPtr = on_device_model.mojom.StreamingResponderRemote;
@@ -132,7 +132,7 @@ on_device_model.mojom.ContextClient.getRemote = function() {
     'on_device_model.mojom.ContextClient',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 on_device_model.mojom.ContextClientPtr = on_device_model.mojom.ContextClientRemote;
@@ -182,7 +182,7 @@ on_device_model.mojom.Session.getRemote = function() {
     'on_device_model.mojom.Session',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 on_device_model.mojom.SessionPtr = on_device_model.mojom.SessionRemote;
@@ -232,7 +232,7 @@ on_device_model.mojom.OnDeviceModel.getRemote = function() {
     'on_device_model.mojom.OnDeviceModel',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 on_device_model.mojom.OnDeviceModelPtr = on_device_model.mojom.OnDeviceModelRemote;
@@ -282,7 +282,7 @@ on_device_model.mojom.TextSafetySession.getRemote = function() {
     'on_device_model.mojom.TextSafetySession',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 on_device_model.mojom.TextSafetySessionPtr = on_device_model.mojom.TextSafetySessionRemote;
@@ -332,7 +332,7 @@ on_device_model.mojom.TextSafetyModel.getRemote = function() {
     'on_device_model.mojom.TextSafetyModel',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 on_device_model.mojom.TextSafetyModelPtr = on_device_model.mojom.TextSafetyModelRemote;
@@ -382,7 +382,7 @@ on_device_model.mojom.AsrStreamResponder.getRemote = function() {
     'on_device_model.mojom.AsrStreamResponder',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 on_device_model.mojom.AsrStreamResponderPtr = on_device_model.mojom.AsrStreamResponderRemote;
@@ -432,7 +432,7 @@ on_device_model.mojom.AsrStreamInput.getRemote = function() {
     'on_device_model.mojom.AsrStreamInput',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 on_device_model.mojom.AsrStreamInputPtr = on_device_model.mojom.AsrStreamInputRemote;

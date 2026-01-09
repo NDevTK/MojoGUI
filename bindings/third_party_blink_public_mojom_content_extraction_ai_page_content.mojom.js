@@ -168,7 +168,7 @@ blink.mojom.AIPageContentAgent.getRemote = function() {
     'blink.mojom.AIPageContentAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetAIPageContent
 blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec = {
@@ -182,7 +182,7 @@ blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec = {
   $: {
@@ -195,7 +195,7 @@ blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AIPageContentAgentPtr = blink.mojom.AIPageContentAgentRemote;

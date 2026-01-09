@@ -65,7 +65,7 @@ blink.mojom.LockHandle.getRemote = function() {
     'blink.mojom.LockHandle',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 blink.mojom.LockHandlePtr = blink.mojom.LockHandleRemote;
@@ -133,7 +133,7 @@ blink.mojom.LockRequest.getRemote = function() {
     'blink.mojom.LockRequest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Granted
 blink.mojom.LockRequest_Granted_ParamsSpec = {
@@ -147,7 +147,7 @@ blink.mojom.LockRequest_Granted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Failed
 blink.mojom.LockRequest_Failed_ParamsSpec = {
@@ -160,7 +160,7 @@ blink.mojom.LockRequest_Failed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.LockRequestPtr = blink.mojom.LockRequestRemote;
@@ -228,7 +228,7 @@ blink.mojom.LockManager.getRemote = function() {
     'blink.mojom.LockManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestLock
 blink.mojom.LockManager_RequestLock_ParamsSpec = {
@@ -245,7 +245,7 @@ blink.mojom.LockManager_RequestLock_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueryState
 blink.mojom.LockManager_QueryState_ParamsSpec = {
@@ -258,7 +258,7 @@ blink.mojom.LockManager_QueryState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.LockManager_QueryState_ResponseParamsSpec = {
   $: {
@@ -272,7 +272,7 @@ blink.mojom.LockManager_QueryState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.LockManagerPtr = blink.mojom.LockManagerRemote;

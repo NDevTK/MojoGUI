@@ -89,7 +89,7 @@ chromeos.sensors.mojom.SensorService.getRemote = function() {
     'chromeos.sensors.mojom.SensorService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.sensors.mojom.SensorServicePtr = chromeos.sensors.mojom.SensorServiceRemote;
@@ -139,7 +139,7 @@ chromeos.sensors.mojom.SensorDevice.getRemote = function() {
     'chromeos.sensors.mojom.SensorDevice',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.sensors.mojom.SensorDevicePtr = chromeos.sensors.mojom.SensorDeviceRemote;
@@ -189,7 +189,7 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserver.getRemote = function() {
     'chromeos.sensors.mojom.SensorDeviceSamplesObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.sensors.mojom.SensorDeviceSamplesObserverPtr = chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote;
@@ -239,7 +239,7 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserver.getRemote = function() {
     'chromeos.sensors.mojom.SensorServiceNewDevicesObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.sensors.mojom.SensorServiceNewDevicesObserverPtr = chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemote;

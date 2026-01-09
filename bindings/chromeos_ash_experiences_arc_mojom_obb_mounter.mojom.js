@@ -52,7 +52,7 @@ arc.mojom.ObbMounterHost.getRemote = function() {
     'arc.mojom.ObbMounterHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ObbMounterHostPtr = arc.mojom.ObbMounterHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.ObbMounterInstance.getRemote = function() {
     'arc.mojom.ObbMounterInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.ObbMounterInstancePtr = arc.mojom.ObbMounterInstanceRemote;

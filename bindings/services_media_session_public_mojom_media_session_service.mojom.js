@@ -52,7 +52,7 @@ media_session.mojom.MediaSessionService.getRemote = function() {
     'media_session.mojom.MediaSessionService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 media_session.mojom.MediaSessionServicePtr = media_session.mojom.MediaSessionServiceRemote;

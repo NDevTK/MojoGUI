@@ -61,7 +61,7 @@ chrome.mojom.DocumentAnalysisService.getRemote = function() {
     'chrome.mojom.DocumentAnalysisService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindSafeDocumentAnalyzer
 chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec = {
@@ -75,7 +75,7 @@ chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chrome.mojom.DocumentAnalysisServicePtr = chrome.mojom.DocumentAnalysisServiceRemote;

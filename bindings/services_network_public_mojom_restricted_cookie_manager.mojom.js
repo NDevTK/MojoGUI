@@ -118,7 +118,7 @@ network.mojom.RestrictedCookieManager.getRemote = function() {
     'network.mojom.RestrictedCookieManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetAllForUrl
 network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec = {
@@ -139,7 +139,7 @@ network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec = {
   $: {
@@ -152,7 +152,7 @@ network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCanonicalCookie
 network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec = {
@@ -173,7 +173,7 @@ network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec = {
   $: {
@@ -186,7 +186,7 @@ network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddChangeListener
 network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec = {
@@ -204,7 +204,7 @@ network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCookieFromString
 network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec = {
@@ -225,7 +225,7 @@ network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec = {
   $: {
@@ -238,7 +238,7 @@ network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCookiesString
 network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec = {
@@ -259,7 +259,7 @@ network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec = {
   $: {
@@ -274,7 +274,7 @@ network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CookiesEnabledFor
 network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec = {
@@ -292,7 +292,7 @@ network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec = {
   $: {
@@ -305,7 +305,7 @@ network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.RestrictedCookieManagerPtr = network.mojom.RestrictedCookieManagerRemote;

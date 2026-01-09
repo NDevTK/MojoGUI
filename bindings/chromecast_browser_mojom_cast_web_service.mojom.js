@@ -117,7 +117,7 @@ chromecast.mojom.CastWebService.getRemote = function() {
     'chromecast.mojom.CastWebService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateWebView
 chromecast.mojom.CastWebService_CreateWebView_ParamsSpec = {
@@ -133,7 +133,7 @@ chromecast.mojom.CastWebService_CreateWebView_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterWebUiClient
 chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec = {
@@ -148,7 +148,7 @@ chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FlushDomLocalStorage
 chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec = {
@@ -161,7 +161,7 @@ chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearLocalStorage
 chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec = {
@@ -174,7 +174,7 @@ chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.CastWebServicePtr = chromecast.mojom.CastWebServiceRemote;

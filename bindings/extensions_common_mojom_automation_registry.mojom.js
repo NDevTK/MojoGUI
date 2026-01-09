@@ -61,7 +61,7 @@ extensions.mojom.RendererAutomationRegistry.getRemote = function() {
     'extensions.mojom.RendererAutomationRegistry',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindAutomation
 extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec = {
@@ -75,7 +75,7 @@ extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mojom.RendererAutomationRegistryPtr = extensions.mojom.RendererAutomationRegistryRemote;

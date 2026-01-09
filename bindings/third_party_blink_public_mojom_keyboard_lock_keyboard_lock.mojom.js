@@ -95,7 +95,7 @@ blink.mojom.KeyboardLockService.getRemote = function() {
     'blink.mojom.KeyboardLockService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestKeyboardLock
 blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec = {
@@ -109,7 +109,7 @@ blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec = {
   $: {
@@ -122,7 +122,7 @@ blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelKeyboardLock
 blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec = {
@@ -135,7 +135,7 @@ blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetKeyboardLayoutMap
 blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec = {
@@ -148,7 +148,7 @@ blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec = {
   $: {
@@ -161,7 +161,7 @@ blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.KeyboardLockServicePtr = blink.mojom.KeyboardLockServiceRemote;

@@ -61,7 +61,7 @@ viz.mojom.GpuLogging.getRemote = function() {
     'viz.mojom.GpuLogging',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RecordLogMessage
 viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec = {
@@ -77,7 +77,7 @@ viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.GpuLoggingPtr = viz.mojom.GpuLoggingRemote;

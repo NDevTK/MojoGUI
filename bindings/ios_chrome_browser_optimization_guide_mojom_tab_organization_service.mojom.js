@@ -61,7 +61,7 @@ ai.mojom.TabOrganizationService.getRemote = function() {
     'ai.mojom.TabOrganizationService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ExecuteGroupTabs
 ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = {
@@ -75,7 +75,7 @@ ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ai.mojom.TabOrganizationServicePtr = ai.mojom.TabOrganizationServiceRemote;

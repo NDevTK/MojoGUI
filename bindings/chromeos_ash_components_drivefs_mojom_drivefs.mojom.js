@@ -281,7 +281,7 @@ drivefs.mojom.DriveFsBootstrap.getRemote = function() {
     'drivefs.mojom.DriveFsBootstrap',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Init
 drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec = {
@@ -297,7 +297,7 @@ drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 drivefs.mojom.DriveFsBootstrapPtr = drivefs.mojom.DriveFsBootstrapRemote;
@@ -680,7 +680,7 @@ drivefs.mojom.DriveFs.getRemote = function() {
     'drivefs.mojom.DriveFs',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetMetadata
 drivefs.mojom.DriveFs_GetMetadata_ParamsSpec = {
@@ -694,7 +694,7 @@ drivefs.mojom.DriveFs_GetMetadata_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec = {
   $: {
@@ -708,7 +708,7 @@ drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPinned
 drivefs.mojom.DriveFs_SetPinned_ParamsSpec = {
@@ -723,7 +723,7 @@ drivefs.mojom.DriveFs_SetPinned_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec = {
   $: {
@@ -736,7 +736,7 @@ drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateNetworkState
 drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec = {
@@ -751,7 +751,7 @@ drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResetCache
 drivefs.mojom.DriveFs_ResetCache_ParamsSpec = {
@@ -764,7 +764,7 @@ drivefs.mojom.DriveFs_ResetCache_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec = {
   $: {
@@ -777,7 +777,7 @@ drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetThumbnail
 drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec = {
@@ -792,7 +792,7 @@ drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec = {
   $: {
@@ -805,7 +805,7 @@ drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CopyFile
 drivefs.mojom.DriveFs_CopyFile_ParamsSpec = {
@@ -820,7 +820,7 @@ drivefs.mojom.DriveFs_CopyFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec = {
   $: {
@@ -833,7 +833,7 @@ drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartSearchQuery
 drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec = {
@@ -848,7 +848,7 @@ drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchAllChangeLogs
 drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec = {
@@ -861,7 +861,7 @@ drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FetchChangeLog
 drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec = {
@@ -875,7 +875,7 @@ drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendNativeMessageRequest
 drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec = {
@@ -889,7 +889,7 @@ drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec = {
   $: {
@@ -903,7 +903,7 @@ drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetStartupArguments
 drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec = {
@@ -917,7 +917,7 @@ drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec = {
   $: {
@@ -930,7 +930,7 @@ drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStartupArguments
 drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec = {
@@ -943,7 +943,7 @@ drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec = {
   $: {
@@ -956,7 +956,7 @@ drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTracingEnabled
 drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec = {
@@ -970,7 +970,7 @@ drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetNetworkingEnabled
 drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec = {
@@ -984,7 +984,7 @@ drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForcePauseSyncing
 drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec = {
@@ -998,7 +998,7 @@ drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DumpAccountSettings
 drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec = {
@@ -1011,7 +1011,7 @@ drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadAccountSettings
 drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec = {
@@ -1024,7 +1024,7 @@ drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateNativeHostSession
 drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec = {
@@ -1040,7 +1040,7 @@ drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LocateFilesByItemIds
 drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec = {
@@ -1054,7 +1054,7 @@ drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec = {
   $: {
@@ -1067,7 +1067,7 @@ drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetQuotaUsage
 drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec = {
@@ -1080,7 +1080,7 @@ drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec = {
   $: {
@@ -1094,7 +1094,7 @@ drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ToggleMirroring
 drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec = {
@@ -1108,7 +1108,7 @@ drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec = {
   $: {
@@ -1121,7 +1121,7 @@ drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ToggleSyncForPath
 drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec = {
@@ -1136,7 +1136,7 @@ drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec = {
   $: {
@@ -1149,7 +1149,7 @@ drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSyncingPaths
 drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec = {
@@ -1162,7 +1162,7 @@ drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec = {
   $: {
@@ -1176,7 +1176,7 @@ drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PollHostedFilePinStates
 drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec = {
@@ -1189,7 +1189,7 @@ drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPooledQuotaUsage
 drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec = {
@@ -1202,7 +1202,7 @@ drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec = {
   $: {
@@ -1216,7 +1216,7 @@ drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPinnedByStableId
 drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec = {
@@ -1231,7 +1231,7 @@ drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec = {
   $: {
@@ -1244,7 +1244,7 @@ drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMetadataByStableId
 drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec = {
@@ -1258,7 +1258,7 @@ drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec = {
   $: {
@@ -1272,7 +1272,7 @@ drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelUploadByPath
 drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec = {
@@ -1287,7 +1287,7 @@ drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDocsOfflineEnabled
 drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec = {
@@ -1301,7 +1301,7 @@ drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec = {
   $: {
@@ -1315,7 +1315,7 @@ drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetOfflineFilesSpaceUsage
 drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec = {
@@ -1328,7 +1328,7 @@ drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec = {
   $: {
@@ -1342,7 +1342,7 @@ drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearOfflineFiles
 drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec = {
@@ -1355,7 +1355,7 @@ drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec = {
   $: {
@@ -1368,7 +1368,7 @@ drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ImmediatelyUpload
 drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec = {
@@ -1382,7 +1382,7 @@ drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec = {
   $: {
@@ -1395,7 +1395,7 @@ drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateFromPairedDoc
 drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec = {
@@ -1409,7 +1409,7 @@ drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec = {
   $: {
@@ -1422,7 +1422,7 @@ drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetItemFromCloudStore
 drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec = {
@@ -1436,7 +1436,7 @@ drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec = {
   $: {
@@ -1449,7 +1449,7 @@ drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDocsOfflineStats
 drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec = {
@@ -1462,7 +1462,7 @@ drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec = {
   $: {
@@ -1476,7 +1476,7 @@ drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMirrorSyncStatusForFile
 drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec = {
@@ -1490,7 +1490,7 @@ drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec = {
   $: {
@@ -1503,7 +1503,7 @@ drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMirrorSyncStatusForDirectory
 drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec = {
@@ -1517,7 +1517,7 @@ drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec = {
   $: {
@@ -1530,7 +1530,7 @@ drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 drivefs.mojom.DriveFsPtr = drivefs.mojom.DriveFsRemote;
@@ -1760,7 +1760,7 @@ drivefs.mojom.DriveFsDelegate.getRemote = function() {
     'drivefs.mojom.DriveFsDelegate',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetAccessToken
 drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec = {
@@ -1776,7 +1776,7 @@ drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec = {
   $: {
@@ -1790,7 +1790,7 @@ drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMounted
 drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec = {
@@ -1803,7 +1803,7 @@ drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMountFailed
 drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec = {
@@ -1817,7 +1817,7 @@ drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnUnmounted
 drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec = {
@@ -1831,7 +1831,7 @@ drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSyncingStatusUpdate
 drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec = {
@@ -1845,7 +1845,7 @@ drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFilesChanged
 drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec = {
@@ -1859,7 +1859,7 @@ drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnError
 drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec = {
@@ -1873,7 +1873,7 @@ drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTeamDrivesListReady
 drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec = {
@@ -1887,7 +1887,7 @@ drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnTeamDriveChanged
 drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec = {
@@ -1902,7 +1902,7 @@ drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnHeartbeat
 drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec = {
@@ -1915,7 +1915,7 @@ drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConnectToExtension
 drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec = {
@@ -1931,7 +1931,7 @@ drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec = {
   $: {
@@ -1944,7 +1944,7 @@ drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisplayConfirmDialog
 drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec = {
@@ -1958,7 +1958,7 @@ drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec = {
   $: {
@@ -1971,7 +1971,7 @@ drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteHttpRequest
 drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec = {
@@ -1986,7 +1986,7 @@ drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetMachineRootID
 drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec = {
@@ -1999,7 +1999,7 @@ drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec = {
   $: {
@@ -2012,7 +2012,7 @@ drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PersistMachineRootID
 drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec = {
@@ -2026,7 +2026,7 @@ drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMirrorSyncingStatusUpdate
 drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec = {
@@ -2040,7 +2040,7 @@ drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnItemProgress
 drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec = {
@@ -2054,7 +2054,7 @@ drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAccessTokenWithExpiry
 drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec = {
@@ -2070,7 +2070,7 @@ drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec = {
   $: {
@@ -2084,7 +2084,7 @@ drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNotificationReceived
 drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec = {
@@ -2098,7 +2098,7 @@ drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnMirrorSyncError
 drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec = {
@@ -2112,7 +2112,7 @@ drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 drivefs.mojom.DriveFsDelegatePtr = drivefs.mojom.DriveFsDelegateRemote;
@@ -2171,7 +2171,7 @@ drivefs.mojom.SearchQuery.getRemote = function() {
     'drivefs.mojom.SearchQuery',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetNextPage
 drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec = {
@@ -2184,7 +2184,7 @@ drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec = {
   $: {
@@ -2198,7 +2198,7 @@ drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 drivefs.mojom.SearchQueryPtr = drivefs.mojom.SearchQueryRemote;
@@ -2284,7 +2284,7 @@ drivefs.mojom.HttpDelegate.getRemote = function() {
     'drivefs.mojom.HttpDelegate',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetRequestBody
 drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec = {
@@ -2298,7 +2298,7 @@ drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReceiveResponse
 drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec = {
@@ -2312,7 +2312,7 @@ drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReceiveBody
 drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec = {
@@ -2326,7 +2326,7 @@ drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRequestComplete
 drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec = {
@@ -2340,7 +2340,7 @@ drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 drivefs.mojom.HttpDelegatePtr = drivefs.mojom.HttpDelegateRemote;

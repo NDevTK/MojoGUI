@@ -79,7 +79,7 @@ storage.mojom.FileSystemAccessContext.getRemote = function() {
     'storage.mojom.FileSystemAccessContext',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SerializeHandle
 storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec = {
@@ -93,7 +93,7 @@ storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec = {
   $: {
@@ -106,7 +106,7 @@ storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeserializeHandle
 storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec = {
@@ -122,7 +122,7 @@ storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 storage.mojom.FileSystemAccessContext_Clone_ParamsSpec = {
@@ -136,7 +136,7 @@ storage.mojom.FileSystemAccessContext_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 storage.mojom.FileSystemAccessContextPtr = storage.mojom.FileSystemAccessContextRemote;

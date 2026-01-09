@@ -53,7 +53,7 @@ chromeos.cfm.mojom.MeetDevicesDiagnostics.getRemote = function() {
     'chromeos.cfm.mojom.MeetDevicesDiagnostics',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.cfm.mojom.MeetDevicesDiagnosticsPtr = chromeos.cfm.mojom.MeetDevicesDiagnosticsRemote;

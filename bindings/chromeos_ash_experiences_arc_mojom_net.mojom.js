@@ -169,7 +169,7 @@ arc.mojom.NetHost.getRemote = function() {
     'arc.mojom.NetHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.NetHostPtr = arc.mojom.NetHostRemote;
@@ -219,7 +219,7 @@ arc.mojom.NetInstance.getRemote = function() {
     'arc.mojom.NetInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.NetInstancePtr = arc.mojom.NetInstanceRemote;

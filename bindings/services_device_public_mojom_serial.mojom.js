@@ -134,7 +134,7 @@ device.mojom.SerialPortManager.getRemote = function() {
     'device.mojom.SerialPortManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetClient
 device.mojom.SerialPortManager_SetClient_ParamsSpec = {
@@ -148,7 +148,7 @@ device.mojom.SerialPortManager_SetClient_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDevices
 device.mojom.SerialPortManager_GetDevices_ParamsSpec = {
@@ -161,7 +161,7 @@ device.mojom.SerialPortManager_GetDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec = {
   $: {
@@ -174,7 +174,7 @@ device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenPort
 device.mojom.SerialPortManager_OpenPort_ParamsSpec = {
@@ -192,7 +192,7 @@ device.mojom.SerialPortManager_OpenPort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec = {
   $: {
@@ -205,7 +205,7 @@ device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.SerialPortManagerPtr = device.mojom.SerialPortManagerRemote;
@@ -282,7 +282,7 @@ device.mojom.SerialPortManagerClient.getRemote = function() {
     'device.mojom.SerialPortManagerClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPortAdded
 device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec = {
@@ -296,7 +296,7 @@ device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPortRemoved
 device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec = {
@@ -310,7 +310,7 @@ device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPortConnectedStateChanged
 device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec = {
@@ -324,7 +324,7 @@ device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.SerialPortManagerClientPtr = device.mojom.SerialPortManagerClientRemote;
@@ -455,7 +455,7 @@ device.mojom.SerialPort.getRemote = function() {
     'device.mojom.SerialPort',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartWriting
 device.mojom.SerialPort_StartWriting_ParamsSpec = {
@@ -469,7 +469,7 @@ device.mojom.SerialPort_StartWriting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartReading
 device.mojom.SerialPort_StartReading_ParamsSpec = {
@@ -483,7 +483,7 @@ device.mojom.SerialPort_StartReading_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Flush
 device.mojom.SerialPort_Flush_ParamsSpec = {
@@ -497,7 +497,7 @@ device.mojom.SerialPort_Flush_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Drain
 device.mojom.SerialPort_Drain_ParamsSpec = {
@@ -510,7 +510,7 @@ device.mojom.SerialPort_Drain_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetControlSignals
 device.mojom.SerialPort_GetControlSignals_ParamsSpec = {
@@ -523,7 +523,7 @@ device.mojom.SerialPort_GetControlSignals_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec = {
   $: {
@@ -536,7 +536,7 @@ device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetControlSignals
 device.mojom.SerialPort_SetControlSignals_ParamsSpec = {
@@ -550,7 +550,7 @@ device.mojom.SerialPort_SetControlSignals_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec = {
   $: {
@@ -563,7 +563,7 @@ device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConfigurePort
 device.mojom.SerialPort_ConfigurePort_ParamsSpec = {
@@ -577,7 +577,7 @@ device.mojom.SerialPort_ConfigurePort_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec = {
   $: {
@@ -590,7 +590,7 @@ device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPortInfo
 device.mojom.SerialPort_GetPortInfo_ParamsSpec = {
@@ -603,7 +603,7 @@ device.mojom.SerialPort_GetPortInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec = {
   $: {
@@ -616,7 +616,7 @@ device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Close
 device.mojom.SerialPort_Close_ParamsSpec = {
@@ -630,7 +630,7 @@ device.mojom.SerialPort_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.SerialPortPtr = device.mojom.SerialPortRemote;
@@ -698,7 +698,7 @@ device.mojom.SerialPortClient.getRemote = function() {
     'device.mojom.SerialPortClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnReadError
 device.mojom.SerialPortClient_OnReadError_ParamsSpec = {
@@ -712,7 +712,7 @@ device.mojom.SerialPortClient_OnReadError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSendError
 device.mojom.SerialPortClient_OnSendError_ParamsSpec = {
@@ -726,7 +726,7 @@ device.mojom.SerialPortClient_OnSendError_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.SerialPortClientPtr = device.mojom.SerialPortClientRemote;
@@ -776,7 +776,7 @@ device.mojom.SerialPortConnectionWatcher.getRemote = function() {
     'device.mojom.SerialPortConnectionWatcher',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 device.mojom.SerialPortConnectionWatcherPtr = device.mojom.SerialPortConnectionWatcherRemote;

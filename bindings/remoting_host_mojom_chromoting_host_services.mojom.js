@@ -61,7 +61,7 @@ remoting.mojom.ChromotingHostServices.getRemote = function() {
     'remoting.mojom.ChromotingHostServices',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindSessionServices
 remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = {
@@ -75,7 +75,7 @@ remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.ChromotingHostServicesPtr = remoting.mojom.ChromotingHostServicesRemote;
@@ -152,7 +152,7 @@ remoting.mojom.ChromotingSessionServices.getRemote = function() {
     'remoting.mojom.ChromotingSessionServices',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BindWebAuthnProxy
 remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = {
@@ -166,7 +166,7 @@ remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindRemoteUrlOpener
 remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = {
@@ -180,7 +180,7 @@ remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindSecurityKeyForwarder
 remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = {
@@ -194,7 +194,7 @@ remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remoting.mojom.ChromotingSessionServicesPtr = remoting.mojom.ChromotingSessionServicesRemote;

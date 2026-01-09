@@ -59,7 +59,7 @@ chromeos.machine_learning.mojom.DocumentScanner.getRemote = function() {
     'chromeos.machine_learning.mojom.DocumentScanner',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.machine_learning.mojom.DocumentScannerPtr = chromeos.machine_learning.mojom.DocumentScannerRemote;

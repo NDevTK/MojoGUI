@@ -93,7 +93,7 @@ on_device_model.mojom.PlatformModelProgressObserver.getRemote = function() {
     'on_device_model.mojom.PlatformModelProgressObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 on_device_model.mojom.PlatformModelProgressObserverPtr = on_device_model.mojom.PlatformModelProgressObserverRemote;
@@ -179,7 +179,7 @@ on_device_model.mojom.OnDeviceModelService.getRemote = function() {
     'on_device_model.mojom.OnDeviceModelService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for LoadModel
 on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = {
@@ -194,7 +194,7 @@ on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec = {
   $: {
@@ -207,7 +207,7 @@ on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCapabilities
 on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec = {
@@ -221,7 +221,7 @@ on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec = {
   $: {
@@ -234,7 +234,7 @@ on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadTextSafetyModel
 on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec = {
@@ -249,7 +249,7 @@ on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDeviceAndPerformanceInfo
 on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec = {
@@ -262,7 +262,7 @@ on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec = {
   $: {
@@ -276,7 +276,7 @@ on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 on_device_model.mojom.OnDeviceModelServicePtr = on_device_model.mojom.OnDeviceModelServiceRemote;
@@ -326,7 +326,7 @@ on_device_model.mojom.OnDeviceModelPlatformService.getRemote = function() {
     'on_device_model.mojom.OnDeviceModelPlatformService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 on_device_model.mojom.OnDeviceModelPlatformServicePtr = on_device_model.mojom.OnDeviceModelPlatformServiceRemote;

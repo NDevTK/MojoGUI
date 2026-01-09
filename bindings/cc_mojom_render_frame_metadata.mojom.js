@@ -77,7 +77,7 @@ cc.mojom.RenderFrameMetadataObserver.getRemote = function() {
     'cc.mojom.RenderFrameMetadataObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateRootScrollOffsetUpdateFrequency
 cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec = {
@@ -91,7 +91,7 @@ cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportAllFrameSubmissionsForTesting
 cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec = {
@@ -105,7 +105,7 @@ cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cc.mojom.RenderFrameMetadataObserverPtr = cc.mojom.RenderFrameMetadataObserverRemote;
@@ -182,7 +182,7 @@ cc.mojom.RenderFrameMetadataObserverClient.getRemote = function() {
     'cc.mojom.RenderFrameMetadataObserverClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnRenderFrameMetadataChanged
 cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec = {
@@ -197,7 +197,7 @@ cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameSubmissionForTesting
 cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec = {
@@ -211,7 +211,7 @@ cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnRootScrollOffsetChanged
 cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec = {
@@ -225,7 +225,7 @@ cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 cc.mojom.RenderFrameMetadataObserverClientPtr = cc.mojom.RenderFrameMetadataObserverClientRemote;

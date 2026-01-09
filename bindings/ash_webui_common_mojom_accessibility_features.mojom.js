@@ -62,7 +62,7 @@ ash.common.mojom.ForceHiddenElementsVisibleObserver.getRemote = function() {
     'ash.common.mojom.ForceHiddenElementsVisibleObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnForceHiddenElementsVisibleChange
 ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec = {
@@ -76,7 +76,7 @@ ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisible
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.common.mojom.ForceHiddenElementsVisibleObserverPtr = ash.common.mojom.ForceHiddenElementsVisibleObserverRemote;
@@ -135,7 +135,7 @@ ash.common.mojom.AccessibilityFeatures.getRemote = function() {
     'ash.common.mojom.AccessibilityFeatures',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ObserveForceHiddenElementsVisible
 ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec = {
@@ -149,7 +149,7 @@ ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec = {
   $: {
@@ -162,7 +162,7 @@ ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.common.mojom.AccessibilityFeaturesPtr = ash.common.mojom.AccessibilityFeaturesRemote;

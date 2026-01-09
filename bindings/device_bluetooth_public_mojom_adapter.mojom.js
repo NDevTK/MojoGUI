@@ -88,7 +88,7 @@ bluetooth.mojom.Advertisement.getRemote = function() {
     'bluetooth.mojom.Advertisement',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Unregister
 bluetooth.mojom.Advertisement_Unregister_ParamsSpec = {
@@ -101,7 +101,7 @@ bluetooth.mojom.Advertisement_Unregister_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 bluetooth.mojom.AdvertisementPtr = bluetooth.mojom.AdvertisementRemote;
@@ -169,7 +169,7 @@ bluetooth.mojom.DiscoverySession.getRemote = function() {
     'bluetooth.mojom.DiscoverySession',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for IsActive
 bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec = {
@@ -182,7 +182,7 @@ bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec = {
   $: {
@@ -195,7 +195,7 @@ bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Stop
 bluetooth.mojom.DiscoverySession_Stop_ParamsSpec = {
@@ -208,7 +208,7 @@ bluetooth.mojom.DiscoverySession_Stop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec = {
   $: {
@@ -221,7 +221,7 @@ bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 bluetooth.mojom.DiscoverySessionPtr = bluetooth.mojom.DiscoverySessionRemote;
@@ -280,7 +280,7 @@ bluetooth.mojom.Socket.getRemote = function() {
     'bluetooth.mojom.Socket',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Disconnect
 bluetooth.mojom.Socket_Disconnect_ParamsSpec = {
@@ -293,7 +293,7 @@ bluetooth.mojom.Socket_Disconnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 bluetooth.mojom.SocketPtr = bluetooth.mojom.SocketRemote;
@@ -361,7 +361,7 @@ bluetooth.mojom.ServerSocket.getRemote = function() {
     'bluetooth.mojom.ServerSocket',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Accept
 bluetooth.mojom.ServerSocket_Accept_ParamsSpec = {
@@ -374,7 +374,7 @@ bluetooth.mojom.ServerSocket_Accept_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec = {
   $: {
@@ -387,7 +387,7 @@ bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Disconnect
 bluetooth.mojom.ServerSocket_Disconnect_ParamsSpec = {
@@ -400,7 +400,7 @@ bluetooth.mojom.ServerSocket_Disconnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 bluetooth.mojom.ServerSocketPtr = bluetooth.mojom.ServerSocketRemote;
@@ -468,7 +468,7 @@ bluetooth.mojom.GattService.getRemote = function() {
     'bluetooth.mojom.GattService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateCharacteristic
 bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec = {
@@ -484,7 +484,7 @@ bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec = {
   $: {
@@ -497,7 +497,7 @@ bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Register
 bluetooth.mojom.GattService_Register_ParamsSpec = {
@@ -510,7 +510,7 @@ bluetooth.mojom.GattService_Register_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.GattService_Register_ResponseParamsSpec = {
   $: {
@@ -523,7 +523,7 @@ bluetooth.mojom.GattService_Register_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 bluetooth.mojom.GattServicePtr = bluetooth.mojom.GattServiceRemote;
@@ -582,7 +582,7 @@ bluetooth.mojom.GattServiceObserver.getRemote = function() {
     'bluetooth.mojom.GattServiceObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnLocalCharacteristicRead
 bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec = {
@@ -599,7 +599,7 @@ bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec = {
   $: {
@@ -612,7 +612,7 @@ bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 bluetooth.mojom.GattServiceObserverPtr = bluetooth.mojom.GattServiceObserverRemote;
@@ -770,7 +770,7 @@ bluetooth.mojom.Adapter.getRemote = function() {
     'bluetooth.mojom.Adapter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ConnectToDevice
 bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec = {
@@ -784,7 +784,7 @@ bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec = {
   $: {
@@ -798,7 +798,7 @@ bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDevices
 bluetooth.mojom.Adapter_GetDevices_ParamsSpec = {
@@ -811,7 +811,7 @@ bluetooth.mojom.Adapter_GetDevices_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec = {
   $: {
@@ -824,7 +824,7 @@ bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetInfo
 bluetooth.mojom.Adapter_GetInfo_ParamsSpec = {
@@ -837,7 +837,7 @@ bluetooth.mojom.Adapter_GetInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec = {
   $: {
@@ -850,7 +850,7 @@ bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddObserver
 bluetooth.mojom.Adapter_AddObserver_ParamsSpec = {
@@ -864,7 +864,7 @@ bluetooth.mojom.Adapter_AddObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterAdvertisement
 bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec = {
@@ -881,7 +881,7 @@ bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec = {
   $: {
@@ -894,7 +894,7 @@ bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDiscoverable
 bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec = {
@@ -908,7 +908,7 @@ bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec = {
   $: {
@@ -921,7 +921,7 @@ bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetName
 bluetooth.mojom.Adapter_SetName_ParamsSpec = {
@@ -935,7 +935,7 @@ bluetooth.mojom.Adapter_SetName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.Adapter_SetName_ResponseParamsSpec = {
   $: {
@@ -948,7 +948,7 @@ bluetooth.mojom.Adapter_SetName_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartDiscoverySession
 bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec = {
@@ -962,7 +962,7 @@ bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec = {
   $: {
@@ -975,7 +975,7 @@ bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConnectToServiceInsecurely
 bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec = {
@@ -991,7 +991,7 @@ bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec = {
   $: {
@@ -1004,7 +1004,7 @@ bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateRfcommServiceInsecurely
 bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec = {
@@ -1019,7 +1019,7 @@ bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec = {
   $: {
@@ -1032,7 +1032,7 @@ bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateLocalGattService
 bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec = {
@@ -1047,7 +1047,7 @@ bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec = {
   $: {
@@ -1060,7 +1060,7 @@ bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsLeScatternetDualRoleSupported
 bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec = {
@@ -1073,7 +1073,7 @@ bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec = {
   $: {
@@ -1086,7 +1086,7 @@ bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 bluetooth.mojom.AdapterPtr = bluetooth.mojom.AdapterRemote;
@@ -1199,7 +1199,7 @@ bluetooth.mojom.AdapterObserver.getRemote = function() {
     'bluetooth.mojom.AdapterObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PresentChanged
 bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec = {
@@ -1213,7 +1213,7 @@ bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PoweredChanged
 bluetooth.mojom.AdapterObserver_PoweredChanged_ParamsSpec = {
@@ -1227,7 +1227,7 @@ bluetooth.mojom.AdapterObserver_PoweredChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DiscoverableChanged
 bluetooth.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec = {
@@ -1241,7 +1241,7 @@ bluetooth.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DiscoveringChanged
 bluetooth.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec = {
@@ -1255,7 +1255,7 @@ bluetooth.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeviceAdded
 bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec = {
@@ -1269,7 +1269,7 @@ bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeviceChanged
 bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec = {
@@ -1283,7 +1283,7 @@ bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeviceRemoved
 bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec = {
@@ -1297,7 +1297,7 @@ bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 bluetooth.mojom.AdapterObserverPtr = bluetooth.mojom.AdapterObserverRemote;

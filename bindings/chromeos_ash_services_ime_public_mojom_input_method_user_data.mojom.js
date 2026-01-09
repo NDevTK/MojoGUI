@@ -143,7 +143,7 @@ ash.ime.mojom.InputMethodUserDataService.getRemote = function() {
     'ash.ime.mojom.InputMethodUserDataService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for FetchJapaneseDictionary
 ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec = {
@@ -156,7 +156,7 @@ ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec = {
   $: {
@@ -169,7 +169,7 @@ ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddJapaneseDictionaryEntry
 ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec = {
@@ -184,7 +184,7 @@ ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec = {
   $: {
@@ -197,7 +197,7 @@ ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EditJapaneseDictionaryEntry
 ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec = {
@@ -213,7 +213,7 @@ ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec = {
   $: {
@@ -226,7 +226,7 @@ ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteJapaneseDictionaryEntry
 ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec = {
@@ -241,7 +241,7 @@ ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec = {
   $: {
@@ -254,7 +254,7 @@ ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateJapaneseDictionary
 ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec = {
@@ -268,7 +268,7 @@ ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec = {
   $: {
@@ -281,7 +281,7 @@ ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RenameJapaneseDictionary
 ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec = {
@@ -296,7 +296,7 @@ ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec = {
   $: {
@@ -309,7 +309,7 @@ ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteJapaneseDictionary
 ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec = {
@@ -323,7 +323,7 @@ ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec = {
   $: {
@@ -336,7 +336,7 @@ ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExportJapaneseDictionary
 ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec = {
@@ -350,7 +350,7 @@ ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec = {
   $: {
@@ -363,7 +363,7 @@ ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ImportJapaneseDictionary
 ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec = {
@@ -378,7 +378,7 @@ ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec = {
   $: {
@@ -391,7 +391,7 @@ ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearJapanesePersonalizationData
 ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec = {
@@ -406,7 +406,7 @@ ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec = {
   $: {
@@ -419,7 +419,7 @@ ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_Respon
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.ime.mojom.InputMethodUserDataServicePtr = ash.ime.mojom.InputMethodUserDataServiceRemote;

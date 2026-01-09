@@ -135,7 +135,7 @@ device.mojom.SmartCardTransaction.getRemote = function() {
     'device.mojom.SmartCardTransaction',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EndTransaction
 device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec = {
@@ -149,7 +149,7 @@ device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec = {
   $: {
@@ -162,7 +162,7 @@ device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.SmartCardTransactionPtr = device.mojom.SmartCardTransactionRemote;
@@ -275,7 +275,7 @@ device.mojom.SmartCardConnection.getRemote = function() {
     'device.mojom.SmartCardConnection',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Disconnect
 device.mojom.SmartCardConnection_Disconnect_ParamsSpec = {
@@ -289,7 +289,7 @@ device.mojom.SmartCardConnection_Disconnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec = {
   $: {
@@ -302,7 +302,7 @@ device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Transmit
 device.mojom.SmartCardConnection_Transmit_ParamsSpec = {
@@ -317,7 +317,7 @@ device.mojom.SmartCardConnection_Transmit_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec = {
   $: {
@@ -330,7 +330,7 @@ device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Control
 device.mojom.SmartCardConnection_Control_ParamsSpec = {
@@ -345,7 +345,7 @@ device.mojom.SmartCardConnection_Control_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SmartCardConnection_Control_ResponseParamsSpec = {
   $: {
@@ -358,7 +358,7 @@ device.mojom.SmartCardConnection_Control_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAttrib
 device.mojom.SmartCardConnection_GetAttrib_ParamsSpec = {
@@ -372,7 +372,7 @@ device.mojom.SmartCardConnection_GetAttrib_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec = {
   $: {
@@ -385,7 +385,7 @@ device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAttrib
 device.mojom.SmartCardConnection_SetAttrib_ParamsSpec = {
@@ -400,7 +400,7 @@ device.mojom.SmartCardConnection_SetAttrib_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec = {
   $: {
@@ -413,7 +413,7 @@ device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Status
 device.mojom.SmartCardConnection_Status_ParamsSpec = {
@@ -426,7 +426,7 @@ device.mojom.SmartCardConnection_Status_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SmartCardConnection_Status_ResponseParamsSpec = {
   $: {
@@ -439,7 +439,7 @@ device.mojom.SmartCardConnection_Status_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BeginTransaction
 device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec = {
@@ -452,7 +452,7 @@ device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec = {
   $: {
@@ -465,7 +465,7 @@ device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.SmartCardConnectionPtr = device.mojom.SmartCardConnectionRemote;
@@ -524,7 +524,7 @@ device.mojom.SmartCardConnectionWatcher.getRemote = function() {
     'device.mojom.SmartCardConnectionWatcher',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NotifyConnectionUsed
 device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec = {
@@ -537,7 +537,7 @@ device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.SmartCardConnectionWatcherPtr = device.mojom.SmartCardConnectionWatcherRemote;
@@ -623,7 +623,7 @@ device.mojom.SmartCardContext.getRemote = function() {
     'device.mojom.SmartCardContext',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ListReaders
 device.mojom.SmartCardContext_ListReaders_ParamsSpec = {
@@ -636,7 +636,7 @@ device.mojom.SmartCardContext_ListReaders_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec = {
   $: {
@@ -649,7 +649,7 @@ device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStatusChange
 device.mojom.SmartCardContext_GetStatusChange_ParamsSpec = {
@@ -664,7 +664,7 @@ device.mojom.SmartCardContext_GetStatusChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec = {
   $: {
@@ -677,7 +677,7 @@ device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Cancel
 device.mojom.SmartCardContext_Cancel_ParamsSpec = {
@@ -690,7 +690,7 @@ device.mojom.SmartCardContext_Cancel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SmartCardContext_Cancel_ResponseParamsSpec = {
   $: {
@@ -703,7 +703,7 @@ device.mojom.SmartCardContext_Cancel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Connect
 device.mojom.SmartCardContext_Connect_ParamsSpec = {
@@ -720,7 +720,7 @@ device.mojom.SmartCardContext_Connect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SmartCardContext_Connect_ResponseParamsSpec = {
   $: {
@@ -733,7 +733,7 @@ device.mojom.SmartCardContext_Connect_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.SmartCardContextPtr = device.mojom.SmartCardContextRemote;
@@ -792,7 +792,7 @@ device.mojom.SmartCardContextFactory.getRemote = function() {
     'device.mojom.SmartCardContextFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateContext
 device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec = {
@@ -805,7 +805,7 @@ device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec = {
   $: {
@@ -818,7 +818,7 @@ device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.SmartCardContextFactoryPtr = device.mojom.SmartCardContextFactoryRemote;

@@ -79,7 +79,7 @@ prefs.mojom.ResetOnLoadObserver.getRemote = function() {
     'prefs.mojom.ResetOnLoadObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnResetOnLoad
 prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec = {
@@ -92,7 +92,7 @@ prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 prefs.mojom.ResetOnLoadObserverPtr = prefs.mojom.ResetOnLoadObserverRemote;

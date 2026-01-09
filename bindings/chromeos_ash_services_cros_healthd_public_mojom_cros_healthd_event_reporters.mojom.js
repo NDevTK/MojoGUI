@@ -53,7 +53,7 @@ ash.cros_healthd.mojom.AshEventReporter.getRemote = function() {
     'ash.cros_healthd.mojom.AshEventReporter',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.cros_healthd.mojom.AshEventReporterPtr = ash.cros_healthd.mojom.AshEventReporterRemote;

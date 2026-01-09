@@ -71,7 +71,7 @@ nearby.connections.mojom.EndpointDiscoveryListener.getRemote = function() {
     'nearby.connections.mojom.EndpointDiscoveryListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnEndpointFound
 nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec = {
@@ -86,7 +86,7 @@ nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnEndpointLost
 nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec = {
@@ -100,7 +100,7 @@ nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby.connections.mojom.EndpointDiscoveryListenerPtr = nearby.connections.mojom.EndpointDiscoveryListenerRemote;
@@ -195,7 +195,7 @@ nearby.connections.mojom.ConnectionLifecycleListener.getRemote = function() {
     'nearby.connections.mojom.ConnectionLifecycleListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnConnectionInitiated
 nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec = {
@@ -210,7 +210,7 @@ nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnConnectionAccepted
 nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec = {
@@ -224,7 +224,7 @@ nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnConnectionRejected
 nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec = {
@@ -239,7 +239,7 @@ nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDisconnected
 nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec = {
@@ -253,7 +253,7 @@ nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBandwidthChanged
 nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec = {
@@ -268,7 +268,7 @@ nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby.connections.mojom.ConnectionLifecycleListenerPtr = nearby.connections.mojom.ConnectionLifecycleListenerRemote;
@@ -336,7 +336,7 @@ nearby.connections.mojom.PayloadListener.getRemote = function() {
     'nearby.connections.mojom.PayloadListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPayloadReceived
 nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec = {
@@ -351,7 +351,7 @@ nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPayloadTransferUpdate
 nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec = {
@@ -366,7 +366,7 @@ nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby.connections.mojom.PayloadListenerPtr = nearby.connections.mojom.PayloadListenerRemote;
@@ -452,7 +452,7 @@ nearby.connections.mojom.ConnectionListenerV3.getRemote = function() {
     'nearby.connections.mojom.ConnectionListenerV3',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnConnectionInitiatedV3
 nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec = {
@@ -467,7 +467,7 @@ nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnConnectionResultV3
 nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec = {
@@ -482,7 +482,7 @@ nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnDisconnectedV3
 nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec = {
@@ -496,7 +496,7 @@ nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBandwidthChangedV3
 nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec = {
@@ -511,7 +511,7 @@ nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby.connections.mojom.ConnectionListenerV3Ptr = nearby.connections.mojom.ConnectionListenerV3Remote;
@@ -579,7 +579,7 @@ nearby.connections.mojom.PayloadListenerV3.getRemote = function() {
     'nearby.connections.mojom.PayloadListenerV3',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPayloadReceivedV3
 nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec = {
@@ -594,7 +594,7 @@ nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPayloadTransferUpdateV3
 nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec = {
@@ -609,7 +609,7 @@ nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby.connections.mojom.PayloadListenerV3Ptr = nearby.connections.mojom.PayloadListenerV3Remote;
@@ -830,7 +830,7 @@ nearby.connections.mojom.NearbyConnections.getRemote = function() {
     'nearby.connections.mojom.NearbyConnections',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartAdvertising
 nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec = {
@@ -847,7 +847,7 @@ nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec = {
   $: {
@@ -860,7 +860,7 @@ nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopAdvertising
 nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec = {
@@ -874,7 +874,7 @@ nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec = {
   $: {
@@ -887,7 +887,7 @@ nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartDiscovery
 nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec = {
@@ -903,7 +903,7 @@ nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec = {
   $: {
@@ -916,7 +916,7 @@ nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopDiscovery
 nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec = {
@@ -930,7 +930,7 @@ nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec = {
   $: {
@@ -943,7 +943,7 @@ nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InjectBluetoothEndpoint
 nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec = {
@@ -960,7 +960,7 @@ nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec = {
   $: {
@@ -973,7 +973,7 @@ nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestConnection
 nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec = {
@@ -991,7 +991,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec = {
   $: {
@@ -1004,7 +1004,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AcceptConnection
 nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec = {
@@ -1020,7 +1020,7 @@ nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec = {
   $: {
@@ -1033,7 +1033,7 @@ nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RejectConnection
 nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec = {
@@ -1048,7 +1048,7 @@ nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec = {
   $: {
@@ -1061,7 +1061,7 @@ nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisconnectFromEndpoint
 nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec = {
@@ -1076,7 +1076,7 @@ nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec = {
   $: {
@@ -1089,7 +1089,7 @@ nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SendPayload
 nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec = {
@@ -1105,7 +1105,7 @@ nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec = {
   $: {
@@ -1118,7 +1118,7 @@ nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelPayload
 nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec = {
@@ -1133,7 +1133,7 @@ nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec = {
   $: {
@@ -1146,7 +1146,7 @@ nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopAllEndpoints
 nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec = {
@@ -1160,7 +1160,7 @@ nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec = {
   $: {
@@ -1173,7 +1173,7 @@ nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InitiateBandwidthUpgrade
 nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec = {
@@ -1188,7 +1188,7 @@ nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec = {
   $: {
@@ -1201,7 +1201,7 @@ nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponsePara
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterPayloadFile
 nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec = {
@@ -1218,7 +1218,7 @@ nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec = {
   $: {
@@ -1231,7 +1231,7 @@ nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestConnectionV3
 nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec = {
@@ -1248,7 +1248,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec = {
   $: {
@@ -1261,7 +1261,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AcceptConnectionV3
 nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec = {
@@ -1277,7 +1277,7 @@ nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec = {
   $: {
@@ -1290,7 +1290,7 @@ nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RejectConnectionV3
 nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec = {
@@ -1305,7 +1305,7 @@ nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec = {
   $: {
@@ -1318,7 +1318,7 @@ nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisconnectFromDeviceV3
 nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec = {
@@ -1333,7 +1333,7 @@ nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec = {
   $: {
@@ -1346,7 +1346,7 @@ nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RegisterServiceWithPresenceDeviceProvider
 nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec = {
@@ -1360,7 +1360,7 @@ nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProv
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 nearby.connections.mojom.NearbyConnectionsPtr = nearby.connections.mojom.NearbyConnectionsRemote;

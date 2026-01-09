@@ -61,7 +61,7 @@ remote_cocoa.mojom.PopupMenuRunner.getRemote = function() {
     'remote_cocoa.mojom.PopupMenuRunner',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Hide
 remote_cocoa.mojom.PopupMenuRunner_Hide_ParamsSpec = {
@@ -74,7 +74,7 @@ remote_cocoa.mojom.PopupMenuRunner_Hide_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remote_cocoa.mojom.PopupMenuRunnerPtr = remote_cocoa.mojom.PopupMenuRunnerRemote;
@@ -358,7 +358,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView.getRemote = function() {
     'remote_cocoa.mojom.RenderWidgetHostNSView',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for InitAsPopup
 remote_cocoa.mojom.RenderWidgetHostNSView_InitAsPopup_ParamsSpec = {
@@ -373,7 +373,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_InitAsPopup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetParentWebContentsNSView
 remote_cocoa.mojom.RenderWidgetHostNSView_SetParentWebContentsNSView_ParamsSpec = {
@@ -387,7 +387,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_SetParentWebContentsNSView_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisableDisplay
 remote_cocoa.mojom.RenderWidgetHostNSView_DisableDisplay_ParamsSpec = {
@@ -400,7 +400,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_DisableDisplay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MakeFirstResponder
 remote_cocoa.mojom.RenderWidgetHostNSView_MakeFirstResponder_ParamsSpec = {
@@ -413,7 +413,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_MakeFirstResponder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBounds
 remote_cocoa.mojom.RenderWidgetHostNSView_SetBounds_ParamsSpec = {
@@ -427,7 +427,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_SetBounds_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCALayerParams
 remote_cocoa.mojom.RenderWidgetHostNSView_SetCALayerParams_ParamsSpec = {
@@ -441,7 +441,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_SetCALayerParams_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetBackgroundColor
 remote_cocoa.mojom.RenderWidgetHostNSView_SetBackgroundColor_ParamsSpec = {
@@ -455,7 +455,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_SetBackgroundColor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetVisible
 remote_cocoa.mojom.RenderWidgetHostNSView_SetVisible_ParamsSpec = {
@@ -469,7 +469,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_SetVisible_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTooltipText
 remote_cocoa.mojom.RenderWidgetHostNSView_SetTooltipText_ParamsSpec = {
@@ -483,7 +483,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_SetTooltipText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTextInputState
 remote_cocoa.mojom.RenderWidgetHostNSView_SetTextInputState_ParamsSpec = {
@@ -498,7 +498,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_SetTextInputState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTextSelection
 remote_cocoa.mojom.RenderWidgetHostNSView_SetTextSelection_ParamsSpec = {
@@ -514,7 +514,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_SetTextSelection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCompositionRangeInfo
 remote_cocoa.mojom.RenderWidgetHostNSView_SetCompositionRangeInfo_ParamsSpec = {
@@ -528,7 +528,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_SetCompositionRangeInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CancelComposition
 remote_cocoa.mojom.RenderWidgetHostNSView_CancelComposition_ParamsSpec = {
@@ -541,7 +541,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_CancelComposition_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetShowingContextMenu
 remote_cocoa.mojom.RenderWidgetHostNSView_SetShowingContextMenu_ParamsSpec = {
@@ -555,7 +555,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_SetShowingContextMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisplayCursor
 remote_cocoa.mojom.RenderWidgetHostNSView_DisplayCursor_ParamsSpec = {
@@ -569,7 +569,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_DisplayCursor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCursorLocked
 remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLocked_ParamsSpec = {
@@ -583,7 +583,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLocked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCursorLockedUnacceleratedMovement
 remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLockedUnacceleratedMovement_ParamsSpec = {
@@ -597,7 +597,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLockedUnacceleratedMovement_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowDictionaryOverlayForSelection
 remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlayForSelection_ParamsSpec = {
@@ -610,7 +610,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlayForSelection_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowDictionaryOverlay
 remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlay_ParamsSpec = {
@@ -625,7 +625,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlay_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LockKeyboard
 remote_cocoa.mojom.RenderWidgetHostNSView_LockKeyboard_ParamsSpec = {
@@ -639,7 +639,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_LockKeyboard_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UnlockKeyboard
 remote_cocoa.mojom.RenderWidgetHostNSView_UnlockKeyboard_ParamsSpec = {
@@ -652,7 +652,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_UnlockKeyboard_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowSharingServicePicker
 remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ParamsSpec = {
@@ -669,7 +669,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ResponseParamsSpec = {
   $: {
@@ -682,7 +682,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Destroy
 remote_cocoa.mojom.RenderWidgetHostNSView_Destroy_ParamsSpec = {
@@ -695,7 +695,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_Destroy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GestureScrollEventAck
 remote_cocoa.mojom.RenderWidgetHostNSView_GestureScrollEventAck_ParamsSpec = {
@@ -710,7 +710,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_GestureScrollEventAck_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DidOverscroll
 remote_cocoa.mojom.RenderWidgetHostNSView_DidOverscroll_ParamsSpec = {
@@ -724,7 +724,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_DidOverscroll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisplayPopupMenu
 remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ParamsSpec = {
@@ -738,7 +738,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ResponseParamsSpec = {
   $: {
@@ -751,7 +751,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remote_cocoa.mojom.RenderWidgetHostNSViewPtr = remote_cocoa.mojom.RenderWidgetHostNSViewRemote;
@@ -1161,7 +1161,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost.getRemote = function() {
     'remote_cocoa.mojom.RenderWidgetHostNSViewHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SyncIsWidgetForMainFrame
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ParamsSpec = {
@@ -1174,7 +1174,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ResponseParamsSpec = {
   $: {
@@ -1187,7 +1187,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestShutdown
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_RequestShutdown_ParamsSpec = {
@@ -1200,7 +1200,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_RequestShutdown_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFirstResponderChanged
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnFirstResponderChanged_ParamsSpec = {
@@ -1214,7 +1214,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnFirstResponderChanged_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowIsKeyChanged
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowIsKeyChanged_ParamsSpec = {
@@ -1228,7 +1228,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowIsKeyChanged_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBoundsInWindowChanged
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnBoundsInWindowChanged_ParamsSpec = {
@@ -1243,7 +1243,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnBoundsInWindowChanged_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnWindowFrameInScreenChanged
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowFrameInScreenChanged_ParamsSpec = {
@@ -1257,7 +1257,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowFrameInScreenChanged_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnScreenInfosChanged
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnScreenInfosChanged_ParamsSpec = {
@@ -1271,7 +1271,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnScreenInfosChanged_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BeginKeyboardEvent
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_BeginKeyboardEvent_ParamsSpec = {
@@ -1284,7 +1284,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_BeginKeyboardEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EndKeyboardEvent
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_EndKeyboardEvent_ParamsSpec = {
@@ -1297,7 +1297,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_EndKeyboardEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForwardKeyboardEventWithCommands
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardKeyboardEventWithCommands_ParamsSpec = {
@@ -1314,7 +1314,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardKeyboardEventWithCommands_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RouteOrProcessMouseEvent
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessMouseEvent_ParamsSpec = {
@@ -1328,7 +1328,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessMouseEvent_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RouteOrProcessTouchEvent
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessTouchEvent_ParamsSpec = {
@@ -1342,7 +1342,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessTouchEvent_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RouteOrProcessWheelEvent
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessWheelEvent_ParamsSpec = {
@@ -1356,7 +1356,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessWheelEvent_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForwardMouseEvent
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardMouseEvent_ParamsSpec = {
@@ -1370,7 +1370,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardMouseEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ForwardWheelEvent
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardWheelEvent_ParamsSpec = {
@@ -1384,7 +1384,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardWheelEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PinchEvent
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_PinchEvent_ParamsSpec = {
@@ -1399,7 +1399,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_PinchEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SmartMagnifyEvent
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SmartMagnifyEvent_ParamsSpec = {
@@ -1413,7 +1413,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SmartMagnifyEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ImeSetComposition
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeSetComposition_ParamsSpec = {
@@ -1431,7 +1431,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeSetComposition_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ImeCommitText
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCommitText_ParamsSpec = {
@@ -1446,7 +1446,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCommitText_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ImeFinishComposingText
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeFinishComposingText_ParamsSpec = {
@@ -1459,7 +1459,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeFinishComposingText_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ImeCancelCompositionFromCocoa
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCancelCompositionFromCocoa_ParamsSpec = {
@@ -1472,7 +1472,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCancelCompositionFromCocoa_Para
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LookUpDictionaryOverlayAtPoint
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayAtPoint_ParamsSpec = {
@@ -1486,7 +1486,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayAtPoint_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LookUpDictionaryOverlayFromRange
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayFromRange_ParamsSpec = {
@@ -1500,7 +1500,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayFromRange_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SyncGetCharacterIndexAtPoint
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ParamsSpec = {
@@ -1514,7 +1514,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ResponseParamsSpec = {
   $: {
@@ -1527,7 +1527,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SyncGetFirstRectForRange
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ParamsSpec = {
@@ -1541,7 +1541,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ResponseParamsSpec = {
   $: {
@@ -1556,7 +1556,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ResponseP
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteEditCommand
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_ExecuteEditCommand_ParamsSpec = {
@@ -1570,7 +1570,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_ExecuteEditCommand_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Undo
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_Undo_ParamsSpec = {
@@ -1583,7 +1583,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_Undo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Redo
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_Redo_ParamsSpec = {
@@ -1596,7 +1596,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_Redo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Cut
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_Cut_ParamsSpec = {
@@ -1609,7 +1609,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_Cut_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Copy
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_Copy_ParamsSpec = {
@@ -1622,7 +1622,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_Copy_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CopyToFindPboard
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_CopyToFindPboard_ParamsSpec = {
@@ -1635,7 +1635,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_CopyToFindPboard_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CenterSelection
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_CenterSelection_ParamsSpec = {
@@ -1648,7 +1648,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_CenterSelection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Paste
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_Paste_ParamsSpec = {
@@ -1661,7 +1661,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_Paste_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PasteAndMatchStyle
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_PasteAndMatchStyle_ParamsSpec = {
@@ -1674,7 +1674,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_PasteAndMatchStyle_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SelectAll
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SelectAll_ParamsSpec = {
@@ -1687,7 +1687,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SelectAll_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StartSpeaking
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_StartSpeaking_ParamsSpec = {
@@ -1700,7 +1700,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_StartSpeaking_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopSpeaking
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_StopSpeaking_ParamsSpec = {
@@ -1713,7 +1713,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_StopSpeaking_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SyncIsSpeaking
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ParamsSpec = {
@@ -1726,7 +1726,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ResponseParamsSpec = {
   $: {
@@ -1739,7 +1739,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRenderWidgetAccessibilityToken
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ParamsSpec = {
@@ -1752,7 +1752,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ResponseParamsSpec = {
   $: {
@@ -1766,7 +1766,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetRemoteAccessibilityWindowToken
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SetRemoteAccessibilityWindowToken_ParamsSpec = {
@@ -1780,7 +1780,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SetRemoteAccessibilityWindowToken_
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 remote_cocoa.mojom.RenderWidgetHostNSViewHostPtr = remote_cocoa.mojom.RenderWidgetHostNSViewHostRemote;

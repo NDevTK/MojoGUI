@@ -70,7 +70,7 @@ blink.mojom.ServiceWorkerObjectHost.getRemote = function() {
     'blink.mojom.ServiceWorkerObjectHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for PostMessageToServiceWorker
 blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec = {
@@ -84,7 +84,7 @@ blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TerminateForTesting
 blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec = {
@@ -97,7 +97,7 @@ blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerObjectHostPtr = blink.mojom.ServiceWorkerObjectHostRemote;
@@ -156,7 +156,7 @@ blink.mojom.ServiceWorkerObject.getRemote = function() {
     'blink.mojom.ServiceWorkerObject',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StateChanged
 blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec = {
@@ -170,7 +170,7 @@ blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerObjectPtr = blink.mojom.ServiceWorkerObjectRemote;

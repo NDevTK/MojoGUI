@@ -196,7 +196,7 @@ network.mojom.CookieChangeListener.getRemote = function() {
     'network.mojom.CookieChangeListener',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCookieChange
 network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec = {
@@ -210,7 +210,7 @@ network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.CookieChangeListenerPtr = network.mojom.CookieChangeListenerRemote;
@@ -431,7 +431,7 @@ network.mojom.CookieManager.getRemote = function() {
     'network.mojom.CookieManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetAllCookies
 network.mojom.CookieManager_GetAllCookies_ParamsSpec = {
@@ -444,7 +444,7 @@ network.mojom.CookieManager_GetAllCookies_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec = {
   $: {
@@ -457,7 +457,7 @@ network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllCookiesWithAccessSemantics
 network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ParamsSpec = {
@@ -470,7 +470,7 @@ network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec = {
   $: {
@@ -484,7 +484,7 @@ network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetCookieList
 network.mojom.CookieManager_GetCookieList_ParamsSpec = {
@@ -500,7 +500,7 @@ network.mojom.CookieManager_GetCookieList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.CookieManager_GetCookieList_ResponseParamsSpec = {
   $: {
@@ -514,7 +514,7 @@ network.mojom.CookieManager_GetCookieList_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetCanonicalCookie
 network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec = {
@@ -530,7 +530,7 @@ network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec = {
   $: {
@@ -543,7 +543,7 @@ network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteCanonicalCookie
 network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec = {
@@ -557,7 +557,7 @@ network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec = {
   $: {
@@ -570,7 +570,7 @@ network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteCookies
 network.mojom.CookieManager_DeleteCookies_ParamsSpec = {
@@ -584,7 +584,7 @@ network.mojom.CookieManager_DeleteCookies_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec = {
   $: {
@@ -597,7 +597,7 @@ network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteSessionOnlyCookies
 network.mojom.CookieManager_DeleteSessionOnlyCookies_ParamsSpec = {
@@ -610,7 +610,7 @@ network.mojom.CookieManager_DeleteSessionOnlyCookies_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec = {
   $: {
@@ -623,7 +623,7 @@ network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteStaleSessionOnlyCookies
 network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ParamsSpec = {
@@ -636,7 +636,7 @@ network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec = {
   $: {
@@ -649,7 +649,7 @@ network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddCookieChangeListener
 network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec = {
@@ -665,7 +665,7 @@ network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddGlobalChangeListener
 network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec = {
@@ -679,7 +679,7 @@ network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloneInterface
 network.mojom.CookieManager_CloneInterface_ParamsSpec = {
@@ -693,7 +693,7 @@ network.mojom.CookieManager_CloneInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FlushCookieStore
 network.mojom.CookieManager_FlushCookieStore_ParamsSpec = {
@@ -706,7 +706,7 @@ network.mojom.CookieManager_FlushCookieStore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AllowFileSchemeCookies
 network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec = {
@@ -720,7 +720,7 @@ network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec = {
   $: {
@@ -733,7 +733,7 @@ network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetContentSettings
 network.mojom.CookieManager_SetContentSettings_ParamsSpec = {
@@ -748,7 +748,7 @@ network.mojom.CookieManager_SetContentSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetForceKeepSessionState
 network.mojom.CookieManager_SetForceKeepSessionState_ParamsSpec = {
@@ -761,7 +761,7 @@ network.mojom.CookieManager_SetForceKeepSessionState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BlockThirdPartyCookies
 network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec = {
@@ -775,7 +775,7 @@ network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetMitigationsEnabledFor3pcd
 network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec = {
@@ -789,7 +789,7 @@ network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTrackingProtectionEnabledFor3pcd
 network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec = {
@@ -803,7 +803,7 @@ network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPreCommitCallbackDelayForTesting
 network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec = {
@@ -817,7 +817,7 @@ network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.CookieManagerPtr = network.mojom.CookieManagerRemote;

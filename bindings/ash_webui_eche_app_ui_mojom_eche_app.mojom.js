@@ -134,7 +134,7 @@ ash.eche_app.mojom.SignalingMessageExchanger.getRemote = function() {
     'ash.eche_app.mojom.SignalingMessageExchanger',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendSignalingMessage
 ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec = {
@@ -148,7 +148,7 @@ ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSignalingMessageObserver
 ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec = {
@@ -162,7 +162,7 @@ ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TearDownSignaling
 ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec = {
@@ -175,7 +175,7 @@ ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.eche_app.mojom.SignalingMessageExchangerPtr = ash.eche_app.mojom.SignalingMessageExchangerRemote;
@@ -234,7 +234,7 @@ ash.eche_app.mojom.SignalingMessageObserver.getRemote = function() {
     'ash.eche_app.mojom.SignalingMessageObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnReceivedSignalingMessage
 ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec = {
@@ -248,7 +248,7 @@ ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.eche_app.mojom.SignalingMessageObserverPtr = ash.eche_app.mojom.SignalingMessageObserverRemote;
@@ -316,7 +316,7 @@ ash.eche_app.mojom.SystemInfoProvider.getRemote = function() {
     'ash.eche_app.mojom.SystemInfoProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSystemInfo
 ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec = {
@@ -329,7 +329,7 @@ ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec = {
   $: {
@@ -342,7 +342,7 @@ ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSystemInfoObserver
 ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec = {
@@ -356,7 +356,7 @@ ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.eche_app.mojom.SystemInfoProviderPtr = ash.eche_app.mojom.SystemInfoProviderRemote;
@@ -433,7 +433,7 @@ ash.eche_app.mojom.SystemInfoObserver.getRemote = function() {
     'ash.eche_app.mojom.SystemInfoObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnScreenBacklightStateChanged
 ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec = {
@@ -447,7 +447,7 @@ ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReceivedTabletModeChanged
 ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec = {
@@ -461,7 +461,7 @@ ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAndroidDeviceNetworkInfoChanged
 ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec = {
@@ -476,7 +476,7 @@ ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.eche_app.mojom.SystemInfoObserverPtr = ash.eche_app.mojom.SystemInfoObserverRemote;
@@ -553,7 +553,7 @@ ash.eche_app.mojom.AccessibilityProvider.getRemote = function() {
     'ash.eche_app.mojom.AccessibilityProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HandleAccessibilityEventReceived
 ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec = {
@@ -567,7 +567,7 @@ ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetAccessibilityObserver
 ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec = {
@@ -581,7 +581,7 @@ ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IsAccessibilityEnabled
 ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec = {
@@ -594,7 +594,7 @@ ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec = {
   $: {
@@ -607,7 +607,7 @@ ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.eche_app.mojom.AccessibilityProviderPtr = ash.eche_app.mojom.AccessibilityProviderRemote;
@@ -693,7 +693,7 @@ ash.eche_app.mojom.AccessibilityObserver.getRemote = function() {
     'ash.eche_app.mojom.AccessibilityObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EnableAccessibilityTreeStreaming
 ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec = {
@@ -707,7 +707,7 @@ ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableExploreByTouch
 ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec = {
@@ -721,7 +721,7 @@ ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PerformAction
 ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec = {
@@ -735,7 +735,7 @@ ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec = {
   $: {
@@ -748,7 +748,7 @@ ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RefreshWithExtraData
 ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec = {
@@ -762,7 +762,7 @@ ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec = {
   $: {
@@ -775,7 +775,7 @@ ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.eche_app.mojom.AccessibilityObserverPtr = ash.eche_app.mojom.AccessibilityObserverRemote;
@@ -834,7 +834,7 @@ ash.eche_app.mojom.UidGenerator.getRemote = function() {
     'ash.eche_app.mojom.UidGenerator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetUid
 ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec = {
@@ -847,7 +847,7 @@ ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec = {
   $: {
@@ -860,7 +860,7 @@ ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.eche_app.mojom.UidGeneratorPtr = ash.eche_app.mojom.UidGeneratorRemote;
@@ -928,7 +928,7 @@ ash.eche_app.mojom.NotificationGenerator.getRemote = function() {
     'ash.eche_app.mojom.NotificationGenerator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShowNotification
 ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec = {
@@ -944,7 +944,7 @@ ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowToast
 ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec = {
@@ -958,7 +958,7 @@ ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.eche_app.mojom.NotificationGeneratorPtr = ash.eche_app.mojom.NotificationGeneratorRemote;
@@ -1035,7 +1035,7 @@ ash.eche_app.mojom.DisplayStreamHandler.getRemote = function() {
     'ash.eche_app.mojom.DisplayStreamHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartStreaming
 ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec = {
@@ -1048,7 +1048,7 @@ ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStreamStatusChanged
 ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec = {
@@ -1062,7 +1062,7 @@ ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetStreamActionObserver
 ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec = {
@@ -1076,7 +1076,7 @@ ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.eche_app.mojom.DisplayStreamHandlerPtr = ash.eche_app.mojom.DisplayStreamHandlerRemote;
@@ -1135,7 +1135,7 @@ ash.eche_app.mojom.StreamActionObserver.getRemote = function() {
     'ash.eche_app.mojom.StreamActionObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStreamAction
 ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec = {
@@ -1149,7 +1149,7 @@ ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.eche_app.mojom.StreamActionObserverPtr = ash.eche_app.mojom.StreamActionObserverRemote;
@@ -1208,7 +1208,7 @@ ash.eche_app.mojom.StreamOrientationObserver.getRemote = function() {
     'ash.eche_app.mojom.StreamOrientationObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStreamOrientationChanged
 ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec = {
@@ -1222,7 +1222,7 @@ ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.eche_app.mojom.StreamOrientationObserverPtr = ash.eche_app.mojom.StreamOrientationObserverRemote;
@@ -1281,7 +1281,7 @@ ash.eche_app.mojom.ConnectionStatusObserver.getRemote = function() {
     'ash.eche_app.mojom.ConnectionStatusObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnConnectionStatusChanged
 ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec = {
@@ -1295,7 +1295,7 @@ ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.eche_app.mojom.ConnectionStatusObserverPtr = ash.eche_app.mojom.ConnectionStatusObserverRemote;
@@ -1363,7 +1363,7 @@ ash.eche_app.mojom.KeyboardLayoutHandler.getRemote = function() {
     'ash.eche_app.mojom.KeyboardLayoutHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestCurrentKeyboardLayout
 ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec = {
@@ -1376,7 +1376,7 @@ ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetKeyboardLayoutObserver
 ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec = {
@@ -1390,7 +1390,7 @@ ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.eche_app.mojom.KeyboardLayoutHandlerPtr = ash.eche_app.mojom.KeyboardLayoutHandlerRemote;
@@ -1449,7 +1449,7 @@ ash.eche_app.mojom.KeyboardLayoutObserver.getRemote = function() {
     'ash.eche_app.mojom.KeyboardLayoutObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnKeyboardLayoutChanged
 ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec = {
@@ -1466,7 +1466,7 @@ ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.eche_app.mojom.KeyboardLayoutObserverPtr = ash.eche_app.mojom.KeyboardLayoutObserverRemote;

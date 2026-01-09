@@ -88,7 +88,7 @@ viz.mojom.FrameSinkManagerTestApi.getRemote = function() {
     'viz.mojom.FrameSinkManagerTestApi',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HasUnclaimedViewTransitionResources
 viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec = {
@@ -101,7 +101,7 @@ viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec = {
   $: {
@@ -114,7 +114,7 @@ viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSameDocNavigationScreenshotSize
 viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec = {
@@ -128,7 +128,7 @@ viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetForceEnableZoomState
 viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec = {
@@ -142,7 +142,7 @@ viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec = {
   $: {
@@ -155,7 +155,7 @@ viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WaitForSurfaceAnimationManager
 viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec = {
@@ -169,7 +169,7 @@ viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 viz.mojom.FrameSinkManagerTestApiPtr = viz.mojom.FrameSinkManagerTestApiRemote;

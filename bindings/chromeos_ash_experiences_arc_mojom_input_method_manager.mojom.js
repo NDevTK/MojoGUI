@@ -52,7 +52,7 @@ arc.mojom.InputConnection.getRemote = function() {
     'arc.mojom.InputConnection',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.InputConnectionPtr = arc.mojom.InputConnectionRemote;
@@ -102,7 +102,7 @@ arc.mojom.InputMethodManagerHost.getRemote = function() {
     'arc.mojom.InputMethodManagerHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.InputMethodManagerHostPtr = arc.mojom.InputMethodManagerHostRemote;
@@ -152,7 +152,7 @@ arc.mojom.InputMethodManagerInstance.getRemote = function() {
     'arc.mojom.InputMethodManagerInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.InputMethodManagerInstancePtr = arc.mojom.InputMethodManagerInstanceRemote;

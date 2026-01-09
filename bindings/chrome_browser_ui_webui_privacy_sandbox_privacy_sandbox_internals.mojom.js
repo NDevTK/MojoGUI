@@ -97,7 +97,7 @@ privacy_sandbox_internals.mojom.PageHandler.getRemote = function() {
     'privacy_sandbox_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ReadPrefsWithPrefixes
 privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec = {
@@ -111,7 +111,7 @@ privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec = {
   $: {
@@ -124,7 +124,7 @@ privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReadContentSettings
 privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec = {
@@ -138,7 +138,7 @@ privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec = {
   $: {
@@ -151,7 +151,7 @@ privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTpcdMetadataGrants
 privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec = {
@@ -164,7 +164,7 @@ privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec = {
   $: {
@@ -177,7 +177,7 @@ privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ContentSettingsPatternToString
 privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec = {
@@ -191,7 +191,7 @@ privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec = {
   $: {
@@ -204,7 +204,7 @@ privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StringToContentSettingsPattern
 privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec = {
@@ -218,7 +218,7 @@ privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_Param
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec = {
   $: {
@@ -231,7 +231,7 @@ privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_Respo
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 privacy_sandbox_internals.mojom.PageHandlerPtr = privacy_sandbox_internals.mojom.PageHandlerRemote;
@@ -281,7 +281,7 @@ privacy_sandbox_internals.mojom.Page.getRemote = function() {
     'privacy_sandbox_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 privacy_sandbox_internals.mojom.PagePtr = privacy_sandbox_internals.mojom.PageRemote;

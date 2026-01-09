@@ -61,7 +61,7 @@ content.mojom.MainFrameCounterTest.getRemote = function() {
     'content.mojom.MainFrameCounterTest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for HasMainFrame
 content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec = {
@@ -74,7 +74,7 @@ content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.MainFrameCounterTestPtr = content.mojom.MainFrameCounterTestRemote;

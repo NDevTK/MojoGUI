@@ -61,7 +61,7 @@ blink.mojom.Hyphenation.getRemote = function() {
     'blink.mojom.Hyphenation',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenDictionary
 blink.mojom.Hyphenation_OpenDictionary_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.Hyphenation_OpenDictionary_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.HyphenationPtr = blink.mojom.HyphenationRemote;

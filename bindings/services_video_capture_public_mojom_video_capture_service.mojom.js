@@ -61,7 +61,7 @@ video_capture.mojom.AcceleratorFactory.getRemote = function() {
     'video_capture.mojom.AcceleratorFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateJpegDecodeAccelerator
 video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec = {
@@ -75,7 +75,7 @@ video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 video_capture.mojom.AcceleratorFactoryPtr = video_capture.mojom.AcceleratorFactoryRemote;
@@ -179,7 +179,7 @@ video_capture.mojom.VideoCaptureService.getRemote = function() {
     'video_capture.mojom.VideoCaptureService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for InjectGpuDependencies
 video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec = {
@@ -193,7 +193,7 @@ video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConnectToCameraAppDeviceBridge
 video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec = {
@@ -207,7 +207,7 @@ video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindVideoCaptureDeviceFactory
 video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec = {
@@ -221,7 +221,7 @@ video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConnectToVideoSourceProvider
 video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec = {
@@ -235,7 +235,7 @@ video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindControlsForTesting
 video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec = {
@@ -249,7 +249,7 @@ video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnGpuInfoUpdate
 video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec = {
@@ -263,7 +263,7 @@ video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 video_capture.mojom.VideoCaptureServicePtr = video_capture.mojom.VideoCaptureServiceRemote;

@@ -61,7 +61,7 @@ content.mojom.MemoryConsumerTraitsTest.getRemote = function() {
     'content.mojom.MemoryConsumerTraitsTest',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EchoMemoryConsumerTraits
 content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec = {
@@ -75,7 +75,7 @@ content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.MemoryConsumerTraitsTestPtr = content.mojom.MemoryConsumerTraitsTestRemote;

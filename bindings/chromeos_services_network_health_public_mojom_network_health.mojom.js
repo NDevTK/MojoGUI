@@ -53,7 +53,7 @@ chromeos.network_health.mojom.NetworkEventsObserver.getRemote = function() {
     'chromeos.network_health.mojom.NetworkEventsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.network_health.mojom.NetworkEventsObserverPtr = chromeos.network_health.mojom.NetworkEventsObserverRemote;
@@ -103,7 +103,7 @@ chromeos.network_health.mojom.NetworkHealthService.getRemote = function() {
     'chromeos.network_health.mojom.NetworkHealthService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.network_health.mojom.NetworkHealthServicePtr = chromeos.network_health.mojom.NetworkHealthServiceRemote;

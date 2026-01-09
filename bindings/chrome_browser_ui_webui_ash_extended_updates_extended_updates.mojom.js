@@ -62,7 +62,7 @@ ash.extended_updates.mojom.PageHandlerFactory.getRemote = function() {
     'ash.extended_updates.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -77,7 +77,7 @@ ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.extended_updates.mojom.PageHandlerFactoryPtr = ash.extended_updates.mojom.PageHandlerFactoryRemote;
@@ -154,7 +154,7 @@ ash.extended_updates.mojom.PageHandler.getRemote = function() {
     'ash.extended_updates.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OptInToExtendedUpdates
 ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec = {
@@ -167,7 +167,7 @@ ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec = {
   $: {
@@ -180,7 +180,7 @@ ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseDialog
 ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec = {
@@ -193,7 +193,7 @@ ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetInstalledAndroidApps
 ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec = {
@@ -206,7 +206,7 @@ ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec = {
   $: {
@@ -219,7 +219,7 @@ ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.extended_updates.mojom.PageHandlerPtr = ash.extended_updates.mojom.PageHandlerRemote;
@@ -269,7 +269,7 @@ ash.extended_updates.mojom.Page.getRemote = function() {
     'ash.extended_updates.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 ash.extended_updates.mojom.PagePtr = ash.extended_updates.mojom.PageRemote;

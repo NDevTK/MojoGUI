@@ -89,7 +89,7 @@ smbfs.mojom.SmbFsBootstrap.getRemote = function() {
     'smbfs.mojom.SmbFsBootstrap',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for MountShare
 smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec = {
@@ -104,7 +104,7 @@ smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = {
   $: {
@@ -118,7 +118,7 @@ smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 smbfs.mojom.SmbFsBootstrapPtr = smbfs.mojom.SmbFsBootstrapRemote;
@@ -186,7 +186,7 @@ smbfs.mojom.SmbFs.getRemote = function() {
     'smbfs.mojom.SmbFs',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RemoveSavedCredentials
 smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec = {
@@ -199,7 +199,7 @@ smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec = {
   $: {
@@ -212,7 +212,7 @@ smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteRecursively
 smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = {
@@ -226,7 +226,7 @@ smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec = {
   $: {
@@ -239,7 +239,7 @@ smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 smbfs.mojom.SmbFsPtr = smbfs.mojom.SmbFsRemote;
@@ -298,7 +298,7 @@ smbfs.mojom.SmbFsDelegate.getRemote = function() {
     'smbfs.mojom.SmbFsDelegate',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestCredentials
 smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = {
@@ -311,7 +311,7 @@ smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = {
   $: {
@@ -324,7 +324,7 @@ smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 smbfs.mojom.SmbFsDelegatePtr = smbfs.mojom.SmbFsDelegateRemote;

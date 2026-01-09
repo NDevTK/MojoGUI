@@ -61,7 +61,7 @@ content.mojom.RenderFrameTestHelper.getRemote = function() {
     'content.mojom.RenderFrameTestHelper',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetDocumentToken
 content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec = {
@@ -74,7 +74,7 @@ content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec = {
   $: {
@@ -87,7 +87,7 @@ content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.RenderFrameTestHelperPtr = content.mojom.RenderFrameTestHelperRemote;

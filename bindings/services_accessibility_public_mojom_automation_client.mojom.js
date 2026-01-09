@@ -88,7 +88,7 @@ ax.mojom.AutomationClient.getRemote = function() {
     'ax.mojom.AutomationClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Enable
 ax.mojom.AutomationClient_Enable_ParamsSpec = {
@@ -101,7 +101,7 @@ ax.mojom.AutomationClient_Enable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ax.mojom.AutomationClient_Enable_ResponseParamsSpec = {
   $: {
@@ -114,7 +114,7 @@ ax.mojom.AutomationClient_Enable_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Disable
 ax.mojom.AutomationClient_Disable_ParamsSpec = {
@@ -127,7 +127,7 @@ ax.mojom.AutomationClient_Disable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableChildTree
 ax.mojom.AutomationClient_EnableChildTree_ParamsSpec = {
@@ -141,7 +141,7 @@ ax.mojom.AutomationClient_EnableChildTree_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PerformAction
 ax.mojom.AutomationClient_PerformAction_ParamsSpec = {
@@ -155,7 +155,7 @@ ax.mojom.AutomationClient_PerformAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ax.mojom.AutomationClientPtr = ax.mojom.AutomationClientRemote;

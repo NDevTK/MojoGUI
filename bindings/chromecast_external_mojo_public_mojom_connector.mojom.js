@@ -62,7 +62,7 @@ chromecast.external_mojo.mojom.ExternalService.getRemote = function() {
     'chromecast.external_mojo.mojom.ExternalService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnBindInterface
 chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec = {
@@ -77,7 +77,7 @@ chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.external_mojo.mojom.ExternalServicePtr = chromecast.external_mojo.mojom.ExternalServiceRemote;
@@ -172,7 +172,7 @@ chromecast.external_mojo.mojom.ExternalConnector.getRemote = function() {
     'chromecast.external_mojo.mojom.ExternalConnector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RegisterServiceInstances
 chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec = {
@@ -186,7 +186,7 @@ chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindInterface
 chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec = {
@@ -202,7 +202,7 @@ chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Clone
 chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec = {
@@ -216,7 +216,7 @@ chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BindChromiumConnector
 chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec = {
@@ -230,7 +230,7 @@ chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for QueryServiceList
 chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec = {
@@ -243,7 +243,7 @@ chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec = {
   $: {
@@ -256,7 +256,7 @@ chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParams
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.external_mojo.mojom.ExternalConnectorPtr = chromecast.external_mojo.mojom.ExternalConnectorRemote;

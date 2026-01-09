@@ -70,7 +70,7 @@ media.mojom.VideoDecodeStatsRecorder.getRemote = function() {
     'media.mojom.VideoDecodeStatsRecorder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartNewRecord
 media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec = {
@@ -84,7 +84,7 @@ media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateRecord
 media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec = {
@@ -98,7 +98,7 @@ media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.VideoDecodeStatsRecorderPtr = media.mojom.VideoDecodeStatsRecorderRemote;

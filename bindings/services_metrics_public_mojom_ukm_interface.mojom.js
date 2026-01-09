@@ -61,7 +61,7 @@ ukm.mojom.SingularUkmInterface.getRemote = function() {
     'ukm.mojom.SingularUkmInterface',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Submit
 ukm.mojom.SingularUkmInterface_Submit_ParamsSpec = {
@@ -75,7 +75,7 @@ ukm.mojom.SingularUkmInterface_Submit_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ukm.mojom.SingularUkmInterfacePtr = ukm.mojom.SingularUkmInterfaceRemote;
@@ -134,7 +134,7 @@ ukm.mojom.UkmRecorderClientInterface.getRemote = function() {
     'ukm.mojom.UkmRecorderClientInterface',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetParameters
 ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = {
@@ -148,7 +148,7 @@ ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ukm.mojom.UkmRecorderClientInterfacePtr = ukm.mojom.UkmRecorderClientInterfaceRemote;
@@ -216,7 +216,7 @@ ukm.mojom.UkmRecorderInterface.getRemote = function() {
     'ukm.mojom.UkmRecorderInterface',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddEntry
 ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = {
@@ -230,7 +230,7 @@ ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateSourceURL
 ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec = {
@@ -245,7 +245,7 @@ ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ukm.mojom.UkmRecorderInterfacePtr = ukm.mojom.UkmRecorderInterfaceRemote;
@@ -304,7 +304,7 @@ ukm.mojom.UkmRecorderFactory.getRemote = function() {
     'ukm.mojom.UkmRecorderFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateUkmRecorder
 ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = {
@@ -319,7 +319,7 @@ ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ukm.mojom.UkmRecorderFactoryPtr = ukm.mojom.UkmRecorderFactoryRemote;

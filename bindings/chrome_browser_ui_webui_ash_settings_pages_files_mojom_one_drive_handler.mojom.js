@@ -63,7 +63,7 @@ ash.settings.one_drive.mojom.PageHandlerFactory.getRemote = function() {
     'ash.settings.one_drive.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -78,7 +78,7 @@ ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.one_drive.mojom.PageHandlerFactoryPtr = ash.settings.one_drive.mojom.PageHandlerFactoryRemote;
@@ -164,7 +164,7 @@ ash.settings.one_drive.mojom.PageHandler.getRemote = function() {
     'ash.settings.one_drive.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetUserEmailAddress
 ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec = {
@@ -177,7 +177,7 @@ ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec = {
   $: {
@@ -190,7 +190,7 @@ ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConnectToOneDrive
 ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec = {
@@ -203,7 +203,7 @@ ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec = {
   $: {
@@ -216,7 +216,7 @@ ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisconnectFromOneDrive
 ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec = {
@@ -229,7 +229,7 @@ ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec = {
   $: {
@@ -242,7 +242,7 @@ ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenOneDriveFolder
 ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec = {
@@ -255,7 +255,7 @@ ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec = {
   $: {
@@ -268,7 +268,7 @@ ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.one_drive.mojom.PageHandlerPtr = ash.settings.one_drive.mojom.PageHandlerRemote;
@@ -336,7 +336,7 @@ ash.settings.one_drive.mojom.Page.getRemote = function() {
     'ash.settings.one_drive.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnODFSMountOrUnmount
 ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec = {
@@ -349,7 +349,7 @@ ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnAllowUserToRemoveODFSChanged
 ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec = {
@@ -363,7 +363,7 @@ ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.one_drive.mojom.PagePtr = ash.settings.one_drive.mojom.PageRemote;

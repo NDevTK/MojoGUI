@@ -61,7 +61,7 @@ chromecast.mojom.BluetoothDeviceAccessProvider.getRemote = function() {
     'chromecast.mojom.BluetoothDeviceAccessProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestDeviceAccess
 chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec = {
@@ -75,7 +75,7 @@ chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.BluetoothDeviceAccessProviderPtr = chromecast.mojom.BluetoothDeviceAccessProviderRemote;
@@ -143,7 +143,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderClient.getRemote = function() {
     'chromecast.mojom.BluetoothDeviceAccessProviderClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GrantAccess
 chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec = {
@@ -157,7 +157,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GrantAccessToAllDevices
 chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec = {
@@ -170,7 +170,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_Par
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.BluetoothDeviceAccessProviderClientPtr = chromecast.mojom.BluetoothDeviceAccessProviderClientRemote;

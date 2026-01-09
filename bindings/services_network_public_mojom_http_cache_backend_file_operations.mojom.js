@@ -77,7 +77,7 @@ network.mojom.FileEnumerator.getRemote = function() {
     'network.mojom.FileEnumerator',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetNext
 network.mojom.FileEnumerator_GetNext_ParamsSpec = {
@@ -91,7 +91,7 @@ network.mojom.FileEnumerator_GetNext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.FileEnumerator_GetNext_ResponseParamsSpec = {
   $: {
@@ -106,7 +106,7 @@ network.mojom.FileEnumerator_GetNext_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.FileEnumeratorPtr = network.mojom.FileEnumeratorRemote;
@@ -237,7 +237,7 @@ network.mojom.HttpCacheBackendFileOperations.getRemote = function() {
     'network.mojom.HttpCacheBackendFileOperations',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateDirectory
 network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec = {
@@ -251,7 +251,7 @@ network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec = {
   $: {
@@ -264,7 +264,7 @@ network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PathExists
 network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec = {
@@ -278,7 +278,7 @@ network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec = {
   $: {
@@ -291,7 +291,7 @@ network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DirectoryExists
 network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec = {
@@ -305,7 +305,7 @@ network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec = {
   $: {
@@ -318,7 +318,7 @@ network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenFile
 network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec = {
@@ -333,7 +333,7 @@ network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec = {
   $: {
@@ -347,7 +347,7 @@ network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeleteFile
 network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec = {
@@ -362,7 +362,7 @@ network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec = {
   $: {
@@ -375,7 +375,7 @@ network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RenameFile
 network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec = {
@@ -390,7 +390,7 @@ network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec = {
   $: {
@@ -403,7 +403,7 @@ network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetFileInfo
 network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec = {
@@ -417,7 +417,7 @@ network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec = {
   $: {
@@ -430,7 +430,7 @@ network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnumerateFiles
 network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec = {
@@ -445,7 +445,7 @@ network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CleanupDirectory
 network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec = {
@@ -459,7 +459,7 @@ network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec = {
   $: {
@@ -472,7 +472,7 @@ network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.HttpCacheBackendFileOperationsPtr = network.mojom.HttpCacheBackendFileOperationsRemote;
@@ -531,7 +531,7 @@ network.mojom.HttpCacheBackendFileOperationsFactory.getRemote = function() {
     'network.mojom.HttpCacheBackendFileOperationsFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Create
 network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec = {
@@ -545,7 +545,7 @@ network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 network.mojom.HttpCacheBackendFileOperationsFactoryPtr = network.mojom.HttpCacheBackendFileOperationsFactoryRemote;

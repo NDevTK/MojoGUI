@@ -56,7 +56,7 @@ infobar_internals.mojom.Page.getRemote = function() {
     'infobar_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 infobar_internals.mojom.PagePtr = infobar_internals.mojom.PageRemote;
@@ -124,7 +124,7 @@ infobar_internals.mojom.PageHandler.getRemote = function() {
     'infobar_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetInfoBars
 infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec = {
@@ -137,7 +137,7 @@ infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec = {
   $: {
@@ -150,7 +150,7 @@ infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TriggerInfoBar
 infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec = {
@@ -164,7 +164,7 @@ infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec = {
   $: {
@@ -177,7 +177,7 @@ infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 infobar_internals.mojom.PageHandlerPtr = infobar_internals.mojom.PageHandlerRemote;
@@ -236,7 +236,7 @@ infobar_internals.mojom.PageHandlerFactory.getRemote = function() {
     'infobar_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -251,7 +251,7 @@ infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 infobar_internals.mojom.PageHandlerFactoryPtr = infobar_internals.mojom.PageHandlerFactoryRemote;

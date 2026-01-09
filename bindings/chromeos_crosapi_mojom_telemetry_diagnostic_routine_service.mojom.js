@@ -146,7 +146,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineControl.getRemote = function() {
     'crosapi.mojom.TelemetryDiagnosticRoutineControl',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.TelemetryDiagnosticRoutineControlPtr = crosapi.mojom.TelemetryDiagnosticRoutineControlRemote;
@@ -196,7 +196,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserver.getRemote = function() {
     'crosapi.mojom.TelemetryDiagnosticRoutineObserver',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.TelemetryDiagnosticRoutineObserverPtr = crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote;
@@ -246,7 +246,7 @@ crosapi.mojom.TelemetryDiagnosticRoutinesService.getRemote = function() {
     'crosapi.mojom.TelemetryDiagnosticRoutinesService',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.TelemetryDiagnosticRoutinesServicePtr = crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote;

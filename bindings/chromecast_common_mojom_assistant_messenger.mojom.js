@@ -61,7 +61,7 @@ chromecast.mojom.AssistantMessagePipe.getRemote = function() {
     'chromecast.mojom.AssistantMessagePipe',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SendMessage
 chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec = {
@@ -75,7 +75,7 @@ chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.AssistantMessagePipePtr = chromecast.mojom.AssistantMessagePipeRemote;
@@ -134,7 +134,7 @@ chromecast.mojom.AssistantMessageClient.getRemote = function() {
     'chromecast.mojom.AssistantMessageClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMessage
 chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec = {
@@ -148,7 +148,7 @@ chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.AssistantMessageClientPtr = chromecast.mojom.AssistantMessageClientRemote;
@@ -207,7 +207,7 @@ chromecast.mojom.AssistantMessageService.getRemote = function() {
     'chromecast.mojom.AssistantMessageService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateMessagePipe
 chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec = {
@@ -223,7 +223,7 @@ chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.mojom.AssistantMessageServicePtr = chromecast.mojom.AssistantMessageServiceRemote;

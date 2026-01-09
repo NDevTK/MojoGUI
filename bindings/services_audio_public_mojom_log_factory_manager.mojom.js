@@ -61,7 +61,7 @@ audio.mojom.LogFactoryManager.getRemote = function() {
     'audio.mojom.LogFactoryManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetLogFactory
 audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec = {
@@ -75,7 +75,7 @@ audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 audio.mojom.LogFactoryManagerPtr = audio.mojom.LogFactoryManagerRemote;

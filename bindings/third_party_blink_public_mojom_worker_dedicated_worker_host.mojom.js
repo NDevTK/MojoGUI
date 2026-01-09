@@ -52,7 +52,7 @@ blink.mojom.DedicatedWorkerHost.getRemote = function() {
     'blink.mojom.DedicatedWorkerHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 blink.mojom.DedicatedWorkerHostPtr = blink.mojom.DedicatedWorkerHostRemote;

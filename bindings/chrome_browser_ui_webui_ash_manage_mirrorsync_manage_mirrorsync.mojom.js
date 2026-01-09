@@ -69,7 +69,7 @@ ash.manage_mirrorsync.mojom.PageHandlerFactory.getRemote = function() {
     'ash.manage_mirrorsync.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -83,7 +83,7 @@ ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.manage_mirrorsync.mojom.PageHandlerFactoryPtr = ash.manage_mirrorsync.mojom.PageHandlerFactoryRemote;
@@ -151,7 +151,7 @@ ash.manage_mirrorsync.mojom.PageHandler.getRemote = function() {
     'ash.manage_mirrorsync.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetChildFolders
 ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec = {
@@ -165,7 +165,7 @@ ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec = {
   $: {
@@ -178,7 +178,7 @@ ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSyncingPaths
 ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec = {
@@ -191,7 +191,7 @@ ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec = {
   $: {
@@ -205,7 +205,7 @@ ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.manage_mirrorsync.mojom.PageHandlerPtr = ash.manage_mirrorsync.mojom.PageHandlerRemote;

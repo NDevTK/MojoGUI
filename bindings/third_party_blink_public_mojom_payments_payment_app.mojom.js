@@ -191,7 +191,7 @@ payments.mojom.PaymentManager.getRemote = function() {
     'payments.mojom.PaymentManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Init
 payments.mojom.PaymentManager_Init_ParamsSpec = {
@@ -206,7 +206,7 @@ payments.mojom.PaymentManager_Init_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeletePaymentInstrument
 payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec = {
@@ -220,7 +220,7 @@ payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec = {
   $: {
@@ -233,7 +233,7 @@ payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetPaymentInstrument
 payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec = {
@@ -247,7 +247,7 @@ payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec = {
   $: {
@@ -261,7 +261,7 @@ payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for KeysOfPaymentInstruments
 payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec = {
@@ -274,7 +274,7 @@ payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec = {
   $: {
@@ -288,7 +288,7 @@ payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for HasPaymentInstrument
 payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec = {
@@ -302,7 +302,7 @@ payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec = {
   $: {
@@ -315,7 +315,7 @@ payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPaymentInstrument
 payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec = {
@@ -330,7 +330,7 @@ payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec = {
   $: {
@@ -343,7 +343,7 @@ payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ClearPaymentInstruments
 payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec = {
@@ -356,7 +356,7 @@ payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec = {
   $: {
@@ -369,7 +369,7 @@ payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetUserHint
 payments.mojom.PaymentManager_SetUserHint_ParamsSpec = {
@@ -383,7 +383,7 @@ payments.mojom.PaymentManager_SetUserHint_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnableDelegations
 payments.mojom.PaymentManager_EnableDelegations_ParamsSpec = {
@@ -397,7 +397,7 @@ payments.mojom.PaymentManager_EnableDelegations_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec = {
   $: {
@@ -410,7 +410,7 @@ payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 payments.mojom.PaymentManagerPtr = payments.mojom.PaymentManagerRemote;
@@ -487,7 +487,7 @@ payments.mojom.PaymentHandlerResponseCallback.getRemote = function() {
     'payments.mojom.PaymentHandlerResponseCallback',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnResponseForAbortPayment
 payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec = {
@@ -501,7 +501,7 @@ payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnResponseForCanMakePayment
 payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec = {
@@ -515,7 +515,7 @@ payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnResponseForPaymentRequest
 payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec = {
@@ -529,7 +529,7 @@ payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_Params
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 payments.mojom.PaymentHandlerResponseCallbackPtr = payments.mojom.PaymentHandlerResponseCallbackRemote;

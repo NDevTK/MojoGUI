@@ -79,7 +79,7 @@ blink.mojom.ServiceWorkerFetchResponseCallback.getRemote = function() {
     'blink.mojom.ServiceWorkerFetchResponseCallback',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnResponse
 blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = {
@@ -94,7 +94,7 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnResponseStream
 blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec = {
@@ -110,7 +110,7 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFallback
 blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = {
@@ -125,7 +125,7 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.ServiceWorkerFetchResponseCallbackPtr = blink.mojom.ServiceWorkerFetchResponseCallbackRemote;

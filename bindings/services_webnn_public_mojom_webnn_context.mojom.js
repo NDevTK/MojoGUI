@@ -79,7 +79,7 @@ webnn.mojom.WebNNContext.getRemote = function() {
     'webnn.mojom.WebNNContext',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateGraphBuilder
 webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec = {
@@ -93,7 +93,7 @@ webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateTensor
 webnn.mojom.WebNNContext_CreateTensor_ParamsSpec = {
@@ -108,7 +108,7 @@ webnn.mojom.WebNNContext_CreateTensor_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec = {
   $: {
@@ -121,7 +121,7 @@ webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateTensorFromMailbox
 webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec = {
@@ -137,7 +137,7 @@ webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec = {
   $: {
@@ -150,7 +150,7 @@ webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 webnn.mojom.WebNNContextPtr = webnn.mojom.WebNNContextRemote;

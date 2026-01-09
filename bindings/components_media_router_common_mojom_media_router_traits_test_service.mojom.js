@@ -61,7 +61,7 @@ media_router.mojom.MediaRouterTraitsTestService.getRemote = function() {
     'media_router.mojom.MediaRouterTraitsTestService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EchoMediaSink
 media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec = {
@@ -75,7 +75,7 @@ media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec = {
   $: {
@@ -88,7 +88,7 @@ media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media_router.mojom.MediaRouterTraitsTestServicePtr = media_router.mojom.MediaRouterTraitsTestServiceRemote;

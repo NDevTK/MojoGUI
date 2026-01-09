@@ -58,7 +58,7 @@ chromeos.machine_learning.mojom.ImageContentAnnotator.getRemote = function() {
     'chromeos.machine_learning.mojom.ImageContentAnnotator',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.machine_learning.mojom.ImageContentAnnotatorPtr = chromeos.machine_learning.mojom.ImageContentAnnotatorRemote;

@@ -70,7 +70,7 @@ blink.mojom.EmbeddedWorkerInstanceClient.getRemote = function() {
     'blink.mojom.EmbeddedWorkerInstanceClient',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for StartWorker
 blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec = {
@@ -84,7 +84,7 @@ blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopWorker
 blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec = {
@@ -97,7 +97,7 @@ blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.EmbeddedWorkerInstanceClientPtr = blink.mojom.EmbeddedWorkerInstanceClientRemote;
@@ -228,7 +228,7 @@ blink.mojom.EmbeddedWorkerInstanceHost.getRemote = function() {
     'blink.mojom.EmbeddedWorkerInstanceHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestTermination
 blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec = {
@@ -241,7 +241,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec = {
   $: {
@@ -254,7 +254,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CountFeature
 blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec = {
@@ -268,7 +268,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReadyForInspection
 blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec = {
@@ -283,7 +283,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnScriptLoaded
 blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec = {
@@ -296,7 +296,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnScriptEvaluationStart
 blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec = {
@@ -309,7 +309,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStarted
 blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec = {
@@ -328,7 +328,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReportException
 blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec = {
@@ -345,7 +345,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnReportConsoleMessage
 blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec = {
@@ -363,7 +363,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnStopped
 blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec = {
@@ -376,7 +376,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.EmbeddedWorkerInstanceHostPtr = blink.mojom.EmbeddedWorkerInstanceHostRemote;

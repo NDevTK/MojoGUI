@@ -99,7 +99,7 @@ ash.wifi_direct.mojom.WifiDirectManager.getRemote = function() {
     'ash.wifi_direct.mojom.WifiDirectManager',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateWifiDirectGroup
 ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec = {
@@ -113,7 +113,7 @@ ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec = {
   $: {
@@ -127,7 +127,7 @@ ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ConnectToWifiDirectGroup
 ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec = {
@@ -142,7 +142,7 @@ ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec = {
   $: {
@@ -156,7 +156,7 @@ ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetWifiP2PCapabilities
 ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec = {
@@ -169,7 +169,7 @@ ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec = {
   $: {
@@ -182,7 +182,7 @@ ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpe
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.wifi_direct.mojom.WifiDirectManagerPtr = ash.wifi_direct.mojom.WifiDirectManagerRemote;
@@ -250,7 +250,7 @@ ash.wifi_direct.mojom.WifiDirectConnection.getRemote = function() {
     'ash.wifi_direct.mojom.WifiDirectConnection',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetProperties
 ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec = {
@@ -263,7 +263,7 @@ ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec = {
   $: {
@@ -276,7 +276,7 @@ ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AssociateSocket
 ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec = {
@@ -290,7 +290,7 @@ ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec = {
   $: {
@@ -303,7 +303,7 @@ ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.wifi_direct.mojom.WifiDirectConnectionPtr = ash.wifi_direct.mojom.WifiDirectConnectionRemote;

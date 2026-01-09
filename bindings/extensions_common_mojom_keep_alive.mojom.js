@@ -51,7 +51,7 @@ extensions.KeepAlive.getRemote = function() {
     'extensions.KeepAlive',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 extensions.KeepAlivePtr = extensions.KeepAliveRemote;

@@ -103,7 +103,7 @@ attribution_reporting.mojom.DataHost.getRemote = function() {
     'attribution_reporting.mojom.DataHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SourceDataAvailable
 attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec = {
@@ -119,7 +119,7 @@ attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for TriggerDataAvailable
 attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec = {
@@ -135,7 +135,7 @@ attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OsSourceDataAvailable
 attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec = {
@@ -150,7 +150,7 @@ attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OsTriggerDataAvailable
 attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec = {
@@ -165,7 +165,7 @@ attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportRegistrationHeaderError
 attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec = {
@@ -180,7 +180,7 @@ attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 attribution_reporting.mojom.DataHostPtr = attribution_reporting.mojom.DataHostRemote;

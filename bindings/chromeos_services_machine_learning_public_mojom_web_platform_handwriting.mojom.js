@@ -54,7 +54,7 @@ chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer.getRemote = f
     'chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerPtr = chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemote;

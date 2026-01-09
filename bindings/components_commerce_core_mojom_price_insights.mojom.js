@@ -71,7 +71,7 @@ commerce.price_insights.mojom.PriceInsightsHandler.getRemote = function() {
     'commerce.price_insights.mojom.PriceInsightsHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ShowSidePanelUI
 commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec = {
@@ -84,7 +84,7 @@ commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowFeedback
 commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec = {
@@ -97,7 +97,7 @@ commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 commerce.price_insights.mojom.PriceInsightsHandlerPtr = commerce.price_insights.mojom.PriceInsightsHandlerRemote;
@@ -156,7 +156,7 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactory.getRemote = function()
     'commerce.price_insights.mojom.PriceInsightsHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePriceInsightsHandler
 commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec = {
@@ -170,7 +170,7 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHan
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 commerce.price_insights.mojom.PriceInsightsHandlerFactoryPtr = commerce.price_insights.mojom.PriceInsightsHandlerFactoryRemote;

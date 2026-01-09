@@ -52,7 +52,7 @@ cros.mojom.CrosDocumentScanner.getRemote = function() {
     'cros.mojom.CrosDocumentScanner',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 cros.mojom.CrosDocumentScannerPtr = cros.mojom.CrosDocumentScannerRemote;

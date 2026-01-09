@@ -68,7 +68,7 @@ reading_list.mojom.PageHandlerFactory.getRemote = function() {
     'reading_list.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -83,7 +83,7 @@ reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 reading_list.mojom.PageHandlerFactoryPtr = reading_list.mojom.PageHandlerFactoryRemote;
@@ -232,7 +232,7 @@ reading_list.mojom.PageHandler.getRemote = function() {
     'reading_list.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetReadLaterEntries
 reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec = {
@@ -245,7 +245,7 @@ reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec = {
   $: {
@@ -258,7 +258,7 @@ reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenURL
 reading_list.mojom.PageHandler_OpenURL_ParamsSpec = {
@@ -274,7 +274,7 @@ reading_list.mojom.PageHandler_OpenURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateReadStatus
 reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec = {
@@ -289,7 +289,7 @@ reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MarkCurrentTabAsRead
 reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec = {
@@ -302,7 +302,7 @@ reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddCurrentTab
 reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec = {
@@ -315,7 +315,7 @@ reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveEntry
 reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec = {
@@ -329,7 +329,7 @@ reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowContextMenuForURL
 reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = {
@@ -345,7 +345,7 @@ reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateCurrentPageActionButtonState
 reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec = {
@@ -358,7 +358,7 @@ reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowUI
 reading_list.mojom.PageHandler_ShowUI_ParamsSpec = {
@@ -371,7 +371,7 @@ reading_list.mojom.PageHandler_ShowUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseUI
 reading_list.mojom.PageHandler_CloseUI_ParamsSpec = {
@@ -384,7 +384,7 @@ reading_list.mojom.PageHandler_CloseUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetWindowData
 reading_list.mojom.PageHandler_GetWindowData_ParamsSpec = {
@@ -397,7 +397,7 @@ reading_list.mojom.PageHandler_GetWindowData_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec = {
   $: {
@@ -410,7 +410,7 @@ reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 reading_list.mojom.PageHandlerPtr = reading_list.mojom.PageHandlerRemote;
@@ -478,7 +478,7 @@ reading_list.mojom.Page.getRemote = function() {
     'reading_list.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ItemsChanged
 reading_list.mojom.Page_ItemsChanged_ParamsSpec = {
@@ -492,7 +492,7 @@ reading_list.mojom.Page_ItemsChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CurrentPageActionButtonStateChanged
 reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec = {
@@ -506,7 +506,7 @@ reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 reading_list.mojom.PagePtr = reading_list.mojom.PageRemote;

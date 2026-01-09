@@ -79,7 +79,7 @@ file_suggestion.mojom.MicrosoftFilesPageHandler.getRemote = function() {
     'file_suggestion.mojom.MicrosoftFilesPageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetFiles
 file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec = {
@@ -92,7 +92,7 @@ file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec = {
   $: {
@@ -105,7 +105,7 @@ file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DismissModule
 file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec = {
@@ -118,7 +118,7 @@ file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RestoreModule
 file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec = {
@@ -131,7 +131,7 @@ file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 file_suggestion.mojom.MicrosoftFilesPageHandlerPtr = file_suggestion.mojom.MicrosoftFilesPageHandlerRemote;

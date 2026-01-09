@@ -61,7 +61,7 @@ data_decoder.mojom.CborParser.getRemote = function() {
     'data_decoder.mojom.CborParser',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Parse
 data_decoder.mojom.CborParser_Parse_ParamsSpec = {
@@ -75,7 +75,7 @@ data_decoder.mojom.CborParser_Parse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_decoder.mojom.CborParser_Parse_ResponseParamsSpec = {
   $: {
@@ -89,7 +89,7 @@ data_decoder.mojom.CborParser_Parse_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 data_decoder.mojom.CborParserPtr = data_decoder.mojom.CborParserRemote;

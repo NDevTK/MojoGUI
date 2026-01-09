@@ -79,7 +79,7 @@ pdf.mojom.PdfProgressiveSearchifier.getRemote = function() {
     'pdf.mojom.PdfProgressiveSearchifier',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddPage
 pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec = {
@@ -94,7 +94,7 @@ pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DeletePage
 pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec = {
@@ -108,7 +108,7 @@ pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Save
 pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec = {
@@ -121,7 +121,7 @@ pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec = {
   $: {
@@ -134,7 +134,7 @@ pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 pdf.mojom.PdfProgressiveSearchifierPtr = pdf.mojom.PdfProgressiveSearchifierRemote;

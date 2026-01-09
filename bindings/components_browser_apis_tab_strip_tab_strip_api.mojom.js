@@ -115,7 +115,7 @@ tabs_api.mojom.TabStripService.getRemote = function() {
     'tabs_api.mojom.TabStripService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetTabs
 tabs_api.mojom.TabStripService_GetTabs_ParamsSpec = {
@@ -128,7 +128,7 @@ tabs_api.mojom.TabStripService_GetTabs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTab
 tabs_api.mojom.TabStripService_GetTab_ParamsSpec = {
@@ -142,7 +142,7 @@ tabs_api.mojom.TabStripService_GetTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateTabAt
 tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec = {
@@ -157,7 +157,7 @@ tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseTabs
 tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec = {
@@ -171,7 +171,7 @@ tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ActivateTab
 tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec = {
@@ -185,7 +185,7 @@ tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSelectedTabs
 tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec = {
@@ -200,7 +200,7 @@ tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MoveNode
 tabs_api.mojom.TabStripService_MoveNode_ParamsSpec = {
@@ -215,7 +215,7 @@ tabs_api.mojom.TabStripService_MoveNode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tabs_api.mojom.TabStripServicePtr = tabs_api.mojom.TabStripServiceRemote;
@@ -274,7 +274,7 @@ tabs_api.mojom.TabsObserver.getRemote = function() {
     'tabs_api.mojom.TabsObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnTabEvents
 tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec = {
@@ -288,7 +288,7 @@ tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 tabs_api.mojom.TabsObserverPtr = tabs_api.mojom.TabsObserverRemote;

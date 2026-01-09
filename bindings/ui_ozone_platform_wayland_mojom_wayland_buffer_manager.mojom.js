@@ -107,7 +107,7 @@ ui.ozone.mojom.WaylandBufferManagerHost.getRemote = function() {
     'ui.ozone.mojom.WaylandBufferManagerHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetWaylandBufferManagerGpu
 ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec = {
@@ -121,7 +121,7 @@ ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateDmabufBasedBuffer
 ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec = {
@@ -144,7 +144,7 @@ ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateShmBasedBuffer
 ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec = {
@@ -161,7 +161,7 @@ ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateSinglePixelBuffer
 ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec = {
@@ -176,7 +176,7 @@ ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DestroyBuffer
 ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec = {
@@ -190,7 +190,7 @@ ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CommitOverlays
 ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec = {
@@ -207,7 +207,7 @@ ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ui.ozone.mojom.WaylandBufferManagerHostPtr = ui.ozone.mojom.WaylandBufferManagerHostRemote;
@@ -284,7 +284,7 @@ ui.ozone.mojom.WaylandBufferManagerGpu.getRemote = function() {
     'ui.ozone.mojom.WaylandBufferManagerGpu',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Initialize
 ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec = {
@@ -304,7 +304,7 @@ ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSubmission
 ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec = {
@@ -322,7 +322,7 @@ ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPresentation
 ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec = {
@@ -337,7 +337,7 @@ ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ui.ozone.mojom.WaylandBufferManagerGpuPtr = ui.ozone.mojom.WaylandBufferManagerGpuRemote;

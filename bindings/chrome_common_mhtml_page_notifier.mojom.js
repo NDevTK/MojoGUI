@@ -61,7 +61,7 @@ offline_pages.mojom.MhtmlPageNotifier.getRemote = function() {
     'offline_pages.mojom.MhtmlPageNotifier',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NotifyMhtmlPageLoadAttempted
 offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec = {
@@ -77,7 +77,7 @@ offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 offline_pages.mojom.MhtmlPageNotifierPtr = offline_pages.mojom.MhtmlPageNotifierRemote;

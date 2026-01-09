@@ -70,7 +70,7 @@ ai.mojom.AIPrototypingService.getRemote = function() {
     'ai.mojom.AIPrototypingService',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ExecuteServerQuery
 ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec = {
@@ -84,7 +84,7 @@ ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec = {
   $: {
@@ -98,7 +98,7 @@ ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteOnDeviceQuery
 ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec = {
@@ -112,7 +112,7 @@ ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec = {
   $: {
@@ -125,7 +125,7 @@ ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ai.mojom.AIPrototypingServicePtr = ai.mojom.AIPrototypingServiceRemote;

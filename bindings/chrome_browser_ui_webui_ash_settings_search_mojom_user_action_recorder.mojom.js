@@ -116,7 +116,7 @@ ash.settings.mojom.UserActionRecorder.getRemote = function() {
     'ash.settings.mojom.UserActionRecorder',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RecordPageFocus
 ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec = {
@@ -129,7 +129,7 @@ ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordPageBlur
 ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec = {
@@ -142,7 +142,7 @@ ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordClick
 ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec = {
@@ -155,7 +155,7 @@ ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordNavigation
 ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec = {
@@ -168,7 +168,7 @@ ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordSearch
 ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec = {
@@ -181,7 +181,7 @@ ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordSettingChange
 ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec = {
@@ -194,7 +194,7 @@ ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RecordSettingChangeWithDetails
 ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec = {
@@ -209,7 +209,7 @@ ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.settings.mojom.UserActionRecorderPtr = ash.settings.mojom.UserActionRecorderRemote;

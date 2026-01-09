@@ -61,7 +61,7 @@ new_tab_page_third_party.mojom.PageHandlerFactory.getRemote = function() {
     'new_tab_page_third_party.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 new_tab_page_third_party.mojom.PageHandlerFactoryPtr = new_tab_page_third_party.mojom.PageHandlerFactoryRemote;
@@ -135,7 +135,7 @@ new_tab_page_third_party.mojom.PageHandler.getRemote = function() {
     'new_tab_page_third_party.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for UpdateTheme
 new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec = {
@@ -148,7 +148,7 @@ new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 new_tab_page_third_party.mojom.PageHandlerPtr = new_tab_page_third_party.mojom.PageHandlerRemote;
@@ -207,7 +207,7 @@ new_tab_page_third_party.mojom.Page.getRemote = function() {
     'new_tab_page_third_party.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetTheme
 new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec = {
@@ -221,7 +221,7 @@ new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 new_tab_page_third_party.mojom.PagePtr = new_tab_page_third_party.mojom.PageRemote;

@@ -61,7 +61,7 @@ data_sharing_internals.mojom.PageHandlerFactory.getRemote = function() {
     'data_sharing_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 data_sharing_internals.mojom.PageHandlerFactoryPtr = data_sharing_internals.mojom.PageHandlerFactoryRemote;
@@ -144,7 +144,7 @@ data_sharing_internals.mojom.PageHandler.getRemote = function() {
     'data_sharing_internals.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for IsEmptyService
 data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec = {
@@ -157,7 +157,7 @@ data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec = {
   $: {
@@ -170,7 +170,7 @@ data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAllGroups
 data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec = {
@@ -183,7 +183,7 @@ data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec = {
   $: {
@@ -197,7 +197,7 @@ data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 data_sharing_internals.mojom.PageHandlerPtr = data_sharing_internals.mojom.PageHandlerRemote;
@@ -256,7 +256,7 @@ data_sharing_internals.mojom.Page.getRemote = function() {
     'data_sharing_internals.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnLogMessageAdded
 data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
@@ -274,7 +274,7 @@ data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 data_sharing_internals.mojom.PagePtr = data_sharing_internals.mojom.PageRemote;

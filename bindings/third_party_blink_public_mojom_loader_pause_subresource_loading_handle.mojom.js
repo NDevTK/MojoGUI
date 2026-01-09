@@ -52,7 +52,7 @@ blink.mojom.PauseSubresourceLoadingHandle.getRemote = function() {
     'blink.mojom.PauseSubresourceLoadingHandle',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 blink.mojom.PauseSubresourceLoadingHandlePtr = blink.mojom.PauseSubresourceLoadingHandleRemote;

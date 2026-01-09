@@ -68,7 +68,7 @@ blink.mojom.V8DetailedMemoryReporter.getRemote = function() {
     'blink.mojom.V8DetailedMemoryReporter',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetV8MemoryUsage
 blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = {
@@ -82,7 +82,7 @@ blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = {
   $: {
@@ -95,7 +95,7 @@ blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.V8DetailedMemoryReporterPtr = blink.mojom.V8DetailedMemoryReporterRemote;

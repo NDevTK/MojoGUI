@@ -67,7 +67,7 @@ metrics.mojom.CallStackProfileCollector.getRemote = function() {
     'metrics.mojom.CallStackProfileCollector',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Collect
 metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec = {
@@ -83,7 +83,7 @@ metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 metrics.mojom.CallStackProfileCollectorPtr = metrics.mojom.CallStackProfileCollectorRemote;

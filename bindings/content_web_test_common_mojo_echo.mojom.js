@@ -313,7 +313,7 @@ content.mojom.MojoEcho.getRemote = function() {
     'content.mojom.MojoEcho',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for EchoBoolFromUnion
 content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec = {
@@ -327,7 +327,7 @@ content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec = {
   $: {
@@ -340,7 +340,7 @@ content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoInt32FromUnion
 content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec = {
@@ -354,7 +354,7 @@ content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec = {
   $: {
@@ -367,7 +367,7 @@ content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoStringFromUnion
 content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec = {
@@ -381,7 +381,7 @@ content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec = {
   $: {
@@ -394,7 +394,7 @@ content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoBoolAsUnion
 content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec = {
@@ -408,7 +408,7 @@ content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec = {
   $: {
@@ -421,7 +421,7 @@ content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoInt32AsUnion
 content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec = {
@@ -435,7 +435,7 @@ content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec = {
   $: {
@@ -448,7 +448,7 @@ content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoStringAsUnion
 content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec = {
@@ -462,7 +462,7 @@ content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec = {
   $: {
@@ -475,7 +475,7 @@ content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoNullFromOptionalUnion
 content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec = {
@@ -489,7 +489,7 @@ content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoBoolFromOptionalUnion
 content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec = {
@@ -503,7 +503,7 @@ content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec = {
   $: {
@@ -516,7 +516,7 @@ content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoInt32FromOptionalUnion
 content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec = {
@@ -530,7 +530,7 @@ content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec = {
   $: {
@@ -543,7 +543,7 @@ content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoStringFromOptionalUnion
 content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec = {
@@ -557,7 +557,7 @@ content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec = {
   $: {
@@ -570,7 +570,7 @@ content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoNullAsOptionalUnion
 content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec = {
@@ -583,7 +583,7 @@ content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec = {
   $: {
@@ -596,7 +596,7 @@ content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoBoolAsOptionalUnion
 content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec = {
@@ -610,7 +610,7 @@ content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec = {
   $: {
@@ -623,7 +623,7 @@ content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoInt32AsOptionalUnion
 content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec = {
@@ -637,7 +637,7 @@ content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec = {
   $: {
@@ -650,7 +650,7 @@ content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoStringAsOptionalUnion
 content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec = {
@@ -664,7 +664,7 @@ content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec = {
   $: {
@@ -677,7 +677,7 @@ content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoInt8FromNestedUnion
 content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec = {
@@ -691,7 +691,7 @@ content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec = {
   $: {
@@ -704,7 +704,7 @@ content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoBoolFromNestedUnion
 content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec = {
@@ -718,7 +718,7 @@ content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec = {
   $: {
@@ -731,7 +731,7 @@ content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoStringFromNestedUnion
 content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec = {
@@ -745,7 +745,7 @@ content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec = {
   $: {
@@ -758,7 +758,7 @@ content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoInt8AsNestedUnion
 content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec = {
@@ -772,7 +772,7 @@ content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec = {
   $: {
@@ -785,7 +785,7 @@ content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoBoolAsNestedUnion
 content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec = {
@@ -799,7 +799,7 @@ content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec = {
   $: {
@@ -812,7 +812,7 @@ content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoStringAsNestedUnion
 content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec = {
@@ -826,7 +826,7 @@ content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec = {
   $: {
@@ -839,7 +839,7 @@ content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoNullFromOptionalNestedUnion
 content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec = {
@@ -853,7 +853,7 @@ content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoInt8FromOptionalNestedUnion
 content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec = {
@@ -867,7 +867,7 @@ content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec = {
   $: {
@@ -880,7 +880,7 @@ content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoBoolFromOptionalNestedUnion
 content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec = {
@@ -894,7 +894,7 @@ content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec = {
   $: {
@@ -907,7 +907,7 @@ content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoStringFromOptionalNestedUnion
 content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec = {
@@ -921,7 +921,7 @@ content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec = {
   $: {
@@ -934,7 +934,7 @@ content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoNullAsOptionalNestedUnion
 content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec = {
@@ -947,7 +947,7 @@ content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec = {
   $: {
@@ -960,7 +960,7 @@ content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoInt8AsOptionalNestedUnion
 content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec = {
@@ -974,7 +974,7 @@ content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec = {
   $: {
@@ -987,7 +987,7 @@ content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoBoolAsOptionalNestedUnion
 content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec = {
@@ -1001,7 +1001,7 @@ content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec = {
   $: {
@@ -1014,7 +1014,7 @@ content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoStringAsOptionalNestedUnion
 content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec = {
@@ -1028,7 +1028,7 @@ content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec = {
   $: {
@@ -1041,7 +1041,7 @@ content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EchoBoolArray
 content.mojom.MojoEcho_EchoBoolArray_ParamsSpec = {
@@ -1055,7 +1055,7 @@ content.mojom.MojoEcho_EchoBoolArray_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec = {
   $: {
@@ -1068,7 +1068,7 @@ content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 content.mojom.MojoEchoPtr = content.mojom.MojoEchoRemote;

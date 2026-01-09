@@ -74,7 +74,7 @@ arc.mojom.FileSystemHost.getRemote = function() {
     'arc.mojom.FileSystemHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.FileSystemHostPtr = arc.mojom.FileSystemHostRemote;
@@ -124,7 +124,7 @@ arc.mojom.FileSystemInstance.getRemote = function() {
     'arc.mojom.FileSystemInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.FileSystemInstancePtr = arc.mojom.FileSystemInstanceRemote;

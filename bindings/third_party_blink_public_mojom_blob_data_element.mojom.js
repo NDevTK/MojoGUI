@@ -79,7 +79,7 @@ blink.mojom.BytesProvider.getRemote = function() {
     'blink.mojom.BytesProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestAsReply
 blink.mojom.BytesProvider_RequestAsReply_ParamsSpec = {
@@ -92,7 +92,7 @@ blink.mojom.BytesProvider_RequestAsReply_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec = {
   $: {
@@ -105,7 +105,7 @@ blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestAsStream
 blink.mojom.BytesProvider_RequestAsStream_ParamsSpec = {
@@ -119,7 +119,7 @@ blink.mojom.BytesProvider_RequestAsStream_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestAsFile
 blink.mojom.BytesProvider_RequestAsFile_ParamsSpec = {
@@ -136,7 +136,7 @@ blink.mojom.BytesProvider_RequestAsFile_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec = {
   $: {
@@ -149,7 +149,7 @@ blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BytesProviderPtr = blink.mojom.BytesProviderRemote;

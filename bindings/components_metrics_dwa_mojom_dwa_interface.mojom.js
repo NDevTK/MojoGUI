@@ -53,7 +53,7 @@ metrics.dwa.mojom.DwaRecorderClientInterface.getRemote = function() {
     'metrics.dwa.mojom.DwaRecorderClientInterface',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 metrics.dwa.mojom.DwaRecorderClientInterfacePtr = metrics.dwa.mojom.DwaRecorderClientInterfaceRemote;
@@ -112,7 +112,7 @@ metrics.dwa.mojom.DwaRecorderInterface.getRemote = function() {
     'metrics.dwa.mojom.DwaRecorderInterface',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AddEntry
 metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = {
@@ -126,7 +126,7 @@ metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 metrics.dwa.mojom.DwaRecorderInterfacePtr = metrics.dwa.mojom.DwaRecorderInterfaceRemote;
@@ -185,7 +185,7 @@ metrics.dwa.mojom.DwaRecorderFactory.getRemote = function() {
     'metrics.dwa.mojom.DwaRecorderFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateDwaRecorder
 metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = {
@@ -200,7 +200,7 @@ metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 metrics.dwa.mojom.DwaRecorderFactoryPtr = metrics.dwa.mojom.DwaRecorderFactoryRemote;

@@ -61,7 +61,7 @@ blink.mojom.FileSystemAccessAccessHandleHost.getRemote = function() {
     'blink.mojom.FileSystemAccessAccessHandleHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Close
 blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec = {
@@ -74,7 +74,7 @@ blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FileSystemAccessAccessHandleHostPtr = blink.mojom.FileSystemAccessAccessHandleHostRemote;

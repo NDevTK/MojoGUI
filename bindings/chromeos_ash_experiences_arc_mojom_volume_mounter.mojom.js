@@ -65,7 +65,7 @@ arc.mojom.VolumeMounterHost.getRemote = function() {
     'arc.mojom.VolumeMounterHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.VolumeMounterHostPtr = arc.mojom.VolumeMounterHostRemote;
@@ -115,7 +115,7 @@ arc.mojom.VolumeMounterInstance.getRemote = function() {
     'arc.mojom.VolumeMounterInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.VolumeMounterInstancePtr = arc.mojom.VolumeMounterInstanceRemote;

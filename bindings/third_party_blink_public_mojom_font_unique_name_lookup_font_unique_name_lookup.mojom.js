@@ -70,7 +70,7 @@ blink.mojom.FontUniqueNameLookup.getRemote = function() {
     'blink.mojom.FontUniqueNameLookup',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetUniqueNameLookupTableIfAvailable
 blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec = {
@@ -83,7 +83,7 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec = {
   $: {
@@ -97,7 +97,7 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetUniqueNameLookupTable
 blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec = {
@@ -110,7 +110,7 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
   $: {
@@ -123,7 +123,7 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.FontUniqueNameLookupPtr = blink.mojom.FontUniqueNameLookupRemote;

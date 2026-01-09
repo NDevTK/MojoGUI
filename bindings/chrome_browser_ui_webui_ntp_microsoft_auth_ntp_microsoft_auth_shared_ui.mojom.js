@@ -85,7 +85,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocument.getRemote = function() {
     'new_tab_page.mojom.MicrosoftAuthUntrustedDocument',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for AcquireTokenPopup
 new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec = {
@@ -98,7 +98,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AcquireTokenSilent
 new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec = {
@@ -111,7 +111,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SignOut
 new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec = {
@@ -124,7 +124,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPtr = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote;

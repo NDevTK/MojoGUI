@@ -52,7 +52,7 @@ crosapi.mojom.GuestOsSkForwarderFactory.getRemote = function() {
     'crosapi.mojom.GuestOsSkForwarderFactory',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.GuestOsSkForwarderFactoryPtr = crosapi.mojom.GuestOsSkForwarderFactoryRemote;
@@ -102,7 +102,7 @@ crosapi.mojom.GuestOsSkForwarder.getRemote = function() {
     'crosapi.mojom.GuestOsSkForwarder',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 crosapi.mojom.GuestOsSkForwarderPtr = crosapi.mojom.GuestOsSkForwarderRemote;

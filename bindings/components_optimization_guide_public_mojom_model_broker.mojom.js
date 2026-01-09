@@ -102,7 +102,7 @@ optimization_guide.mojom.ModelSolution.getRemote = function() {
     'optimization_guide.mojom.ModelSolution',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateSession
 optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec = {
@@ -117,7 +117,7 @@ optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateTextSafetySession
 optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec = {
@@ -131,7 +131,7 @@ optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReportHealthyCompletion
 optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec = {
@@ -144,7 +144,7 @@ optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 optimization_guide.mojom.ModelSolutionPtr = optimization_guide.mojom.ModelSolutionRemote;
@@ -212,7 +212,7 @@ optimization_guide.mojom.ModelSubscriber.getRemote = function() {
     'optimization_guide.mojom.ModelSubscriber',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Unavailable
 optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec = {
@@ -226,7 +226,7 @@ optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Available
 optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec = {
@@ -241,7 +241,7 @@ optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 optimization_guide.mojom.ModelSubscriberPtr = optimization_guide.mojom.ModelSubscriberRemote;
@@ -300,7 +300,7 @@ optimization_guide.mojom.ModelBroker.getRemote = function() {
     'optimization_guide.mojom.ModelBroker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Subscribe
 optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec = {
@@ -315,7 +315,7 @@ optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 optimization_guide.mojom.ModelBrokerPtr = optimization_guide.mojom.ModelBrokerRemote;

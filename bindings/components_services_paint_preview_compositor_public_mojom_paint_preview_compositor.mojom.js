@@ -112,7 +112,7 @@ paint_preview.mojom.PaintPreviewCompositor.getRemote = function() {
     'paint_preview.mojom.PaintPreviewCompositor',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for BeginSeparatedFrameComposite
 paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec = {
@@ -126,7 +126,7 @@ paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSp
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec = {
   $: {
@@ -140,7 +140,7 @@ paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_Response
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BitmapForSeparatedFrame
 paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec = {
@@ -156,7 +156,7 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec = {
   $: {
@@ -170,7 +170,7 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BeginMainFrameComposite
 paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec = {
@@ -184,7 +184,7 @@ paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec = {
   $: {
@@ -198,7 +198,7 @@ paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParam
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for BitmapForMainFrame
 paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec = {
@@ -213,7 +213,7 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec = {
   $: {
@@ -227,7 +227,7 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetRootFrameUrl
 paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec = {
@@ -241,7 +241,7 @@ paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 paint_preview.mojom.PaintPreviewCompositorPtr = paint_preview.mojom.PaintPreviewCompositorRemote;
@@ -318,7 +318,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection.getRemote = function() {
     'paint_preview.mojom.PaintPreviewCompositorCollection',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetDiscardableSharedMemoryManager
 paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec = {
@@ -332,7 +332,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryM
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateCompositor
 paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec = {
@@ -346,7 +346,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec = {
   $: {
@@ -359,7 +359,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponsePa
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ListCompositors
 paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec = {
@@ -372,7 +372,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec = {
   $: {
@@ -385,7 +385,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponsePar
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 paint_preview.mojom.PaintPreviewCompositorCollectionPtr = paint_preview.mojom.PaintPreviewCompositorCollectionRemote;

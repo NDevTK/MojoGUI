@@ -89,7 +89,7 @@ webui_browser.mojom.PageHandlerFactory.getRemote = function() {
     'webui_browser.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -104,7 +104,7 @@ webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetTabStripInset
 webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec = {
@@ -117,7 +117,7 @@ webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec = {
   $: {
@@ -130,7 +130,7 @@ webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 webui_browser.mojom.PageHandlerFactoryPtr = webui_browser.mojom.PageHandlerFactoryRemote;
@@ -225,7 +225,7 @@ webui_browser.mojom.Page.getRemote = function() {
     'webui_browser.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetFocusToLocationBar
 webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec = {
@@ -239,7 +239,7 @@ webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetReloadStopState
 webui_browser.mojom.Page_SetReloadStopState_ParamsSpec = {
@@ -253,7 +253,7 @@ webui_browser.mojom.Page_SetReloadStopState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowSidePanel
 webui_browser.mojom.Page_ShowSidePanel_ParamsSpec = {
@@ -268,7 +268,7 @@ webui_browser.mojom.Page_ShowSidePanel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CloseSidePanel
 webui_browser.mojom.Page_CloseSidePanel_ParamsSpec = {
@@ -281,7 +281,7 @@ webui_browser.mojom.Page_CloseSidePanel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFullscreenModeChanged
 webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec = {
@@ -296,7 +296,7 @@ webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 webui_browser.mojom.PagePtr = webui_browser.mojom.PageRemote;
@@ -445,7 +445,7 @@ webui_browser.mojom.PageHandler.getRemote = function() {
     'webui_browser.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetGuestIdForTabId
 webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec = {
@@ -460,7 +460,7 @@ webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec = {
   $: {
@@ -473,7 +473,7 @@ webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LoadTabSearch
 webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec = {
@@ -486,7 +486,7 @@ webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec = {
   $: {
@@ -499,7 +499,7 @@ webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowTabSearchBubble
 webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec = {
@@ -513,7 +513,7 @@ webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenAppMenu
 webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec = {
@@ -526,7 +526,7 @@ webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenProfileMenu
 webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec = {
@@ -539,7 +539,7 @@ webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for LaunchDevToolsForBrowser
 webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec = {
@@ -552,7 +552,7 @@ webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnSidePanelClosed
 webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec = {
@@ -565,7 +565,7 @@ webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Minimize
 webui_browser.mojom.PageHandler_Minimize_ParamsSpec = {
@@ -578,7 +578,7 @@ webui_browser.mojom.PageHandler_Minimize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Maximize
 webui_browser.mojom.PageHandler_Maximize_ParamsSpec = {
@@ -591,7 +591,7 @@ webui_browser.mojom.PageHandler_Maximize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Restore
 webui_browser.mojom.PageHandler_Restore_ParamsSpec = {
@@ -604,7 +604,7 @@ webui_browser.mojom.PageHandler_Restore_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Close
 webui_browser.mojom.PageHandler_Close_ParamsSpec = {
@@ -617,7 +617,7 @@ webui_browser.mojom.PageHandler_Close_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 webui_browser.mojom.PageHandlerPtr = webui_browser.mojom.PageHandlerRemote;
@@ -748,7 +748,7 @@ webui_browser.mojom.GuestHandler.getRemote = function() {
     'webui_browser.mojom.GuestHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Navigate
 webui_browser.mojom.GuestHandler_Navigate_ParamsSpec = {
@@ -762,7 +762,7 @@ webui_browser.mojom.GuestHandler_Navigate_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CanGoBack
 webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec = {
@@ -775,7 +775,7 @@ webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec = {
   $: {
@@ -788,7 +788,7 @@ webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GoBack
 webui_browser.mojom.GuestHandler_GoBack_ParamsSpec = {
@@ -801,7 +801,7 @@ webui_browser.mojom.GuestHandler_GoBack_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CanGoForward
 webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec = {
@@ -814,7 +814,7 @@ webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec = {
   $: {
@@ -827,7 +827,7 @@ webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GoForward
 webui_browser.mojom.GuestHandler_GoForward_ParamsSpec = {
@@ -840,7 +840,7 @@ webui_browser.mojom.GuestHandler_GoForward_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Reload
 webui_browser.mojom.GuestHandler_Reload_ParamsSpec = {
@@ -853,7 +853,7 @@ webui_browser.mojom.GuestHandler_Reload_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for StopLoading
 webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec = {
@@ -866,7 +866,7 @@ webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenPageInfoMenu
 webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec = {
@@ -879,7 +879,7 @@ webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetSecurityIcon
 webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec = {
@@ -892,7 +892,7 @@ webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec = {
   $: {
@@ -905,7 +905,7 @@ webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 webui_browser.mojom.GuestHandlerPtr = webui_browser.mojom.GuestHandlerRemote;

@@ -76,7 +76,7 @@ ash.diagnostics.mojom.BatteryChargeStatusObserver.getRemote = function() {
     'ash.diagnostics.mojom.BatteryChargeStatusObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnBatteryChargeStatusUpdated
 ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec = {
@@ -90,7 +90,7 @@ ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_P
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.BatteryChargeStatusObserverPtr = ash.diagnostics.mojom.BatteryChargeStatusObserverRemote;
@@ -149,7 +149,7 @@ ash.diagnostics.mojom.BatteryHealthObserver.getRemote = function() {
     'ash.diagnostics.mojom.BatteryHealthObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnBatteryHealthUpdated
 ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec = {
@@ -163,7 +163,7 @@ ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec = 
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.BatteryHealthObserverPtr = ash.diagnostics.mojom.BatteryHealthObserverRemote;
@@ -222,7 +222,7 @@ ash.diagnostics.mojom.MemoryUsageObserver.getRemote = function() {
     'ash.diagnostics.mojom.MemoryUsageObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnMemoryUsageUpdated
 ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec = {
@@ -236,7 +236,7 @@ ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.MemoryUsageObserverPtr = ash.diagnostics.mojom.MemoryUsageObserverRemote;
@@ -295,7 +295,7 @@ ash.diagnostics.mojom.CpuUsageObserver.getRemote = function() {
     'ash.diagnostics.mojom.CpuUsageObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnCpuUsageUpdated
 ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec = {
@@ -309,7 +309,7 @@ ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.CpuUsageObserverPtr = ash.diagnostics.mojom.CpuUsageObserverRemote;
@@ -413,7 +413,7 @@ ash.diagnostics.mojom.SystemDataProvider.getRemote = function() {
     'ash.diagnostics.mojom.SystemDataProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetSystemInfo
 ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec = {
@@ -426,7 +426,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec = {
   $: {
@@ -439,7 +439,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetBatteryInfo
 ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec = {
@@ -452,7 +452,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec = {
   $: {
@@ -465,7 +465,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveBatteryChargeStatus
 ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec = {
@@ -479,7 +479,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec =
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveBatteryHealth
 ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec = {
@@ -493,7 +493,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveMemoryUsage
 ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec = {
@@ -507,7 +507,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ObserveCpuUsage
 ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec = {
@@ -521,7 +521,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 ash.diagnostics.mojom.SystemDataProviderPtr = ash.diagnostics.mojom.SystemDataProviderRemote;

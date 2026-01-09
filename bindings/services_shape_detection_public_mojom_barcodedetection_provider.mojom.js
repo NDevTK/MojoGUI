@@ -70,7 +70,7 @@ shape_detection.mojom.BarcodeDetectionProvider.getRemote = function() {
     'shape_detection.mojom.BarcodeDetectionProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateBarcodeDetection
 shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec = {
@@ -85,7 +85,7 @@ shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for EnumerateSupportedFormats
 shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec = {
@@ -98,7 +98,7 @@ shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec = {
   $: {
@@ -111,7 +111,7 @@ shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_Respons
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 shape_detection.mojom.BarcodeDetectionProviderPtr = shape_detection.mojom.BarcodeDetectionProviderRemote;

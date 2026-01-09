@@ -62,7 +62,7 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserver.getRemote = function() {
     'chromecast.shell.mojom.CastDemoVolumeChangeObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for VolumeChanged
 chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec = {
@@ -76,7 +76,7 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.shell.mojom.CastDemoVolumeChangeObserverPtr = chromecast.shell.mojom.CastDemoVolumeChangeObserverRemote;
@@ -243,7 +243,7 @@ chromecast.shell.mojom.CastDemo.getRemote = function() {
     'chromecast.shell.mojom.CastDemo',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RecordEvent
 chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec = {
@@ -258,7 +258,7 @@ chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetRetailerName
 chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec = {
@@ -272,7 +272,7 @@ chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetStoreId
 chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec = {
@@ -286,7 +286,7 @@ chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetRetailerName
 chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec = {
@@ -299,7 +299,7 @@ chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec = {
   $: {
@@ -312,7 +312,7 @@ chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetStoreId
 chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec = {
@@ -325,7 +325,7 @@ chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec = {
   $: {
@@ -338,7 +338,7 @@ chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetDefaultVolumeLevel
 chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec = {
@@ -352,7 +352,7 @@ chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDefaultVolumeLevel
 chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec = {
@@ -365,7 +365,7 @@ chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec = {
   $: {
@@ -378,7 +378,7 @@ chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ApplyDefaultVolume
 chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec = {
@@ -391,7 +391,7 @@ chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetWifiCredentials
 chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec = {
@@ -406,7 +406,7 @@ chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAvailableWifiNetworks
 chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec = {
@@ -419,7 +419,7 @@ chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec = {
   $: {
@@ -432,7 +432,7 @@ chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetConnectionStatus
 chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec = {
@@ -445,7 +445,7 @@ chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec = {
   $: {
@@ -458,7 +458,7 @@ chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddVolumeChangeObserver
 chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec = {
@@ -472,7 +472,7 @@ chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for PersistLocalStorage
 chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec = {
@@ -485,7 +485,7 @@ chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 chromecast.shell.mojom.CastDemoPtr = chromecast.shell.mojom.CastDemoRemote;

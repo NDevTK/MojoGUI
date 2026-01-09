@@ -142,7 +142,7 @@ extensions.mojom.LocalFrame.getRemote = function() {
     'extensions.mojom.LocalFrame',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for SetFrameName
 extensions.mojom.LocalFrame_SetFrameName_ParamsSpec = {
@@ -156,7 +156,7 @@ extensions.mojom.LocalFrame_SetFrameName_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetSpatialNavigationEnabled
 extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec = {
@@ -170,7 +170,7 @@ extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetTabId
 extensions.mojom.LocalFrame_SetTabId_ParamsSpec = {
@@ -184,7 +184,7 @@ extensions.mojom.LocalFrame_SetTabId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AppWindowClosed
 extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec = {
@@ -198,7 +198,7 @@ extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NotifyRenderViewType
 extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec = {
@@ -212,7 +212,7 @@ extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MessageInvoke
 extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec = {
@@ -229,7 +229,7 @@ extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteCode
 extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec = {
@@ -243,7 +243,7 @@ extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec = {
   $: {
@@ -258,7 +258,7 @@ extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ExecuteDeclarativeScript
 extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec = {
@@ -275,7 +275,7 @@ extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for UpdateBrowserWindowId
 extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec = {
@@ -289,7 +289,7 @@ extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DispatchOnConnect
 extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec = {
@@ -309,7 +309,7 @@ extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec = {
   $: {
@@ -322,7 +322,7 @@ extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mojom.LocalFramePtr = extensions.mojom.LocalFrameRemote;
@@ -489,7 +489,7 @@ extensions.mojom.LocalFrameHost.getRemote = function() {
     'extensions.mojom.LocalFrameHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestScriptInjectionPermission
 extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec = {
@@ -505,7 +505,7 @@ extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec = {
   $: {
@@ -518,7 +518,7 @@ extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsS
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetAppInstallState
 extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec = {
@@ -532,7 +532,7 @@ extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec = {
   $: {
@@ -545,7 +545,7 @@ extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Request
 extensions.mojom.LocalFrameHost_Request_ParamsSpec = {
@@ -559,7 +559,7 @@ extensions.mojom.LocalFrameHost_Request_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec = {
   $: {
@@ -575,7 +575,7 @@ extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResponseAck
 extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec = {
@@ -589,7 +589,7 @@ extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for WatchedPageChange
 extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec = {
@@ -603,7 +603,7 @@ extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DetailedConsoleMessageAdded
 extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec = {
@@ -620,7 +620,7 @@ extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ContentScriptsExecuting
 extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec = {
@@ -635,7 +635,7 @@ extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for IncrementLazyKeepaliveCount
 extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec = {
@@ -648,7 +648,7 @@ extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DecrementLazyKeepaliveCount
 extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec = {
@@ -661,7 +661,7 @@ extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AppWindowReady
 extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec = {
@@ -674,7 +674,7 @@ extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenChannelToExtension
 extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec = {
@@ -693,7 +693,7 @@ extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenChannelToNativeApp
 extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec = {
@@ -710,7 +710,7 @@ extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OpenChannelToTab
 extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec = {
@@ -731,7 +731,7 @@ extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions.mojom.LocalFrameHostPtr = extensions.mojom.LocalFrameHostRemote;

@@ -61,7 +61,7 @@ extensions_bar.mojom.PageHandlerFactory.getRemote = function() {
     'extensions_bar.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions_bar.mojom.PageHandlerFactoryPtr = extensions_bar.mojom.PageHandlerFactoryRemote;
@@ -153,7 +153,7 @@ extensions_bar.mojom.PageHandler.getRemote = function() {
     'extensions_bar.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ExecuteUserAction
 extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec = {
@@ -167,7 +167,7 @@ extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ShowContextMenu
 extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
@@ -182,7 +182,7 @@ extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ToggleExtensionsMenuFromWebUI
 extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec = {
@@ -195,7 +195,7 @@ extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions_bar.mojom.PageHandlerPtr = extensions_bar.mojom.PageHandlerRemote;
@@ -272,7 +272,7 @@ extensions_bar.mojom.Page.getRemote = function() {
     'extensions_bar.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ActionsAddedOrUpdated
 extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec = {
@@ -286,7 +286,7 @@ extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ActionRemoved
 extensions_bar.mojom.Page_ActionRemoved_ParamsSpec = {
@@ -300,7 +300,7 @@ extensions_bar.mojom.Page_ActionRemoved_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ActionPoppedOut
 extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec = {
@@ -313,7 +313,7 @@ extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 extensions_bar.mojom.PagePtr = extensions_bar.mojom.PageRemote;

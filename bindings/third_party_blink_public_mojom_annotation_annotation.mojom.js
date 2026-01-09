@@ -76,7 +76,7 @@ blink.mojom.AnnotationAgent.getRemote = function() {
     'blink.mojom.AnnotationAgent',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for ScrollIntoView
 blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec = {
@@ -90,7 +90,7 @@ blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AnnotationAgentPtr = blink.mojom.AnnotationAgentRemote;
@@ -149,7 +149,7 @@ blink.mojom.AnnotationAgentHost.getRemote = function() {
     'blink.mojom.AnnotationAgentHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for DidFinishAttachment
 blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec = {
@@ -164,7 +164,7 @@ blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AnnotationAgentHostPtr = blink.mojom.AnnotationAgentHostRemote;
@@ -241,7 +241,7 @@ blink.mojom.AnnotationAgentContainer.getRemote = function() {
     'blink.mojom.AnnotationAgentContainer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreateAgent
 blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec = {
@@ -259,7 +259,7 @@ blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CreateAgentFromSelection
 blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec = {
@@ -273,7 +273,7 @@ blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec = {
   $: {
@@ -288,7 +288,7 @@ blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RemoveAgentsOfType
 blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec = {
@@ -302,7 +302,7 @@ blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AnnotationAgentContainerPtr = blink.mojom.AnnotationAgentContainerRemote;

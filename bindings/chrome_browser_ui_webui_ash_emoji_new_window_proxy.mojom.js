@@ -61,7 +61,7 @@ new_window_proxy.mojom.NewWindowProxy.getRemote = function() {
     'new_window_proxy.mojom.NewWindowProxy',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OpenUrl
 new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec = {
@@ -75,7 +75,7 @@ new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 new_window_proxy.mojom.NewWindowProxyPtr = new_window_proxy.mojom.NewWindowProxyRemote;

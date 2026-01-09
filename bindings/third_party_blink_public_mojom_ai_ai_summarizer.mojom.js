@@ -91,7 +91,7 @@ blink.mojom.AISummarizer.getRemote = function() {
     'blink.mojom.AISummarizer',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Summarize
 blink.mojom.AISummarizer_Summarize_ParamsSpec = {
@@ -107,7 +107,7 @@ blink.mojom.AISummarizer_Summarize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for MeasureUsage
 blink.mojom.AISummarizer_MeasureUsage_ParamsSpec = {
@@ -122,7 +122,7 @@ blink.mojom.AISummarizer_MeasureUsage_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec = {
   $: {
@@ -135,7 +135,7 @@ blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.AISummarizerPtr = blink.mojom.AISummarizerRemote;

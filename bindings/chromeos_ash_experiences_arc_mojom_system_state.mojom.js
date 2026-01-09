@@ -52,7 +52,7 @@ arc.mojom.SystemStateHost.getRemote = function() {
     'arc.mojom.SystemStateHost',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.SystemStateHostPtr = arc.mojom.SystemStateHostRemote;
@@ -102,7 +102,7 @@ arc.mojom.SystemStateInstance.getRemote = function() {
     'arc.mojom.SystemStateInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 arc.mojom.SystemStateInstancePtr = arc.mojom.SystemStateInstanceRemote;

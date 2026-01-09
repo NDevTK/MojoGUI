@@ -61,7 +61,7 @@ omnibox_popup_aim.mojom.PageHandlerFactory.getRemote = function() {
     'omnibox_popup_aim.mojom.PageHandlerFactory',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for CreatePageHandler
 omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
@@ -76,7 +76,7 @@ omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 omnibox_popup_aim.mojom.PageHandlerFactoryPtr = omnibox_popup_aim.mojom.PageHandlerFactoryRemote;
@@ -144,7 +144,7 @@ omnibox_popup_aim.mojom.PageHandler.getRemote = function() {
     'omnibox_popup_aim.mojom.PageHandler',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestClose
 omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec = {
@@ -157,7 +157,7 @@ omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for NavigateCurrentTab
 omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec = {
@@ -171,7 +171,7 @@ omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 omnibox_popup_aim.mojom.PageHandlerPtr = omnibox_popup_aim.mojom.PageHandlerRemote;
@@ -257,7 +257,7 @@ omnibox_popup_aim.mojom.Page.getRemote = function() {
     'omnibox_popup_aim.mojom.Page',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnPopupShown
 omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec = {
@@ -271,7 +271,7 @@ omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for AddContext
 omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec = {
@@ -285,7 +285,7 @@ omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnPopupHidden
 omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec = {
@@ -298,7 +298,7 @@ omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec = {
   $: {
@@ -311,7 +311,7 @@ omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SetPreserveContextOnClose
 omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec = {
@@ -325,7 +325,7 @@ omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 omnibox_popup_aim.mojom.PagePtr = omnibox_popup_aim.mojom.PageRemote;

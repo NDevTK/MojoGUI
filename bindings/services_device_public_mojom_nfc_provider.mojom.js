@@ -79,7 +79,7 @@ device.mojom.NFCProvider.getRemote = function() {
     'device.mojom.NFCProvider',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetNFCForHost
 device.mojom.NFCProvider_GetNFCForHost_ParamsSpec = {
@@ -94,7 +94,7 @@ device.mojom.NFCProvider_GetNFCForHost_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for SuspendNFCOperations
 device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec = {
@@ -107,7 +107,7 @@ device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ResumeNFCOperations
 device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec = {
@@ -120,7 +120,7 @@ device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 device.mojom.NFCProviderPtr = device.mojom.NFCProviderRemote;

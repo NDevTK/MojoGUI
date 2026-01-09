@@ -53,7 +53,7 @@ chromeos.payments.mojom.PaymentAppInstance.getRemote = function() {
     'chromeos.payments.mojom.PaymentAppInstance',
     'context');
   return remote.$;
-}};
+};
 
 // Legacy compatibility
 chromeos.payments.mojom.PaymentAppInstancePtr = chromeos.payments.mojom.PaymentAppInstanceRemote;

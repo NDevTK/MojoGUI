@@ -115,7 +115,7 @@ media.mojom.VideoCaptureObserver.getRemote = function() {
     'media.mojom.VideoCaptureObserver',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for OnStateChanged
 media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec = {
@@ -129,7 +129,7 @@ media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNewBuffer
 media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec = {
@@ -144,7 +144,7 @@ media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBufferReady
 media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec = {
@@ -158,7 +158,7 @@ media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnBufferDestroyed
 media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec = {
@@ -172,7 +172,7 @@ media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnFrameDropped
 media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec = {
@@ -186,7 +186,7 @@ media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnNewCaptureVersion
 media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec = {
@@ -200,7 +200,7 @@ media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.VideoCaptureObserverPtr = media.mojom.VideoCaptureObserverRemote;
@@ -331,7 +331,7 @@ media.mojom.VideoCaptureHost.getRemote = function() {
     'media.mojom.VideoCaptureHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Start
 media.mojom.VideoCaptureHost_Start_ParamsSpec = {
@@ -348,7 +348,7 @@ media.mojom.VideoCaptureHost_Start_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Stop
 media.mojom.VideoCaptureHost_Stop_ParamsSpec = {
@@ -362,7 +362,7 @@ media.mojom.VideoCaptureHost_Stop_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Pause
 media.mojom.VideoCaptureHost_Pause_ParamsSpec = {
@@ -376,7 +376,7 @@ media.mojom.VideoCaptureHost_Pause_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for Resume
 media.mojom.VideoCaptureHost_Resume_ParamsSpec = {
@@ -392,7 +392,7 @@ media.mojom.VideoCaptureHost_Resume_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestRefreshFrame
 media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec = {
@@ -406,7 +406,7 @@ media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for ReleaseBuffer
 media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec = {
@@ -422,7 +422,7 @@ media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDeviceSupportedFormats
 media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec = {
@@ -437,7 +437,7 @@ media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec = {
   $: {
@@ -450,7 +450,7 @@ media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for GetDeviceFormatsInUse
 media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec = {
@@ -465,7 +465,7 @@ media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec = {
   $: {
@@ -478,7 +478,7 @@ media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for OnLog
 media.mojom.VideoCaptureHost_OnLog_ParamsSpec = {
@@ -493,7 +493,7 @@ media.mojom.VideoCaptureHost_OnLog_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 media.mojom.VideoCaptureHostPtr = media.mojom.VideoCaptureHostRemote;

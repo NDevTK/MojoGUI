@@ -61,7 +61,7 @@ blink.mojom.BrowserInterfaceBroker.getRemote = function() {
     'blink.mojom.BrowserInterfaceBroker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for GetInterface
 blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec = {
@@ -75,7 +75,7 @@ blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 blink.mojom.BrowserInterfaceBrokerPtr = blink.mojom.BrowserInterfaceBrokerRemote;

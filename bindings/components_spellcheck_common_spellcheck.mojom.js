@@ -76,7 +76,7 @@ spellcheck.mojom.SpellChecker.getRemote = function() {
     'spellcheck.mojom.SpellChecker',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for Initialize
 spellcheck.mojom.SpellChecker_Initialize_ParamsSpec = {
@@ -92,7 +92,7 @@ spellcheck.mojom.SpellChecker_Initialize_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CustomDictionaryChanged
 spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec = {
@@ -107,7 +107,7 @@ spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 spellcheck.mojom.SpellCheckerPtr = spellcheck.mojom.SpellCheckerRemote;
@@ -166,7 +166,7 @@ spellcheck.mojom.SpellCheckInitializationHost.getRemote = function() {
     'spellcheck.mojom.SpellCheckInitializationHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for RequestDictionary
 spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec = {
@@ -179,7 +179,7 @@ spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 spellcheck.mojom.SpellCheckInitializationHostPtr = spellcheck.mojom.SpellCheckInitializationHostRemote;
@@ -292,7 +292,7 @@ spellcheck.mojom.SpellCheckHost.getRemote = function() {
     'spellcheck.mojom.SpellCheckHost',
     'context');
   return remote.$;
-}};
+};
 
 // ParamsSpec for NotifyChecked
 spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec = {
@@ -307,7 +307,7 @@ spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CallSpellingService
 spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec = {
@@ -321,7 +321,7 @@ spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec = {
   $: {
@@ -335,7 +335,7 @@ spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for RequestTextCheck
 spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec = {
@@ -350,7 +350,7 @@ spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec = {
   $: {
@@ -363,7 +363,7 @@ spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for DisconnectSessionBridge
 spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec = {
@@ -376,7 +376,7 @@ spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for CheckSpelling
 spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec = {
@@ -390,7 +390,7 @@ spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec = {
   $: {
@@ -403,7 +403,7 @@ spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for FillSuggestionList
 spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec = {
@@ -417,7 +417,7 @@ spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec = {
   $: {
@@ -430,7 +430,7 @@ spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // ParamsSpec for InitializeDictionaries
 spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec = {
@@ -443,7 +443,7 @@ spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec = {
   $: {
@@ -458,7 +458,7 @@ spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec = {
       versions: [{version: 0}]
     }
   }
-}};
+};
 
 // Legacy compatibility
 spellcheck.mojom.SpellCheckHostPtr = spellcheck.mojom.SpellCheckHostRemote;
