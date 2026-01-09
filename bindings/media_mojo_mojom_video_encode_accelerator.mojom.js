@@ -36,6 +36,228 @@ media.mojom.EncoderType = {
   kNoPreference: 2,
 };
 
+// Struct: VideoEncodeAcceleratorSupportedProfile
+media.mojom.VideoEncodeAcceleratorSupportedProfileSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoEncodeAcceleratorSupportedProfile',
+      packedSize: 16,
+      fields: [
+        { name: 'supports_gpu_shared_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EncodeCommandBufferId
+media.mojom.EncodeCommandBufferIdSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.EncodeCommandBufferId',
+      packedSize: 16,
+      fields: [
+        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VariableBitratePeak
+media.mojom.VariableBitratePeakSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VariableBitratePeak',
+      packedSize: 16,
+      fields: [
+        { name: 'bps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoBitrateAllocation
+media.mojom.VideoBitrateAllocationSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoBitrateAllocation',
+      packedSize: 16,
+      fields: [
+        { name: 'variable_bitrate_peak', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SpatialLayer
+media.mojom.SpatialLayerSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpatialLayer',
+      packedSize: 16,
+      fields: [
+        { name: 'num_of_temporal_layers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ConstantBitrate
+media.mojom.ConstantBitrateSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ConstantBitrate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VariableBitrate
+media.mojom.VariableBitrateSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VariableBitrate',
+      packedSize: 16,
+      fields: [
+        { name: 'peak_bps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ExternalBitrate
+media.mojom.ExternalBitrateSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ExternalBitrate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoEncodeAcceleratorConfig
+media.mojom.VideoEncodeAcceleratorConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoEncodeAcceleratorConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'kCamera', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoEncodeOptions
+media.mojom.VideoEncodeOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoEncodeOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'reference_buffers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DropFrameMetadata
+media.mojom.DropFrameMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.DropFrameMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'end_of_picture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: H264Metadata
+media.mojom.H264MetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.H264Metadata',
+      packedSize: 16,
+      fields: [
+        { name: 'layer_sync', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Vp8Metadata
+media.mojom.Vp8MetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Vp8Metadata',
+      packedSize: 16,
+      fields: [
+        { name: 'layer_sync', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Vp9Metadata
+media.mojom.Vp9MetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Vp9Metadata',
+      packedSize: 16,
+      fields: [
+        { name: 'p_diffs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SVCGenericMetadata
+media.mojom.SVCGenericMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SVCGenericMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'refresh_flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BitstreamBufferMetadata
+media.mojom.BitstreamBufferMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.BitstreamBufferMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'encoded_color_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: VideoEncodeAcceleratorProvider
 media.mojom.VideoEncodeAcceleratorProvider = {};
 

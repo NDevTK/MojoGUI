@@ -8,3 +8,17 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+
+// Struct: GpuFenceHandle
+gfx.mojom.GpuFenceHandleSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.GpuFenceHandle',
+      packedSize: 16,
+      fields: [
+        { name: 'native_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

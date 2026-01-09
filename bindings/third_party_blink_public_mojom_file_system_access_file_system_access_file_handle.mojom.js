@@ -22,6 +22,20 @@ blink.mojom.FileSystemAccessWritableFileStreamLockMode = {
   kSiloed: 1,
 };
 
+// Struct: FileSystemAccessRegularFile
+blink.mojom.FileSystemAccessRegularFileSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessRegularFile',
+      packedSize: 16,
+      fields: [
+        { name: 'file_modification_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FileSystemAccessFileHandle
 blink.mojom.FileSystemAccessFileHandle = {};
 

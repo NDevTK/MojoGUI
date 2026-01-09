@@ -58,6 +58,76 @@ ash.diagnostics.mojom.SecurityType = {
   kWpaPsk: 4,
 };
 
+// Struct: IPConfigProperties
+ash.diagnostics.mojom.IPConfigPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.IPConfigProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'ip_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CellularStateProperties
+ash.diagnostics.mojom.CellularStatePropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.CellularStateProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'lock_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EthernetStateProperties
+ash.diagnostics.mojom.EthernetStatePropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.EthernetStateProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'authentication', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WiFiStateProperties
+ash.diagnostics.mojom.WiFiStatePropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.WiFiStateProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'security', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Network
+ash.diagnostics.mojom.NetworkSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.Network',
+      packedSize: 16,
+      fields: [
+        { name: 'ip_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NetworkListObserver
 ash.diagnostics.mojom.NetworkListObserver = {};
 

@@ -9,6 +9,48 @@ var segmentation_internals = segmentation_internals || {};
 segmentation_internals.mojom = segmentation_internals.mojom || {};
 
 
+// Struct: ServiceStatus
+segmentation_internals.mojom.ServiceStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'segmentation_internals.mojom.ServiceStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'intialization_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SegmentInfo
+segmentation_internals.mojom.SegmentInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'segmentation_internals.mojom.SegmentInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'prediction_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ClientInfo
+segmentation_internals.mojom.ClientInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'segmentation_internals.mojom.ClientInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'segment_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 segmentation_internals.mojom.PageHandlerFactory = {};
 

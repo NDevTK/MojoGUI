@@ -22,6 +22,48 @@ ash.diagnostics.mojom.TouchDeviceType = {
   kPointer: 1,
 };
 
+// Struct: KeyEvent
+ash.diagnostics.mojom.KeyEventSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.KeyEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'top_row_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TouchDeviceInfo
+ash.diagnostics.mojom.TouchDeviceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.TouchDeviceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'testable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ConnectedDevices
+ash.diagnostics.mojom.ConnectedDevicesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.ConnectedDevices',
+      packedSize: 16,
+      fields: [
+        { name: 'touch_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: KeyboardObserver
 ash.diagnostics.mojom.KeyboardObserver = {};
 

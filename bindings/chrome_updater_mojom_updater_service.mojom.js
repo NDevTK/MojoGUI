@@ -66,6 +66,76 @@ updater.mojom.Priority = {
   kForeground: 1,
 };
 
+// Struct: RegistrationRequest
+updater.mojom.RegistrationRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.RegistrationRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'cohort_hint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UpdateState
+updater.mojom.UpdateStateSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdateState',
+      packedSize: 24,
+      fields: [
+        { name: 'kDecompressing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kPatching', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AppState
+updater.mojom.AppStateSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.AppState',
+      packedSize: 16,
+      fields: [
+        { name: 'cohort', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PolicyValue
+updater.mojom.PolicyValueSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.PolicyValue',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UpdaterState
+updater.mojom.UpdaterStateSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.UpdaterState',
+      packedSize: 16,
+      fields: [
+        { name: 'last_started', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UpdateService
 updater.mojom.UpdateService = {};
 

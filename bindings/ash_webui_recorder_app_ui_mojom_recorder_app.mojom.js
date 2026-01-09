@@ -20,6 +20,62 @@ ash.recorder_app.mojom.ModelStateType = {
   kNeedsReboot: 5,
 };
 
+// Struct: ModelState
+ash.recorder_app.mojom.ModelStateSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.recorder_app.mojom.ModelState',
+      packedSize: 16,
+      fields: [
+        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ModelInfo
+ash.recorder_app.mojom.ModelInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.recorder_app.mojom.ModelInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_large_model', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MicrophoneInfo
+ash.recorder_app.mojom.MicrophoneInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.recorder_app.mojom.MicrophoneInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_internal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LangPackInfo
+ash.recorder_app.mojom.LangPackInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.recorder_app.mojom.LangPackInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_speaker_label_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ModelStateMonitor
 ash.recorder_app.mojom.ModelStateMonitor = {};
 

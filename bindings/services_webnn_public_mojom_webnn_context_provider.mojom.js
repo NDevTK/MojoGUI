@@ -16,6 +16,34 @@ webnn.mojom.PowerPreference = {
   kLowPower: 2,
 };
 
+// Struct: CreateContextOptions
+webnn.mojom.CreateContextOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.CreateContextOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'kDefault', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CreateContextSuccess
+webnn.mojom.CreateContextSuccessSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.CreateContextSuccess',
+      packedSize: 16,
+      fields: [
+        { name: 'read_tensor_consumer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebNNContextProvider
 webnn.mojom.WebNNContextProvider = {};
 

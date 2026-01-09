@@ -59,6 +59,104 @@ ash.nearby.presence.mojom.CredentialType = {
   kCredentialTypeGaia: 2,
 };
 
+// Struct: ScanRequest
+ash.nearby.presence.mojom.ScanRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.ScanRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'scan_filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrivateKey
+ash.nearby.presence.mojom.PrivateKeySpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.PrivateKey',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PresenceScanFilter
+ash.nearby.presence.mojom.PresenceScanFilterSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.PresenceScanFilter',
+      packedSize: 16,
+      fields: [
+        { name: 'device_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Metadata
+ash.nearby.presence.mojom.MetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.Metadata',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SharedCredential
+ash.nearby.presence.mojom.SharedCredentialSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.SharedCredential',
+      packedSize: 16,
+      fields: [
+        { name: 'identity_token_signed_adv_hmac_key_v1', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PresenceDevice
+ash.nearby.presence.mojom.PresenceDeviceSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.PresenceDevice',
+      packedSize: 16,
+      fields: [
+        { name: 'decrypt_shared_credential', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LocalCredential
+ash.nearby.presence.mojom.LocalCredentialSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.LocalCredential',
+      packedSize: 16,
+      fields: [
+        { name: 'signature_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ScanSession
 ash.nearby.presence.mojom.ScanSession = {};
 

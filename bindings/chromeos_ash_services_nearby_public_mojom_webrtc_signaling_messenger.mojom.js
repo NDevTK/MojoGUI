@@ -15,6 +15,20 @@ sharing.mojom.LocationStandardFormat = {
   ISO_3166_1_ALPHA_2: 1,
 };
 
+// Struct: LocationHint
+sharing.mojom.LocationHintSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.LocationHint',
+      packedSize: 16,
+      fields: [
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: IncomingMessagesListener
 sharing.mojom.IncomingMessagesListener = {};
 

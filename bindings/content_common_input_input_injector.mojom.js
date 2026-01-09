@@ -48,6 +48,90 @@ content.mojom.InputEventPattern = {
   kEveryOtherVsync: 3,
 };
 
+// Struct: SyntheticSmoothDrag
+content.mojom.SyntheticSmoothDragSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SyntheticSmoothDrag',
+      packedSize: 16,
+      fields: [
+        { name: 'input_event_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SyntheticSmoothScroll
+content.mojom.SyntheticSmoothScrollSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SyntheticSmoothScroll',
+      packedSize: 16,
+      fields: [
+        { name: 'input_event_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SyntheticPinch
+content.mojom.SyntheticPinchSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SyntheticPinch',
+      packedSize: 16,
+      fields: [
+        { name: 'input_event_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SyntheticTap
+content.mojom.SyntheticTapSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SyntheticTap',
+      packedSize: 16,
+      fields: [
+        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SyntheticPointerActionParams
+content.mojom.SyntheticPointerActionParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SyntheticPointerActionParams',
+      packedSize: 16,
+      fields: [
+        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SyntheticPointerAction
+content.mojom.SyntheticPointerActionSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SyntheticPointerAction',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: InputInjector
 content.mojom.InputInjector = {};
 

@@ -30,6 +30,32 @@ ash.heartd.mojom.ActionType = {
   kSyncData: 3,
 };
 
+// Struct: HeartbeatServiceArgument
+ash.heartd.mojom.HeartbeatServiceArgumentSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.heartd.mojom.HeartbeatServiceArgument',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Action
+ash.heartd.mojom.ActionSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.heartd.mojom.Action',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: HeartdControl
 ash.heartd.mojom.HeartdControl = {};
 

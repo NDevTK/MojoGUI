@@ -9,6 +9,20 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
+// Struct: SupportedAudioDecoderConfig
+media.mojom.SupportedAudioDecoderConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SupportedAudioDecoderConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AudioDecoder
 media.mojom.AudioDecoder = {};
 

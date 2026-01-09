@@ -9,6 +9,20 @@ var pdf = pdf || {};
 pdf.mojom = pdf.mojom || {};
 
 
+// Struct: ThumbParams
+pdf.mojom.ThumbParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'pdf.mojom.ThumbParams',
+      packedSize: 16,
+      fields: [
+        { name: 'keep_aspect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PdfThumbnailer
 pdf.mojom.PdfThumbnailer = {};
 

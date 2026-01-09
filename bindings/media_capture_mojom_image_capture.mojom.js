@@ -44,6 +44,76 @@ media.mojom.FillLightMode = {
   FLASH: 2,
 };
 
+// Struct: Range
+media.mojom.RangeSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Range',
+      packedSize: 16,
+      fields: [
+        { name: 'step', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PhotoState
+media.mojom.PhotoStateSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.PhotoState',
+      packedSize: 16,
+      fields: [
+        { name: 'current_background_segmentation_mask_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Point2D
+media.mojom.Point2DSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Point2D',
+      packedSize: 16,
+      fields: [
+        { name: 'y', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PhotoSettings
+media.mojom.PhotoSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.PhotoSettings',
+      packedSize: 16,
+      fields: [
+        { name: 'background_segmentation_mask_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Blob
+media.mojom.BlobSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Blob',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ImageCapture
 media.mojom.ImageCapture = {};
 

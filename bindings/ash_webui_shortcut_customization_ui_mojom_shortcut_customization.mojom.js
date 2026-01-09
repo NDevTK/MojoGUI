@@ -49,6 +49,34 @@ ash.shortcut_customization.mojom.Subactions = {
   kErrorSuccess: 3,
 };
 
+// Struct: AcceleratorResultData
+ash.shortcut_customization.mojom.AcceleratorResultDataSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shortcut_customization.mojom.AcceleratorResultData',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SimpleAccelerator
+ash.shortcut_customization.mojom.SimpleAcceleratorSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shortcut_customization.mojom.SimpleAccelerator',
+      packedSize: 16,
+      fields: [
+        { name: 'key_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AcceleratorsUpdatedObserver
 ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver = {};
 

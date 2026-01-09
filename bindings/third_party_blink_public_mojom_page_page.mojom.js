@@ -16,6 +16,62 @@ blink.mojom.PagehideDispatch = {
   kDispatchedPersisted: 2,
 };
 
+// Struct: PageLifecycleState
+blink.mojom.PageLifecycleStateSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PageLifecycleState',
+      packedSize: 16,
+      fields: [
+        { name: 'eviction_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PageRestoreParams
+blink.mojom.PageRestoreParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PageRestoreParams',
+      packedSize: 16,
+      fields: [
+        { name: 'view_transition_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ColorProviderColorMaps
+blink.mojom.ColorProviderColorMapsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ColorProviderColorMaps',
+      packedSize: 16,
+      fields: [
+        { name: 'forced_colors_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrerenderPageActivationParams
+blink.mojom.PrerenderPageActivationParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PrerenderPageActivationParams',
+      packedSize: 16,
+      fields: [
+        { name: 'view_transition_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageBroadcast
 blink.mojom.PageBroadcast = {};
 

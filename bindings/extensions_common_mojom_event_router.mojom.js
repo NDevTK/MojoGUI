@@ -9,6 +9,34 @@ var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
 
+// Struct: ServiceWorkerContext
+extensions.mojom.ServiceWorkerContextSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.ServiceWorkerContext',
+      packedSize: 16,
+      fields: [
+        { name: 'thread_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EventListener
+extensions.mojom.EventListenerSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventListener',
+      packedSize: 16,
+      fields: [
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: EventRouter
 extensions.mojom.EventRouter = {};
 

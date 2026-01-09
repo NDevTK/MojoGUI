@@ -18,6 +18,34 @@ ax.mojom.SyntheticMouseEventButton = {
   kForward: 4,
 };
 
+// Struct: SyntheticKeyEvent
+ax.mojom.SyntheticKeyEventSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.SyntheticKeyEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SyntheticMouseEvent
+ax.mojom.SyntheticMouseEventSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.SyntheticMouseEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'touch_accessibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UserInput
 ax.mojom.UserInput = {};
 

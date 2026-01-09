@@ -10,6 +10,20 @@ chromeos.tts = chromeos.tts || {};
 chromeos.tts.mojom = chromeos.tts.mojom || {};
 
 
+// Struct: AudioParameters
+chromeos.tts.mojom.AudioParametersSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.tts.mojom.AudioParameters',
+      packedSize: 16,
+      fields: [
+        { name: 'buffer_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TtsService
 chromeos.tts.mojom.TtsService = {};
 

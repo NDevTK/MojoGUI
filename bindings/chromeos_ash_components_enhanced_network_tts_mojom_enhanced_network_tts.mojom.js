@@ -19,6 +19,48 @@ ash.enhanced_network_tts.mojom.TtsRequestError = {
   kRequestOverride: 4,
 };
 
+// Struct: TtsRequest
+ash.enhanced_network_tts.mojom.TtsRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.enhanced_network_tts.mojom.TtsRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'lang', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TimingInfo
+ash.enhanced_network_tts.mojom.TimingInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.enhanced_network_tts.mojom.TimingInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TtsData
+ash.enhanced_network_tts.mojom.TtsDataSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.enhanced_network_tts.mojom.TtsData',
+      packedSize: 16,
+      fields: [
+        { name: 'last_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: EnhancedNetworkTts
 ash.enhanced_network_tts.mojom.EnhancedNetworkTts = {};
 

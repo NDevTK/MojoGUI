@@ -9,6 +9,34 @@ var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
 
+// Struct: FileInfo
+arc.mojom.FileInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.FileInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ShareIntentInfo
+arc.mojom.ShareIntentInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ShareIntentInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NearbyShareSessionHost
 arc.mojom.NearbyShareSessionHost = {};
 

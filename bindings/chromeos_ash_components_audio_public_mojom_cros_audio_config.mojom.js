@@ -55,6 +55,48 @@ ash.audio_config.mojom.AudioEffectType = {
   kBeamforming: 4,
 };
 
+// Struct: VoiceIsolationUIAppearance
+ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.VoiceIsolationUIAppearance',
+      packedSize: 16,
+      fields: [
+        { name: 'show_effect_fallback_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AudioDevice
+ash.audio_config.mojom.AudioDeviceSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.AudioDevice',
+      packedSize: 16,
+      fields: [
+        { name: 'spatial_audio_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AudioSystemProperties
+ash.audio_config.mojom.AudioSystemPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.AudioSystemProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'voice_isolation_ui_appearance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AudioSystemPropertiesObserver
 ash.audio_config.mojom.AudioSystemPropertiesObserver = {};
 

@@ -56,6 +56,19 @@ ash.ime.mojom.JpUnusedEnum6 = {
   kValue2: 1,
 };
 
+// Struct: JpUnusedStruct
+ash.ime.mojom.JpUnusedStructSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.JpUnusedStruct',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: JpUnused
 ash.ime.mojom.JpUnused = {};
 

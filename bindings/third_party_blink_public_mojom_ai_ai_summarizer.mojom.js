@@ -30,6 +30,20 @@ blink.mojom.AISummarizerLength = {
   kLong: 2,
 };
 
+// Struct: AISummarizerCreateOptions
+blink.mojom.AISummarizerCreateOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AISummarizerCreateOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'output_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AISummarizer
 blink.mojom.AISummarizer = {};
 

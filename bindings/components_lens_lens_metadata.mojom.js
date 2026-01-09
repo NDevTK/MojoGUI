@@ -25,3 +25,17 @@ lens.mojom.Phase = {
   ENCODE_START: 3,
   ENCODE_END: 4,
 };
+
+// Struct: LatencyLog
+lens.mojom.LatencyLogSpec = {
+  $: {
+    structSpec: {
+      name: 'lens.mojom.LatencyLog',
+      packedSize: 16,
+      fields: [
+        { name: 'encoded_bytes_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

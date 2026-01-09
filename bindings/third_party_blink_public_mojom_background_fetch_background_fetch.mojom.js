@@ -41,6 +41,74 @@ blink.mojom.BackgroundFetchFailureReason = {
   DOWNLOAD_TOTAL_EXCEEDED: 7,
 };
 
+// Struct: BackgroundFetchSettledFetch
+blink.mojom.BackgroundFetchSettledFetchSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.BackgroundFetchSettledFetch',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BackgroundFetchOptions
+blink.mojom.BackgroundFetchOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.BackgroundFetchOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BackgroundFetchRegistrationData
+blink.mojom.BackgroundFetchRegistrationDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.BackgroundFetchRegistrationData',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BackgroundFetchRegistration
+blink.mojom.BackgroundFetchRegistrationSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.BackgroundFetchRegistration',
+      packedSize: 16,
+      fields: [
+        { name: 'registration_interface', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BackgroundFetchUkmData
+blink.mojom.BackgroundFetchUkmDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.BackgroundFetchUkmData',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: BackgroundFetchRegistrationObserver
 blink.mojom.BackgroundFetchRegistrationObserver = {};
 

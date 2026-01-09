@@ -15,6 +15,20 @@ device.mojom.PressureManagerAddClientResult = {
   kOk: 1,
 };
 
+// Struct: VirtualPressureSourceMetadata
+device.mojom.VirtualPressureSourceMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.VirtualPressureSourceMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PressureManager
 device.mojom.PressureManager = {};
 

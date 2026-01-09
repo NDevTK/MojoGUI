@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: OriginTrialFeatureState
+blink.mojom.OriginTrialFeatureStateSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.OriginTrialFeatureState',
+      packedSize: 16,
+      fields: [
+        { name: 'tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: OriginTrialStateHost
 blink.mojom.OriginTrialStateHost = {};
 

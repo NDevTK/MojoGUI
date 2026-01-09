@@ -9,6 +9,34 @@ var input = input || {};
 input.mojom = input.mojom || {};
 
 
+// Struct: RenderInputRouterConfig
+input.mojom.RenderInputRouterConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'input.mojom.RenderInputRouterConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TouchTransferState
+input.mojom.TouchTransferStateSpec = {
+  $: {
+    structSpec: {
+      name: 'input.mojom.TouchTransferState',
+      packedSize: 16,
+      fields: [
+        { name: 'down_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: RenderInputRouterDelegate
 input.mojom.RenderInputRouterDelegate = {};
 

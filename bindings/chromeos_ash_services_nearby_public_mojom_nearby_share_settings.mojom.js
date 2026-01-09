@@ -41,6 +41,20 @@ nearby_share.mojom.FastInitiationNotificationState = {
   kDisabledByFeature: 2,
 };
 
+// Struct: ContactRecord
+nearby_share.mojom.ContactRecordSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ContactRecord',
+      packedSize: 16,
+      fields: [
+        { name: 'identifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NearbyShareSettingsObserver
 nearby_share.mojom.NearbyShareSettingsObserver = {};
 

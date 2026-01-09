@@ -25,6 +25,76 @@ device_signals.mojom.AntiVirusProductState = {
   kExpired: 3,
 };
 
+// Struct: ExecutableMetadata
+device_signals.mojom.ExecutableMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'device_signals.mojom.ExecutableMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'subject_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileSystemItem
+device_signals.mojom.FileSystemItemSpec = {
+  $: {
+    structSpec: {
+      name: 'device_signals.mojom.FileSystemItem',
+      packedSize: 16,
+      fields: [
+        { name: 'executable_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileSystemItemRequest
+device_signals.mojom.FileSystemItemRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'device_signals.mojom.FileSystemItemRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'compute_executable_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AntiVirusSignal
+device_signals.mojom.AntiVirusSignalSpec = {
+  $: {
+    structSpec: {
+      name: 'device_signals.mojom.AntiVirusSignal',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HotfixSignal
+device_signals.mojom.HotfixSignalSpec = {
+  $: {
+    structSpec: {
+      name: 'device_signals.mojom.HotfixSignal',
+      packedSize: 16,
+      fields: [
+        { name: 'hotfix_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SystemSignalsService
 device_signals.mojom.SystemSignalsService = {};
 

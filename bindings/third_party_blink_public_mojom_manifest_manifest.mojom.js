@@ -69,3 +69,337 @@ blink.mojom.ManifestRequestResult = {
   kManifestFailedToParse: 4,
   kSuccess: 5,
 };
+
+// Struct: Manifest
+blink.mojom.ManifestSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Manifest',
+      packedSize: 16,
+      fields: [
+        { name: 'kAuto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestLocalizedTextObject
+blink.mojom.ManifestLocalizedTextObjectSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestLocalizedTextObject',
+      packedSize: 16,
+      fields: [
+        { name: 'lang', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Locale
+blink.mojom.LocaleSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Locale',
+      packedSize: 16,
+      fields: [
+        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestShortcutItem
+blink.mojom.ManifestShortcutItemSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestShortcutItem',
+      packedSize: 16,
+      fields: [
+        { name: 'icons_localized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestImageResource
+blink.mojom.ManifestImageResourceSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestImageResource',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestScreenshot
+blink.mojom.ManifestScreenshotSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestScreenshot',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestFileFilter
+blink.mojom.ManifestFileFilterSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestFileFilter',
+      packedSize: 16,
+      fields: [
+        { name: 'accept', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestProtocolHandler
+blink.mojom.ManifestProtocolHandlerSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestProtocolHandler',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestScopeExtension
+blink.mojom.ManifestScopeExtensionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestScopeExtension',
+      packedSize: 16,
+      fields: [
+        { name: 'has_origin_wildcard', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestLockScreen
+blink.mojom.ManifestLockScreenSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestLockScreen',
+      packedSize: 16,
+      fields: [
+        { name: 'start_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestNoteTaking
+blink.mojom.ManifestNoteTakingSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestNoteTaking',
+      packedSize: 16,
+      fields: [
+        { name: 'new_note_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestRelatedApplication
+blink.mojom.ManifestRelatedApplicationSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestRelatedApplication',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestShareTargetParams
+blink.mojom.ManifestShareTargetParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestShareTargetParams',
+      packedSize: 16,
+      fields: [
+        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestShareTarget
+blink.mojom.ManifestShareTargetSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestShareTarget',
+      packedSize: 16,
+      fields: [
+        { name: 'kGet', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestFileHandler
+blink.mojom.ManifestFileHandlerSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestFileHandler',
+      packedSize: 16,
+      fields: [
+        { name: 'kSingleClient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestTranslationItem
+blink.mojom.ManifestTranslationItemSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestTranslationItem',
+      packedSize: 16,
+      fields: [
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestMigrateFrom
+blink.mojom.ManifestMigrateFromSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestMigrateFrom',
+      packedSize: 16,
+      fields: [
+        { name: 'behavior', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestMigrateTo
+blink.mojom.ManifestMigrateToSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestMigrateTo',
+      packedSize: 16,
+      fields: [
+        { name: 'install_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestTabStrip
+blink.mojom.ManifestTabStripSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestTabStrip',
+      packedSize: 16,
+      fields: [
+        { name: 'new_tab_button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HomeTabParams
+blink.mojom.HomeTabParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.HomeTabParams',
+      packedSize: 16,
+      fields: [
+        { name: 'scope_patterns', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NewTabButtonParams
+blink.mojom.NewTabButtonParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.NewTabButtonParams',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestDebugInfo
+blink.mojom.ManifestDebugInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestDebugInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'raw_manifest', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManifestError
+blink.mojom.ManifestErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestError',
+      packedSize: 16,
+      fields: [
+        { name: 'column', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DisplayOverrideItem
+blink.mojom.DisplayOverrideItemSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DisplayOverrideItem',
+      packedSize: 16,
+      fields: [
+        { name: 'url_patterns', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

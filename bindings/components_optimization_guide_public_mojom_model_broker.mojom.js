@@ -32,6 +32,34 @@ optimization_guide.mojom.ModelUnavailableReason = {
   kPendingUsage: 3,
 };
 
+// Struct: ModelSolutionConfig
+optimization_guide.mojom.ModelSolutionConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'optimization_guide.mojom.ModelSolutionConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'max_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ModelSubscriptionOptions
+optimization_guide.mojom.ModelSubscriptionOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'optimization_guide.mojom.ModelSubscriptionOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'mark_used', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ModelSolution
 optimization_guide.mojom.ModelSolution = {};
 

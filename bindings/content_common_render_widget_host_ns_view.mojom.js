@@ -9,6 +9,20 @@ var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
 
 
+// Struct: PopupMenu
+remote_cocoa.mojom.PopupMenuSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.PopupMenu',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PopupMenuRunner
 remote_cocoa.mojom.PopupMenuRunner = {};
 

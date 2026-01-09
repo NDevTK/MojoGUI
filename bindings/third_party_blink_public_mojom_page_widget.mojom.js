@@ -15,6 +15,34 @@ blink.mojom.DeviceEmulationCacheBehavior = {
   kKeepCache: 1,
 };
 
+// Struct: ProximateCharacterRangeBounds
+blink.mojom.ProximateCharacterRangeBoundsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ProximateCharacterRangeBounds',
+      packedSize: 16,
+      fields: [
+        { name: 'widget_bounds_in_dips', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StylusWritingFocusResult
+blink.mojom.StylusWritingFocusResultSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StylusWritingFocusResult',
+      packedSize: 16,
+      fields: [
+        { name: 'proximate_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FrameWidget
 blink.mojom.FrameWidget = {};
 

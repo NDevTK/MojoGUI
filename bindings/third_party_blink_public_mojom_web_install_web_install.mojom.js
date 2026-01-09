@@ -16,6 +16,20 @@ blink.mojom.WebInstallServiceResult = {
   kDataError: 2,
 };
 
+// Struct: InstallOptions
+blink.mojom.InstallOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.InstallOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'manifest_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebInstallService
 blink.mojom.WebInstallService = {};
 

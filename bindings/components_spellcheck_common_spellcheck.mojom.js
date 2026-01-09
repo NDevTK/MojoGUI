@@ -15,6 +15,34 @@ spellcheck.mojom.Decoration = {
   kGrammar: 1,
 };
 
+// Struct: SpellCheckBDictLanguage
+spellcheck.mojom.SpellCheckBDictLanguageSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellCheckBDictLanguage',
+      packedSize: 16,
+      fields: [
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SpellCheckResult
+spellcheck.mojom.SpellCheckResultSpec = {
+  $: {
+    structSpec: {
+      name: 'spellcheck.mojom.SpellCheckResult',
+      packedSize: 16,
+      fields: [
+        { name: 'should_hide_suggestion_menu', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SpellChecker
 spellcheck.mojom.SpellChecker = {};
 

@@ -18,3 +18,17 @@ network.mojom.LoadingMode = {
   kFencedFrame: 4,
   kPrerenderCrossOriginFrames: 5,
 };
+
+// Struct: SupportsLoadingMode
+network.mojom.SupportsLoadingModeSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SupportsLoadingMode',
+      packedSize: 16,
+      fields: [
+        { name: 'supported_modes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

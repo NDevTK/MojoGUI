@@ -24,6 +24,20 @@ network.mojom.TransportType = {
   kCachedFromProxy: 3,
 };
 
+// Struct: LoadInfo
+network.mojom.LoadInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.LoadInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'upload_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ClientCertificateResponder
 network.mojom.ClientCertificateResponder = {};
 

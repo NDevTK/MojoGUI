@@ -9,6 +9,20 @@ var site_engagement = site_engagement || {};
 site_engagement.mojom = site_engagement.mojom || {};
 
 
+// Struct: SiteEngagementDetails
+site_engagement.mojom.SiteEngagementDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'site_engagement.mojom.SiteEngagementDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'installed_bonus', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SiteEngagementDetailsProvider
 site_engagement.mojom.SiteEngagementDetailsProvider = {};
 

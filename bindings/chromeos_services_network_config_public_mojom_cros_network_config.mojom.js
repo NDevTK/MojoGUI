@@ -176,6 +176,971 @@ chromeos.network_config.mojom.TrafficCounterSource = {
   kSystem: 8,
 };
 
+// Struct: SIMLockStatus
+chromeos.network_config.mojom.SIMLockStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.SIMLockStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'retries_left', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SIMInfo
+chromeos.network_config.mojom.SIMInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.SIMInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_primary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CellularStateProperties
+chromeos.network_config.mojom.CellularStatePropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CellularStateProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'payment_portal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EthernetStateProperties
+chromeos.network_config.mojom.EthernetStatePropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.EthernetStateProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'authentication', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TetherStateProperties
+chromeos.network_config.mojom.TetherStatePropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.TetherStateProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'signal_strength', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VPNStateProperties
+chromeos.network_config.mojom.VPNStatePropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.VPNStateProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'provider_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WiFiStateProperties
+chromeos.network_config.mojom.WiFiStatePropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.WiFiStateProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'passpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkStateProperties
+chromeos.network_config.mojom.NetworkStatePropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.NetworkStateProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'type_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceStateProperties
+chromeos.network_config.mojom.DeviceStatePropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.DeviceStateProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkFilter
+chromeos.network_config.mojom.NetworkFilterSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.NetworkFilter',
+      packedSize: 16,
+      fields: [
+        { name: 'kNoLimit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ApnProperties
+chromeos.network_config.mojom.ApnPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ApnProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RoamingProperties
+chromeos.network_config.mojom.RoamingPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.RoamingProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'allow_roaming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CellularProviderProperties
+chromeos.network_config.mojom.CellularProviderPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CellularProviderProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'country', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FoundNetworkProperties
+chromeos.network_config.mojom.FoundNetworkPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.FoundNetworkProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'long_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IPConfigProperties
+chromeos.network_config.mojom.IPConfigPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.IPConfigProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'web_proxy_auto_discovery_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaymentPortalProperties
+chromeos.network_config.mojom.PaymentPortalPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.PaymentPortalProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WireGuardPeerProperties
+chromeos.network_config.mojom.WireGuardPeerPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.WireGuardPeerProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'persistent_keepalive_interval', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedBoolean
+chromeos.network_config.mojom.ManagedBooleanSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedBoolean',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedInt32
+chromeos.network_config.mojom.ManagedInt32Spec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedInt32',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedString
+chromeos.network_config.mojom.ManagedStringSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedString',
+      packedSize: 16,
+      fields: [
+        { name: 'policy_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedStringList
+chromeos.network_config.mojom.ManagedStringListSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedStringList',
+      packedSize: 16,
+      fields: [
+        { name: 'policy_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedApnProperties
+chromeos.network_config.mojom.ManagedApnPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedApnProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'attach', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedApnList
+chromeos.network_config.mojom.ManagedApnListSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedApnList',
+      packedSize: 16,
+      fields: [
+        { name: 'policy_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedIssuerSubjectPattern
+chromeos.network_config.mojom.ManagedIssuerSubjectPatternSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedIssuerSubjectPattern',
+      packedSize: 16,
+      fields: [
+        { name: 'organizational_unit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedCertificatePattern
+chromeos.network_config.mojom.ManagedCertificatePatternSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedCertificatePattern',
+      packedSize: 16,
+      fields: [
+        { name: 'subject', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedEAPProperties
+chromeos.network_config.mojom.ManagedEAPPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedEAPProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'use_system_cas', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedSubjectAltNameMatchList
+chromeos.network_config.mojom.ManagedSubjectAltNameMatchListSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedSubjectAltNameMatchList',
+      packedSize: 16,
+      fields: [
+        { name: 'policy_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedIPConfigProperties
+chromeos.network_config.mojom.ManagedIPConfigPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedIPConfigProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'web_proxy_auto_discovery_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedIPSecProperties
+chromeos.network_config.mojom.ManagedIPSecPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedIPSecProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'server_ca_refs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedL2TPProperties
+chromeos.network_config.mojom.ManagedL2TPPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedL2TPProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedProxyLocation
+chromeos.network_config.mojom.ManagedProxyLocationSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedProxyLocation',
+      packedSize: 16,
+      fields: [
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedManualProxySettings
+chromeos.network_config.mojom.ManagedManualProxySettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedManualProxySettings',
+      packedSize: 16,
+      fields: [
+        { name: 'socks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedProxySettings
+chromeos.network_config.mojom.ManagedProxySettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedProxySettings',
+      packedSize: 16,
+      fields: [
+        { name: 'pac', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedVerifyX509Properties
+chromeos.network_config.mojom.ManagedVerifyX509PropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedVerifyX509Properties',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedOpenVPNProperties
+chromeos.network_config.mojom.ManagedOpenVPNPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedOpenVPNProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'verify_x509', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedWireGuardPeerList
+chromeos.network_config.mojom.ManagedWireGuardPeerListSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedWireGuardPeerList',
+      packedSize: 16,
+      fields: [
+        { name: 'policy_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedWireGuardProperties
+chromeos.network_config.mojom.ManagedWireGuardPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedWireGuardProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'peers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedCellularProperties
+chromeos.network_config.mojom.ManagedCellularPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedCellularProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedEthernetProperties
+chromeos.network_config.mojom.ManagedEthernetPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedEthernetProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'eap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedVPNProperties
+chromeos.network_config.mojom.ManagedVPNPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedVPNProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedWiFiProperties
+chromeos.network_config.mojom.ManagedWiFiPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedWiFiProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'passpoint_match_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UInt32Value
+chromeos.network_config.mojom.UInt32ValueSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.UInt32Value',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TrafficCounterProperties
+chromeos.network_config.mojom.TrafficCounterPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.TrafficCounterProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'user_specified_reset_day', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedProperties
+chromeos.network_config.mojom.ManagedPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManagedProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'traffic_counter_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AutoConnectConfig
+chromeos.network_config.mojom.AutoConnectConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.AutoConnectConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MeteredConfig
+chromeos.network_config.mojom.MeteredConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.MeteredConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PriorityConfig
+chromeos.network_config.mojom.PriorityConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.PriorityConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VpnTypeConfig
+chromeos.network_config.mojom.VpnTypeConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.VpnTypeConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProxyLocation
+chromeos.network_config.mojom.ProxyLocationSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ProxyLocation',
+      packedSize: 16,
+      fields: [
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManualProxySettings
+chromeos.network_config.mojom.ManualProxySettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ManualProxySettings',
+      packedSize: 16,
+      fields: [
+        { name: 'socks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProxySettings
+chromeos.network_config.mojom.ProxySettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ProxySettings',
+      packedSize: 16,
+      fields: [
+        { name: 'pac', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EAPConfigProperties
+chromeos.network_config.mojom.EAPConfigPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.EAPConfigProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SubjectAltName
+chromeos.network_config.mojom.SubjectAltNameSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.SubjectAltName',
+      packedSize: 16,
+      fields: [
+        { name: 'kEmail', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IPSecConfigProperties
+chromeos.network_config.mojom.IPSecConfigPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.IPSecConfigProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'server_ca_refs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: L2TPConfigProperties
+chromeos.network_config.mojom.L2TPConfigPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.L2TPConfigProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OpenVPNConfigProperties
+chromeos.network_config.mojom.OpenVPNConfigPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.OpenVPNConfigProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'user_authentication_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WireGuardConfigProperties
+chromeos.network_config.mojom.WireGuardConfigPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.WireGuardConfigProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'peers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextMessagesAllowState
+chromeos.network_config.mojom.TextMessagesAllowStateSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.TextMessagesAllowState',
+      packedSize: 16,
+      fields: [
+        { name: 'allow_text_messages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CellularConfigProperties
+chromeos.network_config.mojom.CellularConfigPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CellularConfigProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'text_message_allow_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EthernetConfigProperties
+chromeos.network_config.mojom.EthernetConfigPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.EthernetConfigProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'eap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VPNConfigProperties
+chromeos.network_config.mojom.VPNConfigPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.VPNConfigProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WiFiConfigProperties
+chromeos.network_config.mojom.WiFiConfigPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.WiFiConfigProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'kAutomatic', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ConfigProperties
+chromeos.network_config.mojom.ConfigPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.ConfigProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'type_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CellularSimState
+chromeos.network_config.mojom.CellularSimStateSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CellularSimState',
+      packedSize: 16,
+      fields: [
+        { name: 'require_pin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GlobalPolicy
+chromeos.network_config.mojom.GlobalPolicySpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.GlobalPolicy',
+      packedSize: 16,
+      fields: [
+        { name: 'kUnset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VpnProvider
+chromeos.network_config.mojom.VpnProviderSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.VpnProvider',
+      packedSize: 16,
+      fields: [
+        { name: 'last_launch_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkCertificate
+chromeos.network_config.mojom.NetworkCertificateSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.NetworkCertificate',
+      packedSize: 16,
+      fields: [
+        { name: 'device_wide', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AlwaysOnVpnProperties
+chromeos.network_config.mojom.AlwaysOnVpnPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.AlwaysOnVpnProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'service_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TrafficCounter
+chromeos.network_config.mojom.TrafficCounterSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.TrafficCounter',
+      packedSize: 16,
+      fields: [
+        { name: 'tx_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CrosNetworkConfig
 chromeos.network_config.mojom.CrosNetworkConfig = {};
 

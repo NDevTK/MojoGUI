@@ -8,3 +8,17 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: FrameReplicationState
+blink.mojom.FrameReplicationStateSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FrameReplicationState',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

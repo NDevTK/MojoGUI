@@ -18,6 +18,34 @@ arc.mojom.TtsEventType = {
   WORD: 4,
 };
 
+// Struct: TtsUtterance
+arc.mojom.TtsUtteranceSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TtsUtterance',
+      packedSize: 16,
+      fields: [
+        { name: 'voice_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TtsVoice
+arc.mojom.TtsVoiceSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TtsVoice',
+      packedSize: 16,
+      fields: [
+        { name: 'is_network_connection_required', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TtsHost
 arc.mojom.TtsHost = {};
 

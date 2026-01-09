@@ -8,3 +8,31 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+
+// Struct: DictionaryValue
+mojo_base.mojom.DictionaryValueSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo_base.mojom.DictionaryValue',
+      packedSize: 16,
+      fields: [
+        { name: 'storage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ListValue
+mojo_base.mojom.ListValueSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo_base.mojom.ListValue',
+      packedSize: 16,
+      fields: [
+        { name: 'storage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

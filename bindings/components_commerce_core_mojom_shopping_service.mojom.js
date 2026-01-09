@@ -24,6 +24,146 @@ shopping_service.mojom.UserFeedback = {
   kThumbsDown: 2,
 };
 
+// Struct: PricePoint
+shopping_service.mojom.PricePointSpec = {
+  $: {
+    structSpec: {
+      name: 'shopping_service.mojom.PricePoint',
+      packedSize: 16,
+      fields: [
+        { name: 'formatted_price', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UrlInfo
+shopping_service.mojom.UrlInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'shopping_service.mojom.UrlInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'previewText', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PriceInsightsInfo
+shopping_service.mojom.PriceInsightsInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'shopping_service.mojom.PriceInsightsInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProductSpecificationsDescriptionText
+shopping_service.mojom.ProductSpecificationsDescriptionTextSpec = {
+  $: {
+    structSpec: {
+      name: 'shopping_service.mojom.ProductSpecificationsDescriptionText',
+      packedSize: 16,
+      fields: [
+        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProductSpecificationsOption
+shopping_service.mojom.ProductSpecificationsOptionSpec = {
+  $: {
+    structSpec: {
+      name: 'shopping_service.mojom.ProductSpecificationsOption',
+      packedSize: 16,
+      fields: [
+        { name: 'descriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProductSpecificationsDescription
+shopping_service.mojom.ProductSpecificationsDescriptionSpec = {
+  $: {
+    structSpec: {
+      name: 'shopping_service.mojom.ProductSpecificationsDescription',
+      packedSize: 16,
+      fields: [
+        { name: 'alt_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProductSpecificationsValue
+shopping_service.mojom.ProductSpecificationsValueSpec = {
+  $: {
+    structSpec: {
+      name: 'shopping_service.mojom.ProductSpecificationsValue',
+      packedSize: 16,
+      fields: [
+        { name: 'summary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProductSpecificationsProduct
+shopping_service.mojom.ProductSpecificationsProductSpec = {
+  $: {
+    structSpec: {
+      name: 'shopping_service.mojom.ProductSpecificationsProduct',
+      packedSize: 16,
+      fields: [
+        { name: 'buying_options_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProductSpecificationsFeatureState
+shopping_service.mojom.ProductSpecificationsFeatureStateSpec = {
+  $: {
+    structSpec: {
+      name: 'shopping_service.mojom.ProductSpecificationsFeatureState',
+      packedSize: 16,
+      fields: [
+        { name: 'is_signed_in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProductSpecifications
+shopping_service.mojom.ProductSpecificationsSpec = {
+  $: {
+    structSpec: {
+      name: 'shopping_service.mojom.ProductSpecifications',
+      packedSize: 16,
+      fields: [
+        { name: 'products', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ShoppingServiceHandlerFactory
 shopping_service.mojom.ShoppingServiceHandlerFactory = {};
 

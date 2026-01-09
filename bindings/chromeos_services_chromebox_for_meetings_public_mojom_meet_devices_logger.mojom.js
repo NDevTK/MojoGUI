@@ -45,6 +45,19 @@ chromeos.cfm.mojom.LoggerState = {
   kUninitialized: 2,
 };
 
+// Struct: LoggerStatus
+chromeos.cfm.mojom.LoggerStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cfm.mojom.LoggerStatus',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: LoggerStateObserver
 chromeos.cfm.mojom.LoggerStateObserver = {};
 

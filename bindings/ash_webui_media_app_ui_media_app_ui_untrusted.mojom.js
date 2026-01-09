@@ -10,6 +10,20 @@ ash.media_app_ui = ash.media_app_ui || {};
 ash.media_app_ui.mojom = ash.media_app_ui.mojom || {};
 
 
+// Struct: PageMetadata
+ash.media_app_ui.mojom.PageMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.media_app_ui.mojom.PageMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UntrustedServiceFactory
 ash.media_app_ui.mojom.UntrustedServiceFactory = {};
 

@@ -9,6 +9,20 @@ var feed = feed || {};
 feed.mojom = feed.mojom || {};
 
 
+// Struct: RssLinks
+feed.mojom.RssLinksSpec = {
+  $: {
+    structSpec: {
+      name: 'feed.mojom.RssLinks',
+      packedSize: 16,
+      fields: [
+        { name: 'links', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: RssLinkReader
 feed.mojom.RssLinkReader = {};
 

@@ -8,3 +8,59 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+
+// Struct: Time
+mojo_base.mojom.TimeSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo_base.mojom.Time',
+      packedSize: 16,
+      fields: [
+        { name: 'internal_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: JSTime
+mojo_base.mojom.JSTimeSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo_base.mojom.JSTime',
+      packedSize: 16,
+      fields: [
+        { name: 'msec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TimeDelta
+mojo_base.mojom.TimeDeltaSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo_base.mojom.TimeDelta',
+      packedSize: 16,
+      fields: [
+        { name: 'microseconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TimeTicks
+mojo_base.mojom.TimeTicksSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo_base.mojom.TimeTicks',
+      packedSize: 16,
+      fields: [
+        { name: 'internal_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

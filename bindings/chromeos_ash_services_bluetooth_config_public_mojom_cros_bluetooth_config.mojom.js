@@ -59,6 +59,104 @@ ash.bluetooth_config.mojom.PairingResult = {
   kNonAuthFailure: 2,
 };
 
+// Struct: BatteryProperties
+ash.bluetooth_config.mojom.BatteryPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.BatteryProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'battery_percentage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBatteryInfo
+ash.bluetooth_config.mojom.DeviceBatteryInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DeviceBatteryInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'case_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TrueWirelessImageInfo
+ash.bluetooth_config.mojom.TrueWirelessImageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.TrueWirelessImageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'case_image_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceImageInfo
+ash.bluetooth_config.mojom.DeviceImageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DeviceImageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'true_wireless_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothDeviceProperties
+ash.bluetooth_config.mojom.BluetoothDevicePropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.BluetoothDeviceProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'is_blocked_by_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PairedBluetoothDeviceProperties
+ash.bluetooth_config.mojom.PairedBluetoothDevicePropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.PairedBluetoothDeviceProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'nickname', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothSystemProperties
+ash.bluetooth_config.mojom.BluetoothSystemPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.BluetoothSystemProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'paired_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SystemPropertiesObserver
 ash.bluetooth_config.mojom.SystemPropertiesObserver = {};
 

@@ -9,6 +9,20 @@ var userspace_swap = userspace_swap || {};
 userspace_swap.mojom = userspace_swap.mojom || {};
 
 
+// Struct: MemoryRegion
+userspace_swap.mojom.MemoryRegionSpec = {
+  $: {
+    structSpec: {
+      name: 'userspace_swap.mojom.MemoryRegion',
+      packedSize: 16,
+      fields: [
+        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UserspaceSwapInitialization
 userspace_swap.mojom.UserspaceSwapInitialization = {};
 

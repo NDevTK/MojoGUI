@@ -36,6 +36,34 @@ blink.mojom.RemoteInvocationError = {
   NON_ASSIGNABLE_TYPES: 4,
 };
 
+// Struct: RemoteTypedArray
+blink.mojom.RemoteTypedArraySpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RemoteTypedArray',
+      packedSize: 16,
+      fields: [
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RemoteInvocationResult
+blink.mojom.RemoteInvocationResultSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RemoteInvocationResult',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: RemoteObjectHost
 blink.mojom.RemoteObjectHost = {};
 

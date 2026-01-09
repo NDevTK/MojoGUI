@@ -32,3 +32,17 @@ viz.mojom.ChannelFormat = {
   k16: 2,
   k16F: 3,
 };
+
+// Struct: MultiplanarFormat
+viz.mojom.MultiplanarFormatSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.MultiplanarFormat',
+      packedSize: 16,
+      fields: [
+        { name: 'prefers_external_sampler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

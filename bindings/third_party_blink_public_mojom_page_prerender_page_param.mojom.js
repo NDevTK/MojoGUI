@@ -8,3 +8,17 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: PrerenderParam
+blink.mojom.PrerenderParamSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PrerenderParam',
+      packedSize: 16,
+      fields: [
+        { name: 'should_pause_javascript_execution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -28,6 +28,33 @@ network.mojom.CrossOriginOpenerPolicyValue = {
   kNoopenerAllowPopups: 4,
 };
 
+// Struct: CrossOriginOpenerPolicyReporterParams
+network.mojom.CrossOriginOpenerPolicyReporterParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CrossOriginOpenerPolicyReporterParams',
+      packedSize: 16,
+      fields: [
+        { name: 'reported_window_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CrossOriginOpenerPolicy
+network.mojom.CrossOriginOpenerPolicySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CrossOriginOpenerPolicy',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CrossOriginOpenerPolicyReporter
 network.mojom.CrossOriginOpenerPolicyReporter = {};
 

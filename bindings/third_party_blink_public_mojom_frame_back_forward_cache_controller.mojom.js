@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: BlockingDetails
+blink.mojom.BlockingDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.BlockingDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: BackForwardCacheControllerHost
 blink.mojom.BackForwardCacheControllerHost = {};
 

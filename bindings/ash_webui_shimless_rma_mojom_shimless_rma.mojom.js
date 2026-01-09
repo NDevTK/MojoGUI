@@ -259,6 +259,130 @@ ash.shimless_rma.mojom.StatePropertyError = {
   kUnsupported: 0,
 };
 
+// Struct: StateResult
+ash.shimless_rma.mojom.StateResultSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.StateResult',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: QrCode
+ash.shimless_rma.mojom.QrCodeSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.QrCode',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Component
+ash.shimless_rma.mojom.ComponentSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.Component',
+      packedSize: 16,
+      fields: [
+        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CalibrationComponentStatus
+ash.shimless_rma.mojom.CalibrationComponentStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.CalibrationComponentStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Shimless3pDiagnosticsAppInfo
+ash.shimless_rma.mojom.Shimless3pDiagnosticsAppInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.Shimless3pDiagnosticsAppInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'permission_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PassHardwareVerificationResult
+ash.shimless_rma.mojom.PassHardwareVerificationResultSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.PassHardwareVerificationResult',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FailHardwareVerificationResult
+ash.shimless_rma.mojom.FailHardwareVerificationResultSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.FailHardwareVerificationResult',
+      packedSize: 16,
+      fields: [
+        { name: 'component_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SkipHardwareVerificationResult
+ash.shimless_rma.mojom.SkipHardwareVerificationResultSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.SkipHardwareVerificationResult',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UpdateDeviceInfoStateProperty
+ash.shimless_rma.mojom.UpdateDeviceInfoStatePropertySpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shimless_rma.mojom.UpdateDeviceInfoStateProperty',
+      packedSize: 16,
+      fields: [
+        { name: 'hide_google_sku', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ErrorObserver
 ash.shimless_rma.mojom.ErrorObserver = {};
 

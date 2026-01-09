@@ -15,3 +15,17 @@ mirroring.mojom.SessionType = {
   VIDEO_ONLY: 1,
   AUDIO_AND_VIDEO: 2,
 };
+
+// Struct: SessionParameters
+mirroring.mojom.SessionParametersSpec = {
+  $: {
+    structSpec: {
+      name: 'mirroring.mojom.SessionParameters',
+      packedSize: 16,
+      fields: [
+        { name: 'enable_rtcp_reporting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -9,6 +9,20 @@ var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
 
 
+// Struct: WebAuthnExceptionDetails
+remoting.mojom.WebAuthnExceptionDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.WebAuthnExceptionDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebAuthnRequestCanceller
 remoting.mojom.WebAuthnRequestCanceller = {};
 

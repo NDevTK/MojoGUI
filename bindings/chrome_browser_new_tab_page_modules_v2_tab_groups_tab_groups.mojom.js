@@ -10,6 +10,20 @@ ntp.tab_groups = ntp.tab_groups || {};
 ntp.tab_groups.mojom = ntp.tab_groups.mojom || {};
 
 
+// Struct: TabGroup
+ntp.tab_groups.mojom.TabGroupSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.tab_groups.mojom.TabGroup',
+      packedSize: 16,
+      fields: [
+        { name: 'is_shared_tab_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandler
 ntp.tab_groups.mojom.PageHandler = {};
 

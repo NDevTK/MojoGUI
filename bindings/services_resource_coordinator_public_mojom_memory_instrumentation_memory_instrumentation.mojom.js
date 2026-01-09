@@ -68,6 +68,198 @@ memory_instrumentation.mojom.RequestOutcome = {
   kInProcessMemoryDumpFailed: 9,
 };
 
+// Struct: RequestArgs
+memory_instrumentation.mojom.RequestArgsSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.RequestArgs',
+      packedSize: 16,
+      fields: [
+        { name: 'determinism', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RawAllocatorDumpEdge
+memory_instrumentation.mojom.RawAllocatorDumpEdgeSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.RawAllocatorDumpEdge',
+      packedSize: 16,
+      fields: [
+        { name: 'overridable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RawAllocatorDumpEntry
+memory_instrumentation.mojom.RawAllocatorDumpEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.RawAllocatorDumpEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RawAllocatorDump
+memory_instrumentation.mojom.RawAllocatorDumpSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.RawAllocatorDump',
+      packedSize: 16,
+      fields: [
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RawProcessMemoryDump
+memory_instrumentation.mojom.RawProcessMemoryDumpSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.RawProcessMemoryDump',
+      packedSize: 16,
+      fields: [
+        { name: 'allocator_dumps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VmRegion
+memory_instrumentation.mojom.VmRegionSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.VmRegion',
+      packedSize: 16,
+      fields: [
+        { name: 'byte_stats_proportional_resident', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PlatformPrivateFootprint
+memory_instrumentation.mojom.PlatformPrivateFootprintSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.PlatformPrivateFootprint',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RawOSMemDump
+memory_instrumentation.mojom.RawOSMemDumpSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.RawOSMemDump',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OSMemDump
+memory_instrumentation.mojom.OSMemDumpSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.OSMemDump',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AllocatorMemDump
+memory_instrumentation.mojom.AllocatorMemDumpSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.AllocatorMemDump',
+      packedSize: 16,
+      fields: [
+        { name: 'children', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProcessMemoryDump
+memory_instrumentation.mojom.ProcessMemoryDumpSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.ProcessMemoryDump',
+      packedSize: 16,
+      fields: [
+        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AggregatedMetrics
+memory_instrumentation.mojom.AggregatedMetricsSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.AggregatedMetrics',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GlobalMemoryDump
+memory_instrumentation.mojom.GlobalMemoryDumpSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.GlobalMemoryDump',
+      packedSize: 16,
+      fields: [
+        { name: 'aggregated_metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HeapProfileResult
+memory_instrumentation.mojom.HeapProfileResultSpec = {
+  $: {
+    structSpec: {
+      name: 'memory_instrumentation.mojom.HeapProfileResult',
+      packedSize: 16,
+      fields: [
+        { name: 'json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ClientProcess
 memory_instrumentation.mojom.ClientProcess = {};
 

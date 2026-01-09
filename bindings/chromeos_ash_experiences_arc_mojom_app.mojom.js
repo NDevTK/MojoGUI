@@ -82,6 +82,174 @@ arc.mojom.AppCategory = {
   kAccessibility: 8,
 };
 
+// Struct: InstallationResult
+arc.mojom.InstallationResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.InstallationResult',
+      packedSize: 16,
+      fields: [
+        { name: 'is_launchable_app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AppStorage
+arc.mojom.AppStorageSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppStorage',
+      packedSize: 16,
+      fields: [
+        { name: 'data_size_in_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AppInfo
+arc.mojom.AppInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'app_category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebAppInfo
+arc.mojom.WebAppInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.WebAppInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'certificate_sha256_fingerprint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WindowLayout
+arc.mojom.WindowLayoutSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.WindowLayout',
+      packedSize: 16,
+      fields: [
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PackageLocaleInfo
+arc.mojom.PackageLocaleInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PackageLocaleInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'selected_locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ArcPackageInfo
+arc.mojom.ArcPackageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcPackageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'game_controls_opt_out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ShortcutInfo
+arc.mojom.ShortcutInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ShortcutInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'intent_uri', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RawIconPngData
+arc.mojom.RawIconPngDataSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.RawIconPngData',
+      packedSize: 16,
+      fields: [
+        { name: 'background_icon_png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WindowInfo
+arc.mojom.WindowInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.WindowInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AppDiscoveryResult
+arc.mojom.AppDiscoveryResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppDiscoveryResult',
+      packedSize: 16,
+      fields: [
+        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AppShortcutItem
+arc.mojom.AppShortcutItemSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppShortcutItem',
+      packedSize: 16,
+      fields: [
+        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AppHost
 arc.mojom.AppHost = {};
 

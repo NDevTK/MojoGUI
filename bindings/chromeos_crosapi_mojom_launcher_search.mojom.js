@@ -78,6 +78,20 @@ crosapi.mojom.PageTransition = {
   kGenerated: 1,
 };
 
+// Struct: SearchResult
+crosapi.mojom.SearchResultSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.SearchResult',
+      packedSize: 16,
+      fields: [
+        { name: 'kUnset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SearchResultsPublisher
 crosapi.mojom.SearchResultsPublisher = {};
 

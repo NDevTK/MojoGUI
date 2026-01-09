@@ -16,6 +16,76 @@ font_data_service.mojom.TypefaceSlant = {
   kOblique: 2,
 };
 
+// Struct: TypefaceStyle
+font_data_service.mojom.TypefaceStyleSpec = {
+  $: {
+    structSpec: {
+      name: 'font_data_service.mojom.TypefaceStyle',
+      packedSize: 16,
+      fields: [
+        { name: 'slant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Coordinate
+font_data_service.mojom.CoordinateSpec = {
+  $: {
+    structSpec: {
+      name: 'font_data_service.mojom.Coordinate',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VariationPosition
+font_data_service.mojom.VariationPositionSpec = {
+  $: {
+    structSpec: {
+      name: 'font_data_service.mojom.VariationPosition',
+      packedSize: 16,
+      fields: [
+        { name: 'coordinateCount', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TypefaceFile
+font_data_service.mojom.TypefaceFileSpec = {
+  $: {
+    structSpec: {
+      name: 'font_data_service.mojom.TypefaceFile',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MatchFamilyNameResult
+font_data_service.mojom.MatchFamilyNameResultSpec = {
+  $: {
+    structSpec: {
+      name: 'font_data_service.mojom.MatchFamilyNameResult',
+      packedSize: 16,
+      fields: [
+        { name: 'variation_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FontDataService
 font_data_service.mojom.FontDataService = {};
 

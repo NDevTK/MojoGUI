@@ -8,3 +8,17 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: NoiseToken
+blink.mojom.NoiseTokenSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.NoiseToken',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

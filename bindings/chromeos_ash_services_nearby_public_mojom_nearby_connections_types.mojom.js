@@ -90,3 +90,171 @@ nearby.connections.mojom.AuthenticationStatus = {
   kSuccess: 1,
   kFailure: 2,
 };
+
+// Struct: ConnectionInfo
+nearby.connections.mojom.ConnectionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby.connections.mojom.ConnectionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_incoming_connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DiscoveredEndpointInfo
+nearby.connections.mojom.DiscoveredEndpointInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby.connections.mojom.DiscoveredEndpointInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediumSelection
+nearby.connections.mojom.MediumSelectionSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby.connections.mojom.MediumSelection',
+      packedSize: 16,
+      fields: [
+        { name: 'wifi_direct', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AdvertisingOptions
+nearby.connections.mojom.AdvertisingOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby.connections.mojom.AdvertisingOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'fast_advertisement_service_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DiscoveryOptions
+nearby.connections.mojom.DiscoveryOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby.connections.mojom.DiscoveryOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ConnectionOptions
+nearby.connections.mojom.ConnectionOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby.connections.mojom.ConnectionOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'keep_alive_timeout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BytesPayload
+nearby.connections.mojom.BytesPayloadSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby.connections.mojom.BytesPayload',
+      packedSize: 16,
+      fields: [
+        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FilePayload
+nearby.connections.mojom.FilePayloadSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby.connections.mojom.FilePayload',
+      packedSize: 16,
+      fields: [
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Payload
+nearby.connections.mojom.PayloadSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby.connections.mojom.Payload',
+      packedSize: 16,
+      fields: [
+        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PayloadTransferUpdate
+nearby.connections.mojom.PayloadTransferUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby.connections.mojom.PayloadTransferUpdate',
+      packedSize: 16,
+      fields: [
+        { name: 'bytes_transferred', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InitialConnectionInfoV3
+nearby.connections.mojom.InitialConnectionInfoV3Spec = {
+  $: {
+    structSpec: {
+      name: 'nearby.connections.mojom.InitialConnectionInfoV3',
+      packedSize: 16,
+      fields: [
+        { name: 'authentication_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BandwidthInfo
+nearby.connections.mojom.BandwidthInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby.connections.mojom.BandwidthInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'medium', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

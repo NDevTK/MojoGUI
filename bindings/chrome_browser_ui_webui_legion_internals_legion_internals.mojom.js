@@ -9,6 +9,20 @@ var legion_internals = legion_internals || {};
 legion_internals.mojom = legion_internals.mojom || {};
 
 
+// Struct: LegionResponse
+legion_internals.mojom.LegionResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'legion_internals.mojom.LegionResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: LegionInternalsPageHandler
 legion_internals.mojom.LegionInternalsPageHandler = {};
 

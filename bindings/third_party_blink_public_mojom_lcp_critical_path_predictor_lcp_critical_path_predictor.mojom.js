@@ -9,6 +9,34 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: LcpElement
+blink.mojom.LcpElementSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LcpElement',
+      packedSize: 16,
+      fields: [
+        { name: 'predicted_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LCPCriticalPathPredictorNavigationTimeHint
+blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LCPCriticalPathPredictorNavigationTimeHint',
+      packedSize: 16,
+      fields: [
+        { name: 'for_testing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: LCPCriticalPathPredictorHost
 blink.mojom.LCPCriticalPathPredictorHost = {};
 

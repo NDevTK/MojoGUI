@@ -15,6 +15,76 @@ blink.mojom.SubAppsServiceResultCode = {
   kFailure: 1,
 };
 
+// Struct: SubAppsServiceAddParameters
+blink.mojom.SubAppsServiceAddParametersSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SubAppsServiceAddParameters',
+      packedSize: 16,
+      fields: [
+        { name: 'install_url_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SubAppsServiceAddResult
+blink.mojom.SubAppsServiceAddResultSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SubAppsServiceAddResult',
+      packedSize: 16,
+      fields: [
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SubAppsServiceListResult
+blink.mojom.SubAppsServiceListResultSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SubAppsServiceListResult',
+      packedSize: 16,
+      fields: [
+        { name: 'sub_apps_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SubAppsServiceListResultEntry
+blink.mojom.SubAppsServiceListResultEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SubAppsServiceListResultEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'app_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SubAppsServiceRemoveResult
+blink.mojom.SubAppsServiceRemoveResultSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SubAppsServiceRemoveResult',
+      packedSize: 16,
+      fields: [
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SubAppsService
 blink.mojom.SubAppsService = {};
 

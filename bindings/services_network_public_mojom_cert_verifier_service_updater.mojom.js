@@ -9,6 +9,48 @@ var cert_verifier = cert_verifier || {};
 cert_verifier.mojom = cert_verifier.mojom || {};
 
 
+// Struct: CIDR
+cert_verifier.mojom.CIDRSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CIDR',
+      packedSize: 16,
+      fields: [
+        { name: 'mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CertWithConstraints
+cert_verifier.mojom.CertWithConstraintsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertWithConstraints',
+      packedSize: 16,
+      fields: [
+        { name: 'permitted_cidrs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AdditionalCertificates
+cert_verifier.mojom.AdditionalCertificatesSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.AdditionalCertificates',
+      packedSize: 16,
+      fields: [
+        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CertVerifierServiceUpdater
 cert_verifier.mojom.CertVerifierServiceUpdater = {};
 

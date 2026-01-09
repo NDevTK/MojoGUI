@@ -51,6 +51,145 @@ chromeos.machine_learning.mojom.AsrSwitchResult = {
   SWITCH_SKIPPED_NO_LP: 2,
 };
 
+// Struct: SodaMultilangConfig
+chromeos.machine_learning.mojom.SodaMultilangConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.SodaMultilangConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'locale_to_language_pack_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SodaConfig
+chromeos.machine_learning.mojom.SodaConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.SodaConfig',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TimingInfo
+chromeos.machine_learning.mojom.TimingInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.TimingInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'word_alignments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EndpointerEvent
+chromeos.machine_learning.mojom.EndpointerEventSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.EndpointerEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'timing_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HypothesisPartInResult
+chromeos.machine_learning.mojom.HypothesisPartInResultSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.HypothesisPartInResult',
+      packedSize: 16,
+      fields: [
+        { name: 'speaker_label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PartialResult
+chromeos.machine_learning.mojom.PartialResultSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.PartialResult',
+      packedSize: 16,
+      fields: [
+        { name: 'hypothesis_part', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FinalResult
+chromeos.machine_learning.mojom.FinalResultSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.FinalResult',
+      packedSize: 16,
+      fields: [
+        { name: 'hypothesis_part', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AudioLevelEvent
+chromeos.machine_learning.mojom.AudioLevelEventSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.AudioLevelEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'audio_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LangIdEvent
+chromeos.machine_learning.mojom.LangIdEventSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.LangIdEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'asr_switch_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LabelCorrectionEvent
+chromeos.machine_learning.mojom.LabelCorrectionEventSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.LabelCorrectionEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'hypothesis_parts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SodaClient
 chromeos.machine_learning.mojom.SodaClient = {};
 

@@ -9,6 +9,34 @@ var unzip = unzip || {};
 unzip.mojom = unzip.mojom || {};
 
 
+// Struct: UnzipOptions
+unzip.mojom.UnzipOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'unzip.mojom.UnzipOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Info
+unzip.mojom.InfoSpec = {
+  $: {
+    structSpec: {
+      name: 'unzip.mojom.Info',
+      packedSize: 16,
+      fields: [
+        { name: 'uses_aes_encryption', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UnzipFilter
 unzip.mojom.UnzipFilter = {};
 

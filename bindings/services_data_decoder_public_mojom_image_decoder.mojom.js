@@ -15,6 +15,20 @@ data_decoder.mojom.ImageCodec = {
   kPng: 1,
 };
 
+// Struct: AnimationFrame
+data_decoder.mojom.AnimationFrameSpec = {
+  $: {
+    structSpec: {
+      name: 'data_decoder.mojom.AnimationFrame',
+      packedSize: 16,
+      fields: [
+        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ImageDecoder
 data_decoder.mojom.ImageDecoder = {};
 

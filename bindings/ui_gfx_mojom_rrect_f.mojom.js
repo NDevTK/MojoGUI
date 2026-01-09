@@ -18,3 +18,17 @@ gfx.mojom.RRectFType = {
   kOval: 4,
   kComplex: 5,
 };
+
+// Struct: RRectF
+gfx.mojom.RRectFSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.RRectF',
+      packedSize: 16,
+      fields: [
+        { name: 'lower_left', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

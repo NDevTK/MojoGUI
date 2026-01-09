@@ -16,6 +16,61 @@ chromeos.machine_learning.mojom.Status = {
   ERROR: 1,
 };
 
+// Struct: GrammarCheckerQuery
+chromeos.machine_learning.mojom.GrammarCheckerQuerySpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.GrammarCheckerQuery',
+      packedSize: 16,
+      fields: [
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GrammarCorrectionFragment
+chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.GrammarCorrectionFragment',
+      packedSize: 16,
+      fields: [
+        { name: 'replacement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GrammarCheckerCandidate
+chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.GrammarCheckerCandidate',
+      packedSize: 16,
+      fields: [
+        { name: 'fragments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GrammarCheckerResult
+chromeos.machine_learning.mojom.GrammarCheckerResultSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.GrammarCheckerResult',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: GrammarChecker
 chromeos.machine_learning.mojom.GrammarChecker = {};
 

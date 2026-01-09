@@ -15,6 +15,20 @@ network.mojom.Type = {
   kWrite: 1,
 };
 
+// Struct: SharedDictionaryAccessDetails
+network.mojom.SharedDictionaryAccessDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SharedDictionaryAccessDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'kRead', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SharedDictionaryAccessObserver
 network.mojom.SharedDictionaryAccessObserver = {};
 

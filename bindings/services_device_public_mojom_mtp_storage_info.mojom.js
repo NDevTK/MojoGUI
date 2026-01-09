@@ -8,3 +8,17 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+
+// Struct: MtpStorageInfo
+device.mojom.MtpStorageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.MtpStorageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -9,6 +9,34 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: ContactIconBlob
+blink.mojom.ContactIconBlobSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ContactIconBlob',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ContactInfo
+blink.mojom.ContactInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ContactInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ContactsManager
 blink.mojom.ContactsManager = {};
 

@@ -14,3 +14,17 @@ media.mojom.SpeechAudioErrorDetails = {
   kNone: 0,
   kNoMic: 1,
 };
+
+// Struct: SpeechRecognitionError
+media.mojom.SpeechRecognitionErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionError',
+      packedSize: 16,
+      fields: [
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

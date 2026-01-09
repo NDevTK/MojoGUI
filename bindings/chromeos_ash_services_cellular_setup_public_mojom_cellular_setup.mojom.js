@@ -25,6 +25,20 @@ ash.cellular_setup.mojom.ActivationResult = {
   kFailedToActivate: 2,
 };
 
+// Struct: CellularMetadata
+ash.cellular_setup.mojom.CellularMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cellular_setup.mojom.CellularMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'mdn', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CarrierPortalHandler
 ash.cellular_setup.mojom.CarrierPortalHandler = {};
 

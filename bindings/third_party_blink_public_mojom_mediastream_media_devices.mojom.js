@@ -38,6 +38,62 @@ blink.mojom.AudioOutputStatus = {
   kNoUserActivation: 7,
 };
 
+// Struct: MediaDeviceInfo
+blink.mojom.MediaDeviceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDeviceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'availability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoInputDeviceCapabilities
+blink.mojom.VideoInputDeviceCapabilitiesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.VideoInputDeviceCapabilities',
+      packedSize: 16,
+      fields: [
+        { name: 'availability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SelectAudioOutputResult
+blink.mojom.SelectAudioOutputResultSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SelectAudioOutputResult',
+      packedSize: 16,
+      fields: [
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AudioInputDeviceCapabilities
+blink.mojom.AudioInputDeviceCapabilitiesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AudioInputDeviceCapabilities',
+      packedSize: 16,
+      fields: [
+        { name: 'latency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MediaDevicesDispatcherHost
 blink.mojom.MediaDevicesDispatcherHost = {};
 

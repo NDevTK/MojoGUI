@@ -9,6 +9,62 @@ var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
 
+// Struct: BundledFrameSubmission
+viz.mojom.BundledFrameSubmissionSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.BundledFrameSubmission',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BundledCompositorFrame
+viz.mojom.BundledCompositorFrameSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.BundledCompositorFrame',
+      packedSize: 16,
+      fields: [
+        { name: 'submit_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BundledReturnedResources
+viz.mojom.BundledReturnedResourcesSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.BundledReturnedResources',
+      packedSize: 16,
+      fields: [
+        { name: 'resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BeginFrameInfo
+viz.mojom.BeginFrameInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.BeginFrameInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FrameSinkBundle
 viz.mojom.FrameSinkBundle = {};
 

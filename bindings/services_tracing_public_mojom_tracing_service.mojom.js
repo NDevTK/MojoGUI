@@ -9,6 +9,20 @@ var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
 
 
+// Struct: ClientInfo
+tracing.mojom.ClientInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ClientInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TracingService
 tracing.mojom.TracingService = {};
 

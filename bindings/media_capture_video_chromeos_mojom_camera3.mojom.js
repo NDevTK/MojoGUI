@@ -98,6 +98,188 @@ cros.mojom.BufferType = {
   SHM: 1,
 };
 
+// Struct: CropRotateScaleInfo
+cros.mojom.CropRotateScaleInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CropRotateScaleInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'crop_rotate_scale_degrees', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Camera3Stream
+cros.mojom.Camera3StreamSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.Camera3Stream',
+      packedSize: 16,
+      fields: [
+        { name: 'effects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Camera3StreamConfiguration
+cros.mojom.Camera3StreamConfigurationSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.Camera3StreamConfiguration',
+      packedSize: 16,
+      fields: [
+        { name: 'session_parameters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CameraBufferHandle
+cros.mojom.CameraBufferHandleSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraBufferHandle',
+      packedSize: 16,
+      fields: [
+        { name: 'modifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Camera3StreamBuffer
+cros.mojom.Camera3StreamBufferSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.Camera3StreamBuffer',
+      packedSize: 16,
+      fields: [
+        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Camera3ErrorMsg
+cros.mojom.Camera3ErrorMsgSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.Camera3ErrorMsg',
+      packedSize: 16,
+      fields: [
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Camera3ShutterMsg
+cros.mojom.Camera3ShutterMsgSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.Camera3ShutterMsg',
+      packedSize: 16,
+      fields: [
+        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Camera3NotifyMsg
+cros.mojom.Camera3NotifyMsgSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.Camera3NotifyMsg',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Camera3BufferRequest
+cros.mojom.Camera3BufferRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.Camera3BufferRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'num_buffers_requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Camera3StreamBufferRet
+cros.mojom.Camera3StreamBufferRetSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.Camera3StreamBufferRet',
+      packedSize: 16,
+      fields: [
+        { name: 'output_buffers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Camera3PhyscamMetadata
+cros.mojom.Camera3PhyscamMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.Camera3PhyscamMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Camera3CaptureRequest
+cros.mojom.Camera3CaptureRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.Camera3CaptureRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'physcam_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Camera3CaptureResult
+cros.mojom.Camera3CaptureResultSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.Camera3CaptureResult',
+      packedSize: 16,
+      fields: [
+        { name: 'physcam_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Camera3CallbackOps
 cros.mojom.Camera3CallbackOps = {};
 

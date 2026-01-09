@@ -31,6 +31,58 @@ crosapi.mojom.VideoConferenceAppType = {
   kAppServiceUnknown: 5,
 };
 
+// Struct: TitleChangeInfo
+crosapi.mojom.TitleChangeInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TitleChangeInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoConferenceClientUpdate
+crosapi.mojom.VideoConferenceClientUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.VideoConferenceClientUpdate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoConferenceMediaUsageStatus
+crosapi.mojom.VideoConferenceMediaUsageStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.VideoConferenceMediaUsageStatus',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoConferenceMediaAppInfo
+crosapi.mojom.VideoConferenceMediaAppInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.VideoConferenceMediaAppInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: VideoConferenceManagerClient
 crosapi.mojom.VideoConferenceManagerClient = {};
 

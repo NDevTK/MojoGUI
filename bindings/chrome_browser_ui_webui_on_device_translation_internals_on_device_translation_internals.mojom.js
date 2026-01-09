@@ -16,6 +16,20 @@ on_device_translation_internals.mojom.LanguagePackStatus = {
   kInstalled: 2,
 };
 
+// Struct: LanguagePackInfo
+on_device_translation_internals.mojom.LanguagePackInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_translation_internals.mojom.LanguagePackInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 on_device_translation_internals.mojom.PageHandlerFactory = {};
 

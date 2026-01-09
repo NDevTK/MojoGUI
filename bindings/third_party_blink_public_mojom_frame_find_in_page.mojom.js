@@ -22,6 +22,20 @@ blink.mojom.FindMatchUpdateType = {
   kMoreUpdatesComing: 1,
 };
 
+// Struct: FindOptions
+blink.mojom.FindOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FindOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FindInPage
 blink.mojom.FindInPage = {};
 

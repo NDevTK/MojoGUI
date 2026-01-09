@@ -16,6 +16,20 @@ blink.mojom.BucketError = {
   kInvalidExpiration: 2,
 };
 
+// Struct: BucketPolicies
+blink.mojom.BucketPoliciesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.BucketPolicies',
+      packedSize: 16,
+      fields: [
+        { name: 'expires', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: BucketHost
 blink.mojom.BucketHost = {};
 

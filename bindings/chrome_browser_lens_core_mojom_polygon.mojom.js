@@ -22,3 +22,30 @@ lens.mojom.CoordinateType = {
   kNormalized: 1,
   kImage: 2,
 };
+
+// Struct: Polygon
+lens.mojom.PolygonSpec = {
+  $: {
+    structSpec: {
+      name: 'lens.mojom.Polygon',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Vertex
+lens.mojom.VertexSpec = {
+  $: {
+    structSpec: {
+      name: 'lens.mojom.Vertex',
+      packedSize: 16,
+      fields: [
+        { name: 'y', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

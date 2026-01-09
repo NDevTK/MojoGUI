@@ -40,6 +40,34 @@ remote_cocoa.mojom.ToolbarVisibilityStyle = {
   kAutohide: 2,
 };
 
+// Struct: CreateWindowParams
+remote_cocoa.mojom.CreateWindowParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.CreateWindowParams',
+      packedSize: 16,
+      fields: [
+        { name: 'animation_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NativeWidgetNSWindowInitParams
+remote_cocoa.mojom.NativeWidgetNSWindowInitParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.NativeWidgetNSWindowInitParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_tooltip', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NativeWidgetNSWindow
 remote_cocoa.mojom.NativeWidgetNSWindow = {};
 

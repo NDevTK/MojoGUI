@@ -10,6 +10,34 @@ arc.keymaster = arc.keymaster || {};
 arc.keymaster.mojom = arc.keymaster.mojom || {};
 
 
+// Struct: ChapsKeyData
+arc.keymaster.mojom.ChapsKeyDataSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.keymaster.mojom.ChapsKeyData',
+      packedSize: 16,
+      fields: [
+        { name: 'slot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ChromeOsKey
+arc.keymaster.mojom.ChromeOsKeySpec = {
+  $: {
+    structSpec: {
+      name: 'arc.keymaster.mojom.ChromeOsKey',
+      packedSize: 16,
+      fields: [
+        { name: 'key_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CertStoreInstance
 arc.keymaster.mojom.CertStoreInstance = {};
 

@@ -10,6 +10,61 @@ ash.app_install = ash.app_install || {};
 ash.app_install.mojom = ash.app_install.mojom || {};
 
 
+// Struct: AppInfoArgs
+ash.app_install.mojom.AppInfoArgsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.app_install.mojom.AppInfoArgs',
+      packedSize: 16,
+      fields: [
+        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AppInfoData
+ash.app_install.mojom.AppInfoDataSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.app_install.mojom.AppInfoData',
+      packedSize: 16,
+      fields: [
+        { name: 'is_already_installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Screenshot
+ash.app_install.mojom.ScreenshotSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.app_install.mojom.Screenshot',
+      packedSize: 16,
+      fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NoAppErrorArgs
+ash.app_install.mojom.NoAppErrorArgsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.app_install.mojom.NoAppErrorArgs',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AppInfoActions
 ash.app_install.mojom.AppInfoActions = {};
 

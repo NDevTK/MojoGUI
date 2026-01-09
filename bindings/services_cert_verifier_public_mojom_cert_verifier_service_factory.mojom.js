@@ -16,6 +16,90 @@ cert_verifier.mojom.CertificateTrust = {
   kTrusted: 2,
 };
 
+// Struct: CertVerifierCreationParams
+cert_verifier.mojom.CertVerifierCreationParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierCreationParams',
+      packedSize: 16,
+      fields: [
+        { name: 'ct_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ChromeRootCertInfo
+cert_verifier.mojom.ChromeRootCertInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.ChromeRootCertInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'cert', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ChromeRootMerkleTreeCertInfo
+cert_verifier.mojom.ChromeRootMerkleTreeCertInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.ChromeRootMerkleTreeCertInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'last_landmark_id_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ChromeRootStoreInfo
+cert_verifier.mojom.ChromeRootStoreInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.ChromeRootStoreInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'root_mtc_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PlatformCertInfo
+cert_verifier.mojom.PlatformCertInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.PlatformCertInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'trust_setting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PlatformRootStoreInfo
+cert_verifier.mojom.PlatformRootStoreInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.PlatformRootStoreInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'user_added_certs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CertVerifierServiceFactory
 cert_verifier.mojom.CertVerifierServiceFactory = {};
 

@@ -8,3 +8,16 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+
+// Struct: CookieSettingOverrides
+network.mojom.CookieSettingOverridesSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieSettingOverrides',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

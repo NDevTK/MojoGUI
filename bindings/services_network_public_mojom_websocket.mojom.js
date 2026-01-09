@@ -17,6 +17,48 @@ network.mojom.WebSocketMessageType = {
   LAST: 3,
 };
 
+// Struct: HttpHeader
+network.mojom.HttpHeaderSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HttpHeader',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebSocketHandshakeRequest
+network.mojom.WebSocketHandshakeRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebSocketHandshakeRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'headers_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebSocketHandshakeResponse
+network.mojom.WebSocketHandshakeResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebSocketHandshakeResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebSocketAuthenticationHandler
 network.mojom.WebSocketAuthenticationHandler = {};
 

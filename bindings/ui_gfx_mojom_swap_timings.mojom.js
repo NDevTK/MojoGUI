@@ -8,3 +8,17 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+
+// Struct: SwapTimings
+gfx.mojom.SwapTimingsSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.SwapTimings',
+      packedSize: 16,
+      fields: [
+        { name: 'swap_end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

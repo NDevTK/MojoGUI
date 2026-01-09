@@ -9,6 +9,20 @@ var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
 
 
+// Struct: NsdServiceInfo
+sharing.mojom.NsdServiceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.NsdServiceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MdnsObserver
 sharing.mojom.MdnsObserver = {};
 

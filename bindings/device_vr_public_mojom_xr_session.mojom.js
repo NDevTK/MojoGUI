@@ -69,3 +69,73 @@ device.mojom.XRDepthType = {
   kRaw: 0,
   kSmooth: 1,
 };
+
+// Struct: XRTrackedImage
+device.mojom.XRTrackedImageSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRTrackedImage',
+      packedSize: 16,
+      fields: [
+        { name: 'width_in_meters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRDepthOptions
+device.mojom.XRDepthOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRDepthOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'match_depth_view', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRSessionOptions
+device.mojom.XRSessionOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRSessionOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XrFrameStatistics
+device.mojom.XrFrameStatisticsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XrFrameStatistics',
+      packedSize: 16,
+      fields: [
+        { name: 'submit_frame_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XrLogMessage
+device.mojom.XrLogMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XrLogMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

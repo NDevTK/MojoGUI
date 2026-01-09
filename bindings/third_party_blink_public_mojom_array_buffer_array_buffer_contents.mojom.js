@@ -8,3 +8,16 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: SerializedArrayBufferContents
+blink.mojom.SerializedArrayBufferContentsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SerializedArrayBufferContents',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

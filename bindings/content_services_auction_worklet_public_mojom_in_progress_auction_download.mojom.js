@@ -8,3 +8,17 @@
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
 
+
+// Struct: InProgressAuctionDownload
+auction_worklet.mojom.InProgressAuctionDownloadSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.InProgressAuctionDownload',
+      packedSize: 16,
+      fields: [
+        { name: 'devtools_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

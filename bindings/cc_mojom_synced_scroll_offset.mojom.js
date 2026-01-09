@@ -8,3 +8,17 @@
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
 
+
+// Struct: SyncedScrollOffset
+cc.mojom.SyncedScrollOffsetSpec = {
+  $: {
+    structSpec: {
+      name: 'cc.mojom.SyncedScrollOffset',
+      packedSize: 16,
+      fields: [
+        { name: 'scroll_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

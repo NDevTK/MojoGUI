@@ -52,3 +52,17 @@ media.mojom.RemotingSinkVideoCapability = {
   CODEC_HEVC: 5,
   CODEC_AV1: 6,
 };
+
+// Struct: RemotingSinkMetadata
+media.mojom.RemotingSinkMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.RemotingSinkMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'friendly_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -15,3 +15,30 @@ webapps.mojom.WebPageMobileCapable = {
   ENABLED: 1,
   ENABLED_APPLE: 2,
 };
+
+// Struct: WebPageIconInfo
+webapps.mojom.WebPageIconInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'webapps.mojom.WebPageIconInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'square_size_px', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebPageMetadata
+webapps.mojom.WebPageMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'webapps.mojom.WebPageMetadata',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

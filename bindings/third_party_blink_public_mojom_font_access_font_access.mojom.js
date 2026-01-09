@@ -19,6 +19,20 @@ blink.mojom.FontEnumerationStatus = {
   kPermissionDenied: 5,
 };
 
+// Struct: FontData
+blink.mojom.FontDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FontData',
+      packedSize: 16,
+      fields: [
+        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FontAccessManager
 blink.mojom.FontAccessManager = {};
 

@@ -64,3 +64,17 @@ chromecast.media.mojom.EncryptionScheme = {
   kAesCtr: 1,
   kAesCbc: 2,
 };
+
+// Struct: AudioConfig
+chromecast.media.mojom.AudioConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.media.mojom.AudioConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'encryption_scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

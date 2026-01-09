@@ -8,3 +8,73 @@
 var mojo = mojo || {};
 mojo.pipe_control = mojo.pipe_control || {};
 
+
+// Struct: RunOrClosePipeMessageParams
+mojo.pipe_control.RunOrClosePipeMessageParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo.pipe_control.RunOrClosePipeMessageParams',
+      packedSize: 16,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DisconnectReason
+mojo.pipe_control.DisconnectReasonSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo.pipe_control.DisconnectReason',
+      packedSize: 16,
+      fields: [
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PeerAssociatedEndpointClosedEvent
+mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo.pipe_control.PeerAssociatedEndpointClosedEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'disconnect_reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PauseUntilFlushCompletes
+mojo.pipe_control.PauseUntilFlushCompletesSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo.pipe_control.PauseUntilFlushCompletes',
+      packedSize: 16,
+      fields: [
+        { name: 'flush_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FlushAsync
+mojo.pipe_control.FlushAsyncSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo.pipe_control.FlushAsync',
+      packedSize: 16,
+      fields: [
+        { name: 'flusher_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

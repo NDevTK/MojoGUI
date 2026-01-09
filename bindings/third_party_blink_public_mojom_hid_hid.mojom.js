@@ -9,6 +9,34 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: VendorAndProduct
+blink.mojom.VendorAndProductSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.VendorAndProduct',
+      packedSize: 16,
+      fields: [
+        { name: 'product', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HidDeviceFilter
+blink.mojom.HidDeviceFilterSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.HidDeviceFilter',
+      packedSize: 16,
+      fields: [
+        { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: HidService
 blink.mojom.HidService = {};
 

@@ -11,6 +11,20 @@ ash.settings.google_drive = ash.settings.google_drive || {};
 ash.settings.google_drive.mojom = ash.settings.google_drive.mojom || {};
 
 
+// Struct: Status
+ash.settings.google_drive.mojom.StatusSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.google_drive.mojom.Status',
+      packedSize: 16,
+      fields: [
+        { name: 'is_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 ash.settings.google_drive.mojom.PageHandlerFactory = {};
 

@@ -18,6 +18,61 @@ blink.mojom.Mode = {
   kSave: 4,
 };
 
+// Struct: FileChooserParams
+blink.mojom.FileChooserParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileChooserParams',
+      packedSize: 16,
+      fields: [
+        { name: 'kOpen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NativeFileInfo
+blink.mojom.NativeFileInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.NativeFileInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'base_subdirs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileSystemFileInfo
+blink.mojom.FileSystemFileInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemFileInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileChooserResult
+blink.mojom.FileChooserResultSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileChooserResult',
+      packedSize: 16,
+      fields: [
+        { name: 'base_directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FileChooser
 blink.mojom.FileChooser = {};
 

@@ -28,6 +28,104 @@ ash.personalization_app.mojom.MantaStatusCode = {
   kMax: 13,
 };
 
+// Struct: SeaPenThumbnail
+ash.personalization_app.mojom.SeaPenThumbnailSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.SeaPenThumbnail',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SeaPenUserVisibleQuery
+ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.SeaPenUserVisibleQuery',
+      packedSize: 16,
+      fields: [
+        { name: 'template_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SeaPenTemplateQuery
+ash.personalization_app.mojom.SeaPenTemplateQuerySpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.SeaPenTemplateQuery',
+      packedSize: 16,
+      fields: [
+        { name: 'user_visible_query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SeaPenFeedbackMetadata
+ash.personalization_app.mojom.SeaPenFeedbackMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.SeaPenFeedbackMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'generation_seed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RecentSeaPenImageInfo
+ash.personalization_app.mojom.RecentSeaPenImageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.RecentSeaPenImageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'creation_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RecentSeaPenThumbnailData
+ash.personalization_app.mojom.RecentSeaPenThumbnailDataSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.RecentSeaPenThumbnailData',
+      packedSize: 16,
+      fields: [
+        { name: 'image_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextQueryHistoryEntry
+ash.personalization_app.mojom.TextQueryHistoryEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.TextQueryHistoryEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'thumbnails', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SeaPenObserver
 ash.personalization_app.mojom.SeaPenObserver = {};
 

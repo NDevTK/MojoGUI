@@ -9,6 +9,48 @@ var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
 
 
+// Struct: BrowserSignals
+auction_worklet.mojom.BrowserSignalsSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.BrowserSignals',
+      packedSize: 16,
+      fields: [
+        { name: 'seller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AuctionWorkletPermissionsPolicyState
+auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.AuctionWorkletPermissionsPolicyState',
+      packedSize: 16,
+      fields: [
+        { name: 'shared_storage_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TrustedSignalsPublicKey
+auction_worklet.mojom.TrustedSignalsPublicKeySpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.TrustedSignalsPublicKey',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: LoadSellerWorkletClient
 auction_worklet.mojom.LoadSellerWorkletClient = {};
 

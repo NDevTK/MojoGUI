@@ -9,6 +9,19 @@ var enterprise_companion = enterprise_companion || {};
 enterprise_companion.mojom = enterprise_companion.mojom || {};
 
 
+// Struct: Status
+enterprise_companion.mojom.StatusSpec = {
+  $: {
+    structSpec: {
+      name: 'enterprise_companion.mojom.Status',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: EnterpriseCompanion
 enterprise_companion.mojom.EnterpriseCompanion = {};
 

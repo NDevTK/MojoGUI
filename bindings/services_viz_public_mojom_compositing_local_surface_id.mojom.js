@@ -8,3 +8,17 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+
+// Struct: LocalSurfaceId
+viz.mojom.LocalSurfaceIdSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LocalSurfaceId',
+      packedSize: 16,
+      fields: [
+        { name: 'embed_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

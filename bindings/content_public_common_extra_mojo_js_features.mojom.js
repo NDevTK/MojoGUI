@@ -8,3 +8,17 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+
+// Struct: ExtraMojoJsFeatures
+content.mojom.ExtraMojoJsFeaturesSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.ExtraMojoJsFeatures',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

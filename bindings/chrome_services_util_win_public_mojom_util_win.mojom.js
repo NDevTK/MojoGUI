@@ -42,6 +42,90 @@ chrome.mojom.ShortcutOperation = {
   kUpdateExisting: 2,
 };
 
+// Struct: FileFilterSpec
+chrome.mojom.FileFilterSpecSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.FileFilterSpec',
+      packedSize: 16,
+      fields: [
+        { name: 'extension_spec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InspectionResult
+chrome.mojom.InspectionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.InspectionResult',
+      packedSize: 16,
+      fields: [
+        { name: 'certificate_subject', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AntiVirusProduct
+chrome.mojom.AntiVirusProductSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.AntiVirusProduct',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TpmIdentifier
+chrome.mojom.TpmIdentifierSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.TpmIdentifier',
+      packedSize: 16,
+      fields: [
+        { name: 'tpm_specific_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ClsId
+chrome.mojom.ClsIdSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.ClsId',
+      packedSize: 16,
+      fields: [
+        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ShortcutProperties
+chrome.mojom.ShortcutPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.ShortcutProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UtilWin
 chrome.mojom.UtilWin = {};
 

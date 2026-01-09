@@ -22,6 +22,20 @@ ax.mojom.FocusRingStackingOrder = {
   kBelowAccessibilityBubbles: 1,
 };
 
+// Struct: FocusRingInfo
+ax.mojom.FocusRingInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.FocusRingInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UserInterface
 ax.mojom.UserInterface = {};
 

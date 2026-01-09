@@ -32,6 +32,20 @@ blink.mojom.CredentialManagerError = {
   UNKNOWN: 3,
 };
 
+// Struct: CredentialInfo
+blink.mojom.CredentialInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CredentialInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'federation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CredentialManager
 blink.mojom.CredentialManager = {};
 

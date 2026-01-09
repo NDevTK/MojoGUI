@@ -44,3 +44,157 @@ tabs_api.mojom.Layout = {
   kVertical: 0,
   kHorizontal: 1,
 };
+
+// Struct: Image
+tabs_api.mojom.ImageSpec = {
+  $: {
+    structSpec: {
+      name: 'tabs_api.mojom.Image',
+      packedSize: 16,
+      fields: [
+        { name: 'data_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Tab
+tabs_api.mojom.TabSpec = {
+  $: {
+    structSpec: {
+      name: 'tabs_api.mojom.Tab',
+      packedSize: 16,
+      fields: [
+        { name: 'is_blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TabStrip
+tabs_api.mojom.TabStripSpec = {
+  $: {
+    structSpec: {
+      name: 'tabs_api.mojom.TabStrip',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PinnedTabs
+tabs_api.mojom.PinnedTabsSpec = {
+  $: {
+    structSpec: {
+      name: 'tabs_api.mojom.PinnedTabs',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UnpinnedTabs
+tabs_api.mojom.UnpinnedTabsSpec = {
+  $: {
+    structSpec: {
+      name: 'tabs_api.mojom.UnpinnedTabs',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TabGroup
+tabs_api.mojom.TabGroupSpec = {
+  $: {
+    structSpec: {
+      name: 'tabs_api.mojom.TabGroup',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TabGroupVisualData
+tabs_api.mojom.TabGroupVisualDataSpec = {
+  $: {
+    structSpec: {
+      name: 'tabs_api.mojom.TabGroupVisualData',
+      packedSize: 16,
+      fields: [
+        { name: 'is_collapsed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SplitTab
+tabs_api.mojom.SplitTabSpec = {
+  $: {
+    structSpec: {
+      name: 'tabs_api.mojom.SplitTab',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SplitTabVisualData
+tabs_api.mojom.SplitTabVisualDataSpec = {
+  $: {
+    structSpec: {
+      name: 'tabs_api.mojom.SplitTabVisualData',
+      packedSize: 16,
+      fields: [
+        { name: 'kVertical', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Container
+tabs_api.mojom.ContainerSpec = {
+  $: {
+    structSpec: {
+      name: 'tabs_api.mojom.Container',
+      packedSize: 16,
+      fields: [
+        { name: 'children', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TabCreatedContainer
+tabs_api.mojom.TabCreatedContainerSpec = {
+  $: {
+    structSpec: {
+      name: 'tabs_api.mojom.TabCreatedContainer',
+      packedSize: 16,
+      fields: [
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

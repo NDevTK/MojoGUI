@@ -9,6 +9,48 @@ var device = device || {};
 device.mojom = device.mojom || {};
 
 
+// Struct: XRRuntimeSessionOptions
+device.mojom.XRRuntimeSessionOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRRuntimeSessionOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRRuntimeSessionResult
+device.mojom.XRRuntimeSessionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRRuntimeSessionResult',
+      packedSize: 16,
+      fields: [
+        { name: 'overlay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRDeviceData
+device.mojom.XRDeviceDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRDeviceData',
+      packedSize: 16,
+      fields: [
+        { name: 'is_ar_blend_mode_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: XRSessionController
 device.mojom.XRSessionController = {};
 

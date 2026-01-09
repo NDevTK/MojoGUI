@@ -8,3 +8,17 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+
+// Struct: SurfaceId
+viz.mojom.SurfaceIdSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.SurfaceId',
+      packedSize: 16,
+      fields: [
+        { name: 'local_surface_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

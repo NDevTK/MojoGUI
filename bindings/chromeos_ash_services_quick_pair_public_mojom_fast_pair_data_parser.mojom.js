@@ -35,6 +35,118 @@ ash.quick_pair.mojom.MessageGroup = {
   kAcknowledgementEvent: 4,
 };
 
+// Struct: DecryptedResponse
+ash.quick_pair.mojom.DecryptedResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.quick_pair.mojom.DecryptedResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'secondary_address_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DecryptedPasskey
+ash.quick_pair.mojom.DecryptedPasskeySpec = {
+  $: {
+    structSpec: {
+      name: 'ash.quick_pair.mojom.DecryptedPasskey',
+      packedSize: 16,
+      fields: [
+        { name: 'salt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BatteryInfo
+ash.quick_pair.mojom.BatteryInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.quick_pair.mojom.BatteryInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'percentage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BatteryNotification
+ash.quick_pair.mojom.BatteryNotificationSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.quick_pair.mojom.BatteryNotification',
+      packedSize: 16,
+      fields: [
+        { name: 'case_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BatteryUpdate
+ash.quick_pair.mojom.BatteryUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.quick_pair.mojom.BatteryUpdate',
+      packedSize: 16,
+      fields: [
+        { name: 'case_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RingDevice
+ash.quick_pair.mojom.RingDeviceSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.quick_pair.mojom.RingDevice',
+      packedSize: 16,
+      fields: [
+        { name: 'timeout_in_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AcknowledgementMessage
+ash.quick_pair.mojom.AcknowledgementMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.quick_pair.mojom.AcknowledgementMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'action_message_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NotDiscoverableAdvertisement
+ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.quick_pair.mojom.NotDiscoverableAdvertisement',
+      packedSize: 16,
+      fields: [
+        { name: 'battery_notification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FastPairDataParser
 ash.quick_pair.mojom.FastPairDataParser = {};
 

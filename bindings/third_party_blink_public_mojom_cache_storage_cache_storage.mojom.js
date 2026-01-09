@@ -30,6 +30,90 @@ blink.mojom.OperationType = {
   kDelete: 2,
 };
 
+// Struct: CacheStorageVerboseError
+blink.mojom.CacheStorageVerboseErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CacheStorageVerboseError',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CacheQueryOptions
+blink.mojom.CacheQueryOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CacheQueryOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MultiCacheQueryOptions
+blink.mojom.MultiCacheQueryOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MultiCacheQueryOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'cache_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BatchOperation
+blink.mojom.BatchOperationSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.BatchOperation',
+      packedSize: 16,
+      fields: [
+        { name: 'match_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EagerResponse
+blink.mojom.EagerResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EagerResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'client_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CacheEntry
+blink.mojom.CacheEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CacheEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CacheStorageCache
 blink.mojom.CacheStorageCache = {};
 

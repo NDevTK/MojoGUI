@@ -31,3 +31,17 @@ gpu.mojom.HasDiscreteGpu = {
   kNo: 1,
   kYes: 2,
 };
+
+// Struct: DevicePerfInfo
+gpu.mojom.DevicePerfInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.DevicePerfInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'has_discrete_gpu', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

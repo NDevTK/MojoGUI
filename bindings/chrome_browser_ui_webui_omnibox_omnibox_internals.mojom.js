@@ -15,6 +15,76 @@ mojom.AutocompleteControllerType = {
   kMlDisabledDebug: 2,
 };
 
+// Struct: ACMatchClassification
+mojom.ACMatchClassificationSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.ACMatchClassification',
+      packedSize: 16,
+      fields: [
+        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Signals
+mojom.SignalsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.Signals',
+      packedSize: 16,
+      fields: [
+        { name: 'is_calculator_suggest', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AutocompleteMatch
+mojom.AutocompleteMatchSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.AutocompleteMatch',
+      packedSize: 16,
+      fields: [
+        { name: 'additional_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AutocompleteResultsForProvider
+mojom.AutocompleteResultsForProviderSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.AutocompleteResultsForProvider',
+      packedSize: 16,
+      fields: [
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OmniboxResponse
+mojom.OmniboxResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.OmniboxResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'results_by_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: OmniboxPageHandler
 mojom.OmniboxPageHandler = {};
 

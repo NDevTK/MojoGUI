@@ -15,6 +15,20 @@ metrics.mojom.ProfileType = {
   kHeap: 1,
 };
 
+// Struct: SampledProfile
+metrics.mojom.SampledProfileSpec = {
+  $: {
+    structSpec: {
+      name: 'metrics.mojom.SampledProfile',
+      packedSize: 16,
+      fields: [
+        { name: 'contents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CallStackProfileCollector
 metrics.mojom.CallStackProfileCollector = {};
 

@@ -24,6 +24,118 @@ ash.diagnostics.mojom.BatteryState = {
   kFull: 2,
 };
 
+// Struct: DeviceCapabilities
+ash.diagnostics.mojom.DeviceCapabilitiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.DeviceCapabilities',
+      packedSize: 16,
+      fields: [
+        { name: 'has_battery', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VersionInfo
+ash.diagnostics.mojom.VersionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.VersionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'full_version_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SystemInfo
+ash.diagnostics.mojom.SystemInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.SystemInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'device_capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BatteryInfo
+ash.diagnostics.mojom.BatteryInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.BatteryInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'charge_full_design_milliamp_hours', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BatteryChargeStatus
+ash.diagnostics.mojom.BatteryChargeStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.BatteryChargeStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'power_adapter_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BatteryHealth
+ash.diagnostics.mojom.BatteryHealthSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.BatteryHealth',
+      packedSize: 16,
+      fields: [
+        { name: 'battery_wear_percentage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MemoryUsage
+ash.diagnostics.mojom.MemoryUsageSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.MemoryUsage',
+      packedSize: 16,
+      fields: [
+        { name: 'free_memory_kib', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CpuUsage
+ash.diagnostics.mojom.CpuUsageSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.CpuUsage',
+      packedSize: 16,
+      fields: [
+        { name: 'scaling_current_frequency_khz', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: BatteryChargeStatusObserver
 ash.diagnostics.mojom.BatteryChargeStatusObserver = {};
 

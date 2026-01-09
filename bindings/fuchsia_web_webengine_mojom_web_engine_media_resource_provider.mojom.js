@@ -8,6 +8,20 @@
 var mojom = mojom || {};
 
 
+// Struct: AudioConsumerRequest
+mojom.AudioConsumerRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.AudioConsumerRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebEngineMediaResourceProvider
 mojom.WebEngineMediaResourceProvider = {};
 

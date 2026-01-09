@@ -22,3 +22,45 @@ filesystem.mojom.FsFileType = {
   REGULAR_FILE: 1,
   DIRECTORY: 2,
 };
+
+// Struct: TimespecOrNow
+filesystem.mojom.TimespecOrNowSpec = {
+  $: {
+    structSpec: {
+      name: 'filesystem.mojom.TimespecOrNow',
+      packedSize: 16,
+      fields: [
+        { name: 'seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileInformation
+filesystem.mojom.FileInformationSpec = {
+  $: {
+    structSpec: {
+      name: 'filesystem.mojom.FileInformation',
+      packedSize: 16,
+      fields: [
+        { name: 'ctime', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DirectoryEntry
+filesystem.mojom.DirectoryEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'filesystem.mojom.DirectoryEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

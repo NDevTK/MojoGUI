@@ -8,3 +8,17 @@
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
 
+
+// Struct: BrowserControlsOffsetTags
+cc.mojom.BrowserControlsOffsetTagsSpec = {
+  $: {
+    structSpec: {
+      name: 'cc.mojom.BrowserControlsOffsetTags',
+      packedSize: 16,
+      fields: [
+        { name: 'bottom_controls_offset_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

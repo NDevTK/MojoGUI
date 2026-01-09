@@ -40,6 +40,104 @@ auction_worklet.mojom.ReportingIdField = {
   kSelectedBuyerAndSellerReportingId: 4,
 };
 
+// Struct: KAnonKey
+auction_worklet.mojom.KAnonKeySpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.KAnonKey',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BidderWorkletNonSharedParams
+auction_worklet.mojom.BidderWorkletNonSharedParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.BidderWorkletNonSharedParams',
+      packedSize: 16,
+      fields: [
+        { name: 'kanon_keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BidderWorkletBid
+auction_worklet.mojom.BidderWorkletBidSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.BidderWorkletBid',
+      packedSize: 16,
+      fields: [
+        { name: 'bid_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrioritySignalsDouble
+auction_worklet.mojom.PrioritySignalsDoubleSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.PrioritySignalsDouble',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GenerateBidDependencyLatencies
+auction_worklet.mojom.GenerateBidDependencyLatenciesSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.GenerateBidDependencyLatencies',
+      packedSize: 16,
+      fields: [
+        { name: 'generate_bid_finish_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BidderTimingMetrics
+auction_worklet.mojom.BidderTimingMetricsSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.BidderTimingMetrics',
+      packedSize: 16,
+      fields: [
+        { name: 'script_timed_out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrivateModelTrainingRequestData
+auction_worklet.mojom.PrivateModelTrainingRequestDataSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.PrivateModelTrainingRequestData',
+      packedSize: 16,
+      fields: [
+        { name: 'destination', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: GenerateBidClient
 auction_worklet.mojom.GenerateBidClient = {};
 

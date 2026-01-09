@@ -26,6 +26,20 @@ arc.mojom.AppPermissionGroup = {
   LOCATION: 2,
 };
 
+// Struct: PermissionState
+arc.mojom.PermissionStateSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PermissionState',
+      packedSize: 16,
+      fields: [
+        { name: 'one_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AppPermissionsInstance
 arc.mojom.AppPermissionsInstance = {};
 

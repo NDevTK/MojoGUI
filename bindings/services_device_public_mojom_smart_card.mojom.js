@@ -83,6 +83,90 @@ device.mojom.SmartCardConnectionState = {
   kSpecific: 5,
 };
 
+// Struct: SmartCardReaderStateFlags
+device.mojom.SmartCardReaderStateFlagsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardReaderStateFlags',
+      packedSize: 16,
+      fields: [
+        { name: 'unpowered', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SmartCardReaderStateIn
+device.mojom.SmartCardReaderStateInSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardReaderStateIn',
+      packedSize: 16,
+      fields: [
+        { name: 'current_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SmartCardReaderStateOut
+device.mojom.SmartCardReaderStateOutSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardReaderStateOut',
+      packedSize: 16,
+      fields: [
+        { name: 'answer_to_reset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SmartCardProtocols
+device.mojom.SmartCardProtocolsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardProtocols',
+      packedSize: 16,
+      fields: [
+        { name: 'raw', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SmartCardStatus
+device.mojom.SmartCardStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'answer_to_reset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SmartCardConnectSuccess
+device.mojom.SmartCardConnectSuccessSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SmartCardConnectSuccess',
+      packedSize: 16,
+      fields: [
+        { name: 'active_protocol', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SmartCardTransaction
 device.mojom.SmartCardTransaction = {};
 

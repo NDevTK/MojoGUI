@@ -16,6 +16,20 @@ auction_worklet.mojom.TrustedSignalsCompressionScheme = {
   kBrotli: 2,
 };
 
+// Struct: TrustedSignalsCacheKey
+auction_worklet.mojom.TrustedSignalsCacheKeySpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.TrustedSignalsCacheKey',
+      packedSize: 16,
+      fields: [
+        { name: 'partition_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TrustedSignalsCacheClient
 auction_worklet.mojom.TrustedSignalsCacheClient = {};
 

@@ -8,3 +8,16 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: FrameOwnerProperties
+blink.mojom.FrameOwnerPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FrameOwnerProperties',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

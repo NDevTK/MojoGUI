@@ -16,6 +16,20 @@ viz.mojom.BufferFormatPreference = {
   kPreferSharedImageWithNativeHandle: 2,
 };
 
+// Struct: VideoCaptureTarget
+viz.mojom.VideoCaptureTargetSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.VideoCaptureTarget',
+      packedSize: 16,
+      fields: [
+        { name: 'sub_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FrameSinkVideoConsumerFrameCallbacks
 viz.mojom.FrameSinkVideoConsumerFrameCallbacks = {};
 

@@ -36,6 +36,47 @@ lobster.mojom.WebUIMetricEvent = {
   kFeedbackThumbsDown: 10,
 };
 
+// Struct: Candidate
+lobster.mojom.CandidateSpec = {
+  $: {
+    structSpec: {
+      name: 'lobster.mojom.Candidate',
+      packedSize: 16,
+      fields: [
+        { name: 'data_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Error
+lobster.mojom.ErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'lobster.mojom.Error',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FeedbackPreview
+lobster.mojom.FeedbackPreviewSpec = {
+  $: {
+    structSpec: {
+      name: 'lobster.mojom.FeedbackPreview',
+      packedSize: 16,
+      fields: [
+        { name: 'preview_data_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UntrustedLobsterPageHandler
 lobster.mojom.UntrustedLobsterPageHandler = {};
 

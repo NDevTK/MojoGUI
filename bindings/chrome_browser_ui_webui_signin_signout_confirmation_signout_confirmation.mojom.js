@@ -9,6 +9,34 @@ var signout_confirmation = signout_confirmation || {};
 signout_confirmation.mojom = signout_confirmation.mojom || {};
 
 
+// Struct: ExtensionInfo
+signout_confirmation.mojom.ExtensionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'signout_confirmation.mojom.ExtensionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'icon_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SignoutConfirmationData
+signout_confirmation.mojom.SignoutConfirmationDataSpec = {
+  $: {
+    structSpec: {
+      name: 'signout_confirmation.mojom.SignoutConfirmationData',
+      packedSize: 16,
+      fields: [
+        { name: 'has_unsynced_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 signout_confirmation.mojom.PageHandlerFactory = {};
 

@@ -60,6 +60,34 @@ safe_browsing.mojom.WebRequestContactInitiatorType = {
   kContentScript: 1,
 };
 
+// Struct: AttributeNameValue
+safe_browsing.mojom.AttributeNameValueSpec = {
+  $: {
+    structSpec: {
+      name: 'safe_browsing.mojom.AttributeNameValue',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ThreatDOMDetailsNode
+safe_browsing.mojom.ThreatDOMDetailsNodeSpec = {
+  $: {
+    structSpec: {
+      name: 'safe_browsing.mojom.ThreatDOMDetailsNode',
+      packedSize: 16,
+      fields: [
+        { name: 'inner_html', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SafeBrowsing
 safe_browsing.mojom.SafeBrowsing = {};
 

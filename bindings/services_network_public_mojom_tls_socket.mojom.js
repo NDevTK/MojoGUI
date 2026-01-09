@@ -9,6 +9,20 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+// Struct: TLSClientSocketOptions
+network.mojom.TLSClientSocketOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TLSClientSocketOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TLSClientSocket
 network.mojom.TLSClientSocket = {};
 

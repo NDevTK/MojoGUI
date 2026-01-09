@@ -9,6 +9,34 @@ var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
 
+// Struct: LayerContextSettings
+viz.mojom.LayerContextSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LayerContextSettings',
+      packedSize: 16,
+      fields: [
+        { name: 'enable_fluent_overlay_scrollbar', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CompositorFrameSinkParams
+viz.mojom.CompositorFrameSinkParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorFrameSinkParams',
+      packedSize: 16,
+      fields: [
+        { name: 'no_compositor_frame_acks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CompositorFrameSink
 viz.mojom.CompositorFrameSink = {};
 

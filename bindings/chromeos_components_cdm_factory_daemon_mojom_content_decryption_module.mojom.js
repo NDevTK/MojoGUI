@@ -78,6 +78,76 @@ chromeos.cdm.mojom.DecryptStatus = {
   kFailure: 2,
 };
 
+// Struct: CdmPromiseResult
+chromeos.cdm.mojom.CdmPromiseResultSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.CdmPromiseResult',
+      packedSize: 16,
+      fields: [
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CdmKeyInformation
+chromeos.cdm.mojom.CdmKeyInformationSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.CdmKeyInformation',
+      packedSize: 16,
+      fields: [
+        { name: 'system_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EncryptionPattern
+chromeos.cdm.mojom.EncryptionPatternSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.EncryptionPattern',
+      packedSize: 16,
+      fields: [
+        { name: 'skip_byte_block', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SubsampleEntry
+chromeos.cdm.mojom.SubsampleEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.SubsampleEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'cipher_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DecryptConfig
+chromeos.cdm.mojom.DecryptConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cdm.mojom.DecryptConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'encryption_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ContentDecryptionModule
 chromeos.cdm.mojom.ContentDecryptionModule = {};
 

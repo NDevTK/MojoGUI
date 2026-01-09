@@ -9,6 +9,20 @@ var foo = foo || {};
 foo.mojom = foo.mojom || {};
 
 
+// Struct: FooDataItem
+foo.mojom.FooDataItemSpec = {
+  $: {
+    structSpec: {
+      name: 'foo.mojom.FooDataItem',
+      packedSize: 16,
+      fields: [
+        { name: 'imageUrl', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FooHandler
 foo.mojom.FooHandler = {};
 

@@ -20,6 +20,34 @@ blink.mojom.PrivateAggregationErrorEvent = {
   kAlreadyTriggeredExternalError: 6,
 };
 
+// Struct: DebugKey
+blink.mojom.DebugKeySpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DebugKey',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DebugModeDetails
+blink.mojom.DebugModeDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DebugModeDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'debug_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PrivateAggregationHost
 blink.mojom.PrivateAggregationHost = {};
 

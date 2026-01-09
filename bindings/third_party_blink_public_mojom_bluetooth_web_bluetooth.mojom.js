@@ -87,6 +87,160 @@ blink.mojom.WebBluetoothWriteType = {
   kWriteWithoutResponse: 2,
 };
 
+// Struct: WebBluetoothLeScanFilter
+blink.mojom.WebBluetoothLeScanFilterSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebBluetoothLeScanFilter',
+      packedSize: 16,
+      fields: [
+        { name: 'manufacturer_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebBluetoothCompany
+blink.mojom.WebBluetoothCompanySpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebBluetoothCompany',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebBluetoothDataFilter
+blink.mojom.WebBluetoothDataFilterSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebBluetoothDataFilter',
+      packedSize: 16,
+      fields: [
+        { name: 'mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebBluetoothRequestDeviceOptions
+blink.mojom.WebBluetoothRequestDeviceOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebBluetoothRequestDeviceOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'accept_all_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebBluetoothRequestLEScanOptions
+blink.mojom.WebBluetoothRequestLEScanOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebBluetoothRequestLEScanOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'accept_all_advertisements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebBluetoothDeviceId
+blink.mojom.WebBluetoothDeviceIdSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebBluetoothDeviceId',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebBluetoothDevice
+blink.mojom.WebBluetoothDeviceSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebBluetoothDevice',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebBluetoothRemoteGATTService
+blink.mojom.WebBluetoothRemoteGATTServiceSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebBluetoothRemoteGATTService',
+      packedSize: 16,
+      fields: [
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebBluetoothRemoteGATTCharacteristic
+blink.mojom.WebBluetoothRemoteGATTCharacteristicSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebBluetoothRemoteGATTCharacteristic',
+      packedSize: 16,
+      fields: [
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebBluetoothAdvertisingEvent
+blink.mojom.WebBluetoothAdvertisingEventSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebBluetoothAdvertisingEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'service_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebBluetoothRemoteGATTDescriptor
+blink.mojom.WebBluetoothRemoteGATTDescriptorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebBluetoothRemoteGATTDescriptor',
+      packedSize: 16,
+      fields: [
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebBluetoothService
 blink.mojom.WebBluetoothService = {};
 

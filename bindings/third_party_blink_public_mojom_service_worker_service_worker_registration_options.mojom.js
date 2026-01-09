@@ -15,3 +15,17 @@ blink.mojom.ServiceWorkerUpdateViaCache = {
   kAll: 1,
   kNone: 2,
 };
+
+// Struct: ServiceWorkerRegistrationOptions
+blink.mojom.ServiceWorkerRegistrationOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'kImports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -8,3 +8,31 @@
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
+
+// Struct: URLPattern
+extensions.mojom.URLPatternSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.URLPattern',
+      packedSize: 16,
+      fields: [
+        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: URLPatternSet
+extensions.mojom.URLPatternSetSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.URLPatternSet',
+      packedSize: 16,
+      fields: [
+        { name: 'patterns', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

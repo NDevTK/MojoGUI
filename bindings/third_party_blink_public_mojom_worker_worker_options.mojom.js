@@ -8,3 +8,16 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: WorkerOptions
+blink.mojom.WorkerOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WorkerOptions',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -8,3 +8,17 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+
+// Struct: ViewTransitionElementResourceId
+viz.mojom.ViewTransitionElementResourceIdSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.ViewTransitionElementResourceId',
+      packedSize: 16,
+      fields: [
+        { name: 'for_scope_snapshot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

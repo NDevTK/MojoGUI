@@ -9,6 +9,20 @@ var privacy_sandbox_internals = privacy_sandbox_internals || {};
 privacy_sandbox_internals.mojom = privacy_sandbox_internals.mojom || {};
 
 
+// Struct: PrivacySandboxInternalsPref
+privacy_sandbox_internals.mojom.PrivacySandboxInternalsPrefSpec = {
+  $: {
+    structSpec: {
+      name: 'privacy_sandbox_internals.mojom.PrivacySandboxInternalsPref',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandler
 privacy_sandbox_internals.mojom.PageHandler = {};
 

@@ -19,3 +19,31 @@ cros.mojom.EntryType = {
   TYPE_RATIONAL: 5,
   NUM_TYPES: 6,
 };
+
+// Struct: CameraMetadataEntry
+cros.mojom.CameraMetadataEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraMetadataEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CameraMetadata
+cros.mojom.CameraMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

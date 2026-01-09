@@ -10,6 +10,20 @@ ash.settings = ash.settings || {};
 ash.settings.mojom = ash.settings.mojom || {};
 
 
+// Struct: ActionChoice
+ash.settings.mojom.ActionChoiceSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.ActionChoice',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: KeyboardSettingsObserver
 ash.settings.mojom.KeyboardSettingsObserver = {};
 

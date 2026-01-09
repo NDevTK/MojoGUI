@@ -76,3 +76,31 @@ remoting.mojom.LayoutKeyFunction = {
   kCommand: 62,
   kSearch: 63,
 };
+
+// Struct: KeyBehavior
+remoting.mojom.KeyBehaviorSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.KeyBehavior',
+      packedSize: 16,
+      fields: [
+        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KeyboardLayout
+remoting.mojom.KeyboardLayoutSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.KeyboardLayout',
+      packedSize: 16,
+      fields: [
+        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

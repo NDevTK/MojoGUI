@@ -8,3 +8,17 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+
+// Struct: FrameSinkId
+viz.mojom.FrameSinkIdSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkId',
+      packedSize: 16,
+      fields: [
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

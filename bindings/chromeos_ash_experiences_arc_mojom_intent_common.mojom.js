@@ -17,3 +17,17 @@ arc.mojom.ActionType = {
   CREATE_NOTE: 3,
   EDIT: 4,
 };
+
+// Struct: ActivityName
+arc.mojom.ActivityNameSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ActivityName',
+      packedSize: 16,
+      fields: [
+        { name: 'activity_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

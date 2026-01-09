@@ -41,6 +41,48 @@ ash.cellular_setup.mojom.ESimOperationResult = {
   kFailure: 1,
 };
 
+// Struct: EuiccProperties
+ash.cellular_setup.mojom.EuiccPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cellular_setup.mojom.EuiccProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'is_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ESimProfileProperties
+ash.cellular_setup.mojom.ESimProfilePropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cellular_setup.mojom.ESimProfileProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'activation_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: QRCode
+ash.cellular_setup.mojom.QRCodeSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cellular_setup.mojom.QRCode',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ESimManagerObserver
 ash.cellular_setup.mojom.ESimManagerObserver = {};
 

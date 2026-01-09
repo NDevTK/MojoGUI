@@ -9,6 +9,62 @@ var batch_upload = batch_upload || {};
 batch_upload.mojom = batch_upload.mojom || {};
 
 
+// Struct: DataItem
+batch_upload.mojom.DataItemSpec = {
+  $: {
+    structSpec: {
+      name: 'batch_upload.mojom.DataItem',
+      packedSize: 16,
+      fields: [
+        { name: 'subtitle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DataContainer
+batch_upload.mojom.DataContainerSpec = {
+  $: {
+    structSpec: {
+      name: 'batch_upload.mojom.DataContainer',
+      packedSize: 16,
+      fields: [
+        { name: 'is_theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BatchUploadAccountInfo
+batch_upload.mojom.BatchUploadAccountInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'batch_upload.mojom.BatchUploadAccountInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'data_picture_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BatchUploadData
+batch_upload.mojom.BatchUploadDataSpec = {
+  $: {
+    structSpec: {
+      name: 'batch_upload.mojom.BatchUploadData',
+      packedSize: 16,
+      fields: [
+        { name: 'data_containers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 batch_upload.mojom.PageHandlerFactory = {};
 

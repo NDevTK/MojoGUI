@@ -9,6 +9,90 @@ var discards = discards || {};
 discards.mojom = discards.mojom || {};
 
 
+// Struct: SiteDataFeature
+discards.mojom.SiteDataFeatureSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.SiteDataFeature',
+      packedSize: 16,
+      fields: [
+        { name: 'use_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SiteDataPerformanceMeasurement
+discards.mojom.SiteDataPerformanceMeasurementSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.SiteDataPerformanceMeasurement',
+      packedSize: 16,
+      fields: [
+        { name: 'avg_load_duration_us', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SiteDataDatabaseSize
+discards.mojom.SiteDataDatabaseSizeSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.SiteDataDatabaseSize',
+      packedSize: 16,
+      fields: [
+        { name: 'on_disk_size_kb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SiteDataValue
+discards.mojom.SiteDataValueSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.SiteDataValue',
+      packedSize: 16,
+      fields: [
+        { name: 'load_time_estimates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SiteDataEntry
+discards.mojom.SiteDataEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.SiteDataEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SiteDataArray
+discards.mojom.SiteDataArraySpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.SiteDataArray',
+      packedSize: 16,
+      fields: [
+        { name: 'db_rows', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SiteDataProvider
 discards.mojom.SiteDataProvider = {};
 

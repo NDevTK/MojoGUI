@@ -16,6 +16,34 @@ related_website_sets.mojom.SiteType = {
   kService: 2,
 };
 
+// Struct: Member
+related_website_sets.mojom.MemberSpec = {
+  $: {
+    structSpec: {
+      name: 'related_website_sets.mojom.Member',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RelatedWebsiteSet
+related_website_sets.mojom.RelatedWebsiteSetSpec = {
+  $: {
+    structSpec: {
+      name: 'related_website_sets.mojom.RelatedWebsiteSet',
+      packedSize: 16,
+      fields: [
+        { name: 'managed_by_enterprise', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: RelatedWebsiteSetsPageHandler
 related_website_sets.mojom.RelatedWebsiteSetsPageHandler = {};
 

@@ -46,3 +46,86 @@ auction_worklet.mojom.ReservedErrorEventType = {
   kInsufficientBudget: 4,
   kUncaughtError: 5,
 };
+
+// Struct: BucketOffset
+auction_worklet.mojom.BucketOffsetSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.BucketOffset',
+      packedSize: 16,
+      fields: [
+        { name: 'is_negative', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SignalBucket
+auction_worklet.mojom.SignalBucketSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.SignalBucket',
+      packedSize: 16,
+      fields: [
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SignalValue
+auction_worklet.mojom.SignalValueSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.SignalValue',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AggregatableReportForEventContribution
+auction_worklet.mojom.AggregatableReportForEventContributionSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.AggregatableReportForEventContribution',
+      packedSize: 16,
+      fields: [
+        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrivateAggregationRequest
+auction_worklet.mojom.PrivateAggregationRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.PrivateAggregationRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'debug_mode_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FinalizedPrivateAggregationRequest
+auction_worklet.mojom.FinalizedPrivateAggregationRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.FinalizedPrivateAggregationRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'error_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

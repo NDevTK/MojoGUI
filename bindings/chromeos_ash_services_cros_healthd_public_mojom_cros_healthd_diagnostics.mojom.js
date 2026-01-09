@@ -111,6 +111,58 @@ ash.cros_healthd.mojom.DEPRECATED_LedColor = {
   kAmber: 5,
 };
 
+// Struct: RunRoutineResponse
+ash.cros_healthd.mojom.RunRoutineResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.RunRoutineResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InteractiveRoutineUpdate
+ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.InteractiveRoutineUpdate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NonInteractiveRoutineUpdate
+ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.NonInteractiveRoutineUpdate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RoutineUpdate
+ash.cros_healthd.mojom.RoutineUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.RoutineUpdate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DEPRECATED_LedLitUpRoutineReplier
 ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier = {};
 

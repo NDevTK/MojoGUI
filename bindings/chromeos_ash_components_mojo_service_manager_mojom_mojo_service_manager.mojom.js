@@ -25,6 +25,72 @@ chromeos.mojo_service_manager.mojom.ErrorCode = {
   kUnexpectedOsError: 4,
 };
 
+// Struct: ProcessIdentity
+chromeos.mojo_service_manager.mojom.ProcessIdentitySpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.mojo_service_manager.mojom.ProcessIdentity',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RegisteredServiceState
+chromeos.mojo_service_manager.mojom.RegisteredServiceStateSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.mojo_service_manager.mojom.RegisteredServiceState',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UnregisteredServiceState
+chromeos.mojo_service_manager.mojom.UnregisteredServiceStateSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.mojo_service_manager.mojom.UnregisteredServiceState',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ServiceEvent
+chromeos.mojo_service_manager.mojom.ServiceEventSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.mojo_service_manager.mojom.ServiceEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Error
+chromeos.mojo_service_manager.mojom.ErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.mojo_service_manager.mojom.Error',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ServiceManager
 chromeos.mojo_service_manager.mojom.ServiceManager = {};
 

@@ -21,6 +21,20 @@ content.mojom.MhtmlSaveStatus = {
   kStreamingError: 7,
 };
 
+// Struct: SerializeAsMHTMLParams
+content.mojom.SerializeAsMHTMLParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SerializeAsMHTMLParams',
+      packedSize: 16,
+      fields: [
+        { name: 'output_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MhtmlFileWriter
 content.mojom.MhtmlFileWriter = {};
 

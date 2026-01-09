@@ -63,6 +63,123 @@ crosapi.mojom.DisplayRotationOptions = {
   k270Degrees: 3,
 };
 
+// Struct: TouchCalibrationPair
+crosapi.mojom.TouchCalibrationPairSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TouchCalibrationPair',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TouchCalibration
+crosapi.mojom.TouchCalibrationSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TouchCalibration',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DisplayLayout
+crosapi.mojom.DisplayLayoutSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DisplayLayout',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DisplayLayoutInfo
+crosapi.mojom.DisplayLayoutInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DisplayLayoutInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Edid
+crosapi.mojom.EdidSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.Edid',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DisplayRotation
+crosapi.mojom.DisplayRotationSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DisplayRotation',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DisplayMode
+crosapi.mojom.DisplayModeSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DisplayMode',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DisplayUnitInfo
+crosapi.mojom.DisplayUnitInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DisplayUnitInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DisplayConfigProperties
+crosapi.mojom.DisplayConfigPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DisplayConfigProperties',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CrosDisplayConfigController
 crosapi.mojom.CrosDisplayConfigController = {};
 

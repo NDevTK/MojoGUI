@@ -19,3 +19,44 @@ blink.mojom.Behavior = {
   kRight: 5,
   kClosestEdge: 6,
 };
+
+// Struct: ScrollAlignment
+blink.mojom.ScrollAlignmentSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ScrollAlignment',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FocusedEditableParams
+blink.mojom.FocusedEditableParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FocusedEditableParams',
+      packedSize: 16,
+      fields: [
+        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScrollIntoViewParams
+blink.mojom.ScrollIntoViewParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ScrollIntoViewParams',
+      packedSize: 16,
+      fields: [
+        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

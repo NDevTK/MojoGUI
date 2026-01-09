@@ -42,6 +42,104 @@ side_panel.mojom.NewTabPageType = {
   kNone: 6,
 };
 
+// Struct: BackgroundImage
+side_panel.mojom.BackgroundImageSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.BackgroundImage',
+      packedSize: 16,
+      fields: [
+        { name: 'daily_refresh_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ThirdPartyThemeInfo
+side_panel.mojom.ThirdPartyThemeInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.ThirdPartyThemeInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Theme
+side_panel.mojom.ThemeSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.Theme',
+      packedSize: 16,
+      fields: [
+        { name: 'follow_device_theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BackgroundCollection
+side_panel.mojom.BackgroundCollectionSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.BackgroundCollection',
+      packedSize: 16,
+      fields: [
+        { name: 'image_verified', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CollectionImage
+side_panel.mojom.CollectionImageSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.CollectionImage',
+      packedSize: 16,
+      fields: [
+        { name: 'image_verified', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ModuleSettings
+side_panel.mojom.ModuleSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.ModuleSettings',
+      packedSize: 16,
+      fields: [
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagementNoticeState
+side_panel.mojom.ManagementNoticeStateSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.ManagementNoticeState',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled_by_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CustomizeChromePageHandlerFactory
 side_panel.mojom.CustomizeChromePageHandlerFactory = {};
 

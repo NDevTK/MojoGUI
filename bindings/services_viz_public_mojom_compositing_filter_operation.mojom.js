@@ -29,3 +29,17 @@ viz.mojom.FilterType = {
   OFFSET: 15,
   FILTER_TYPE_LAST: 16,
 };
+
+// Struct: FilterOperation
+viz.mojom.FilterOperationSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FilterOperation',
+      packedSize: 16,
+      fields: [
+        { name: 'shape', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

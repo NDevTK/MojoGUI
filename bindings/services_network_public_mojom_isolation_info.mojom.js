@@ -22,3 +22,17 @@ network.mojom.IsolationInfoFrameAncestorRelation = {
   kSameSite: 1,
   kCrossSite: 2,
 };
+
+// Struct: IsolationInfo
+network.mojom.IsolationInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.IsolationInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_ancestor_relation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

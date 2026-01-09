@@ -72,3 +72,29 @@ crosapi.mojom.TelemetryKeyboardTopRightKey = {
   kLock: 2,
   kControlPanel: 3,
 };
+
+// Struct: TelemetryKeyboardInfo
+crosapi.mojom.TelemetryKeyboardInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryKeyboardInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryKeyboardDiagnosticEventInfo
+crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryKeyboardDiagnosticEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -294,6 +294,146 @@ ax.android.mojom.SetNativeChromeVoxResponse = {
   NEED_DEPRECATION_CONFIRMATION: 4,
 };
 
+// Struct: Rect
+ax.android.mojom.RectSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.android.mojom.Rect',
+      packedSize: 16,
+      fields: [
+        { name: 'bottom', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SpanEntry
+ax.android.mojom.SpanEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'ax.android.mojom.SpanEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'span_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AccessibilityCollectionInfoData
+ax.android.mojom.AccessibilityCollectionInfoDataSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.android.mojom.AccessibilityCollectionInfoData',
+      packedSize: 16,
+      fields: [
+        { name: 'selection_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AccessibilityCollectionItemInfoData
+ax.android.mojom.AccessibilityCollectionItemInfoDataSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.android.mojom.AccessibilityCollectionItemInfoData',
+      packedSize: 16,
+      fields: [
+        { name: 'is_selected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AccessibilityRangeInfoData
+ax.android.mojom.AccessibilityRangeInfoDataSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.android.mojom.AccessibilityRangeInfoData',
+      packedSize: 16,
+      fields: [
+        { name: 'current', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AccessibilityActionInAndroid
+ax.android.mojom.AccessibilityActionInAndroidSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.android.mojom.AccessibilityActionInAndroid',
+      packedSize: 16,
+      fields: [
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AccessibilityNodeInfoData
+ax.android.mojom.AccessibilityNodeInfoDataSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.android.mojom.AccessibilityNodeInfoData',
+      packedSize: 16,
+      fields: [
+        { name: 'custom_actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AccessibilityWindowInfoData
+ax.android.mojom.AccessibilityWindowInfoDataSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.android.mojom.AccessibilityWindowInfoData',
+      packedSize: 16,
+      fields: [
+        { name: 'int_list_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AccessibilityEventData
+ax.android.mojom.AccessibilityEventDataSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.android.mojom.AccessibilityEventData',
+      packedSize: 16,
+      fields: [
+        { name: 'int_list_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AccessibilityActionData
+ax.android.mojom.AccessibilityActionDataSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.android.mojom.AccessibilityActionData',
+      packedSize: 16,
+      fields: [
+        { name: 'float_parameters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AccessibilityHelperHost
 ax.android.mojom.AccessibilityHelperHost = {};
 

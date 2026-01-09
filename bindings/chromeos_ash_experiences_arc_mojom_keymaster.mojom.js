@@ -26,6 +26,272 @@ arc.mojom.KeyFormat = {
   RAW: 2,
 };
 
+// Struct: KeyParameter
+arc.mojom.KeyParameterSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeyParameter',
+      packedSize: 16,
+      fields: [
+        { name: 'param', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KeyCharacteristics
+arc.mojom.KeyCharacteristicsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeyCharacteristics',
+      packedSize: 16,
+      fields: [
+        { name: 'tee_enforced', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetKeyCharacteristicsRequest
+arc.mojom.GetKeyCharacteristicsRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.GetKeyCharacteristicsRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'app_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetKeyCharacteristicsResult
+arc.mojom.GetKeyCharacteristicsResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.GetKeyCharacteristicsResult',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GenerateKeyResult
+arc.mojom.GenerateKeyResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.GenerateKeyResult',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ImportKeyRequest
+arc.mojom.ImportKeyRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ImportKeyRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'key_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ImportKeyResult
+arc.mojom.ImportKeyResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ImportKeyResult',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ExportKeyRequest
+arc.mojom.ExportKeyRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ExportKeyRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'app_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ExportKeyResult
+arc.mojom.ExportKeyResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ExportKeyResult',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AttestKeyRequest
+arc.mojom.AttestKeyRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AttestKeyRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'attest_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AttestKeyResult
+arc.mojom.AttestKeyResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AttestKeyResult',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UpgradeKeyRequest
+arc.mojom.UpgradeKeyRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.UpgradeKeyRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'upgrade_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UpgradeKeyResult
+arc.mojom.UpgradeKeyResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.UpgradeKeyResult',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BeginRequest
+arc.mojom.BeginRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BeginRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'in_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BeginResult
+arc.mojom.BeginResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BeginResult',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UpdateRequest
+arc.mojom.UpdateRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.UpdateRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UpdateResult
+arc.mojom.UpdateResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.UpdateResult',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FinishRequest
+arc.mojom.FinishRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.FinishRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FinishResult
+arc.mojom.FinishResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.FinishResult',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: KeymasterHost
 arc.mojom.KeymasterHost = {};
 

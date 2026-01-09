@@ -52,3 +52,151 @@ sharing.mojom.Status = {
   kFail: 2,
   kUnable: 3,
 };
+
+// Struct: Advertisement
+sharing.mojom.AdvertisementSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.Advertisement',
+      packedSize: 16,
+      fields: [
+        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IntroductionFrame
+sharing.mojom.IntroductionFrameSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.IntroductionFrame',
+      packedSize: 16,
+      fields: [
+        { name: 'wifi_credentials_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileMetadata
+sharing.mojom.FileMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.FileMetadata',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextMetadata
+sharing.mojom.TextMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.TextMetadata',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WifiCredentialsMetadata
+sharing.mojom.WifiCredentialsMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.WifiCredentialsMetadata',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ConnectionResponseFrame
+sharing.mojom.ConnectionResponseFrameSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.ConnectionResponseFrame',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PairedKeyEncryptionFrame
+sharing.mojom.PairedKeyEncryptionFrameSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.PairedKeyEncryptionFrame',
+      packedSize: 16,
+      fields: [
+        { name: 'optional_signed_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PairedKeyResultFrame
+sharing.mojom.PairedKeyResultFrameSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.PairedKeyResultFrame',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CertificateInfoFrame
+sharing.mojom.CertificateInfoFrameSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.CertificateInfoFrame',
+      packedSize: 16,
+      fields: [
+        { name: 'public_certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PublicCertificate
+sharing.mojom.PublicCertificateSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.PublicCertificate',
+      packedSize: 16,
+      fields: [
+        { name: 'metadata_encryption_key_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CancelFrame
+sharing.mojom.CancelFrameSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.CancelFrame',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

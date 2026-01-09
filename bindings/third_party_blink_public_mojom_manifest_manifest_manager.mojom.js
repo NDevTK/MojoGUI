@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: RequestManifestError
+blink.mojom.RequestManifestErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RequestManifestError',
+      packedSize: 16,
+      fields: [
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ManifestManager
 blink.mojom.ManifestManager = {};
 

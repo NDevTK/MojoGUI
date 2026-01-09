@@ -81,3 +81,17 @@ ui.mojom.ImeTextSpanUnderlineStyle = {
   kDash: 3,
   kSquiggle: 4,
 };
+
+// Struct: ImeTextSpan
+ui.mojom.ImeTextSpanSpec = {
+  $: {
+    structSpec: {
+      name: 'ui.mojom.ImeTextSpan',
+      packedSize: 16,
+      fields: [
+        { name: 'should_hide_suggestion_menu', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

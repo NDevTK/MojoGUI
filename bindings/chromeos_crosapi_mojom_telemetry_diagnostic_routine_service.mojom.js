@@ -103,6 +103,305 @@ crosapi.mojom.Issue = {
   kLensAreDirty: 3,
 };
 
+// Struct: TelemetryDiagnosticMemoryRoutineArgument
+crosapi.mojom.TelemetryDiagnosticMemoryRoutineArgumentSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticMemoryRoutineArgument',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticVolumeButtonRoutineArgument
+crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineArgumentSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineArgument',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticFanRoutineArgument
+crosapi.mojom.TelemetryDiagnosticFanRoutineArgumentSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticFanRoutineArgument',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticLedLitUpRoutineArgument
+crosapi.mojom.TelemetryDiagnosticLedLitUpRoutineArgumentSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticLedLitUpRoutineArgument',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticNetworkBandwidthRoutineArgument
+crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineArgumentSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineArgument',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticCameraFrameAnalysisRoutineArgument
+crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineArgumentSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineArgument',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticKeyboardBacklightRoutineArgument
+crosapi.mojom.TelemetryDiagnosticKeyboardBacklightRoutineArgumentSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticKeyboardBacklightRoutineArgument',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticRoutineStateInitialized
+crosapi.mojom.TelemetryDiagnosticRoutineStateInitializedSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticRoutineStateInitialized',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticNetworkBandwidthRoutineRunningInfo
+crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineRunningInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineRunningInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticRoutineStateRunning
+crosapi.mojom.TelemetryDiagnosticRoutineStateRunningSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticRoutineStateRunning',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticCheckLedLitUpStateReply
+crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateReplySpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateReply',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticCheckKeyboardBacklightStateReply
+crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateReplySpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateReply',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticCheckLedLitUpStateInquiry
+crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateInquirySpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateInquiry',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticCheckKeyboardBacklightStateInquiry
+crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateInquirySpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateInquiry',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticRoutineStateWaiting
+crosapi.mojom.TelemetryDiagnosticRoutineStateWaitingSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticRoutineStateWaiting',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticMemtesterResult
+crosapi.mojom.TelemetryDiagnosticMemtesterResultSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticMemtesterResult',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticMemoryRoutineDetail
+crosapi.mojom.TelemetryDiagnosticMemoryRoutineDetailSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticMemoryRoutineDetail',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticVolumeButtonRoutineDetail
+crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineDetailSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineDetail',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticFanRoutineDetail
+crosapi.mojom.TelemetryDiagnosticFanRoutineDetailSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticFanRoutineDetail',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticNetworkBandwidthRoutineDetail
+crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineDetailSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineDetail',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticCameraFrameAnalysisRoutineDetail
+crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineDetailSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineDetail',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticRoutineStateFinished
+crosapi.mojom.TelemetryDiagnosticRoutineStateFinishedSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticRoutineStateFinished',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryDiagnosticRoutineState
+crosapi.mojom.TelemetryDiagnosticRoutineStateSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryDiagnosticRoutineState',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TelemetryDiagnosticRoutineControl
 crosapi.mojom.TelemetryDiagnosticRoutineControl = {};
 

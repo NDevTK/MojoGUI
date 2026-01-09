@@ -32,6 +32,34 @@ proxy_resolver.mojom.WinHttpStatus = {
   kEmptyProxyList: 10,
 };
 
+// Struct: ProxyInfo
+proxy_resolver.mojom.ProxyInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'proxy_resolver.mojom.ProxyInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'proxy_chains', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SystemProxyResolutionStatus
+proxy_resolver.mojom.SystemProxyResolutionStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'proxy_resolver.mojom.SystemProxyResolutionStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'win_http_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: HostResolverRequestClient
 proxy_resolver.mojom.HostResolverRequestClient = {};
 

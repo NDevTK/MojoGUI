@@ -9,6 +9,34 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
+// Struct: FrameTextureInfo
+media.mojom.FrameTextureInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.FrameTextureInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FramePoolInitializationParameters
+media.mojom.FramePoolInitializationParametersSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.FramePoolInitializationParameters',
+      packedSize: 16,
+      fields: [
+        { name: 'texture_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FlingingRendererClientExtension
 media.mojom.FlingingRendererClientExtension = {};
 

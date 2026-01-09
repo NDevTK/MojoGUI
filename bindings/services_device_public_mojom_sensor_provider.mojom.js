@@ -33,6 +33,47 @@ device.mojom.GetVirtualSensorInformationError = {
   kSensorTypeNotOverridden: 0,
 };
 
+// Struct: SensorInitParams
+device.mojom.SensorInitParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SensorInitParams',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VirtualSensorMetadata
+device.mojom.VirtualSensorMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.VirtualSensorMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'reporting_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VirtualSensorInformation
+device.mojom.VirtualSensorInformationSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.VirtualSensorInformation',
+      packedSize: 16,
+      fields: [
+        { name: 'sampling_frequency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SensorProvider
 device.mojom.SensorProvider = {};
 

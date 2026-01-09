@@ -32,6 +32,76 @@ extensions.mojom.MessagingEndpointType = {
   kNativeApp: 4,
 };
 
+// Struct: PortId
+extensions.mojom.PortIdSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.PortId',
+      packedSize: 16,
+      fields: [
+        { name: 'serialization_format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MessagingEndpoint
+extensions.mojom.MessagingEndpointSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.MessagingEndpoint',
+      packedSize: 16,
+      fields: [
+        { name: 'native_app_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TabConnectionInfo
+extensions.mojom.TabConnectionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.TabConnectionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'document_lifecycle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ExternalConnectionInfo
+extensions.mojom.ExternalConnectionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.ExternalConnectionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'guest_render_frame_routing_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Message
+extensions.mojom.MessageSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.Message',
+      packedSize: 16,
+      fields: [
+        { name: 'from_privileged_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MessagePort
 extensions.mojom.MessagePort = {};
 

@@ -15,6 +15,76 @@ mojom.Type = {
   kPrerender: 2,
 };
 
+// Struct: ProcessCountInfo
+mojom.ProcessCountInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.ProcessCountInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'renderer_process_count_for_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SiteInstanceInfo
+mojom.SiteInstanceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.SiteInstanceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'storage_partition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FrameInfo
+mojom.FrameInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.FrameInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'kActive', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebContentsInfo
+mojom.WebContentsInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.WebContentsInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'prerender_root_frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IsolatedOriginInfo
+mojom.IsolatedOriginInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.IsolatedOriginInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ProcessInternalsHandler
 mojom.ProcessInternalsHandler = {};
 

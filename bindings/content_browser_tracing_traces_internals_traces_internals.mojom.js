@@ -39,6 +39,48 @@ traces_internals.mojom.TracingScenarioState = {
   kCloning: 7,
 };
 
+// Struct: ClientTraceReport
+traces_internals.mojom.ClientTraceReportSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.ClientTraceReport',
+      packedSize: 16,
+      fields: [
+        { name: 'has_trace_content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Scenario
+traces_internals.mojom.ScenarioSpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.Scenario',
+      packedSize: 16,
+      fields: [
+        { name: 'current_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TraceCategory
+traces_internals.mojom.TraceCategorySpec = {
+  $: {
+    structSpec: {
+      name: 'traces_internals.mojom.TraceCategory',
+      packedSize: 16,
+      fields: [
+        { name: 'tags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TracesInternalsHandlerFactory
 traces_internals.mojom.TracesInternalsHandlerFactory = {};
 

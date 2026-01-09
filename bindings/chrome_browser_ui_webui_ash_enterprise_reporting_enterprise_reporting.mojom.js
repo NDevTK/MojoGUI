@@ -9,6 +9,48 @@ var enterprise_reporting = enterprise_reporting || {};
 enterprise_reporting.mojom = enterprise_reporting.mojom || {};
 
 
+// Struct: ErpHistoryData
+enterprise_reporting.mojom.ErpHistoryDataSpec = {
+  $: {
+    structSpec: {
+      name: 'enterprise_reporting.mojom.ErpHistoryData',
+      packedSize: 16,
+      fields: [
+        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ErpHistoryEvent
+enterprise_reporting.mojom.ErpHistoryEventSpec = {
+  $: {
+    structSpec: {
+      name: 'enterprise_reporting.mojom.ErpHistoryEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ErpHistoryEventParameter
+enterprise_reporting.mojom.ErpHistoryEventParameterSpec = {
+  $: {
+    structSpec: {
+      name: 'enterprise_reporting.mojom.ErpHistoryEventParameter',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 enterprise_reporting.mojom.PageHandlerFactory = {};
 

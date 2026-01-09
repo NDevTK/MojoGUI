@@ -29,6 +29,34 @@ device.mojom.ReportingMode = {
   CONTINUOUS: 1,
 };
 
+// Struct: SensorReadingRaw
+device.mojom.SensorReadingRawSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SensorReadingRaw',
+      packedSize: 16,
+      fields: [
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SensorConfiguration
+device.mojom.SensorConfigurationSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SensorConfiguration',
+      packedSize: 16,
+      fields: [
+        { name: 'frequency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Sensor
 device.mojom.Sensor = {};
 

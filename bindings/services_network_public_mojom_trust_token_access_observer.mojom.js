@@ -9,6 +9,48 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+// Struct: TrustTokenIssuanceDetails
+network.mojom.TrustTokenIssuanceDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustTokenIssuanceDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TrustTokenRedemptionDetails
+network.mojom.TrustTokenRedemptionDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustTokenRedemptionDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TrustTokenSigningDetails
+network.mojom.TrustTokenSigningDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustTokenSigningDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TrustTokenAccessObserver
 network.mojom.TrustTokenAccessObserver = {};
 

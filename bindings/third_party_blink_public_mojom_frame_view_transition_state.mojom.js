@@ -26,3 +26,45 @@ blink.mojom.ViewTransitionElementBoxSizing = {
   kBorderBox: 0,
   kContentBox: 1,
 };
+
+// Struct: ViewTransitionElementLayeredBoxProperties
+blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ViewTransitionElementLayeredBoxProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'box_sizing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ViewTransitionElement
+blink.mojom.ViewTransitionElementSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ViewTransitionElement',
+      packedSize: 16,
+      fields: [
+        { name: 'layered_box_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ViewTransitionState
+blink.mojom.ViewTransitionStateSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ViewTransitionState',
+      packedSize: 16,
+      fields: [
+        { name: 'delay_layer_tree_view_deletion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

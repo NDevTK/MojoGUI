@@ -9,6 +9,34 @@ var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
 
+// Struct: ExtensionLoadedParams
+extensions.mojom.ExtensionLoadedParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.ExtensionLoadedParams',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UserScriptWorldInfo
+extensions.mojom.UserScriptWorldInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.UserScriptWorldInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'enable_messaging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Renderer
 extensions.mojom.Renderer = {};
 

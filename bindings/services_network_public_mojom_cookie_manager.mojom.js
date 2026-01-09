@@ -144,6 +144,202 @@ network.mojom.CookieDeletionSessionControl = {
   PERSISTENT_COOKIES: 2,
 };
 
+// Struct: CookieManagerParams
+network.mojom.CookieManagerParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieManagerParams',
+      packedSize: 16,
+      fields: [
+        { name: 'USE_CONTENT_SETTINGS', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CookieSameSiteContextMetadata
+network.mojom.CookieSameSiteContextMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieSameSiteContextMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'kUnset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CookieSameSiteContext
+network.mojom.CookieSameSiteContextSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieSameSiteContext',
+      packedSize: 16,
+      fields: [
+        { name: 'schemeful_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CookieOptions
+network.mojom.CookieOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CanonicalCookie
+network.mojom.CanonicalCookieSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CanonicalCookie',
+      packedSize: 16,
+      fields: [
+        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ExclusionReasons
+network.mojom.ExclusionReasonsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ExclusionReasons',
+      packedSize: 16,
+      fields: [
+        { name: 'exclusions_bitmask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WarningReasons
+network.mojom.WarningReasonsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WarningReasons',
+      packedSize: 16,
+      fields: [
+        { name: 'warnings_bitmask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CookieInclusionStatus
+network.mojom.CookieInclusionStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieInclusionStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'exemption_reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CookieAndLineWithAccessResult
+network.mojom.CookieAndLineWithAccessResultSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieAndLineWithAccessResult',
+      packedSize: 16,
+      fields: [
+        { name: 'access_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CookieOrLineWithAccessResult
+network.mojom.CookieOrLineWithAccessResultSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieOrLineWithAccessResult',
+      packedSize: 16,
+      fields: [
+        { name: 'access_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CookieAccessResult
+network.mojom.CookieAccessResultSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieAccessResult',
+      packedSize: 16,
+      fields: [
+        { name: 'is_allowed_to_access_secure_cookies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CookieWithAccessResult
+network.mojom.CookieWithAccessResultSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieWithAccessResult',
+      packedSize: 16,
+      fields: [
+        { name: 'access_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CookieChangeInfo
+network.mojom.CookieChangeInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieChangeInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'cause', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CookieDeletionFilter
+network.mojom.CookieDeletionFilterSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieDeletionFilter',
+      packedSize: 16,
+      fields: [
+        { name: 'partitioned_state_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CookieChangeListener
 network.mojom.CookieChangeListener = {};
 

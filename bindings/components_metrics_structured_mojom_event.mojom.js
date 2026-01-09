@@ -9,3 +9,16 @@ var metrics = metrics || {};
 metrics.structured = metrics.structured || {};
 metrics.structured.mojom = metrics.structured.mojom || {};
 
+
+// Struct: Event
+metrics.structured.mojom.EventSpec = {
+  $: {
+    structSpec: {
+      name: 'metrics.structured.mojom.Event',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

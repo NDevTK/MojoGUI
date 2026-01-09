@@ -10,6 +10,20 @@ ash.mojom = ash.mojom || {};
 ash.mojom.sample_swa = ash.mojom.sample_swa || {};
 
 
+// Struct: Preferences
+ash.mojom.sample_swa.PreferencesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.sample_swa.Preferences',
+      packedSize: 16,
+      fields: [
+        { name: 'foreground', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 ash.mojom.sample_swa.PageHandlerFactory = {};
 

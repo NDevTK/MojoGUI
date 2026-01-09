@@ -329,3 +329,101 @@ media.mojom.DeviceEnumerationResult = {
   kErrorCaptureServiceCrash: 2,
   kErrorCaptureServiceDroppedRequest: 3,
 };
+
+// Struct: VideoCaptureControlSupport
+media.mojom.VideoCaptureControlSupportSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureControlSupport',
+      packedSize: 16,
+      fields: [
+        { name: 'zoom', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoCaptureFormat
+media.mojom.VideoCaptureFormatSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureFormat',
+      packedSize: 16,
+      fields: [
+        { name: 'pixel_format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoCaptureParams
+media.mojom.VideoCaptureParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureParams',
+      packedSize: 16,
+      fields: [
+        { name: 'capture_version_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoCaptureFeedback
+media.mojom.VideoCaptureFeedbackSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureFeedback',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PlaneStrides
+media.mojom.PlaneStridesSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.PlaneStrides',
+      packedSize: 16,
+      fields: [
+        { name: 'stride_by_plane', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoCaptureDeviceDescriptor
+media.mojom.VideoCaptureDeviceDescriptorSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureDeviceDescriptor',
+      packedSize: 16,
+      fields: [
+        { name: 'availability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoCaptureDeviceInfo
+media.mojom.VideoCaptureDeviceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureDeviceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'supported_formats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

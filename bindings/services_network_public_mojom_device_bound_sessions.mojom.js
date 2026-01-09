@@ -139,6 +139,216 @@ network.mojom.DeviceBoundSessionInclusionResult = {
   kInclude: 1,
 };
 
+// Struct: DeviceBoundSessionKey
+network.mojom.DeviceBoundSessionKeySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionKey',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBoundSessionAccess
+network.mojom.DeviceBoundSessionAccessSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionAccess',
+      packedSize: 16,
+      fields: [
+        { name: 'cookies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBoundSessionScopeSpecification
+network.mojom.DeviceBoundSessionScopeSpecificationSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionScopeSpecification',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBoundSessionScope
+network.mojom.DeviceBoundSessionScopeSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionScope',
+      packedSize: 16,
+      fields: [
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBoundSessionCredential
+network.mojom.DeviceBoundSessionCredentialSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionCredential',
+      packedSize: 16,
+      fields: [
+        { name: 'attributes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBoundSessionParams
+network.mojom.DeviceBoundSessionParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionParams',
+      packedSize: 16,
+      fields: [
+        { name: 'allowed_refresh_initiators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBoundSessionCookieCravingDisplay
+network.mojom.DeviceBoundSessionCookieCravingDisplaySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionCookieCravingDisplay',
+      packedSize: 16,
+      fields: [
+        { name: 'same_site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBoundSessionUrlRuleDisplay
+network.mojom.DeviceBoundSessionUrlRuleDisplaySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionUrlRuleDisplay',
+      packedSize: 16,
+      fields: [
+        { name: 'path_prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBoundSessionInclusionRulesDisplay
+network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionInclusionRulesDisplay',
+      packedSize: 16,
+      fields: [
+        { name: 'url_rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBoundSessionDisplay
+network.mojom.DeviceBoundSessionDisplaySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionDisplay',
+      packedSize: 16,
+      fields: [
+        { name: 'allowed_refresh_initiators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBoundSessionCreationDetails
+network.mojom.DeviceBoundSessionCreationDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionCreationDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'new_session_display', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBoundSessionRefreshDetails
+network.mojom.DeviceBoundSessionRefreshDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionRefreshDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'was_fully_proactive_refresh', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBoundSessionTerminationDetails
+network.mojom.DeviceBoundSessionTerminationDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionTerminationDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'deletion_reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBoundSessionChallengeDetails
+network.mojom.DeviceBoundSessionChallengeDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionChallengeDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceBoundSessionEvent
+network.mojom.DeviceBoundSessionEventSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DeviceBoundSessionEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'event_type_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DeviceBoundSessionManager
 network.mojom.DeviceBoundSessionManager = {};
 

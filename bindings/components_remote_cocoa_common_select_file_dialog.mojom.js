@@ -19,6 +19,20 @@ remote_cocoa.mojom.SelectFileDialogType = {
   kSaveAsFile: 5,
 };
 
+// Struct: SelectFileTypeInfo
+remote_cocoa.mojom.SelectFileTypeInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.SelectFileTypeInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'keep_extension_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SelectFileDialog
 remote_cocoa.mojom.SelectFileDialog = {};
 

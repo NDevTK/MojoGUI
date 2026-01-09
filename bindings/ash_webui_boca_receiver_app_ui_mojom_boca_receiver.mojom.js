@@ -18,6 +18,48 @@ ash.boca_receiver.mojom.ConnectionClosedReason = {
   kTakeOver: 3,
 };
 
+// Struct: ReceiverInfo
+ash.boca_receiver.mojom.ReceiverInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca_receiver.mojom.ReceiverInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UserInfo
+ash.boca_receiver.mojom.UserInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca_receiver.mojom.UserInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DecodedAudioPacket
+ash.boca_receiver.mojom.DecodedAudioPacketSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca_receiver.mojom.DecodedAudioPacket',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UntrustedPage
 ash.boca_receiver.mojom.UntrustedPage = {};
 

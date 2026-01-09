@@ -9,6 +9,47 @@ var js_injection = js_injection || {};
 js_injection.mojom = js_injection.mojom || {};
 
 
+// Struct: JsObject
+js_injection.mojom.JsObjectSpec = {
+  $: {
+    structSpec: {
+      name: 'js_injection.mojom.JsObject',
+      packedSize: 16,
+      fields: [
+        { name: 'origin_matcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: JavaScriptExecutable
+js_injection.mojom.JavaScriptExecutableSpec = {
+  $: {
+    structSpec: {
+      name: 'js_injection.mojom.JavaScriptExecutable',
+      packedSize: 16,
+      fields: [
+        { name: 'js_world', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: JsWebMessageArrayBufferValue
+js_injection.mojom.JsWebMessageArrayBufferValueSpec = {
+  $: {
+    structSpec: {
+      name: 'js_injection.mojom.JsWebMessageArrayBufferValue',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: JsToBrowserMessaging
 js_injection.mojom.JsToBrowserMessaging = {};
 

@@ -37,6 +37,132 @@ media_router.mojom.Type = {
   BINARY: 1,
 };
 
+// Struct: MediaSink
+media_router.mojom.MediaSinkSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.MediaSink',
+      packedSize: 16,
+      fields: [
+        { name: 'extra_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DialMediaSink
+media_router.mojom.DialMediaSinkSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.DialMediaSink',
+      packedSize: 16,
+      fields: [
+        { name: 'app_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CastMediaSink
+media_router.mojom.CastMediaSinkSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.CastMediaSink',
+      packedSize: 16,
+      fields: [
+        { name: 'cast_channel_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaRoute
+media_router.mojom.MediaRouteSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.MediaRoute',
+      packedSize: 16,
+      fields: [
+        { name: 'is_connecting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Issue
+media_router.mojom.IssueSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.Issue',
+      packedSize: 16,
+      fields: [
+        { name: 'WARNING', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RouteMessage
+media_router.mojom.RouteMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.RouteMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'TEXT', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RoutePresentationConnection
+media_router.mojom.RoutePresentationConnectionSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.RoutePresentationConnection',
+      packedSize: 16,
+      fields: [
+        { name: 'connection_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CastSessionState
+media_router.mojom.CastSessionStateSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.CastSessionState',
+      packedSize: 16,
+      fields: [
+        { name: 'route_description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CastProviderState
+media_router.mojom.CastProviderStateSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.CastProviderState',
+      packedSize: 16,
+      fields: [
+        { name: 'session_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MediaRouteProvider
 media_router.mojom.MediaRouteProvider = {};
 

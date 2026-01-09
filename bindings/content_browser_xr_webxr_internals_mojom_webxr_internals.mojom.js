@@ -9,6 +9,90 @@ var webxr = webxr || {};
 webxr.mojom = webxr.mojom || {};
 
 
+// Struct: DeviceInfo
+webxr.mojom.DeviceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'webxr.mojom.DeviceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'gpu_gl_renderer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SessionRequestedRecord
+webxr.mojom.SessionRequestedRecordSpec = {
+  $: {
+    structSpec: {
+      name: 'webxr.mojom.SessionRequestedRecord',
+      packedSize: 16,
+      fields: [
+        { name: 'requested_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SessionRejectedRecord
+webxr.mojom.SessionRejectedRecordSpec = {
+  $: {
+    structSpec: {
+      name: 'webxr.mojom.SessionRejectedRecord',
+      packedSize: 16,
+      fields: [
+        { name: 'rejected_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SessionStartedRecord
+webxr.mojom.SessionStartedRecordSpec = {
+  $: {
+    structSpec: {
+      name: 'webxr.mojom.SessionStartedRecord',
+      packedSize: 16,
+      fields: [
+        { name: 'started_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SessionStoppedRecord
+webxr.mojom.SessionStoppedRecordSpec = {
+  $: {
+    structSpec: {
+      name: 'webxr.mojom.SessionStoppedRecord',
+      packedSize: 16,
+      fields: [
+        { name: 'stopped_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RuntimeInfo
+webxr.mojom.RuntimeInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'webxr.mojom.RuntimeInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_ar_blend_mode_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebXrInternalsHandler
 webxr.mojom.WebXrInternalsHandler = {};
 

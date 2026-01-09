@@ -15,3 +15,17 @@ network.mojom.OriginAgentClusterValue = {
   kTrue: 1,
   kFalse: 2,
 };
+
+// Struct: ParsedHeaders
+network.mojom.ParsedHeadersSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ParsedHeaders',
+      packedSize: 16,
+      fields: [
+        { name: 'allow_cross_origin_event_reporting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -14,3 +14,30 @@ network.mojom.AncestorChainBit = {
   kSameSite: 0,
   kCrossSite: 1,
 };
+
+// Struct: CookiePartitionKey
+network.mojom.CookiePartitionKeySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookiePartitionKey',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CookiePartitionKeyCollection
+network.mojom.CookiePartitionKeyCollectionSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookiePartitionKeyCollection',
+      packedSize: 16,
+      fields: [
+        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

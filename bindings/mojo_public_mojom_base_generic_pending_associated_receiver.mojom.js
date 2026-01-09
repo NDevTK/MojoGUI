@@ -9,6 +9,20 @@ var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
 
+// Struct: GenericPendingAssociatedReceiver
+mojo_base.mojom.GenericPendingAssociatedReceiverSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo_base.mojom.GenericPendingAssociatedReceiver',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: GenericAssociatedInterface
 mojo_base.mojom.GenericAssociatedInterface = {};
 

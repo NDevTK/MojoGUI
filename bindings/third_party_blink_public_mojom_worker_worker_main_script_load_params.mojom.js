@@ -8,3 +8,17 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: WorkerMainScriptLoadParams
+blink.mojom.WorkerMainScriptLoadParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WorkerMainScriptLoadParams',
+      packedSize: 16,
+      fields: [
+        { name: 'redirect_response_heads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

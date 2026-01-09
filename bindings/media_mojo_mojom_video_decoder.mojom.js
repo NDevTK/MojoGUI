@@ -9,6 +9,34 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
+// Struct: SupportedVideoDecoderConfig
+media.mojom.SupportedVideoDecoderConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SupportedVideoDecoderConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'require_encrypted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CommandBufferId
+media.mojom.CommandBufferIdSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CommandBufferId',
+      packedSize: 16,
+      fields: [
+        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: VideoFrameHandleReleaser
 media.mojom.VideoFrameHandleReleaser = {};
 

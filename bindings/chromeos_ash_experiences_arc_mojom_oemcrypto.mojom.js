@@ -111,6 +111,160 @@ arc.mojom.OemCryptoPrivateKey = {
   ECC_PRIVATE_KEY: 1,
 };
 
+// Struct: OemCryptoSecureBuffer
+arc.mojom.OemCryptoSecureBufferSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.OemCryptoSecureBuffer',
+      packedSize: 16,
+      fields: [
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OemCryptoSubstring
+arc.mojom.OemCryptoSubstringSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.OemCryptoSubstring',
+      packedSize: 16,
+      fields: [
+        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OemCryptoKeyObjectV14
+arc.mojom.OemCryptoKeyObjectV14Spec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.OemCryptoKeyObjectV14',
+      packedSize: 16,
+      fields: [
+        { name: 'cipher_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OemCryptoKeyObject
+arc.mojom.OemCryptoKeyObjectSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.OemCryptoKeyObject',
+      packedSize: 16,
+      fields: [
+        { name: 'key_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OemCryptoEntitledContentKeyObjectV14
+arc.mojom.OemCryptoEntitledContentKeyObjectV14Spec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.OemCryptoEntitledContentKeyObjectV14',
+      packedSize: 16,
+      fields: [
+        { name: 'content_key_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OemCryptoEntitledContentKeyObject
+arc.mojom.OemCryptoEntitledContentKeyObjectSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.OemCryptoEntitledContentKeyObject',
+      packedSize: 16,
+      fields: [
+        { name: 'content_key_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OemCryptoKeyRefreshObjectV14
+arc.mojom.OemCryptoKeyRefreshObjectV14Spec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.OemCryptoKeyRefreshObjectV14',
+      packedSize: 16,
+      fields: [
+        { name: 'key_control_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OemCryptoKeyRefreshObject
+arc.mojom.OemCryptoKeyRefreshObjectSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.OemCryptoKeyRefreshObject',
+      packedSize: 16,
+      fields: [
+        { name: 'key_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OemCryptoCencEncryptPatternDesc
+arc.mojom.OemCryptoCencEncryptPatternDescSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.OemCryptoCencEncryptPatternDesc',
+      packedSize: 16,
+      fields: [
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OemCryptoPstReport
+arc.mojom.OemCryptoPstReportSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.OemCryptoPstReport',
+      packedSize: 16,
+      fields: [
+        { name: 'seconds_since_last_decrypt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SubSampleDescription
+arc.mojom.SubSampleDescriptionSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.SubSampleDescription',
+      packedSize: 16,
+      fields: [
+        { name: 'block_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: OemCryptoService
 arc.mojom.OemCryptoService = {};
 

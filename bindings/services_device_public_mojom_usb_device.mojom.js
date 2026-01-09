@@ -88,6 +88,103 @@ device.mojom.UsbTransferStatus = {
   PERMISSION_DENIED: 8,
 };
 
+// Struct: UsbEndpointInfo
+device.mojom.UsbEndpointInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbEndpointInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'extra_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UsbAlternateInterfaceInfo
+device.mojom.UsbAlternateInterfaceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbAlternateInterfaceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'extra_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UsbInterfaceInfo
+device.mojom.UsbInterfaceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbInterfaceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'alternates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UsbConfigurationInfo
+device.mojom.UsbConfigurationInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbConfigurationInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'extra_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UsbDeviceInfo
+device.mojom.UsbDeviceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbDeviceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'configurations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UsbControlTransferParams
+device.mojom.UsbControlTransferParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbControlTransferParams',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UsbIsochronousPacket
+device.mojom.UsbIsochronousPacketSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.UsbIsochronousPacket',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UsbDevice
 device.mojom.UsbDevice = {};
 

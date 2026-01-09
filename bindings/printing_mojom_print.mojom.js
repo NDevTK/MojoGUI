@@ -177,3 +177,44 @@ printing.mojom.ClientType = {
   kDriver: 2,
   kOther: 3,
 };
+
+// Struct: PageSizeMargins
+printing.mojom.PageSizeMarginsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PageSizeMargins',
+      packedSize: 16,
+      fields: [
+        { name: 'margin_left', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PageRange
+printing.mojom.PageRangeSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PageRange',
+      packedSize: 16,
+      fields: [
+        { name: 'to', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IppClientInfo
+printing.mojom.IppClientInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.IppClientInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

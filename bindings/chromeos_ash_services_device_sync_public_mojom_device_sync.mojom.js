@@ -66,6 +66,48 @@ ash.device_sync.mojom.BetterTogetherMetadataStatus = {
   kMetadataDecrypted: 5,
 };
 
+// Struct: FindEligibleDevicesResponse
+ash.device_sync.mojom.FindEligibleDevicesResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.FindEligibleDevicesResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'ineligible_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceActivityStatus
+ash.device_sync.mojom.DeviceActivityStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceActivityStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'last_update_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DebugInfo
+ash.device_sync.mojom.DebugInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DebugInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_sync_in_progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DeviceSyncObserver
 ash.device_sync.mojom.DeviceSyncObserver = {};
 

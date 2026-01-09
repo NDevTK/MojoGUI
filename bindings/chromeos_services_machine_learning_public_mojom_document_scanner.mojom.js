@@ -16,6 +16,45 @@ chromeos.machine_learning.mojom.DocumentScannerResultStatus = {
   ERROR: 1,
 };
 
+// Struct: DocumentScannerConfig
+chromeos.machine_learning.mojom.DocumentScannerConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.DocumentScannerConfig',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DetectCornersResult
+chromeos.machine_learning.mojom.DetectCornersResultSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.DetectCornersResult',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DoPostProcessingResult
+chromeos.machine_learning.mojom.DoPostProcessingResultSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.DoPostProcessingResult',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DocumentScanner
 chromeos.machine_learning.mojom.DocumentScanner = {};
 

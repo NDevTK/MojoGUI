@@ -47,6 +47,48 @@ ash.firmware_update.mojom.DeviceRequestKind = {
   kImmediate: 2,
 };
 
+// Struct: FirmwareUpdate
+ash.firmware_update.mojom.FirmwareUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.firmware_update.mojom.FirmwareUpdate',
+      packedSize: 16,
+      fields: [
+        { name: 'checksum', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InstallationProgress
+ash.firmware_update.mojom.InstallationProgressSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.firmware_update.mojom.InstallationProgress',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceRequest
+ash.firmware_update.mojom.DeviceRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.firmware_update.mojom.DeviceRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'kind', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UpdateObserver
 ash.firmware_update.mojom.UpdateObserver = {};
 

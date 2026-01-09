@@ -80,6 +80,240 @@ crosapi.mojom.OptionConfigurability = {
   kHardwareConfigurable: 1,
 };
 
+// Struct: ScannerInfo
+crosapi.mojom.ScannerInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ScannerInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScannerEnumFilter
+crosapi.mojom.ScannerEnumFilterSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ScannerEnumFilter',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IntRange
+crosapi.mojom.IntRangeSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.IntRange',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FixedRange
+crosapi.mojom.FixedRangeSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.FixedRange',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OptionConstraint
+crosapi.mojom.OptionConstraintSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.OptionConstraint',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScannerOption
+crosapi.mojom.ScannerOptionSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ScannerOption',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetScannerListResponse
+crosapi.mojom.GetScannerListResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.GetScannerListResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OpenScannerResponse
+crosapi.mojom.OpenScannerResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.OpenScannerResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CloseScannerResponse
+crosapi.mojom.CloseScannerResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.CloseScannerResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StartScanOptions
+crosapi.mojom.StartScanOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.StartScanOptions',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StartPreparedScanResponse
+crosapi.mojom.StartPreparedScanResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.StartPreparedScanResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ReadScanDataResponse
+crosapi.mojom.ReadScanDataResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ReadScanDataResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OptionSetting
+crosapi.mojom.OptionSettingSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.OptionSetting',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OptionGroup
+crosapi.mojom.OptionGroupSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.OptionGroup',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SetOptionResult
+crosapi.mojom.SetOptionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.SetOptionResult',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SetOptionsResponse
+crosapi.mojom.SetOptionsResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.SetOptionsResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetOptionGroupsResponse
+crosapi.mojom.GetOptionGroupsResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.GetOptionGroupsResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CancelScanResponse
+crosapi.mojom.CancelScanResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.CancelScanResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DocumentScan
 crosapi.mojom.DocumentScan = {};
 

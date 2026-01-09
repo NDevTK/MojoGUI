@@ -16,6 +16,34 @@ ntp_promo.mojom.ShowNtpPromosResult = {
   kNotShownDueToPolicy: 2,
 };
 
+// Struct: PromosShown
+ntp_promo.mojom.PromosShownSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp_promo.mojom.PromosShown',
+      packedSize: 16,
+      fields: [
+        { name: 'completed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Promo
+ntp_promo.mojom.PromoSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp_promo.mojom.Promo',
+      packedSize: 16,
+      fields: [
+        { name: 'button_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NtpPromoHandler
 ntp_promo.mojom.NtpPromoHandler = {};
 

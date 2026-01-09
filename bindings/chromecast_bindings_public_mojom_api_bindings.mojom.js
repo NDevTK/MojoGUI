@@ -9,6 +9,20 @@ var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
 
 
+// Struct: ApiBinding
+chromecast.mojom.ApiBindingSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.mojom.ApiBinding',
+      packedSize: 16,
+      fields: [
+        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ApiBindings
 chromecast.mojom.ApiBindings = {};
 

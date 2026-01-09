@@ -63,6 +63,47 @@ arc.mojom.PressureLevel = {
   kCached: 2,
 };
 
+// Struct: RunningAppProcessInfo
+arc.mojom.RunningAppProcessInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.RunningAppProcessInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'last_activity_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ArcMemoryDump
+arc.mojom.ArcMemoryDumpSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcMemoryDump',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LowMemoryKillCounts
+arc.mojom.LowMemoryKillCountsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.LowMemoryKillCounts',
+      packedSize: 16,
+      fields: [
+        { name: 'pressure_cached', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ProcessInstance
 arc.mojom.ProcessInstance = {};
 

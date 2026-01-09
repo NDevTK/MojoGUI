@@ -77,6 +77,214 @@ crosapi.mojom.TelemetryEventCategoryEnum = {
   kAudioJack: 0,
 };
 
+// Struct: TelemetryAudioJackEventInfo
+crosapi.mojom.TelemetryAudioJackEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryAudioJackEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryLidEventInfo
+crosapi.mojom.TelemetryLidEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryLidEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryUsbEventInfo
+crosapi.mojom.TelemetryUsbEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryUsbEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryExternalDisplayEventInfo
+crosapi.mojom.TelemetryExternalDisplayEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryExternalDisplayEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetrySdCardEventInfo
+crosapi.mojom.TelemetrySdCardEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetrySdCardEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryPowerEventInfo
+crosapi.mojom.TelemetryPowerEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryPowerEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryStylusGarageEventInfo
+crosapi.mojom.TelemetryStylusGarageEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryStylusGarageEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryTouchpadButtonEventInfo
+crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryTouchpadButtonEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryTouchPointInfo
+crosapi.mojom.TelemetryTouchPointInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryTouchPointInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryTouchpadTouchEventInfo
+crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryTouchpadTouchEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryTouchpadConnectedEventInfo
+crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryTouchpadConnectedEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryTouchscreenTouchEventInfo
+crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryTouchscreenTouchEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryTouchscreenConnectedEventInfo
+crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryTouchscreenConnectedEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryStylusTouchPointInfo
+crosapi.mojom.TelemetryStylusTouchPointInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryStylusTouchPointInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryStylusTouchEventInfo
+crosapi.mojom.TelemetryStylusTouchEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryStylusTouchEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TelemetryStylusConnectedEventInfo
+crosapi.mojom.TelemetryStylusConnectedEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.TelemetryStylusConnectedEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TelemetryEventObserver
 crosapi.mojom.TelemetryEventObserver = {};
 

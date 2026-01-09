@@ -37,3 +37,31 @@ device.mojom.XRHandJoint = {
   kPinkyFingerPhalanxDistal: 23,
   kPinkyFingerTip: 24,
 };
+
+// Struct: XRHandJointData
+device.mojom.XRHandJointDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRHandJointData',
+      packedSize: 16,
+      fields: [
+        { name: 'radius', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRHandTrackingData
+device.mojom.XRHandTrackingDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRHandTrackingData',
+      packedSize: 16,
+      fields: [
+        { name: 'hand_joint_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

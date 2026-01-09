@@ -60,6 +60,20 @@ downloads.mojom.SafeBrowsingState = {
   kEnhancedProtection: 2,
 };
 
+// Struct: Data
+downloads.mojom.DataSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.Data',
+      packedSize: 16,
+      fields: [
+        { name: 'has_safe_browsing_verdict', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 downloads.mojom.PageHandlerFactory = {};
 

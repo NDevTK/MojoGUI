@@ -15,3 +15,30 @@ network.mojom.LogType = {
   kRFC6962: 1,
   kStaticCTAPI: 2,
 };
+
+// Struct: PreviousOperatorEntry
+network.mojom.PreviousOperatorEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.PreviousOperatorEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'end_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CTLogInfo
+network.mojom.CTLogInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CTLogInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

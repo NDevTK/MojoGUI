@@ -90,6 +90,34 @@ ash.hotspot_config.mojom.DisableReason = {
   kUnknownError: 14,
 };
 
+// Struct: HotspotConfig
+ash.hotspot_config.mojom.HotspotConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.hotspot_config.mojom.HotspotConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'bssid_randomization', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HotspotInfo
+ash.hotspot_config.mojom.HotspotInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.hotspot_config.mojom.HotspotInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CrosHotspotConfig
 ash.hotspot_config.mojom.CrosHotspotConfig = {};
 

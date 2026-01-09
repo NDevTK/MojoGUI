@@ -9,6 +9,48 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: DataElementBytes
+blink.mojom.DataElementBytesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DataElementBytes',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DataElementFile
+blink.mojom.DataElementFileSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DataElementFile',
+      packedSize: 16,
+      fields: [
+        { name: 'expected_modification_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DataElementBlob
+blink.mojom.DataElementBlobSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DataElementBlob',
+      packedSize: 16,
+      fields: [
+        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: BytesProvider
 blink.mojom.BytesProvider = {};
 

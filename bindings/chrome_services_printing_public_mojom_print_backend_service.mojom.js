@@ -9,6 +9,20 @@ var printing = printing || {};
 printing.mojom = printing.mojom || {};
 
 
+// Struct: PrinterCapsAndInfo
+printing.mojom.PrinterCapsAndInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrinterCapsAndInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'printer_caps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UnsandboxedPrintBackendHost
 printing.mojom.UnsandboxedPrintBackendHost = {};
 

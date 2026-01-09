@@ -18,3 +18,17 @@ blink.mojom.MediaPlayerActionType = {
   kPictureInPicture: 4,
   kDefaultActionType: 5,
 };
+
+// Struct: MediaPlayerAction
+blink.mojom.MediaPlayerActionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaPlayerAction',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

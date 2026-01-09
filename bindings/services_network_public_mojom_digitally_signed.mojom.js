@@ -27,3 +27,17 @@ network.mojom.SignatureAlgorithm = {
   SIG_ALGO_DSA: 2,
   SIG_ALGO_ECDSA: 3,
 };
+
+// Struct: DigitallySigned
+network.mojom.DigitallySignedSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DigitallySigned',
+      packedSize: 16,
+      fields: [
+        { name: 'signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

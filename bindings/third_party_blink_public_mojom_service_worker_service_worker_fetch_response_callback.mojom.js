@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: ServiceWorkerFetchEventTiming
+blink.mojom.ServiceWorkerFetchEventTimingSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerFetchEventTiming',
+      packedSize: 16,
+      fields: [
+        { name: 'respond_with_settled_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ServiceWorkerFetchResponseCallback
 blink.mojom.ServiceWorkerFetchResponseCallback = {};
 

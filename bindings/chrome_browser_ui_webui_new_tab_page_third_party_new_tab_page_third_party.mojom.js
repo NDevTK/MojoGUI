@@ -9,6 +9,20 @@ var new_tab_page_third_party = new_tab_page_third_party || {};
 new_tab_page_third_party.mojom = new_tab_page_third_party.mojom || {};
 
 
+// Struct: Theme
+new_tab_page_third_party.mojom.ThemeSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page_third_party.mojom.Theme',
+      packedSize: 16,
+      fields: [
+        { name: 'most_visited', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 new_tab_page_third_party.mojom.PageHandlerFactory = {};
 

@@ -19,6 +19,90 @@ blink.mojom.WellKnownDirectory = {
   kDirVideos: 5,
 };
 
+// Struct: ChooseFileSystemEntryAcceptsOption
+blink.mojom.ChooseFileSystemEntryAcceptsOptionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ChooseFileSystemEntryAcceptsOption',
+      packedSize: 16,
+      fields: [
+        { name: 'extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AcceptsTypesInfo
+blink.mojom.AcceptsTypesInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AcceptsTypesInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'include_accepts_all', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OpenFilePickerOptions
+blink.mojom.OpenFilePickerOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.OpenFilePickerOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'can_select_multiple_files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SaveFilePickerOptions
+blink.mojom.SaveFilePickerOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SaveFilePickerOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'suggested_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DirectoryPickerOptions
+blink.mojom.DirectoryPickerOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectoryPickerOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'permission_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FilePickerOptions
+blink.mojom.FilePickerOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FilePickerOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'start_in_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FileSystemAccessManager
 blink.mojom.FileSystemAccessManager = {};
 

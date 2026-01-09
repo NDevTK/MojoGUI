@@ -32,6 +32,159 @@ chromeos.machine_learning.mojom.LoadHandwritingModelResult = {
   LOAD_MODEL_FILES_ERROR: 11,
 };
 
+// Struct: InkPoint
+chromeos.machine_learning.mojom.InkPointSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.InkPoint',
+      packedSize: 16,
+      fields: [
+        { name: 't', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InkStroke
+chromeos.machine_learning.mojom.InkStrokeSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.InkStroke',
+      packedSize: 16,
+      fields: [
+        { name: 'points', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WritingGuide
+chromeos.machine_learning.mojom.WritingGuideSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.WritingGuide',
+      packedSize: 16,
+      fields: [
+        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RecognitionContext
+chromeos.machine_learning.mojom.RecognitionContextSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.RecognitionContext',
+      packedSize: 16,
+      fields: [
+        { name: 'pre_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HandwritingRecognitionQuery
+chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.HandwritingRecognitionQuery',
+      packedSize: 16,
+      fields: [
+        { name: 'return_segmentation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HandwritingRecognizerInkRange
+chromeos.machine_learning.mojom.HandwritingRecognizerInkRangeSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.HandwritingRecognizerInkRange',
+      packedSize: 16,
+      fields: [
+        { name: 'end_point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HandwritingRecognizerSegment
+chromeos.machine_learning.mojom.HandwritingRecognizerSegmentSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.HandwritingRecognizerSegment',
+      packedSize: 16,
+      fields: [
+        { name: 'ink_ranges', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HandwritingRecognizerSegmentation
+chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.HandwritingRecognizerSegmentation',
+      packedSize: 16,
+      fields: [
+        { name: 'segments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HandwritingRecognizerCandidate
+chromeos.machine_learning.mojom.HandwritingRecognizerCandidateSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.HandwritingRecognizerCandidate',
+      packedSize: 16,
+      fields: [
+        { name: 'segmentation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HandwritingRecognizerResult
+chromeos.machine_learning.mojom.HandwritingRecognizerResultSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.HandwritingRecognizerResult',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HandwritingRecognizerSpec
+chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.HandwritingRecognizerSpec',
+      packedSize: 16,
+      fields: [
+        { name: 'library_dlc_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: HandwritingRecognizer
 chromeos.machine_learning.mojom.HandwritingRecognizer = {};
 

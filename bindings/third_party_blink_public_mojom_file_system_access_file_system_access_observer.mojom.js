@@ -9,6 +9,113 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: FileSystemAccessChangeTypeAppeared
+blink.mojom.FileSystemAccessChangeTypeAppearedSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessChangeTypeAppeared',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileSystemAccessChangeTypeDisappeared
+blink.mojom.FileSystemAccessChangeTypeDisappearedSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessChangeTypeDisappeared',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileSystemAccessChangeTypeErrored
+blink.mojom.FileSystemAccessChangeTypeErroredSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessChangeTypeErrored',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileSystemAccessChangeTypeModified
+blink.mojom.FileSystemAccessChangeTypeModifiedSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessChangeTypeModified',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileSystemAccessChangeTypeMoved
+blink.mojom.FileSystemAccessChangeTypeMovedSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessChangeTypeMoved',
+      packedSize: 16,
+      fields: [
+        { name: 'former_relative_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileSystemAccessChangeTypeUnknown
+blink.mojom.FileSystemAccessChangeTypeUnknownSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessChangeTypeUnknown',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileSystemAccessChangeMetadata
+blink.mojom.FileSystemAccessChangeMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessChangeMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'relative_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileSystemAccessChange
+blink.mojom.FileSystemAccessChangeSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessChange',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FileSystemAccessObserver
 blink.mojom.FileSystemAccessObserver = {};
 

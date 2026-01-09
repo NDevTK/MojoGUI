@@ -8,3 +8,17 @@
 var display = display || {};
 display.mojom = display.mojom || {};
 
+
+// Struct: ScreenInfos
+display.mojom.ScreenInfosSpec = {
+  $: {
+    structSpec: {
+      name: 'display.mojom.ScreenInfos',
+      packedSize: 16,
+      fields: [
+        { name: 'system_cursor_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

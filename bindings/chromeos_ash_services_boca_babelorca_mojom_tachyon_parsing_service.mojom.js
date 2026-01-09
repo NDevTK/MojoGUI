@@ -17,6 +17,48 @@ ash.babelorca.mojom.ParsingState = {
   kClosed: 2,
 };
 
+// Struct: TranscriptPart
+ash.babelorca.mojom.TranscriptPartSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.babelorca.mojom.TranscriptPart',
+      packedSize: 16,
+      fields: [
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BabelOrcaMessage
+ash.babelorca.mojom.BabelOrcaMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.babelorca.mojom.BabelOrcaMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'current_transcript', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StreamStatus
+ash.babelorca.mojom.StreamStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.babelorca.mojom.StreamStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TachyonParsingService
 ash.babelorca.mojom.TachyonParsingService = {};
 

@@ -14,6 +14,20 @@ blink.mojom.ControllerServiceWorkerPurpose = {
   FETCH_SUB_RESOURCE: 0,
 };
 
+// Struct: ServiceWorkerContainerInfoForClient
+blink.mojom.ServiceWorkerContainerInfoForClientSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerInfoForClient',
+      packedSize: 16,
+      fields: [
+        { name: 'client_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ServiceWorkerContainerHost
 blink.mojom.ServiceWorkerContainerHost = {};
 

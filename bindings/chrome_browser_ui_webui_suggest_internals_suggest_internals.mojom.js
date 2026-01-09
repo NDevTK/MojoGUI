@@ -18,6 +18,20 @@ suggest_internals.mojom.RequestStatus = {
   kFailed: 4,
 };
 
+// Struct: Request
+suggest_internals.mojom.RequestSpec = {
+  $: {
+    structSpec: {
+      name: 'suggest_internals.mojom.Request',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandler
 suggest_internals.mojom.PageHandler = {};
 

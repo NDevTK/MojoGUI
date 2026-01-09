@@ -116,6 +116,384 @@ blink.mojom.AIPageContentMode = {
   kActionableElements: 1,
 };
 
+// Struct: AIPageContentGeometry
+blink.mojom.AIPageContentGeometrySpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentGeometry',
+      packedSize: 16,
+      fields: [
+        { name: 'fragment_visible_bounding_boxes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentSelection
+blink.mojom.AIPageContentSelectionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentSelection',
+      packedSize: 16,
+      fields: [
+        { name: 'selected_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentPageInteractionInfo
+blink.mojom.AIPageContentPageInteractionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentPageInteractionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'mouse_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentFrameInteractionInfo
+blink.mojom.AIPageContentFrameInteractionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentFrameInteractionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'selection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentNodeInteractionInfo
+blink.mojom.AIPageContentNodeInteractionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentNodeInteractionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'interaction_disabled_reasons', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentScrollerInfo
+blink.mojom.AIPageContentScrollerInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentScrollerInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'user_scrollable_vertical', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentTextStyle
+blink.mojom.AIPageContentTextStyleSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentTextStyle',
+      packedSize: 16,
+      fields: [
+        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentTextInfo
+blink.mojom.AIPageContentTextInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentTextInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'text_style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentAnchorData
+blink.mojom.AIPageContentAnchorDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentAnchorData',
+      packedSize: 16,
+      fields: [
+        { name: 'rel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentImageInfo
+blink.mojom.AIPageContentImageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentImageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'source_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentSvgRootData
+blink.mojom.AIPageContentSvgRootDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentSvgRootData',
+      packedSize: 16,
+      fields: [
+        { name: 'inner_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentCanvasData
+blink.mojom.AIPageContentCanvasDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentCanvasData',
+      packedSize: 16,
+      fields: [
+        { name: 'layout_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentVideoData
+blink.mojom.AIPageContentVideoDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentVideoData',
+      packedSize: 16,
+      fields: [
+        { name: 'source_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentMeta
+blink.mojom.AIPageContentMetaSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentMeta',
+      packedSize: 16,
+      fields: [
+        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentFrameData
+blink.mojom.AIPageContentFrameDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentFrameData',
+      packedSize: 16,
+      fields: [
+        { name: 'popup', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RedactedFrameMetadata
+blink.mojom.RedactedFrameMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RedactedFrameMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'kCrossSite', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentIframeData
+blink.mojom.AIPageContentIframeDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentIframeData',
+      packedSize: 16,
+      fields: [
+        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentTableData
+blink.mojom.AIPageContentTableDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentTableData',
+      packedSize: 16,
+      fields: [
+        { name: 'table_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentTableRowData
+blink.mojom.AIPageContentTableRowDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentTableRowData',
+      packedSize: 16,
+      fields: [
+        { name: 'row_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentFormData
+blink.mojom.AIPageContentFormDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentFormData',
+      packedSize: 16,
+      fields: [
+        { name: 'action_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentSelectOption
+blink.mojom.AIPageContentSelectOptionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentSelectOption',
+      packedSize: 16,
+      fields: [
+        { name: 'disabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentFormControlData
+blink.mojom.AIPageContentFormControlDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentFormControlData',
+      packedSize: 16,
+      fields: [
+        { name: 'redaction_decision', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentAttributes
+blink.mojom.AIPageContentAttributesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentAttributes',
+      packedSize: 16,
+      fields: [
+        { name: 'is_ad_related', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentNode
+blink.mojom.AIPageContentNodeSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentNode',
+      packedSize: 16,
+      fields: [
+        { name: 'content_attributes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentPopup
+blink.mojom.AIPageContentPopupSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentPopup',
+      packedSize: 16,
+      fields: [
+        { name: 'visible_bounding_box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContent
+blink.mojom.AIPageContentSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContent',
+      packedSize: 16,
+      fields: [
+        { name: 'visible_bounding_boxes_for_password_redaction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AIPageContentOptions
+blink.mojom.AIPageContentOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIPageContentOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AIPageContentAgent
 blink.mojom.AIPageContentAgent = {};
 

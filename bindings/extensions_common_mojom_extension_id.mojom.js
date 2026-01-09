@@ -8,3 +8,17 @@
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
+
+// Struct: ExtensionId
+extensions.mojom.ExtensionIdSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.ExtensionId',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

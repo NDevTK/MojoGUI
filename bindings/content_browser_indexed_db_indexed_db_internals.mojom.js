@@ -9,6 +9,20 @@ var storage = storage || {};
 storage.mojom = storage.mojom || {};
 
 
+// Struct: IdbPartitionMetadata
+storage.mojom.IdbPartitionMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IdbPartitionMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'origin_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: IdbInternalsHandler
 storage.mojom.IdbInternalsHandler = {};
 

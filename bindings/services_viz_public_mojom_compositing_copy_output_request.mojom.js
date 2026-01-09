@@ -9,6 +9,20 @@ var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
 
+// Struct: CopyOutputRequest
+viz.mojom.CopyOutputRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CopyOutputRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'result_sender', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CopyOutputResultSender
 viz.mojom.CopyOutputResultSender = {};
 

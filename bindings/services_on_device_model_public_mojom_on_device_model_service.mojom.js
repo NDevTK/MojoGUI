@@ -50,6 +50,90 @@ on_device_model.mojom.SafetyFeature = {
   kAudioTitleResponse: 3,
 };
 
+// Struct: ModelAssets
+on_device_model.mojom.ModelAssetsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.ModelAssets',
+      packedSize: 16,
+      fields: [
+        { name: 'adapter_cache', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LoadModelParams
+on_device_model.mojom.LoadModelParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.LoadModelParams',
+      packedSize: 16,
+      fields: [
+        { name: 'kHighestQuality', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextSafetyModelAssets
+on_device_model.mojom.TextSafetyModelAssetsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.TextSafetyModelAssets',
+      packedSize: 16,
+      fields: [
+        { name: 'sp_model', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BertSafetyModelAssets
+on_device_model.mojom.BertSafetyModelAssetsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.BertSafetyModelAssets',
+      packedSize: 16,
+      fields: [
+        { name: 'model', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LanguageModelAssets
+on_device_model.mojom.LanguageModelAssetsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.LanguageModelAssets',
+      packedSize: 16,
+      fields: [
+        { name: 'model', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextSafetyModelParams
+on_device_model.mojom.TextSafetyModelParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.TextSafetyModelParams',
+      packedSize: 16,
+      fields: [
+        { name: 'language_assets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PlatformModelProgressObserver
 on_device_model.mojom.PlatformModelProgressObserver = {};
 

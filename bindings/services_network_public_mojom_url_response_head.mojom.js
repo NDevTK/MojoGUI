@@ -14,3 +14,17 @@ network.mojom.NavigationDeliveryType = {
   kDefault: 0,
   kNavigationalPrefetch: 1,
 };
+
+// Struct: URLResponseHead
+network.mojom.URLResponseHeadSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLResponseHead',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

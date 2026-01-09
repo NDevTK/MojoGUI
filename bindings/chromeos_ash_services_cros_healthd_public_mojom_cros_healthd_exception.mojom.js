@@ -16,3 +16,42 @@ ash.cros_healthd.mojom.Reason = {
   kUnexpected: 1,
   kUnsupported: 2,
 };
+
+// Struct: Exception
+ash.cros_healthd.mojom.ExceptionSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.Exception',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Supported
+ash.cros_healthd.mojom.SupportedSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.Supported',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Unsupported
+ash.cros_healthd.mojom.UnsupportedSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.Unsupported',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

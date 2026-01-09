@@ -20,6 +20,76 @@ paint_preview.mojom.PaintPreviewStatus = {
   kFailed: 6,
 };
 
+// Struct: PaintPreviewCaptureParams
+paint_preview.mojom.PaintPreviewCaptureParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'paint_preview.mojom.PaintPreviewCaptureParams',
+      packedSize: 16,
+      fields: [
+        { name: 'skip_accelerated_content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LinkData
+paint_preview.mojom.LinkDataSpec = {
+  $: {
+    structSpec: {
+      name: 'paint_preview.mojom.LinkData',
+      packedSize: 16,
+      fields: [
+        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaintPreviewCaptureResponse
+paint_preview.mojom.PaintPreviewCaptureResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'paint_preview.mojom.PaintPreviewCaptureResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'skp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GeometryMetadataParams
+paint_preview.mojom.GeometryMetadataParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'paint_preview.mojom.GeometryMetadataParams',
+      packedSize: 16,
+      fields: [
+        { name: 'clip_rect_is_hint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GeometryMetadataResponse
+paint_preview.mojom.GeometryMetadataResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'paint_preview.mojom.GeometryMetadataResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_offsets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PaintPreviewRecorder
 paint_preview.mojom.PaintPreviewRecorder = {};
 

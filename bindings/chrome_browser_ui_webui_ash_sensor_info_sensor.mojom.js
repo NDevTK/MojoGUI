@@ -19,6 +19,34 @@ sensor.mojom.SensorType = {
   kSensorTypeCount: 5,
 };
 
+// Struct: NonLidAngleUpdateInfo
+sensor.mojom.NonLidAngleUpdateInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'sensor.mojom.NonLidAngleUpdateInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'z', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LidAngleUpdateInfo
+sensor.mojom.LidAngleUpdateInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'sensor.mojom.LidAngleUpdateInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 sensor.mojom.PageHandlerFactory = {};
 

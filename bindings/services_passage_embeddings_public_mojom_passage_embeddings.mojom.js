@@ -17,6 +17,48 @@ passage_embeddings.mojom.PassagePriority = {
   kPassive: 3,
 };
 
+// Struct: PassageEmbeddingsResult
+passage_embeddings.mojom.PassageEmbeddingsResultSpec = {
+  $: {
+    structSpec: {
+      name: 'passage_embeddings.mojom.PassageEmbeddingsResult',
+      packedSize: 16,
+      fields: [
+        { name: 'embeddings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PassageEmbeddingsLoadModelsParams
+passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'passage_embeddings.mojom.PassageEmbeddingsLoadModelsParams',
+      packedSize: 16,
+      fields: [
+        { name: 'input_window_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PassageEmbedderParams
+passage_embeddings.mojom.PassageEmbedderParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'passage_embeddings.mojom.PassageEmbedderParams',
+      packedSize: 16,
+      fields: [
+        { name: 'allow_gpu_execution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PassageEmbedder
 passage_embeddings.mojom.PassageEmbedder = {};
 

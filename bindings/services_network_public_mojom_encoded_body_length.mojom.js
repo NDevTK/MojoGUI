@@ -8,3 +8,17 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+
+// Struct: EncodedBodyLength
+network.mojom.EncodedBodyLengthSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.EncodedBodyLength',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

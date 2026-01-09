@@ -229,6 +229,396 @@ drivefs.mojom.Type = {
   kExceedsCloudUploadQuota: 6,
 };
 
+// Struct: DriveFsConfiguration
+drivefs.mojom.DriveFsConfigurationSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveFsConfiguration',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AccessToken
+drivefs.mojom.AccessTokenSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.AccessToken',
+      packedSize: 16,
+      fields: [
+        { name: 'expiry_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DriveError
+drivefs.mojom.DriveErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DriveError',
+      packedSize: 16,
+      fields: [
+        { name: 'kCantUploadStorageFull', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DialogReason
+drivefs.mojom.DialogReasonSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DialogReason',
+      packedSize: 16,
+      fields: [
+        { name: 'kEnableDocsOffline', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UserInfo
+drivefs.mojom.UserInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.UserInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileMetadata
+drivefs.mojom.FileMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.FileMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'kFile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ShortcutDetails
+drivefs.mojom.ShortcutDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.ShortcutDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ImageMetadata
+drivefs.mojom.ImageMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.ImageMetadata',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Capabilities
+drivefs.mojom.CapabilitiesSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.Capabilities',
+      packedSize: 16,
+      fields: [
+        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FolderFeature
+drivefs.mojom.FolderFeatureSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.FolderFeature',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: QuickAccess
+drivefs.mojom.QuickAccessSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.QuickAccess',
+      packedSize: 16,
+      fields: [
+        { name: 'score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SharedDriveQuota
+drivefs.mojom.SharedDriveQuotaSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.SharedDriveQuota',
+      packedSize: 16,
+      fields: [
+        { name: 'individual_quota_bytes_total', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ItemEvent
+drivefs.mojom.ItemEventSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.ItemEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'kQueued', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProgressEvent
+drivefs.mojom.ProgressEventSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.ProgressEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SyncingStatus
+drivefs.mojom.SyncingStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.SyncingStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'item_events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileChange
+drivefs.mojom.FileChangeSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.FileChange',
+      packedSize: 16,
+      fields: [
+        { name: 'kCreate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: QueryParameters
+drivefs.mojom.QueryParametersSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.QueryParameters',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: QueryItem
+drivefs.mojom.QueryItemSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.QueryItem',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FetchChangeLogOptions
+drivefs.mojom.FetchChangeLogOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.FetchChangeLogOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'team_drive_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PooledQuotaUsage
+drivefs.mojom.PooledQuotaUsageSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.PooledQuotaUsage',
+      packedSize: 16,
+      fields: [
+        { name: 'organization_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: QuotaUsage
+drivefs.mojom.QuotaUsageSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.QuotaUsage',
+      packedSize: 16,
+      fields: [
+        { name: 'total_cloud_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HttpHeader
+drivefs.mojom.HttpHeaderSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.HttpHeader',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HttpRequest
+drivefs.mojom.HttpRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.HttpRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'request_body_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HttpResponse
+drivefs.mojom.HttpResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.HttpResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HttpCompletionStatus
+drivefs.mojom.HttpCompletionStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.HttpCompletionStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'response_body_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DocsOfflineStats
+drivefs.mojom.DocsOfflineStatsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.DocsOfflineStats',
+      packedSize: 16,
+      fields: [
+        { name: 'available_offline', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MirrorSyncError
+drivefs.mojom.MirrorSyncErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.MirrorSyncError',
+      packedSize: 16,
+      fields: [
+        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MirrorSyncErrorList
+drivefs.mojom.MirrorSyncErrorListSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.MirrorSyncErrorList',
+      packedSize: 16,
+      fields: [
+        { name: 'errors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DriveFsBootstrap
 drivefs.mojom.DriveFsBootstrap = {};
 

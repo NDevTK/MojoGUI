@@ -16,6 +16,45 @@ crosapi.mojom.ScalingType = {
   kCustom: 2,
 };
 
+// Struct: MarginsCustom
+crosapi.mojom.MarginsCustomSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.MarginsCustom',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaSize
+crosapi.mojom.MediaSizeSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.MediaSize',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintSettings
+crosapi.mojom.PrintSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.PrintSettings',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PrintPreviewCrosDelegate
 crosapi.mojom.PrintPreviewCrosDelegate = {};
 

@@ -39,6 +39,228 @@ on_device_model.mojom.LoadModelResult = {
   EnableIf: 2,
 };
 
+// Struct: AdaptationAssets
+on_device_model.mojom.AdaptationAssetsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.AdaptationAssets',
+      packedSize: 16,
+      fields: [
+        { name: 'weights_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LanguageDetectionResult
+on_device_model.mojom.LanguageDetectionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.LanguageDetectionResult',
+      packedSize: 16,
+      fields: [
+        { name: 'reliability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SafetyInfo
+on_device_model.mojom.SafetyInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.SafetyInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ResponseChunk
+on_device_model.mojom.ResponseChunkSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.ResponseChunk',
+      packedSize: 16,
+      fields: [
+        { name: 'safety_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ResponseSummary
+on_device_model.mojom.ResponseSummarySpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.ResponseSummary',
+      packedSize: 16,
+      fields: [
+        { name: 'output_token_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LoadAdaptationParams
+on_device_model.mojom.LoadAdaptationParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.LoadAdaptationParams',
+      packedSize: 16,
+      fields: [
+        { name: 'assets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Capabilities
+on_device_model.mojom.CapabilitiesSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.Capabilities',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SessionParams
+on_device_model.mojom.SessionParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.SessionParams',
+      packedSize: 16,
+      fields: [
+        { name: 'temperature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Input
+on_device_model.mojom.InputSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.Input',
+      packedSize: 16,
+      fields: [
+        { name: 'pieces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AppendOptions
+on_device_model.mojom.AppendOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.AppendOptions',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GenerateOptions
+on_device_model.mojom.GenerateOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.GenerateOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AudioData
+on_device_model.mojom.AudioDataSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.AudioData',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SpeechRecognitionResult
+on_device_model.mojom.SpeechRecognitionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.SpeechRecognitionResult',
+      packedSize: 16,
+      fields: [
+        { name: 'is_final', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AsrStreamOptions
+on_device_model.mojom.AsrStreamOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.AsrStreamOptions',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DevicePerformanceInfo
+on_device_model.mojom.DevicePerformanceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.DevicePerformanceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'vram_mb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceInfo
+on_device_model.mojom.DeviceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.DeviceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'supports_fp16', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: StreamingResponder
 on_device_model.mojom.StreamingResponder = {};
 

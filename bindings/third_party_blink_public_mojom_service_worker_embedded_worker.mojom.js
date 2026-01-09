@@ -9,6 +9,34 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: EmbeddedWorkerStartParams
+blink.mojom.EmbeddedWorkerStartParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EmbeddedWorkerStartParams',
+      packedSize: 16,
+      fields: [
+        { name: 'dip_reporting_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EmbeddedWorkerStartTiming
+blink.mojom.EmbeddedWorkerStartTimingSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EmbeddedWorkerStartTiming',
+      packedSize: 16,
+      fields: [
+        { name: 'script_evaluation_end_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: EmbeddedWorkerInstanceClient
 blink.mojom.EmbeddedWorkerInstanceClient = {};
 

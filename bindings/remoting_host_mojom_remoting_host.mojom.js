@@ -17,6 +17,20 @@ remoting.mojom.TransportRouteType = {
   kRelay: 3,
 };
 
+// Struct: TransportRoute
+remoting.mojom.TransportRouteSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.TransportRoute',
+      packedSize: 16,
+      fields: [
+        { name: 'local_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: RemotingHostControl
 remoting.mojom.RemotingHostControl = {};
 

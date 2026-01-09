@@ -16,6 +16,20 @@ arc.mojom.PurchaseState = {
   kPending: 2,
 };
 
+// Struct: PurchaseDetails
+arc.mojom.PurchaseDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PurchaseDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'will_auto_renew', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DigitalGoodsInstance
 arc.mojom.DigitalGoodsInstance = {};
 

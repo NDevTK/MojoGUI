@@ -15,6 +15,76 @@ ax.mojom.SpeechRecognitionType = {
   kNetwork: 1,
 };
 
+// Struct: SpeechRecognitionResultEvent
+ax.mojom.SpeechRecognitionResultEventSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.SpeechRecognitionResultEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'is_final', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SpeechRecognitionErrorEvent
+ax.mojom.SpeechRecognitionErrorEventSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.SpeechRecognitionErrorEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StartOptions
+ax.mojom.StartOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.StartOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'interim_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StopOptions
+ax.mojom.StopOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.StopOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SpeechRecognitionStartInfo
+ax.mojom.SpeechRecognitionStartInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.SpeechRecognitionStartInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'observer_or_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SpeechRecognitionEventObserver
 ax.mojom.SpeechRecognitionEventObserver = {};
 

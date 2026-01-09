@@ -9,6 +9,48 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: PolicyContainerPolicies
+blink.mojom.PolicyContainerPoliciesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PolicyContainerPolicies',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PolicyContainer
+blink.mojom.PolicyContainerSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PolicyContainer',
+      packedSize: 16,
+      fields: [
+        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PolicyContainerBindParams
+blink.mojom.PolicyContainerBindParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PolicyContainerBindParams',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PolicyContainerHost
 blink.mojom.PolicyContainerHost = {};
 

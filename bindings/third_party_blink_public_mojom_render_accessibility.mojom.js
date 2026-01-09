@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: HitTestResponse
+blink.mojom.HitTestResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.HitTestResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'hit_node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: RenderAccessibilityHost
 blink.mojom.RenderAccessibilityHost = {};
 

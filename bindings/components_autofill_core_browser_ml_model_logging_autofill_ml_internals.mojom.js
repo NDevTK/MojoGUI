@@ -16,6 +16,48 @@ autofill_ml_internals.mojom.OptimizationTarget = {
   kPassword: 2,
 };
 
+// Struct: SelectOption
+autofill_ml_internals.mojom.SelectOptionSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill_ml_internals.mojom.SelectOption',
+      packedSize: 16,
+      fields: [
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MlFieldPredictionLog
+autofill_ml_internals.mojom.MlFieldPredictionLogSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill_ml_internals.mojom.MlFieldPredictionLog',
+      packedSize: 16,
+      fields: [
+        { name: 'tokenized_field_representation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MlPredictionLog
+autofill_ml_internals.mojom.MlPredictionLogSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill_ml_internals.mojom.MlPredictionLog',
+      packedSize: 16,
+      fields: [
+        { name: 'optimization_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Page
 autofill_ml_internals.mojom.Page = {};
 

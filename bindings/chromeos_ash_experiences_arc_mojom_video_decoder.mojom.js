@@ -18,6 +18,32 @@ arc.mojom.DecoderStatus = {
   CREATION_FAILED: 4,
 };
 
+// Struct: Buffer
+arc.mojom.BufferSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.Buffer',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoDecoderConfig
+arc.mojom.VideoDecoderConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoDecoderConfig',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: VideoDecoder
 arc.mojom.VideoDecoder = {};
 

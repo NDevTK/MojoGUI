@@ -9,6 +9,20 @@ var updater = updater || {};
 updater.mojom = updater.mojom || {};
 
 
+// Struct: HttpHeader
+updater.mojom.HttpHeaderSpec = {
+  $: {
+    structSpec: {
+      name: 'updater.mojom.HttpHeader',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PostRequestObserver
 updater.mojom.PostRequestObserver = {};
 

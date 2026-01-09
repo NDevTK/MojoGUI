@@ -8,3 +8,17 @@
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
 
+
+// Struct: BucketLocator
+storage.mojom.BucketLocatorSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BucketLocator',
+      packedSize: 16,
+      fields: [
+        { name: 'is_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

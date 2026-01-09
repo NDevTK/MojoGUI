@@ -8,3 +8,17 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+
+// Struct: NetworkInterface
+network.mojom.NetworkInterfaceSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkInterface',
+      packedSize: 16,
+      fields: [
+        { name: 'mac_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

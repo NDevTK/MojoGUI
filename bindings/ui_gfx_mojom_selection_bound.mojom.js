@@ -18,3 +18,17 @@ gfx.mojom.SelectionBoundType = {
   EMPTY: 4,
   LAST: 5,
 };
+
+// Struct: SelectionBound
+gfx.mojom.SelectionBoundSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.SelectionBound',
+      packedSize: 16,
+      fields: [
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -15,6 +15,20 @@ network.mojom.Type = {
   kChange: 1,
 };
 
+// Struct: CookieAccessDetails
+network.mojom.CookieAccessDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieAccessDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'kRead', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CookieAccessObserver
 network.mojom.CookieAccessObserver = {};
 

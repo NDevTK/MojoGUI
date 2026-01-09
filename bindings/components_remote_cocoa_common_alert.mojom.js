@@ -16,6 +16,20 @@ remote_cocoa.mojom.AlertDisposition = {
   CLOSE: 2,
 };
 
+// Struct: AlertBridgeInitParams
+remote_cocoa.mojom.AlertBridgeInitParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.AlertBridgeInitParams',
+      packedSize: 16,
+      fields: [
+        { name: 'check_box_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AlertBridge
 remote_cocoa.mojom.AlertBridge = {};
 

@@ -9,6 +9,48 @@ var most_visited = most_visited || {};
 most_visited.mojom = most_visited.mojom || {};
 
 
+// Struct: MostVisitedTile
+most_visited.mojom.MostVisitedTileSpec = {
+  $: {
+    structSpec: {
+      name: 'most_visited.mojom.MostVisitedTile',
+      packedSize: 16,
+      fields: [
+        { name: 'title_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MostVisitedTheme
+most_visited.mojom.MostVisitedThemeSpec = {
+  $: {
+    structSpec: {
+      name: 'most_visited.mojom.MostVisitedTheme',
+      packedSize: 16,
+      fields: [
+        { name: 'is_dark', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MostVisitedInfo
+most_visited.mojom.MostVisitedInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'most_visited.mojom.MostVisitedInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'tiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MostVisitedPageHandlerFactory
 most_visited.mojom.MostVisitedPageHandlerFactory = {};
 

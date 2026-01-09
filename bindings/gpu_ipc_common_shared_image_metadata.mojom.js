@@ -8,3 +8,17 @@
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
 
+
+// Struct: SharedImageMetadata
+gpu.mojom.SharedImageMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.SharedImageMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

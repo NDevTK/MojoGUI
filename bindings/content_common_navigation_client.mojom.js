@@ -18,6 +18,62 @@ content.mojom.NavigationClientDisconnectReason = {
   kResetForDuplicateNavigation: 4,
 };
 
+// Struct: DidCommitProvisionalLoadParams
+content.mojom.DidCommitProvisionalLoadParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.DidCommitProvisionalLoadParams',
+      packedSize: 16,
+      fields: [
+        { name: 'commit_reply_sent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DidCommitSameDocumentNavigationParams
+content.mojom.DidCommitSameDocumentNavigationParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.DidCommitSameDocumentNavigationParams',
+      packedSize: 16,
+      fields: [
+        { name: 'caused_by_ad', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CookieManagerInfo
+content.mojom.CookieManagerInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.CookieManagerInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'cookie_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StorageInfo
+content.mojom.StorageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.StorageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'session_storage_area', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NavigationClient
 content.mojom.NavigationClient = {};
 

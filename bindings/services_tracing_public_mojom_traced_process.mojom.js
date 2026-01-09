@@ -9,6 +9,20 @@ var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
 
 
+// Struct: ConnectToTracingRequest
+tracing.mojom.ConnectToTracingRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ConnectToTracingRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'perfetto_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TracedProcess
 tracing.mojom.TracedProcess = {};
 

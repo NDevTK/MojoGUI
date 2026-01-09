@@ -9,6 +9,34 @@ var theme_color_picker = theme_color_picker || {};
 theme_color_picker.mojom = theme_color_picker.mojom || {};
 
 
+// Struct: Theme
+theme_color_picker.mojom.ThemeSpec = {
+  $: {
+    structSpec: {
+      name: 'theme_color_picker.mojom.Theme',
+      packedSize: 16,
+      fields: [
+        { name: 'follow_device_theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ChromeColor
+theme_color_picker.mojom.ChromeColorSpec = {
+  $: {
+    structSpec: {
+      name: 'theme_color_picker.mojom.ChromeColor',
+      packedSize: 16,
+      fields: [
+        { name: 'variant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ThemeColorPickerHandlerFactory
 theme_color_picker.mojom.ThemeColorPickerHandlerFactory = {};
 

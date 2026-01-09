@@ -100,6 +100,216 @@ arc.mojom.CaptionTextShadowType = {
   kDepressed: 4,
 };
 
+// Struct: PatternMatcher
+arc.mojom.PatternMatcherSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PatternMatcher',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AuthorityEntry
+arc.mojom.AuthorityEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AuthorityEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UriComponents
+arc.mojom.UriComponentsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.UriComponents',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IntentInfo
+arc.mojom.IntentInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.IntentInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'uri_components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IntentFilter
+arc.mojom.IntentFilterSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.IntentFilter',
+      packedSize: 16,
+      fields: [
+        { name: 'activity_label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IntentHandlerInfo
+arc.mojom.IntentHandlerInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.IntentHandlerInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'fallback_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ActivityIcon
+arc.mojom.ActivityIconSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ActivityIcon',
+      packedSize: 16,
+      fields: [
+        { name: 'icon_png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UrlWithMimeType
+arc.mojom.UrlWithMimeTypeSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.UrlWithMimeType',
+      packedSize: 16,
+      fields: [
+        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextSelectionAction
+arc.mojom.TextSelectionActionSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TextSelectionAction',
+      packedSize: 16,
+      fields: [
+        { name: 'bitmap_icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LaunchFileInfo
+arc.mojom.LaunchFileInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.LaunchFileInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LaunchIntent
+arc.mojom.LaunchIntentSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.LaunchIntent',
+      packedSize: 16,
+      fields: [
+        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SupportedLinksPackage
+arc.mojom.SupportedLinksPackageSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.SupportedLinksPackage',
+      packedSize: 16,
+      fields: [
+        { name: 'deprecated_filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CaptionColor
+arc.mojom.CaptionColorSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CaptionColor',
+      packedSize: 16,
+      fields: [
+        { name: 'blue', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CaptionStyle
+arc.mojom.CaptionStyleSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CaptionStyle',
+      packedSize: 16,
+      fields: [
+        { name: 'text_shadow_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AccessibilityFeatures
+arc.mojom.AccessibilityFeaturesSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AccessibilityFeatures',
+      packedSize: 16,
+      fields: [
+        { name: 'switch_access_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CustomTabSession
 arc.mojom.CustomTabSession = {};
 

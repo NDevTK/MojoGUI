@@ -9,6 +9,48 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: DWriteStringPair
+blink.mojom.DWriteStringPairSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DWriteStringPair',
+      packedSize: 16,
+      fields: [
+        { name: 'second', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DWriteFontStyle
+blink.mojom.DWriteFontStyleSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DWriteFontStyle',
+      packedSize: 16,
+      fields: [
+        { name: 'font_stretch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MapCharactersResult
+blink.mojom.MapCharactersResultSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MapCharactersResult',
+      packedSize: 16,
+      fields: [
+        { name: 'font_style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DWriteFontProxy
 blink.mojom.DWriteFontProxy = {};
 

@@ -9,6 +9,34 @@ var unexportable_keys_internals = unexportable_keys_internals || {};
 unexportable_keys_internals.mojom = unexportable_keys_internals.mojom || {};
 
 
+// Struct: UnexportableKeyId
+unexportable_keys_internals.mojom.UnexportableKeyIdSpec = {
+  $: {
+    structSpec: {
+      name: 'unexportable_keys_internals.mojom.UnexportableKeyId',
+      packedSize: 16,
+      fields: [
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UnexportableKeyInfo
+unexportable_keys_internals.mojom.UnexportableKeyInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'unexportable_keys_internals.mojom.UnexportableKeyInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'creation_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 unexportable_keys_internals.mojom.PageHandlerFactory = {};
 

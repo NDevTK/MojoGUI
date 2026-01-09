@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: ColorSuggestion
+blink.mojom.ColorSuggestionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ColorSuggestion',
+      packedSize: 16,
+      fields: [
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ColorChooserFactory
 blink.mojom.ColorChooserFactory = {};
 

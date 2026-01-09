@@ -83,3 +83,73 @@ ash.mojom.TextAcceleratorPartType = {
   kKey: 2,
   kDelimiter: 3,
 };
+
+// Struct: TextAcceleratorPart
+ash.mojom.TextAcceleratorPartSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.TextAcceleratorPart',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextAcceleratorProperties
+ash.mojom.TextAcceleratorPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.TextAcceleratorProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'parts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StandardAcceleratorProperties
+ash.mojom.StandardAcceleratorPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.StandardAcceleratorProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'original_accelerator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AcceleratorInfo
+ash.mojom.AcceleratorInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.AcceleratorInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'layout_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AcceleratorLayoutInfo
+ash.mojom.AcceleratorLayoutInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.AcceleratorLayoutInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

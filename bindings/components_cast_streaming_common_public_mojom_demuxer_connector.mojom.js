@@ -9,6 +9,62 @@ var cast_streaming = cast_streaming || {};
 cast_streaming.mojom = cast_streaming.mojom || {};
 
 
+// Struct: AudioStreamInfo
+cast_streaming.mojom.AudioStreamInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'cast_streaming.mojom.AudioStreamInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoStreamInfo
+cast_streaming.mojom.VideoStreamInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'cast_streaming.mojom.VideoStreamInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AudioStreamInitializationInfo
+cast_streaming.mojom.AudioStreamInitializationInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'cast_streaming.mojom.AudioStreamInitializationInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'stream_initialization_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoStreamInitializationInfo
+cast_streaming.mojom.VideoStreamInitializationInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'cast_streaming.mojom.VideoStreamInitializationInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'stream_initialization_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AudioBufferRequester
 cast_streaming.mojom.AudioBufferRequester = {};
 

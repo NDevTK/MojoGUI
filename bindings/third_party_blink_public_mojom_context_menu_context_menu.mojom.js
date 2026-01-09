@@ -29,6 +29,76 @@ blink.mojom.CustomContextMenuItemType = {
   kSubMenu: 4,
 };
 
+// Struct: Accelerator
+blink.mojom.AcceleratorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Accelerator',
+      packedSize: 16,
+      fields: [
+        { name: 'modifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FormRendererId
+blink.mojom.FormRendererIdSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FormRendererId',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FieldRendererId
+blink.mojom.FieldRendererIdSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FieldRendererId',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CustomContextMenuItem
+blink.mojom.CustomContextMenuItemSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CustomContextMenuItem',
+      packedSize: 16,
+      fields: [
+        { name: 'submenu', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UntrustworthyContextMenuParams
+blink.mojom.UntrustworthyContextMenuParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.UntrustworthyContextMenuParams',
+      packedSize: 16,
+      fields: [
+        { name: 'form_renderer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ContextMenuClient
 blink.mojom.ContextMenuClient = {};
 

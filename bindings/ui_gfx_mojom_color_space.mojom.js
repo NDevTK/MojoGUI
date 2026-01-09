@@ -81,3 +81,17 @@ gfx.mojom.ColorSpaceRangeID = {
   FULL: 2,
   DERIVED: 3,
 };
+
+// Struct: ColorSpace
+gfx.mojom.ColorSpaceSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.ColorSpace',
+      packedSize: 16,
+      fields: [
+        { name: 'transfer_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

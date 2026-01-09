@@ -24,3 +24,17 @@ ui.mojom.LatencyComponentType = {
   INPUT_EVENT_GPU_SWAP_BUFFER_COMPONENT: 10,
   INPUT_EVENT_LATENCY_FRAME_SWAP_COMPONENT: 11,
 };
+
+// Struct: LatencyInfo
+ui.mojom.LatencyInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ui.mojom.LatencyInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'touch_trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -97,6 +97,216 @@ blink.mojom.IDBException = {
   kTimeoutError: 8,
 };
 
+// Struct: IDBKeyPath
+blink.mojom.IDBKeyPathSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBKeyPath',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IDBKeyRange
+blink.mojom.IDBKeyRangeSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBKeyRange',
+      packedSize: 16,
+      fields: [
+        { name: 'upper_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IDBIndexMetadata
+blink.mojom.IDBIndexMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBIndexMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'multi_entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IDBObjectStoreMetadata
+blink.mojom.IDBObjectStoreMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBObjectStoreMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'indexes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IDBDatabaseMetadata
+blink.mojom.IDBDatabaseMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBDatabaseMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'is_sqlite', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IDBNameAndVersion
+blink.mojom.IDBNameAndVersionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBNameAndVersion',
+      packedSize: 16,
+      fields: [
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IDBIndexKeys
+blink.mojom.IDBIndexKeysSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBIndexKeys',
+      packedSize: 16,
+      fields: [
+        { name: 'index_keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IDBFileInfo
+blink.mojom.IDBFileInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBFileInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'last_modified', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IDBBlobInfo
+blink.mojom.IDBBlobInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBBlobInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IDBValue
+blink.mojom.IDBValueSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBValue',
+      packedSize: 16,
+      fields: [
+        { name: 'external_objects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IDBReturnValue
+blink.mojom.IDBReturnValueSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBReturnValue',
+      packedSize: 16,
+      fields: [
+        { name: 'key_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IDBRecord
+blink.mojom.IDBRecordSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBRecord',
+      packedSize: 16,
+      fields: [
+        { name: 'index_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IDBError
+blink.mojom.IDBErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBError',
+      packedSize: 16,
+      fields: [
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IDBCursorValue
+blink.mojom.IDBCursorValueSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBCursorValue',
+      packedSize: 16,
+      fields: [
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IDBDatabaseOpenCursorValue
+blink.mojom.IDBDatabaseOpenCursorValueSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IDBDatabaseOpenCursorValue',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: IDBFactoryClient
 blink.mojom.IDBFactoryClient = {};
 

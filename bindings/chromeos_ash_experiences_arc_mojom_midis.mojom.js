@@ -9,6 +9,34 @@ var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
 
+// Struct: MidisDeviceInfo
+arc.mojom.MidisDeviceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MidisDeviceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'manufacturer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MidisRequest
+arc.mojom.MidisRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MidisRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'subdevice_num', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MidisClient
 arc.mojom.MidisClient = {};
 

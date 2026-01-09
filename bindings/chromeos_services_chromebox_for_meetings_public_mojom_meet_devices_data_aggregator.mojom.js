@@ -15,6 +15,20 @@ ash.cfm.mojom.FilterType = {
   CHANGE: 0,
 };
 
+// Struct: DataFilter
+ash.cfm.mojom.DataFilterSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.DataFilter',
+      packedSize: 16,
+      fields: [
+        { name: 'REGEX', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DataWatchDog
 ash.cfm.mojom.DataWatchDog = {};
 

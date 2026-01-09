@@ -28,6 +28,19 @@ crosapi.mojom.ChromeKioskLaunchResult = {
   kChromeAppDeprecated: 3,
 };
 
+// Struct: AppInstallParams
+crosapi.mojom.AppInstallParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.AppInstallParams',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ChromeKioskLaunchController
 crosapi.mojom.ChromeKioskLaunchController = {};
 

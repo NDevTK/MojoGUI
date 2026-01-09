@@ -8,3 +8,17 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+
+// Struct: BitmapInSharedMemory
+viz.mojom.BitmapInSharedMemorySpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.BitmapInSharedMemory',
+      packedSize: 16,
+      fields: [
+        { name: 'pixels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

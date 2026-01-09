@@ -33,3 +33,17 @@ network.mojom.CrossOriginAttribute = {
   kAnonymous: 1,
   kUseCredentials: 2,
 };
+
+// Struct: LinkHeader
+network.mojom.LinkHeaderSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.LinkHeader',
+      packedSize: 16,
+      fields: [
+        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

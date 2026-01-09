@@ -46,6 +46,62 @@ chrome.mojom.AppShimScreenReaderSupportMode = {
   kComplete: 1,
 };
 
+// Struct: ProfileMenuItem
+chrome.mojom.ProfileMenuItemSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.ProfileMenuItem',
+      packedSize: 16,
+      fields: [
+        { name: 'profile_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ApplicationDockMenuItem
+chrome.mojom.ApplicationDockMenuItemSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.ApplicationDockMenuItem',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AppShimInfo
+chrome.mojom.AppShimInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.AppShimInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'notification_action_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FeatureState
+chrome.mojom.FeatureStateSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.FeatureState',
+      packedSize: 16,
+      fields: [
+        { name: 'disable_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AppShim
 chrome.mojom.AppShim = {};
 

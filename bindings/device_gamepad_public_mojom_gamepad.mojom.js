@@ -45,6 +45,118 @@ device.mojom.GamepadHapticsResult = {
   GamepadHapticsResultNotSupported: 4,
 };
 
+// Struct: GamepadQuaternion
+device.mojom.GamepadQuaternionSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadQuaternion',
+      packedSize: 16,
+      fields: [
+        { name: 'w', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GamepadVector
+device.mojom.GamepadVectorSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadVector',
+      packedSize: 16,
+      fields: [
+        { name: 'z', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GamepadButton
+device.mojom.GamepadButtonSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadButton',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GamepadTouch
+device.mojom.GamepadTouchSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadTouch',
+      packedSize: 16,
+      fields: [
+        { name: 'has_surface_dimensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GamepadPose
+device.mojom.GamepadPoseSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadPose',
+      packedSize: 16,
+      fields: [
+        { name: 'linear_acceleration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GamepadHapticActuator
+device.mojom.GamepadHapticActuatorSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadHapticActuator',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Gamepad
+device.mojom.GamepadSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Gamepad',
+      packedSize: 16,
+      fields: [
+        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GamepadEffectParameters
+device.mojom.GamepadEffectParametersSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadEffectParameters',
+      packedSize: 16,
+      fields: [
+        { name: 'right_trigger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: GamepadObserver
 device.mojom.GamepadObserver = {};
 

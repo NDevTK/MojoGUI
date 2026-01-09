@@ -38,6 +38,90 @@ cros.mojom.KioskVisionError = {
   MODEL_ERROR: 1,
 };
 
+// Struct: KioskVisionDetection
+cros.mojom.KioskVisionDetectionSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.KioskVisionDetection',
+      packedSize: 16,
+      fields: [
+        { name: 'appearances', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KioskVisionTrack
+cros.mojom.KioskVisionTrackSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.KioskVisionTrack',
+      packedSize: 16,
+      fields: [
+        { name: 'appearances', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KioskVisionAppearance
+cros.mojom.KioskVisionAppearanceSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.KioskVisionAppearance',
+      packedSize: 16,
+      fields: [
+        { name: 'body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KioskVisionFaceDetection
+cros.mojom.KioskVisionFaceDetectionSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.KioskVisionFaceDetection',
+      packedSize: 16,
+      fields: [
+        { name: 'box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KioskVisionBodyDetection
+cros.mojom.KioskVisionBodyDetectionSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.KioskVisionBodyDetection',
+      packedSize: 16,
+      fields: [
+        { name: 'box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KioskVisionBoundingBox
+cros.mojom.KioskVisionBoundingBoxSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.KioskVisionBoundingBox',
+      packedSize: 16,
+      fields: [
+        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: KioskVisionObserver
 cros.mojom.KioskVisionObserver = {};
 

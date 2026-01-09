@@ -47,6 +47,34 @@ side_panel.customize_chrome.mojom.CategoryId = {
   kTools: 2,
 };
 
+// Struct: Action
+side_panel.customize_chrome.mojom.ActionSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.Action',
+      packedSize: 16,
+      fields: [
+        { name: 'icon_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Category
+side_panel.customize_chrome.mojom.CategorySpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.Category',
+      packedSize: 16,
+      fields: [
+        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CustomizeToolbarHandlerFactory
 side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory = {};
 

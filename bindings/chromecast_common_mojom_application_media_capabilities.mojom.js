@@ -10,6 +10,19 @@ chromecast.shell = chromecast.shell || {};
 chromecast.shell.mojom = chromecast.shell.mojom || {};
 
 
+// Struct: BitstreamAudioCodecsInfo
+chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.shell.mojom.BitstreamAudioCodecsInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ApplicationMediaCapabilitiesObserver
 chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver = {};
 

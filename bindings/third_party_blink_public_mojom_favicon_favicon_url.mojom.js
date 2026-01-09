@@ -16,3 +16,17 @@ blink.mojom.FaviconIconType = {
   kTouchIcon: 2,
   kTouchPrecomposedIcon: 3,
 };
+
+// Struct: FaviconURL
+blink.mojom.FaviconURLSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FaviconURL',
+      packedSize: 16,
+      fields: [
+        { name: 'is_default_icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

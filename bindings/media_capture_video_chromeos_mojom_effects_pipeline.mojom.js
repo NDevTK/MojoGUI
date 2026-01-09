@@ -45,3 +45,16 @@ cros.mojom.InferenceBackend = {
   kGpu: 0,
   kNpu: 1,
 };
+
+// Struct: EffectsConfig
+cros.mojom.EffectsConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.EffectsConfig',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

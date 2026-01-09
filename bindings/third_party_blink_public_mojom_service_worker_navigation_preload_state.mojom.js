@@ -8,3 +8,16 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: NavigationPreloadState
+blink.mojom.NavigationPreloadStateSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.NavigationPreloadState',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -62,6 +62,48 @@ nearby_share.mojom.RegisterReceiveSurfaceResult = {
   kTransferInProgress: 3,
 };
 
+// Struct: PayloadPreview
+nearby_share.mojom.PayloadPreviewSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.PayloadPreview',
+      packedSize: 16,
+      fields: [
+        { name: 'share_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ShareTarget
+nearby_share.mojom.ShareTargetSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ShareTarget',
+      packedSize: 16,
+      fields: [
+        { name: 'for_self_share', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TransferMetadata
+nearby_share.mojom.TransferMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.TransferMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'is_final_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ShareTargetListener
 nearby_share.mojom.ShareTargetListener = {};
 

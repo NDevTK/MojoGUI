@@ -15,3 +15,17 @@ file_suggestion.mojom.RecommendationType = {
   kShared: 1,
   kTrending: 2,
 };
+
+// Struct: File
+file_suggestion.mojom.FileSpec = {
+  $: {
+    structSpec: {
+      name: 'file_suggestion.mojom.File',
+      packedSize: 16,
+      fields: [
+        { name: 'recommendation_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -9,6 +9,20 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
+// Struct: AndroidOverlayConfig
+media.mojom.AndroidOverlayConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AndroidOverlayConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'power_efficient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AndroidOverlayProvider
 media.mojom.AndroidOverlayProvider = {};
 

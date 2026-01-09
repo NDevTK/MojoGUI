@@ -24,6 +24,20 @@ media_session.mojom.AudioFocusType = {
   kAmbient: 3,
 };
 
+// Struct: AudioFocusRequestState
+media_session.mojom.AudioFocusRequestStateSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.AudioFocusRequestState',
+      packedSize: 16,
+      fields: [
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AudioFocusObserver
 media_session.mojom.AudioFocusObserver = {};
 

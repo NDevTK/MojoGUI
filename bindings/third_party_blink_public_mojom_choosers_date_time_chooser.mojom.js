@@ -9,6 +9,34 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: DateTimeSuggestion
+blink.mojom.DateTimeSuggestionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DateTimeSuggestion',
+      packedSize: 16,
+      fields: [
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DateTimeDialogValue
+blink.mojom.DateTimeDialogValueSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DateTimeDialogValue',
+      packedSize: 16,
+      fields: [
+        { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DateTimeChooser
 blink.mojom.DateTimeChooser = {};
 

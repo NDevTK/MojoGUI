@@ -16,6 +16,34 @@ cc.mojom.RootScrollOffsetUpdateFrequency = {
   kAllUpdates: 2,
 };
 
+// Struct: DelegatedInkBrowserMetadata
+cc.mojom.DelegatedInkBrowserMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'cc.mojom.DelegatedInkBrowserMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'delegated_ink_is_hovering', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RenderFrameMetadata
+cc.mojom.RenderFrameMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'cc.mojom.RenderFrameMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'has_transparent_background', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: RenderFrameMetadataObserver
 cc.mojom.RenderFrameMetadataObserver = {};
 

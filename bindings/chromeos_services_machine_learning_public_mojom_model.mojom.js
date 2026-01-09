@@ -36,6 +36,48 @@ chromeos.machine_learning.mojom.CreateGraphExecutorResult = {
   NNAPI_USE_ERROR: 4,
 };
 
+// Struct: GraphExecutorOptions
+chromeos.machine_learning.mojom.GraphExecutorOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.GraphExecutorOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'OPENGL', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BuiltinModelSpec
+chromeos.machine_learning.mojom.BuiltinModelSpecSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.BuiltinModelSpec',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FlatBufferModelSpec
+chromeos.machine_learning.mojom.FlatBufferModelSpecSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.FlatBufferModelSpec',
+      packedSize: 16,
+      fields: [
+        { name: 'metrics_model_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Model
 chromeos.machine_learning.mojom.Model = {};
 

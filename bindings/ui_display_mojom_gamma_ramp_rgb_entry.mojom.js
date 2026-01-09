@@ -8,3 +8,17 @@
 var display = display || {};
 display.mojom = display.mojom || {};
 
+
+// Struct: GammaRampRGBEntry
+display.mojom.GammaRampRGBEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'display.mojom.GammaRampRGBEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'b', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

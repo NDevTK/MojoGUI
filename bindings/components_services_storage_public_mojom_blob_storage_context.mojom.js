@@ -26,6 +26,20 @@ storage.mojom.WriteBlobToFileResult = {
   kSuccess: 5,
 };
 
+// Struct: BlobDataItem
+storage.mojom.BlobDataItemSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobDataItem',
+      packedSize: 16,
+      fields: [
+        { name: 'reader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: BlobDataItemReader
 storage.mojom.BlobDataItemReader = {};
 

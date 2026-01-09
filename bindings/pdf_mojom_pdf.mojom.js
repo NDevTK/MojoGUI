@@ -24,6 +24,20 @@ pdf.mojom.GetPdfBytesStatus = {
   kFailed: 2,
 };
 
+// Struct: SaveDataBufferHandlerGetResult
+pdf.mojom.SaveDataBufferHandlerGetResultSpec = {
+  $: {
+    structSpec: {
+      name: 'pdf.mojom.SaveDataBufferHandlerGetResult',
+      packedSize: 16,
+      fields: [
+        { name: 'total_file_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SaveDataBufferHandler
 pdf.mojom.SaveDataBufferHandler = {};
 

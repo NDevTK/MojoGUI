@@ -16,6 +16,34 @@ media_router.mojom.PlayState = {
   BUFFERING: 2,
 };
 
+// Struct: MediaImage
+media_router.mojom.MediaImageSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.MediaImage',
+      packedSize: 16,
+      fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaStatus
+media_router.mojom.MediaStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'media_router.mojom.MediaStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'PLAYING', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MediaStatusObserver
 media_router.mojom.MediaStatusObserver = {};
 

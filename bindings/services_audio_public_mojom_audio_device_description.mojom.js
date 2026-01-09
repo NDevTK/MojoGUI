@@ -8,3 +8,17 @@
 var audio = audio || {};
 audio.mojom = audio.mojom || {};
 
+
+// Struct: AudioDeviceDescription
+audio.mojom.AudioDeviceDescriptionSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.AudioDeviceDescription',
+      packedSize: 16,
+      fields: [
+        { name: 'is_communications_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

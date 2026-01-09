@@ -9,6 +9,76 @@ var on_device_internals = on_device_internals || {};
 on_device_internals.mojom = on_device_internals.mojom || {};
 
 
+// Struct: PageData
+on_device_internals.mojom.PageDataSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageData',
+      packedSize: 16,
+      fields: [
+        { name: 'min_vram_mb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BaseModelState
+on_device_internals.mojom.BaseModelStateSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.BaseModelState',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BaseModelInfo
+on_device_internals.mojom.BaseModelInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.BaseModelInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'backend_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SupplementaryModelInfo
+on_device_internals.mojom.SupplementaryModelInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.SupplementaryModelInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_ready', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FeatureAdaptationInfo
+on_device_internals.mojom.FeatureAdaptationInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.FeatureAdaptationInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_recently_used', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 on_device_internals.mojom.PageHandlerFactory = {};
 

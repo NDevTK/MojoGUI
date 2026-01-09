@@ -9,6 +9,20 @@ var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
 
 
+// Struct: BackgroundTracingRule
+tracing.mojom.BackgroundTracingRuleSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.BackgroundTracingRule',
+      packedSize: 16,
+      fields: [
+        { name: 'rule_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: BackgroundTracingAgentClient
 tracing.mojom.BackgroundTracingAgentClient = {};
 

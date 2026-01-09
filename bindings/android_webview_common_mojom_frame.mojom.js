@@ -21,6 +21,20 @@ android_webview.mojom.HitTestDataType = {
   kEditText: 7,
 };
 
+// Struct: HitTestData
+android_webview.mojom.HitTestDataSpec = {
+  $: {
+    structSpec: {
+      name: 'android_webview.mojom.HitTestData',
+      packedSize: 16,
+      fields: [
+        { name: 'img_src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: LocalMainFrame
 android_webview.mojom.LocalMainFrame = {};
 

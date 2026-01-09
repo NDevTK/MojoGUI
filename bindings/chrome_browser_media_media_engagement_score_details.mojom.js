@@ -9,6 +9,34 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
+// Struct: MediaEngagementScoreDetails
+media.mojom.MediaEngagementScoreDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.MediaEngagementScoreDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'is_high', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaEngagementConfig
+media.mojom.MediaEngagementConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.MediaEngagementConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'preload_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MediaEngagementScoreDetailsProvider
 media.mojom.MediaEngagementScoreDetailsProvider = {};
 

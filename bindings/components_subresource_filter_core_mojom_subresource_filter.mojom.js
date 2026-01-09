@@ -37,6 +37,34 @@ subresource_filter.mojom.SubresourceFilterDisabledReason = {
   kUrlNotHandledByNetworkStack: 8,
 };
 
+// Struct: ActivationState
+subresource_filter.mojom.ActivationStateSpec = {
+  $: {
+    structSpec: {
+      name: 'subresource_filter.mojom.ActivationState',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DocumentLoadStatistics
+subresource_filter.mojom.DocumentLoadStatisticsSpec = {
+  $: {
+    structSpec: {
+      name: 'subresource_filter.mojom.DocumentLoadStatistics',
+      packedSize: 16,
+      fields: [
+        { name: 'evaluation_total_cpu_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SubresourceFilterRulesetObserver
 subresource_filter.mojom.SubresourceFilterRulesetObserver = {};
 

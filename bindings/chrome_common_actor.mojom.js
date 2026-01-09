@@ -134,6 +134,197 @@ actor.mojom.JournalEntryType = {
   kInstant: 2,
 };
 
+// Struct: ObservedToolTarget
+actor.mojom.ObservedToolTargetSpec = {
+  $: {
+    structSpec: {
+      name: 'actor.mojom.ObservedToolTarget',
+      packedSize: 16,
+      fields: [
+        { name: 'node_attribute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ClickAction
+actor.mojom.ClickActionSpec = {
+  $: {
+    structSpec: {
+      name: 'actor.mojom.ClickAction',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MouseMoveAction
+actor.mojom.MouseMoveActionSpec = {
+  $: {
+    structSpec: {
+      name: 'actor.mojom.MouseMoveAction',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScrollToAction
+actor.mojom.ScrollToActionSpec = {
+  $: {
+    structSpec: {
+      name: 'actor.mojom.ScrollToAction',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TypeAction
+actor.mojom.TypeActionSpec = {
+  $: {
+    structSpec: {
+      name: 'actor.mojom.TypeAction',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScrollAction
+actor.mojom.ScrollActionSpec = {
+  $: {
+    structSpec: {
+      name: 'actor.mojom.ScrollAction',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SelectAction
+actor.mojom.SelectActionSpec = {
+  $: {
+    structSpec: {
+      name: 'actor.mojom.SelectAction',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DragAndReleaseAction
+actor.mojom.DragAndReleaseActionSpec = {
+  $: {
+    structSpec: {
+      name: 'actor.mojom.DragAndReleaseAction',
+      packedSize: 16,
+      fields: [
+        { name: 'to_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScriptToolAction
+actor.mojom.ScriptToolActionSpec = {
+  $: {
+    structSpec: {
+      name: 'actor.mojom.ScriptToolAction',
+      packedSize: 16,
+      fields: [
+        { name: 'input_arguments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TaskId
+actor.mojom.TaskIdSpec = {
+  $: {
+    structSpec: {
+      name: 'actor.mojom.TaskId',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ToolInvocation
+actor.mojom.ToolInvocationSpec = {
+  $: {
+    structSpec: {
+      name: 'actor.mojom.ToolInvocation',
+      packedSize: 16,
+      fields: [
+        { name: 'observed_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ActionResult
+actor.mojom.ActionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'actor.mojom.ActionResult',
+      packedSize: 16,
+      fields: [
+        { name: 'execution_end_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: JournalDetails
+actor.mojom.JournalDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'actor.mojom.JournalDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: JournalEntry
+actor.mojom.JournalEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'actor.mojom.JournalEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: JournalClient
 actor.mojom.JournalClient = {};
 

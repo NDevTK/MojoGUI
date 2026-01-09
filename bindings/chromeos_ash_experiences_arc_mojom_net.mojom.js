@@ -126,6 +126,303 @@ arc.mojom.QosCategory = {
   kMultimediaConferencing: 1,
 };
 
+// Struct: VisibleNetworkDetails
+arc.mojom.VisibleNetworkDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VisibleNetworkDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'bssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ConfiguredNetworkDetails
+arc.mojom.ConfiguredNetworkDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ConfiguredNetworkDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'bssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PasspointCredentials
+arc.mojom.PasspointCredentialsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PasspointCredentials',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PasspointRemovalProperties
+arc.mojom.PasspointRemovalPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PasspointRemovalProperties',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EapCredentials
+arc.mojom.EapCredentialsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.EapCredentials',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IPConfiguration
+arc.mojom.IPConfigurationSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.IPConfiguration',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WiFi
+arc.mojom.WiFiSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.WiFi',
+      packedSize: 16,
+      fields: [
+        { name: 'rssi', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkConfiguration
+arc.mojom.NetworkConfigurationSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NetworkConfiguration',
+      packedSize: 16,
+      fields: [
+        { name: 'link_speed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LinkSpeed
+arc.mojom.LinkSpeedSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.LinkSpeed',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WifiConfiguration
+arc.mojom.WifiConfigurationSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.WifiConfiguration',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StaticIpv4Configuration
+arc.mojom.StaticIpv4ConfigurationSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.StaticIpv4Configuration',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PacUrlProxyConfig
+arc.mojom.PacUrlProxyConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PacUrlProxyConfig',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManualProxyConfig
+arc.mojom.ManualProxyConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ManualProxyConfig',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetNetworksResponseType
+arc.mojom.GetNetworksResponseTypeSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.GetNetworksResponseType',
+      packedSize: 16,
+      fields: [
+        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AndroidVpnConfiguration
+arc.mojom.AndroidVpnConfigurationSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AndroidVpnConfiguration',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ArcDnsResolutionTestResult
+arc.mojom.ArcDnsResolutionTestResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcDnsResolutionTestResult',
+      packedSize: 16,
+      fields: [
+        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ArcHttpTestResult
+arc.mojom.ArcHttpTestResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcHttpTestResult',
+      packedSize: 16,
+      fields: [
+        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ArcPingTestResult
+arc.mojom.ArcPingTestResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcPingTestResult',
+      packedSize: 16,
+      fields: [
+        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LohsConfig
+arc.mojom.LohsConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.LohsConfig',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PasspointApprovalRequest
+arc.mojom.PasspointApprovalRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PasspointApprovalRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'subscription_expiration_time_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PasspointApprovalResponse
+arc.mojom.PasspointApprovalResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PasspointApprovalResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SocketConnectionEvent
+arc.mojom.SocketConnectionEventSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.SocketConnectionEvent',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NetHost
 arc.mojom.NetHost = {};
 

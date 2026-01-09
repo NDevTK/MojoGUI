@@ -40,3 +40,17 @@ crostini.mojom.InstallerError = {
   kErrorCreateContainer: 11,
   kErrorUnknown: 12,
 };
+
+// Struct: DiskSliderTick
+crostini.mojom.DiskSliderTickSpec = {
+  $: {
+    structSpec: {
+      name: 'crostini.mojom.DiskSliderTick',
+      packedSize: 16,
+      fields: [
+        { name: 'aria_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

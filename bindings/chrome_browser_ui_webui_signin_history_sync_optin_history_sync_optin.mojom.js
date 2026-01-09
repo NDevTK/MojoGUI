@@ -23,6 +23,20 @@ history_sync_optin.mojom.ScreenMode = {
   kDeadlined: 3,
 };
 
+// Struct: AccountInfo
+history_sync_optin.mojom.AccountInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'history_sync_optin.mojom.AccountInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'account_image_src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 history_sync_optin.mojom.PageHandlerFactory = {};
 

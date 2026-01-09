@@ -31,6 +31,20 @@ ash.personalization_app.mojom.SearchConceptId = {
   kKeyboardBacklight: 16,
 };
 
+// Struct: SearchResult
+ash.personalization_app.mojom.SearchResultSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.SearchResult',
+      packedSize: 16,
+      fields: [
+        { name: 'relevance_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SearchResultsObserver
 ash.personalization_app.mojom.SearchResultsObserver = {};
 

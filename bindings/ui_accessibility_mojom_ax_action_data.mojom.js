@@ -8,3 +8,16 @@
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
 
+
+// Struct: AXActionData
+ax.mojom.AXActionDataSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.AXActionData',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

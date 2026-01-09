@@ -9,6 +9,20 @@ var content = content || {};
 content.mojom = content.mojom || {};
 
 
+// Struct: FrameRoutingInfo
+content.mojom.FrameRoutingInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.FrameRoutingInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'document_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: RenderMessageFilter
 content.mojom.RenderMessageFilter = {};
 

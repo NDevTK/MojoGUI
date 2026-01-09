@@ -37,6 +37,90 @@ device.mojom.NSRawTypeNameFormat = {
   kUnknown: 6,
 };
 
+// Struct: NDEFError
+device.mojom.NDEFErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NDEFError',
+      packedSize: 16,
+      fields: [
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NDEFRecord
+device.mojom.NDEFRecordSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NDEFRecord',
+      packedSize: 16,
+      fields: [
+        { name: 'payload_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NDEFMessage
+device.mojom.NDEFMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NDEFMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NDEFRawRecord
+device.mojom.NDEFRawRecordSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NDEFRawRecord',
+      packedSize: 16,
+      fields: [
+        { name: 'type_name_format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NDEFRawMessage
+device.mojom.NDEFRawMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NDEFRawMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NDEFWriteOptions
+device.mojom.NDEFWriteOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NDEFWriteOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'overwrite', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NFC
 device.mojom.NFC = {};
 

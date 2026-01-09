@@ -9,6 +9,20 @@ var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
 
+// Struct: SystemAppRunningState
+arc.mojom.SystemAppRunningStateSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.SystemAppRunningState',
+      packedSize: 16,
+      fields: [
+        { name: 'background_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SystemStateHost
 arc.mojom.SystemStateHost = {};
 

@@ -8,3 +8,17 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+
+// Struct: MutablePartialNetworkTrafficAnnotationTag
+network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.MutablePartialNetworkTrafficAnnotationTag',
+      packedSize: 16,
+      fields: [
+        { name: 'completing_id_hash_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

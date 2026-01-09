@@ -45,3 +45,31 @@ gfx.mojom.BufferUsage = {
   VEA_READ_CAMERA_AND_CPU_READ_WRITE: 10,
   SCANOUT_FRONT_RENDERING: 11,
 };
+
+// Struct: GpuMemoryBufferId
+gfx.mojom.GpuMemoryBufferIdSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.GpuMemoryBufferId',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GpuMemoryBufferHandle
+gfx.mojom.GpuMemoryBufferHandleSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.GpuMemoryBufferHandle',
+      packedSize: 16,
+      fields: [
+        { name: 'platform_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

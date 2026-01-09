@@ -17,6 +17,20 @@ media.mojom.AvailabilityStatus = {
   kAvailable: 3,
 };
 
+// Struct: StartSpeechRecognitionRequestParams
+media.mojom.StartSpeechRecognitionRequestParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.StartSpeechRecognitionRequestParams',
+      packedSize: 16,
+      fields: [
+        { name: 'sample_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SpeechRecognizer
 media.mojom.SpeechRecognizer = {};
 

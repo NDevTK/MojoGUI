@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: DetectionArgs
+blink.mojom.DetectionArgsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DetectionArgs',
+      packedSize: 16,
+      fields: [
+        { name: 'private_footprint_threshold', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: OomInterventionHost
 blink.mojom.OomInterventionHost = {};
 

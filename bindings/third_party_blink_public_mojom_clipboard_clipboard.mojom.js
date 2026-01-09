@@ -30,6 +30,20 @@ blink.mojom.PlatformClipboardPermissionState = {
   kDeny: 2,
 };
 
+// Struct: ClipboardFiles
+blink.mojom.ClipboardFilesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ClipboardFiles',
+      packedSize: 16,
+      fields: [
+        { name: 'file_system_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ClipboardListener
 blink.mojom.ClipboardListener = {};
 

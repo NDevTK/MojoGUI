@@ -41,6 +41,90 @@ media.mojom.RecognizerClientType = {
   kCastModerator: 4,
 };
 
+// Struct: HypothesisParts
+media.mojom.HypothesisPartsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.HypothesisParts',
+      packedSize: 16,
+      fields: [
+        { name: 'hypothesis_part_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaTimestampRange
+media.mojom.MediaTimestampRangeSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.MediaTimestampRange',
+      packedSize: 16,
+      fields: [
+        { name: 'end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TimingInformation
+media.mojom.TimingInformationSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.TimingInformation',
+      packedSize: 16,
+      fields: [
+        { name: 'originating_media_timestamps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SpeechRecognitionResult
+media.mojom.SpeechRecognitionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionResult',
+      packedSize: 16,
+      fields: [
+        { name: 'timing_information', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LanguageIdentificationEvent
+media.mojom.LanguageIdentificationEventSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.LanguageIdentificationEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'asr_switch_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SpeechRecognitionOptions
+media.mojom.SpeechRecognitionOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'recognition_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SpeechRecognitionContext
 media.mojom.SpeechRecognitionContext = {};
 

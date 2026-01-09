@@ -9,6 +9,34 @@ var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
 
 
+// Struct: TensorUsage
+webnn.mojom.TensorUsageSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.TensorUsage',
+      packedSize: 16,
+      fields: [
+        { name: 'graph_constant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TensorInfo
+webnn.mojom.TensorInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.TensorInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebNNTensor
 webnn.mojom.WebNNTensor = {};
 

@@ -32,6 +32,48 @@ help_bubble.mojom.HelpBubbleClosedReason = {
   kTimedOut: 2,
 };
 
+// Struct: HelpBubbleButtonParams
+help_bubble.mojom.HelpBubbleButtonParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'help_bubble.mojom.HelpBubbleButtonParams',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Progress
+help_bubble.mojom.ProgressSpec = {
+  $: {
+    structSpec: {
+      name: 'help_bubble.mojom.Progress',
+      packedSize: 16,
+      fields: [
+        { name: 'total', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HelpBubbleParams
+help_bubble.mojom.HelpBubbleParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'help_bubble.mojom.HelpBubbleParams',
+      packedSize: 16,
+      fields: [
+        { name: 'timeout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: HelpBubbleHandlerFactory
 help_bubble.mojom.HelpBubbleHandlerFactory = {};
 

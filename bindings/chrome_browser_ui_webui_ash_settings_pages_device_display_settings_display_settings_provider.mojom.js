@@ -41,6 +41,20 @@ ash.settings.mojom.DisplaySettingsOrientationOption = {
   k270Degree: 4,
 };
 
+// Struct: DisplaySettingsValue
+ash.settings.mojom.DisplaySettingsValueSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsValue',
+      packedSize: 16,
+      fields: [
+        { name: 'unified_mode_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TabletModeObserver
 ash.settings.mojom.TabletModeObserver = {};
 

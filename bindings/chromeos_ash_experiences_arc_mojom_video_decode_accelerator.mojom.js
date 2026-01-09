@@ -20,6 +20,76 @@ arc.mojom.Result = {
   CANCELLED: 6,
 };
 
+// Struct: BitstreamBuffer
+arc.mojom.BitstreamBufferSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BitstreamBuffer',
+      packedSize: 16,
+      fields: [
+        { name: 'bytes_used', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Picture
+arc.mojom.PictureSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.Picture',
+      packedSize: 16,
+      fields: [
+        { name: 'crop_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PictureBufferFormat
+arc.mojom.PictureBufferFormatSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PictureBufferFormat',
+      packedSize: 16,
+      fields: [
+        { name: 'coded_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoDecodeAcceleratorConfig
+arc.mojom.VideoDecodeAcceleratorConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoDecodeAcceleratorConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'secure_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BufferModifier
+arc.mojom.BufferModifierSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BufferModifier',
+      packedSize: 16,
+      fields: [
+        { name: 'val', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: VideoDecodeAccelerator
 arc.mojom.VideoDecodeAccelerator = {};
 

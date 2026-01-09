@@ -35,6 +35,48 @@ screen_ai.mojom.MceClientType = {
   kMahi: 3,
 };
 
+// Struct: VisualAnnotation
+screen_ai.mojom.VisualAnnotationSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.VisualAnnotation',
+      packedSize: 16,
+      fields: [
+        { name: 'lines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LineBox
+screen_ai.mojom.LineBoxSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.LineBox',
+      packedSize: 16,
+      fields: [
+        { name: 'confidence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WordBox
+screen_ai.mojom.WordBoxSpec = {
+  $: {
+    structSpec: {
+      name: 'screen_ai.mojom.WordBox',
+      packedSize: 16,
+      fields: [
+        { name: 'confidence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ScreenAIAnnotator
 screen_ai.mojom.ScreenAIAnnotator = {};
 

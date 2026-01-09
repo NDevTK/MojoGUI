@@ -30,6 +30,20 @@ blink.mojom.AIRewriterLength = {
   kLonger: 2,
 };
 
+// Struct: AIRewriterCreateOptions
+blink.mojom.AIRewriterCreateOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIRewriterCreateOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'output_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AIRewriter
 blink.mojom.AIRewriter = {};
 

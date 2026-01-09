@@ -16,6 +16,48 @@ shape_detection.mojom.LandmarkType = {
   NOSE: 2,
 };
 
+// Struct: Landmark
+shape_detection.mojom.LandmarkSpec = {
+  $: {
+    structSpec: {
+      name: 'shape_detection.mojom.Landmark',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FaceDetectionResult
+shape_detection.mojom.FaceDetectionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'shape_detection.mojom.FaceDetectionResult',
+      packedSize: 16,
+      fields: [
+        { name: 'landmarks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FaceDetectorOptions
+shape_detection.mojom.FaceDetectorOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'shape_detection.mojom.FaceDetectorOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'fast_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FaceDetection
 shape_detection.mojom.FaceDetection = {};
 

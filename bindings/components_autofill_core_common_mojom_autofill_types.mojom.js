@@ -226,3 +226,283 @@ autofill.mojom.AutofillSuggestionTriggerSource = {
   kPlusAddressUpdatedInBrowserProcess: 14,
   kProactivePasswordRecovery: 15,
 };
+
+// Struct: FrameToken
+autofill.mojom.FrameTokenSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.FrameToken',
+      packedSize: 16,
+      fields: [
+        { name: 'is_local', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FrameTokenWithPredecessor
+autofill.mojom.FrameTokenWithPredecessorSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.FrameTokenWithPredecessor',
+      packedSize: 16,
+      fields: [
+        { name: 'predecessor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FormRendererId
+autofill.mojom.FormRendererIdSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.FormRendererId',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FieldRendererId
+autofill.mojom.FieldRendererIdSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.FieldRendererId',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FillId
+autofill.mojom.FillIdSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.FillId',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SelectOption
+autofill.mojom.SelectOptionSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.SelectOption',
+      packedSize: 16,
+      fields: [
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AutocompleteParsingResult
+autofill.mojom.AutocompleteParsingResultSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.AutocompleteParsingResult',
+      packedSize: 16,
+      fields: [
+        { name: 'webidentity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FormFieldData
+autofill.mojom.FormFieldDataSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.FormFieldData',
+      packedSize: 16,
+      fields: [
+        { name: 'kNotCheckable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FormFieldData_FillData
+autofill.mojom.FormFieldData_FillDataSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.FormFieldData_FillData',
+      packedSize: 16,
+      fields: [
+        { name: 'force_override', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ButtonTitleInfo
+autofill.mojom.ButtonTitleInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.ButtonTitleInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FormData
+autofill.mojom.FormDataSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.FormData',
+      packedSize: 16,
+      fields: [
+        { name: 'likely_contains_captcha', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FormFieldDataPredictions
+autofill.mojom.FormFieldDataPredictionsSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.FormFieldDataPredictions',
+      packedSize: 16,
+      fields: [
+        { name: 'rank_in_host_form_signature_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FormDataPredictions
+autofill.mojom.FormDataPredictionsSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.FormDataPredictions',
+      packedSize: 16,
+      fields: [
+        { name: 'fields', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PasswordAndMetadata
+autofill.mojom.PasswordAndMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.PasswordAndMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'is_grouped_affiliation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PasswordFormFillData
+autofill.mojom.PasswordFormFillDataSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.PasswordFormFillData',
+      packedSize: 16,
+      fields: [
+        { name: 'notify_browser_of_successful_filling', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PasswordFormGenerationData
+autofill.mojom.PasswordFormGenerationDataSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.PasswordFormGenerationData',
+      packedSize: 16,
+      fields: [
+        { name: 'confirmation_password_renderer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PasswordGenerationUIData
+autofill.mojom.PasswordGenerationUIDataSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.PasswordGenerationUIData',
+      packedSize: 16,
+      fields: [
+        { name: 'generation_rejected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TriggeringField
+autofill.mojom.TriggeringFieldSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.TriggeringField',
+      packedSize: 16,
+      fields: [
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PasswordSuggestionRequest
+autofill.mojom.PasswordSuggestionRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.PasswordSuggestionRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'password_field_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ParsingResult
+autofill.mojom.ParsingResultSpec = {
+  $: {
+    structSpec: {
+      name: 'autofill.mojom.ParsingResult',
+      packedSize: 16,
+      fields: [
+        { name: 'confirm_password_renderer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

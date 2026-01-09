@@ -43,6 +43,34 @@ ash.diagnostics.mojom.StandardRoutineResult = {
   kUnableToRun: 3,
 };
 
+// Struct: PowerRoutineResult
+ash.diagnostics.mojom.PowerRoutineResultSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.PowerRoutineResult',
+      packedSize: 16,
+      fields: [
+        { name: 'time_elapsed_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RoutineResultInfo
+ash.diagnostics.mojom.RoutineResultInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.RoutineResultInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: RoutineRunner
 ash.diagnostics.mojom.RoutineRunner = {};
 

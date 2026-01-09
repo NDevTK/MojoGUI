@@ -33,6 +33,34 @@ cros.mojom.TorchModeStatus = {
   TORCH_MODE_STATUS_AVAILABLE_ON: 2,
 };
 
+// Struct: CameraResourceCost
+cros.mojom.CameraResourceCostSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraResourceCost',
+      packedSize: 16,
+      fields: [
+        { name: 'resource_cost', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CameraInfo
+cros.mojom.CameraInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'conflicting_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CameraModuleCallbacks
 cros.mojom.CameraModuleCallbacks = {};
 

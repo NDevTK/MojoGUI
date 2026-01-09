@@ -23,6 +23,20 @@ ash.graduation_ui.mojom.AuthResult = {
   kError: 1,
 };
 
+// Struct: ProfileInfo
+ash.graduation_ui.mojom.ProfileInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.graduation_ui.mojom.ProfileInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'photo_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: GraduationUiHandler
 ash.graduation_ui.mojom.GraduationUiHandler = {};
 

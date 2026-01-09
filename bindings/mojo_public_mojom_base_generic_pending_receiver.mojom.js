@@ -8,3 +8,16 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+
+// Struct: GenericPendingReceiver
+mojo_base.mojom.GenericPendingReceiverSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo_base.mojom.GenericPendingReceiver',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -69,6 +69,160 @@ payments.mojom.PaymentComplete = {
   UNKNOWN: 2,
 };
 
+// Struct: PaymentResponse
+payments.mojom.PaymentResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'get_assertion_authenticator_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PayerDetail
+payments.mojom.PayerDetailSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PayerDetail',
+      packedSize: 16,
+      fields: [
+        { name: 'phone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaymentItem
+payments.mojom.PaymentItemSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentItem',
+      packedSize: 16,
+      fields: [
+        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaymentShippingOption
+payments.mojom.PaymentShippingOptionSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentShippingOption',
+      packedSize: 16,
+      fields: [
+        { name: 'selected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SecurePaymentConfirmationRequest
+payments.mojom.SecurePaymentConfirmationRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.SecurePaymentConfirmationRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'payment_entities_logos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkOrIssuerInformation
+payments.mojom.NetworkOrIssuerInformationSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.NetworkOrIssuerInformation',
+      packedSize: 16,
+      fields: [
+        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaymentEntityLogo
+payments.mojom.PaymentEntityLogoSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentEntityLogo',
+      packedSize: 16,
+      fields: [
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaymentMethodData
+payments.mojom.PaymentMethodDataSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentMethodData',
+      packedSize: 16,
+      fields: [
+        { name: 'secure_payment_confirmation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaymentDetailsModifier
+payments.mojom.PaymentDetailsModifierSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentDetailsModifier',
+      packedSize: 16,
+      fields: [
+        { name: 'method_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaymentDetails
+payments.mojom.PaymentDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'stringified_payment_method_errors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaymentOptions
+payments.mojom.PaymentOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'shipping_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PaymentRequestClient
 payments.mojom.PaymentRequestClient = {};
 

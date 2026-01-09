@@ -28,3 +28,17 @@ blink.mojom.JavaScriptFramework = {
   kWix: 14,
   kWordPress: 15,
 };
+
+// Struct: JavaScriptFrameworkDetectionResult
+blink.mojom.JavaScriptFrameworkDetectionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.JavaScriptFrameworkDetectionResult',
+      packedSize: 16,
+      fields: [
+        { name: 'detected_versions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -32,3 +32,17 @@ arc.mojom.AnrSource = {
   ARC_OTHER: 6,
   ARC_APP_LAUNCHER: 7,
 };
+
+// Struct: Anr
+arc.mojom.AnrSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.Anr',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

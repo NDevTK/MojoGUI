@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: UnhandledTapInfo
+blink.mojom.UnhandledTapInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.UnhandledTapInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'tapped_position_in_viewport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UnhandledTapNotifier
 blink.mojom.UnhandledTapNotifier = {};
 

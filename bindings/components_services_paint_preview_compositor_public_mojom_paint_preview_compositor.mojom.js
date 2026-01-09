@@ -24,6 +24,62 @@ paint_preview.mojom.BitmapStatus = {
   kAllocFailed: 2,
 };
 
+// Struct: PaintPreviewBeginCompositeRequest
+paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'paint_preview.mojom.PaintPreviewBeginCompositeRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'recording_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SubframeClipRect
+paint_preview.mojom.SubframeClipRectSpec = {
+  $: {
+    structSpec: {
+      name: 'paint_preview.mojom.SubframeClipRect',
+      packedSize: 16,
+      fields: [
+        { name: 'clip_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FrameData
+paint_preview.mojom.FrameDataSpec = {
+  $: {
+    structSpec: {
+      name: 'paint_preview.mojom.FrameData',
+      packedSize: 16,
+      fields: [
+        { name: 'subframes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaintPreviewBeginCompositeResponse
+paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'paint_preview.mojom.PaintPreviewBeginCompositeResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PaintPreviewCompositor
 paint_preview.mojom.PaintPreviewCompositor = {};
 

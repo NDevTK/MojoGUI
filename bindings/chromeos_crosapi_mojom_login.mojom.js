@@ -9,6 +9,19 @@ var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
 
 
+// Struct: SamlUserSessionProperties
+crosapi.mojom.SamlUserSessionPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.SamlUserSessionProperties',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ExternalLogoutRequestObserver
 crosapi.mojom.ExternalLogoutRequestObserver = {};
 

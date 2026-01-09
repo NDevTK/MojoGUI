@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: CookieChangeSubscription
+blink.mojom.CookieChangeSubscriptionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CookieChangeSubscription',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CookieStore
 blink.mojom.CookieStore = {};
 

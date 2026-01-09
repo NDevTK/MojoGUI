@@ -9,6 +9,20 @@ var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
 
 
+// Struct: ActivityUrlFilterCriteria
+chromecast.mojom.ActivityUrlFilterCriteriaSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.mojom.ActivityUrlFilterCriteria',
+      packedSize: 16,
+      fields: [
+        { name: 'criteria', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ActivityUrlFilterConfiguration
 chromecast.mojom.ActivityUrlFilterConfiguration = {};
 

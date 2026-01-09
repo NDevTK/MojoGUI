@@ -8,3 +8,17 @@
 var wl = wl || {};
 wl.mojom = wl.mojom || {};
 
+
+// Struct: WaylandOverlayConfig
+wl.mojom.WaylandOverlayConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'wl.mojom.WaylandOverlayConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'priority_hint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -10,6 +10,20 @@ ash.color_internals = ash.color_internals || {};
 ash.color_internals.mojom = ash.color_internals.mojom || {};
 
 
+// Struct: WallpaperCalculatedColors
+ash.color_internals.mojom.WallpaperCalculatedColorsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.color_internals.mojom.WallpaperCalculatedColors',
+      packedSize: 16,
+      fields: [
+        { name: 'celebi_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WallpaperColorsObserver
 ash.color_internals.mojom.WallpaperColorsObserver = {};
 

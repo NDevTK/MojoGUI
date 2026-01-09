@@ -23,6 +23,48 @@ blink.mojom.MediaSessionEnterPictureInPictureReason = {
   kContentOccluded: 2,
 };
 
+// Struct: MediaSessionSeekToDetails
+blink.mojom.MediaSessionSeekToDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaSessionSeekToDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'fast_seek', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaSessionEnterPictureInPictureDetails
+blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaSessionEnterPictureInPictureDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SpecMediaMetadata
+blink.mojom.SpecMediaMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpecMediaMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'chapterInfo', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MediaSessionClient
 blink.mojom.MediaSessionClient = {};
 

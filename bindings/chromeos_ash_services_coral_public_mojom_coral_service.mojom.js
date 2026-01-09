@@ -17,6 +17,136 @@ coral.mojom.CoralError = {
   kClusteringError: 3,
 };
 
+// Struct: Tab
+coral.mojom.TabSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.Tab',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: App
+coral.mojom.AppSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.App',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EmbeddingOptions
+coral.mojom.EmbeddingOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.EmbeddingOptions',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ClusteringOptions
+coral.mojom.ClusteringOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.ClusteringOptions',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TitleGenerationOptions
+coral.mojom.TitleGenerationOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.TitleGenerationOptions',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Group
+coral.mojom.GroupSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.Group',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GroupRequest
+coral.mojom.GroupRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.GroupRequest',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GroupResponse
+coral.mojom.GroupResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.GroupResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CacheEmbeddingsRequest
+coral.mojom.CacheEmbeddingsRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.CacheEmbeddingsRequest',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CacheEmbeddingsResponse
+coral.mojom.CacheEmbeddingsResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'coral.mojom.CacheEmbeddingsResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TitleObserver
 coral.mojom.TitleObserver = {};
 

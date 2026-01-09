@@ -15,6 +15,20 @@ blink.mojom.PrerenderTriggerType = {
   kLinkRelNext: 1,
 };
 
+// Struct: PrerenderAttributes
+blink.mojom.PrerenderAttributesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PrerenderAttributes',
+      packedSize: 16,
+      fields: [
+        { name: 'view_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NoStatePrefetchProcessor
 blink.mojom.NoStatePrefetchProcessor = {};
 

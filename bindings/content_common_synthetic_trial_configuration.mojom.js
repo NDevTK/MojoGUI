@@ -9,6 +9,20 @@ var content = content || {};
 content.mojom = content.mojom || {};
 
 
+// Struct: SyntheticTrialGroup
+content.mojom.SyntheticTrialGroupSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SyntheticTrialGroup',
+      packedSize: 16,
+      fields: [
+        { name: 'group_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SyntheticTrialConfiguration
 content.mojom.SyntheticTrialConfiguration = {};
 

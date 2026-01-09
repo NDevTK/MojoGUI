@@ -9,6 +9,34 @@ var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
 
+// Struct: ImeInfo
+arc.mojom.ImeInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ImeInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_allowed_in_clamshell_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextInputState
+arc.mojom.TextInputStateSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TextInputState',
+      packedSize: 16,
+      fields: [
+        { name: 'composition_text_range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: InputConnection
 arc.mojom.InputConnection = {};
 

@@ -60,6 +60,118 @@ blink.mojom.EmbeddedPermissionControlResult = {
   kResolvedNoUserGesture: 4,
 };
 
+// Struct: MidiPermissionDescriptor
+blink.mojom.MidiPermissionDescriptorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MidiPermissionDescriptor',
+      packedSize: 16,
+      fields: [
+        { name: 'sysex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ClipboardPermissionDescriptor
+blink.mojom.ClipboardPermissionDescriptorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ClipboardPermissionDescriptor',
+      packedSize: 16,
+      fields: [
+        { name: 'will_be_sanitized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CameraDevicePermissionDescriptor
+blink.mojom.CameraDevicePermissionDescriptorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CameraDevicePermissionDescriptor',
+      packedSize: 16,
+      fields: [
+        { name: 'panTiltZoom', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TopLevelStorageAccessPermissionDescriptor
+blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TopLevelStorageAccessPermissionDescriptor',
+      packedSize: 16,
+      fields: [
+        { name: 'requestedOrigin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FullscreenPermissionDescriptor
+blink.mojom.FullscreenPermissionDescriptorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FullscreenPermissionDescriptor',
+      packedSize: 16,
+      fields: [
+        { name: 'allow_without_user_gesture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PermissionDescriptor
+blink.mojom.PermissionDescriptorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PermissionDescriptor',
+      packedSize: 16,
+      fields: [
+        { name: 'extension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GeolocationEmbeddedPermissionRequestDescriptor
+blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.GeolocationEmbeddedPermissionRequestDescriptor',
+      packedSize: 16,
+      fields: [
+        { name: 'autolocate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EmbeddedPermissionRequestDescriptor
+blink.mojom.EmbeddedPermissionRequestDescriptorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EmbeddedPermissionRequestDescriptor',
+      packedSize: 16,
+      fields: [
+        { name: 'geolocation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PermissionObserver
 blink.mojom.PermissionObserver = {};
 

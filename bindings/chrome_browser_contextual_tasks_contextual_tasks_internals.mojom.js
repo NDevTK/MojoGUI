@@ -9,6 +9,48 @@ var contextual_tasks_internals = contextual_tasks_internals || {};
 contextual_tasks_internals.mojom = contextual_tasks_internals.mojom || {};
 
 
+// Struct: GetRelevantContextRequest
+contextual_tasks_internals.mojom.GetRelevantContextRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'contextual_tasks_internals.mojom.GetRelevantContextRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'min_model_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Tab
+contextual_tasks_internals.mojom.TabSpec = {
+  $: {
+    structSpec: {
+      name: 'contextual_tasks_internals.mojom.Tab',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetRelevantContextResponse
+contextual_tasks_internals.mojom.GetRelevantContextResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'contextual_tasks_internals.mojom.GetRelevantContextResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'relevant_tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ContextualTasksInternalsPageHandlerFactory
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory = {};
 

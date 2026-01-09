@@ -9,6 +9,48 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: ReportBodyElement
+blink.mojom.ReportBodyElementSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ReportBodyElement',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ReportBody
+blink.mojom.ReportBodySpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ReportBody',
+      packedSize: 16,
+      fields: [
+        { name: 'body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Report
+blink.mojom.ReportSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Report',
+      packedSize: 16,
+      fields: [
+        { name: 'body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ReportingObserver
 blink.mojom.ReportingObserver = {};
 

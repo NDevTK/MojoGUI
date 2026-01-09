@@ -80,6 +80,145 @@ network.mojom.DeleteStoredTrustTokensStatus = {
   kFailureInvalidOrigin: 3,
 };
 
+// Struct: TrustTokenParams
+network.mojom.TrustTokenParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustTokenParams',
+      packedSize: 16,
+      fields: [
+        { name: 'possibly_unsafe_additional_signing_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HasTrustTokensResult
+network.mojom.HasTrustTokensResultSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HasTrustTokensResult',
+      packedSize: 16,
+      fields: [
+        { name: 'has_trust_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HasRedemptionRecordResult
+network.mojom.HasRedemptionRecordResultSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HasRedemptionRecordResult',
+      packedSize: 16,
+      fields: [
+        { name: 'has_redemption_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TrustTokenVerificationKey
+network.mojom.TrustTokenVerificationKeySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustTokenVerificationKey',
+      packedSize: 16,
+      fields: [
+        { name: 'expiry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TrustTokenKeyCommitmentResult
+network.mojom.TrustTokenKeyCommitmentResultSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustTokenKeyCommitmentResult',
+      packedSize: 16,
+      fields: [
+        { name: 'kAndroid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FulfillTrustTokenIssuanceRequest
+network.mojom.FulfillTrustTokenIssuanceRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.FulfillTrustTokenIssuanceRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FulfillTrustTokenIssuanceAnswer
+network.mojom.FulfillTrustTokenIssuanceAnswerSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.FulfillTrustTokenIssuanceAnswer',
+      packedSize: 16,
+      fields: [
+        { name: 'kOk', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TrustTokenOperationResult
+network.mojom.TrustTokenOperationResultSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustTokenOperationResult',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StoredTrustTokensForIssuer
+network.mojom.StoredTrustTokensForIssuerSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.StoredTrustTokensForIssuer',
+      packedSize: 16,
+      fields: [
+        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ToplevelRedemptionRecord
+network.mojom.ToplevelRedemptionRecordSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ToplevelRedemptionRecord',
+      packedSize: 16,
+      fields: [
+        { name: 'last_redemption', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TrustTokenQueryAnswerer
 network.mojom.TrustTokenQueryAnswerer = {};
 

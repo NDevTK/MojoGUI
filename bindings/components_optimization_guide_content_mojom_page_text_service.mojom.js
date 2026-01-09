@@ -15,6 +15,20 @@ optimization_guide.mojom.TextDumpEvent = {
   kFinishedLoad: 1,
 };
 
+// Struct: PageTextDumpRequest
+optimization_guide.mojom.PageTextDumpRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'optimization_guide.mojom.PageTextDumpRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageTextConsumer
 optimization_guide.mojom.PageTextConsumer = {};
 

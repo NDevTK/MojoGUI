@@ -14,3 +14,17 @@ blink.mojom.SharedWorkerErrorType = {
   kParseError: 0,
   kRuntimeError: 1,
 };
+
+// Struct: SharedWorkerExceptionDetails
+blink.mojom.SharedWorkerExceptionDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SharedWorkerExceptionDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'error_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

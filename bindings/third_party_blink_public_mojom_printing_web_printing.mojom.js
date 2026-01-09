@@ -115,6 +115,131 @@ blink.mojom.WebPrintError = {
   kUserPermissionDenied: 3,
 };
 
+// Struct: WebPrinterInfo
+blink.mojom.WebPrinterInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebPrinterInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'printer_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebPrintingRange
+blink.mojom.WebPrintingRangeSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebPrintingRange',
+      packedSize: 16,
+      fields: [
+        { name: 'to', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebPrintingMediaSize
+blink.mojom.WebPrintingMediaSizeSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebPrintingMediaSize',
+      packedSize: 16,
+      fields: [
+        { name: 'y_dimension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebPrintingMediaCollection
+blink.mojom.WebPrintingMediaCollectionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebPrintingMediaCollection',
+      packedSize: 16,
+      fields: [
+        { name: 'media_size_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebPrinterAttributes
+blink.mojom.WebPrinterAttributesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebPrinterAttributes',
+      packedSize: 16,
+      fields: [
+        { name: 'printer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebPrintingMediaCollectionRequested
+blink.mojom.WebPrintingMediaCollectionRequestedSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebPrintingMediaCollectionRequested',
+      packedSize: 16,
+      fields: [
+        { name: 'media_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebPrintJobTemplateAttributes
+blink.mojom.WebPrintJobTemplateAttributesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebPrintJobTemplateAttributes',
+      packedSize: 16,
+      fields: [
+        { name: 'sides', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebPrintJobUpdate
+blink.mojom.WebPrintJobUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebPrintJobUpdate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebPrintJobInfo
+blink.mojom.WebPrintJobInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebPrintJobInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebPrintJobStateObserver
 blink.mojom.WebPrintJobStateObserver = {};
 

@@ -16,3 +16,17 @@ network.mojom.UnencodedDigestIssue = {
   kIncorrectDigestType: 2,
   kIncorrectDigestLength: 3,
 };
+
+// Struct: UnencodedDigests
+network.mojom.UnencodedDigestsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UnencodedDigests',
+      packedSize: 16,
+      fields: [
+        { name: 'issues', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

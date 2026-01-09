@@ -9,6 +9,20 @@ var emoji_search = emoji_search || {};
 emoji_search.mojom = emoji_search.mojom || {};
 
 
+// Struct: SearchResults
+emoji_search.mojom.SearchResultsSpec = {
+  $: {
+    structSpec: {
+      name: 'emoji_search.mojom.SearchResults',
+      packedSize: 16,
+      fields: [
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: EmojiSearch
 emoji_search.mojom.EmojiSearch = {};
 

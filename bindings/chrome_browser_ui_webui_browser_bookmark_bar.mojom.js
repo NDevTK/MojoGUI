@@ -18,6 +18,20 @@ bookmark_bar.mojom.BookmarkType = {
   MOBILE: 4,
 };
 
+// Struct: BookmarkData
+bookmark_bar.mojom.BookmarkDataSpec = {
+  $: {
+    structSpec: {
+      name: 'bookmark_bar.mojom.BookmarkData',
+      packedSize: 16,
+      fields: [
+        { name: 'page_url_for_favicon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 bookmark_bar.mojom.PageHandlerFactory = {};
 

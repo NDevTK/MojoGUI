@@ -8,3 +8,17 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+
+// Struct: IPAddress
+network.mojom.IPAddressSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.IPAddress',
+      packedSize: 16,
+      fields: [
+        { name: 'address_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
