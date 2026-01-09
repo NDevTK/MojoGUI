@@ -398,7 +398,8 @@ jobs:
                           f_bit = 0
                           offset += weight
                       
-                      fields_code.append(f"{{ name: '{param['name']}', packedOffset: {f_off}, packedBitOffset: {f_bit}, type: {p_type}, nullable: {nullable} }}")
+                      param_name = to_camel_case(param['name'])
+                      fields_code.append(f"{{ name: '{param_name}', packedOffset: {f_off}, packedBitOffset: {f_bit}, type: {p_type}, nullable: {nullable} }}")
                   
                   if bit > 0:
                       offset += 8
