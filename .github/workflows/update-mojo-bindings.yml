@@ -360,11 +360,33 @@ jobs:
               js_code += "\n"
               
               # Generate enums
+              # Generate enums
               for enum in parsed.get('enums', []):
                   js_code += f"\n// Enum: {enum['name']}\n"
                   js_code += f"{current_ns}.{enum['name']} = {{\n"
                   for i, value in enumerate(enum['values']):
                       js_code += f"  {value}: {i},\n"
+                  js_code += "};\n"
+
+              # Generate structs
+              for struct in parsed.get('structs', []):
+                  struct_name = struct['name']
+                  full_name = f"{current_ns}.{struct_name}"
+                  fields_code, packed_size = get_struct_layout(struct.get('fields', []))
+                  
+                  js_code += f"\n// Struct: {struct_name}\n"
+                  js_code += f"{full_name}Spec = {{\n"
+                  js_code += "  $: {\n"
+                  js_code += "    structSpec: {\n"
+                  js_code += f"      name: '{module}.{struct_name}',\n"
+                  js_code += f"      packedSize: {packed_size},\n"
+                  js_code += "      fields: [\n"
+                  for field in fields_code:
+                      js_code += f"        {field},\n"
+                  js_code += "      ],\n"
+                  js_code += "      versions: [{version: 0}]\n"
+                  js_code += "    }\n"
+                  js_code += "  }\n"
                   js_code += "};\n"
               
               # Generate interface classes with proper getRemote() method
@@ -533,7 +555,8 @@ jobs:
                           index_data['files'].append({
                               'filename': out_filename,
                               'source': rel_path,
-                              'module': parsed['module']
+                              'module': parsed['module'],
+                              'imports': parsed.get('imports', [])
                           })
               
               # Write index.json
