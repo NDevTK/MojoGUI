@@ -81,11 +81,11 @@ sharing.mojom.Sharing_Connect_ParamsSpec = {
       name: 'sharing.mojom.Sharing.Connect_Params',
       packedSize: 48,
       fields: [
-        { name: 'deps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'nearby_connections', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'nearby_presence', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'decoder', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'quick_start_decoder', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'deps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'nearby_connections', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'nearby_presence', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'decoder', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'quick_start_decoder', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

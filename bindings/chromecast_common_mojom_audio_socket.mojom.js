@@ -84,7 +84,7 @@ chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec = {
       name: 'chromecast.mojom.AudioSocketBroker.GetSocketDescriptor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -123,7 +123,7 @@ paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSp
       name: 'paint_preview.mojom.PaintPreviewCompositor.BeginSeparatedFrameComposite_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -136,8 +136,8 @@ paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_Response
       name: 'paint_preview.mojom.PaintPreviewCompositor.BeginSeparatedFrameComposite_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -151,9 +151,9 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec = 
       name: 'paint_preview.mojom.PaintPreviewCompositor.BitmapForSeparatedFrame_Params',
       packedSize: 32,
       fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'clip_rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'clip_rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -166,8 +166,8 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParam
       name: 'paint_preview.mojom.PaintPreviewCompositor.BitmapForSeparatedFrame_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'bitmap', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bitmap', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -181,7 +181,7 @@ paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec = 
       name: 'paint_preview.mojom.PaintPreviewCompositor.BeginMainFrameComposite_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -194,8 +194,8 @@ paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParam
       name: 'paint_preview.mojom.PaintPreviewCompositor.BeginMainFrameComposite_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -209,8 +209,8 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec = {
       name: 'paint_preview.mojom.PaintPreviewCompositor.BitmapForMainFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'clip_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'clip_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -223,8 +223,8 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec
       name: 'paint_preview.mojom.PaintPreviewCompositor.BitmapForMainFrame_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'bitmap', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bitmap', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -238,7 +238,7 @@ paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec = {
       name: 'paint_preview.mojom.PaintPreviewCompositor.SetRootFrameUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -331,7 +331,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryM
       name: 'paint_preview.mojom.PaintPreviewCompositorCollection.SetDiscardableSharedMemoryManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -345,7 +345,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec
       name: 'paint_preview.mojom.PaintPreviewCompositorCollection.CreateCompositor_Params',
       packedSize: 16,
       fields: [
-        { name: 'compositor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'compositor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -358,7 +358,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponsePa
       name: 'paint_preview.mojom.PaintPreviewCompositorCollection.CreateCompositor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'compositor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'compositor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -384,7 +384,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponsePar
       name: 'paint_preview.mojom.PaintPreviewCompositorCollection.ListCompositors_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'compositor_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'compositor_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

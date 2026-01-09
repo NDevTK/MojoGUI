@@ -146,7 +146,7 @@ viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = {
       name: 'viz.mojom.CompositingModeReporter.AddCompositingModeWatcher_Params',
       packedSize: 16,
       fields: [
-        { name: 'watcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'watcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

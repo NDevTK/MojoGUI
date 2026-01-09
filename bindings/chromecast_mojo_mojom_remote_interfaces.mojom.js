@@ -81,8 +81,8 @@ chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec = {
       name: 'chromecast.mojom.RemoteInterfaces.BindInterface_Params',
       packedSize: 24,
       fields: [
-        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -96,7 +96,7 @@ chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec = {
       name: 'chromecast.mojom.RemoteInterfaces.AddClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

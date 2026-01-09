@@ -140,8 +140,8 @@ font_service.mojom.FontService_MatchFamilyName_ParamsSpec = {
       name: 'font_service.mojom.FontService.MatchFamilyName_Params',
       packedSize: 24,
       fields: [
-        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -154,9 +154,9 @@ font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec = {
       name: 'font_service.mojom.FontService.MatchFamilyName_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'family_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'style', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'family_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'style', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -170,7 +170,7 @@ font_service.mojom.FontService_OpenStream_ParamsSpec = {
       name: 'font_service.mojom.FontService.OpenStream_Params',
       packedSize: 16,
       fields: [
-        { name: 'id_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -183,7 +183,7 @@ font_service.mojom.FontService_OpenStream_ResponseParamsSpec = {
       name: 'font_service.mojom.FontService.OpenStream_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'font_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'font_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -197,8 +197,8 @@ font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec = {
       name: 'font_service.mojom.FontService.FallbackFontForCharacter_Params',
       packedSize: 24,
       fields: [
-        { name: 'character', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'locale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'character', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'locale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -211,10 +211,10 @@ font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec = {
       name: 'font_service.mojom.FontService.FallbackFontForCharacter_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'family_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_bold', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_italic', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'family_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_bold', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_italic', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -228,11 +228,11 @@ font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec = {
       name: 'font_service.mojom.FontService.FontRenderStyleForStrike_Params',
       packedSize: 48,
       fields: [
-        { name: 'family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_italic', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_bold', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'device_scale_factor', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_italic', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_bold', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'device_scale_factor', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -245,7 +245,7 @@ font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec = {
       name: 'font_service.mojom.FontService.FontRenderStyleForStrike_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'font_render_style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'font_render_style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -259,7 +259,7 @@ font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpe
       name: 'font_service.mojom.FontService.MatchFontByPostscriptNameOrFullFontName_Params',
       packedSize: 16,
       fields: [
-        { name: 'postscript_name_or_full_font_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'postscript_name_or_full_font_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -272,7 +272,7 @@ font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseP
       name: 'font_service.mojom.FontService.MatchFontByPostscriptNameOrFullFontName_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -298,7 +298,7 @@ font_service.mojom.FontService_ListFamilies_ResponseParamsSpec = {
       name: 'font_service.mojom.FontService.ListFamilies_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'families', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'families', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -312,11 +312,11 @@ font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec = {
       name: 'font_service.mojom.FontService.MatchFontWithFallback_Params',
       packedSize: 48,
       fields: [
-        { name: 'family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_bold', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_italic', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'charset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'fallback_family_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_bold', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_italic', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'charset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'fallback_family_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -329,7 +329,7 @@ font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec = {
       name: 'font_service.mojom.FontService.MatchFontWithFallback_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'font_file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'font_file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

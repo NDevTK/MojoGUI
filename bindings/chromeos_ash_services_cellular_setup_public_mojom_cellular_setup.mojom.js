@@ -88,7 +88,7 @@ ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_Params
       name: 'ash.cellular_setup.mojom.CarrierPortalHandler.OnCarrierPortalStatusChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -172,7 +172,7 @@ ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec = {
       name: 'ash.cellular_setup.mojom.ActivationDelegate.OnActivationStarted_Params',
       packedSize: 16,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -186,7 +186,7 @@ ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec = {
       name: 'ash.cellular_setup.mojom.ActivationDelegate.OnActivationFinished_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -261,7 +261,7 @@ ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec = {
       name: 'ash.cellular_setup.mojom.CellularSetup.StartActivation_Params',
       packedSize: 16,
       fields: [
-        { name: 'delegate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'delegate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -274,7 +274,7 @@ ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec = {
       name: 'ash.cellular_setup.mojom.CellularSetup.StartActivation_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

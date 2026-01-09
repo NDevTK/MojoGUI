@@ -83,7 +83,7 @@ ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec = {
       name: 'ash.recorder_app.mojom.ModelStateMonitor.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -158,7 +158,7 @@ ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec = {
       name: 'ash.recorder_app.mojom.QuietModeMonitor.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'in_quiet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'in_quiet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -377,7 +377,7 @@ ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.GetModelInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -390,7 +390,7 @@ ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.GetModelInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'model_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'model_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -404,8 +404,8 @@ ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.LoadModel_Params',
       packedSize: 24,
       fields: [
-        { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -418,7 +418,7 @@ ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.LoadModel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -432,9 +432,9 @@ ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.FormatModelInput_Params',
       packedSize: 32,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'fields', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fields', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -461,9 +461,9 @@ ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.ValidateSafetyResult_Params',
       packedSize: 32,
       fields: [
-        { name: 'safety_feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'safety_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'safety_feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'safety_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -476,7 +476,7 @@ ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.ValidateSafetyResult_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_safe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_safe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -490,8 +490,8 @@ ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.AddModelMonitor_Params',
       packedSize: 24,
       fields: [
-        { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -504,7 +504,7 @@ ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.AddModelMonitor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -530,7 +530,7 @@ ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.GetAvailableLangPacks_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'lang_packs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lang_packs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -556,7 +556,7 @@ ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.GetDefaultLanguage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'language_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'language_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -570,8 +570,8 @@ ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.AddSodaMonitor_Params',
       packedSize: 24,
       fields: [
-        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -584,7 +584,7 @@ ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.AddSodaMonitor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -598,7 +598,7 @@ ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.InstallSoda_Params',
       packedSize: 16,
       fields: [
-        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -612,9 +612,9 @@ ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.LoadSpeechRecognizer_Params',
       packedSize: 32,
       fields: [
-        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'soda_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'soda_recognizer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'soda_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'soda_recognizer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -627,7 +627,7 @@ ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.LoadSpeechRecognizer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -641,7 +641,7 @@ ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.OpenAiFeedbackDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'description_template', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'description_template', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -655,7 +655,7 @@ ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.GetMicrophoneInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -668,7 +668,7 @@ ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.GetMicrophoneInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -682,7 +682,7 @@ ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.AddQuietModeMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -695,7 +695,7 @@ ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.AddQuietModeMonitor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'in_quiet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'in_quiet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -709,7 +709,7 @@ ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.SetQuietMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'quiet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'quiet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -735,7 +735,7 @@ ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.CanUseSpeakerLabel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -749,9 +749,9 @@ ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.RecordSpeakerLabelConsent_Params',
       packedSize: 32,
       fields: [
-        { name: 'consent_given', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'consent_description_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'consent_confirmation_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'consent_given', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'consent_description_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'consent_confirmation_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -777,7 +777,7 @@ ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponsePar
       name: 'ash.recorder_app.mojom.PageHandler.CanCaptureSystemAudioWithLoopback_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

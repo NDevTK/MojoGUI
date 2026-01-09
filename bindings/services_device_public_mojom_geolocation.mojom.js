@@ -81,7 +81,7 @@ device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec = {
       name: 'device.mojom.Geolocation.SetHighAccuracyHint_Params',
       packedSize: 16,
       fields: [
-        { name: 'high_accuracy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'high_accuracy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -107,7 +107,7 @@ device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec = {
       name: 'device.mojom.Geolocation.QueryNextPosition_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

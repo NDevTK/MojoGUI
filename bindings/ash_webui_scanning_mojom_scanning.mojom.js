@@ -154,8 +154,8 @@ ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = {
       name: 'ash.scanning.mojom.ScanJobObserver.OnPageProgress_Params',
       packedSize: 24,
       fields: [
-        { name: 'page_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'progress_percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'progress_percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -169,8 +169,8 @@ ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec = {
       name: 'ash.scanning.mojom.ScanJobObserver.OnPageComplete_Params',
       packedSize: 24,
       fields: [
-        { name: 'page_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'new_page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -184,8 +184,8 @@ ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec = {
       name: 'ash.scanning.mojom.ScanJobObserver.OnScanComplete_Params',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'scanned_file_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scanned_file_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -199,7 +199,7 @@ ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec = {
       name: 'ash.scanning.mojom.ScanJobObserver.OnCancelComplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -213,7 +213,7 @@ ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec = {
       name: 'ash.scanning.mojom.ScanJobObserver.OnMultiPageScanFail_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -336,7 +336,7 @@ ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec = {
       name: 'ash.scanning.mojom.ScanService.GetScanners_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'scanners', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'scanners', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -350,7 +350,7 @@ ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec = {
       name: 'ash.scanning.mojom.ScanService.GetScannerCapabilities_Params',
       packedSize: 16,
       fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -363,7 +363,7 @@ ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec = {
       name: 'ash.scanning.mojom.ScanService.GetScannerCapabilities_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -377,9 +377,9 @@ ash.scanning.mojom.ScanService_StartScan_ParamsSpec = {
       name: 'ash.scanning.mojom.ScanService.StartScan_Params',
       packedSize: 32,
       fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -392,7 +392,7 @@ ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec = {
       name: 'ash.scanning.mojom.ScanService.StartScan_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -406,9 +406,9 @@ ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec = {
       name: 'ash.scanning.mojom.ScanService.StartMultiPageScan_Params',
       packedSize: 32,
       fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -421,7 +421,7 @@ ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec = {
       name: 'ash.scanning.mojom.ScanService.StartMultiPageScan_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -536,8 +536,8 @@ ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = {
       name: 'ash.scanning.mojom.MultiPageScanController.ScanNextPage_Params',
       packedSize: 24,
       fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -550,7 +550,7 @@ ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec = {
       name: 'ash.scanning.mojom.MultiPageScanController.ScanNextPage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -564,7 +564,7 @@ ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec = {
       name: 'ash.scanning.mojom.MultiPageScanController.RemovePage_Params',
       packedSize: 16,
       fields: [
-        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -578,9 +578,9 @@ ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec = {
       name: 'ash.scanning.mojom.MultiPageScanController.RescanPage_Params',
       packedSize: 32,
       fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'page_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -593,7 +593,7 @@ ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec = {
       name: 'ash.scanning.mojom.MultiPageScanController.RescanPage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -72,8 +72,8 @@ content.mojom.RouteProvider_GetRoute_ParamsSpec = {
       name: 'content.mojom.RouteProvider.GetRoute_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

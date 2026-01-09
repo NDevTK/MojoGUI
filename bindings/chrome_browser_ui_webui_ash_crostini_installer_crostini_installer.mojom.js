@@ -73,8 +73,8 @@ ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.crostini_installer.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -185,8 +185,8 @@ ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec = {
       name: 'ash.crostini_installer.mojom.PageHandler.Install_Params',
       packedSize: 24,
       fields: [
-        { name: 'disk_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'username', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'disk_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'username', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -251,9 +251,9 @@ ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponsePa
       name: 'ash.crostini_installer.mojom.PageHandler.RequestAmountOfFreeDiskSpace_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'ticks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'default_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_low_space_available', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ticks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'default_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'is_low_space_available', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -355,8 +355,8 @@ ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec = {
       name: 'ash.crostini_installer.mojom.Page.OnProgressUpdate_Params',
       packedSize: 24,
       fields: [
-        { name: 'install_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'progress_fraction', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'install_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'progress_fraction', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -370,7 +370,7 @@ ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec = {
       name: 'ash.crostini_installer.mojom.Page.OnInstallFinished_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

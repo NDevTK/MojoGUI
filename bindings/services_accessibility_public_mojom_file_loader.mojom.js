@@ -72,7 +72,7 @@ ax.mojom.AccessibilityFileLoader_Load_ParamsSpec = {
       name: 'ax.mojom.AccessibilityFileLoader.Load_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec = {
       name: 'ax.mojom.AccessibilityFileLoader.Load_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

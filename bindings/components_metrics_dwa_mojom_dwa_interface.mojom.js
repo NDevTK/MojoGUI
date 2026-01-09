@@ -125,7 +125,7 @@ metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = {
       name: 'metrics.dwa.mojom.DwaRecorderInterface.AddEntry_Params',
       packedSize: 16,
       fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -200,8 +200,8 @@ metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = {
       name: 'metrics.dwa.mojom.DwaRecorderFactory.CreateDwaRecorder_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

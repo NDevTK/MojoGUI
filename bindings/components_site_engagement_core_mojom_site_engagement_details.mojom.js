@@ -93,7 +93,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Res
       name: 'site_engagement.mojom.SiteEngagementDetailsProvider.GetSiteEngagementDetails_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -107,8 +107,8 @@ site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreFo
       name: 'site_engagement.mojom.SiteEngagementDetailsProvider.SetSiteEngagementBaseScoreForUrl_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }

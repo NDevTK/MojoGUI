@@ -83,11 +83,11 @@ quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec = {
       name: 'quarantine.mojom.Quarantine.QuarantineFile_Params',
       packedSize: 48,
       fields: [
-        { name: 'full_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'referrer_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'request_initiator', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client_guid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'full_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'referrer_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request_initiator', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'client_guid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -100,7 +100,7 @@ quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec = {
       name: 'quarantine.mojom.Quarantine.QuarantineFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

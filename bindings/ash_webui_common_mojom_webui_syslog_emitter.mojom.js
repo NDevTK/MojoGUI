@@ -73,8 +73,8 @@ ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec = {
       name: 'ash.common.mojom.WebUiSyslogEmitter.EmitSyslog_Params',
       packedSize: 24,
       fields: [
-        { name: 'prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

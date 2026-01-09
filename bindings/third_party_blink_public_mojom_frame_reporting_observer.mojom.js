@@ -72,7 +72,7 @@ blink.mojom.ReportingObserver_Notify_ParamsSpec = {
       name: 'blink.mojom.ReportingObserver.Notify_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

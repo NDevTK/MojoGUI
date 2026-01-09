@@ -81,8 +81,8 @@ blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessObserverHost.Observe_Params',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_recursive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'is_recursive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,8 +95,8 @@ blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessObserverHost.Observe_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'observer_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'observer_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -110,7 +110,7 @@ blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessObserverHost.Unobserve_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

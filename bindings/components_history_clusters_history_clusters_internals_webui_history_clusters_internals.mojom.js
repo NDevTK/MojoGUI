@@ -72,8 +72,8 @@ history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec
       name: 'history_clusters_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'page_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'page_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -169,7 +169,7 @@ history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponsePara
       name: 'history_clusters_internals.mojom.PageHandler.GetContextClustersJson_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'context_clusters_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'context_clusters_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -257,7 +257,7 @@ history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
       name: 'history_clusters_internals.mojom.Page.OnLogMessageAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

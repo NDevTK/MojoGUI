@@ -135,8 +135,8 @@ storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec = {
       name: 'storage.mojom.LocalStorageControl.BindStorageArea_Params',
       packedSize: 24,
       fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -162,7 +162,7 @@ storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec = {
       name: 'storage.mojom.LocalStorageControl.GetUsage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -176,7 +176,7 @@ storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec = {
       name: 'storage.mojom.LocalStorageControl.DeleteStorage_Params',
       packedSize: 16,
       fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -229,7 +229,7 @@ storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec = {
       name: 'storage.mojom.LocalStorageControl.ApplyPolicyUpdates_Params',
       packedSize: 16,
       fields: [
-        { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

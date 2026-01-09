@@ -161,7 +161,7 @@ ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec = {
       name: 'ash.screens_common.mojom.AiIntroPage.SetAutoTransition_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -319,7 +319,7 @@ ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec = {
       name: 'ash.screens_common.mojom.DrivePinningPageHandler.OnReturnClicked_Params',
       packedSize: 16,
       fields: [
-        { name: 'enable_drive_pinning', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enable_drive_pinning', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -333,7 +333,7 @@ ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec = {
       name: 'ash.screens_common.mojom.DrivePinningPageHandler.OnNextClicked_Params',
       packedSize: 16,
       fields: [
-        { name: 'enable_drive_pinning', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enable_drive_pinning', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -408,8 +408,8 @@ ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec = {
       name: 'ash.screens_common.mojom.DrivePinningPage.SetRequiredSpaceInfo_Params',
       packedSize: 24,
       fields: [
-        { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'free_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'free_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -580,7 +580,7 @@ ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec = {
       name: 'ash.screens_common.mojom.GaiaInfoPageHandler.OnNextClicked_Params',
       packedSize: 16,
       fields: [
-        { name: 'user_flow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'user_flow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -747,7 +747,7 @@ ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec = 
       name: 'ash.screens_common.mojom.GestureNavigationPageHandler.OnPageChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -117,7 +117,7 @@ blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec = {
       name: 'blink.mojom.SharedWorkerHost.OnConnected_Params',
       packedSize: 16,
       fields: [
-        { name: 'connection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'connection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -144,8 +144,8 @@ blink.mojom.SharedWorkerHost_OnReadyForInspection_ParamsSpec = {
       name: 'blink.mojom.SharedWorkerHost.OnReadyForInspection_Params',
       packedSize: 24,
       fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -159,7 +159,7 @@ blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpec = {
       name: 'blink.mojom.SharedWorkerHost.OnScriptLoadFailed_Params',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -173,7 +173,7 @@ blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec = {
       name: 'blink.mojom.SharedWorkerHost.OnReportException_Params',
       packedSize: 16,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -187,7 +187,7 @@ blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec = {
       name: 'blink.mojom.SharedWorkerHost.OnFeatureUsed_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

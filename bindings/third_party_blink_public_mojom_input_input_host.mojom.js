@@ -103,10 +103,10 @@ blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec = {
       name: 'blink.mojom.TextSuggestionHost.ShowSpellCheckSuggestionMenu_Params',
       packedSize: 40,
       fields: [
-        { name: 'caret_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'caret_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'marked_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'suggestions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'caret_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'caret_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'marked_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'suggestions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -120,10 +120,10 @@ blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec = {
       name: 'blink.mojom.TextSuggestionHost.ShowTextSuggestionMenu_Params',
       packedSize: 40,
       fields: [
-        { name: 'caret_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'caret_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'marked_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'suggestions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'caret_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'caret_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'marked_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'suggestions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

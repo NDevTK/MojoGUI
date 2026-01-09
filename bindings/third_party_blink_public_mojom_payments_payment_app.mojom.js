@@ -202,8 +202,8 @@ payments.mojom.PaymentManager_Init_ParamsSpec = {
       name: 'payments.mojom.PaymentManager.Init_Params',
       packedSize: 24,
       fields: [
-        { name: 'context_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'service_worker_scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'context_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'service_worker_scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -217,7 +217,7 @@ payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec = {
       name: 'payments.mojom.PaymentManager.DeletePaymentInstrument_Params',
       packedSize: 16,
       fields: [
-        { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -230,7 +230,7 @@ payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec = {
       name: 'payments.mojom.PaymentManager.DeletePaymentInstrument_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -244,7 +244,7 @@ payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec = {
       name: 'payments.mojom.PaymentManager.GetPaymentInstrument_Params',
       packedSize: 16,
       fields: [
-        { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -257,8 +257,8 @@ payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec = {
       name: 'payments.mojom.PaymentManager.GetPaymentInstrument_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'instrument', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'instrument', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -284,8 +284,8 @@ payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec = {
       name: 'payments.mojom.PaymentManager.KeysOfPaymentInstruments_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -299,7 +299,7 @@ payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec = {
       name: 'payments.mojom.PaymentManager.HasPaymentInstrument_Params',
       packedSize: 16,
       fields: [
-        { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -312,7 +312,7 @@ payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec = {
       name: 'payments.mojom.PaymentManager.HasPaymentInstrument_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -326,8 +326,8 @@ payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec = {
       name: 'payments.mojom.PaymentManager.SetPaymentInstrument_Params',
       packedSize: 24,
       fields: [
-        { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'instrument', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'instrument', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -340,7 +340,7 @@ payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec = {
       name: 'payments.mojom.PaymentManager.SetPaymentInstrument_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -366,7 +366,7 @@ payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec = {
       name: 'payments.mojom.PaymentManager.ClearPaymentInstruments_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -380,7 +380,7 @@ payments.mojom.PaymentManager_SetUserHint_ParamsSpec = {
       name: 'payments.mojom.PaymentManager.SetUserHint_Params',
       packedSize: 16,
       fields: [
-        { name: 'user_hint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'user_hint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -394,7 +394,7 @@ payments.mojom.PaymentManager_EnableDelegations_ParamsSpec = {
       name: 'payments.mojom.PaymentManager.EnableDelegations_Params',
       packedSize: 16,
       fields: [
-        { name: 'delegations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'delegations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -407,7 +407,7 @@ payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec = {
       name: 'payments.mojom.PaymentManager.EnableDelegations_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -500,7 +500,7 @@ payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSp
       name: 'payments.mojom.PaymentHandlerResponseCallback.OnResponseForAbortPayment_Params',
       packedSize: 16,
       fields: [
-        { name: 'payment_aborted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'payment_aborted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -514,7 +514,7 @@ payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_Params
       name: 'payments.mojom.PaymentHandlerResponseCallback.OnResponseForCanMakePayment_Params',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -528,7 +528,7 @@ payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_Params
       name: 'payments.mojom.PaymentHandlerResponseCallback.OnResponseForPaymentRequest_Params',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

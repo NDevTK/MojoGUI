@@ -117,9 +117,9 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeZipFile_Params',
       packedSize: 32,
       fields: [
-        { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'temp_file_getter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'temp_file_getter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -132,7 +132,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeZipFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -146,8 +146,8 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeDmgFile_Params',
       packedSize: 24,
       fields: [
-        { name: 'dmg_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'temp_file_getter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dmg_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'temp_file_getter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -160,7 +160,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeDmgFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -174,9 +174,9 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeRarFile_Params',
       packedSize: 32,
       fields: [
-        { name: 'rar_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rar_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'temp_file_getter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'temp_file_getter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,7 +189,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeRarFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,8 +203,8 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeSevenZipFile_Params',
       packedSize: 24,
       fields: [
-        { name: 'seven_zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'temp_file_getter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'seven_zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'temp_file_getter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -217,7 +217,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeSevenZipFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -231,10 +231,10 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedZipFile_Params',
       packedSize: 40,
       fields: [
-        { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'header_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'temp_file_getter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'header_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'temp_file_getter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -247,7 +247,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedZipFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -261,10 +261,10 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedRarFile_Params',
       packedSize: 40,
       fields: [
-        { name: 'rar_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rar_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'header_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'temp_file_getter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'header_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'temp_file_getter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -277,7 +277,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedRarFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -364,7 +364,7 @@ chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec = {
       name: 'chrome.mojom.TemporaryFileGetter.RequestTemporaryFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'temp_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'temp_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

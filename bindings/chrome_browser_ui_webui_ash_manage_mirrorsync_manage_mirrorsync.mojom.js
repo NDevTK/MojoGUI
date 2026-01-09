@@ -80,7 +80,7 @@ ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.manage_mirrorsync.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -164,7 +164,7 @@ ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec = {
       name: 'ash.manage_mirrorsync.mojom.PageHandler.GetChildFolders_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -177,7 +177,7 @@ ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec = {
       name: 'ash.manage_mirrorsync.mojom.PageHandler.GetChildFolders_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,8 +203,8 @@ ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec = {
       name: 'ash.manage_mirrorsync.mojom.PageHandler.GetSyncingPaths_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'syncing_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'syncing_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

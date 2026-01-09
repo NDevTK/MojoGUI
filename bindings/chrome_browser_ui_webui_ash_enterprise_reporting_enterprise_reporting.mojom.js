@@ -72,8 +72,8 @@ enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'enterprise_reporting.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -166,7 +166,7 @@ enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec = {
       name: 'enterprise_reporting.mojom.PageHandler.RecordDebugState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -192,7 +192,7 @@ enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec = {
       name: 'enterprise_reporting.mojom.PageHandler.GetDebugState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -218,7 +218,7 @@ enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec = {
       name: 'enterprise_reporting.mojom.PageHandler.GetErpHistoryData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'history_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'history_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -293,7 +293,7 @@ enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec = {
       name: 'enterprise_reporting.mojom.Page.SetErpHistoryData_Params',
       packedSize: 16,
       fields: [
-        { name: 'history_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'history_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

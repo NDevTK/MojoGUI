@@ -134,8 +134,8 @@ ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec = {
       name: 'ntp.tab_groups.mojom.PageHandler.GetTabGroups_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'tab_groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'showZeroState', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'showZeroState', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -149,7 +149,7 @@ ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
       name: 'ntp.tab_groups.mojom.PageHandler.OpenTabGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

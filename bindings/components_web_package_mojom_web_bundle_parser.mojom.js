@@ -94,9 +94,9 @@ web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec = {
       name: 'web_package.mojom.WebBundleParserFactory.GetParserForDataSource_Params',
       packedSize: 32,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'base_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'data_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'base_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'data_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -110,8 +110,8 @@ web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec = {
       name: 'web_package.mojom.WebBundleParserFactory.BindFileDataSource_Params',
       packedSize: 24,
       fields: [
-        { name: 'data_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -225,8 +225,8 @@ web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec = {
       name: 'web_package.mojom.WebBundleParser.ParseIntegrityBlock_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'Result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'Result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -240,7 +240,7 @@ web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec = {
       name: 'web_package.mojom.WebBundleParser.ParseMetadata_Params',
       packedSize: 16,
       fields: [
-        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -253,8 +253,8 @@ web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec = {
       name: 'web_package.mojom.WebBundleParser.ParseMetadata_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'Result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'Result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -268,8 +268,8 @@ web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec = {
       name: 'web_package.mojom.WebBundleParser.ParseResponse_Params',
       packedSize: 24,
       fields: [
-        { name: 'response_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'response_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'response_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -282,8 +282,8 @@ web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec = {
       name: 'web_package.mojom.WebBundleParser.ParseResponse_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'Result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'Result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -398,8 +398,8 @@ web_package.mojom.BundleDataSource_Read_ParamsSpec = {
       name: 'web_package.mojom.BundleDataSource.Read_Params',
       packedSize: 24,
       fields: [
-        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -412,7 +412,7 @@ web_package.mojom.BundleDataSource_Read_ResponseParamsSpec = {
       name: 'web_package.mojom.BundleDataSource.Read_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -438,7 +438,7 @@ web_package.mojom.BundleDataSource_Length_ResponseParamsSpec = {
       name: 'web_package.mojom.BundleDataSource.Length_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -464,7 +464,7 @@ web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec = {
       name: 'web_package.mojom.BundleDataSource.IsRandomAccessContext_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_random_access', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_random_access', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

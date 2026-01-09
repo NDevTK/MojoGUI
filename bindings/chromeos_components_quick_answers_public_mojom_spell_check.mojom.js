@@ -72,7 +72,7 @@ quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec = {
       name: 'quick_answers.mojom.SpellCheckService.CreateDictionary_Params',
       packedSize: 16,
       fields: [
-        { name: 'dictionary_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dictionary_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec = {
       name: 'quick_answers.mojom.SpellCheckService.CreateDictionary_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'dictionary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dictionary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -160,7 +160,7 @@ quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec = {
       name: 'quick_answers.mojom.SpellCheckDictionary.CheckSpelling_Params',
       packedSize: 16,
       fields: [
-        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -173,7 +173,7 @@ quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec = {
       name: 'quick_answers.mojom.SpellCheckDictionary.CheckSpelling_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'correctness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'correctness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

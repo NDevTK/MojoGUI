@@ -89,7 +89,7 @@ media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = {
       name: 'media.mojom.KeySystemSupportObserver.OnKeySystemSupportUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'key_systems', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'key_systems', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -164,7 +164,7 @@ media.mojom.KeySystemSupport_SetObserver_ParamsSpec = {
       name: 'media.mojom.KeySystemSupport.SetObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

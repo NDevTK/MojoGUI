@@ -102,7 +102,7 @@ webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec = {
       name: 'webxr.mojom.WebXrInternalsHandler.GetDeviceInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -128,7 +128,7 @@ webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec = {
       name: 'webxr.mojom.WebXrInternalsHandler.GetActiveRuntimes_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'active_runtimes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'active_runtimes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -142,7 +142,7 @@ webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec = {
       name: 'webxr.mojom.WebXrInternalsHandler.SubscribeToEvents_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -280,7 +280,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrSessionRequested_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_requested_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_requested_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -294,7 +294,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrSessionRejected_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_rejected_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_rejected_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -308,7 +308,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrSessionStarted_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_started_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_started_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -322,7 +322,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrSessionStopped_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_stopped_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_stopped_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -336,7 +336,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrRuntimeAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'runtime_added_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'runtime_added_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -350,7 +350,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrRuntimeRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -364,7 +364,7 @@ webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogFrameData_Params',
       packedSize: 16,
       fields: [
-        { name: 'xrframe_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'xrframe_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -378,7 +378,7 @@ webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogConsoleMessages_Params',
       packedSize: 16,
       fields: [
-        { name: 'xrlogging_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'xrlogging_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

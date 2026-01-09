@@ -81,7 +81,7 @@ blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec = {
       name: 'blink.mojom.EmbeddedWorkerInstanceClient.StartWorker_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -253,7 +253,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec = {
       name: 'blink.mojom.EmbeddedWorkerInstanceHost.RequestTermination_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'will_be_terminated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'will_be_terminated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -267,7 +267,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec = {
       name: 'blink.mojom.EmbeddedWorkerInstanceHost.CountFeature_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,8 +281,8 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec = {
       name: 'blink.mojom.EmbeddedWorkerInstanceHost.OnReadyForInspection_Params',
       packedSize: 24,
       fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -322,12 +322,12 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec = {
       name: 'blink.mojom.EmbeddedWorkerInstanceHost.OnStarted_Params',
       packedSize: 56,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'fetch_handler_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'has_hid_event_handlers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'has_usb_event_handlers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'thread_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'start_timing', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fetch_handler_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'has_hid_event_handlers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_usb_event_handlers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'thread_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'start_timing', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -341,10 +341,10 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec = {
       name: 'blink.mojom.EmbeddedWorkerInstanceHost.OnReportException_Params',
       packedSize: 40,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'line_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'column_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'line_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'column_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'source_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -358,11 +358,11 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec = {
       name: 'blink.mojom.EmbeddedWorkerInstanceHost.OnReportConsoleMessage_Params',
       packedSize: 48,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'message_level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'line_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message_level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'line_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'source_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

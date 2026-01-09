@@ -81,9 +81,9 @@ blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec = {
       name: 'blink.mojom.FencedFrameOwnerHost.Navigate_Params',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'navigation_start_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'embedder_shared_storage_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'navigation_start_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'embedder_shared_storage_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -97,7 +97,7 @@ blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec = {
       name: 'blink.mojom.FencedFrameOwnerHost.DidChangeFramePolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -96,8 +96,8 @@ media.mojom.AudioEncoder_Initialize_ParamsSpec = {
       name: 'media.mojom.AudioEncoder.Initialize_Params',
       packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -110,7 +110,7 @@ media.mojom.AudioEncoder_Initialize_ResponseParamsSpec = {
       name: 'media.mojom.AudioEncoder.Initialize_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -124,7 +124,7 @@ media.mojom.AudioEncoder_Encode_ParamsSpec = {
       name: 'media.mojom.AudioEncoder.Encode_Params',
       packedSize: 16,
       fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -137,7 +137,7 @@ media.mojom.AudioEncoder_Encode_ResponseParamsSpec = {
       name: 'media.mojom.AudioEncoder.Encode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -163,7 +163,7 @@ media.mojom.AudioEncoder_Flush_ResponseParamsSpec = {
       name: 'media.mojom.AudioEncoder.Flush_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -238,8 +238,8 @@ media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec = {
       name: 'media.mojom.AudioEncoderClient.OnEncodedBufferReady_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

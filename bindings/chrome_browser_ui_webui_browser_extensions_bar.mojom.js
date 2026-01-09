@@ -72,8 +72,8 @@ extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'extensions_bar.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -166,7 +166,7 @@ extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec = {
       name: 'extensions_bar.mojom.PageHandler.ExecuteUserAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -180,8 +180,8 @@ extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
       name: 'extensions_bar.mojom.PageHandler.ShowContextMenu_Params',
       packedSize: 24,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -287,7 +287,7 @@ extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec = {
       name: 'extensions_bar.mojom.Page.ActionsAddedOrUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -301,7 +301,7 @@ extensions_bar.mojom.Page_ActionRemoved_ParamsSpec = {
       name: 'extensions_bar.mojom.Page.ActionRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

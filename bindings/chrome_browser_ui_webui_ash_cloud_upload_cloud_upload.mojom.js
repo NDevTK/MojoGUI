@@ -102,7 +102,7 @@ ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.cloud_upload.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -315,7 +315,7 @@ ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
       name: 'ash.cloud_upload.mojom.PageHandler.GetDialogArgs_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -341,7 +341,7 @@ ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec = 
       name: 'ash.cloud_upload.mojom.PageHandler.IsOfficeWebAppInstalled_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -367,7 +367,7 @@ ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec = {
       name: 'ash.cloud_upload.mojom.PageHandler.InstallOfficeWebApp_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -393,7 +393,7 @@ ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec = {
       name: 'ash.cloud_upload.mojom.PageHandler.IsODFSMounted_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'mounted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'mounted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -419,7 +419,7 @@ ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec = {
       name: 'ash.cloud_upload.mojom.PageHandler.SignInToOneDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -433,7 +433,7 @@ ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec = {
       name: 'ash.cloud_upload.mojom.PageHandler.RespondWithUserActionAndClose_Params',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -447,7 +447,7 @@ ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec = {
       name: 'ash.cloud_upload.mojom.PageHandler.RespondWithLocalTaskAndClose_Params',
       packedSize: 16,
       fields: [
-        { name: 'task_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'task_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -486,7 +486,7 @@ ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParam
       name: 'ash.cloud_upload.mojom.PageHandler.GetAlwaysMoveOfficeFilesToDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -500,7 +500,7 @@ ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec = 
       name: 'ash.cloud_upload.mojom.PageHandler.SetAlwaysMoveOfficeFilesToDrive_Params',
       packedSize: 16,
       fields: [
-        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -526,7 +526,7 @@ ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponsePa
       name: 'ash.cloud_upload.mojom.PageHandler.GetAlwaysMoveOfficeFilesToOneDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -540,7 +540,7 @@ ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec
       name: 'ash.cloud_upload.mojom.PageHandler.SetAlwaysMoveOfficeFilesToOneDrive_Params',
       packedSize: 16,
       fields: [
-        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -566,7 +566,7 @@ ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_Respon
       name: 'ash.cloud_upload.mojom.PageHandler.GetOfficeMoveConfirmationShownForDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'move_confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'move_confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -592,7 +592,7 @@ ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_Res
       name: 'ash.cloud_upload.mojom.PageHandler.GetOfficeMoveConfirmationShownForOneDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'move_confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'move_confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -606,7 +606,7 @@ ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec = {
       name: 'ash.cloud_upload.mojom.PageHandler.RecordCancel_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

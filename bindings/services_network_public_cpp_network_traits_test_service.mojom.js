@@ -72,7 +72,7 @@ network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec = {
       name: 'network.mojom.TraitsTestService.EchoHttpRequestHeaders_Params',
       packedSize: 16,
       fields: [
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec = {
       name: 'network.mojom.TraitsTestService.EchoHttpRequestHeaders_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

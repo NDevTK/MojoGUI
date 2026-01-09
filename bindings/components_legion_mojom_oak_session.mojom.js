@@ -111,7 +111,7 @@ legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec = {
       name: 'legion.mojom.OakSession.InitiateHandshake_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,7 +125,7 @@ legion.mojom.OakSession_CompleteHandshake_ParamsSpec = {
       name: 'legion.mojom.OakSession.CompleteHandshake_Params',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -138,7 +138,7 @@ legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec = {
       name: 'legion.mojom.OakSession.CompleteHandshake_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -152,7 +152,7 @@ legion.mojom.OakSession_Encrypt_ParamsSpec = {
       name: 'legion.mojom.OakSession.Encrypt_Params',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -165,7 +165,7 @@ legion.mojom.OakSession_Encrypt_ResponseParamsSpec = {
       name: 'legion.mojom.OakSession.Encrypt_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -179,7 +179,7 @@ legion.mojom.OakSession_Decrypt_ParamsSpec = {
       name: 'legion.mojom.OakSession.Decrypt_Params',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -192,7 +192,7 @@ legion.mojom.OakSession_Decrypt_ResponseParamsSpec = {
       name: 'legion.mojom.OakSession.Decrypt_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }

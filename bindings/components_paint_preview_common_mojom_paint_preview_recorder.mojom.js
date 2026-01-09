@@ -92,7 +92,7 @@ paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = {
       name: 'paint_preview.mojom.PaintPreviewRecorder.CapturePaintPreview_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -106,7 +106,7 @@ paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = {
       name: 'paint_preview.mojom.PaintPreviewRecorder.GetGeometryMetadata_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -119,7 +119,7 @@ paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec 
       name: 'paint_preview.mojom.PaintPreviewRecorder.GetGeometryMetadata_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

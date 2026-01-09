@@ -81,7 +81,7 @@ extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = {
       name: 'extensions.mojom.GuestView.ReadyToCreateMimeHandlerView_Params',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = {
       name: 'extensions.mojom.GuestView.CanExecuteContentScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'script_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'script_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,7 +108,7 @@ extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec = {
       name: 'extensions.mojom.GuestView.CanExecuteContentScript_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -210,7 +210,7 @@ extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec = {
       name: 'extensions.mojom.MimeHandlerViewContainerManager.SetInternalId_Params',
       packedSize: 16,
       fields: [
-        { name: 'token_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -236,7 +236,7 @@ extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_Respo
       name: 'extensions.mojom.MimeHandlerViewContainerManager.CreateBeforeUnloadControl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'before_unload_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'before_unload_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -250,7 +250,7 @@ extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpe
       name: 'extensions.mojom.MimeHandlerViewContainerManager.DestroyFrameContainer_Params',
       packedSize: 16,
       fields: [
-        { name: 'element_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'element_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -264,8 +264,8 @@ extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = {
       name: 'extensions.mojom.MimeHandlerViewContainerManager.DidLoad_Params',
       packedSize: 24,
       fields: [
-        { name: 'mime_handler_view_guest_element_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'resource_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'mime_handler_view_guest_element_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'resource_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

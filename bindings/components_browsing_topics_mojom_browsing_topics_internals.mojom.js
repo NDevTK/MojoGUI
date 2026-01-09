@@ -111,7 +111,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsS
       name: 'browsing_topics.mojom.PageHandler.GetBrowsingTopicsConfiguration_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,7 +125,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec = {
       name: 'browsing_topics.mojom.PageHandler.GetBrowsingTopicsState_Params',
       packedSize: 16,
       fields: [
-        { name: 'calculate_now', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'calculate_now', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -138,7 +138,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec = {
       name: 'browsing_topics.mojom.PageHandler.GetBrowsingTopicsState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -164,7 +164,7 @@ browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
       name: 'browsing_topics.mojom.PageHandler.GetModelInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -178,7 +178,7 @@ browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec = {
       name: 'browsing_topics.mojom.PageHandler.ClassifyHosts_Params',
       packedSize: 16,
       fields: [
-        { name: 'hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -191,7 +191,7 @@ browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec = {
       name: 'browsing_topics.mojom.PageHandler.ClassifyHosts_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'topics_for_hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'topics_for_hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

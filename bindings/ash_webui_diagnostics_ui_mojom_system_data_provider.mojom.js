@@ -87,7 +87,7 @@ ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_P
       name: 'ash.diagnostics.mojom.BatteryChargeStatusObserver.OnBatteryChargeStatusUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'battery_charge_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'battery_charge_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -162,7 +162,7 @@ ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec = 
       name: 'ash.diagnostics.mojom.BatteryHealthObserver.OnBatteryHealthUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'battery_health', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'battery_health', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -237,7 +237,7 @@ ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec = {
       name: 'ash.diagnostics.mojom.MemoryUsageObserver.OnMemoryUsageUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -312,7 +312,7 @@ ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec = {
       name: 'ash.diagnostics.mojom.CpuUsageObserver.OnCpuUsageUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'cpu_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cpu_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -444,7 +444,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec = {
       name: 'ash.diagnostics.mojom.SystemDataProvider.GetSystemInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'system_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'system_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -470,7 +470,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec = {
       name: 'ash.diagnostics.mojom.SystemDataProvider.GetBatteryInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'battery_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'battery_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -484,7 +484,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec =
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveBatteryChargeStatus_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -498,7 +498,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec = {
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveBatteryHealth_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -512,7 +512,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec = {
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveMemoryUsage_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -526,7 +526,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec = {
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveCpuUsage_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

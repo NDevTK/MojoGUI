@@ -117,7 +117,7 @@ blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = {
       name: 'blink.mojom.TextSuggestionBackend.ApplySpellCheckSuggestion_Params',
       packedSize: 16,
       fields: [
-        { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -131,8 +131,8 @@ blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = {
       name: 'blink.mojom.TextSuggestionBackend.ApplyTextSuggestion_Params',
       packedSize: 24,
       fields: [
-        { name: 'marker_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'suggestion_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'marker_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'suggestion_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -159,7 +159,7 @@ blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = {
       name: 'blink.mojom.TextSuggestionBackend.OnNewWordAddedToDictionary_Params',
       packedSize: 16,
       fields: [
-        { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -186,7 +186,7 @@ blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = {
       name: 'blink.mojom.TextSuggestionBackend.SuggestionMenuTimeoutCallback_Params',
       packedSize: 16,
       fields: [
-        { name: 'max_number_of_suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'max_number_of_suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

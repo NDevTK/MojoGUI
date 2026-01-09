@@ -81,8 +81,8 @@ blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec 
       name: 'blink.mojom.ControllerServiceWorker.DispatchFetchEventForSubresource_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'response_callback', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response_callback', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponsePar
       name: 'blink.mojom.ControllerServiceWorker.DispatchFetchEventForSubresource_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -109,11 +109,11 @@ blink.mojom.ControllerServiceWorker_Clone_ParamsSpec = {
       name: 'blink.mojom.ControllerServiceWorker.Clone_Params',
       packedSize: 48,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cross_origin_embedder_policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'coep_reporter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'document_isolation_policy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'dip_reporter', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'cross_origin_embedder_policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'coep_reporter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'document_isolation_policy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dip_reporter', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -188,7 +188,7 @@ blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec = {
       name: 'blink.mojom.ControllerServiceWorkerConnector.UpdateController_Params',
       packedSize: 16,
       fields: [
-        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

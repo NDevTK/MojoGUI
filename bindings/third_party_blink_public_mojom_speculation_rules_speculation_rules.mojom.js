@@ -120,8 +120,8 @@ blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec = {
       name: 'blink.mojom.SpeculationHost.UpdateSpeculationCandidates_Params',
       packedSize: 24,
       fields: [
-        { name: 'candidates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'enable_cross_origin_prerender_iframes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'candidates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'enable_cross_origin_prerender_iframes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,7 +148,7 @@ blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = {
       name: 'blink.mojom.SpeculationHost.InitiatePreview_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

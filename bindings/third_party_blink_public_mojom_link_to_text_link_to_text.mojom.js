@@ -168,9 +168,9 @@ blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec = {
       name: 'blink.mojom.TextFragmentReceiver.RequestSelector_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'selector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ready_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'selector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ready_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -209,7 +209,7 @@ blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec 
       name: 'blink.mojom.TextFragmentReceiver.ExtractTextFragmentsMatches_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -235,7 +235,7 @@ blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec = {
       name: 'blink.mojom.TextFragmentReceiver.GetExistingSelectors_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'selectors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'selectors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -261,7 +261,7 @@ blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec = {
       name: 'blink.mojom.TextFragmentReceiver.ExtractFirstFragmentRect_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

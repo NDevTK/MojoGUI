@@ -179,7 +179,7 @@ blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec = {
       name: 'blink.mojom.AIPageContentAgent.GetAIPageContent_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -192,7 +192,7 @@ blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec = {
       name: 'blink.mojom.AIPageContentAgent.GetAIPageContent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'page_content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

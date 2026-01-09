@@ -73,7 +73,7 @@ chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec = {
       name: 'chromecast.shell.mojom.FeatureManager.ConfigureFeatures_Params',
       packedSize: 16,
       fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -72,8 +72,8 @@ content.mojom.WebUIHost_Send_ParamsSpec = {
       name: 'content.mojom.WebUIHost.Send_Params',
       packedSize: 24,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,8 +148,8 @@ content.mojom.WebUI_SetProperty_ParamsSpec = {
       name: 'content.mojom.WebUI.SetProperty_Params',
       packedSize: 24,
       fields: [
-        { name: 'property_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'property_value_json', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'property_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'property_value_json', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

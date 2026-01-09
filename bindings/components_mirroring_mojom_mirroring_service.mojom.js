@@ -90,12 +90,12 @@ mirroring.mojom.MirroringService_Start_ParamsSpec = {
       name: 'mirroring.mojom.MirroringService.Start_Params',
       packedSize: 56,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'max_resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'resource_provider', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'outbound_channel', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'inbound_channel', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'resource_provider', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'outbound_channel', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'inbound_channel', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,7 +134,7 @@ mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec = {
       name: 'mirroring.mojom.MirroringService.GetMirroringStats_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'json_stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'json_stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

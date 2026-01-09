@@ -153,7 +153,7 @@ extensions.mojom.LocalFrame_SetFrameName_ParamsSpec = {
       name: 'extensions.mojom.LocalFrame.SetFrameName_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -167,7 +167,7 @@ extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec = {
       name: 'extensions.mojom.LocalFrame.SetSpatialNavigationEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'spatial_nav_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'spatial_nav_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -181,7 +181,7 @@ extensions.mojom.LocalFrame_SetTabId_ParamsSpec = {
       name: 'extensions.mojom.LocalFrame.SetTabId_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -195,7 +195,7 @@ extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec = {
       name: 'extensions.mojom.LocalFrame.AppWindowClosed_Params',
       packedSize: 16,
       fields: [
-        { name: 'send_onclosed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'send_onclosed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -209,7 +209,7 @@ extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec = {
       name: 'extensions.mojom.LocalFrame.NotifyRenderViewType_Params',
       packedSize: 16,
       fields: [
-        { name: 'view_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'view_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -223,10 +223,10 @@ extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec = {
       name: 'extensions.mojom.LocalFrame.MessageInvoke_Params',
       packedSize: 40,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'module_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'function_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'args', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'module_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'function_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'args', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -240,7 +240,7 @@ extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec = {
       name: 'extensions.mojom.LocalFrame.ExecuteCode_Params',
       packedSize: 16,
       fields: [
-        { name: 'param', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'param', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -253,9 +253,9 @@ extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec = {
       name: 'extensions.mojom.LocalFrame.ExecuteCode_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -269,10 +269,10 @@ extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec = {
       name: 'extensions.mojom.LocalFrame.ExecuteDeclarativeScript_Params',
       packedSize: 40,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'extension_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'script_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'extension_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'script_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -286,7 +286,7 @@ extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec = {
       name: 'extensions.mojom.LocalFrame.UpdateBrowserWindowId_Params',
       packedSize: 16,
       fields: [
-        { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -300,13 +300,13 @@ extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec = {
       name: 'extensions.mojom.LocalFrame.DispatchOnConnect_Params',
       packedSize: 64,
       fields: [
-        { name: 'port_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'channel_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'channel_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'tab_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'external_connection_info', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'port', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'port_host', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'port_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'channel_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'channel_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'tab_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'external_connection_info', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'port', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'port_host', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -319,7 +319,7 @@ extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec = {
       name: 'extensions.mojom.LocalFrame.DispatchOnConnect_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -502,9 +502,9 @@ extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec = {
       name: 'extensions.mojom.LocalFrameHost.RequestScriptInjectionPermission_Params',
       packedSize: 32,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'script_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'run_location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'script_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'run_location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -517,7 +517,7 @@ extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsS
       name: 'extensions.mojom.LocalFrameHost.RequestScriptInjectionPermission_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'granted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'granted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -531,7 +531,7 @@ extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec = {
       name: 'extensions.mojom.LocalFrameHost.GetAppInstallState_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -544,7 +544,7 @@ extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec = {
       name: 'extensions.mojom.LocalFrameHost.GetAppInstallState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -558,7 +558,7 @@ extensions.mojom.LocalFrameHost_Request_ParamsSpec = {
       name: 'extensions.mojom.LocalFrameHost.Request_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -571,10 +571,10 @@ extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec = {
       name: 'extensions.mojom.LocalFrameHost.Request_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'response_wrapper', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'extra_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'response_wrapper', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'extra_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -588,7 +588,7 @@ extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec = {
       name: 'extensions.mojom.LocalFrameHost.ResponseAck_Params',
       packedSize: 16,
       fields: [
-        { name: 'request_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -602,7 +602,7 @@ extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec = {
       name: 'extensions.mojom.LocalFrameHost.WatchedPageChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'css_selectors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'css_selectors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -616,10 +616,10 @@ extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec = {
       name: 'extensions.mojom.LocalFrameHost.DetailedConsoleMessageAdded_Params',
       packedSize: 40,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'stack_trace', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'level', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stack_trace', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'level', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -633,8 +633,8 @@ extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec = {
       name: 'extensions.mojom.LocalFrameHost.ContentScriptsExecuting_Params',
       packedSize: 24,
       fields: [
-        { name: 'extension_id_to_scripts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'frame_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'extension_id_to_scripts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'frame_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -687,12 +687,12 @@ extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec = {
       name: 'extensions.mojom.LocalFrameHost.OpenChannelToExtension_Params',
       packedSize: 56,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'channel_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'channel_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'port_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'port', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'port_host', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'channel_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'channel_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'port_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'port', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'port_host', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -706,10 +706,10 @@ extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec = {
       name: 'extensions.mojom.LocalFrameHost.OpenChannelToNativeApp_Params',
       packedSize: 40,
       fields: [
-        { name: 'native_app_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'port_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'port_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'native_app_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'port_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'port_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -723,14 +723,14 @@ extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec = {
       name: 'extensions.mojom.LocalFrameHost.OpenChannelToTab_Params',
       packedSize: 72,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'frame_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'frame_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'document_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'channel_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'channel_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'port_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'port', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'port_host', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'channel_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'channel_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'port_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'port', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'port_host', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

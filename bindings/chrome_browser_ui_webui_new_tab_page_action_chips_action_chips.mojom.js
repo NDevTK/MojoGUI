@@ -154,7 +154,7 @@ action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec = {
       name: 'action_chips.mojom.Page.OnActionChipsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'action_chips', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action_chips', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -229,8 +229,8 @@ action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec
       name: 'action_chips.mojom.ActionChipsHandlerFactory.CreateActionChipsHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

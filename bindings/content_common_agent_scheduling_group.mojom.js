@@ -72,7 +72,7 @@ content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = {
       name: 'content.mojom.AgentSchedulingGroupHost.DidUnloadRenderFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -174,8 +174,8 @@ content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec = {
       name: 'content.mojom.AgentSchedulingGroup.BindAssociatedInterfaces_Params',
       packedSize: 24,
       fields: [
-        { name: 'remote_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'route_provider_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'remote_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'route_provider_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,7 +189,7 @@ content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = {
       name: 'content.mojom.AgentSchedulingGroup.CreateView_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,7 +203,7 @@ content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = {
       name: 'content.mojom.AgentSchedulingGroup.CreateFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -217,8 +217,8 @@ content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec 
       name: 'content.mojom.AgentSchedulingGroup.CreateSharedStorageWorkletService_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'global_scope_creation_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'global_scope_creation_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

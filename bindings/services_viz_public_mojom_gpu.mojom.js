@@ -102,11 +102,11 @@ viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = {
       name: 'viz.mojom.Gpu.EstablishGpuChannel_ResponseParams',
       packedSize: 48,
       fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'channel_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'gpu_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'gpu_feature_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'shared_image_capabilities', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'channel_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'gpu_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gpu_feature_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shared_image_capabilities', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -120,7 +120,7 @@ viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec = {
       name: 'viz.mojom.Gpu.CreateJpegDecodeAccelerator_Params',
       packedSize: 16,
       fields: [
-        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,7 +134,7 @@ viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
       name: 'viz.mojom.Gpu.CreateVideoEncodeAcceleratorProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'vea_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'vea_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

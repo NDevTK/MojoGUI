@@ -322,7 +322,7 @@ ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ErrorObserver.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -397,9 +397,9 @@ ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.OsUpdateObserver.OnOsUpdateProgressUpdated_Params',
       packedSize: 32,
       fields: [
-        { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'update_error_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'update_error_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -483,7 +483,7 @@ ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.CalibrationObserver.OnCalibrationUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'componentStatus', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'componentStatus', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -497,7 +497,7 @@ ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec 
       name: 'ash.shimless_rma.mojom.CalibrationObserver.OnCalibrationStepComplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -572,9 +572,9 @@ ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ProvisioningObserver.OnProvisioningUpdated_Params',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -649,7 +649,7 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProte
       name: 'ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver.OnHardwareWriteProtectionStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -724,7 +724,7 @@ ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSp
       name: 'ash.shimless_rma.mojom.PowerCableStateObserver.OnPowerCableStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'plugged_in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'plugged_in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -799,7 +799,7 @@ ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_Para
       name: 'ash.shimless_rma.mojom.ExternalDiskStateObserver.OnExternalDiskStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'detected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'detected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -874,7 +874,7 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerification
       name: 'ash.shimless_rma.mojom.HardwareVerificationStatusObserver.OnHardwareVerificationResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -949,9 +949,9 @@ ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.FinalizationObserver.OnFinalizationUpdated_Params',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1026,7 +1026,7 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_
       name: 'ash.shimless_rma.mojom.UpdateRoFirmwareObserver.OnUpdateRoFirmwareStatusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1770,7 +1770,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCurrentState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1796,7 +1796,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec 
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetStateProperties_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_property_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_property_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1822,7 +1822,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParams
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.TransitionPreviousState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1848,7 +1848,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.AbortRma_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1874,7 +1874,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec =
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.BeginFinalization_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1913,7 +1913,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParam
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.NetworkSelectionComplete_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1965,8 +1965,8 @@ ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec =
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CheckForOsUpdates_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'update_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'update_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1992,7 +1992,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.UpdateOs_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'update_started', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'update_started', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2018,7 +2018,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.UpdateOsSkipped_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2044,7 +2044,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetSameOwner_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2070,7 +2070,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec =
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetDifferentOwner_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2084,7 +2084,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetWipeDevice_Params',
       packedSize: 16,
       fields: [
-        { name: 'should_wipe_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'should_wipe_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2097,7 +2097,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetWipeDevice_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2123,7 +2123,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_Respons
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetManuallyDisableWriteProtect_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2149,7 +2149,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponsePara
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetRsuDisableWriteProtect_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2175,7 +2175,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_Res
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRsuDisableWriteProtectChallenge_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2201,7 +2201,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_Response
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRsuDisableWriteProtectHwid_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'hwid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'hwid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2227,7 +2227,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCo
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRsuDisableWriteProtectChallengeQrCode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'qr_code_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'qr_code_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2241,7 +2241,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSp
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetRsuDisableWriteProtectCode_Params',
       packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2254,7 +2254,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_Response
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetRsuDisableWriteProtectCode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2280,7 +2280,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseP
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.WriteProtectManuallyDisabled_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2306,7 +2306,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_R
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetWriteProtectDisableCompleteAction_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2332,7 +2332,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_Respons
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ConfirmManualWpDisableComplete_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2358,7 +2358,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec = 
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetComponentList_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2372,7 +2372,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetComponentList_Params',
       packedSize: 16,
       fields: [
-        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2385,7 +2385,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec = 
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetComponentList_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2411,7 +2411,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ReworkMainboard_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2437,7 +2437,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParam
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.RoFirmwareUpdateComplete_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2463,7 +2463,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec 
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ShutdownForRestock_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2489,7 +2489,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_Respo
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ContinueFinalizationAfterRestock_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2515,7 +2515,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRegionList_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'regions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'regions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2541,7 +2541,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetSkuList_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'skus', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'skus', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2567,7 +2567,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec 
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCustomLabelList_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'custom_labels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'custom_labels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2593,7 +2593,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSp
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetSkuDescriptionList_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'sku_descriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sku_descriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2619,7 +2619,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParams
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalSerialNumber_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2645,7 +2645,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec =
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalRegion_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'region_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'region_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2671,7 +2671,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalSku_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'sku_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sku_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2697,7 +2697,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsS
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalCustomLabel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'custom_label_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'custom_label_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2723,7 +2723,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponsePara
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalDramPartNumber_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'dram_part_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dram_part_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2749,7 +2749,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParams
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalFeatureLevel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'original_feature_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'original_feature_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2763,13 +2763,13 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetDeviceInformation_Params',
       packedSize: 64,
       fields: [
-        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'region_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'sku_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'custom_label_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'dram_part_number', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_chassis_branded', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'hw_compliance_version', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'region_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'sku_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'custom_label_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'dram_part_number', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_chassis_branded', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'hw_compliance_version', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2782,7 +2782,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpe
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetDeviceInformation_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2808,7 +2808,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponsePa
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCalibrationComponentList_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2834,7 +2834,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_Respon
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCalibrationSetupInstructions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'instructions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'instructions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2848,7 +2848,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.StartCalibration_Params',
       packedSize: 16,
       fields: [
-        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2861,7 +2861,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec = 
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.StartCalibration_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2887,7 +2887,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec 
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.RunCalibrationStep_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2913,7 +2913,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ContinueCalibration_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2939,7 +2939,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CalibrationComplete_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2965,7 +2965,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec =
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.RetryProvisioning_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2991,7 +2991,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpe
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ProvisioningComplete_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3017,7 +3017,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec =
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.RetryFinalization_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3043,7 +3043,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpe
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.FinalizationComplete_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3069,7 +3069,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponsePa
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.WriteProtectManuallyEnabled_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3095,8 +3095,8 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetLog_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3122,8 +3122,8 @@ ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SaveLog_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'save_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'save_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3149,7 +3149,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpe
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetPowerwashRequired_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'powerwash_required', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'powerwash_required', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3176,7 +3176,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.EndRma_Params',
       packedSize: 16,
       fields: [
-        { name: 'shutdown_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'shutdown_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3189,7 +3189,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.EndRma_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3228,7 +3228,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParam
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CriticalErrorExitToLogin_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3254,7 +3254,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CriticalErrorReboot_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3306,7 +3306,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_Res
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetInstallable3pDiagnosticsAppPath_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'app_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -3332,7 +3332,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_Respo
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.InstallLastFound3pDiagnosticsApp_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -3346,7 +3346,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CompleteLast3pDiagnosticsInstallation_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_approved', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_approved', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3372,7 +3372,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpe
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.Show3pDiagnosticsApp_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3386,7 +3386,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveError_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3400,7 +3400,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveOsUpdateProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3414,7 +3414,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec 
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveCalibrationProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3428,7 +3428,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveProvisioningProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3442,7 +3442,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_Pa
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveHardwareWriteProtectionState_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3456,7 +3456,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObservePowerCableState_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3470,7 +3470,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec = 
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveExternalDiskState_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3484,7 +3484,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_Para
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveHardwareVerificationStatus_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3498,7 +3498,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec =
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveFinalizationStatus_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3512,7 +3512,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_Params
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveRoFirmwareUpdateProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

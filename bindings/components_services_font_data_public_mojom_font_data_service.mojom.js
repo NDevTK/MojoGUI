@@ -106,8 +106,8 @@ font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec = {
       name: 'font_data_service.mojom.FontDataService.MatchFamilyName_Params',
       packedSize: 24,
       fields: [
-        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -120,7 +120,7 @@ font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec = {
       name: 'font_data_service.mojom.FontDataService.MatchFamilyName_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -134,10 +134,10 @@ font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec = {
       name: 'font_data_service.mojom.FontDataService.MatchFamilyNameCharacter_Params',
       packedSize: 40,
       fields: [
-        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'bcp47s', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'character', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bcp47s', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'character', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -150,7 +150,7 @@ font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsS
       name: 'font_data_service.mojom.FontDataService.MatchFamilyNameCharacter_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -176,7 +176,7 @@ font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec = {
       name: 'font_data_service.mojom.FontDataService.GetAllFamilyNames_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -191,7 +191,7 @@ font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,7 +204,7 @@ font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec = 
       name: 'font_data_service.mojom.FontDataService.LegacyMakeTypeface_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

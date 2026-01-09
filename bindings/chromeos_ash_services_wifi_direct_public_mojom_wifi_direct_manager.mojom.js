@@ -110,7 +110,7 @@ ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec = {
       name: 'ash.wifi_direct.mojom.WifiDirectManager.CreateWifiDirectGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -123,8 +123,8 @@ ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec
       name: 'ash.wifi_direct.mojom.WifiDirectManager.CreateWifiDirectGroup_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'wifi_direct_connection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'wifi_direct_connection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -138,8 +138,8 @@ ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec = {
       name: 'ash.wifi_direct.mojom.WifiDirectManager.ConnectToWifiDirectGroup_Params',
       packedSize: 24,
       fields: [
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'frequency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frequency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -152,8 +152,8 @@ ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsS
       name: 'ash.wifi_direct.mojom.WifiDirectManager.ConnectToWifiDirectGroup_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'wifi_direct_connection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'wifi_direct_connection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -179,7 +179,7 @@ ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpe
       name: 'ash.wifi_direct.mojom.WifiDirectManager.GetWifiP2PCapabilities_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -275,7 +275,7 @@ ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec = {
       name: 'ash.wifi_direct.mojom.WifiDirectConnection.GetProperties_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -289,7 +289,7 @@ ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec = {
       name: 'ash.wifi_direct.mojom.WifiDirectConnection.AssociateSocket_Params',
       packedSize: 16,
       fields: [
-        { name: 'socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -302,7 +302,7 @@ ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec = 
       name: 'ash.wifi_direct.mojom.WifiDirectConnection.AssociateSocket_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

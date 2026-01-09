@@ -98,7 +98,7 @@ remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec = {
       name: 'remoting.mojom.RemotingHostControl.ApplyHostConfig_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,8 +112,8 @@ remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec = {
       name: 'remoting.mojom.RemotingHostControl.InitializePairingRegistry_Params',
       packedSize: 24,
       fields: [
-        { name: 'privileged_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'unprivileged_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'privileged_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'unprivileged_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,8 +127,8 @@ remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec = {
       name: 'remoting.mojom.RemotingHostControl.BindChromotingHostServices_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'peer_pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'peer_pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -212,7 +212,7 @@ remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec 
       name: 'remoting.mojom.DesktopSessionConnectionEvents.OnTerminalDisconnected_Params',
       packedSize: 16,
       fields: [
-        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -226,9 +226,9 @@ remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_Para
       name: 'remoting.mojom.DesktopSessionConnectionEvents.OnDesktopSessionAgentAttached_Params',
       packedSize: 32,
       fields: [
-        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'desktop_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'desktop_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -357,7 +357,7 @@ remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec = {
       name: 'remoting.mojom.HostStatusObserver.OnClientAccessDenied_Params',
       packedSize: 16,
       fields: [
-        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -371,7 +371,7 @@ remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec = {
       name: 'remoting.mojom.HostStatusObserver.OnClientAuthenticated_Params',
       packedSize: 16,
       fields: [
-        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -385,7 +385,7 @@ remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec = {
       name: 'remoting.mojom.HostStatusObserver.OnClientConnected_Params',
       packedSize: 16,
       fields: [
-        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -399,7 +399,7 @@ remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec = {
       name: 'remoting.mojom.HostStatusObserver.OnClientDisconnected_Params',
       packedSize: 16,
       fields: [
-        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -413,9 +413,9 @@ remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec = {
       name: 'remoting.mojom.HostStatusObserver.OnClientRouteChange_Params',
       packedSize: 32,
       fields: [
-        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'channel_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'route', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'channel_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'route', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -429,7 +429,7 @@ remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec = {
       name: 'remoting.mojom.HostStatusObserver.OnHostStarted_Params',
       packedSize: 16,
       fields: [
-        { name: 'owner_email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'owner_email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

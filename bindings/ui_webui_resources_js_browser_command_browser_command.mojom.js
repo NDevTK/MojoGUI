@@ -96,7 +96,7 @@ browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSp
       name: 'browser_command.mojom.CommandHandlerFactory.CreateBrowserCommandHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -180,7 +180,7 @@ browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = {
       name: 'browser_command.mojom.CommandHandler.CanExecuteCommand_Params',
       packedSize: 16,
       fields: [
-        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -193,7 +193,7 @@ browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec = {
       name: 'browser_command.mojom.CommandHandler.CanExecuteCommand_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'can_execute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'can_execute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -207,8 +207,8 @@ browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec = {
       name: 'browser_command.mojom.CommandHandler.ExecuteCommand_Params',
       packedSize: 24,
       fields: [
-        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'click_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'click_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -221,7 +221,7 @@ browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec = {
       name: 'browser_command.mojom.CommandHandler.ExecuteCommand_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'command_executed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'command_executed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

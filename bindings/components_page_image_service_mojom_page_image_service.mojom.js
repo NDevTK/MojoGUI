@@ -83,9 +83,9 @@ page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = {
       name: 'page_image_service.mojom.PageImageServiceHandler.GetPageImageUrl_Params',
       packedSize: 32,
       fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'page_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -98,7 +98,7 @@ page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsS
       name: 'page_image_service.mojom.PageImageServiceHandler.GetPageImageUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

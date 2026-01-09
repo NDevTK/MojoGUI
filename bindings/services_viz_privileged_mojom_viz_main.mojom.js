@@ -144,7 +144,7 @@ viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec = {
       name: 'viz.mojom.VizMain.CreateFrameSinkManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -158,12 +158,12 @@ viz.mojom.VizMain_CreateGpuService_ParamsSpec = {
       name: 'viz.mojom.VizMain.CreateGpuService_Params',
       packedSize: 56,
       fields: [
-        { name: 'gpu_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'gpu_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'gpu_logging', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'discardable_memory_manager', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'use_shader_cache_shm_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'params', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'gpu_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'gpu_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'gpu_logging', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'discardable_memory_manager', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'use_shader_cache_shm_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'params', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -177,9 +177,9 @@ viz.mojom.VizMain_SetRenderParams_ParamsSpec = {
       name: 'viz.mojom.VizMain.SetRenderParams_Params',
       packedSize: 32,
       fields: [
-        { name: 'subpixel_rendering', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'text_contrast', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'text_gamma', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'subpixel_rendering', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text_contrast', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'text_gamma', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -193,7 +193,7 @@ viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec = {
       name: 'viz.mojom.VizMain.CreateInfoCollectionGpuService_Params',
       packedSize: 16,
       fields: [
-        { name: 'info_collection_gpu_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info_collection_gpu_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -207,7 +207,7 @@ viz.mojom.VizMain_SetHostProcessId_ParamsSpec = {
       name: 'viz.mojom.VizMain.SetHostProcessId_Params',
       packedSize: 16,
       fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -234,7 +234,7 @@ viz.mojom.VizMain_StartDebugStream_ParamsSpec = {
       name: 'viz.mojom.VizMain.StartDebugStream_Params',
       packedSize: 16,
       fields: [
-        { name: 'viz_debug', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'viz_debug', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,7 +248,7 @@ viz.mojom.VizMain_FilterDebugStream_ParamsSpec = {
       name: 'viz.mojom.VizMain.FilterDebugStream_Params',
       packedSize: 16,
       fields: [
-        { name: 'filterData', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'filterData', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

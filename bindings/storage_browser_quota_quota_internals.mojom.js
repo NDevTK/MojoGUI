@@ -129,9 +129,9 @@ storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseP
       name: 'storage.mojom.QuotaInternalsHandler.GetDiskAvailabilityAndTempPoolSize_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'total_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'available_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'temp_pool_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'total_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'available_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'temp_pool_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -157,7 +157,7 @@ storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec = {
       name: 'storage.mojom.QuotaInternalsHandler.GetStatistics_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'eviction_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'eviction_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -171,7 +171,7 @@ storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec = {
       name: 'storage.mojom.QuotaInternalsHandler.SimulateStoragePressure_Params',
       packedSize: 16,
       fields: [
-        { name: 'origin_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'origin_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,7 +197,7 @@ storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec = {
       name: 'storage.mojom.QuotaInternalsHandler.RetrieveBucketsTable_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -223,8 +223,8 @@ storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpe
       name: 'storage.mojom.QuotaInternalsHandler.GetGlobalUsageForInternals_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'unlimited_usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'unlimited_usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -250,7 +250,7 @@ storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseP
       name: 'storage.mojom.QuotaInternalsHandler.IsSimulateStoragePressureAvailable_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

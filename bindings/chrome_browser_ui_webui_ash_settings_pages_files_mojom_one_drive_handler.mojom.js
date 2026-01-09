@@ -74,8 +74,8 @@ ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.settings.one_drive.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -215,7 +215,7 @@ ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec = 
       name: 'ash.settings.one_drive.mojom.PageHandler.ConnectToOneDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -241,7 +241,7 @@ ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSp
       name: 'ash.settings.one_drive.mojom.PageHandler.DisconnectFromOneDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -267,7 +267,7 @@ ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec =
       name: 'ash.settings.one_drive.mojom.PageHandler.OpenOneDriveFolder_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -364,7 +364,7 @@ ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec = {
       name: 'ash.settings.one_drive.mojom.Page.OnAllowUserToRemoveODFSChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -72,8 +72,8 @@ chromecast.mojom.ServiceConnector_Connect_ParamsSpec = {
       name: 'chromecast.mojom.ServiceConnector.Connect_Params',
       packedSize: 24,
       fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

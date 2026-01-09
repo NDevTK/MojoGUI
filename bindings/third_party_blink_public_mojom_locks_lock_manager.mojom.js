@@ -146,7 +146,7 @@ blink.mojom.LockRequest_Granted_ParamsSpec = {
       name: 'blink.mojom.LockRequest.Granted_Params',
       packedSize: 16,
       fields: [
-        { name: 'lock_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lock_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -243,10 +243,10 @@ blink.mojom.LockManager_RequestLock_ParamsSpec = {
       name: 'blink.mojom.LockManager.RequestLock_Params',
       packedSize: 40,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'wait', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'request', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'wait', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -272,8 +272,8 @@ blink.mojom.LockManager_QueryState_ResponseParamsSpec = {
       name: 'blink.mojom.LockManager.QueryState_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'held', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'held', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

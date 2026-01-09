@@ -72,8 +72,8 @@ content.mojom.FrameHostTestInterface_Ping_ParamsSpec = {
       name: 'content.mojom.FrameHostTestInterface.Ping_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source_event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

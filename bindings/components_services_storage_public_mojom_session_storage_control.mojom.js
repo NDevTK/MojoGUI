@@ -168,8 +168,8 @@ storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec = {
       name: 'storage.mojom.SessionStorageControl.BindNamespace_Params',
       packedSize: 24,
       fields: [
-        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -183,9 +183,9 @@ storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec = {
       name: 'storage.mojom.SessionStorageControl.BindStorageArea_Params',
       packedSize: 32,
       fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -211,7 +211,7 @@ storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec = {
       name: 'storage.mojom.SessionStorageControl.GetUsage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -225,8 +225,8 @@ storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec = {
       name: 'storage.mojom.SessionStorageControl.DeleteStorage_Params',
       packedSize: 24,
       fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -292,7 +292,7 @@ storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec = {
       name: 'storage.mojom.SessionStorageControl.CreateNamespace_Params',
       packedSize: 16,
       fields: [
-        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -306,9 +306,9 @@ storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec = {
       name: 'storage.mojom.SessionStorageControl.CloneNamespace_Params',
       packedSize: 32,
       fields: [
-        { name: 'namespace_id_to_clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'clone_namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'clone_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'namespace_id_to_clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'clone_namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'clone_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -322,8 +322,8 @@ storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec = {
       name: 'storage.mojom.SessionStorageControl.DeleteNamespace_Params',
       packedSize: 24,
       fields: [
-        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'should_persist', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'should_persist', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

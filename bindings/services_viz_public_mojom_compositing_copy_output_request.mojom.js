@@ -72,7 +72,7 @@ viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec = {
       name: 'viz.mojom.CopyOutputResultSender.SendResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

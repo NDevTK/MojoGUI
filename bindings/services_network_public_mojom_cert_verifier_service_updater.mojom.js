@@ -90,7 +90,7 @@ cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_Para
       name: 'cert_verifier.mojom.CertVerifierServiceUpdater.UpdateAdditionalCertificates_Params',
       packedSize: 16,
       fields: [
-        { name: 'certificates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'certificates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -117,7 +117,7 @@ cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierServiceUpdater.SetCTPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'ct_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ct_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

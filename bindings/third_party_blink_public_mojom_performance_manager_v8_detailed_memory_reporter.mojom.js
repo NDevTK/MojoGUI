@@ -79,7 +79,7 @@ blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = {
       name: 'blink.mojom.V8DetailedMemoryReporter.GetV8MemoryUsage_Params',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -92,7 +92,7 @@ blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = {
       name: 'blink.mojom.V8DetailedMemoryReporter.GetV8MemoryUsage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -94,7 +94,7 @@ content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec = {
       name: 'content.mojom.ChildProcessHost.BindHostReceiver_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -311,7 +311,7 @@ content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec = {
       name: 'content.mojom.ChildProcess.GetTaskPort_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'task_port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'task_port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -325,7 +325,7 @@ content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec = {
       name: 'content.mojom.ChildProcess.SetIPCLoggingEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -339,7 +339,7 @@ content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec = {
       name: 'content.mojom.ChildProcess.GetBackgroundTracingAgentProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -353,7 +353,7 @@ content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec = {
       name: 'content.mojom.ChildProcess.EnableSystemTracingService_Params',
       packedSize: 16,
       fields: [
-        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -380,7 +380,7 @@ content.mojom.ChildProcess_BindServiceInterface_ParamsSpec = {
       name: 'content.mojom.ChildProcess.BindServiceInterface_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -394,7 +394,7 @@ content.mojom.ChildProcess_BindReceiver_ParamsSpec = {
       name: 'content.mojom.ChildProcess.BindReceiver_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -408,7 +408,7 @@ content.mojom.ChildProcess_SetProfilingFile_ParamsSpec = {
       name: 'content.mojom.ChildProcess.SetProfilingFile_Params',
       packedSize: 16,
       fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -435,7 +435,7 @@ content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec = {
       name: 'content.mojom.ChildProcess.SetPseudonymizationSalt_Params',
       packedSize: 16,
       fields: [
-        { name: 'salt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'salt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -449,7 +449,7 @@ content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec = {
       name: 'content.mojom.ChildProcess.ReinitializeLogging_Params',
       packedSize: 16,
       fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -463,7 +463,7 @@ content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec = {
       name: 'content.mojom.ChildProcess.OnMemoryPressure_Params',
       packedSize: 16,
       fields: [
-        { name: 'memory_pressure_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'memory_pressure_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -477,7 +477,7 @@ content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec = {
       name: 'content.mojom.ChildProcess.SetBatterySaverMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'battery_saver_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'battery_saver_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

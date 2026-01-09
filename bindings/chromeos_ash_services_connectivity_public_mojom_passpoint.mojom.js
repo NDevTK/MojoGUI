@@ -82,7 +82,7 @@ chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded
       name: 'chromeos.connectivity.mojom.PasspointEventsListener.OnPasspointSubscriptionAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -96,7 +96,7 @@ chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemov
       name: 'chromeos.connectivity.mojom.PasspointEventsListener.OnPasspointSubscriptionRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -198,7 +198,7 @@ chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec
       name: 'chromeos.connectivity.mojom.PasspointService.GetPasspointSubscription_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -211,7 +211,7 @@ chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponsePa
       name: 'chromeos.connectivity.mojom.PasspointService.GetPasspointSubscription_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -237,7 +237,7 @@ chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_Response
       name: 'chromeos.connectivity.mojom.PasspointService.ListPasspointSubscriptions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -251,7 +251,7 @@ chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsS
       name: 'chromeos.connectivity.mojom.PasspointService.DeletePasspointSubscription_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -264,7 +264,7 @@ chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_Respons
       name: 'chromeos.connectivity.mojom.PasspointService.DeletePasspointSubscription_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -278,7 +278,7 @@ chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpe
       name: 'chromeos.connectivity.mojom.PasspointService.RegisterPasspointListener_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

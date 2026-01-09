@@ -81,8 +81,8 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardabl
       name: 'discardable_memory.mojom.DiscardableSharedMemoryManager.AllocateLockedDiscardableSharedMemory_Params',
       packedSize: 24,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardabl
       name: 'discardable_memory.mojom.DiscardableSharedMemoryManager.AllocateLockedDiscardableSharedMemory_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -109,7 +109,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableShared
       name: 'discardable_memory.mojom.DiscardableSharedMemoryManager.DeletedDiscardableSharedMemory_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

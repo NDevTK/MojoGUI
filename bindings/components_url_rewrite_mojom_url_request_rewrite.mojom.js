@@ -78,7 +78,7 @@ url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = {
       name: 'url_rewrite.mojom.UrlRequestRulesReceiver.OnRulesUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

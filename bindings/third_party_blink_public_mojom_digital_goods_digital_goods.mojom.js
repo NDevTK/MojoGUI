@@ -99,7 +99,7 @@ payments.mojom.DigitalGoods_GetDetails_ParamsSpec = {
       name: 'payments.mojom.DigitalGoods.GetDetails_Params',
       packedSize: 16,
       fields: [
-        { name: 'item_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'item_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,8 +112,8 @@ payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = {
       name: 'payments.mojom.DigitalGoods.GetDetails_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'item_details_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'item_details_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -139,8 +139,8 @@ payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec = {
       name: 'payments.mojom.DigitalGoods.ListPurchases_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'purchase_reference_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'purchase_reference_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -166,8 +166,8 @@ payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec = {
       name: 'payments.mojom.DigitalGoods.ListPurchaseHistory_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'purchase_reference_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'purchase_reference_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -181,7 +181,7 @@ payments.mojom.DigitalGoods_Consume_ParamsSpec = {
       name: 'payments.mojom.DigitalGoods.Consume_Params',
       packedSize: 16,
       fields: [
-        { name: 'purchase_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'purchase_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -194,7 +194,7 @@ payments.mojom.DigitalGoods_Consume_ResponseParamsSpec = {
       name: 'payments.mojom.DigitalGoods.Consume_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -269,7 +269,7 @@ payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = {
       name: 'payments.mojom.DigitalGoodsFactory.CreateDigitalGoods_Params',
       packedSize: 16,
       fields: [
-        { name: 'payment_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'payment_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -282,8 +282,8 @@ payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = {
       name: 'payments.mojom.DigitalGoodsFactory.CreateDigitalGoods_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'digital_goods', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'digital_goods', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

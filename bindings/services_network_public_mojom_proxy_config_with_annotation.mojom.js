@@ -81,7 +81,7 @@ network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = {
       name: 'network.mojom.ProxyConfigClient.OnProxyConfigUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'proxy_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'proxy_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -252,8 +252,8 @@ network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = {
       name: 'network.mojom.ProxyErrorClient.OnPACScriptError_Params',
       packedSize: 24,
       fields: [
-        { name: 'line_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'line_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -267,7 +267,7 @@ network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec
       name: 'network.mojom.ProxyErrorClient.OnRequestMaybeFailedDueToProxySettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

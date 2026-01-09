@@ -93,7 +93,7 @@ media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec = {
       name: 'media.mojom.AudioProcessorControls.GetStats_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -107,7 +107,7 @@ media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec = {
       name: 'media.mojom.AudioProcessorControls.SetPreferredNumCaptureChannels_Params',
       packedSize: 16,
       fields: [
-        { name: 'num_preferred_channels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'num_preferred_channels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

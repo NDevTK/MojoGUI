@@ -72,7 +72,7 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_Para
       name: 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost.RequestInstalledScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,7 +147,7 @@ blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsS
       name: 'blink.mojom.ServiceWorkerInstalledScriptsManager.TransferInstalledScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'script_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'script_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

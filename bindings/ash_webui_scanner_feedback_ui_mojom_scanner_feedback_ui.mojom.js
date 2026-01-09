@@ -103,7 +103,7 @@ ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec = {
       name: 'ash.mojom.scanner_feedback_ui.PageHandler.GetFeedbackInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'feedback_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feedback_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -130,7 +130,7 @@ ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec = {
       name: 'ash.mojom.scanner_feedback_ui.PageHandler.SendFeedback_Params',
       packedSize: 16,
       fields: [
-        { name: 'user_description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'user_description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

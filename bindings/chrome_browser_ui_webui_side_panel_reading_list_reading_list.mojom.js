@@ -79,8 +79,8 @@ reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'reading_list.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -257,7 +257,7 @@ reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec = {
       name: 'reading_list.mojom.PageHandler.GetReadLaterEntries_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -271,9 +271,9 @@ reading_list.mojom.PageHandler_OpenURL_ParamsSpec = {
       name: 'reading_list.mojom.PageHandler.OpenURL_Params',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'mark_as_read', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'click_modifiers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mark_as_read', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'click_modifiers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -287,8 +287,8 @@ reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec = {
       name: 'reading_list.mojom.PageHandler.UpdateReadStatus_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'read', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'read', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -328,7 +328,7 @@ reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec = {
       name: 'reading_list.mojom.PageHandler.RemoveEntry_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -342,9 +342,9 @@ reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = {
       name: 'reading_list.mojom.PageHandler.ShowContextMenuForURL_Params',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'y', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'y', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -409,7 +409,7 @@ reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec = {
       name: 'reading_list.mojom.PageHandler.GetWindowData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'windows', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'windows', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -493,7 +493,7 @@ reading_list.mojom.Page_ItemsChanged_ParamsSpec = {
       name: 'reading_list.mojom.Page.ItemsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -507,7 +507,7 @@ reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec = {
       name: 'reading_list.mojom.Page.CurrentPageActionButtonStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

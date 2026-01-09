@@ -72,7 +72,7 @@ blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec = {
       name: 'blink.mojom.DiskAllocator.ProvideTemporaryFile_Params',
       packedSize: 16,
       fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

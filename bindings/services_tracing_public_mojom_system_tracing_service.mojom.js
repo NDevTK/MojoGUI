@@ -84,7 +84,7 @@ tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec = {
       name: 'tracing.mojom.SystemTracingService.OpenProducerSocket_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'traced_socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'traced_socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

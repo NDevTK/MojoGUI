@@ -93,10 +93,10 @@ viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInf
       name: 'viz.mojom.InfoCollectionGpuService.GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'd3d12_feature_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'highest_shader_model_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'directml_feature_level', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'device_perf_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'd3d12_feature_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'highest_shader_model_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'directml_feature_level', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'device_perf_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -122,7 +122,7 @@ viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponsePara
       name: 'viz.mojom.InfoCollectionGpuService.GetGpuSupportedVulkanVersionInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'vulkan_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'vulkan_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

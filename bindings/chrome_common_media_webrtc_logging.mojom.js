@@ -81,7 +81,7 @@ chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec = {
       name: 'chrome.mojom.WebRtcLoggingClient.OnAddMessages_Params',
       packedSize: 16,
       fields: [
-        { name: 'messages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'messages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -178,7 +178,7 @@ chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec = {
       name: 'chrome.mojom.WebRtcLoggingAgent.Start_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

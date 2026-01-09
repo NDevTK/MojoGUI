@@ -84,7 +84,7 @@ blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec = {
       name: 'blink.mojom.DocumentMetadata.GetEntities_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

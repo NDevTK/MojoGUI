@@ -84,7 +84,7 @@ chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Pa
       name: 'chrome.mojom.BoundSessionRequestThrottledHandler.HandleRequestBlockedOnCookie_Params',
       packedSize: 16,
       fields: [
-        { name: 'untrusted_request_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'untrusted_request_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -97,7 +97,7 @@ chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Re
       name: 'chrome.mojom.BoundSessionRequestThrottledHandler.HandleRequestBlockedOnCookie_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'resume_trigger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'resume_trigger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -264,10 +264,10 @@ chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec = {
       name: 'chrome.mojom.RendererConfiguration.SetInitialConfiguration_Params',
       packedSize: 40,
       fields: [
-        { name: 'is_incognito_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'chromeos_listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'content_settings_manager', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'bound_session_request_throttled_handler', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_incognito_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'chromeos_listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'content_settings_manager', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'bound_session_request_throttled_handler', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -281,7 +281,7 @@ chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec = {
       name: 'chrome.mojom.RendererConfiguration.SetConfiguration_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -295,7 +295,7 @@ chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpe
       name: 'chrome.mojom.RendererConfiguration.SetConfigurationOnProcessLockUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

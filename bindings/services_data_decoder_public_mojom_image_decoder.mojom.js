@@ -87,11 +87,11 @@ data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec = {
       name: 'data_decoder.mojom.ImageDecoder.DecodeImage_Params',
       packedSize: 48,
       fields: [
-        { name: 'encoded_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'codec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'shrink_to_fit', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'max_size_in_bytes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'desired_image_frame_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'encoded_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'codec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shrink_to_fit', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'max_size_in_bytes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'desired_image_frame_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,8 +104,8 @@ data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec = {
       name: 'data_decoder.mojom.ImageDecoder.DecodeImage_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'decoding_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'decoded_image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'decoding_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decoded_image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -119,9 +119,9 @@ data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec = {
       name: 'data_decoder.mojom.ImageDecoder.DecodeAnimation_Params',
       packedSize: 32,
       fields: [
-        { name: 'encoded_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'shrink_to_fit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'max_size_in_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'encoded_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shrink_to_fit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'max_size_in_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,7 +134,7 @@ data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec = {
       name: 'data_decoder.mojom.ImageDecoder.DecodeAnimation_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'decoded_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'decoded_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

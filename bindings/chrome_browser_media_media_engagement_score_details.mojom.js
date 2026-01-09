@@ -93,7 +93,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_R
       name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementScoreDetails_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -119,7 +119,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_Respons
       name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementConfig_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

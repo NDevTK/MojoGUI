@@ -72,8 +72,8 @@ math.mojom.MathService_Divide_ParamsSpec = {
       name: 'math.mojom.MathService.Divide_Params',
       packedSize: 24,
       fields: [
-        { name: 'dividend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'divisor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dividend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'divisor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -86,7 +86,7 @@ math.mojom.MathService_Divide_ResponseParamsSpec = {
       name: 'math.mojom.MathService.Divide_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'quotient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'quotient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

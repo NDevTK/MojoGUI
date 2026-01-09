@@ -72,8 +72,8 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_Crea
       name: 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,7 +148,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevant
       name: 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler.GetRelevantContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -161,7 +161,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevant
       name: 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler.GetRelevantContext_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -236,10 +236,10 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_
       name: 'contextual_tasks_internals.mojom.ContextualTasksInternalsPage.OnLogMessageAdded_Params',
       packedSize: 40,
       fields: [
-        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source_line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source_line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

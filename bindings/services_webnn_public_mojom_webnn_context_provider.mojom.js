@@ -79,7 +79,7 @@ webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
       name: 'webnn.mojom.WebNNContextProvider.CreateWebNNContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -92,7 +92,7 @@ webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
       name: 'webnn.mojom.WebNNContextProvider.CreateWebNNContext_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

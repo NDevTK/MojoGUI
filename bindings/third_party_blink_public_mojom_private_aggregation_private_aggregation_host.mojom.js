@@ -101,7 +101,7 @@ blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec = {
       name: 'blink.mojom.PrivateAggregationHost.ContributeToHistogram_Params',
       packedSize: 16,
       fields: [
-        { name: 'contributions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'contributions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -115,8 +115,8 @@ blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec = {
       name: 'blink.mojom.PrivateAggregationHost.ContributeToHistogramOnEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'error_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'contributions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'contributions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -130,7 +130,7 @@ blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec = {
       name: 'blink.mojom.PrivateAggregationHost.EnableDebugMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'debug_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'debug_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -84,7 +84,7 @@ ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpe
       name: 'ai.mojom.ZeroStateSuggestionsService.FetchZeroStateSuggestions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

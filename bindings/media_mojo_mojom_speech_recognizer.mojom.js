@@ -80,7 +80,7 @@ media.mojom.SpeechRecognizer_Start_ParamsSpec = {
       name: 'media.mojom.SpeechRecognizer.Start_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -164,7 +164,7 @@ media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec = {
       name: 'media.mojom.OnDeviceSpeechRecognition.Available_Params',
       packedSize: 16,
       fields: [
-        { name: 'languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -177,7 +177,7 @@ media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec = {
       name: 'media.mojom.OnDeviceSpeechRecognition.Available_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -191,7 +191,7 @@ media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec = {
       name: 'media.mojom.OnDeviceSpeechRecognition.Install_Params',
       packedSize: 16,
       fields: [
-        { name: 'languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,7 +204,7 @@ media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec = {
       name: 'media.mojom.OnDeviceSpeechRecognition.Install_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

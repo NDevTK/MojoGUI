@@ -84,7 +84,7 @@ private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_Re
       name: 'private_state_tokens.mojom.PrivateStateTokensPageHandler.GetIssuerTokenCounts_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'private_state_tokens_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'private_state_tokens_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

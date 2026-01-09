@@ -134,7 +134,7 @@ ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec 
       name: 'ash.quick_pair.mojom.FastPairDataParser.GetHexModelIdFromServiceData_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'service_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -161,8 +161,8 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec = {
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseDecryptedResponse_Params',
       packedSize: 24,
       fields: [
-        { name: 'aes_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'encrypted_response_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'aes_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'encrypted_response_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,7 +175,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpe
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseDecryptedResponse_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -189,8 +189,8 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec = {
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseDecryptedPasskey_Params',
       packedSize: 24,
       fields: [
-        { name: 'aes_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'encrypted_passkey_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'aes_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'encrypted_passkey_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,7 +203,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseDecryptedPasskey_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'passkey', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'passkey', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -217,8 +217,8 @@ ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_Params
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseNotDiscoverableAdvertisement_Params',
       packedSize: 24,
       fields: [
-        { name: 'service_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'service_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -231,7 +231,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_Respon
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseNotDiscoverableAdvertisement_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'advertisement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'advertisement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -245,7 +245,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec = 
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseMessageStreamMessages_Params',
       packedSize: 16,
       fields: [
-        { name: 'message_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -258,7 +258,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParam
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseMessageStreamMessages_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'messages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'messages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

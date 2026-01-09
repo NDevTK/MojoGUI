@@ -73,7 +73,7 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.mojom.demo_mode.UntrustedPageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -170,7 +170,7 @@ ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = {
       name: 'ash.mojom.demo_mode.UntrustedPageHandler.LaunchApp_Params',
       packedSize: 16,
       fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -234,7 +234,7 @@ device.mojom.VRService_SetClient_ParamsSpec = {
       name: 'device.mojom.VRService.SetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,7 +248,7 @@ device.mojom.VRService_RequestSession_ParamsSpec = {
       name: 'device.mojom.VRService.RequestSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -261,7 +261,7 @@ device.mojom.VRService_RequestSession_ResponseParamsSpec = {
       name: 'device.mojom.VRService.RequestSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -275,7 +275,7 @@ device.mojom.VRService_SupportsSession_ParamsSpec = {
       name: 'device.mojom.VRService.SupportsSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -288,7 +288,7 @@ device.mojom.VRService_SupportsSession_ResponseParamsSpec = {
       name: 'device.mojom.VRService.SupportsSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'supports_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'supports_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -315,7 +315,7 @@ device.mojom.VRService_SetFramesThrottled_ParamsSpec = {
       name: 'device.mojom.VRService.SetFramesThrottled_Params',
       packedSize: 16,
       fields: [
-        { name: 'throttled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'throttled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -341,7 +341,7 @@ device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec = {
       name: 'device.mojom.VRService.MakeXrCompatible_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'xr_compatible_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'xr_compatible_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -416,7 +416,7 @@ device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec = {
       name: 'device.mojom.XRSessionMetricsRecorder.ReportFeatureUsed_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -601,9 +601,9 @@ device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec = {
       name: 'device.mojom.XREnvironmentIntegrationProvider.SubscribeToHitTest_Params',
       packedSize: 32,
       fields: [
-        { name: 'native_origin_information', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'entity_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ray', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'native_origin_information', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'entity_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'ray', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -616,7 +616,7 @@ device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsS
       name: 'device.mojom.XREnvironmentIntegrationProvider.SubscribeToHitTest_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'subscription_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'subscription_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -630,9 +630,9 @@ device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInpu
       name: 'device.mojom.XREnvironmentIntegrationProvider.SubscribeToHitTestForTransientInput_Params',
       packedSize: 32,
       fields: [
-        { name: 'profile_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'entity_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ray', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'profile_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'entity_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'ray', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -645,7 +645,7 @@ device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInpu
       name: 'device.mojom.XREnvironmentIntegrationProvider.SubscribeToHitTestForTransientInput_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'subscription_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'subscription_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -659,7 +659,7 @@ device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec 
       name: 'device.mojom.XREnvironmentIntegrationProvider.UnsubscribeFromHitTest_Params',
       packedSize: 16,
       fields: [
-        { name: 'subscription_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'subscription_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -673,9 +673,9 @@ device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec = {
       name: 'device.mojom.XREnvironmentIntegrationProvider.CreateAnchor_Params',
       packedSize: 32,
       fields: [
-        { name: 'native_origin_information', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'native_origin_from_anchor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'plane_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'native_origin_information', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'native_origin_from_anchor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'plane_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -688,7 +688,7 @@ device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec = 
       name: 'device.mojom.XREnvironmentIntegrationProvider.CreateAnchor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -702,7 +702,7 @@ device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec = {
       name: 'device.mojom.XREnvironmentIntegrationProvider.DetachAnchor_Params',
       packedSize: 16,
       fields: [
-        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -786,7 +786,7 @@ device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec = {
       name: 'device.mojom.XRFrameDataProvider.GetFrameData_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -799,7 +799,7 @@ device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec = {
       name: 'device.mojom.XRFrameDataProvider.GetFrameData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -813,7 +813,7 @@ device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec = 
       name: 'device.mojom.XRFrameDataProvider.GetEnvironmentIntegrationProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'environment_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'environment_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -924,10 +924,10 @@ device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec = {
       name: 'device.mojom.XRPresentationProvider.UpdateLayerBounds_Params',
       packedSize: 40,
       fields: [
-        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'left_bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'right_bounds', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'left_bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'right_bounds', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -941,8 +941,8 @@ device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec = {
       name: 'device.mojom.XRPresentationProvider.SubmitFrameMissing_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'sync_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'sync_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -956,8 +956,8 @@ device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec = {
       name: 'device.mojom.XRPresentationProvider.SubmitFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'time_waited', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'time_waited', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -971,9 +971,9 @@ device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec = {
       name: 'device.mojom.XRPresentationProvider.SubmitFrameWithTextureHandle_Params',
       packedSize: 32,
       fields: [
-        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'texture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'sync_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'texture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sync_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -987,10 +987,10 @@ device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec = {
       name: 'device.mojom.XRPresentationProvider.SubmitFrameDrawnIntoTexture_Params',
       packedSize: 40,
       fields: [
-        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'layer_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'sync_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'time_waited', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'layer_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'sync_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time_waited', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1083,7 +1083,7 @@ device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec = {
       name: 'device.mojom.XRPresentationClient.OnSubmitFrameTransferred_Params',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1110,7 +1110,7 @@ device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec = {
       name: 'device.mojom.XRPresentationClient.OnSubmitFrameGpuFence_Params',
       packedSize: 16,
       fields: [
-        { name: 'gpu_fence_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'gpu_fence_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1207,7 +1207,7 @@ device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec = {
       name: 'device.mojom.XRSessionClient.OnVisibilityStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'visibility_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'visibility_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1309,7 +1309,7 @@ device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec = {
       name: 'device.mojom.XRLayerManager.CreateCompositionLayer_Params',
       packedSize: 16,
       fields: [
-        { name: 'create_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'create_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1322,7 +1322,7 @@ device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec = {
       name: 'device.mojom.XRLayerManager.CreateCompositionLayer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1336,7 +1336,7 @@ device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec = {
       name: 'device.mojom.XRLayerManager.DestroyCompositionLayer_Params',
       packedSize: 16,
       fields: [
-        { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1350,8 +1350,8 @@ device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec = {
       name: 'device.mojom.XRLayerManager.UpdateCompositionLayer_Params',
       packedSize: 24,
       fields: [
-        { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'update_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1365,7 +1365,7 @@ device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec = {
       name: 'device.mojom.XRLayerManager.SetEnabledCompositionLayers_Params',
       packedSize: 16,
       fields: [
-        { name: 'layer_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'layer_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1449,7 +1449,7 @@ device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec = {
       name: 'device.mojom.WebXrInternalsRendererListener.OnFrameData_Params',
       packedSize: 16,
       fields: [
-        { name: 'xrframe_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'xrframe_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1463,7 +1463,7 @@ device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec = {
       name: 'device.mojom.WebXrInternalsRendererListener.OnConsoleLog_Params',
       packedSize: 16,
       fields: [
-        { name: 'xrlogging_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'xrlogging_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

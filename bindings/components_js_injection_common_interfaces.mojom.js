@@ -81,8 +81,8 @@ js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec = {
       name: 'js_injection.mojom.JsToBrowserMessaging.PostMessage_Params',
       packedSize: 24,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ports', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ports', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -96,7 +96,7 @@ js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec = {
       name: 'js_injection.mojom.JsToBrowserMessaging.SetBrowserToJsMessaging_Params',
       packedSize: 16,
       fields: [
-        { name: 'browser_to_js_messaging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'browser_to_js_messaging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -245,7 +245,7 @@ js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSp
       name: 'js_injection.mojom.BrowserToJsMessagingFactory.SendBrowserToJsMessaging_Params',
       packedSize: 16,
       fields: [
-        { name: 'browser_to_js_messaging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'browser_to_js_messaging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -320,7 +320,7 @@ js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec = {
       name: 'js_injection.mojom.BrowserToJsMessaging.OnPostMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -413,8 +413,8 @@ js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec = {
       name: 'js_injection.mojom.JsCommunication.SetJsObjects_Params',
       packedSize: 24,
       fields: [
-        { name: 'js_objects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'js_objects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -428,7 +428,7 @@ js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec = {
       name: 'js_injection.mojom.JsCommunication.AddPersistentJavaScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -442,7 +442,7 @@ js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec = {
       name: 'js_injection.mojom.JsCommunication.RemovePersistentJavaScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'script_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'script_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

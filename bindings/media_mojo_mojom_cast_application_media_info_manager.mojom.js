@@ -84,7 +84,7 @@ media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_Response
       name: 'media.mojom.CastApplicationMediaInfoManager.GetCastApplicationMediaInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'cast_application_media_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cast_application_media_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

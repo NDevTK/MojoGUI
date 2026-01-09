@@ -72,7 +72,7 @@ blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec = {
       name: 'blink.mojom.UnhandledTapNotifier.ShowUnhandledTapUIIfNeeded_Params',
       packedSize: 16,
       fields: [
-        { name: 'unhandled_tap_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'unhandled_tap_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

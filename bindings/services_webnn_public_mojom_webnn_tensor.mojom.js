@@ -111,7 +111,7 @@ webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec = {
       name: 'webnn.mojom.WebNNTensor.ReadTensor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,7 +125,7 @@ webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec = {
       name: 'webnn.mojom.WebNNTensor.WriteTensor_Params',
       packedSize: 16,
       fields: [
-        { name: 'src_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'src_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -152,7 +152,7 @@ webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec = {
       name: 'webnn.mojom.WebNNTensor.ImportTensor_Params',
       packedSize: 16,
       fields: [
-        { name: 'fence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'fence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

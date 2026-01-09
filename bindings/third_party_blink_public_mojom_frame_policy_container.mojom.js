@@ -81,7 +81,7 @@ blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = {
       name: 'blink.mojom.PolicyContainerHost.SetReferrerPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'referrer_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'referrer_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = {
       name: 'blink.mojom.PolicyContainerHost.AddContentSecurityPolicies_Params',
       packedSize: 16,
       fields: [
-        { name: 'content_security_policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'content_security_policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

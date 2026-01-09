@@ -80,8 +80,8 @@ passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec = {
       name: 'passage_embeddings.mojom.PassageEmbedder.GenerateEmbeddings_Params',
       packedSize: 24,
       fields: [
-        { name: 'passages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'passages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,7 +94,7 @@ passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec =
       name: 'passage_embeddings.mojom.PassageEmbedder.GenerateEmbeddings_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -169,9 +169,9 @@ passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec = {
       name: 'passage_embeddings.mojom.PassageEmbeddingsService.LoadModels_Params',
       packedSize: 32,
       fields: [
-        { name: 'model_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'model_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -184,7 +184,7 @@ passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec 
       name: 'passage_embeddings.mojom.PassageEmbeddingsService.LoadModels_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

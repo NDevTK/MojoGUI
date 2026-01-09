@@ -125,7 +125,7 @@ media.mojom.ImageCapture_GetPhotoState_ParamsSpec = {
       name: 'media.mojom.ImageCapture.GetPhotoState_Params',
       packedSize: 16,
       fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -138,7 +138,7 @@ media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec = {
       name: 'media.mojom.ImageCapture.GetPhotoState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -152,8 +152,8 @@ media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec = {
       name: 'media.mojom.ImageCapture.SetPhotoOptions_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -166,7 +166,7 @@ media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec = {
       name: 'media.mojom.ImageCapture.SetPhotoOptions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -180,7 +180,7 @@ media.mojom.ImageCapture_TakePhoto_ParamsSpec = {
       name: 'media.mojom.ImageCapture.TakePhoto_Params',
       packedSize: 16,
       fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -193,7 +193,7 @@ media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec = {
       name: 'media.mojom.ImageCapture.TakePhoto_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

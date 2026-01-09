@@ -84,7 +84,7 @@ network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = {
       name: 'network.mojom.SSLConfigClient.OnSSLConfigUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'ssl_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ssl_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

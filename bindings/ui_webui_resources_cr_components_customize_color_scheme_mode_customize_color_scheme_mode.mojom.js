@@ -79,8 +79,8 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateC
       name: 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory.CreateCustomizeColorSchemeModeHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'pending_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'pending_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pending_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'pending_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -164,7 +164,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorScheme
       name: 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler.SetColorSchemeMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'colorSchemeMode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'colorSchemeMode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -252,7 +252,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeM
       name: 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient.SetColorSchemeMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'colorSchemeMode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'colorSchemeMode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

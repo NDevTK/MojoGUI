@@ -108,7 +108,7 @@ privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec = {
       name: 'privacy_sandbox_internals.mojom.PageHandler.ReadPrefsWithPrefixes_Params',
       packedSize: 16,
       fields: [
-        { name: 'pref_prefixes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pref_prefixes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +121,7 @@ privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParams
       name: 'privacy_sandbox_internals.mojom.PageHandler.ReadPrefsWithPrefixes_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'prefs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'prefs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,7 +135,7 @@ privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec = {
       name: 'privacy_sandbox_internals.mojom.PageHandler.ReadContentSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,7 +148,7 @@ privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSp
       name: 'privacy_sandbox_internals.mojom.PageHandler.ReadContentSettings_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'content_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'content_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -174,7 +174,7 @@ privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParams
       name: 'privacy_sandbox_internals.mojom.PageHandler.GetTpcdMetadataGrants_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'content_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'content_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -188,7 +188,7 @@ privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_Param
       name: 'privacy_sandbox_internals.mojom.PageHandler.ContentSettingsPatternToString_Params',
       packedSize: 16,
       fields: [
-        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -201,7 +201,7 @@ privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_Respo
       name: 'privacy_sandbox_internals.mojom.PageHandler.ContentSettingsPatternToString_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -215,7 +215,7 @@ privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_Param
       name: 'privacy_sandbox_internals.mojom.PageHandler.StringToContentSettingsPattern_Params',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -228,7 +228,7 @@ privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_Respo
       name: 'privacy_sandbox_internals.mojom.PageHandler.StringToContentSettingsPattern_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

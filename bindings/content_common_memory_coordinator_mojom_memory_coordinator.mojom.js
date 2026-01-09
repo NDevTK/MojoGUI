@@ -94,7 +94,7 @@ content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = {
       name: 'content.mojom.ChildMemoryConsumer.NotifyUpdateMemoryLimit_Params',
       packedSize: 16,
       fields: [
-        { name: 'percentage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'percentage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -169,9 +169,9 @@ content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSp
       name: 'content.mojom.BrowserMemoryConsumerRegistry.RegisterChildMemoryConsumer_Params',
       packedSize: 32,
       fields: [
-        { name: 'consumer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'traits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'child_consumer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'consumer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'traits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'child_consumer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

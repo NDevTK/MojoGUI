@@ -113,8 +113,8 @@ optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec = {
       name: 'optimization_guide.mojom.ModelSolution.CreateSession_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -128,7 +128,7 @@ optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec = {
       name: 'optimization_guide.mojom.ModelSolution.CreateTextSafetySession_Params',
       packedSize: 16,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -225,7 +225,7 @@ optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec = {
       name: 'optimization_guide.mojom.ModelSubscriber.Unavailable_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -239,8 +239,8 @@ optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec = {
       name: 'optimization_guide.mojom.ModelSubscriber.Available_Params',
       packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'solution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'solution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -315,8 +315,8 @@ optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec = {
       name: 'optimization_guide.mojom.ModelBroker.Subscribe_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'subcriber', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subcriber', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

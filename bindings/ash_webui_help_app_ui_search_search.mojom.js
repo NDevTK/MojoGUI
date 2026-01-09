@@ -165,8 +165,8 @@ ash.help_app.mojom.SearchHandler_Search_ParamsSpec = {
       name: 'ash.help_app.mojom.SearchHandler.Search_Params',
       packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -179,7 +179,7 @@ ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec = {
       name: 'ash.help_app.mojom.SearchHandler.Search_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -193,7 +193,7 @@ ash.help_app.mojom.SearchHandler_Update_ParamsSpec = {
       name: 'ash.help_app.mojom.SearchHandler.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'concepts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'concepts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -207,7 +207,7 @@ ash.help_app.mojom.SearchHandler_Observe_ParamsSpec = {
       name: 'ash.help_app.mojom.SearchHandler.Observe_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

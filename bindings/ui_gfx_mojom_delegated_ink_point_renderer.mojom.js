@@ -81,7 +81,7 @@ gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = {
       name: 'gfx.mojom.DelegatedInkPointRenderer.StoreDelegatedInkPoint_Params',
       packedSize: 16,
       fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

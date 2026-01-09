@@ -161,7 +161,7 @@ discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec = {
       name: 'discards.mojom.DetailsProvider.GetTabDiscardsInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,8 +175,8 @@ discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec = {
       name: 'discards.mojom.DetailsProvider.SetAutoDiscardable_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_auto_discardable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_auto_discardable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -190,8 +190,8 @@ discards.mojom.DetailsProvider_DiscardById_ParamsSpec = {
       name: 'discards.mojom.DetailsProvider.DiscardById_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -205,7 +205,7 @@ discards.mojom.DetailsProvider_FreezeById_ParamsSpec = {
       name: 'discards.mojom.DetailsProvider.FreezeById_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -219,7 +219,7 @@ discards.mojom.DetailsProvider_LoadById_ParamsSpec = {
       name: 'discards.mojom.DetailsProvider.LoadById_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -414,7 +414,7 @@ discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.FrameCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -428,7 +428,7 @@ discards.mojom.GraphChangeStream_PageCreated_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.PageCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'pages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -442,7 +442,7 @@ discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.ProcessCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -456,7 +456,7 @@ discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.WorkerCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -470,7 +470,7 @@ discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.FrameChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -484,7 +484,7 @@ discards.mojom.GraphChangeStream_PageChanged_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.PageChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -498,7 +498,7 @@ discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.ProcessChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -512,7 +512,7 @@ discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.WorkerChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -526,7 +526,7 @@ discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.FavIconDataAvailable_Params',
       packedSize: 16,
       fields: [
-        { name: 'favicon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'favicon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -540,7 +540,7 @@ discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.NodeDeleted_Params',
       packedSize: 16,
       fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -624,7 +624,7 @@ discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec = {
       name: 'discards.mojom.GraphDump.SubscribeToChanges_Params',
       packedSize: 16,
       fields: [
-        { name: 'change_subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'change_subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -638,7 +638,7 @@ discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = {
       name: 'discards.mojom.GraphDump.RequestNodeDescriptions_Params',
       packedSize: 16,
       fields: [
-        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -651,7 +651,7 @@ discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec = {
       name: 'discards.mojom.GraphDump.RequestNodeDescriptions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'node_descriptions_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_descriptions_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

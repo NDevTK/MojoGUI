@@ -73,8 +73,8 @@ chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec = {
       name: 'chromecast.shell.mojom.QueryableDataStore.Set_Params',
       packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

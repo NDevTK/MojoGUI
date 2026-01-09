@@ -72,7 +72,7 @@ blink.mojom.SessionStorageNamespace_Clone_ParamsSpec = {
       name: 'blink.mojom.SessionStorageNamespace.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'clone_to_namespace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'clone_to_namespace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -119,7 +119,7 @@ blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec = {
       name: 'blink.mojom.ModelStreamingResponder.OnCompletion_Params',
       packedSize: 16,
       fields: [
-        { name: 'context_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'context_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -133,8 +133,8 @@ blink.mojom.ModelStreamingResponder_OnError_ParamsSpec = {
       name: 'blink.mojom.ModelStreamingResponder.OnError_Params',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -148,7 +148,7 @@ blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec = {
       name: 'blink.mojom.ModelStreamingResponder.OnStreaming_Params',
       packedSize: 16,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

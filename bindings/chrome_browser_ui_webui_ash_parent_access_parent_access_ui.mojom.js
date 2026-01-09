@@ -158,8 +158,8 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec = 
       name: 'parent_access_ui.mojom.ParentAccessUiHandler.GetOauthToken_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'oauth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'oauth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -173,7 +173,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_Para
       name: 'parent_access_ui.mojom.ParentAccessUiHandler.OnParentAccessCallbackReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'encoded_parent_access_callback_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'encoded_parent_access_callback_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -186,7 +186,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_Resp
       name: 'parent_access_ui.mojom.ParentAccessUiHandler.OnParentAccessCallbackReceived_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -212,7 +212,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParam
       name: 'parent_access_ui.mojom.ParentAccessUiHandler.GetParentAccessParams_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -238,7 +238,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSp
       name: 'parent_access_ui.mojom.ParentAccessUiHandler.GetParentAccessUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -252,7 +252,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec = {
       name: 'parent_access_ui.mojom.ParentAccessUiHandler.OnParentAccessDone_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -178,8 +178,8 @@ blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec = {
       name: 'blink.mojom.PageBroadcast.SetPageLifecycleState_Params',
       packedSize: 24,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'page_restore_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_restore_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -193,7 +193,7 @@ blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec = {
       name: 'blink.mojom.PageBroadcast.AudioStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_audio_playing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_audio_playing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -207,7 +207,7 @@ blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec = {
       name: 'blink.mojom.PageBroadcast.ActivatePrerenderedPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'prerender_page_activation_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'prerender_page_activation_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -221,7 +221,7 @@ blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec = {
       name: 'blink.mojom.PageBroadcast.UpdateWebPreferences_Params',
       packedSize: 16,
       fields: [
-        { name: 'preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -235,7 +235,7 @@ blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec = {
       name: 'blink.mojom.PageBroadcast.UpdateRendererPreferences_Params',
       packedSize: 16,
       fields: [
-        { name: 'preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -249,8 +249,8 @@ blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec = {
       name: 'blink.mojom.PageBroadcast.SetHistoryIndexAndLength_Params',
       packedSize: 24,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -264,7 +264,7 @@ blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec = {
       name: 'blink.mojom.PageBroadcast.SetPageBaseBackgroundColor_Params',
       packedSize: 16,
       fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -278,14 +278,14 @@ blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec = {
       name: 'blink.mojom.PageBroadcast.CreateRemoteMainFrame_Params',
       packedSize: 72,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'opener_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'replication_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_loading', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'devtools_frame_token', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'navigation_metrics_token', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'remote_frame_interfaces', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'remote_main_frame_interfaces', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'opener_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'replication_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_loading', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'devtools_frame_token', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'navigation_metrics_token', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'remote_frame_interfaces', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_main_frame_interfaces', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -299,7 +299,7 @@ blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec = {
       name: 'blink.mojom.PageBroadcast.UpdatePageBrowsingContextGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'browsing_context_group_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'browsing_context_group_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -313,7 +313,7 @@ blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec = {
       name: 'blink.mojom.PageBroadcast.SetPageAttributionSupport_Params',
       packedSize: 16,
       fields: [
-        { name: 'support', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'support', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -327,7 +327,7 @@ blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec = {
       name: 'blink.mojom.PageBroadcast.UpdateColorProviders_Params',
       packedSize: 16,
       fields: [
-        { name: 'color_provider_colors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'color_provider_colors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -341,7 +341,7 @@ blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec = {
       name: 'blink.mojom.PageBroadcast.SetSupportsDraggableRegions_Params',
       packedSize: 16,
       fields: [
-        { name: 'supports_draggable_regions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'supports_draggable_regions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

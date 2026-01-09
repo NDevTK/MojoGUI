@@ -72,12 +72,12 @@ metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec =
       name: 'metrics.mojom.SingleSampleMetricsProvider.AcquireSingleSampleMetric_Params',
       packedSize: 56,
       fields: [
-        { name: 'histogram_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'min', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'max', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'bucket_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'receiver', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'histogram_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'min', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'max', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'bucket_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'receiver', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -152,7 +152,7 @@ metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec = {
       name: 'metrics.mojom.SingleSampleMetric.SetSample_Params',
       packedSize: 16,
       fields: [
-        { name: 'sample', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sample', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

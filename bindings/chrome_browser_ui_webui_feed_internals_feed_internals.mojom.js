@@ -199,7 +199,7 @@ feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec = {
       name: 'feed_internals.mojom.PageHandler.GetGeneralProperties_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -225,7 +225,7 @@ feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec = {
       name: 'feed_internals.mojom.PageHandler.GetLastFetchProperties_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -290,7 +290,7 @@ feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec = {
       name: 'feed_internals.mojom.PageHandler.GetFeedProcessScopeDump_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'dump', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dump', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -316,7 +316,7 @@ feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec = {
       name: 'feed_internals.mojom.PageHandler.GetFeedHistograms_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -330,7 +330,7 @@ feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec = {
       name: 'feed_internals.mojom.PageHandler.OverrideFeedHost_Params',
       packedSize: 16,
       fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -344,7 +344,7 @@ feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec = {
       name: 'feed_internals.mojom.PageHandler.OverrideDiscoverApiEndpoint_Params',
       packedSize: 16,
       fields: [
-        { name: 'endpoint_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'endpoint_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -358,7 +358,7 @@ feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec = {
       name: 'feed_internals.mojom.PageHandler.OverrideFeedStreamData_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -372,7 +372,7 @@ feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec = 
       name: 'feed_internals.mojom.PageHandler.SetWebFeedFollowIntroDebugEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -386,7 +386,7 @@ feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec = {
       name: 'feed_internals.mojom.PageHandler.SetUseFeedQueryRequests_Params',
       packedSize: 16,
       fields: [
-        { name: 'use_legacy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'use_legacy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -400,7 +400,7 @@ feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec = {
       name: 'feed_internals.mojom.PageHandler.SetFollowingFeedOrder_Params',
       packedSize: 16,
       fields: [
-        { name: 'order', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'order', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

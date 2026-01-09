@@ -195,7 +195,7 @@ actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec = {
       name: 'actor.mojom.JournalClient.AddEntriesToJournal_Params',
       packedSize: 16,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -270,7 +270,7 @@ actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec = {
       name: 'actor.mojom.PageStabilityMonitor.NotifyWhenStable_Params',
       packedSize: 16,
       fields: [
-        { name: 'observation_delay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observation_delay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

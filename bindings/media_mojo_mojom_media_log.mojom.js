@@ -72,7 +72,7 @@ media.mojom.MediaLog_AddLogRecord_ParamsSpec = {
       name: 'media.mojom.MediaLog.AddLogRecord_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

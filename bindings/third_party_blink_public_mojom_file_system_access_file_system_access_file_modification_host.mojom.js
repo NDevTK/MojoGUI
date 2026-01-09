@@ -81,7 +81,7 @@ blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpe
       name: 'blink.mojom.FileSystemAccessFileModificationHost.RequestCapacityChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'capacity_delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'capacity_delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,7 +94,7 @@ blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseP
       name: 'blink.mojom.FileSystemAccessFileModificationHost.RequestCapacityChange_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'granted_capacity_delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'granted_capacity_delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }

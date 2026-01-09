@@ -72,8 +72,8 @@ tab_strip.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'tab_strip.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -304,7 +304,7 @@ tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.GetGroupVisualData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -330,7 +330,7 @@ tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.GetTabs_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -344,8 +344,8 @@ tab_strip.mojom.PageHandler_CloseTab_ParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.CloseTab_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'tab_was_swiped', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tab_was_swiped', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -359,8 +359,8 @@ tab_strip.mojom.PageHandler_GroupTab_ParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.GroupTab_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -374,8 +374,8 @@ tab_strip.mojom.PageHandler_MoveGroup_ParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.MoveGroup_Params',
       packedSize: 24,
       fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'to_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'to_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -389,8 +389,8 @@ tab_strip.mojom.PageHandler_MoveTab_ParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.MoveTab_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'to_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'to_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -404,8 +404,8 @@ tab_strip.mojom.PageHandler_SetThumbnailTracked_ParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.SetThumbnailTracked_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'thumbnail_tracked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'thumbnail_tracked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -419,7 +419,7 @@ tab_strip.mojom.PageHandler_UngroupTab_ParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.UngroupTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -445,7 +445,7 @@ tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.GetLayout_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -459,11 +459,11 @@ tab_strip.mojom.PageHandler_ShowEditDialogForGroup_ParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.ShowEditDialogForGroup_Params',
       packedSize: 48,
       fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'location_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'location_y', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'width', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'height', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'location_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'location_y', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'width', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'height', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -477,9 +477,9 @@ tab_strip.mojom.PageHandler_ShowTabContextMenu_ParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.ShowTabContextMenu_Params',
       packedSize: 32,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'location_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'location_y', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'location_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'location_y', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -493,8 +493,8 @@ tab_strip.mojom.PageHandler_ShowBackgroundContextMenu_ParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.ShowBackgroundContextMenu_Params',
       packedSize: 24,
       fields: [
-        { name: 'location_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'location_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'location_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'location_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -521,7 +521,7 @@ tab_strip.mojom.PageHandler_ReportTabActivationDuration_ParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.ReportTabActivationDuration_Params',
       packedSize: 16,
       fields: [
-        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -535,8 +535,8 @@ tab_strip.mojom.PageHandler_ReportTabDataReceivedDuration_ParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.ReportTabDataReceivedDuration_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'duration_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'duration_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -550,8 +550,8 @@ tab_strip.mojom.PageHandler_ReportTabCreationDuration_ParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.ReportTabCreationDuration_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'duration_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'duration_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -565,7 +565,7 @@ tab_strip.mojom.PageHandler_ActivateTab_ParamsSpec = {
       name: 'tab_strip.mojom.PageHandler.ActivateTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -793,7 +793,7 @@ tab_strip.mojom.Page_LayoutChanged_ParamsSpec = {
       name: 'tab_strip.mojom.Page.LayoutChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -846,8 +846,8 @@ tab_strip.mojom.Page_TabGroupVisualsChanged_ParamsSpec = {
       name: 'tab_strip.mojom.Page.TabGroupVisualsChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'tab_group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'tab_group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -861,8 +861,8 @@ tab_strip.mojom.Page_TabGroupMoved_ParamsSpec = {
       name: 'tab_strip.mojom.Page.TabGroupMoved_Params',
       packedSize: 24,
       fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -876,7 +876,7 @@ tab_strip.mojom.Page_TabGroupClosed_ParamsSpec = {
       name: 'tab_strip.mojom.Page.TabGroupClosed_Params',
       packedSize: 16,
       fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -890,8 +890,8 @@ tab_strip.mojom.Page_TabGroupStateChanged_ParamsSpec = {
       name: 'tab_strip.mojom.Page.TabGroupStateChanged_Params',
       packedSize: 32,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'group_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
@@ -906,7 +906,7 @@ tab_strip.mojom.Page_TabCloseCancelled_ParamsSpec = {
       name: 'tab_strip.mojom.Page.TabCloseCancelled_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -920,7 +920,7 @@ tab_strip.mojom.Page_TabCreated_ParamsSpec = {
       name: 'tab_strip.mojom.Page.TabCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -934,7 +934,7 @@ tab_strip.mojom.Page_TabRemoved_ParamsSpec = {
       name: 'tab_strip.mojom.Page.TabRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -948,9 +948,9 @@ tab_strip.mojom.Page_TabMoved_ParamsSpec = {
       name: 'tab_strip.mojom.Page.TabMoved_Params',
       packedSize: 32,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'to_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'in_pinned', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'to_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'in_pinned', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -964,8 +964,8 @@ tab_strip.mojom.Page_TabReplaced_ParamsSpec = {
       name: 'tab_strip.mojom.Page.TabReplaced_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'new_tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -979,7 +979,7 @@ tab_strip.mojom.Page_TabActiveChanged_ParamsSpec = {
       name: 'tab_strip.mojom.Page.TabActiveChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -993,7 +993,7 @@ tab_strip.mojom.Page_TabUpdated_ParamsSpec = {
       name: 'tab_strip.mojom.Page.TabUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1007,8 +1007,8 @@ tab_strip.mojom.Page_TabThumbnailUpdated_ParamsSpec = {
       name: 'tab_strip.mojom.Page.TabThumbnailUpdated_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'data_uri', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'data_uri', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

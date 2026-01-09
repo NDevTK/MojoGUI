@@ -88,7 +88,7 @@ remote_cocoa.mojom.AlertBridge_Show_ParamsSpec = {
       name: 'remote_cocoa.mojom.AlertBridge.Show_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,9 +101,9 @@ remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec = {
       name: 'remote_cocoa.mojom.AlertBridge.Show_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'disposition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'text_field_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'check_box_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'disposition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text_field_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'check_box_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

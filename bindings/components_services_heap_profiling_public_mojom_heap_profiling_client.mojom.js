@@ -93,7 +93,7 @@ heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec = {
       name: 'heap_profiling.mojom.ProfilingClient.StartProfiling_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -119,7 +119,7 @@ heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec = {
       name: 'heap_profiling.mojom.ProfilingClient.RetrieveHeapProfile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

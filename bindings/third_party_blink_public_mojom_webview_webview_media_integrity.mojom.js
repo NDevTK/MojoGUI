@@ -81,8 +81,8 @@ blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec = {
       name: 'blink.mojom.WebViewMediaIntegrityService.GetIntegrityProvider_Params',
       packedSize: 24,
       fields: [
-        { name: 'provider_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cloud_project_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'provider_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'cloud_project_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec
       name: 'blink.mojom.WebViewMediaIntegrityService.GetIntegrityProvider_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -183,7 +183,7 @@ blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec = {
       name: 'blink.mojom.WebViewMediaIntegrityProvider.RequestToken_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -72,8 +72,8 @@ commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_Pa
       name: 'commerce.mojom.CommerceInternalsHandlerFactory.CreateCommerceInternalsHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -214,7 +214,7 @@ commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParams
       name: 'commerce.mojom.CommerceInternalsHandler.GetIsShoppingListEligible_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -241,7 +241,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = {
       name: 'commerce.mojom.CommerceInternalsHandler.GetProductInfoForUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -254,7 +254,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec 
       name: 'commerce.mojom.CommerceInternalsHandler.GetProductInfoForUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -280,7 +280,7 @@ commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpe
       name: 'commerce.mojom.CommerceInternalsHandler.GetSubscriptionDetails_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'subscriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'subscriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -306,7 +306,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_Response
       name: 'commerce.mojom.CommerceInternalsHandler.GetProductSpecificationsDetails_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'product_specifications_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'product_specifications_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -345,7 +345,7 @@ commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponsePa
       name: 'commerce.mojom.CommerceInternalsHandler.GetShoppingEligibilityDetails_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -420,7 +420,7 @@ commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec
       name: 'commerce.mojom.CommerceInternalsPage.OnShoppingListEligibilityChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

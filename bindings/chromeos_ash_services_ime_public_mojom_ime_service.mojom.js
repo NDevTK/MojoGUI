@@ -82,10 +82,10 @@ ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec = {
       name: 'ash.ime.mojom.InputEngineManager.ConnectToImeEngine_Params',
       packedSize: 40,
       fields: [
-        { name: 'ime_spec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'to_engine_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'from_engine', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ime_spec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'to_engine_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'from_engine', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -98,7 +98,7 @@ ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec = {
       name: 'ash.ime.mojom.InputEngineManager.ConnectToImeEngine_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,7 +112,7 @@ ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec = {
       name: 'ash.ime.mojom.InputEngineManager.InitializeConnectionFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'connection_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'connection_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,7 +125,7 @@ ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec 
       name: 'ash.ime.mojom.InputEngineManager.InitializeConnectionFactory_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -200,8 +200,8 @@ ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec = {
       name: 'ash.ime.mojom.PlatformAccessProvider.DownloadImeFileTo_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -214,7 +214,7 @@ ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec = {
       name: 'ash.ime.mojom.PlatformAccessProvider.DownloadImeFileTo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -307,7 +307,7 @@ ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec = {
       name: 'ash.ime.mojom.ImeService.SetPlatformAccessProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -321,7 +321,7 @@ ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec = {
       name: 'ash.ime.mojom.ImeService.BindInputEngineManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -335,7 +335,7 @@ ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec = {
       name: 'ash.ime.mojom.ImeService.BindInputMethodUserDataService_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

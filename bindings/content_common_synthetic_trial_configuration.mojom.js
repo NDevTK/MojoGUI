@@ -81,7 +81,7 @@ content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_Params
       name: 'content.mojom.SyntheticTrialConfiguration.AddOrUpdateSyntheticTrialGroups_Params',
       packedSize: 16,
       fields: [
-        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec 
       name: 'content.mojom.SyntheticTrialConfiguration.RemoveSyntheticTrialGroups_Params',
       packedSize: 16,
       fields: [
-        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

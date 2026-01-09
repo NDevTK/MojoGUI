@@ -132,7 +132,7 @@ device.mojom.SensorProvider_GetSensor_ParamsSpec = {
       name: 'device.mojom.SensorProvider.GetSensor_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -145,8 +145,8 @@ device.mojom.SensorProvider_GetSensor_ResponseParamsSpec = {
       name: 'device.mojom.SensorProvider.GetSensor_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'init_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'init_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -160,8 +160,8 @@ device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec = {
       name: 'device.mojom.SensorProvider.CreateVirtualSensor_Params',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -174,7 +174,7 @@ device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec = {
       name: 'device.mojom.SensorProvider.CreateVirtualSensor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -188,8 +188,8 @@ device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec = {
       name: 'device.mojom.SensorProvider.UpdateVirtualSensor_Params',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'reading', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reading', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -202,7 +202,7 @@ device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec = {
       name: 'device.mojom.SensorProvider.UpdateVirtualSensor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -216,7 +216,7 @@ device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec = {
       name: 'device.mojom.SensorProvider.RemoveVirtualSensor_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -230,7 +230,7 @@ device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec = {
       name: 'device.mojom.SensorProvider.GetVirtualSensorInformation_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -243,7 +243,7 @@ device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec = {
       name: 'device.mojom.SensorProvider.GetVirtualSensorInformation_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -72,7 +72,7 @@ blink.mojom.ImageReleaseCallback_Release_ParamsSpec = {
       name: 'blink.mojom.ImageReleaseCallback.Release_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -97,15 +97,15 @@ page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = {
       name: 'page_load_metrics.mojom.PageLoadMetrics.UpdateTiming_Params',
       packedSize: 80,
       fields: [
-        { name: 'page_load_timing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'frame_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_features', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'resources', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'render_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cpu_load_timing', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'input_timing_delta', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'subresource_load_metrics', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'soft_navigation_metrics', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_load_timing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_features', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'resources', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'render_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cpu_load_timing', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_timing_delta', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subresource_load_metrics', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'soft_navigation_metrics', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -119,7 +119,7 @@ page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_Params
       name: 'page_load_metrics.mojom.PageLoadMetrics.SetUpSharedMemoryForDroppedFrames_Params',
       packedSize: 16,
       fields: [
-        { name: 'dropped_frames_memory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dropped_frames_memory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -133,7 +133,7 @@ page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = {
       name: 'page_load_metrics.mojom.PageLoadMetrics.AddCustomUserTiming_Params',
       packedSize: 16,
       fields: [
-        { name: 'custom_user_timing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'custom_user_timing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -72,7 +72,7 @@ web_cache.mojom.WebCache_ClearCache_ParamsSpec = {
       name: 'web_cache.mojom.WebCache.ClearCache_Params',
       packedSize: 16,
       fields: [
-        { name: 'on_navigation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'on_navigation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -108,7 +108,7 @@ blink.mojom.SerialService_SetClient_ParamsSpec = {
       name: 'blink.mojom.SerialService.SetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,7 +134,7 @@ blink.mojom.SerialService_GetPorts_ResponseParamsSpec = {
       name: 'blink.mojom.SerialService.GetPorts_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,8 +148,8 @@ blink.mojom.SerialService_RequestPort_ParamsSpec = {
       name: 'blink.mojom.SerialService.RequestPort_Params',
       packedSize: 24,
       fields: [
-        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'allowed_bluetooth_service_class_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'allowed_bluetooth_service_class_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -162,7 +162,7 @@ blink.mojom.SerialService_RequestPort_ResponseParamsSpec = {
       name: 'blink.mojom.SerialService.RequestPort_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -176,9 +176,9 @@ blink.mojom.SerialService_OpenPort_ParamsSpec = {
       name: 'blink.mojom.SerialService.OpenPort_Params',
       packedSize: 32,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -191,7 +191,7 @@ blink.mojom.SerialService_OpenPort_ResponseParamsSpec = {
       name: 'blink.mojom.SerialService.OpenPort_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -205,7 +205,7 @@ blink.mojom.SerialService_ForgetPort_ParamsSpec = {
       name: 'blink.mojom.SerialService.ForgetPort_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -280,7 +280,7 @@ blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec = {
       name: 'blink.mojom.SerialServiceClient.OnPortConnectedStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'port_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'port_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

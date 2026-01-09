@@ -81,10 +81,10 @@ network.mojom.URLLoader_FollowRedirect_ParamsSpec = {
       name: 'network.mojom.URLLoader.FollowRedirect_Params',
       packedSize: 40,
       fields: [
-        { name: 'removed_headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'modified_headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'modified_cors_exempt_headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'removed_headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'modified_headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'modified_cors_exempt_headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -98,8 +98,8 @@ network.mojom.URLLoader_SetPriority_ParamsSpec = {
       name: 'network.mojom.URLLoader.SetPriority_Params',
       packedSize: 24,
       fields: [
-        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'intra_priority_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'intra_priority_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -219,7 +219,7 @@ network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = {
       name: 'network.mojom.URLLoaderClient.OnReceiveEarlyHints_Params',
       packedSize: 16,
       fields: [
-        { name: 'early_hints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'early_hints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -233,9 +233,9 @@ network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = {
       name: 'network.mojom.URLLoaderClient.OnReceiveResponse_Params',
       packedSize: 32,
       fields: [
-        { name: 'head', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'body', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cached_metadata', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'head', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'body', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'cached_metadata', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -249,8 +249,8 @@ network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec = {
       name: 'network.mojom.URLLoaderClient.OnReceiveRedirect_Params',
       packedSize: 24,
       fields: [
-        { name: 'redirect_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'head', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'redirect_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'head', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -264,8 +264,8 @@ network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec = {
       name: 'network.mojom.URLLoaderClient.OnUploadProgress_Params',
       packedSize: 24,
       fields: [
-        { name: 'current_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'total_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'current_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'total_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -279,7 +279,7 @@ network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec = {
       name: 'network.mojom.URLLoaderClient.OnTransferSizeUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'transfer_size_diff', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'transfer_size_diff', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -293,7 +293,7 @@ network.mojom.URLLoaderClient_OnComplete_ParamsSpec = {
       name: 'network.mojom.URLLoaderClient.OnComplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -164,9 +164,9 @@ screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = {
       name: 'screen_ai.mojom.ScreenAIServiceFactory.InitializeOCR_Params',
       packedSize: 32,
       fields: [
-        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ocr_service_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'ocr_service_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -179,7 +179,7 @@ screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec = {
       name: 'screen_ai.mojom.ScreenAIServiceFactory.InitializeOCR_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -193,9 +193,9 @@ screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpe
       name: 'screen_ai.mojom.ScreenAIServiceFactory.InitializeMainContentExtraction_Params',
       packedSize: 32,
       fields: [
-        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'main_content_extractor_service', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'main_content_extractor_service', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -208,7 +208,7 @@ screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseP
       name: 'screen_ai.mojom.ScreenAIServiceFactory.InitializeMainContentExtraction_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,7 +222,7 @@ screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = {
       name: 'screen_ai.mojom.ScreenAIServiceFactory.BindShutdownHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'shutdown_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'shutdown_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

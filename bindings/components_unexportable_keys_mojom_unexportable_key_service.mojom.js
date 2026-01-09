@@ -144,8 +144,8 @@ unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec = {
       name: 'unexportable_keys.mojom.UnexportableKeyService.GenerateSigningKey_Params',
       packedSize: 24,
       fields: [
-        { name: 'acceptable_algorithms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'acceptable_algorithms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -159,8 +159,8 @@ unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec 
       name: 'unexportable_keys.mojom.UnexportableKeyService.FromWrappedSigningKey_Params',
       packedSize: 24,
       fields: [
-        { name: 'wrapped_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'wrapped_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -174,9 +174,9 @@ unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec = {
       name: 'unexportable_keys.mojom.UnexportableKeyService.Sign_Params',
       packedSize: 32,
       fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -190,7 +190,7 @@ unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollec
       name: 'unexportable_keys.mojom.UnexportableKeyService.GetAllSigningKeysForGarbageCollection_Params',
       packedSize: 16,
       fields: [
-        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,8 +204,8 @@ unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec = {
       name: 'unexportable_keys.mojom.UnexportableKeyService.DeleteKey_Params',
       packedSize: 24,
       fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -218,7 +218,7 @@ unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec = {
       name: 'unexportable_keys.mojom.UnexportableKeyService.DeleteKey_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -232,7 +232,7 @@ unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec = {
       name: 'unexportable_keys.mojom.UnexportableKeyService.DeleteAllKeys_Params',
       packedSize: 16,
       fields: [
-        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

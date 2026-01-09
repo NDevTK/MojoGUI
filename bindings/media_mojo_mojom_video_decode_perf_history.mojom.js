@@ -72,7 +72,7 @@ media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = {
       name: 'media.mojom.VideoDecodePerfHistory.GetPerfInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,8 +85,8 @@ media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec = {
       name: 'media.mojom.VideoDecodePerfHistory.GetPerfInfo_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'is_smooth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_power_efficient', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_smooth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_power_efficient', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

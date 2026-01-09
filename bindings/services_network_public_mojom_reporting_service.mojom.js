@@ -98,7 +98,7 @@ network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = {
       name: 'network.mojom.ReportingApiObserver.OnReportAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,7 +112,7 @@ network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = {
       name: 'network.mojom.ReportingApiObserver.OnReportUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -126,7 +126,7 @@ network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec = {
       name: 'network.mojom.ReportingApiObserver.OnEndpointsUpdatedForOrigin_Params',
       packedSize: 16,
       fields: [
-        { name: 'endpoints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'endpoints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

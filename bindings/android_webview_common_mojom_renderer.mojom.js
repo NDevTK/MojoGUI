@@ -94,7 +94,7 @@ android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec = {
       name: 'android_webview.mojom.Renderer.SetJsOnlineProperty_Params',
       packedSize: 16,
       fields: [
-        { name: 'network_up', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'network_up', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

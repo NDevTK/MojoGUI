@@ -93,7 +93,7 @@ blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_ResponseParamsSpec =
       name: 'blink.mojom.FileSystemAccessDataTransferToken.GetInternalId_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -107,7 +107,7 @@ blink.mojom.FileSystemAccessDataTransferToken_Clone_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessDataTransferToken.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'token_clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token_clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

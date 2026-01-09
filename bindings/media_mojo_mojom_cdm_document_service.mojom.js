@@ -117,8 +117,8 @@ media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = {
       name: 'media.mojom.CdmDocumentService.ChallengePlatform_Params',
       packedSize: 24,
       fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'challenge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'challenge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -131,10 +131,10 @@ media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = {
       name: 'media.mojom.CdmDocumentService.ChallengePlatform_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'signed_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'signed_data_signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'platform_key_certificate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'signed_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'signed_data_signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'platform_key_certificate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,7 +148,7 @@ media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = {
       name: 'media.mojom.CdmDocumentService.GetStorageId_Params',
       packedSize: 16,
       fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -161,8 +161,8 @@ media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = {
       name: 'media.mojom.CdmDocumentService.GetStorageId_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'storage_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'storage_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -188,7 +188,7 @@ media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec = {
       name: 'media.mojom.CdmDocumentService.IsVerifiedAccessEnabled_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -214,7 +214,7 @@ media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = {
       name: 'media.mojom.CdmDocumentService.GetMediaFoundationCdmData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'cdm_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cdm_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -228,7 +228,7 @@ media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = {
       name: 'media.mojom.CdmDocumentService.SetCdmClientToken_Params',
       packedSize: 16,
       fields: [
-        { name: 'client_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -242,8 +242,8 @@ media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = {
       name: 'media.mojom.CdmDocumentService.OnCdmEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'hresult', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hresult', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

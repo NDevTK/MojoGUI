@@ -72,7 +72,7 @@ blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec = {
       name: 'blink.mojom.ImeRenderWidgetHost.UpdateCursorAnchorInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'cursor_anchor_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cursor_anchor_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

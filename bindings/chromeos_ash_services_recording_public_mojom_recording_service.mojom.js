@@ -99,7 +99,7 @@ recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec
       name: 'recording.mojom.DriveFsQuotaDelegate.GetDriveFsFreeSpaceBytes_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'free_remaining_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'free_remaining_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -174,8 +174,8 @@ recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec = {
       name: 'recording.mojom.RecordingServiceClient.OnRecordingEnded_Params',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'thumbnail', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'thumbnail', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -304,15 +304,15 @@ recording.mojom.RecordingService_RecordFullscreen_ParamsSpec = {
       name: 'recording.mojom.RecordingService.RecordFullscreen_Params',
       packedSize: 80,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_capturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'microphone_stream_factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'system_audio_stream_factory', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'drive_fs_quota_delegate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'output_file_path', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'frame_sink_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'frame_sink_size_dip', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'device_scale_factor', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'video_capturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'microphone_stream_factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'system_audio_stream_factory', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'drive_fs_quota_delegate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'output_file_path', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_sink_size_dip', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_scale_factor', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -326,17 +326,17 @@ recording.mojom.RecordingService_RecordWindow_ParamsSpec = {
       name: 'recording.mojom.RecordingService.RecordWindow_Params',
       packedSize: 96,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_capturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'microphone_stream_factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'system_audio_stream_factory', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'drive_fs_quota_delegate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'output_file_path', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'frame_sink_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'frame_sink_size_dip', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'device_scale_factor', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'subtree_capture_id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'window_size_dip', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'video_capturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'microphone_stream_factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'system_audio_stream_factory', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'drive_fs_quota_delegate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'output_file_path', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_sink_size_dip', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_scale_factor', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'subtree_capture_id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'window_size_dip', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -350,16 +350,16 @@ recording.mojom.RecordingService_RecordRegion_ParamsSpec = {
       name: 'recording.mojom.RecordingService.RecordRegion_Params',
       packedSize: 88,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_capturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'microphone_stream_factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'system_audio_stream_factory', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'drive_fs_quota_delegate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'output_file_path', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'frame_sink_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'frame_sink_size_dip', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'device_scale_factor', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'crop_region_dip', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'video_capturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'microphone_stream_factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'system_audio_stream_factory', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'drive_fs_quota_delegate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'output_file_path', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_sink_size_dip', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_scale_factor', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'crop_region_dip', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -386,9 +386,9 @@ recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec = {
       name: 'recording.mojom.RecordingService.OnRecordedWindowChangingRoot_Params',
       packedSize: 32,
       fields: [
-        { name: 'new_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_frame_sink_size_dip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_device_scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_frame_sink_size_dip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_device_scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -402,7 +402,7 @@ recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec = {
       name: 'recording.mojom.RecordingService.OnRecordedWindowSizeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_window_size_dip', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_window_size_dip', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -416,8 +416,8 @@ recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec = {
       name: 'recording.mojom.RecordingService.OnFrameSinkSizeChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'new_frame_sink_size_dip', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_device_scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_frame_sink_size_dip', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_device_scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

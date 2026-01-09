@@ -81,8 +81,8 @@ network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
       name: 'network.mojom.AcceptCHFrameObserver.OnAcceptCHFrameReceived_Params',
       packedSize: 24,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'accept_ch_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'accept_ch_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec =
       name: 'network.mojom.AcceptCHFrameObserver.OnAcceptCHFrameReceived_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -109,7 +109,7 @@ network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = {
       name: 'network.mojom.AcceptCHFrameObserver.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

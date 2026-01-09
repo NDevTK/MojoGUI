@@ -188,7 +188,7 @@ history.mojom.PageHandler_SetPage_ParamsSpec = {
       name: 'history.mojom.PageHandler.SetPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -202,9 +202,9 @@ history.mojom.PageHandler_QueryHistory_ParamsSpec = {
       name: 'history.mojom.PageHandler.QueryHistory_Params',
       packedSize: 32,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'begin_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'begin_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -217,7 +217,7 @@ history.mojom.PageHandler_QueryHistory_ResponseParamsSpec = {
       name: 'history.mojom.PageHandler.QueryHistory_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -243,7 +243,7 @@ history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec = {
       name: 'history.mojom.PageHandler.QueryHistoryContinuation_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -257,7 +257,7 @@ history.mojom.PageHandler_RemoveVisits_ParamsSpec = {
       name: 'history.mojom.PageHandler.RemoveVisits_Params',
       packedSize: 16,
       fields: [
-        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -284,7 +284,7 @@ history.mojom.PageHandler_RemoveBookmark_ParamsSpec = {
       name: 'history.mojom.PageHandler.RemoveBookmark_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -298,7 +298,7 @@ history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec = {
       name: 'history.mojom.PageHandler.SetLastSelectedTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'last_tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'last_tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -337,7 +337,7 @@ history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec = {
       name: 'history.mojom.PageHandler.RequestAccountInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -376,7 +376,7 @@ history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSp
       name: 'history.mojom.PageHandler.ShouldShowHistoryPageHistorySyncPromo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'should_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'should_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -508,7 +508,7 @@ history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec = {
       name: 'history.mojom.Page.OnHasOtherFormsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'has_other_forms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'has_other_forms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -522,7 +522,7 @@ history.mojom.Page_SendAccountInfo_ParamsSpec = {
       name: 'history.mojom.Page.SendAccountInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

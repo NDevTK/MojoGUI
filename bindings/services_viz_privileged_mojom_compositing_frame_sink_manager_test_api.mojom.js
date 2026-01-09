@@ -111,7 +111,7 @@ viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponsePa
       name: 'viz.mojom.FrameSinkManagerTestApi.HasUnclaimedViewTransitionResources_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'has_resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,7 +125,7 @@ viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec 
       name: 'viz.mojom.FrameSinkManagerTestApi.SetSameDocNavigationScreenshotSize_Params',
       packedSize: 16,
       fields: [
-        { name: 'result_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -139,7 +139,7 @@ viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerTestApi.GetForceEnableZoomState_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -152,7 +152,7 @@ viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerTestApi.GetForceEnableZoomState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -166,7 +166,7 @@ viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerTestApi.WaitForSurfaceAnimationManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

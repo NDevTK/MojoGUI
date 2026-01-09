@@ -72,8 +72,8 @@ media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec = {
       name: 'media.mojom.VideoFrameHandleReleaser.ReleaseVideoFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'release_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'release_sync_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'release_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'release_sync_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -205,8 +205,8 @@ media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec = {
       name: 'media.mojom.VideoDecoder.GetSupportedConfigs_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'supported_configs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'decoder_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'supported_configs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'decoder_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,12 +220,12 @@ media.mojom.VideoDecoder_Construct_ParamsSpec = {
       name: 'media.mojom.VideoDecoder.Construct_Params',
       packedSize: 56,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'media_log', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_frame_handle_releaser', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'decoder_buffer_pipe', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'command_buffer_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'target_color_space', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'media_log', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'video_frame_handle_releaser', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'decoder_buffer_pipe', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'command_buffer_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'target_color_space', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -239,9 +239,9 @@ media.mojom.VideoDecoder_Initialize_ParamsSpec = {
       name: 'media.mojom.VideoDecoder.Initialize_Params',
       packedSize: 32,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'low_delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cdm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'low_delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'cdm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -254,11 +254,11 @@ media.mojom.VideoDecoder_Initialize_ResponseParamsSpec = {
       name: 'media.mojom.VideoDecoder.Initialize_ResponseParams',
       packedSize: 48,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'needs_bitstream_conversion', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'max_decode_requests', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'decoder_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'needs_transcryption', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'needs_bitstream_conversion', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'max_decode_requests', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'decoder_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'needs_transcryption', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -272,7 +272,7 @@ media.mojom.VideoDecoder_Decode_ParamsSpec = {
       name: 'media.mojom.VideoDecoder.Decode_Params',
       packedSize: 16,
       fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -285,7 +285,7 @@ media.mojom.VideoDecoder_Decode_ResponseParamsSpec = {
       name: 'media.mojom.VideoDecoder.Decode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -312,7 +312,7 @@ media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec = {
       name: 'media.mojom.VideoDecoder.OnOverlayInfoChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'overlay_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'overlay_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -405,9 +405,9 @@ media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec = {
       name: 'media.mojom.VideoDecoderClient.OnVideoFrameDecoded_Params',
       packedSize: 32,
       fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'can_read_without_stalling', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'release_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'can_read_without_stalling', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'release_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -421,7 +421,7 @@ media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec = {
       name: 'media.mojom.VideoDecoderClient.OnWaiting_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

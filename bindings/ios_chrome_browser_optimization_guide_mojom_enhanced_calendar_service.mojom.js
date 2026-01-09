@@ -72,7 +72,7 @@ ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec = {
       name: 'ai.mojom.EnhancedCalendarService.ExecuteEnhancedCalendarRequest_Params',
       packedSize: 16,
       fields: [
-        { name: 'request_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSp
       name: 'ai.mojom.EnhancedCalendarService.ExecuteEnhancedCalendarRequest_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

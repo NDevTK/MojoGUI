@@ -73,7 +73,7 @@ ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec = {
       name: 'ash.mall.mojom.PageHandler.GetMallEmbedUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -86,7 +86,7 @@ ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec = {
       name: 'ash.mall.mojom.PageHandler.GetMallEmbedUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

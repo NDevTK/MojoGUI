@@ -85,7 +85,7 @@ ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec = {
       name: 'ash.vm.mojom.VmDiagnosticsProvider.GetPluginVmDiagnostics_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

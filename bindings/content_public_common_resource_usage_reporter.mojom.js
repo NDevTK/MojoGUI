@@ -84,7 +84,7 @@ content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec = {
       name: 'content.mojom.ResourceUsageReporter.GetUsageData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

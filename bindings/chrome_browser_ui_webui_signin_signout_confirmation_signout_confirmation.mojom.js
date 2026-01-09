@@ -72,8 +72,8 @@ signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_P
       name: 'signout_confirmation.mojom.PageHandlerFactory.CreateSignoutConfirmationHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -184,7 +184,7 @@ signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
       name: 'signout_confirmation.mojom.PageHandler.UpdateViewHeight_Params',
       packedSize: 16,
       fields: [
-        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -198,7 +198,7 @@ signout_confirmation.mojom.PageHandler_Accept_ParamsSpec = {
       name: 'signout_confirmation.mojom.PageHandler.Accept_Params',
       packedSize: 16,
       fields: [
-        { name: 'uninstall_account_extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'uninstall_account_extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -212,7 +212,7 @@ signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec = {
       name: 'signout_confirmation.mojom.PageHandler.Cancel_Params',
       packedSize: 16,
       fields: [
-        { name: 'uninstall_account_extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'uninstall_account_extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -313,7 +313,7 @@ signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec = {
       name: 'signout_confirmation.mojom.Page.SendSignoutConfirmationData_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

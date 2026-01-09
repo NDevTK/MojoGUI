@@ -90,8 +90,8 @@ blink.mojom.CookieStore_AddSubscriptions_ParamsSpec = {
       name: 'blink.mojom.CookieStore.AddSubscriptions_Params',
       packedSize: 24,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'subscription', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'subscription', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,7 +104,7 @@ blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec = {
       name: 'blink.mojom.CookieStore.AddSubscriptions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -118,8 +118,8 @@ blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec = {
       name: 'blink.mojom.CookieStore.RemoveSubscriptions_Params',
       packedSize: 24,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'subscription', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'subscription', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -132,7 +132,7 @@ blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec = {
       name: 'blink.mojom.CookieStore.RemoveSubscriptions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -146,7 +146,7 @@ blink.mojom.CookieStore_GetSubscriptions_ParamsSpec = {
       name: 'blink.mojom.CookieStore.GetSubscriptions_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -159,8 +159,8 @@ blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec = {
       name: 'blink.mojom.CookieStore.GetSubscriptions_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'subscriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'subscriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

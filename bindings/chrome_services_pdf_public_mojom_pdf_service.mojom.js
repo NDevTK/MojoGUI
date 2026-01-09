@@ -72,7 +72,7 @@ pdf.mojom.Ocr_PerformOcr_ParamsSpec = {
       name: 'pdf.mojom.Ocr.PerformOcr_Params',
       packedSize: 16,
       fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec = {
       name: 'pdf.mojom.Ocr.PerformOcr_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'visual_annotation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'visual_annotation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -178,8 +178,8 @@ pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec = {
       name: 'pdf.mojom.PdfService.BindPdfProgressiveSearchifier_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ocr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'ocr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -193,8 +193,8 @@ pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec = {
       name: 'pdf.mojom.PdfService.BindPdfSearchifier_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ocr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'ocr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -208,7 +208,7 @@ pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec = {
       name: 'pdf.mojom.PdfService.BindPdfThumbnailer_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

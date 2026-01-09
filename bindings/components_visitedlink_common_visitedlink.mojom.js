@@ -99,7 +99,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec = {
       name: 'visitedlink.mojom.VisitedLinkNotificationSink.UpdateVisitedLinks_Params',
       packedSize: 16,
       fields: [
-        { name: 'table_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'table_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,7 +113,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec = {
       name: 'visitedlink.mojom.VisitedLinkNotificationSink.AddVisitedLinks_Params',
       packedSize: 16,
       fields: [
-        { name: 'link_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'link_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,7 +127,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec = {
       name: 'visitedlink.mojom.VisitedLinkNotificationSink.ResetVisitedLinks_Params',
       packedSize: 16,
       fields: [
-        { name: 'invalidate_cached_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'invalidate_cached_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -141,7 +141,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec = {
       name: 'visitedlink.mojom.VisitedLinkNotificationSink.UpdateOriginSalts_Params',
       packedSize: 16,
       fields: [
-        { name: 'origin_salts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'origin_salts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -108,7 +108,7 @@ blink.mojom.HidService_RegisterClient_ParamsSpec = {
       name: 'blink.mojom.HidService.RegisterClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,7 +134,7 @@ blink.mojom.HidService_GetDevices_ResponseParamsSpec = {
       name: 'blink.mojom.HidService.GetDevices_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,8 +148,8 @@ blink.mojom.HidService_RequestDevice_ParamsSpec = {
       name: 'blink.mojom.HidService.RequestDevice_Params',
       packedSize: 24,
       fields: [
-        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'exclusion_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'exclusion_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -162,7 +162,7 @@ blink.mojom.HidService_RequestDevice_ResponseParamsSpec = {
       name: 'blink.mojom.HidService.RequestDevice_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -176,8 +176,8 @@ blink.mojom.HidService_Connect_ParamsSpec = {
       name: 'blink.mojom.HidService.Connect_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -190,7 +190,7 @@ blink.mojom.HidService_Connect_ResponseParamsSpec = {
       name: 'blink.mojom.HidService.Connect_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -204,7 +204,7 @@ blink.mojom.HidService_Forget_ParamsSpec = {
       name: 'blink.mojom.HidService.Forget_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

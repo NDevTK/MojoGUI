@@ -123,8 +123,8 @@ downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'downloads.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -406,7 +406,7 @@ downloads.mojom.PageHandler_GetDownloads_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.GetDownloads_Params',
       packedSize: 16,
       fields: [
-        { name: 'search_terms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'search_terms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -420,7 +420,7 @@ downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.OpenFileRequiringGesture_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -434,7 +434,7 @@ downloads.mojom.PageHandler_Drag_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.Drag_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -448,7 +448,7 @@ downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.SaveSuspiciousRequiringGesture_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -462,7 +462,7 @@ downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.RecordOpenBypassWarningDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -476,7 +476,7 @@ downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec =
       name: 'downloads.mojom.PageHandler.SaveDangerousFromDialogRequiringGesture_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -490,7 +490,7 @@ downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.RecordCancelBypassWarningDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -504,7 +504,7 @@ downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.DiscardDangerous_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -518,7 +518,7 @@ downloads.mojom.PageHandler_RetryDownload_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.RetryDownload_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -532,7 +532,7 @@ downloads.mojom.PageHandler_Show_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.Show_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -546,7 +546,7 @@ downloads.mojom.PageHandler_Pause_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.Pause_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -560,7 +560,7 @@ downloads.mojom.PageHandler_Resume_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.Resume_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -574,7 +574,7 @@ downloads.mojom.PageHandler_Remove_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.Remove_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -601,7 +601,7 @@ downloads.mojom.PageHandler_Cancel_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.Cancel_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -667,7 +667,7 @@ downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.OpenDuringScanningRequiringGesture_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -681,7 +681,7 @@ downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.ReviewDangerousRequiringGesture_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -695,7 +695,7 @@ downloads.mojom.PageHandler_DeepScan_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.DeepScan_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -709,7 +709,7 @@ downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec = {
       name: 'downloads.mojom.PageHandler.BypassDeepScanRequiringGesture_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -735,7 +735,7 @@ downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec = {
       name: 'downloads.mojom.PageHandler.IsEligibleForEsbPromo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -837,7 +837,7 @@ downloads.mojom.Page_RemoveItem_ParamsSpec = {
       name: 'downloads.mojom.Page.RemoveItem_Params',
       packedSize: 16,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -851,8 +851,8 @@ downloads.mojom.Page_UpdateItem_ParamsSpec = {
       name: 'downloads.mojom.Page.UpdateItem_Params',
       packedSize: 24,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -866,8 +866,8 @@ downloads.mojom.Page_InsertItems_ParamsSpec = {
       name: 'downloads.mojom.Page.InsertItems_Params',
       packedSize: 24,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'items', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'items', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

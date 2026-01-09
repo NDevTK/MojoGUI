@@ -147,7 +147,7 @@ media.mojom.ContentDecryptionModule_SetClient_ParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.SetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -161,7 +161,7 @@ media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.SetServerCertificate_Params',
       packedSize: 16,
       fields: [
-        { name: 'certificate_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'certificate_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -174,7 +174,7 @@ media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.SetServerCertificate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -188,7 +188,7 @@ media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.GetStatusForPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'min_hdcp_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'min_hdcp_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -201,8 +201,8 @@ media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.GetStatusForPolicy_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'key_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -216,9 +216,9 @@ media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec =
       name: 'media.mojom.ContentDecryptionModule.CreateSessionAndGenerateRequest_Params',
       packedSize: 32,
       fields: [
-        { name: 'session_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'init_data_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'init_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'init_data_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'init_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -231,8 +231,8 @@ media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponsePara
       name: 'media.mojom.ContentDecryptionModule.CreateSessionAndGenerateRequest_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -246,8 +246,8 @@ media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.LoadSession_Params',
       packedSize: 24,
       fields: [
-        { name: 'session_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,8 +260,8 @@ media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.LoadSession_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -275,8 +275,8 @@ media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.UpdateSession_Params',
       packedSize: 24,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -289,7 +289,7 @@ media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.UpdateSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -303,7 +303,7 @@ media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.CloseSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -316,7 +316,7 @@ media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.CloseSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -330,7 +330,7 @@ media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.RemoveSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -343,7 +343,7 @@ media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.RemoveSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -445,9 +445,9 @@ media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = {
       name: 'media.mojom.ContentDecryptionModuleClient.OnSessionMessage_Params',
       packedSize: 32,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'message_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -461,8 +461,8 @@ media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = {
       name: 'media.mojom.ContentDecryptionModuleClient.OnSessionClosed_Params',
       packedSize: 24,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -476,9 +476,9 @@ media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = {
       name: 'media.mojom.ContentDecryptionModuleClient.OnSessionKeysChange_Params',
       packedSize: 32,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'has_additional_usable_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'keys_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'has_additional_usable_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'keys_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -492,8 +492,8 @@ media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec =
       name: 'media.mojom.ContentDecryptionModuleClient.OnSessionExpirationUpdate_Params',
       packedSize: 24,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_expiry_time_sec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'new_expiry_time_sec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -568,7 +568,7 @@ media.mojom.CdmFactory_CreateCdm_ParamsSpec = {
       name: 'media.mojom.CdmFactory.CreateCdm_Params',
       packedSize: 16,
       fields: [
-        { name: 'cdm_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cdm_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -581,9 +581,9 @@ media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = {
       name: 'media.mojom.CdmFactory.CreateCdm_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'cdm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cdm_context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cdm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'cdm_context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

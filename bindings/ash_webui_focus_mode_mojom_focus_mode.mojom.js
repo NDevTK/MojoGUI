@@ -82,7 +82,7 @@ ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec = {
       name: 'ash.focus_mode.mojom.MediaClient.StartPlay_Params',
       packedSize: 16,
       fields: [
-        { name: 'track', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'track', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,7 +196,7 @@ ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec = {
       name: 'ash.focus_mode.mojom.TrackProvider.GetTrack_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'track', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'track', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -210,7 +210,7 @@ ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec = {
       name: 'ash.focus_mode.mojom.TrackProvider.SetMediaClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -224,7 +224,7 @@ ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec = {
       name: 'ash.focus_mode.mojom.TrackProvider.ReportPlayback_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

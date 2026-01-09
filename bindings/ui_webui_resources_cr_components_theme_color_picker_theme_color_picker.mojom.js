@@ -72,8 +72,8 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHa
       name: 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory.CreateThemeColorPickerHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -202,7 +202,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = {
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.GetChromeColors_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_dark_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_dark_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -215,7 +215,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsS
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.GetChromeColors_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'colors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'colors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -268,8 +268,8 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec = {
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.SetSeedColor_Params',
       packedSize: 24,
       fields: [
-        { name: 'seed_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'variant', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'seed_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'variant', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -283,7 +283,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec 
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.SetSeedColorFromHue_Params',
       packedSize: 16,
       fields: [
-        { name: 'hue', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'hue', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -371,7 +371,7 @@ theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = {
       name: 'theme_color_picker.mojom.ThemeColorPickerClient.SetTheme_Params',
       packedSize: 16,
       fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

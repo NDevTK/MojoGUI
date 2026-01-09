@@ -156,7 +156,7 @@ chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec = {
       name: 'chromecast.mojom.GestureHandler.OnBackGesture_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'was_handled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'was_handled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -170,7 +170,7 @@ chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec = {
       name: 'chromecast.mojom.GestureHandler.OnBackGestureProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -184,7 +184,7 @@ chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec = {
       name: 'chromecast.mojom.GestureHandler.OnTopDragGestureProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -211,7 +211,7 @@ chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec = {
       name: 'chromecast.mojom.GestureHandler.OnRightDragGestureProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -365,7 +365,7 @@ chromecast.mojom.GestureSource_Subscribe_ParamsSpec = {
       name: 'chromecast.mojom.GestureSource.Subscribe_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -379,7 +379,7 @@ chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec = {
       name: 'chromecast.mojom.GestureSource.SetCanGoBack_Params',
       packedSize: 16,
       fields: [
-        { name: 'can_go_back', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'can_go_back', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -393,7 +393,7 @@ chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec = {
       name: 'chromecast.mojom.GestureSource.SetCanTopDrag_Params',
       packedSize: 16,
       fields: [
-        { name: 'can_top_drag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'can_top_drag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -407,7 +407,7 @@ chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec = {
       name: 'chromecast.mojom.GestureSource.SetCanRightDrag_Params',
       packedSize: 16,
       fields: [
-        { name: 'can_top_drag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'can_top_drag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

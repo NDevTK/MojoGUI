@@ -201,8 +201,8 @@ webnn.mojom.WebNNGraph_Dispatch_ParamsSpec = {
       name: 'webnn.mojom.WebNNGraph.Dispatch_Params',
       packedSize: 24,
       fields: [
-        { name: 'named_inputs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'named_outputs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'named_inputs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'named_outputs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

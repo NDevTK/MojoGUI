@@ -96,9 +96,9 @@ patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec = {
       name: 'patch.mojom.FilePatcher.PatchFilePuffPatch_Params',
       packedSize: 32,
       fields: [
-        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'patch_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'patch_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -111,7 +111,7 @@ patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec = {
       name: 'patch.mojom.FilePatcher.PatchFilePuffPatch_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,9 +125,9 @@ patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec = {
       name: 'patch.mojom.FilePatcher.PatchFileZucchini_Params',
       packedSize: 32,
       fields: [
-        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'patch_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'patch_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -140,7 +140,7 @@ patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec = {
       name: 'patch.mojom.FilePatcher.PatchFileZucchini_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

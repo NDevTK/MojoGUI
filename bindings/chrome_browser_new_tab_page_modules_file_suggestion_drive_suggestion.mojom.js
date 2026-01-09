@@ -102,7 +102,7 @@ file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec = {
       name: 'file_suggestion.mojom.DriveSuggestionHandler.GetFiles_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

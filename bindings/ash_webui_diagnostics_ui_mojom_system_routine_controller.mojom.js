@@ -106,7 +106,7 @@ ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = {
       name: 'ash.diagnostics.mojom.RoutineRunner.OnRoutineResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -202,7 +202,7 @@ ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParam
       name: 'ash.diagnostics.mojom.SystemRoutineController.GetSupportedRoutines_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'routines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'routines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -216,8 +216,8 @@ ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = {
       name: 'ash.diagnostics.mojom.SystemRoutineController.RunRoutine_Params',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'runner', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'runner', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

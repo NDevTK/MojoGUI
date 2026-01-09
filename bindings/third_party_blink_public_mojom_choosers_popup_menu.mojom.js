@@ -90,7 +90,7 @@ blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec = {
       name: 'blink.mojom.PopupMenuClient.DidAcceptIndices_Params',
       packedSize: 16,
       fields: [
-        { name: 'indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

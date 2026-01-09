@@ -160,10 +160,10 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.GetNewCertVerifier_Params',
       packedSize: 40,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'updater', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'creation_params', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'updater', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'creation_params', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -177,7 +177,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.UpdateCRLSet_Params',
       packedSize: 16,
       fields: [
-        { name: 'crl_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'crl_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -191,8 +191,8 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.UpdateCtLogList_Params',
       packedSize: 24,
       fields: [
-        { name: 'log_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'update_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'log_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'update_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -219,7 +219,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec 
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.UpdateChromeRootStore_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_root_store', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_root_store', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -233,7 +233,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.UpdateMtcMetadata_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_mtc_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_mtc_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -247,7 +247,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec 
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.SetUseChromeRootStore_Params',
       packedSize: 16,
       fields: [
-        { name: 'use_crs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'use_crs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -273,7 +273,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponsePa
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.GetChromeRootStoreInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'root_store_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'root_store_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -299,7 +299,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_Response
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.GetPlatformRootStoreInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'root_store_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'root_store_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -313,9 +313,9 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.UpdateNetworkTime_Params',
       packedSize: 32,
       fields: [
-        { name: 'system_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'system_ticks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'current_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'system_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'system_ticks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'current_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

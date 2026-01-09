@@ -72,7 +72,7 @@ mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec = {
       name: 'mirroring.mojom.CastMessageChannel.OnMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

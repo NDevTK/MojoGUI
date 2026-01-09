@@ -88,8 +88,8 @@ tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'tab_strip_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -176,7 +176,7 @@ tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec = {
       name: 'tab_strip_internals.mojom.PageHandler.GetTabStripData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -251,7 +251,7 @@ tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec = {
       name: 'tab_strip_internals.mojom.Page.OnTabStripUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

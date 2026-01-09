@@ -96,9 +96,9 @@ printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = {
       name: 'printing.mojom.PdfToPwgRasterConverter.Convert_Params',
       packedSize: 32,
       fields: [
-        { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'pdf_settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'pwg_raster_settings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pdf_settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pwg_raster_settings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -111,8 +111,8 @@ printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec = {
       name: 'printing.mojom.PdfToPwgRasterConverter.Convert_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'pwg_raster_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'page_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pwg_raster_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'page_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -126,7 +126,7 @@ printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
       name: 'printing.mojom.PdfToPwgRasterConverter.SetUseSkiaRendererPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

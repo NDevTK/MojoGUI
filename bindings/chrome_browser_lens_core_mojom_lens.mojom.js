@@ -101,8 +101,8 @@ lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'lens.mojom.LensPageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -420,7 +420,7 @@ lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.ActivityRequestedByOverlay_Params',
       packedSize: 16,
       fields: [
-        { name: 'click_modifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'click_modifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -486,7 +486,7 @@ lens.mojom.LensPageHandler_SetLiveBlur_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.SetLiveBlur_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -525,7 +525,7 @@ lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParamsSpec = {
       name: 'lens.mojom.LensPageHandler.GetOverlayInvocationSource_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'invocation_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'invocation_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -539,7 +539,7 @@ lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.InfoRequestedByOverlay_Params',
       packedSize: 16,
       fields: [
-        { name: 'click_modifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'click_modifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -553,8 +553,8 @@ lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.IssueLensRegionRequest_Params',
       packedSize: 24,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_click', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_click', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -568,8 +568,8 @@ lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.IssueLensObjectRequest_Params',
       packedSize: 24,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_mask_click', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_mask_click', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -583,10 +583,10 @@ lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.IssueTextSelectionRequest_Params',
       packedSize: 40,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'selection_start_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'selection_end_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_translate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'selection_start_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'selection_end_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_translate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -600,10 +600,10 @@ lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.IssueTranslateSelectionRequest_Params',
       packedSize: 40,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'content_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'selection_start_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'selection_end_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'content_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'selection_start_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'selection_end_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -617,10 +617,10 @@ lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.IssueMathSelectionRequest_Params',
       packedSize: 40,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'formula', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'selection_start_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'selection_end_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'formula', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'selection_start_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'selection_end_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -634,8 +634,8 @@ lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.IssueTranslateFullPageRequest_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'target_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'target_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -662,7 +662,7 @@ lens.mojom.LensPageHandler_CopyText_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.CopyText_Params',
       packedSize: 16,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -676,7 +676,7 @@ lens.mojom.LensPageHandler_CopyImage_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.CopyImage_Params',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -690,7 +690,7 @@ lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.SaveAsImage_Params',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -717,7 +717,7 @@ lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_P
       name: 'lens.mojom.LensPageHandler.RecordUkmAndTaskCompletionForLensOverlayInteraction_Params',
       packedSize: 16,
       fields: [
-        { name: 'user_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'user_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -731,7 +731,7 @@ lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.RecordLensOverlaySemanticEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -758,7 +758,7 @@ lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.MaybeCloseTranslateFeaturePromo_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature_engaged', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feature_engaged', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -784,9 +784,9 @@ lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec = {
       name: 'lens.mojom.LensPageHandler.FetchSupportedLanguages_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'browser_locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source_languages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'target_languages', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'browser_locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source_languages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'target_languages', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1062,8 +1062,8 @@ lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec = {
       name: 'lens.mojom.LensPage.ScreenshotDataReceived_Params',
       packedSize: 24,
       fields: [
-        { name: 'screenshot_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_side_panel_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'screenshot_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_side_panel_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1116,7 +1116,7 @@ lens.mojom.LensPage_ObjectsReceived_ParamsSpec = {
       name: 'lens.mojom.LensPage.ObjectsReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'objects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'objects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1130,7 +1130,7 @@ lens.mojom.LensPage_TextReceived_ParamsSpec = {
       name: 'lens.mojom.LensPage.TextReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1144,8 +1144,8 @@ lens.mojom.LensPage_RegionTextReceived_ParamsSpec = {
       name: 'lens.mojom.LensPage.RegionTextReceived_Params',
       packedSize: 24,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_injected_image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_injected_image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1159,7 +1159,7 @@ lens.mojom.LensPage_ThemeReceived_ParamsSpec = {
       name: 'lens.mojom.LensPage.ThemeReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1173,7 +1173,7 @@ lens.mojom.LensPage_ShouldShowContextualSearchBox_ParamsSpec = {
       name: 'lens.mojom.LensPage.ShouldShowContextualSearchBox_Params',
       packedSize: 16,
       fields: [
-        { name: 'should_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'should_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1187,7 +1187,7 @@ lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec = {
       name: 'lens.mojom.LensPage.PageContentTypeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_page_content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_page_content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1201,7 +1201,7 @@ lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec = {
       name: 'lens.mojom.LensPage.SetPostRegionSelection_Params',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1215,8 +1215,8 @@ lens.mojom.LensPage_SetTextSelection_ParamsSpec = {
       name: 'lens.mojom.LensPage.SetTextSelection_Params',
       packedSize: 24,
       fields: [
-        { name: 'selection_start_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'selection_end_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'selection_start_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'selection_end_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1230,8 +1230,8 @@ lens.mojom.LensPage_SetTranslateMode_ParamsSpec = {
       name: 'lens.mojom.LensPage.SetTranslateMode_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'target_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'target_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1310,7 +1310,7 @@ lens.mojom.LensPage_OnOverlayReshown_ParamsSpec = {
       name: 'lens.mojom.LensPage.OnOverlayReshown_Params',
       packedSize: 16,
       fields: [
-        { name: 'screenshot_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'screenshot_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

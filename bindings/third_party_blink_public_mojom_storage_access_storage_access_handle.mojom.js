@@ -135,7 +135,7 @@ blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec = {
       name: 'blink.mojom.StorageAccessHandle.BindIndexedDB_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -149,7 +149,7 @@ blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec = {
       name: 'blink.mojom.StorageAccessHandle.BindLocks_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -163,7 +163,7 @@ blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec = {
       name: 'blink.mojom.StorageAccessHandle.BindCaches_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,8 +189,8 @@ blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec = {
       name: 'blink.mojom.StorageAccessHandle.GetDirectory_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -216,9 +216,9 @@ blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec = {
       name: 'blink.mojom.StorageAccessHandle.Estimate_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'current_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'current_quota', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'current_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'current_quota', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -232,7 +232,7 @@ blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec = {
       name: 'blink.mojom.StorageAccessHandle.BindBlobStorage_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -246,7 +246,7 @@ blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec = {
       name: 'blink.mojom.StorageAccessHandle.BindBroadcastChannel_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,7 +260,7 @@ blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec = {
       name: 'blink.mojom.StorageAccessHandle.BindSharedWorker_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

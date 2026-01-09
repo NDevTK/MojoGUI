@@ -72,8 +72,8 @@ search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearchConnector.Connect_Params',
       packedSize: 24,
       fields: [
-        { name: 'embedded_search', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'embedded_search', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,8 +175,8 @@ search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearch.FocusOmnibox_Params',
       packedSize: 24,
       fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'focus', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'focus', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -190,8 +190,8 @@ search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearch.DeleteMostVisitedItem_Params',
       packedSize: 24,
       fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -205,7 +205,7 @@ search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearch.UndoAllMostVisitedDeletions_Params',
       packedSize: 16,
       fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -219,8 +219,8 @@ search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearch.UndoMostVisitedDeletion_Params',
       packedSize: 24,
       fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -331,7 +331,7 @@ search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearchClient.SetPageSequenceNumber_Params',
       packedSize: 16,
       fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -345,8 +345,8 @@ search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearchClient.FocusChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'new_focus_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_focus_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -360,7 +360,7 @@ search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearchClient.MostVisitedInfoChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'most_visited_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'most_visited_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -374,7 +374,7 @@ search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearchClient.SetInputInProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'input_in_progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'input_in_progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -388,7 +388,7 @@ search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearchClient.ThemeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

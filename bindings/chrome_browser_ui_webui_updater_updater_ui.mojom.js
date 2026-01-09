@@ -72,8 +72,8 @@ updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'updater_ui.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -160,7 +160,7 @@ updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec = {
       name: 'updater_ui.mojom.PageHandler.GetAllUpdaterEvents_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

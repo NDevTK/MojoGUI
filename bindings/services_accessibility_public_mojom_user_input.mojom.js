@@ -90,7 +90,7 @@ ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec = {
       name: 'ax.mojom.UserInput.SendSyntheticKeyEventForShortcutOrNavigation_Params',
       packedSize: 16,
       fields: [
-        { name: 'key_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'key_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,7 +104,7 @@ ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec = {
       name: 'ax.mojom.UserInput.SendSyntheticMouseEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'mouse_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'mouse_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

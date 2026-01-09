@@ -84,7 +84,7 @@ content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec = {
       name: 'content.mojom.MhtmlFileWriter.SerializeAsMHTML_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -97,8 +97,8 @@ content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec = {
       name: 'content.mojom.MhtmlFileWriter.SerializeAsMHTML_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'digests_of_uris_to_skip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'digests_of_uris_to_skip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

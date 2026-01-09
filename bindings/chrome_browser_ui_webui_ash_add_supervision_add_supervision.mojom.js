@@ -135,7 +135,7 @@ add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec = {
       name: 'add_supervision.mojom.AddSupervisionHandler.RequestClose_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'closed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'closed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -161,7 +161,7 @@ add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSp
       name: 'add_supervision.mojom.AddSupervisionHandler.GetInstalledArcApps_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'package_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'package_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -187,8 +187,8 @@ add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec = {
       name: 'add_supervision.mojom.AddSupervisionHandler.GetOAuthToken_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'oauth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'oauth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -228,7 +228,7 @@ add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec = {
       name: 'add_supervision.mojom.AddSupervisionHandler.SetCloseOnEscape_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

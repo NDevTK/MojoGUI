@@ -96,7 +96,7 @@ ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec = {
       name: 'ash.settings.graduation.mojom.GraduationHandler.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -171,7 +171,7 @@ ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSp
       name: 'ash.settings.graduation.mojom.GraduationObserver.OnGraduationAppUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_app_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_app_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -72,7 +72,7 @@ chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec = {
       name: 'chrome.mojom.DocumentAnalysisService.BindSafeDocumentAnalyzer_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

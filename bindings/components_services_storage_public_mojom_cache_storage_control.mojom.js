@@ -87,7 +87,7 @@ storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec = {
       name: 'storage.mojom.CacheStorageObserver.OnCacheListChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,8 +101,8 @@ storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec = {
       name: 'storage.mojom.CacheStorageObserver.OnCacheContentChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cache_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cache_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -195,13 +195,13 @@ storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec = {
       name: 'storage.mojom.CacheStorageControl.AddReceiver_Params',
       packedSize: 64,
       fields: [
-        { name: 'cross_origin_embedder_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'coep_reporter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'document_isolation_policy', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'dip_reporter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'bucket_locator', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'owner', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'receiver', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cross_origin_embedder_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'coep_reporter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'document_isolation_policy', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dip_reporter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'bucket_locator', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'owner', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'receiver', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -215,7 +215,7 @@ storage.mojom.CacheStorageControl_AddObserver_ParamsSpec = {
       name: 'storage.mojom.CacheStorageControl.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -229,7 +229,7 @@ storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec = {
       name: 'storage.mojom.CacheStorageControl.ApplyPolicyUpdates_Params',
       packedSize: 16,
       fields: [
-        { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

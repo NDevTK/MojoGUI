@@ -99,7 +99,7 @@ storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec = {
       name: 'storage.mojom.QuotaClient.GetBucketUsage_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,7 +112,7 @@ storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec = {
       name: 'storage.mojom.QuotaClient.GetBucketUsage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -138,7 +138,7 @@ storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec = {
       name: 'storage.mojom.QuotaClient.GetDefaultStorageKeys_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'storage_keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'storage_keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -152,7 +152,7 @@ storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec = {
       name: 'storage.mojom.QuotaClient.DeleteBucketData_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -165,7 +165,7 @@ storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec = {
       name: 'storage.mojom.QuotaClient.DeleteBucketData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

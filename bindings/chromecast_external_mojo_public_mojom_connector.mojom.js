@@ -73,8 +73,8 @@ chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec = {
       name: 'chromecast.external_mojo.mojom.ExternalService.OnBindInterface_Params',
       packedSize: 24,
       fields: [
-        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'interface_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'interface_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -185,7 +185,7 @@ chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_Params
       name: 'chromecast.external_mojo.mojom.ExternalConnector.RegisterServiceInstances_Params',
       packedSize: 16,
       fields: [
-        { name: 'instances_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'instances_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -199,9 +199,9 @@ chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec = {
       name: 'chromecast.external_mojo.mojom.ExternalConnector.BindInterface_Params',
       packedSize: 32,
       fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -215,7 +215,7 @@ chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec = {
       name: 'chromecast.external_mojo.mojom.ExternalConnector.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -229,7 +229,7 @@ chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpe
       name: 'chromecast.external_mojo.mojom.ExternalConnector.BindChromiumConnector_Params',
       packedSize: 16,
       fields: [
-        { name: 'interface_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'interface_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -255,7 +255,7 @@ chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParams
       name: 'chromecast.external_mojo.mojom.ExternalConnector.QueryServiceList_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'services', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'services', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

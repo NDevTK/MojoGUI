@@ -90,7 +90,7 @@ blink.mojom.FileChooser_OpenFileChooser_ParamsSpec = {
       name: 'blink.mojom.FileChooser.OpenFileChooser_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -103,7 +103,7 @@ blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec = {
       name: 'blink.mojom.FileChooser.OpenFileChooser_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -117,7 +117,7 @@ blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec = {
       name: 'blink.mojom.FileChooser.EnumerateChosenDirectory_Params',
       packedSize: 16,
       fields: [
-        { name: 'directory_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'directory_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -130,7 +130,7 @@ blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec = {
       name: 'blink.mojom.FileChooser.EnumerateChosenDirectory_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

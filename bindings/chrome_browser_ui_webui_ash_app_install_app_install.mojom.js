@@ -94,7 +94,7 @@ ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec = {
       name: 'ash.app_install.mojom.AppInfoActions.InstallApp_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -256,7 +256,7 @@ ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.app_install.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -352,7 +352,7 @@ ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
       name: 'ash.app_install.mojom.PageHandler.GetDialogArgs_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'dialog_args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dialog_args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

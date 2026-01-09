@@ -102,7 +102,7 @@ media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec = {
       name: 'media_router.mojom.Debugger.ShouldFetchMirroringStats_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'should_fetch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'should_fetch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -116,7 +116,7 @@ media_router.mojom.Debugger_OnMirroringStats_ParamsSpec = {
       name: 'media_router.mojom.Debugger.OnMirroringStats_Params',
       packedSize: 16,
       fields: [
-        { name: 'json_stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'json_stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -130,7 +130,7 @@ media_router.mojom.Debugger_BindReceiver_ParamsSpec = {
       name: 'media_router.mojom.Debugger.BindReceiver_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

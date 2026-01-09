@@ -72,7 +72,7 @@ watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'watermark.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -156,7 +156,7 @@ watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = {
       name: 'watermark.mojom.PageHandler.SetWatermarkStyle_Params',
       packedSize: 16,
       fields: [
-        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

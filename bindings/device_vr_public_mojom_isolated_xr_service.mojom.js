@@ -72,7 +72,7 @@ device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec = {
       name: 'device.mojom.XRSessionController.SetFrameDataRestricted_Params',
       packedSize: 16,
       fields: [
-        { name: 'restricted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'restricted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -156,7 +156,7 @@ device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec = {
       name: 'device.mojom.XRRuntimeEventListener.OnVisibilityStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'visibility_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'visibility_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -262,7 +262,7 @@ device.mojom.XRRuntime_RequestSession_ParamsSpec = {
       name: 'device.mojom.XRRuntime.RequestSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -275,7 +275,7 @@ device.mojom.XRRuntime_RequestSession_ResponseParamsSpec = {
       name: 'device.mojom.XRRuntime.RequestSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -302,7 +302,7 @@ device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec = {
       name: 'device.mojom.XRRuntime.ListenToDeviceChanges_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -416,7 +416,7 @@ device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec = {
       name: 'device.mojom.ImmersiveOverlay.RequestNextOverlayPose_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'render_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'render_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -430,11 +430,11 @@ device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec = {
       name: 'device.mojom.ImmersiveOverlay.SubmitOverlayTexture_Params',
       packedSize: 48,
       fields: [
-        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'texture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'sync_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'left_bounds', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'right_bounds', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'texture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sync_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'left_bounds', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'right_bounds', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -447,7 +447,7 @@ device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec = {
       name: 'device.mojom.ImmersiveOverlay.SubmitOverlayTexture_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -461,8 +461,8 @@ device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec = {
       name: 'device.mojom.ImmersiveOverlay.SetOverlayAndWebXRVisibility_Params',
       packedSize: 24,
       fields: [
-        { name: 'overlay_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'webxr_visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'overlay_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'webxr_visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -568,9 +568,9 @@ device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec = {
       name: 'device.mojom.IsolatedXRRuntimeProviderClient.OnDeviceAdded_Params',
       packedSize: 32,
       fields: [
-        { name: 'runtime', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'device_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'runtime', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'device_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -584,7 +584,7 @@ device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec = {
       name: 'device.mojom.IsolatedXRRuntimeProviderClient.OnDeviceRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -672,7 +672,7 @@ device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec = {
       name: 'device.mojom.IsolatedXRRuntimeProvider.RequestDevices_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -756,8 +756,8 @@ device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec = {
       name: 'device.mojom.XRDeviceService.BindRuntimeProvider_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -771,7 +771,7 @@ device.mojom.XRDeviceService_BindTestHook_ParamsSpec = {
       name: 'device.mojom.XRDeviceService.BindTestHook_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -846,7 +846,7 @@ device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec = {
       name: 'device.mojom.XRDeviceServiceHost.BindGpu_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -81,7 +81,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToPare
       name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.ConnectToParentDocument_Params',
       packedSize: 16,
       fields: [
-        { name: 'child_document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'child_document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,8 +95,8 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHan
       name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'document', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'document', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -224,7 +224,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec =
       name: 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler.SetAccessToken_Params',
       packedSize: 16,
       fields: [
-        { name: 'access_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'access_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -238,8 +238,8 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpe
       name: 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler.SetAuthStateError_Params',
       packedSize: 24,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

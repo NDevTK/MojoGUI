@@ -171,8 +171,8 @@ chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec = {
       name: 'chrome.mojom.UtilWin.IsPinnedToTaskbar_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_pinned_to_taskbar', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_pinned_to_taskbar', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -186,7 +186,7 @@ chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec = {
       name: 'chrome.mojom.UtilWin.UnpinShortcuts_Params',
       packedSize: 16,
       fields: [
-        { name: 'shortcut_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'shortcut_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -200,9 +200,9 @@ chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec = {
       name: 'chrome.mojom.UtilWin.CreateOrUpdateShortcuts_Params',
       packedSize: 32,
       fields: [
-        { name: 'shortcut_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'operation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'shortcut_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'operation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -215,7 +215,7 @@ chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec = {
       name: 'chrome.mojom.UtilWin.CreateOrUpdateShortcuts_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -229,13 +229,13 @@ chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec = {
       name: 'chrome.mojom.UtilWin.CallExecuteSelectFile_Params',
       packedSize: 64,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'owner', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'default_path', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'filter', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'file_type_index', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'default_extension', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'owner', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'default_path', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filter', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'file_type_index', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'default_extension', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,8 +248,8 @@ chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec = {
       name: 'chrome.mojom.UtilWin.CallExecuteSelectFile_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'file_type_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'file_type_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -263,7 +263,7 @@ chrome.mojom.UtilWin_InspectModule_ParamsSpec = {
       name: 'chrome.mojom.UtilWin.InspectModule_Params',
       packedSize: 16,
       fields: [
-        { name: 'module_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'module_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -276,7 +276,7 @@ chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec = {
       name: 'chrome.mojom.UtilWin.InspectModule_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'inspection_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'inspection_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -290,7 +290,7 @@ chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec = {
       name: 'chrome.mojom.UtilWin.GetAntiVirusProducts_Params',
       packedSize: 16,
       fields: [
-        { name: 'report_full_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'report_full_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -303,7 +303,7 @@ chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec = {
       name: 'chrome.mojom.UtilWin.GetAntiVirusProducts_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'av_products', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'av_products', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -329,7 +329,7 @@ chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec = {
       name: 'chrome.mojom.UtilWin.GetTpmIdentifier_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'tpm_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tpm_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -84,7 +84,7 @@ wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec = {
       name: 'wallet.mojom.ImageExtractor.ExtractImages_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

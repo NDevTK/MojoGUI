@@ -107,7 +107,7 @@ device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec = {
       name: 'device.mojom.GeolocationInternalsObserver.OnDiagnosticsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +121,7 @@ device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec 
       name: 'device.mojom.GeolocationInternalsObserver.OnNetworkLocationRequested_Params',
       packedSize: 16,
       fields: [
-        { name: 'access_point_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'access_point_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,7 +135,7 @@ device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec =
       name: 'device.mojom.GeolocationInternalsObserver.OnNetworkLocationReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -210,7 +210,7 @@ device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec = {
       name: 'device.mojom.GeolocationInternals.AddInternalsObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -223,7 +223,7 @@ device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec = {
       name: 'device.mojom.GeolocationInternals.AddInternalsObserver_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

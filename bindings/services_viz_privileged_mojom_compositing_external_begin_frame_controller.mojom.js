@@ -99,8 +99,8 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = {
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'force', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'force', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,7 +113,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpe
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrame_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,7 +127,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec =
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrameNoAck_Params',
       packedSize: 16,
       fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -141,7 +141,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = {
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalVSync_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -155,8 +155,8 @@ viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec = {
       name: 'viz.mojom.ExternalBeginFrameController.SetSupportedDisplayLinkId_Params',
       packedSize: 24,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -249,7 +249,7 @@ viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec = {
       name: 'viz.mojom.ExternalBeginFrameControllerClient.SetNeedsBeginFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'needs_begin_frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'needs_begin_frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -263,8 +263,8 @@ viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec = 
       name: 'viz.mojom.ExternalBeginFrameControllerClient.NeedsBeginFrameWithId_Params',
       packedSize: 24,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'needs_begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'needs_begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -278,7 +278,7 @@ viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec = {
       name: 'viz.mojom.ExternalBeginFrameControllerClient.SetPreferredInterval_Params',
       packedSize: 16,
       fields: [
-        { name: 'interval', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'interval', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

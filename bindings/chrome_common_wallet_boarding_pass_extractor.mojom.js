@@ -84,7 +84,7 @@ wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec = {
       name: 'wallet.mojom.BoardingPassExtractor.ExtractBoardingPass_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'boarding_passes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'boarding_passes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
