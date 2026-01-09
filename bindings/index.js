@@ -1,7 +1,7 @@
 // MojoJS Bindings Index
 // Auto-generated - Do not edit manually
 
-(function(global) {
+(function (global) {
   'use strict';
 
   // Create trusted types policy for script URLs
@@ -35,8 +35,8 @@
     async searchInterfaces(query) {
       const interfaces = await this.getInterfaces();
       const q = query.toLowerCase();
-      return interfaces.filter(i => 
-        i.name.toLowerCase().includes(q) || 
+      return interfaces.filter(i =>
+        i.name.toLowerCase().includes(q) ||
         i.module.toLowerCase().includes(q)
       );
     },
@@ -45,21 +45,47 @@
       if (this._loadedModules[filename]) {
         return this._loadedModules[filename];
       }
+
+      // Load index to resolve dependencies
+      const data = await this.loadIndex();
+      const fileEntry = data.files.find(f => f.filename === filename);
+
+      if (fileEntry && fileEntry.imports && fileEntry.imports.length > 0) {
+        console.log(`[MojoBindings] Loading dependencies for ${filename}...`, fileEntry.imports);
+        const loadPromises = fileEntry.imports.map(importPath => {
+          // Find the file entry that matches this import source
+          // Note: importPath is relative to chromium_src, matches 'source' field
+          const importEntry = data.files.find(f => f.source === importPath);
+          if (importEntry) {
+            return this.loadBinding(importEntry.filename);
+          } else {
+            console.warn(`[MojoBindings] Could not resolve import: ${importPath}`);
+            return Promise.resolve();
+          }
+        });
+        await Promise.all(loadPromises);
+      }
+
       return new Promise((resolve, reject) => {
+        // Mark as loading/loaded to prevent cycles
+        this._loadedModules[filename] = true;
+
         const script = document.createElement('script');
         const scriptUrl = `./bindings/${filename}`;
-        
+
         if (trustedPolicy) {
           script.src = trustedPolicy.createScriptURL(scriptUrl);
         } else {
           script.src = scriptUrl;
         }
-        
+
         script.onload = () => {
-          this._loadedModules[filename] = true;
+          console.log(`[MojoBindings] Loaded ${filename}`);
           resolve(true);
         };
         script.onerror = () => {
+          console.error(`[MojoBindings] Failed to load ${filename}`);
+          // Don't unmark, to prevent infinite retry loops on failure
           reject(new Error(`Failed to load binding: ${filename}`));
         };
         document.head.appendChild(script);

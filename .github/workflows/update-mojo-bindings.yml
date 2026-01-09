@@ -627,7 +627,25 @@ jobs:
                 if (this._loadedModules[filename]) {
                   return this._loadedModules[filename];
                 }
+                
+                // Load index to resolve dependencies
+                const data = await this.loadIndex();
+                const fileEntry = data.files.find(f => f.filename === filename);
+                
+                if (fileEntry && fileEntry.imports && fileEntry.imports.length > 0) {
+                  const loadPromises = fileEntry.imports.map(async (importPath) => {
+                     // Find the file entry that matches this import source
+                     const importEntry = data.files.find(f => f.source === importPath);
+                     if (importEntry) {
+                       await this.loadBinding(importEntry.filename);
+                     }
+                  });
+                  await Promise.all(loadPromises);
+                }
+
                 return new Promise((resolve, reject) => {
+                  this._loadedModules[filename] = true;
+
                   const script = document.createElement('script');
                   const scriptUrl = `./bindings/${filename}`;
                   
@@ -638,7 +656,6 @@ jobs:
                   }
                   
                   script.onload = () => {
-                    this._loadedModules[filename] = true;
                     resolve(true);
                   };
                   script.onerror = () => {

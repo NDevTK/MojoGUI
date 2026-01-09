@@ -27426,7 +27426,16 @@
     {
       "filename": "services_device_public_mojom_battery_monitor.mojom.js",
       "source": "services/device/public/mojom/battery_monitor.mojom",
-      "module": "device.mojom"
+      "module": "device.mojom",
+      "imports": [
+        "services/device/public/mojom/battery_status.mojom"
+      ]
+    },
+    {
+      "filename": "services_device_public_mojom_battery_status.mojom.js",
+      "source": "services/device/public/mojom/battery_status.mojom",
+      "module": "device.mojom",
+      "imports": []
     },
     {
       "filename": "services_device_public_mojom_battery_status.mojom.js",
