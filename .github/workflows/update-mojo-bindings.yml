@@ -315,8 +315,49 @@ jobs:
               # We need to be smarter. For now, assume if it looks like a Type, it might be one.
               
               def resolve_mojo_type(type_name):
-                  # Check basic types first
-                  if type_name in TYPE_MAPPING or type_name.startswith('array') or type_name.startswith('map') or type_name.startswith('pending'):
+                  # Recursive parsing for complex types (Array/Map)
+                  type_name = type_name.strip()
+                  
+                  if type_name.startswith('array<'):
+                      is_nullable = False
+                      if type_name.endswith('?'):
+                          is_nullable = True
+                          type_name = type_name[:-1].strip()
+                      
+                      # Extract inner type
+                      inner = type_name[6:-1].strip()
+                      return f"mojo.internal.Array({resolve_mojo_type(inner)}, {'true' if is_nullable else 'false'})"
+
+                  if type_name.startswith('map<'):
+                      is_nullable = False
+                      if type_name.endswith('?'):
+                          is_nullable = True
+                          type_name = type_name[:-1].strip()
+                      
+                      content = type_name[4:-1].strip()
+                      # Split by comma respecting nested brackets
+                      depth = 0
+                      comma_idx = -1
+                      for i, char in enumerate(content):
+                          if char == '<': depth += 1
+                          elif char == '>': depth -= 1
+                          elif char == ',' and depth == 0:
+                              comma_idx = i
+                              break
+                      
+                      if comma_idx != -1:
+                          key_type = content[:comma_idx].strip()
+                          val_type = content[comma_idx+1:].strip()
+                          return f"mojo.internal.Map({resolve_mojo_type(key_type)}, {resolve_mojo_type(val_type)}, {'true' if is_nullable else 'false'})"
+                      # Fallback if parsing fails
+                      return 'mojo.internal.Map'
+
+                  # Basic types
+                  if type_name in TYPE_MAPPING:
+                       return TYPE_MAPPING[type_name]
+                  
+                  # Pending types (using existing map)
+                  if type_name.startswith('pending'):
                        return mojo_type_map(type_name)
 
                   # Check local types
@@ -325,20 +366,12 @@ jobs:
                       return f"{module}.{clean_name}Spec"
                   
                   # Check imports (if it contains dot that is not part of module path)
-                  # If looks like "some.module.Type", assume it matches "some.module.TypeSpec"
                   if '.' in clean_name:
                       return f"{clean_name}Spec"
 
-                  # Heuristic: Uppercase = Struct/Enum reference in same or imported module
-                  # Assume it lives in the current module's namespace (or imported into it)
+                  # Heuristic: Uppercase = Struct/Enum reference
                   if clean_name and clean_name[0].isupper() and clean_name not in TYPE_MAPPING:
                       return f"{module}.{clean_name}Spec"
-                  
-                  # Fallback to Pointer if unknown (could be interface pointer or other)
-                  # Better: if it starts with valid char and not lowercase primitive, assume it is a struct/enum reference in same package if not qualified?
-                  # But Mojo types in methods often are just "BatteryStatus".
-                  # If we found it in 'valid_types', we returned Spec.
-                  # If not, maybe it's from another module but passed without qualification? (Unlikely in Mojo, usually imported)
                   
                   # Fallback
                   return 'mojo.internal.Pointer'
