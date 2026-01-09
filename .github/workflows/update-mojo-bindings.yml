@@ -308,6 +308,13 @@ jobs:
                   print(f"DEBUG source module missing: {module_path}")
                   return False
 
+              # Ensure path starts with ./ if depth is .
+              # The generator's RelativePath check is strict.
+              if mojom_path.startswith('chromium_src') and not mojom_path.startswith('./'):
+                  mojom_path_arg = './' + mojom_path
+              else:
+                  mojom_path_arg = mojom_path
+
               cmd = [
                   sys.executable,
                   'chromium_src/mojo/public/tools/bindings/mojom_bindings_generator.py',
@@ -315,13 +322,6 @@ jobs:
                   'generate',
                   '-g', 'javascript',
                   '--output_dir', '.', 
-                  # Ensure path starts with ./ if depth is .
-                  # The generator's RelativePath check is strict.
-                  if mojom_path.startswith('chromium_src') and not mojom_path.startswith('./'):
-                      mojom_path_arg = './' + mojom_path
-                  else:
-                      mojom_path_arg = mojom_path
-
                   '--depth', '.', 
                   '--bytecode_path', 'bindings', 
                   mojom_path_arg
