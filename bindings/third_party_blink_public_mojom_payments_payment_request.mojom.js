@@ -110,6 +110,7 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec,
       null,
+      null,
       [method_name, stringified_details],
       undefined,
       undefined
@@ -121,6 +122,7 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec,
+      null,
       null,
       [address],
       undefined,
@@ -134,6 +136,7 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec,
       null,
+      null,
       [shipping_option_id],
       undefined,
       undefined
@@ -145,6 +148,7 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec,
+      null,
       null,
       [detail],
       undefined,
@@ -158,6 +162,7 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       4,  // ordinal
       payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec,
       null,
+      null,
       [response],
       undefined,
       undefined
@@ -169,6 +174,7 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       5,  // ordinal
       payments.mojom.PaymentRequestClient_OnError_ParamsSpec,
+      null,
       null,
       [error, error_message],
       undefined,
@@ -182,6 +188,7 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       6,  // ordinal
       payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec,
       null,
+      null,
       [],
       undefined,
       undefined
@@ -193,6 +200,7 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       7,  // ordinal
       payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec,
+      null,
       null,
       [aborted_successfully],
       undefined,
@@ -206,6 +214,7 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       8,  // ordinal
       payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec,
       null,
+      null,
       [result],
       undefined,
       undefined
@@ -217,6 +226,7 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       9,  // ordinal
       payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec,
+      null,
       null,
       [result],
       undefined,
@@ -230,6 +240,7 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       10,  // ordinal
       payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec,
       null,
+      null,
       [],
       undefined,
       undefined
@@ -241,6 +252,7 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       11,  // ordinal
       payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec,
+      payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec,
       payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec,
       [url, url_before_redirects, did_follow_redirect],
       undefined,
@@ -489,6 +501,7 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.PaymentRequest_Init_ParamsSpec,
       null,
+      null,
       [client, method_data, details, options],
       undefined,
       undefined
@@ -500,6 +513,7 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       payments.mojom.PaymentRequest_Show_ParamsSpec,
+      null,
       null,
       [wait_for_updated_details, had_user_activation],
       undefined,
@@ -513,6 +527,7 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.PaymentRequest_UpdateWith_ParamsSpec,
       null,
+      null,
       [details],
       undefined,
       undefined
@@ -524,6 +539,7 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec,
+      null,
       null,
       [],
       undefined,
@@ -537,6 +553,7 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       4,  // ordinal
       payments.mojom.PaymentRequest_Abort_ParamsSpec,
       null,
+      null,
       [],
       undefined,
       undefined
@@ -548,6 +565,7 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
     return this.proxy.sendMessage(
       5,  // ordinal
       payments.mojom.PaymentRequest_Complete_ParamsSpec,
+      null,
       null,
       [result],
       undefined,
@@ -561,6 +579,7 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       6,  // ordinal
       payments.mojom.PaymentRequest_Retry_ParamsSpec,
       null,
+      null,
       [errors],
       undefined,
       undefined
@@ -573,6 +592,7 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       7,  // ordinal
       payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec,
       null,
+      null,
       [],
       undefined,
       undefined
@@ -584,6 +604,7 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
     return this.proxy.sendMessage(
       8,  // ordinal
       payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec,
+      null,
       null,
       [],
       undefined,

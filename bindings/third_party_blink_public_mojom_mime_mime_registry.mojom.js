@@ -50,10 +50,7 @@ blink.mojom.MimeRegistryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec,
       blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec,
-      [extension],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [extension]);
   }
 
 };
@@ -77,7 +74,7 @@ blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec = {
       fields: [
         { name: 'extension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{ version: 0, packedSize: 16 }]
+      versions: [{ version: 0 }]
     }
   }
 };
@@ -90,7 +87,7 @@ blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec = {
       fields: [
         { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{ version: 0, packedSize: 16 }]
+      versions: [{ version: 0 }]
     }
   }
 };

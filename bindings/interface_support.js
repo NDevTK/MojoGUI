@@ -798,7 +798,7 @@ mojo.internal.interfaceSupport.InterfaceRemoteBase = class {
    * @export
    */
   sendMessage(
-    ordinal, paramStruct, maybeResponseStruct, args, useResultResponse, flags) {
+    ordinal, paramStruct, maybeResponseStruct, args, useResultResponse) {
     // The pipe has already been closed, so just drop the message.
     if (maybeResponseStruct && (!this.endpoint_ || !this.endpoint_.isStarted)) {
       return Promise.reject(new Error('The pipe has already been closed.'));
@@ -831,8 +831,7 @@ mojo.internal.interfaceSupport.InterfaceRemoteBase = class {
     const requestId = this.endpoint_.generateRequestId();
     this.endpoint_.send(
       ordinal, requestId,
-      (maybeResponseStruct ? mojo.internal.kMessageFlagExpectsResponse : 0) |
-      (flags || 0),
+      maybeResponseStruct ? mojo.internal.kMessageFlagExpectsResponse : 0,
       paramStruct, value);
     if (!maybeResponseStruct) {
       return Promise.resolve();

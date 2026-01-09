@@ -42,9 +42,6 @@ mojo.internal.kMessageFlagExpectsResponse = 1 << 0;
 mojo.internal.kMessageFlagIsResponse = 1 << 1;
 
 /** @const {number} */
-mojo.internal.kMessageFlagIsSync = 1 << 2;
-
-/** @const {number} */
 mojo.internal.kInterfaceNamespaceBit = 0x80000000;
 
 /** @const {boolean} */
@@ -367,8 +364,7 @@ mojo.internal.Message = class {
     } else if (
       (flags &
         (mojo.internal.kMessageFlagExpectsResponse |
-          mojo.internal.kMessageFlagIsResponse |
-          mojo.internal.kMessageFlagIsSync)) == 0) {
+          mojo.internal.kMessageFlagIsResponse)) == 0) {
       headerSize = mojo.internal.kMessageV0HeaderSize;
       version = 0;
     } else {
