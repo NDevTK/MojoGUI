@@ -814,6 +814,7 @@ body::before {
     box-shadow: var(--shadow-lg);
     animation: slideIn 0.3s ease;
     max-width: 400px;
+    word-break: break-all;
 }
 
 .toast.success {
