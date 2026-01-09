@@ -23,14 +23,6 @@ arc.mojom.OnDeviceSafetyHostPtr = class {
     this.interfaceName = 'arc.mojom.OnDeviceSafetyHost';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.OnDeviceSafetyHostRequest = class {
@@ -44,24 +36,6 @@ arc.mojom.OnDeviceSafetyInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.OnDeviceSafetyInstance';
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  0(session) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(session)
-      resolve({});
-    });
-  }
-
-  1(host_remote) {
-    // Method: 1
-    // Call: 1(host_remote)
   }
 
 };

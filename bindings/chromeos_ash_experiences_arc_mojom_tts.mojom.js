@@ -39,16 +39,6 @@ arc.mojom.TtsHostPtr = class {
     this.interfaceName = 'arc.mojom.TtsHost';
   }
 
-  1(voices) {
-    // Method: 1
-    // Call: 1(voices)
-  }
-
-  2(utteranceId, event_type, char_index, length, error_msg) {
-    // Method: 2
-    // Call: 2(utteranceId, event_type, char_index, length, error_msg)
-  }
-
 };
 
 arc.mojom.TtsHostRequest = class {
@@ -62,26 +52,6 @@ arc.mojom.TtsInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.TtsInstance';
-  }
-
-  3(host_remote) {
-    // Method: 3
-    // Call: 3(host_remote)
-  }
-
-  1(utterance) {
-    // Method: 1
-    // Call: 1(utterance)
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
-  4() {
-    // Method: 4
-    // Call: 4()
   }
 
 };

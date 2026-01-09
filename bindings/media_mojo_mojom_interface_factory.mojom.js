@@ -36,11 +36,6 @@ media.mojom.InterfaceFactoryPtr = class {
     // Call: CreateAudioDecoder(audio_decoder)
   }
 
-  videoDecoder() {
-    // Method: VideoDecoder
-    // Call: VideoDecoder()
-  }
-
   createVideoDecoder(video_decoder, dst_video_decoder) {
     // Method: CreateVideoDecoder
     // Call: CreateVideoDecoder(video_decoder, dst_video_decoder)
@@ -56,29 +51,9 @@ media.mojom.InterfaceFactoryPtr = class {
     // Call: CreateAudioEncoder(audio_encoder)
   }
 
-  renderer() {
-    // Method: Renderer
-    // Call: Renderer()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   createDefaultRenderer(audio_device_id, renderer) {
     // Method: CreateDefaultRenderer
     // Call: CreateDefaultRenderer(audio_device_id, renderer)
-  }
-
-  castRenderer() {
-    // Method: CastRenderer
-    // Call: CastRenderer()
   }
 
   createCastRenderer(overlay_plane_id, renderer) {
@@ -86,34 +61,14 @@ media.mojom.InterfaceFactoryPtr = class {
     // Call: CreateCastRenderer(overlay_plane_id, renderer)
   }
 
-  mediaFoundationRenderer() {
-    // Method: MediaFoundationRenderer
-    // Call: MediaFoundationRenderer()
-  }
-
   createMediaFoundationRenderer(media_log, renderer, renderer_extension) {
     // Method: CreateMediaFoundationRenderer
     // Call: CreateMediaFoundationRenderer(media_log, renderer, renderer_extension)
   }
 
-  flingingRenderer() {
-    // Method: FlingingRenderer
-    // Call: FlingingRenderer()
-  }
-
-  session(blink::RemotePlayback) {
-    // Method: session
-    // Call: session(blink::RemotePlayback)
-  }
-
   createFlingingRenderer(presentation_id, client_extension, renderer) {
     // Method: CreateFlingingRenderer
     // Call: CreateFlingingRenderer(presentation_id, client_extension, renderer)
-  }
-
-  process(renderer) {
-    // Method: process
-    // Call: process(renderer)
   }
 
   createCdm(cdm_config) {

@@ -62,11 +62,6 @@ chromecast.mojom.CastWebContentsObserverPtr = class {
     // Call: ResourceLoadFailed()
   }
 
-  onRendererProcessStarted() {
-    // Method: OnRendererProcessStarted
-    // Call: OnRendererProcessStarted()
-  }
-
   onRenderProcessReady(pid) {
     // Method: OnRenderProcessReady
     // Call: OnRenderProcessReady(pid)
@@ -102,11 +97,6 @@ chromecast.mojom.CastWebContentsPtr = class {
     // Call: SetAppProperties(app_id, session_id, is_audio_app, app_web_url, enforce_feature_permissions, feature_permissions, additional_feature_permission_origins)
   }
 
-  setAppProperties() {
-    // Method: SetAppProperties
-    // Call: SetAppProperties()
-  }
-
   setGroupInfo(session_id, is_multizone_launch) {
     // Method: SetGroupInfo
     // Call: SetGroupInfo(session_id, is_multizone_launch)
@@ -122,29 +112,14 @@ chromecast.mojom.CastWebContentsPtr = class {
     // Call: SetInterfacesForRenderer(remote_interfaces)
   }
 
-  onPageStateChanged() {
-    // Method: OnPageStateChanged
-    // Call: OnPageStateChanged()
-  }
-
   loadUrl(url) {
     // Method: LoadUrl
     // Call: LoadUrl(url)
   }
 
-  onPageStopped() {
-    // Method: OnPageStopped
-    // Call: OnPageStopped()
-  }
-
   closePage() {
     // Method: ClosePage
     // Call: ClosePage()
-  }
-
-  true(blank) {
-    // Method: true
-    // Call: true(blank)
   }
 
   setWebVisibilityAndPaint(visible) {

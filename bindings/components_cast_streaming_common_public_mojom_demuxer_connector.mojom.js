@@ -44,11 +44,6 @@ cast_streaming.mojom.AudioBufferRequesterPtr = class {
     this.interfaceName = 'cast_streaming.mojom.AudioBufferRequester';
   }
 
-  flush() {
-    // Method: Flush
-    // Call: Flush()
-  }
-
   getBuffer() {
     // Method: GetBuffer
     return new Promise((resolve) => {
@@ -82,20 +77,10 @@ cast_streaming.mojom.VideoBufferRequesterPtr = class {
 
   getBuffer() {
     // Method: GetBuffer
-    // Call: GetBuffer()
-  }
-
-  getBuffer() {
-    // Method: GetBuffer
     return new Promise((resolve) => {
       // Call: GetBuffer()
       resolve({});
     });
-  }
-
-  enableBitstreamConverter() {
-    // Method: EnableBitstreamConverter
-    // Call: EnableBitstreamConverter()
   }
 
   enableBitstreamConverter() {

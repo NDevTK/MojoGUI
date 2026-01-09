@@ -60,16 +60,6 @@ bookmark_bar.mojom.PageHandlerPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   openInNewTab(node_id) {
     // Method: OpenInNewTab
     // Call: OpenInNewTab(node_id)
@@ -98,11 +88,6 @@ bookmark_bar.mojom.PagePtr = class {
   favIconChanged(bookmark_data) {
     // Method: FavIconChanged
     // Call: FavIconChanged(bookmark_data)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   show() {

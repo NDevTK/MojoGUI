@@ -49,19 +49,9 @@ media.mojom.SpeechRecognitionServicePtr = class {
     // Call: BindAudioSourceSpeechRecognitionContext(context)
   }
 
-  aPI() {
-    // Method: API
-    // Call: API()
-  }
-
   setSodaPaths(binary_path, config_paths, primary_language_name) {
     // Method: SetSodaPaths
     // Call: SetSodaPaths(binary_path, config_paths, primary_language_name)
-  }
-
-  aPI() {
-    // Method: API
-    // Call: API()
   }
 
   setSodaParams(mask_offensive_words) {

@@ -29,11 +29,6 @@ viz.mojom.ExternalBeginFrameControllerPtr = class {
     // Call: IssueExternalBeginFrameNoAck(args)
   }
 
-  issueExternalBeginFrame() {
-    // Method: IssueExternalBeginFrame
-    // Call: IssueExternalBeginFrame()
-  }
-
   issueExternalVSync(params) {
     // Method: IssueExternalVSync
     // Call: IssueExternalVSync(params)

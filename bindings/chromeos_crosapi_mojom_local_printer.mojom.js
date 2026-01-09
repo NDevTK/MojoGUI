@@ -251,16 +251,6 @@ crosapi.mojom.PrintServerObserverPtr = class {
     this.interfaceName = 'crosapi.mojom.PrintServerObserver';
   }
 
-  0(config) {
-    // Method: 0
-    // Call: 0(config)
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
 };
 
 crosapi.mojom.PrintServerObserverRequest = class {
@@ -274,16 +264,6 @@ crosapi.mojom.PrintJobObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'crosapi.mojom.PrintJobObserver';
-  }
-
-  0(printer_id, job_id, status) {
-    // Method: 0
-    // Call: 0(printer_id, job_id, status)
-  }
-
-  1(printer_id, job_id, update) {
-    // Method: 1
-    // Call: 1(printer_id, job_id, update)
   }
 
 };
@@ -301,11 +281,6 @@ crosapi.mojom.LocalPrintersObserverPtr = class {
     this.interfaceName = 'crosapi.mojom.LocalPrintersObserver';
   }
 
-  0(printers) {
-    // Method: 0
-    // Call: 0(printers)
-  }
-
 };
 
 crosapi.mojom.LocalPrintersObserverRequest = class {
@@ -319,142 +294,6 @@ crosapi.mojom.LocalPrinterPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'crosapi.mojom.LocalPrinter';
-  }
-
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  objects(object) {
-    // Method: objects
-    // Call: objects(object)
-  }
-
-  field() {
-    // Method: field
-    // Call: field()
-  }
-
-  1(printer_id) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(printer_id)
-      resolve({});
-    });
-  }
-
-  2(printer_id) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(printer_id)
-      resolve({});
-    });
-  }
-
-  3(printer_id) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(printer_id)
-      resolve({});
-    });
-  }
-
-  4() {
-    // Method: 4
-    // Call: 4()
-  }
-
-  5(job) {
-    // Method: 5
-    // Call: 5(job)
-  }
-
-  cancelPrintJob() {
-    // Method: CancelPrintJob
-    // Call: CancelPrintJob()
-  }
-
-  12(printer_id, job_id) {
-    // Method: 12
-    return new Promise((resolve) => {
-      // Call: 12(printer_id, job_id)
-      resolve({});
-    });
-  }
-
-  6() {
-    // Method: 6
-    return new Promise((resolve) => {
-      // Call: 6()
-      resolve({});
-    });
-  }
-
-  7(print_server_ids) {
-    // Method: 7
-    // Call: 7(print_server_ids)
-  }
-
-  8(observer) {
-    // Method: 8
-    // Call: 8(observer)
-  }
-
-  9() {
-    // Method: 9
-    return new Promise((resolve) => {
-      // Call: 9()
-      resolve({});
-    });
-  }
-
-  10() {
-    // Method: 10
-    return new Promise((resolve) => {
-      // Call: 10()
-      resolve({});
-    });
-  }
-
-  11() {
-    // Method: 11
-    return new Promise((resolve) => {
-      // Call: 11()
-      resolve({});
-    });
-  }
-
-  13(observer, source) {
-    // Method: 13
-    // Call: 13(observer, source)
-  }
-
-  14(printer_id) {
-    // Method: 14
-    return new Promise((resolve) => {
-      // Call: 14(printer_id)
-      resolve({});
-    });
-  }
-
-  15(printer_id) {
-    // Method: 15
-    return new Promise((resolve) => {
-      // Call: 15(printer_id)
-      resolve({});
-    });
-  }
-
-  16(observer) {
-    // Method: 16
-    return new Promise((resolve) => {
-      // Call: 16(observer)
-      resolve({});
-    });
   }
 
 };

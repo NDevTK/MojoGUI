@@ -48,11 +48,6 @@ remote_cocoa.mojom.ApplicationPtr = class {
     // Call: CreateNativeWidgetNSWindow(bridge_id, window_receiver, host, text_input_host)
   }
 
-  nSView(add) {
-    // Method: NSView
-    // Call: NSView(add)
-  }
-
   createRenderWidgetHostNSView(view_id, host, view_receiver) {
     // Method: CreateRenderWidgetHostNSView
     // Call: CreateRenderWidgetHostNSView(view_id, host, view_receiver)
@@ -61,11 +56,6 @@ remote_cocoa.mojom.ApplicationPtr = class {
   createSystemMediaControlsBridge(receiver, host) {
     // Method: CreateSystemMediaControlsBridge
     // Call: CreateSystemMediaControlsBridge(receiver, host)
-  }
-
-  nSView(add) {
-    // Method: NSView
-    // Call: NSView(add)
   }
 
   createWebContentsNSView(view_id, host, view_receiver) {

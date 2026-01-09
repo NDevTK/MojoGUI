@@ -160,11 +160,6 @@ searchbox.mojom.PageHandlerPtr = class {
     // Call: StopAutocomplete(clear_result)
   }
 
-  match(realbox's) {
-    // Method: match
-    // Call: match(realbox's)
-  }
-
   openAutocompleteMatch(line, url, are_matches_showing, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
     // Method: OpenAutocompleteMatch
     // Call: OpenAutocompleteMatch(line, url, are_matches_showing, mouse_button, alt_key, ctrl_key, meta_key, shift_key)
@@ -180,11 +175,6 @@ searchbox.mojom.PageHandlerPtr = class {
     // Call: DeleteAutocompleteMatch(line, url)
   }
 
-  1970(epoch) {
-    // Method: 1970
-    // Call: 1970(epoch)
-  }
-
   activateKeyword(line, url, match_selection_timestamp, is_mouse_event) {
     // Method: ActivateKeyword
     // Call: ActivateKeyword(line, url, match_selection_timestamp, is_mouse_event)
@@ -193,11 +183,6 @@ searchbox.mojom.PageHandlerPtr = class {
   showContextMenu(point) {
     // Method: ShowContextMenu
     // Call: ShowContextMenu(point)
-  }
-
-  1970(epoch) {
-    // Method: 1970
-    // Call: 1970(epoch)
   }
 
   executeAction(line, action_index, url, match_selection_timestamp, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
@@ -258,11 +243,6 @@ searchbox.mojom.PageHandlerPtr = class {
       // Call: AddTabContext(tab_id, delay_upload)
       resolve({});
     });
-  }
-
-  data(content) {
-    // Method: data
-    // Call: data(content)
   }
 
   deleteContext(token, from_automatic_chip) {
@@ -328,11 +308,6 @@ searchbox.mojom.PagePtr = class {
   setThumbnail(thumbnail_url, is_deletable) {
     // Method: SetThumbnail
     // Call: SetThumbnail(thumbnail_url, is_deletable)
-  }
-
-  context(File) {
-    // Method: context
-    // Call: context(File)
   }
 
   onContextualInputStatusChanged(token, status, error_type) {

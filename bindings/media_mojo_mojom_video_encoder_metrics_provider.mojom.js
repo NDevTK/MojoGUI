@@ -24,34 +24,9 @@ media.mojom.VideoEncoderMetricsProviderPtr = class {
     this.interfaceName = 'media.mojom.VideoEncoderMetricsProvider';
   }
 
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  setEncodedFrameCount() {
-    // Method: SetEncodedFrameCount
-    // Call: SetEncodedFrameCount()
-  }
-
-  setError() {
-    // Method: SetError
-    // Call: SetError()
-  }
-
   initialize(encoder_id, encoder_use_case, profile, encode_size, is_hardware_encoder, svc_mode) {
     // Method: Initialize
     // Call: Initialize(encoder_id, encoder_use_case, profile, encode_size, is_hardware_encoder, svc_mode)
-  }
-
-  setEncodedFramesCount() {
-    // Method: SetEncodedFramesCount
-    // Call: SetEncodedFramesCount()
   }
 
   setEncodedFrameCount(encoder_id, num_encoded_frames) {
@@ -59,24 +34,9 @@ media.mojom.VideoEncoderMetricsProviderPtr = class {
     // Call: SetEncodedFrameCount(encoder_id, num_encoded_frames)
   }
 
-  setError() {
-    // Method: SetError
-    // Call: SetError()
-  }
-
   setError(encoder_id, status) {
     // Method: SetError
     // Call: SetError(encoder_id, status)
-  }
-
-  complete() {
-    // Method: Complete
-    // Call: Complete()
-  }
-
-  process(tab) {
-    // Method: process
-    // Call: process(tab)
   }
 
   complete(encoder_id) {

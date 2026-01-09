@@ -67,11 +67,6 @@ blink.mojom.FileSystemAccessObserverPtr = class {
     this.interfaceName = 'blink.mojom.FileSystemAccessObserver';
   }
 
-  when(of) {
-    // Method: when
-    // Call: when(of)
-  }
-
   onFileChanges(changes) {
     // Method: OnFileChanges
     // Call: OnFileChanges(changes)

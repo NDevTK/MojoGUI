@@ -48,11 +48,6 @@ commerce.price_tracking.mojom.PriceTrackingHandlerPtr = class {
     });
   }
 
-  folder(UUID) {
-    // Method: folder
-    // Call: folder(UUID)
-  }
-
   getShoppingCollectionBookmarkFolderId() {
     // Method: GetShoppingCollectionBookmarkFolderId
     return new Promise((resolve) => {

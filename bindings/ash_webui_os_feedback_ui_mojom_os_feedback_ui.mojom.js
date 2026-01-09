@@ -145,29 +145,14 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderPtr = class {
     // Call: OpenExploreApp()
   }
 
-  dialog(chrome:) {
-    // Method: dialog
-    // Call: dialog(chrome:)
-  }
-
   openMetricsDialog() {
     // Method: OpenMetricsDialog
     // Call: OpenMetricsDialog()
   }
 
-  dialog(logs) {
-    // Method: dialog
-    // Call: dialog(logs)
-  }
-
   openSystemInfoDialog() {
     // Method: OpenSystemInfoDialog
     // Call: OpenSystemInfoDialog()
-  }
-
-  dialog(logs) {
-    // Method: dialog
-    // Call: dialog(logs)
   }
 
   openAutofillDialog(autofill_metadata) {

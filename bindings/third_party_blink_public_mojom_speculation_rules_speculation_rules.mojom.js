@@ -57,11 +57,6 @@ blink.mojom.SpeculationHostPtr = class {
     this.interfaceName = 'blink.mojom.SpeculationHost';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   updateSpeculationCandidates(candidates, enable_cross_origin_prerender_iframes) {
     // Method: UpdateSpeculationCandidates
     // Call: UpdateSpeculationCandidates(candidates, enable_cross_origin_prerender_iframes)
@@ -70,11 +65,6 @@ blink.mojom.SpeculationHostPtr = class {
   onLCPPredicted() {
     // Method: OnLCPPredicted
     // Call: OnLCPPredicted()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   initiatePreview(url) {

@@ -37,11 +37,6 @@ blink.mojom.PopupMenuClientPtr = class {
     // Call: DidAcceptIndices(indices)
   }
 
-  discarded(a) {
-    // Method: discarded
-    // Call: discarded(a)
-  }
-
   didCancel() {
     // Method: DidCancel
     // Call: DidCancel()

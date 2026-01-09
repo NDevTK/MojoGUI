@@ -16,11 +16,6 @@ blink.mojom.ModelDownloadProgressObserverPtr = class {
     this.interfaceName = 'blink.mojom.ModelDownloadProgressObserver';
   }
 
-  once(the) {
-    // Method: once
-    // Call: once(the)
-  }
-
   onDownloadProgressUpdate(downloaded_bytes, total_bytes) {
     // Method: OnDownloadProgressUpdate
     // Call: OnDownloadProgressUpdate(downloaded_bytes, total_bytes)

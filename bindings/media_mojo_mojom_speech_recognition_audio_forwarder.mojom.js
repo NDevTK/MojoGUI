@@ -16,11 +16,6 @@ media.mojom.SpeechRecognitionAudioForwarderPtr = class {
     this.interfaceName = 'media.mojom.SpeechRecognitionAudioForwarder';
   }
 
-  1(buffer) {
-    // Method: 1
-    // Call: 1(buffer)
-  }
-
 };
 
 media.mojom.SpeechRecognitionAudioForwarderRequest = class {

@@ -81,47 +81,12 @@ service_manager.mojom.ConnectorPtr = class {
     });
   }
 
-  bindInterface() {
-    // Method: BindInterface
-    // Call: BindInterface()
-  }
-
-  bindInterface() {
-    // Method: BindInterface
-    // Call: BindInterface()
-  }
-
   warmService(filter) {
     // Method: WarmService
     return new Promise((resolve) => {
       // Call: WarmService(filter)
       resolve({});
     });
-  }
-
-  bindInterface() {
-    // Method: BindInterface
-    // Call: BindInterface()
-  }
-
-  warmService() {
-    // Method: WarmService
-    // Call: WarmService()
-  }
-
-  pipe(C++) {
-    // Method: pipe
-    // Call: pipe(C++)
-  }
-
-  setPID() {
-    // Method: SetPID
-    // Call: SetPID()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   registerServiceInstance(identity, service, metadata_receiver) {

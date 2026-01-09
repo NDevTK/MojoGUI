@@ -41,27 +41,6 @@ chromeos.cfm.mojom.CfmBrowserPtr = class {
     this.interfaceName = 'chromeos.cfm.mojom.CfmBrowser';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  memory(error) {
-    // Method: memory
-    // Call: memory(error)
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
 };
 
 chromeos.cfm.mojom.CfmBrowserRequest = class {

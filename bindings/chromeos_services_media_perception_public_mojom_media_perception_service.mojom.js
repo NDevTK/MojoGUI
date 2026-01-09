@@ -17,11 +17,6 @@ chromeos.media_perception.mojom.MediaPerceptionServicePtr = class {
     this.interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionService';
   }
 
-  0(receiver, client) {
-    // Method: 0
-    // Call: 0(receiver, client)
-  }
-
 };
 
 chromeos.media_perception.mojom.MediaPerceptionServiceRequest = class {
@@ -37,11 +32,6 @@ chromeos.media_perception.mojom.MediaPerceptionControllerPtr = class {
     this.interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionController';
   }
 
-  0(receiver) {
-    // Method: 0
-    // Call: 0(receiver)
-  }
-
 };
 
 chromeos.media_perception.mojom.MediaPerceptionControllerRequest = class {
@@ -55,11 +45,6 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionControllerClient';
-  }
-
-  0(receiver) {
-    // Method: 0
-    // Call: 0(receiver)
   }
 
 };

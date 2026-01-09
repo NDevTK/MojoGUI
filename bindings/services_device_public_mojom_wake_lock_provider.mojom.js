@@ -16,19 +16,9 @@ device.mojom.WakeLockProviderPtr = class {
     this.interfaceName = 'device.mojom.WakeLockProvider';
   }
 
-  android(WakeLockContextCallback) {
-    // Method: Android
-    // Call: Android(WakeLockContextCallback)
-  }
-
   getWakeLockContextForID(context_id, context) {
     // Method: GetWakeLockContextForID
     // Call: GetWakeLockContextForID(context_id, context)
-  }
-
-  available(not) {
-    // Method: available
-    // Call: available(not)
   }
 
   getWakeLockWithoutContext(type, reason, description, wake_lock) {

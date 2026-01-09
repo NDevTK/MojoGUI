@@ -16,22 +16,6 @@ crosapi.mojom.TelemetryManagementServicePtr = class {
     this.interfaceName = 'crosapi.mojom.TelemetryManagementService';
   }
 
-  0(node_id, gain) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(node_id, gain)
-      resolve({});
-    });
-  }
-
-  1(node_id, volume, is_muted) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(node_id, volume, is_muted)
-      resolve({});
-    });
-  }
-
 };
 
 crosapi.mojom.TelemetryManagementServiceRequest = class {

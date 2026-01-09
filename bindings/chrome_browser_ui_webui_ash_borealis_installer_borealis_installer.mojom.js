@@ -57,21 +57,6 @@ ash.borealis_installer.mojom.PageHandlerPtr = class {
     // Call: CancelInstall()
   }
 
-  dialog(whatever) {
-    // Method: dialog
-    // Call: dialog(whatever)
-  }
-
-  requestClose() {
-    // Method: RequestClose
-    // Call: RequestClose()
-  }
-
-  spontaneously() {
-    // Method: spontaneously
-    // Call: spontaneously()
-  }
-
   onPageClosed() {
     // Method: OnPageClosed
     // Call: OnPageClosed()
@@ -105,11 +90,6 @@ ash.borealis_installer.mojom.PagePtr = class {
   onInstallFinished(error) {
     // Method: OnInstallFinished
     // Call: OnInstallFinished(error)
-  }
-
-  onPageClosed() {
-    // Method: OnPageClosed
-    // Call: OnPageClosed()
   }
 
   requestClose() {

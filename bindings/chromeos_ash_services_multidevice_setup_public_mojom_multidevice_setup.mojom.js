@@ -81,11 +81,6 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegatePtr = class {
     // Call: OnPotentialHostExistsForNewUser()
   }
 
-  devices(nor) {
-    // Method: devices
-    // Call: devices(nor)
-  }
-
   onNoLongerNewUser() {
     // Method: OnNoLongerNewUser
     // Call: OnNoLongerNewUser()
@@ -176,11 +171,6 @@ ash.multidevice_setup.mojom.MultiDeviceSetupPtr = class {
     // Call: AddFeatureStateObserver(observer)
   }
 
-  devices(be) {
-    // Method: devices
-    // Call: devices(be)
-  }
-
   getEligibleHostDevices() {
     // Method: GetEligibleHostDevices
     return new Promise((resolve) => {
@@ -189,22 +179,12 @@ ash.multidevice_setup.mojom.MultiDeviceSetupPtr = class {
     });
   }
 
-  devices(which) {
-    // Method: devices
-    // Call: devices(which)
-  }
-
   getEligibleActiveHostDevices() {
     // Method: GetEligibleActiveHostDevices
     return new Promise((resolve) => {
       // Call: GetEligibleActiveHostDevices()
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   setHostDevice(instance_id_or_legacy_device_id, auth_token) {
@@ -244,11 +224,6 @@ ash.multidevice_setup.mojom.MultiDeviceSetupPtr = class {
     });
   }
 
-  setHostDevice() {
-    // Method: SetHostDevice
-    // Call: SetHostDevice()
-  }
-
   retrySetHostNow() {
     // Method: RetrySetHostNow
     return new Promise((resolve) => {
@@ -263,11 +238,6 @@ ash.multidevice_setup.mojom.MultiDeviceSetupPtr = class {
       // Call: TriggerEventForDebugging(type)
       resolve({});
     });
-  }
-
-  enhancements() {
-    // Method: enhancements
-    // Call: enhancements()
   }
 
   setQuickStartPhoneInstanceID(qs_phone_instance_id) {
@@ -296,16 +266,6 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter';
-  }
-
-  setHostDevice() {
-    // Method: SetHostDevice
-    // Call: SetHostDevice()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   setHostDevice(instance_id_or_legacy_device_id) {

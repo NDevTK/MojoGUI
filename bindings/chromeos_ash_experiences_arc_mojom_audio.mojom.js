@@ -42,16 +42,6 @@ arc.mojom.AudioHostPtr = class {
     this.interfaceName = 'arc.mojom.AudioHost';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1(percent) {
-    // Method: 1
-    // Call: 1(percent)
-  }
-
 };
 
 arc.mojom.AudioHostRequest = class {
@@ -65,31 +55,6 @@ arc.mojom.AudioInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.AudioInstance';
-  }
-
-  3(host_remote) {
-    // Method: 3
-    // Call: 3(host_remote)
-  }
-
-  0(state) {
-    // Method: 0
-    // Call: 0(state)
-  }
-
-  2(volume, muted) {
-    // Method: 2
-    // Call: 2(volume, muted)
-  }
-
-  4(enabled) {
-    // Method: 4
-    // Call: 4(enabled)
-  }
-
-  5(device_type) {
-    // Method: 5
-    // Call: 5(device_type)
   }
 
 };

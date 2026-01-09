@@ -21,29 +21,6 @@ arc.mojom.CompatibilityModeInstancePtr = class {
     this.interfaceName = 'arc.mojom.CompatibilityModeInstance';
   }
 
-  0(package_name, state) {
-    // Method: 0
-    // Call: 0(package_name, state)
-  }
-
-  1(package_name) {
-    // Method: 1
-    // Call: 1(package_name)
-  }
-
-  chromebook() {
-    // Method: Chromebook
-    // Call: Chromebook()
-  }
-
-  2(package_name) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(package_name)
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.CompatibilityModeInstanceRequest = class {

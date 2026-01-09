@@ -16,11 +16,6 @@ mojo_base.mojom.BinderPtr = class {
     this.interfaceName = 'mojo_base.mojom.Binder';
   }
 
-  0(receiver) {
-    // Method: 0
-    // Call: 0(receiver)
-  }
-
 };
 
 mojo_base.mojom.BinderRequest = class {

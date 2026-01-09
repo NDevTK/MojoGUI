@@ -16,22 +16,6 @@ arc.mojom.ObbMounterHostPtr = class {
     this.interfaceName = 'arc.mojom.ObbMounterHost';
   }
 
-  0(obb_file, target_path, owner_gid) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(obb_file, target_path, owner_gid)
-      resolve({});
-    });
-  }
-
-  1(target_path) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(target_path)
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.ObbMounterHostRequest = class {
@@ -45,11 +29,6 @@ arc.mojom.ObbMounterInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.ObbMounterInstance';
-  }
-
-  1(host_remote) {
-    // Method: 1
-    // Call: 1(host_remote)
   }
 
 };

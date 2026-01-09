@@ -32,11 +32,6 @@ blink.mojom.NoStatePrefetchProcessorPtr = class {
     // Call: Start(prerender_attribute)
   }
 
-  start() {
-    // Method: Start
-    // Call: Start()
-  }
-
   cancel() {
     // Method: Cancel
     // Call: Cancel()

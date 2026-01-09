@@ -71,19 +71,9 @@ chrome.mojom.AppShimPtr = class {
     this.interfaceName = 'chrome.mojom.AppShim';
   }
 
-  nSApplication(and) {
-    // Method: NSApplication
-    // Call: NSApplication(and)
-  }
-
   createRemoteCocoaApplication(application) {
     // Method: CreateRemoteCocoaApplication
     // Call: CreateRemoteCocoaApplication(application)
-  }
-
-  scope(remote_cocoa) {
-    // Method: scope
-    // Call: scope(remote_cocoa)
   }
 
   createCommandDispatcherForWidget(widget_id) {
@@ -149,19 +139,9 @@ chrome.mojom.AppShimHostPtr = class {
     // Call: FocusApp()
   }
 
-  needed(dock) {
-    // Method: needed
-    // Call: needed(dock)
-  }
-
   reopenApp() {
     // Method: ReopenApp
     // Call: ReopenApp()
-  }
-
-  app(Finder, by) {
-    // Method: app
-    // Call: app(Finder, by)
   }
 
   filesOpened(files) {
@@ -179,19 +159,9 @@ chrome.mojom.AppShimHostPtr = class {
     // Call: OpenAppSettings()
   }
 
-  app(mail) {
-    // Method: app
-    // Call: app(mail)
-  }
-
   urlsOpened(urls) {
     // Method: UrlsOpened
     // Call: UrlsOpened(urls)
-  }
-
-  url() {
-    // Method: url
-    // Call: url()
   }
 
   openAppWithOverrideUrl(override_url) {
@@ -207,11 +177,6 @@ chrome.mojom.AppShimHostPtr = class {
   applicationWillTerminate() {
     // Method: ApplicationWillTerminate
     // Call: ApplicationWillTerminate()
-  }
-
-  its(level) {
-    // Method: its
-    // Call: its(level)
   }
 
   notificationPermissionStatusChanged(status) {

@@ -25,16 +25,6 @@ pdf.mojom.PdfThumbnailerPtr = class {
     this.interfaceName = 'pdf.mojom.PdfThumbnailer';
   }
 
-  getThumbnail() {
-    // Method: GetThumbnail
-    // Call: GetThumbnail()
-  }
-
-  details() {
-    // Method: details
-    // Call: details()
-  }
-
   getThumbnail(params, pdf_region) {
     // Method: GetThumbnail
     return new Promise((resolve) => {

@@ -120,101 +120,6 @@ chromeos.cdm.mojom.ContentDecryptionModulePtr = class {
     this.interfaceName = 'chromeos.cdm.mojom.ContentDecryptionModule';
   }
 
-  1(certificate_data) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(certificate_data)
-      resolve({});
-    });
-  }
-
-  2(min_hdcp_version) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(min_hdcp_version)
-      resolve({});
-    });
-  }
-
-  3(session_type, init_data_type, init_data) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(session_type, init_data_type, init_data)
-      resolve({});
-    });
-  }
-
-  4(session_type, session_id) {
-    // Method: 4
-    return new Promise((resolve) => {
-      // Call: 4(session_type, session_id)
-      resolve({});
-    });
-  }
-
-  5(session_id, response) {
-    // Method: 5
-    return new Promise((resolve) => {
-      // Call: 5(session_id, response)
-      resolve({});
-    });
-  }
-
-  6(session_id) {
-    // Method: 6
-    return new Promise((resolve) => {
-      // Call: 6(session_id)
-      resolve({});
-    });
-  }
-
-  7(session_id) {
-    // Method: 7
-    return new Promise((resolve) => {
-      // Call: 7(session_id)
-      resolve({});
-    });
-  }
-
-  8(encrypted_data, decrypt_config) {
-    // Method: 8
-    return new Promise((resolve) => {
-      // Call: 8(encrypted_data, decrypt_config)
-      resolve({});
-    });
-  }
-
-  9(decrypt_config, hw_identifier) {
-    // Method: 9
-    return new Promise((resolve) => {
-      // Call: 9(decrypt_config, hw_identifier)
-      resolve({});
-    });
-  }
-
-  platforms(AMD) {
-    // Method: platforms
-    // Call: platforms(AMD)
-  }
-
-  memory(only) {
-    // Method: memory
-    // Call: memory(only)
-  }
-
-  resource(that) {
-    // Method: resource
-    // Call: resource(that)
-  }
-
-  10(encrypted_data, decrypt_config_in, is_video, secure_handle) {
-    // Method: 10
-    return new Promise((resolve) => {
-      // Call: 10(encrypted_data, decrypt_config_in, is_video, secure_handle)
-      resolve({});
-    });
-  }
-
 };
 
 chromeos.cdm.mojom.ContentDecryptionModuleRequest = class {
@@ -228,36 +133,6 @@ chromeos.cdm.mojom.ContentDecryptionModuleClientPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'chromeos.cdm.mojom.ContentDecryptionModuleClient';
-  }
-
-  0(session_id, message_type, message) {
-    // Method: 0
-    // Call: 0(session_id, message_type, message)
-  }
-
-  closeSession() {
-    // Method: CloseSession
-    // Call: CloseSession()
-  }
-
-  1(session_id) {
-    // Method: 1
-    // Call: 1(session_id)
-  }
-
-  2(session_id, has_additional_usable_key, keys_info) {
-    // Method: 2
-    // Call: 2(session_id, has_additional_usable_key, keys_info)
-  }
-
-  epoch(1) {
-    // Method: epoch
-    // Call: epoch(1)
-  }
-
-  3(session_id, new_expiry_time_sec) {
-    // Method: 3
-    // Call: 3(session_id, new_expiry_time_sec)
   }
 
 };

@@ -16,11 +16,6 @@ ax.mojom.AutomationClientPtr = class {
     this.interfaceName = 'ax.mojom.AutomationClient';
   }
 
-  dispatchAccessibilityEvents() {
-    // Method: DispatchAccessibilityEvents
-    // Call: DispatchAccessibilityEvents()
-  }
-
   enable() {
     // Method: Enable
     return new Promise((resolve) => {
@@ -32,11 +27,6 @@ ax.mojom.AutomationClientPtr = class {
   disable() {
     // Method: Disable
     // Call: Disable()
-  }
-
-  dispatchAccessibilityEvents() {
-    // Method: DispatchAccessibilityEvents
-    // Call: DispatchAccessibilityEvents()
   }
 
   enableChildTree(tree_id) {

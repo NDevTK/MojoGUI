@@ -105,19 +105,9 @@ help_bubble.mojom.HelpBubbleHandlerPtr = class {
     // Call: BindTrackedElementHandler(handler)
   }
 
-  the() {
-    // Method: the
-    // Call: the()
-  }
-
   helpBubbleButtonPressed(native_identifier, button_index) {
     // Method: HelpBubbleButtonPressed
     // Call: HelpBubbleButtonPressed(native_identifier, button_index)
-  }
-
-  it(button) {
-    // Method: it
-    // Call: it(button)
   }
 
   helpBubbleClosed(native_identifier, reason) {
@@ -153,11 +143,6 @@ help_bubble.mojom.HelpBubbleClientPtr = class {
   hideHelpBubble(native_identifier) {
     // Method: HideHelpBubble
     // Call: HideHelpBubble(native_identifier)
-  }
-
-  bubble(owned/displayed) {
-    // Method: bubble
-    // Call: bubble(owned/displayed)
   }
 
   externalHelpBubbleUpdated(native_identifier, shown) {

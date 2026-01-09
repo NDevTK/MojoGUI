@@ -59,39 +59,6 @@ arc.mojom.ImeHostPtr = class {
     this.interfaceName = 'arc.mojom.ImeHost';
   }
 
-  0(type, is_personalized_learning_allowed, flags) {
-    // Method: 0
-    // Call: 0(type, is_personalized_learning_allowed, flags)
-  }
-
-  8(rect, coordinateSpace) {
-    // Method: 8
-    // Call: 8(rect, coordinateSpace)
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
-  3() {
-    // Method: 3
-    // Call: 3()
-  }
-
-  9(rect, text_range, text_in_range, selection_range, coordinateSpace) {
-    // Method: 9
-    // Call: 9(rect, text_range, text_in_range, selection_range, coordinateSpace)
-  }
-
-  7(key_event_data) {
-    // Method: 7
-    return new Promise((resolve) => {
-      // Call: 7(key_event_data)
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.ImeHostRequest = class {
@@ -105,56 +72,6 @@ arc.mojom.ImeInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.ImeInstance';
-  }
-
-  6(host_remote) {
-    // Method: 6
-    // Call: 6(host_remote)
-  }
-
-  1(text, segments, selection_range) {
-    // Method: 1
-    // Call: 1(text, segments, selection_range)
-  }
-
-  7(selection) {
-    // Method: 7
-    // Call: 7(selection)
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
-  end(the) {
-    // Method: end
-    // Call: end(the)
-  }
-
-  start(text) {
-    // Method: start
-    // Call: start(text)
-  }
-
-  3(text, new_cursor_position) {
-    // Method: 3
-    // Call: 3(text, new_cursor_position)
-  }
-
-  4(new_bounds, is_available) {
-    // Method: 4
-    // Call: 4(new_bounds, is_available)
-  }
-
-  5(before, after) {
-    // Method: 5
-    // Call: 5(before, after)
-  }
-
-  8(range) {
-    // Method: 8
-    // Call: 8(range)
   }
 
 };

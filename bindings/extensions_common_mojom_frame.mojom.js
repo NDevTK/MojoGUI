@@ -68,11 +68,6 @@ extensions.mojom.LocalFramePtr = class {
     // Call: MessageInvoke(extension_id, module_name, function_name, args)
   }
 
-  result(error) {
-    // Method: result
-    // Call: result(error)
-  }
-
   executeCode(param) {
     // Method: ExecuteCode
     return new Promise((resolve) => {
@@ -130,22 +125,12 @@ extensions.mojom.LocalFrameHostPtr = class {
     });
   }
 
-  data(any) {
-    // Method: data
-    // Call: data(any)
-  }
-
   request(params) {
     // Method: Request
     return new Promise((resolve) => {
       // Call: Request(params)
       resolve({});
     });
-  }
-
-  functions(to) {
-    // Method: functions
-    // Call: functions(to)
   }
 
   responseAck(request_uuid) {

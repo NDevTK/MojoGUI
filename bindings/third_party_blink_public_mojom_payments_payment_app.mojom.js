@@ -167,11 +167,6 @@ payments.mojom.PaymentManagerPtr = class {
     // Call: SetUserHint(user_hint)
   }
 
-  info() {
-    // Method: info
-    // Call: info()
-  }
-
   enableDelegations(delegations) {
     // Method: EnableDelegations
     return new Promise((resolve) => {

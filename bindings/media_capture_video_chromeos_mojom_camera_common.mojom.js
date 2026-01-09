@@ -54,26 +54,6 @@ cros.mojom.CameraModuleCallbacksPtr = class {
     this.interfaceName = 'cros.mojom.CameraModuleCallbacks';
   }
 
-  cameraDeviceStatusChange() {
-    // Method: CameraDeviceStatusChange
-    // Call: CameraDeviceStatusChange()
-  }
-
-  0(camera_id, new_status) {
-    // Method: 0
-    // Call: 0(camera_id, new_status)
-  }
-
-  torchModeStatusChange() {
-    // Method: TorchModeStatusChange
-    // Call: TorchModeStatusChange()
-  }
-
-  1(camera_id, new_status) {
-    // Method: 1
-    // Call: 1(camera_id, new_status)
-  }
-
 };
 
 cros.mojom.CameraModuleCallbacksRequest = class {
@@ -89,46 +69,6 @@ cros.mojom.VendorTagOpsPtr = class {
     this.interfaceName = 'cros.mojom.VendorTagOps';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
-  2(tag) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(tag)
-      resolve({});
-    });
-  }
-
-  3(tag) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(tag)
-      resolve({});
-    });
-  }
-
-  4(tag) {
-    // Method: 4
-    return new Promise((resolve) => {
-      // Call: 4(tag)
-      resolve({});
-    });
-  }
-
 };
 
 cros.mojom.VendorTagOpsRequest = class {
@@ -142,77 +82,6 @@ cros.mojom.CameraModulePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'cros.mojom.CameraModule';
-  }
-
-  0(camera_id, device_ops_receiver) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(camera_id, device_ops_receiver)
-      resolve({});
-    });
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
-  2(camera_id) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(camera_id)
-      resolve({});
-    });
-  }
-
-  3(callbacks) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(callbacks)
-      resolve({});
-    });
-  }
-
-  4(camera_id, enabled) {
-    // Method: 4
-    return new Promise((resolve) => {
-      // Call: 4(camera_id, enabled)
-      resolve({});
-    });
-  }
-
-  init() {
-    // Method: Init
-    // Call: Init()
-  }
-
-  5() {
-    // Method: 5
-    return new Promise((resolve) => {
-      // Call: 5()
-      resolve({});
-    });
-  }
-
-  6(vendor_tag_ops_receiver) {
-    // Method: 6
-    // Call: 6(vendor_tag_ops_receiver)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  7(callbacks) {
-    // Method: 7
-    return new Promise((resolve) => {
-      // Call: 7(callbacks)
-      resolve({});
-    });
   }
 
 };

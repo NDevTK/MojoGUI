@@ -697,22 +697,12 @@ chromeos.network_config.mojom.CrosNetworkConfigPtr = class {
     });
   }
 
-  dictionaries(ManagedString) {
-    // Method: dictionaries
-    // Call: dictionaries(ManagedString)
-  }
-
   getManagedProperties(guid) {
     // Method: GetManagedProperties
     return new Promise((resolve) => {
       // Call: GetManagedProperties(guid)
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   setProperties(guid, properties) {
@@ -739,21 +729,6 @@ chromeos.network_config.mojom.CrosNetworkConfigPtr = class {
     });
   }
 
-  type(WiFi) {
-    // Method: type
-    // Call: type(WiFi)
-  }
-
-  technologies(kWireless) {
-    // Method: technologies
-    // Call: technologies(kWireless)
-  }
-
-  onDeviceStateListChanged() {
-    // Method: OnDeviceStateListChanged
-    // Call: OnDeviceStateListChanged()
-  }
-
   setNetworkTypeEnabledState(type, enabled) {
     // Method: SetNetworkTypeEnabledState
     return new Promise((resolve) => {
@@ -776,11 +751,6 @@ chromeos.network_config.mojom.CrosNetworkConfigPtr = class {
       // Call: SelectCellularMobileNetwork(guid, network_id)
       resolve({});
     });
-  }
-
-  onNetworkStateListChanged() {
-    // Method: OnNetworkStateListChanged
-    // Call: OnNetworkStateListChanged()
   }
 
   requestNetworkScan(type) {
@@ -921,29 +891,14 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverPtr = class {
     // Call: OnActiveNetworksChanged(networks)
   }
 
-  changes(signal_strength) {
-    // Method: changes
-    // Call: changes(signal_strength)
-  }
-
   onNetworkStateChanged(network) {
     // Method: OnNetworkStateChanged
     // Call: OnNetworkStateChanged(network)
   }
 
-  getNetworkStateList() {
-    // Method: GetNetworkStateList
-    // Call: GetNetworkStateList()
-  }
-
   onNetworkStateListChanged() {
     // Method: OnNetworkStateListChanged
     // Call: OnNetworkStateListChanged()
-  }
-
-  getDeviceStateList() {
-    // Method: GetDeviceStateList
-    // Call: GetDeviceStateList()
   }
 
   onDeviceStateListChanged() {

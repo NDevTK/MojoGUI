@@ -21,11 +21,6 @@ device.mojom.GeolocationPtr = class {
     // Call: SetHighAccuracyHint(high_accuracy)
   }
 
-  discretion(is) {
-    // Method: discretion
-    // Call: discretion(is)
-  }
-
   queryNextPosition() {
     // Method: QueryNextPosition
     return new Promise((resolve) => {

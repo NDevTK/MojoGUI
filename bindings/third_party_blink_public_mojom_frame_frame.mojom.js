@@ -209,11 +209,6 @@ blink.mojom.LocalFrameHostPtr = class {
     // Call: DidFocusFrame()
   }
 
-  focus() {
-    // Method: focus
-    // Call: focus()
-  }
-
   didCallFocus() {
     // Method: DidCallFocus
     // Call: DidCallFocus()
@@ -269,34 +264,14 @@ blink.mojom.LocalFrameHostPtr = class {
     // Call: DidFinishLoad(validated_url)
   }
 
-  dispatchLoadEventForFrameOwner() {
-    // Method: DispatchLoadEventForFrameOwner
-    // Call: DispatchLoadEventForFrameOwner()
-  }
-
   dispatchLoad() {
     // Method: DispatchLoad
     // Call: DispatchLoad()
   }
 
-  offset(session) {
-    // Method: offset
-    // Call: offset(session)
-  }
-
   goToEntryAtOffset(offset, has_user_gesture, actual_navigation_start, soft_navigation_heuristics_task_id) {
     // Method: GoToEntryAtOffset
     // Call: GoToEntryAtOffset(offset, has_user_gesture, actual_navigation_start, soft_navigation_heuristics_task_id)
-  }
-
-  goToEntryAtOffset() {
-    // Method: GoToEntryAtOffset
-    // Call: GoToEntryAtOffset()
-  }
-
-  goToEntryAtOffset() {
-    // Method: GoToEntryAtOffset
-    // Call: GoToEntryAtOffset()
   }
 
   navigateToNavigationApiKey(key, has_user_gesture, actual_navigation_start, soft_navigation_heuristics_task_id) {
@@ -309,11 +284,6 @@ blink.mojom.LocalFrameHostPtr = class {
     // Call: NavigateEventHandlerPresenceChanged(present)
   }
 
-  document(tests) {
-    // Method: document
-    // Call: document(tests)
-  }
-
   updateTitle(title, title_direction) {
     // Method: UpdateTitle
     // Call: UpdateTitle(title, title_direction)
@@ -322,11 +292,6 @@ blink.mojom.LocalFrameHostPtr = class {
   updateApplicationTitle(application_title) {
     // Method: UpdateApplicationTitle
     // Call: UpdateApplicationTitle(application_title)
-  }
-
-  synced(process) {
-    // Method: synced
-    // Call: synced(process)
   }
 
   updateUserActivationState(update_type, notification_type) {
@@ -403,16 +368,6 @@ blink.mojom.LocalFrameHostPtr = class {
     // Call: DownloadURL(params)
   }
 
-  input(textfields, content) {
-    // Method: input
-    // Call: input(textfields, content)
-  }
-
-  editable(divs) {
-    // Method: editable
-    // Call: editable(divs)
-  }
-
   focusedElementChanged(is_editable_element, is_richly_editable_element, bounds_in_frame_widget, focus_type) {
     // Method: FocusedElementChanged
     // Call: FocusedElementChanged(is_editable_element, is_richly_editable_element, bounds_in_frame_widget, focus_type)
@@ -433,24 +388,9 @@ blink.mojom.LocalFrameHostPtr = class {
     // Call: CreateNewPopupWidget(popup_host, blink_widget_host, blink_widget)
   }
 
-  node() {
-    // Method: node
-    // Call: node()
-  }
-
   showContextMenu(client, params) {
     // Method: ShowContextMenu
     // Call: ShowContextMenu(client, params)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  large() {
-    // Method: large
-    // Call: large()
   }
 
   didLoadResourceFromMemoryCache(url, http_method, mime_type, request_destination, include_credentials) {
@@ -476,11 +416,6 @@ blink.mojom.LocalFrameHostPtr = class {
   didChangeIframeAttributes(child_frame_token, attributes) {
     // Method: DidChangeIframeAttributes
     // Call: DidChangeIframeAttributes(child_frame_token, attributes)
-  }
-
-  work(in) {
-    // Method: work
-    // Call: work(in)
   }
 
   capturePaintPreviewOfSubframe(clip_rect, guid) {
@@ -521,16 +456,6 @@ blink.mojom.LocalFrameHostPtr = class {
   didChangeSrcDoc(child_frame_token, srcdoc_value) {
     // Method: DidChangeSrcDoc
     // Call: DidChangeSrcDoc(child_frame_token, srcdoc_value)
-  }
-
-  capability() {
-    // Method: capability
-    // Call: capability()
-  }
-
-  postMessage() {
-    // Method: postMessage
-    // Call: postMessage()
   }
 
   receivedDelegatedCapability(delegated_capability) {
@@ -581,34 +506,14 @@ blink.mojom.LocalFramePtr = class {
     });
   }
 
-  type() {
-    // Method: type
-    // Call: type()
-  }
-
-  frame(proxy) {
-    // Method: frame
-    // Call: frame(proxy)
-  }
-
   sendInterventionReport(id, message, child_frame_token) {
     // Method: SendInterventionReport
     // Call: SendInterventionReport(id, message, child_frame_token)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   setFrameOwnerProperties(properties) {
     // Method: SetFrameOwnerProperties
     // Call: SetFrameOwnerProperties(properties)
-  }
-
-  side(search) {
-    // Method: side
-    // Call: side(search)
   }
 
   notifyUserActivation(notification_type) {
@@ -629,11 +534,6 @@ blink.mojom.LocalFramePtr = class {
   addMessageToConsole(level, message, discard_duplicates) {
     // Method: AddMessageToConsole
     // Call: AddMessageToConsole(level, message, discard_duplicates)
-  }
-
-  crashed(non-live) {
-    // Method: crashed
-    // Call: crashed(non-live)
   }
 
   swapInImmediately() {
@@ -666,29 +566,14 @@ blink.mojom.LocalFramePtr = class {
     // Call: Focus()
   }
 
-  element(any) {
-    // Method: element
-    // Call: element(any)
-  }
-
   clearFocusedElement() {
     // Method: ClearFocusedElement
     // Call: ClearFocusedElement()
   }
 
-  clipboard(an) {
-    // Method: clipboard
-    // Call: clipboard(an)
-  }
-
   copyImageAt(window_point) {
     // Method: CopyImageAt
     // Call: CopyImageAt(window_point)
-  }
-
-  disk(image) {
-    // Method: disk
-    // Call: disk(image)
   }
 
   saveImageAt(window_point) {
@@ -719,11 +604,6 @@ blink.mojom.LocalFramePtr = class {
     // Call: MediaPlayerActionAt(location, action)
   }
 
-  widget(Element::BoundsInWidget() {
-    // Method: widget
-    // Call: widget(Element::BoundsInWidget()
-  }
-
   requestVideoFrameAtWithBoundsHint(location, max_size, max_area) {
     // Method: RequestVideoFrameAtWithBoundsHint
     return new Promise((resolve) => {
@@ -740,16 +620,6 @@ blink.mojom.LocalFramePtr = class {
   advanceFocusInFrame(focus_type, source_frame_token) {
     // Method: AdvanceFocusInFrame
     // Call: AdvanceFocusInFrame(focus_type, source_frame_token)
-  }
-
-  node(nodes) {
-    // Method: node
-    // Call: node(nodes)
-  }
-
-  chosen(available) {
-    // Method: chosen
-    // Call: chosen(available)
   }
 
   advanceFocusForIME(focus_type) {
@@ -772,19 +642,9 @@ blink.mojom.LocalFramePtr = class {
     // Call: OnFrameVisibilityChanged(visibility)
   }
 
-  frame(renderer) {
-    // Method: frame
-    // Call: frame(renderer)
-  }
-
   postMessageEvent(source_frame_token, source_origin, target_origin, message) {
     // Method: PostMessageEvent
     // Call: PostMessageEvent(source_frame_token, source_origin, target_origin, message)
-  }
-
-  object(name) {
-    // Method: object
-    // Call: object(name)
   }
 
   javaScriptMethodExecuteRequest(object_name, method_name, arguments, wants_result) {
@@ -894,16 +754,6 @@ blink.mojom.LocalFramePtr = class {
     });
   }
 
-  entries() {
-    // Method: entries
-    // Call: entries()
-  }
-
-  entries() {
-    // Method: entries
-    // Call: entries()
-  }
-
   setNavigationApiHistoryEntriesForRestore(entry_arrays, restore_reason) {
     // Method: SetNavigationApiHistoryEntriesForRestore
     // Call: SetNavigationApiHistoryEntriesForRestore(entry_arrays, restore_reason)
@@ -914,11 +764,6 @@ blink.mojom.LocalFramePtr = class {
     // Call: UpdatePrerenderURL(matched_url)
   }
 
-  entries() {
-    // Method: entries
-    // Call: entries()
-  }
-
   notifyNavigationApiOfDisposedEntries(keys) {
     // Method: NotifyNavigationApiOfDisposedEntries
     // Call: NotifyNavigationApiOfDisposedEntries(keys)
@@ -927,41 +772,6 @@ blink.mojom.LocalFramePtr = class {
   traverseCancelled(navigation_api_key, reason) {
     // Method: TraverseCancelled
     // Call: TraverseCancelled(navigation_api_key, reason)
-  }
-
-  a() {
-    // Method: a
-    // Call: a()
-  }
-
-  aPI() {
-    // Method: API
-    // Call: API()
-  }
-
-  forward() {
-    // Method: forward
-    // Call: forward()
-  }
-
-  go() {
-    // Method: go
-    // Call: go()
-  }
-
-  back() {
-    // Method: back
-    // Call: back()
-  }
-
-  forward() {
-    // Method: forward
-    // Call: forward()
-  }
-
-  traverseTo() {
-    // Method: traverseTo
-    // Call: traverseTo()
   }
 
   dispatchNavigateEventForCrossDocumentTraversal(url, page_state, is_browser_initiated) {
@@ -985,11 +795,6 @@ blink.mojom.LocalFramePtr = class {
   dispatchPageSwap(page_swap_event_params) {
     // Method: DispatchPageSwap
     // Call: DispatchPageSwap(page_swap_event_params)
-  }
-
-  response() {
-    // Method: response
-    // Call: response()
   }
 
   addResourceTimingEntryForFailedSubframeNavigation(subframe_token, initial_url, start_time, redirect_time, request_start, response_start, response_code, mime_type, load_timing_info, connection_info, alpn_negotiated_protocol, is_secure_transport, is_validated, normalized_server_timing, completion_status) {
@@ -1048,11 +853,6 @@ blink.mojom.LocalMainFramePtr = class {
     });
   }
 
-  first(true) {
-    // Method: first
-    // Call: first(true)
-  }
-
   setInitialFocus(reverse) {
     // Method: SetInitialFocus
     // Call: SetInitialFocus(reverse)
@@ -1068,19 +868,9 @@ blink.mojom.LocalMainFramePtr = class {
     // Call: ZoomToFindInPageRect(rect_in_root_frame)
   }
 
-  policy() {
-    // Method: Policy
-    // Call: Policy()
-  }
-
   installCoopAccessMonitor(accessed_window, coop_reporter_info) {
     // Method: InstallCoopAccessMonitor
     // Call: InstallCoopAccessMonitor(accessed_window, coop_reporter_info)
-  }
-
-  applicable(chromeos, chrome) {
-    // Method: applicable
-    // Call: applicable(chromeos, chrome)
   }
 
   updateBrowserControlsState(constraints, current, animate, offset_tag_modifications) {
@@ -1143,19 +933,9 @@ blink.mojom.LocalMainFrameHostPtr = class {
     // Call: TakeFocus(reverse)
   }
 
-  action(link) {
-    // Method: action
-    // Call: action(link)
-  }
-
   updateTargetURL(url) {
     // Method: UpdateTargetURL
     // Call: UpdateTargetURL(url)
-  }
-
-  close() {
-    // Method: close
-    // Call: close()
   }
 
   requestClose() {
@@ -1166,16 +946,6 @@ blink.mojom.LocalMainFrameHostPtr = class {
   showCreatedWindow(opener_frame_token, disposition, window_features, opened_by_user_gesture) {
     // Method: ShowCreatedWindow
     // Call: ShowCreatedWindow(opener_frame_token, disposition, window_features, opened_by_user_gesture)
-  }
-
-  resizeTo() {
-    // Method: resizeTo
-    // Call: resizeTo()
-  }
-
-  moveTo() {
-    // Method: moveTo
-    // Call: moveTo()
   }
 
   setWindowRect(bounds) {

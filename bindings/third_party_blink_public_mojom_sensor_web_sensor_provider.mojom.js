@@ -16,11 +16,6 @@ blink.mojom.WebSensorProviderPtr = class {
     this.interfaceName = 'blink.mojom.WebSensorProvider';
   }
 
-  getSensor() {
-    // Method: GetSensor
-    // Call: GetSensor()
-  }
-
   getSensor(type) {
     // Method: GetSensor
     return new Promise((resolve) => {

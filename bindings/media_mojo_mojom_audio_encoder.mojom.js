@@ -44,16 +44,6 @@ media.mojom.AudioEncoderPtr = class {
     this.interfaceName = 'media.mojom.AudioEncoder';
   }
 
-  encode() {
-    // Method: Encode
-    // Call: Encode()
-  }
-
-  flush() {
-    // Method: Flush
-    // Call: Flush()
-  }
-
   initialize(client, config) {
     // Method: Initialize
     return new Promise((resolve) => {
@@ -62,22 +52,12 @@ media.mojom.AudioEncoderPtr = class {
     });
   }
 
-  encodedBufferReady() {
-    // Method: EncodedBufferReady
-    // Call: EncodedBufferReady()
-  }
-
   encode(buffer) {
     // Method: Encode
     return new Promise((resolve) => {
       // Call: Encode(buffer)
       resolve({});
     });
-  }
-
-  encodedBufferReady() {
-    // Method: EncodedBufferReady
-    // Call: EncodedBufferReady()
   }
 
   flush() {

@@ -33,11 +33,6 @@ global_media_controls.mojom.DeviceListHostPtr = class {
     this.interfaceName = 'global_media_controls.mojom.DeviceListHost';
   }
 
-  0(device_id) {
-    // Method: 0
-    // Call: 0(device_id)
-  }
-
 };
 
 global_media_controls.mojom.DeviceListHostRequest = class {
@@ -51,16 +46,6 @@ global_media_controls.mojom.DeviceListClientPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'global_media_controls.mojom.DeviceListClient';
-  }
-
-  0(devices) {
-    // Method: 0
-    // Call: 0(devices)
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
   }
 
 };
@@ -78,31 +63,6 @@ global_media_controls.mojom.DeviceServicePtr = class {
     this.interfaceName = 'global_media_controls.mojom.DeviceService';
   }
 
-  0(session_id, host_receiver, client_remote) {
-    // Method: 0
-    // Call: 0(session_id, host_receiver, client_remote)
-  }
-
-  presentationRequest(a) {
-    // Method: PresentationRequest
-    // Call: PresentationRequest(a)
-  }
-
-  observeDeviceListHostForSession() {
-    // Method: ObserveDeviceListHostForSession
-    // Call: ObserveDeviceListHostForSession()
-  }
-
-  1(host_receiver, client_remote) {
-    // Method: 1
-    // Call: 1(host_receiver, client_remote)
-  }
-
-  2(provider_remote) {
-    // Method: 2
-    // Call: 2(provider_remote)
-  }
-
 };
 
 global_media_controls.mojom.DeviceServiceRequest = class {
@@ -118,76 +78,6 @@ global_media_controls.mojom.DevicePickerProviderPtr = class {
     this.interfaceName = 'global_media_controls.mojom.DevicePickerProvider';
   }
 
-  0(source_id) {
-    // Method: 0
-    // Call: 0(source_id)
-  }
-
-  createItem() {
-    // Method: CreateItem
-    // Call: CreateItem()
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  createItem() {
-    // Method: CreateItem
-    // Call: CreateItem()
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
-  deleteItem() {
-    // Method: DeleteItem
-    // Call: DeleteItem()
-  }
-
-  showItem() {
-    // Method: ShowItem
-    // Call: ShowItem()
-  }
-
-  createItem() {
-    // Method: CreateItem
-    // Call: CreateItem()
-  }
-
-  3() {
-    // Method: 3
-    // Call: 3()
-  }
-
-  4(metadata) {
-    // Method: 4
-    // Call: 4(metadata)
-  }
-
-  5(artwork_image) {
-    // Method: 5
-    // Call: 5(artwork_image)
-  }
-
-  6(favicon_image) {
-    // Method: 6
-    // Call: 6(favicon_image)
-  }
-
-  7(observer) {
-    // Method: 7
-    // Call: 7(observer)
-  }
-
-  8() {
-    // Method: 8
-    // Call: 8()
-  }
-
 };
 
 global_media_controls.mojom.DevicePickerProviderRequest = class {
@@ -201,26 +91,6 @@ global_media_controls.mojom.DevicePickerObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'global_media_controls.mojom.DevicePickerObserver';
-  }
-
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
-  3() {
-    // Method: 3
-    // Call: 3()
   }
 
 };

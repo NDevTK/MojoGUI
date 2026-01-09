@@ -16,11 +16,6 @@ blink.mojom.PaidContentMetadataObserverPtr = class {
     this.interfaceName = 'blink.mojom.PaidContentMetadataObserver';
   }
 
-  unspecified(yet) {
-    // Method: unspecified
-    // Call: unspecified(yet)
-  }
-
   onPaidContentMetadataChanged(has_paid_content) {
     // Method: OnPaidContentMetadataChanged
     // Call: OnPaidContentMetadataChanged(has_paid_content)

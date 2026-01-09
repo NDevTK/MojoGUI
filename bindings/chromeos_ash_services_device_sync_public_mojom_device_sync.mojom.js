@@ -79,11 +79,6 @@ ash.device_sync.mojom.DeviceSyncObserverPtr = class {
     this.interfaceName = 'ash.device_sync.mojom.DeviceSyncObserver';
   }
 
-  periodically(ForceEnrollmentNow() {
-    // Method: periodically
-    // Call: periodically(ForceEnrollmentNow()
-  }
-
   onEnrollmentFinished() {
     // Method: OnEnrollmentFinished
     // Call: OnEnrollmentFinished()
@@ -114,32 +109,12 @@ ash.device_sync.mojom.DeviceSyncPtr = class {
     // Call: AddObserver(observer)
   }
 
-  onEnrollmentFinished() {
-    // Method: OnEnrollmentFinished
-    // Call: OnEnrollmentFinished()
-  }
-
-  onEnrollmentFinished() {
-    // Method: OnEnrollmentFinished
-    // Call: OnEnrollmentFinished()
-  }
-
   forceEnrollmentNow() {
     // Method: ForceEnrollmentNow
     return new Promise((resolve) => {
       // Call: ForceEnrollmentNow()
       resolve({});
     });
-  }
-
-  onDevicesSynced() {
-    // Method: OnDevicesSynced
-    // Call: OnDevicesSynced()
-  }
-
-  onEnrollmentFinished() {
-    // Method: OnEnrollmentFinished
-    // Call: OnEnrollmentFinished()
   }
 
   forceSyncNow() {
@@ -182,11 +157,6 @@ ash.device_sync.mojom.DeviceSyncPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   setSoftwareFeatureState(device_public_key, software_feature, enabled, is_exclusive) {
     // Method: SetSoftwareFeatureState
     return new Promise((resolve) => {
@@ -195,22 +165,12 @@ ash.device_sync.mojom.DeviceSyncPtr = class {
     });
   }
 
-  setSoftwareFeatureState() {
-    // Method: SetSoftwareFeatureState
-    // Call: SetSoftwareFeatureState()
-  }
-
   setFeatureStatus(device_instance_id, feature, status_change) {
     // Method: SetFeatureStatus
     return new Promise((resolve) => {
       // Call: SetFeatureStatus(device_instance_id, feature, status_change)
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   findEligibleDevices(software_feature) {
@@ -235,11 +195,6 @@ ash.device_sync.mojom.DeviceSyncPtr = class {
       // Call: GetDevicesActivityStatus()
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   getDebugInfo() {

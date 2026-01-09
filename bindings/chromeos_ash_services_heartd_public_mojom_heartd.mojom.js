@@ -50,24 +50,6 @@ ash.heartd.mojom.HeartdControlPtr = class {
     this.interfaceName = 'ash.heartd.mojom.HeartdControl';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  2(action) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(action)
-      resolve({});
-    });
-  }
-
 };
 
 ash.heartd.mojom.HeartdControlRequest = class {
@@ -83,14 +65,6 @@ ash.heartd.mojom.HeartbeatServicePtr = class {
     this.interfaceName = 'ash.heartd.mojom.HeartbeatService';
   }
 
-  0(name, argument, receiver) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(name, argument, receiver)
-      resolve({});
-    });
-  }
-
 };
 
 ash.heartd.mojom.HeartbeatServiceRequest = class {
@@ -104,19 +78,6 @@ ash.heartd.mojom.PacemakerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.heartd.mojom.Pacemaker';
-  }
-
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
   }
 
 };

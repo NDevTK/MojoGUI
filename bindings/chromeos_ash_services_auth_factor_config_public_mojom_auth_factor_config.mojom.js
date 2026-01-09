@@ -98,11 +98,6 @@ ash.auth.mojom.AuthFactorConfigPtr = class {
     });
   }
 
-  managed(all) {
-    // Method: managed
-    // Call: managed(all)
-  }
-
   getManagementType(auth_token, factor) {
     // Method: GetManagementType
     return new Promise((resolve) => {

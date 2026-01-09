@@ -46,27 +46,12 @@ ash.wifi_direct.mojom.WifiDirectManagerPtr = class {
     this.interfaceName = 'ash.wifi_direct.mojom.WifiDirectManager';
   }
 
-  object(be) {
-    // Method: object
-    // Call: object(be)
-  }
-
-  1(random) {
-    // Method: 1
-    // Call: 1(random)
-  }
-
   createWifiDirectGroup(credentials) {
     // Method: CreateWifiDirectGroup
     return new Promise((resolve) => {
       // Call: CreateWifiDirectGroup(credentials)
       resolve({});
     });
-  }
-
-  object(NullRemote) {
-    // Method: object
-    // Call: object(NullRemote)
   }
 
   connectToWifiDirectGroup(credentials, frequency) {

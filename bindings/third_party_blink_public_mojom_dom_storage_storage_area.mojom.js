@@ -28,11 +28,6 @@ blink.mojom.StorageAreaObserverPtr = class {
     // Call: KeyChanged(key, new_value, old_value, source)
   }
 
-  key(update) {
-    // Method: key
-    // Call: key(update)
-  }
-
   keyChangeFailed(key, source) {
     // Method: KeyChangeFailed
     // Call: KeyChangeFailed(key, source)
@@ -43,24 +38,9 @@ blink.mojom.StorageAreaObserverPtr = class {
     // Call: KeyDeleted(key, old_value, source)
   }
 
-  deleteAll() {
-    // Method: DeleteAll
-    // Call: DeleteAll()
-  }
-
   allDeleted(was_nonempty, source) {
     // Method: AllDeleted
     // Call: AllDeleted(was_nonempty, source)
-  }
-
-  put() {
-    // Method: Put
-    // Call: Put()
-  }
-
-  delete() {
-    // Method: Delete
-    // Call: Delete()
   }
 
   shouldSendOldValueOnMutations(value) {
@@ -83,54 +63,9 @@ blink.mojom.StorageAreaPtr = class {
     this.interfaceName = 'blink.mojom.StorageArea';
   }
 
-  put() {
-    // Method: Put
-    // Call: Put()
-  }
-
-  addObserver() {
-    // Method: AddObserver
-    // Call: AddObserver()
-  }
-
-  keyChanged() {
-    // Method: KeyChanged
-    // Call: KeyChanged()
-  }
-
-  getAll() {
-    // Method: GetAll
-    // Call: GetAll()
-  }
-
-  deleteAll() {
-    // Method: DeleteAll
-    // Call: DeleteAll()
-  }
-
   addObserver(observer) {
     // Method: AddObserver
     // Call: AddObserver(observer)
-  }
-
-  shouldSendOldValueOnMutations() {
-    // Method: ShouldSendOldValueOnMutations
-    // Call: ShouldSendOldValueOnMutations()
-  }
-
-  storageArea() {
-    // Method: StorageArea
-    // Call: StorageArea()
-  }
-
-  getAll() {
-    // Method: GetAll
-    // Call: GetAll()
-  }
-
-  deleteAll() {
-    // Method: DeleteAll
-    // Call: DeleteAll()
   }
 
   put(key, value, client_old_value, source) {
@@ -141,36 +76,6 @@ blink.mojom.StorageAreaPtr = class {
     });
   }
 
-  entry(any) {
-    // Method: entry
-    // Call: entry(any)
-  }
-
-  shouldSendOldValueOnMutations() {
-    // Method: ShouldSendOldValueOnMutations
-    // Call: ShouldSendOldValueOnMutations()
-  }
-
-  storageAreaObserver() {
-    // Method: StorageAreaObserver
-    // Call: StorageAreaObserver()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  getAll() {
-    // Method: GetAll
-    // Call: GetAll()
-  }
-
-  deleteAll() {
-    // Method: DeleteAll
-    // Call: DeleteAll()
-  }
-
   delete(key, client_old_value, source) {
     // Method: Delete
     return new Promise((resolve) => {
@@ -179,32 +84,12 @@ blink.mojom.StorageAreaPtr = class {
     });
   }
 
-  allDeleted() {
-    // Method: AllDeleted
-    // Call: AllDeleted()
-  }
-
-  allDeleted() {
-    // Method: AllDeleted
-    // Call: AllDeleted()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   deleteAll(source, new_observer) {
     // Method: DeleteAll
     return new Promise((resolve) => {
       // Call: DeleteAll(source, new_observer)
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   get(key) {

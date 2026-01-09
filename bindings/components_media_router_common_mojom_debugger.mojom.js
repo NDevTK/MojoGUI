@@ -24,11 +24,6 @@ media_router.mojom.DebuggerPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   onMirroringStats(json_stats) {
     // Method: OnMirroringStats
     // Call: OnMirroringStats(json_stats)

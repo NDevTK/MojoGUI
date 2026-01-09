@@ -16,11 +16,6 @@ file_suggestion.mojom.MicrosoftFilesPageHandlerPtr = class {
     this.interfaceName = 'file_suggestion.mojom.MicrosoftFilesPageHandler';
   }
 
-  dismissModule() {
-    // Method: DismissModule
-    // Call: DismissModule()
-  }
-
   getFiles() {
     // Method: GetFiles
     return new Promise((resolve) => {

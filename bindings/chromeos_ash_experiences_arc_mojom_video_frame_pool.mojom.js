@@ -23,19 +23,6 @@ arc.mojom.VideoFramePoolPtr = class {
     this.interfaceName = 'arc.mojom.VideoFramePool';
   }
 
-  0(client) {
-    // Method: 0
-    // Call: 0(client)
-  }
-
-  1(video_frame) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(video_frame)
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.VideoFramePoolRequest = class {
@@ -49,36 +36,6 @@ arc.mojom.VideoFramePoolClientPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.VideoFramePoolClient';
-  }
-
-  addVideoFrame() {
-    // Method: AddVideoFrame
-    // Call: AddVideoFrame()
-  }
-
-  addVideoFrame() {
-    // Method: AddVideoFrame
-    // Call: AddVideoFrame()
-  }
-
-  addVideoFrame() {
-    // Method: AddVideoFrame
-    // Call: AddVideoFrame()
-  }
-
-  requestVideoFrames() {
-    // Method: RequestVideoFrames
-    // Call: RequestVideoFrames()
-  }
-
-  addVideoFrame() {
-    // Method: AddVideoFrame
-    // Call: AddVideoFrame()
-  }
-
-  1(format, coded_size, visible_rect, num_frames) {
-    // Method: 1
-    // Call: 1(format, coded_size, visible_rect, num_frames)
   }
 
 };

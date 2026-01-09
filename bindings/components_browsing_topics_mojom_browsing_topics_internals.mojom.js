@@ -78,16 +78,6 @@ browsing_topics.mojom.PageHandlerPtr = class {
     });
   }
 
-  aPI() {
-    // Method: API
-    // Call: API()
-  }
-
-  getModelInfo() {
-    // Method: GetModelInfo
-    // Call: GetModelInfo()
-  }
-
   classifyHosts(hosts) {
     // Method: ClassifyHosts
     return new Promise((resolve) => {

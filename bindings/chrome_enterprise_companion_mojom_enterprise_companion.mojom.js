@@ -23,22 +23,6 @@ enterprise_companion.mojom.EnterpriseCompanionPtr = class {
     this.interfaceName = 'enterprise_companion.mojom.EnterpriseCompanion';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1(reason) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(reason)
-      resolve({});
-    });
-  }
-
 };
 
 enterprise_companion.mojom.EnterpriseCompanionRequest = class {

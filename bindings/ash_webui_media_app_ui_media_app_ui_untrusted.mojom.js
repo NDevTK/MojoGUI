@@ -42,11 +42,6 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryPtr = class {
     });
   }
 
-  time(window) {
-    // Method: time
-    // Call: time(window)
-  }
-
   createMantisUntrustedService(page, dlc_uuid) {
     // Method: CreateMantisUntrustedService
     return new Promise((resolve) => {
@@ -70,49 +65,14 @@ ash.media_app_ui.mojom.OcrUntrustedServicePtr = class {
     this.interfaceName = 'ash.media_app_ui.mojom.OcrUntrustedService';
   }
 
-  rotated(dirty, all) {
-    // Method: rotated
-    // Call: rotated(dirty, all)
-  }
-
-  pageContentsUpdated() {
-    // Method: PageContentsUpdated
-    // Call: PageContentsUpdated()
-  }
-
-  pageContentsUpdated() {
-    // Method: PageContentsUpdated
-    // Call: PageContentsUpdated()
-  }
-
-  added(delete) {
-    // Method: added
-    // Call: added(delete)
-  }
-
   pageMetadataUpdated(page_metadata) {
     // Method: PageMetadataUpdated
     // Call: PageMetadataUpdated(page_metadata)
   }
 
-  pageMetadataUpdated() {
-    // Method: PageMetadataUpdated
-    // Call: PageMetadataUpdated()
-  }
-
-  annotation(text) {
-    // Method: annotation
-    // Call: annotation(text)
-  }
-
   pageContentsUpdated(dirty_page_id) {
     // Method: PageContentsUpdated
     // Call: PageContentsUpdated(dirty_page_id)
-  }
-
-  pixels(and) {
-    // Method: pixels
-    // Call: pixels(and)
   }
 
   viewportUpdated(viewport_box, scale_factor) {
@@ -148,11 +108,6 @@ ash.media_app_ui.mojom.OcrUntrustedPagePtr = class {
     // Call: SetViewport(viewport_box)
   }
 
-  off(service) {
-    // Method: off
-    // Call: off(service)
-  }
-
   setPdfOcrEnabled(enabled) {
     // Method: SetPdfOcrEnabled
     // Call: SetPdfOcrEnabled(enabled)
@@ -176,16 +131,6 @@ ash.media_app_ui.mojom.MahiUntrustedServicePtr = class {
   onPdfLoaded() {
     // Method: OnPdfLoaded
     // Call: OnPdfLoaded()
-  }
-
-  updated(after) {
-    // Method: updated
-    // Call: updated(after)
-  }
-
-  uI(and) {
-    // Method: UI
-    // Call: UI(and)
   }
 
   onPdfFileNameUpdated(new_name) {
@@ -246,32 +191,12 @@ ash.media_app_ui.mojom.MantisUntrustedServicePtr = class {
     this.interfaceName = 'ash.media_app_ui.mojom.MantisUntrustedService';
   }
 
-  image() {
-    // Method: image
-    // Call: image()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   segmentImage(image, selection) {
     // Method: SegmentImage
     return new Promise((resolve) => {
       // Call: SegmentImage(image, selection)
       resolve({});
     });
-  }
-
-  image() {
-    // Method: image
-    // Call: image()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   generativeFillImage(image, mask, text, seed) {
@@ -282,32 +207,12 @@ ash.media_app_ui.mojom.MantisUntrustedServicePtr = class {
     });
   }
 
-  image() {
-    // Method: image
-    // Call: image()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   inpaintImage(image, mask, seed) {
     // Method: InpaintImage
     return new Promise((resolve) => {
       // Call: InpaintImage(image, mask, seed)
       resolve({});
     });
-  }
-
-  image() {
-    // Method: image
-    // Call: image()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   outpaintImage(image, mask, seed) {
@@ -318,22 +223,12 @@ ash.media_app_ui.mojom.MantisUntrustedServicePtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   classifyImageSafety(image) {
     // Method: ClassifyImageSafety
     return new Promise((resolve) => {
       // Call: ClassifyImageSafety(image)
       resolve({});
     });
-  }
-
-  mode(lasso) {
-    // Method: mode
-    // Call: mode(lasso)
   }
 
   inferSegmentationMode(gesture) {
@@ -357,11 +252,6 @@ ash.media_app_ui.mojom.MantisUntrustedPagePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.media_app_ui.mojom.MantisUntrustedPage';
-  }
-
-  0() {
-    // Method: 0
-    // Call: 0()
   }
 
   reportMantisProgress(progress) {

@@ -76,11 +76,6 @@ blink.mojom.AIManagerCreateLanguageModelClientPtr = class {
     this.interfaceName = 'blink.mojom.AIManagerCreateLanguageModelClient';
   }
 
-  createLanguageModel() {
-    // Method: CreateLanguageModel
-    // Call: CreateLanguageModel()
-  }
-
   onResult(language_model_remote, info) {
     // Method: OnResult
     // Call: OnResult(language_model_remote, info)
@@ -111,34 +106,9 @@ blink.mojom.AILanguageModelPtr = class {
     // Call: Prompt(prompts, constraint, pending_responder)
   }
 
-  prompt() {
-    // Method: Prompt
-    // Call: Prompt()
-  }
-
-  prompt() {
-    // Method: Prompt
-    // Call: Prompt()
-  }
-
   append(prompts, client) {
     // Method: Append
     // Call: Append(prompts, client)
-  }
-
-  clone() {
-    // Method: clone
-    // Call: clone()
-  }
-
-  context(another) {
-    // Method: context
-    // Call: context(another)
-  }
-
-  createLanguageModel() {
-    // Method: CreateLanguageModel
-    // Call: CreateLanguageModel()
   }
 
   fork(client) {

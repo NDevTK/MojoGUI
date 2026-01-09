@@ -100,21 +100,6 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostPtr = class {
     });
   }
 
-  controller(one) {
-    // Method: controller
-    // Call: controller(one)
-  }
-
-  swallowed(is, dispatch) {
-    // Method: swallowed
-    // Call: swallowed(is, dispatch)
-  }
-
-  handled(is, be) {
-    // Method: handled
-    // Call: handled(is, be)
-  }
-
   dispatchKeyEventToMenuControllerRemote(event) {
     // Method: DispatchKeyEventToMenuControllerRemote
     return new Promise((resolve) => {
@@ -256,19 +241,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostPtr = class {
     // Call: OnAutohidingMenuBarHeightChanged(menu_bar_height)
   }
 
-  window(of) {
-    // Method: window
-    // Call: window(of)
-  }
-
   doDialogButtonAction(button) {
     // Method: DoDialogButtonAction
     // Call: DoDialogButtonAction(button)
-  }
-
-  dialog(any) {
-    // Method: dialog
-    // Call: dialog(any)
   }
 
   getDialogButtonInfo(button) {
@@ -295,11 +270,6 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostPtr = class {
     });
   }
 
-  key(views) {
-    // Method: key
-    // Call: key(views)
-  }
-
   getCanWindowBecomeKey() {
     // Method: GetCanWindowBecomeKey
     return new Promise((resolve) => {
@@ -308,22 +278,12 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostPtr = class {
     });
   }
 
-  window(active, terminology) {
-    // Method: window
-    // Call: window(active, terminology)
-  }
-
   getAlwaysRenderWindowAsKey() {
     // Method: GetAlwaysRenderWindowAsKey
     return new Promise((resolve) => {
       // Call: GetAlwaysRenderWindowAsKey()
       resolve({});
     });
-  }
-
-  window(active, terminology) {
-    // Method: window
-    // Call: window(active, terminology)
   }
 
   onWindowCloseRequested() {
@@ -368,22 +328,12 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostPtr = class {
     });
   }
 
-  executeCommand() {
-    // Method: ExecuteCommand
-    // Call: ExecuteCommand()
-  }
-
   willExecuteCommand(command, window_open_disposition, is_before_first_responder) {
     // Method: WillExecuteCommand
     return new Promise((resolve) => {
       // Call: WillExecuteCommand(command, window_open_disposition, is_before_first_responder)
       resolve({});
     });
-  }
-
-  called(what) {
-    // Method: called
-    // Call: called(what)
   }
 
   executeCommand(command, window_open_disposition, is_before_first_responder) {

@@ -97,16 +97,6 @@ ash.secure_channel.mojom.ChannelPtr = class {
     this.interfaceName = 'ash.secure_channel.mojom.Channel';
   }
 
-  dropped(to) {
-    // Method: dropped
-    // Call: dropped(to)
-  }
-
-  sendMessage() {
-    // Method: SendMessage
-    // Call: SendMessage()
-  }
-
   sendMessage(message) {
     // Method: SendMessage
     // Call: SendMessage(message)
@@ -161,11 +151,6 @@ ash.secure_channel.mojom.ConnectionDelegatePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.secure_channel.mojom.ConnectionDelegate';
-  }
-
-  failed(before) {
-    // Method: failed
-    // Call: failed(before)
   }
 
   onConnectionAttemptFailure(reason) {
@@ -223,39 +208,9 @@ ash.secure_channel.mojom.SecureChannelPtr = class {
     this.interfaceName = 'ash.secure_channel.mojom.SecureChannel';
   }
 
-  onConnection() {
-    // Method: OnConnection
-    // Call: OnConnection()
-  }
-
-  onConnectionFailure() {
-    // Method: OnConnectionFailure
-    // Call: OnConnectionFailure()
-  }
-
-  all(metadata) {
-    // Method: all
-    // Call: all(metadata)
-  }
-
-  attempt(incoming) {
-    // Method: attempt
-    // Call: attempt(incoming)
-  }
-
   listenForConnectionFromDevice(device_to_connect, local_device, feature, connection_medium, connection_priority, delegate) {
     // Method: ListenForConnectionFromDevice
     // Call: ListenForConnectionFromDevice(device_to_connect, local_device, feature, connection_medium, connection_priority, delegate)
-  }
-
-  onConnection() {
-    // Method: OnConnection
-    // Call: OnConnection()
-  }
-
-  onConnectionFailure() {
-    // Method: OnConnectionFailure
-    // Call: OnConnectionFailure()
   }
 
   initiateConnectionToDevice(device_to_connect, local_device, feature, connection_medium, connection_priority, delegate, secure_channel_structured_metrics_logger) {

@@ -33,11 +33,6 @@ extensions.mojom.RendererPtr = class {
     this.interfaceName = 'extensions.mojom.Renderer';
   }
 
-  process(scripts) {
-    // Method: process
-    // Call: process(scripts)
-  }
-
   activateExtension(extension_id) {
     // Method: ActivateExtension
     // Call: ActivateExtension(extension_id)
@@ -76,11 +71,6 @@ extensions.mojom.RendererPtr = class {
   setUserScriptsAllowed(extension_id, allowed) {
     // Method: SetUserScriptsAllowed
     // Call: SetUserScriptsAllowed(extension_id, allowed)
-  }
-
-  channel() {
-    // Method: channel
-    // Call: channel()
   }
 
   setSessionInfo(channel, session) {

@@ -114,14 +114,6 @@ chromeos.machine_learning.mojom.HandwritingRecognizerPtr = class {
     this.interfaceName = 'chromeos.machine_learning.mojom.HandwritingRecognizer';
   }
 
-  0(query) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(query)
-      resolve({});
-    });
-  }
-
 };
 
 chromeos.machine_learning.mojom.HandwritingRecognizerRequest = class {

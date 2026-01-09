@@ -52,11 +52,6 @@ ash.local_search_service.mojom.LocalSearchServicePtr = class {
     this.interfaceName = 'ash.local_search_service.mojom.LocalSearchService';
   }
 
-  logging(provided) {
-    // Method: logging
-    // Call: logging(provided)
-  }
-
   bindIndex(index_id, backend, index_receiver, reporter_remote) {
     // Method: BindIndex
     return new Promise((resolve) => {

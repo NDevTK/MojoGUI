@@ -44,31 +44,6 @@ cc.mojom.RenderFrameMetadataObserverPtr = class {
     this.interfaceName = 'cc.mojom.RenderFrameMetadataObserver';
   }
 
-  onRenderFrameMetadataChanged() {
-    // Method: OnRenderFrameMetadataChanged
-    // Call: OnRenderFrameMetadataChanged()
-  }
-
-  frame(example, changed) {
-    // Method: frame
-    // Call: frame(example, changed)
-  }
-
-  onRootScrollOffsetChanged() {
-    // Method: OnRootScrollOffsetChanged
-    // Call: OnRootScrollOffsetChanged()
-  }
-
-  onRootScrollOffsetChanged() {
-    // Method: OnRootScrollOffsetChanged
-    // Call: OnRootScrollOffsetChanged()
-  }
-
-  onRenderFrameMetadataChanged() {
-    // Method: OnRenderFrameMetadataChanged
-    // Call: OnRenderFrameMetadataChanged()
-  }
-
   updateRootScrollOffsetUpdateFrequency(frequency) {
     // Method: UpdateRootScrollOffsetUpdateFrequency
     // Call: UpdateRootScrollOffsetUpdateFrequency(frequency)
@@ -102,11 +77,6 @@ cc.mojom.RenderFrameMetadataObserverClientPtr = class {
   onFrameSubmissionForTesting(frame_token) {
     // Method: OnFrameSubmissionForTesting
     // Call: OnFrameSubmissionForTesting(frame_token)
-  }
-
-  updateRootScrollOffsetUpdateFrequency() {
-    // Method: UpdateRootScrollOffsetUpdateFrequency
-    // Call: UpdateRootScrollOffsetUpdateFrequency()
   }
 
   onRootScrollOffsetChanged(root_scroll_offset) {

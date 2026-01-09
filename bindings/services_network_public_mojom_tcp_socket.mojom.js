@@ -52,11 +52,6 @@ network.mojom.TCPBoundSocketPtr = class {
     });
   }
 
-  createTCPConnectedSocket() {
-    // Method: CreateTCPConnectedSocket
-    // Call: CreateTCPConnectedSocket()
-  }
-
   connect(remote_addr_list, tcp_connected_socket_options, socket, observer) {
     // Method: Connect
     return new Promise((resolve) => {
@@ -104,22 +99,12 @@ network.mojom.TCPConnectedSocketPtr = class {
     });
   }
 
-  successfully(a) {
-    // Method: successfully
-    // Call: successfully(a)
-  }
-
   setNoDelay(no_delay) {
     // Method: SetNoDelay
     return new Promise((resolve) => {
       // Call: SetNoDelay(no_delay)
       resolve({});
     });
-  }
-
-  successfully(a) {
-    // Method: successfully
-    // Call: successfully(a)
   }
 
   setKeepAlive(enable, delay_secs) {
@@ -168,16 +153,6 @@ network.mojom.TCPServerSocketPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'network.mojom.TCPServerSocket';
-  }
-
-  accept() {
-    // Method: Accept
-    // Call: Accept()
-  }
-
-  accept() {
-    // Method: Accept
-    // Call: Accept()
   }
 
   accept(observer) {

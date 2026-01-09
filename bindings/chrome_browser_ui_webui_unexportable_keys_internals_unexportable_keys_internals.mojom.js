@@ -81,11 +81,6 @@ unexportable_keys_internals.mojom.PagePtr = class {
     this.interfaceName = 'unexportable_keys_internals.mojom.Page';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
 };
 
 unexportable_keys_internals.mojom.PageRequest = class {

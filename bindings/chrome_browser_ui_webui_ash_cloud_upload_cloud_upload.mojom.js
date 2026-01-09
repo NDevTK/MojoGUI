@@ -114,11 +114,6 @@ ash.cloud_upload.mojom.PageHandlerPtr = class {
     this.interfaceName = 'ash.cloud_upload.mojom.PageHandler';
   }
 
-  flow(chrome:) {
-    // Method: flow
-    // Call: flow(chrome:)
-  }
-
   getDialogArgs() {
     // Method: GetDialogArgs
     return new Promise((resolve) => {

@@ -134,11 +134,6 @@ nearby_share.mojom.DiscoveryManagerPtr = class {
     // Call: AddDiscoveryObserver(observer)
   }
 
-  onStartDiscoveryResult() {
-    // Method: OnStartDiscoveryResult
-    // Call: OnStartDiscoveryResult()
-  }
-
   startDiscovery(listener) {
     // Method: StartDiscovery
     return new Promise((resolve) => {
@@ -222,11 +217,6 @@ nearby_share.mojom.ReceiveObserverPtr = class {
     this.interfaceName = 'nearby_share.mojom.ReceiveObserver';
   }
 
-  state(receive) {
-    // Method: state
-    // Call: state(receive)
-  }
-
   onHighVisibilityChanged(in_high_visibility) {
     // Method: OnHighVisibilityChanged
     // Call: OnHighVisibilityChanged(in_high_visibility)
@@ -240,11 +230,6 @@ nearby_share.mojom.ReceiveObserverPtr = class {
   onNearbyProcessStopped() {
     // Method: OnNearbyProcessStopped
     // Call: OnNearbyProcessStopped()
-  }
-
-  registerForegroundReceiveSurface() {
-    // Method: RegisterForegroundReceiveSurface
-    // Call: RegisterForegroundReceiveSurface()
   }
 
   onStartAdvertisingFailure() {

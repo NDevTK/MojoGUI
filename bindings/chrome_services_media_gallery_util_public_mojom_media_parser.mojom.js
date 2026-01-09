@@ -92,21 +92,6 @@ chrome.mojom.MediaParserFactoryPtr = class {
     this.interfaceName = 'chrome.mojom.MediaParserFactory';
   }
 
-  initCpuFlags() {
-    // Method: InitCpuFlags
-    // Call: InitCpuFlags()
-  }
-
-  avGetCpuFlags() {
-    // Method: av_get_cpu_flags
-    // Call: av_get_cpu_flags()
-  }
-
-  access(/proc/cpuinfo) {
-    // Method: access
-    // Call: access(/proc/cpuinfo)
-  }
-
   createMediaParser(libyuv_cpu_flags, libavutil_cpu_flags) {
     // Method: CreateMediaParser
     return new Promise((resolve) => {

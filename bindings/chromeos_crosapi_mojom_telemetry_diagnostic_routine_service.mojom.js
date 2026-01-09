@@ -256,34 +256,6 @@ crosapi.mojom.TelemetryDiagnosticRoutineControlPtr = class {
     this.interfaceName = 'crosapi.mojom.TelemetryDiagnosticRoutineControl';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  exception(this) {
-    // Method: exception
-    // Call: exception(this)
-  }
-
-  state() {
-    // Method: state
-    // Call: state()
-  }
-
-  2(reply) {
-    // Method: 2
-    // Call: 2(reply)
-  }
-
 };
 
 crosapi.mojom.TelemetryDiagnosticRoutineControlRequest = class {
@@ -299,16 +271,6 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserverPtr = class {
     this.interfaceName = 'crosapi.mojom.TelemetryDiagnosticRoutineObserver';
   }
 
-  initialized(`CreateRoutine`) {
-    // Method: initialized
-    // Call: initialized(`CreateRoutine`)
-  }
-
-  0(state) {
-    // Method: 0
-    // Call: 0(state)
-  }
-
 };
 
 crosapi.mojom.TelemetryDiagnosticRoutineObserverRequest = class {
@@ -322,34 +284,6 @@ crosapi.mojom.TelemetryDiagnosticRoutinesServicePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'crosapi.mojom.TelemetryDiagnosticRoutinesService';
-  }
-
-  occur(executing) {
-    // Method: occur
-    // Call: occur(executing)
-  }
-
-  reason() {
-    // Method: reason
-    // Call: reason()
-  }
-
-  initialized(or) {
-    // Method: initialized
-    // Call: initialized(or)
-  }
-
-  0(routine_argument, routine_receiver, routine_observer) {
-    // Method: 0
-    // Call: 0(routine_argument, routine_receiver, routine_observer)
-  }
-
-  1(routine_argument) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(routine_argument)
-      resolve({});
-    });
   }
 
 };

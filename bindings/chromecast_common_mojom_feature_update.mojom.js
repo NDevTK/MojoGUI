@@ -16,11 +16,6 @@ chromecast.mojom.FeatureUpdateObserverPtr = class {
     this.interfaceName = 'chromecast.mojom.FeatureUpdateObserver';
   }
 
-  disk(PrefService) {
-    // Method: disk
-    // Call: disk(PrefService)
-  }
-
   onFeaturesUpdated(features) {
     // Method: OnFeaturesUpdated
     // Call: OnFeaturesUpdated(features)

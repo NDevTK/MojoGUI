@@ -87,11 +87,6 @@ on_device_internals.mojom.PageHandlerPtr = class {
     });
   }
 
-  info(id, id, version, support) {
-    // Method: info
-    // Call: info(id, id, version, support)
-  }
-
   getDeviceAndPerformanceInfo() {
     // Method: GetDeviceAndPerformanceInfo
     return new Promise((resolve) => {

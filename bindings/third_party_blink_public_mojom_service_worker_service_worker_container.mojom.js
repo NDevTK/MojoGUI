@@ -28,11 +28,6 @@ blink.mojom.ServiceWorkerContainerHostPtr = class {
     this.interfaceName = 'blink.mojom.ServiceWorkerContainerHost';
   }
 
-  register() {
-    // Method: register
-    // Call: register()
-  }
-
   register(script_url, options, outside_fetch_client_settings_object) {
     // Method: Register
     return new Promise((resolve) => {
@@ -41,22 +36,12 @@ blink.mojom.ServiceWorkerContainerHostPtr = class {
     });
   }
 
-  getRegistration() {
-    // Method: getRegistration
-    // Call: getRegistration()
-  }
-
   getRegistration(client_url) {
     // Method: GetRegistration
     return new Promise((resolve) => {
       // Call: GetRegistration(client_url)
       resolve({});
     });
-  }
-
-  getRegistrations() {
-    // Method: getRegistrations
-    // Call: getRegistrations()
   }
 
   getRegistrations() {
@@ -115,19 +100,9 @@ blink.mojom.ServiceWorkerContainerPtr = class {
     this.interfaceName = 'blink.mojom.ServiceWorkerContainer';
   }
 
-  invalid(null) {
-    // Method: invalid
-    // Call: invalid(null)
-  }
-
   setController(controller_info, should_notify_controllerchange) {
     // Method: SetController
     // Call: SetController(controller_info, should_notify_controllerchange)
-  }
-
-  postMessage() {
-    // Method: postMessage
-    // Call: postMessage()
   }
 
   postMessageToClient(source, message) {

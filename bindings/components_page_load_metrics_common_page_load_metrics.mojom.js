@@ -296,11 +296,6 @@ page_load_metrics.mojom.PageLoadMetricsPtr = class {
     // Call: SetUpSharedMemoryForDroppedFrames(dropped_frames_memory)
   }
 
-  mark() {
-    // Method: mark
-    // Call: mark()
-  }
-
   addCustomUserTiming(custom_user_timing) {
     // Method: AddCustomUserTiming
     // Call: AddCustomUserTiming(custom_user_timing)

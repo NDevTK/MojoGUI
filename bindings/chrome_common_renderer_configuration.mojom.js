@@ -49,11 +49,6 @@ chrome.mojom.BoundSessionRequestThrottledHandlerPtr = class {
     this.interfaceName = 'chrome.mojom.BoundSessionRequestThrottledHandler';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   handleRequestBlockedOnCookie(untrusted_request_url) {
     // Method: HandleRequestBlockedOnCookie
     return new Promise((resolve) => {
@@ -75,11 +70,6 @@ chrome.mojom.ChromeOSListenerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'chrome.mojom.ChromeOSListener';
-  }
-
-  process(from) {
-    // Method: process
-    // Call: process(from)
   }
 
   mergeSessionComplete() {

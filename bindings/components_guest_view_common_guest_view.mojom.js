@@ -36,11 +36,6 @@ guest_view.mojom.GuestViewHostPtr = class {
     // Call: AttachToEmbedderFrame(element_instance_id, guest_instance_id, params)
   }
 
-  guestView(`view_instance_id`) {
-    // Method: GuestView
-    // Call: GuestView(`view_instance_id`)
-  }
-
   viewCreated(view_instance_id, view_type, keep_alive_handle_receiver) {
     // Method: ViewCreated
     // Call: ViewCreated(view_instance_id, view_type, keep_alive_handle_receiver)

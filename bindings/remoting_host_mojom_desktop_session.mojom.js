@@ -406,11 +406,6 @@ remoting.mojom.DesktopSessionControlPtr = class {
     // Call: LockWorkstation()
   }
 
-  sequence() {
-    // Method: sequence
-    // Call: sequence()
-  }
-
   injectSendAttentionSequence() {
     // Method: InjectSendAttentionSequence
     // Call: InjectSendAttentionSequence()
@@ -439,11 +434,6 @@ remoting.mojom.DesktopSessionControlPtr = class {
   injectTouchEvent(event) {
     // Method: InjectTouchEvent
     // Call: InjectTouchEvent(event)
-  }
-
-  onUrlForwarderStateChange() {
-    // Method: OnUrlForwarderStateChange
-    // Call: OnUrlForwarderStateChange()
   }
 
   setUpUrlForwarder() {
@@ -492,11 +482,6 @@ remoting.mojom.VideoCapturerPtr = class {
     this.interfaceName = 'remoting.mojom.VideoCapturer';
   }
 
-  videoCapturerEventHandler(CaptureFrame() {
-    // Method: VideoCapturerEventHandler
-    // Call: VideoCapturerEventHandler(CaptureFrame()
-  }
-
   captureFrame() {
     // Method: CaptureFrame
     // Call: CaptureFrame()
@@ -532,11 +517,6 @@ remoting.mojom.VideoCapturerEventHandlerPtr = class {
     // Call: OnSharedMemoryRegionReleased(id)
   }
 
-  it(stride) {
-    // Method: it
-    // Call: it(stride)
-  }
-
   onCaptureResult(result) {
     // Method: OnCaptureResult
     // Call: OnCaptureResult(result)
@@ -560,11 +540,6 @@ remoting.mojom.DesktopSessionEventHandlerPtr = class {
   onClipboardEvent(event) {
     // Method: OnClipboardEvent
     // Call: OnClipboardEvent(event)
-  }
-
-  setUpUrlForwarder() {
-    // Method: SetUpUrlForwarder
-    // Call: SetUpUrlForwarder()
   }
 
   onUrlForwarderStateChange(state) {

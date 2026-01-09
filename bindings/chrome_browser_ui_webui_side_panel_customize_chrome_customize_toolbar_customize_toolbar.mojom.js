@@ -105,11 +105,6 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerPtr = class {
     });
   }
 
-  to(from) {
-    // Method: to
-    // Call: to(from)
-  }
-
   pinAction(action_id, pinned) {
     // Method: PinAction
     // Call: PinAction(action_id, pinned)

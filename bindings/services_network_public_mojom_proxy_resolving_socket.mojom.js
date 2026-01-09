@@ -23,11 +23,6 @@ network.mojom.ProxyResolvingSocketPtr = class {
     this.interfaceName = 'network.mojom.ProxyResolvingSocket';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   upgradeToTLS(host_port_pair, traffic_annotation, receiver, observer) {
     // Method: UpgradeToTLS
     return new Promise((resolve) => {

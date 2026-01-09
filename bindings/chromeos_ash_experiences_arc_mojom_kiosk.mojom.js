@@ -16,16 +16,6 @@ arc.mojom.KioskHostPtr = class {
     this.interfaceName = 'arc.mojom.KioskHost';
   }
 
-  0(session_id) {
-    // Method: 0
-    // Call: 0(session_id)
-  }
-
-  1(session_id, succeeded) {
-    // Method: 1
-    // Call: 1(session_id, succeeded)
-  }
-
 };
 
 arc.mojom.KioskHostRequest = class {
@@ -39,11 +29,6 @@ arc.mojom.KioskInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.KioskInstance';
-  }
-
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
   }
 
 };

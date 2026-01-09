@@ -199,11 +199,6 @@ nearby_share.mojom.NearbyShareSettingsPtr = class {
     // Call: SetVisibility(visibility)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   getAllowedContacts() {
     // Method: GetAllowedContacts
     return new Promise((resolve) => {
@@ -230,16 +225,6 @@ nearby_share.mojom.DownloadContactsObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'nearby_share.mojom.DownloadContactsObserver';
-  }
-
-  setAllowedContacts() {
-    // Method: SetAllowedContacts
-    // Call: SetAllowedContacts()
-  }
-
-  contacts(case) {
-    // Method: contacts
-    // Call: contacts(case)
   }
 
   onContactsDownloaded(allowed_contacts, contacts, num_unreachable_contacts_filtered_out) {
@@ -275,11 +260,6 @@ nearby_share.mojom.ContactManagerPtr = class {
   downloadContacts() {
     // Method: DownloadContacts
     // Call: DownloadContacts()
-  }
-
-  onContactsDownloaded() {
-    // Method: OnContactsDownloaded
-    // Call: OnContactsDownloaded()
   }
 
   setAllowedContacts(allowed_contacts) {

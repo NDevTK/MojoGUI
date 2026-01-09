@@ -59,11 +59,6 @@ paint_preview.mojom.PaintPreviewRecorderPtr = class {
     this.interfaceName = 'paint_preview.mojom.PaintPreviewRecorder';
   }
 
-  capturePaintPreview(params) {
-    // Method: CapturePaintPreview
-    // Call: CapturePaintPreview(params)
-  }
-
   getGeometryMetadata(params) {
     // Method: GetGeometryMetadata
     return new Promise((resolve) => {

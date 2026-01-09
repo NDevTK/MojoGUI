@@ -32,16 +32,6 @@ blink.mojom.ManifestManagerPtr = class {
     });
   }
 
-  returned(manifest's) {
-    // Method: returned
-    // Call: returned(manifest's)
-  }
-
-  requestManifestAndErrors() {
-    // Method: RequestManifestAndErrors
-    // Call: RequestManifestAndErrors()
-  }
-
   requestManifestDebugInfo() {
     // Method: RequestManifestDebugInfo
     return new Promise((resolve) => {

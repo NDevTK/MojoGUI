@@ -34,11 +34,6 @@ arc.mojom.EnterpriseReportingHostPtr = class {
     this.interfaceName = 'arc.mojom.EnterpriseReportingHost';
   }
 
-  1(time_ms, op, success) {
-    // Method: 1
-    // Call: 1(time_ms, op, success)
-  }
-
 };
 
 arc.mojom.EnterpriseReportingHostRequest = class {
@@ -52,19 +47,6 @@ arc.mojom.EnterpriseReportingInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.EnterpriseReportingInstance';
-  }
-
-  2(host_remote) {
-    // Method: 2
-    // Call: 2(host_remote)
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
   }
 
 };

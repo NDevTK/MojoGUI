@@ -487,19 +487,6 @@ content.optional_numerics_unittest.mojom.InterfaceV0Ptr = class {
     this.interfaceName = 'content.optional_numerics_unittest.mojom.InterfaceV0';
   }
 
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  2(s) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(s)
-      resolve({});
-    });
-  }
-
 };
 
 content.optional_numerics_unittest.mojom.InterfaceV0Request = class {
@@ -513,22 +500,6 @@ content.optional_numerics_unittest.mojom.InterfaceV2Ptr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'content.optional_numerics_unittest.mojom.InterfaceV2';
-  }
-
-  1(bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value)
-      resolve({});
-    });
-  }
-
-  2(s) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(s)
-      resolve({});
-    });
   }
 
 };

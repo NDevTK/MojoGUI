@@ -55,11 +55,6 @@ viz.mojom.VizMainPtr = class {
     // Call: SetHostProcessId(pid)
   }
 
-  aDPF(Performance) {
-    // Method: ADPF
-    // Call: ADPF(Performance)
-  }
-
   notifyWorkloadIncrease() {
     // Method: NotifyWorkloadIncrease
     // Call: NotifyWorkloadIncrease()

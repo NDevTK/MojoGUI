@@ -26,22 +26,6 @@ ash.cros_safety.mojom.CloudSafetySessionPtr = class {
     this.interfaceName = 'ash.cros_safety.mojom.CloudSafetySession';
   }
 
-  0(rules, text) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(rules, text)
-      resolve({});
-    });
-  }
-
-  1(rules, prompt, image) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(rules, prompt, image)
-      resolve({});
-    });
-  }
-
 };
 
 ash.cros_safety.mojom.CloudSafetySessionRequest = class {
@@ -55,22 +39,6 @@ ash.cros_safety.mojom.OnDeviceSafetySessionPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.cros_safety.mojom.OnDeviceSafetySession';
-  }
-
-  0(rules, text) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(rules, text)
-      resolve({});
-    });
-  }
-
-  1(rules, image) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(rules, image)
-      resolve({});
-    });
   }
 
 };

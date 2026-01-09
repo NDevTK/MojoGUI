@@ -23,19 +23,9 @@ content.mojom.ChildMemoryConsumerPtr = class {
     this.interfaceName = 'content.mojom.ChildMemoryConsumer';
   }
 
-  releaseMemory() {
-    // Method: ReleaseMemory
-    // Call: ReleaseMemory()
-  }
-
   notifyReleaseMemory() {
     // Method: NotifyReleaseMemory
     // Call: NotifyReleaseMemory()
-  }
-
-  updateMemoryLimit() {
-    // Method: UpdateMemoryLimit
-    // Call: UpdateMemoryLimit()
   }
 
   notifyUpdateMemoryLimit(percentage) {

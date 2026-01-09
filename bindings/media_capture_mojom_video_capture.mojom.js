@@ -30,11 +30,6 @@ media.mojom.VideoCaptureObserverPtr = class {
     // Call: OnStateChanged(result)
   }
 
-  onBufferReady() {
-    // Method: OnBufferReady
-    // Call: OnBufferReady()
-  }
-
   onNewBuffer(buffer_id, buffer_handle) {
     // Method: OnNewBuffer
     // Call: OnNewBuffer(buffer_id, buffer_handle)
@@ -45,19 +40,9 @@ media.mojom.VideoCaptureObserverPtr = class {
     // Call: OnBufferReady(buffer)
   }
 
-  onNewBuffer() {
-    // Method: OnNewBuffer
-    // Call: OnNewBuffer()
-  }
-
   onBufferDestroyed(buffer_id) {
     // Method: OnBufferDestroyed
     // Call: OnBufferDestroyed(buffer_id)
-  }
-
-  onBufferReady() {
-    // Method: OnBufferReady
-    // Call: OnBufferReady()
   }
 
   onFrameDropped(reason) {
@@ -121,11 +106,6 @@ media.mojom.VideoCaptureHostPtr = class {
       // Call: GetDeviceSupportedFormats(device_id, session_id)
       resolve({});
     });
-  }
-
-  format() {
-    // Method: format
-    // Call: format()
   }
 
   getDeviceFormatsInUse(device_id, session_id) {

@@ -346,22 +346,12 @@ ash.camera_app.mojom.CameraAppHelperPtr = class {
     // Call: StopPerfEventTrace(event)
   }
 
-  update() {
-    // Method: Update
-    // Call: Update()
-  }
-
   setTabletMonitor(monitor) {
     // Method: SetTabletMonitor
     return new Promise((resolve) => {
       // Call: SetTabletMonitor(monitor)
       resolve({});
     });
-  }
-
-  update() {
-    // Method: Update
-    // Call: Update()
   }
 
   setScreenStateMonitor(monitor) {
@@ -378,11 +368,6 @@ ash.camera_app.mojom.CameraAppHelperPtr = class {
       // Call: IsMetricsAndCrashReportingEnabled()
       resolve({});
     });
-  }
-
-  update() {
-    // Method: Update
-    // Call: Update()
   }
 
   setExternalScreenMonitor(monitor) {
@@ -469,11 +454,6 @@ ash.camera_app.mojom.CameraAppHelperPtr = class {
     // Call: MaybeTriggerSurvey()
   }
 
-  update() {
-    // Method: Update
-    // Call: Update()
-  }
-
   startStorageMonitor(monitor) {
     // Method: StartStorageMonitor
     return new Promise((resolve) => {
@@ -497,22 +477,12 @@ ash.camera_app.mojom.CameraAppHelperPtr = class {
     // Call: OpenWifiDialog(config)
   }
 
-  update() {
-    // Method: Update
-    // Call: Update()
-  }
-
   setLidStateMonitor(monitor) {
     // Method: SetLidStateMonitor
     return new Promise((resolve) => {
       // Call: SetLidStateMonitor(monitor)
       resolve({});
     });
-  }
-
-  update() {
-    // Method: Update
-    // Call: Update()
   }
 
   setSWPrivacySwitchMonitor(monitor) {
@@ -529,11 +499,6 @@ ash.camera_app.mojom.CameraAppHelperPtr = class {
       // Call: GetEventsSender()
       resolve({});
     });
-  }
-
-  update() {
-    // Method: Update
-    // Call: Update()
   }
 
   setScreenLockedMonitor(monitor) {

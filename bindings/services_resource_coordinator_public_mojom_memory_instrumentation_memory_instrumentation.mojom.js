@@ -185,16 +185,6 @@ memory_instrumentation.mojom.ClientProcessPtr = class {
     });
   }
 
-  use(as) {
-    // Method: use
-    // Call: use(as)
-  }
-
-  use(OSMemDumps) {
-    // Method: use
-    // Call: use(OSMemDumps)
-  }
-
   requestOSMemoryDump(option, flags, pids) {
     // Method: RequestOSMemoryDump
     return new Promise((resolve) => {

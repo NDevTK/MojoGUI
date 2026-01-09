@@ -21,11 +21,6 @@ extensions.mojom.ServiceWorkerHostPtr = class {
     // Call: DidInitializeServiceWorkerContext(extension_id, service_worker_version_id, worker_thread_id, service_worker_token, event_dispatcher)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   didStartServiceWorkerContext(extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id) {
     // Method: DidStartServiceWorkerContext
     // Call: DidStartServiceWorkerContext(extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id)
@@ -34,21 +29,6 @@ extensions.mojom.ServiceWorkerHostPtr = class {
   didStopServiceWorkerContext(extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id) {
     // Method: DidStopServiceWorkerContext
     // Call: DidStopServiceWorkerContext(extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id)
-  }
-
-  function(API) {
-    // Method: function
-    // Call: function(API)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  converted() {
-    // Method: converted
-    // Call: converted()
   }
 
   requestWorker(params) {

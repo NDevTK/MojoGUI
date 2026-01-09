@@ -59,22 +59,6 @@ crosapi.mojom.PasskeyAuthenticatorPtr = class {
     this.interfaceName = 'crosapi.mojom.PasskeyAuthenticator';
   }
 
-  1(account, request) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(account, request)
-      resolve({});
-    });
-  }
-
-  0(account, request) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(account, request)
-      resolve({});
-    });
-  }
-
 };
 
 crosapi.mojom.PasskeyAuthenticatorRequest = class {

@@ -16,22 +16,12 @@ viz.mojom.GpuServicePtr = class {
     this.interfaceName = 'viz.mojom.GpuService';
   }
 
-  available(for) {
-    // Method: available
-    // Call: available(for)
-  }
-
   establishGpuChannel(client_id, client_tracing_id, is_gpu_host, enable_extra_handles_validation) {
     // Method: EstablishGpuChannel
     return new Promise((resolve) => {
       // Call: EstablishGpuChannel(client_id, client_tracing_id, is_gpu_host, enable_extra_handles_validation)
       resolve({});
     });
-  }
-
-  establishGpuChannel() {
-    // Method: EstablishGpuChannel
-    // Call: EstablishGpuChannel()
   }
 
   setChannelClientPid(client_id, client_pid) {

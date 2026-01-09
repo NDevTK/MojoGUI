@@ -44,11 +44,6 @@ blink.mojom.FileSystemAccessFileHandlePtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   requestPermission(mode) {
     // Method: RequestPermission
     return new Promise((resolve) => {
@@ -57,22 +52,12 @@ blink.mojom.FileSystemAccessFileHandlePtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   asBlob() {
     // Method: AsBlob
     return new Promise((resolve) => {
       // Call: AsBlob()
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   createFileWriter(keep_existing_data, auto_close, mode) {
@@ -107,22 +92,12 @@ blink.mojom.FileSystemAccessFileHandlePtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   openAccessHandle(mode) {
     // Method: OpenAccessHandle
     return new Promise((resolve) => {
       // Call: OpenAccessHandle(mode)
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   isSameEntry(other) {
@@ -138,27 +113,12 @@ blink.mojom.FileSystemAccessFileHandlePtr = class {
     // Call: Transfer(token)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   getUniqueId() {
     // Method: GetUniqueId
     return new Promise((resolve) => {
       // Call: GetUniqueId()
       resolve({});
     });
-  }
-
-  identifiers(`id`) {
-    // Method: identifiers
-    // Call: identifiers(`id`)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   getCloudIdentifiers() {

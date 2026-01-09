@@ -98,11 +98,6 @@ on_device_model.mojom.PlatformModelProgressObserverPtr = class {
     this.interfaceName = 'on_device_model.mojom.PlatformModelProgressObserver';
   }
 
-  0(progress) {
-    // Method: 0
-    // Call: 0(progress)
-  }
-
 };
 
 on_device_model.mojom.PlatformModelProgressObserverRequest = class {
@@ -126,11 +121,6 @@ on_device_model.mojom.OnDeviceModelServicePtr = class {
     });
   }
 
-  loadModel() {
-    // Method: LoadModel
-    // Call: LoadModel()
-  }
-
   getCapabilities(weights) {
     // Method: GetCapabilities
     return new Promise((resolve) => {
@@ -142,11 +132,6 @@ on_device_model.mojom.OnDeviceModelServicePtr = class {
   loadTextSafetyModel(params, model) {
     // Method: LoadTextSafetyModel
     // Call: LoadTextSafetyModel(params, model)
-  }
-
-  info(id, id, version, support) {
-    // Method: info
-    // Call: info(id, id, version, support)
   }
 
   getDeviceAndPerformanceInfo() {
@@ -170,35 +155,6 @@ on_device_model.mojom.OnDeviceModelPlatformServicePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'on_device_model.mojom.OnDeviceModelPlatformService';
-  }
-
-  platforms(ChromeOS) {
-    // Method: platforms
-    // Call: platforms(ChromeOS)
-  }
-
-  0(uuid, model, progress_observer) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(uuid, model, progress_observer)
-      resolve({});
-    });
-  }
-
-  1(uuid) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(uuid)
-      resolve({});
-    });
-  }
-
-  2() {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2()
-      resolve({});
-    });
   }
 
 };

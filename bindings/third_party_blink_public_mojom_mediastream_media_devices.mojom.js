@@ -123,24 +123,9 @@ blink.mojom.MediaDevicesDispatcherHostPtr = class {
     // Call: SetCaptureHandleConfig(config)
   }
 
-  surface() {
-    // Method: surface
-    // Call: surface()
-  }
-
   closeFocusWindowOfOpportunity(label) {
     // Method: CloseFocusWindowOfOpportunity
     // Call: CloseFocusWindowOfOpportunity(label)
-  }
-
-  cropTo() {
-    // Method: cropTo
-    // Call: cropTo()
-  }
-
-  restrictTo() {
-    // Method: restrictTo
-    // Call: restrictTo()
   }
 
   produceSubCaptureTargetId(type) {

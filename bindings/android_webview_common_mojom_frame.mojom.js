@@ -82,11 +82,6 @@ android_webview.mojom.FrameHostPtr = class {
     // Call: UpdateHitTestData(data)
   }
 
-  size(RenderView) {
-    // Method: size
-    // Call: size(RenderView)
-  }
-
   contentsSizeChanged(contents_size) {
     // Method: ContentsSizeChanged
     // Call: ContentsSizeChanged(contents_size)

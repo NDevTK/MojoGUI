@@ -16,11 +16,6 @@ cros.mojom.VideoCaptureDeviceInfoObserverPtr = class {
     this.interfaceName = 'cros.mojom.VideoCaptureDeviceInfoObserver';
   }
 
-  0(camera_id, device_id) {
-    // Method: 0
-    // Call: 0(camera_id, device_id)
-  }
-
 };
 
 cros.mojom.VideoCaptureDeviceInfoObserverRequest = class {
@@ -34,11 +29,6 @@ cros.mojom.VideoCaptureDeviceInfoMonitorPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'cros.mojom.VideoCaptureDeviceInfoMonitor';
-  }
-
-  0(observer) {
-    // Method: 0
-    // Call: 0(observer)
   }
 
 };

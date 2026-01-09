@@ -36,38 +36,6 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorPtr = class {
     this.interfaceName = 'ash.cros_healthd.internal.mojom.ChromiumDataCollector';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
-  2(state) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(state)
-      resolve({});
-    });
-  }
-
-  3(mute_on) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(mute_on)
-      resolve({});
-    });
-  }
-
 };
 
 ash.cros_healthd.internal.mojom.ChromiumDataCollectorRequest = class {

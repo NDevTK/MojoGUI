@@ -16,11 +16,6 @@ blink.mojom.FileSystemAccessFileModificationHostPtr = class {
     this.interfaceName = 'blink.mojom.FileSystemAccessFileModificationHost';
   }
 
-  requestCapacityChange() {
-    // Method: RequestCapacityChange
-    // Call: RequestCapacityChange()
-  }
-
   requestCapacityChange(capacity_delta) {
     // Method: RequestCapacityChange
     return new Promise((resolve) => {

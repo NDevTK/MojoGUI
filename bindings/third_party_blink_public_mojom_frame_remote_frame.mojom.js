@@ -102,11 +102,6 @@ blink.mojom.RemoteFrameHostPtr = class {
     // Call: CheckCompleted()
   }
 
-  work(in) {
-    // Method: work
-    // Call: work(in)
-  }
-
   capturePaintPreviewOfCrossProcessSubframe(clip_rect, guid) {
     // Method: CapturePaintPreviewOfCrossProcessSubframe
     // Call: CapturePaintPreviewOfCrossProcessSubframe(clip_rect, guid)
@@ -125,11 +120,6 @@ blink.mojom.RemoteFrameHostPtr = class {
   advanceFocus(focus_type, source_frame_token) {
     // Method: AdvanceFocus
     // Call: AdvanceFocus(focus_type, source_frame_token)
-  }
-
-  postMessageEvent() {
-    // Method: PostMessageEvent
-    // Call: PostMessageEvent()
   }
 
   routeMessageEvent(source_frame_token, source_origin, target_origin, message) {
@@ -187,11 +177,6 @@ blink.mojom.RemoteFramePtr = class {
     // Call: EnforceInsecureNavigationsSet(set)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   setFrameOwnerProperties(properties) {
     // Method: SetFrameOwnerProperties
     // Call: SetFrameOwnerProperties(properties)
@@ -247,11 +232,6 @@ blink.mojom.RemoteFramePtr = class {
     // Call: BubbleLogicalScroll(direction, granularity)
   }
 
-  tree(for) {
-    // Method: tree
-    // Call: tree(for)
-  }
-
   updateUserActivationState(state_update_type, notification_type) {
     // Method: UpdateUserActivationState
     // Call: UpdateUserActivationState(state_update_type, notification_type)
@@ -265,11 +245,6 @@ blink.mojom.RemoteFramePtr = class {
   setPageFocus(is_focused) {
     // Method: SetPageFocus
     // Call: SetPageFocus(is_focused)
-  }
-
-  navigation(or) {
-    // Method: navigation
-    // Call: navigation(or)
   }
 
   renderFallbackContent() {
@@ -337,11 +312,6 @@ blink.mojom.RemoteFramePtr = class {
     // Call: DidUpdateVisualProperties(metadata)
   }
 
-  destination() {
-    // Method: destination
-    // Call: destination()
-  }
-
   setFrameSinkId(frame_sink_id, allow_paint_holding) {
     // Method: SetFrameSinkId
     // Call: SetFrameSinkId(frame_sink_id, allow_paint_holding)
@@ -352,29 +322,9 @@ blink.mojom.RemoteFramePtr = class {
     // Call: ChildProcessGone()
   }
 
-  element(<iframe>) {
-    // Method: element
-    // Call: element(<iframe>)
-  }
-
-  didStartLoading() {
-    // Method: DidStartLoading
-    // Call: DidStartLoading()
-  }
-
-  frames(remotes) {
-    // Method: frames
-    // Call: frames(remotes)
-  }
-
   createRemoteChild(token, opener_frame_token, tree_scope_type, replication_state, owner_properties, is_loading, devtools_frame_token, remote_frame_interfaces) {
     // Method: CreateRemoteChild
     // Call: CreateRemoteChild(token, opener_frame_token, tree_scope_type, replication_state, owner_properties, is_loading, devtools_frame_token, remote_frame_interfaces)
-  }
-
-  root(https:) {
-    // Method: root
-    // Call: root(https:)
   }
 
   createRemoteChildren(params, navigation_metrics_token) {
@@ -430,11 +380,6 @@ blink.mojom.RemoteMainFrameHostPtr = class {
   takeFocus(reverse) {
     // Method: TakeFocus
     // Call: TakeFocus(reverse)
-  }
-
-  action(link) {
-    // Method: action
-    // Call: action(link)
   }
 
   updateTargetURL(url) {

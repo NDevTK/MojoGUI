@@ -31,19 +31,9 @@ service_manager.mojom.ServicePtr = class {
     });
   }
 
-  bindInterface() {
-    // Method: BindInterface
-    // Call: BindInterface()
-  }
-
   onBindInterface(source, interface_name, interface_pipe) {
     // Method: OnBindInterface
     // Call: OnBindInterface(source, interface_name, interface_pipe)
-  }
-
-  information(PID) {
-    // Method: information
-    // Call: information(PID)
   }
 
   createPackagedServiceInstance(identity, receiver, metadata) {

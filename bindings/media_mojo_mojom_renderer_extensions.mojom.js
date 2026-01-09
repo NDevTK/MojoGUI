@@ -30,11 +30,6 @@ media.mojom.FlingingRendererClientExtensionPtr = class {
     this.interfaceName = 'media.mojom.FlingingRendererClientExtension';
   }
 
-  state(same) {
-    // Method: state
-    // Call: state(same)
-  }
-
   onRemotePlayStateChange(state) {
     // Method: OnRemotePlayStateChange
     // Call: OnRemotePlayStateChange(state)
@@ -66,11 +61,6 @@ media.mojom.MediaFoundationRendererExtensionPtr = class {
   setVideoStreamEnabled(enabled) {
     // Method: SetVideoStreamEnabled
     // Call: SetVideoStreamEnabled(enabled)
-  }
-
-  incorrectly(video) {
-    // Method: incorrectly
-    // Call: incorrectly(video)
   }
 
   setOutputRect(rect) {

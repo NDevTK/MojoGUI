@@ -43,22 +43,12 @@ blink.mojom.ServiceWorkerHostPtr = class {
     // Call: ClearCachedMetadata(url)
   }
 
-  matchAll() {
-    // Method: matchAll
-    // Call: matchAll()
-  }
-
   getClients(options) {
     // Method: GetClients
     return new Promise((resolve) => {
       // Call: GetClients(options)
       resolve({});
     });
-  }
-
-  get() {
-    // Method: get
-    // Call: get()
   }
 
   getClient(client_uuid) {
@@ -69,32 +59,12 @@ blink.mojom.ServiceWorkerHostPtr = class {
     });
   }
 
-  openWindow() {
-    // Method: openWindow
-    // Call: openWindow()
-  }
-
-  obtained(cross-origin, time) {
-    // Method: obtained
-    // Call: obtained(cross-origin, time)
-  }
-
   openNewTab(url) {
     // Method: OpenNewTab
     return new Promise((resolve) => {
       // Call: OpenNewTab(url)
       resolve({});
     });
-  }
-
-  openWindow() {
-    // Method: openWindow
-    // Call: openWindow()
-  }
-
-  obtained(cross-origin, time) {
-    // Method: obtained
-    // Call: obtained(cross-origin, time)
   }
 
   openPaymentHandlerWindow(url) {
@@ -105,19 +75,9 @@ blink.mojom.ServiceWorkerHostPtr = class {
     });
   }
 
-  postMessage() {
-    // Method: postMessage
-    // Call: postMessage()
-  }
-
   postMessageToClient(client_uuid, message) {
     // Method: PostMessageToClient
     // Call: PostMessageToClient(client_uuid, message)
-  }
-
-  focus() {
-    // Method: focus
-    // Call: focus()
   }
 
   focusClient(client_uuid) {
@@ -126,16 +86,6 @@ blink.mojom.ServiceWorkerHostPtr = class {
       // Call: FocusClient(client_uuid)
       resolve({});
     });
-  }
-
-  navigate() {
-    // Method: navigate
-    // Call: navigate()
-  }
-
-  obtained(cross-origin, time) {
-    // Method: obtained
-    // Call: obtained(cross-origin, time)
   }
 
   navigateClient(client_uuid, url) {
@@ -147,31 +97,11 @@ blink.mojom.ServiceWorkerHostPtr = class {
   }
 
   skipWaiting() {
-    // Method: skipWaiting
-    // Call: skipWaiting()
-  }
-
-  skipWaiting() {
-    // Method: skipWaiting
-    // Call: skipWaiting()
-  }
-
-  skipWaiting() {
-    // Method: skipWaiting
-    // Call: skipWaiting()
-  }
-
-  skipWaiting() {
     // Method: SkipWaiting
     return new Promise((resolve) => {
       // Call: SkipWaiting()
       resolve({});
     });
-  }
-
-  claim() {
-    // Method: claim
-    // Call: claim()
   }
 
   claimClients() {
@@ -180,11 +110,6 @@ blink.mojom.ServiceWorkerHostPtr = class {
       // Call: ClaimClients()
       resolve({});
     });
-  }
-
-  addRoutes() {
-    // Method: addRoutes
-    // Call: addRoutes()
   }
 
   addRoutes(rules) {
@@ -231,11 +156,6 @@ blink.mojom.ServiceWorkerPtr = class {
     });
   }
 
-  waitUntil() {
-    // Method: waitUntil
-    // Call: waitUntil()
-  }
-
   dispatchBackgroundFetchAbortEvent(registration) {
     // Method: DispatchBackgroundFetchAbortEvent
     return new Promise((resolve) => {
@@ -268,42 +188,12 @@ blink.mojom.ServiceWorkerPtr = class {
     });
   }
 
-  waitUntil() {
-    // Method: waitUntil
-    // Call: waitUntil()
-  }
-
   dispatchCookieChangeEvent(change) {
     // Method: DispatchCookieChangeEvent
     return new Promise((resolve) => {
       // Call: DispatchCookieChangeEvent(change)
       resolve({});
     });
-  }
-
-  fetchEvent() {
-    // Method: FetchEvent
-    // Call: FetchEvent()
-  }
-
-  respondWith() {
-    // Method: respondWith
-    // Call: respondWith()
-  }
-
-  waitUntil() {
-    // Method: waitUntil
-    // Call: waitUntil()
-  }
-
-  respondWith() {
-    // Method: respondWith
-    // Call: respondWith()
-  }
-
-  respondWith() {
-    // Method: respondWith
-    // Call: respondWith()
   }
 
   dispatchFetchEventForMainResource(params, response_callback) {
@@ -360,11 +250,6 @@ blink.mojom.ServiceWorkerPtr = class {
       // Call: DispatchSyncEvent(tag, last_chance, timeout)
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   dispatchPeriodicSyncEvent(tag, timeout) {
@@ -438,11 +323,6 @@ blink.mojom.ServiceWorkerPtr = class {
   addMessageToConsole(level, message) {
     // Method: AddMessageToConsole
     // Call: AddMessageToConsole(level, message)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   executeScriptForTest(javascript, wants_result) {

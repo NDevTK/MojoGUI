@@ -31,21 +31,6 @@ media.mojom.AudioStreamFactoryPtr = class {
     this.interfaceName = 'media.mojom.AudioStreamFactory';
   }
 
-  requested(|processing_config|) {
-    // Method: requested
-    // Call: requested(|processing_config|)
-  }
-
-  platforms(far) {
-    // Method: platforms
-    // Call: platforms(far)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   createInputStream(stream, client, observer, log, device_id, params, group_id, shared_memory_count, enable_agc, processing_config) {
     // Method: CreateInputStream
     return new Promise((resolve) => {
@@ -67,11 +52,6 @@ media.mojom.AudioStreamFactoryPtr = class {
     });
   }
 
-  createOutputStream() {
-    // Method: CreateOutputStream
-    // Call: CreateOutputStream()
-  }
-
   createSwitchableOutputStream(stream, device_switch_receiver, observer, log, device_id, params, group_id) {
     // Method: CreateSwitchableOutputStream
     return new Promise((resolve) => {
@@ -83,11 +63,6 @@ media.mojom.AudioStreamFactoryPtr = class {
   bindMuter(receiver, group_id) {
     // Method: BindMuter
     // Call: BindMuter(receiver, group_id)
-  }
-
-  createInputStream() {
-    // Method: CreateInputStream
-    // Call: CreateInputStream()
   }
 
   createLoopbackStream(receiver, client, observer, params, shared_memory_count, group_id) {

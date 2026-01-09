@@ -37,16 +37,6 @@ blink.mojom.SharedStorageEntriesListenerPtr = class {
     this.interfaceName = 'blink.mojom.SharedStorageEntriesListener';
   }
 
-  remote(browser) {
-    // Method: remote
-    // Call: remote(browser)
-  }
-
-  iterator(to) {
-    // Method: iterator
-    // Call: iterator(to)
-  }
-
   didReadEntries(success, error_message, entries, has_more_entries, total_queued_to_send) {
     // Method: DidReadEntries
     // Call: DidReadEntries(success, error_message, entries, has_more_entries, total_queued_to_send)
@@ -83,11 +73,6 @@ blink.mojom.SharedStorageWorkletServiceClientPtr = class {
     });
   }
 
-  get() {
-    // Method: get
-    // Call: get()
-  }
-
   sharedStorageGet(key) {
     // Method: SharedStorageGet
     return new Promise((resolve) => {
@@ -96,29 +81,14 @@ blink.mojom.SharedStorageWorkletServiceClientPtr = class {
     });
   }
 
-  returns(batches) {
-    // Method: Returns
-    // Call: Returns(batches)
-  }
-
   sharedStorageKeys(listener) {
     // Method: SharedStorageKeys
     // Call: SharedStorageKeys(listener)
   }
 
-  returns(batches) {
-    // Method: Returns
-    // Call: Returns(batches)
-  }
-
   sharedStorageEntries(listener, values_only) {
     // Method: SharedStorageEntries
     // Call: SharedStorageEntries(listener, values_only)
-  }
-
-  length() {
-    // Method: length
-    // Call: length()
   }
 
   sharedStorageLength() {
@@ -127,11 +97,6 @@ blink.mojom.SharedStorageWorkletServiceClientPtr = class {
       // Call: SharedStorageLength()
       resolve({});
     });
-  }
-
-  remainingBudget() {
-    // Method: remainingBudget
-    // Call: remainingBudget()
   }
 
   sharedStorageRemainingBudget() {
@@ -183,11 +148,6 @@ blink.mojom.SharedStorageWorkletServicePtr = class {
     });
   }
 
-  addModule() {
-    // Method: addModule
-    // Call: addModule()
-  }
-
   addModule(url_loader_factory, script_source_url) {
     // Method: AddModule
     return new Promise((resolve) => {
@@ -196,32 +156,12 @@ blink.mojom.SharedStorageWorkletServicePtr = class {
     });
   }
 
-  runURLSelectionOperation() {
-    // Method: runURLSelectionOperation
-    // Call: runURLSelectionOperation()
-  }
-
-  registerURLSelectionOperation() {
-    // Method: registerURLSelectionOperation
-    // Call: registerURLSelectionOperation()
-  }
-
   runURLSelectionOperation(name, urls, serialized_data, pa_operation_details) {
     // Method: RunURLSelectionOperation
     return new Promise((resolve) => {
       // Call: RunURLSelectionOperation(name, urls, serialized_data, pa_operation_details)
       resolve({});
     });
-  }
-
-  runOperation() {
-    // Method: runOperation
-    // Call: runOperation()
-  }
-
-  registerOperation() {
-    // Method: registerOperation
-    // Call: registerOperation()
   }
 
   runOperation(name, serialized_data, pa_operation_details) {

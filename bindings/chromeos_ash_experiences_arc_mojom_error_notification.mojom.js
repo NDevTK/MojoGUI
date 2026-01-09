@@ -28,14 +28,6 @@ arc.mojom.ErrorNotificationHostPtr = class {
     this.interfaceName = 'arc.mojom.ErrorNotificationHost';
   }
 
-  0(details, action_handler) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(details, action_handler)
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.ErrorNotificationHostRequest = class {
@@ -49,11 +41,6 @@ arc.mojom.ErrorNotificationInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.ErrorNotificationInstance';
-  }
-
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
   }
 
 };
@@ -71,11 +58,6 @@ arc.mojom.ErrorNotificationItemPtr = class {
     this.interfaceName = 'arc.mojom.ErrorNotificationItem';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
 };
 
 arc.mojom.ErrorNotificationItemRequest = class {
@@ -89,16 +71,6 @@ arc.mojom.ErrorNotificationActionHandlerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.ErrorNotificationActionHandler';
-  }
-
-  0(buttonIndex) {
-    // Method: 0
-    // Call: 0(buttonIndex)
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
   }
 
 };

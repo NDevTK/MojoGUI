@@ -16,11 +16,6 @@ viz.mojom.InfoCollectionGpuServicePtr = class {
     this.interfaceName = 'viz.mojom.InfoCollectionGpuService';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   getGpuSupportedDirectXVersionAndDevicePerfInfo() {
     // Method: GetGpuSupportedDirectXVersionAndDevicePerfInfo
     return new Promise((resolve) => {

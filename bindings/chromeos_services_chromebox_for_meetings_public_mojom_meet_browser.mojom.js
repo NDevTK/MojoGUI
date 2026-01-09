@@ -17,14 +17,6 @@ ash.cfm.mojom.MeetBrowserPtr = class {
     this.interfaceName = 'ash.cfm.mojom.MeetBrowser';
   }
 
-  0(hashed_device_id) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(hashed_device_id)
-      resolve({});
-    });
-  }
-
 };
 
 ash.cfm.mojom.MeetBrowserRequest = class {

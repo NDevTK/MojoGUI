@@ -81,11 +81,6 @@ content.mojom.TestServicePtr = class {
 
   isProcessSandboxed() {
     // Method: IsProcessSandboxed
-    // Call: IsProcessSandboxed()
-  }
-
-  isProcessSandboxed() {
-    // Method: IsProcessSandboxed
     return new Promise((resolve) => {
       // Call: IsProcessSandboxed()
       resolve({});

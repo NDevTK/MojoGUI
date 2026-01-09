@@ -16,11 +16,6 @@ crosapi.mojom.GuestOsSkForwarderFactoryPtr = class {
     this.interfaceName = 'crosapi.mojom.GuestOsSkForwarderFactory';
   }
 
-  0(remote) {
-    // Method: 0
-    // Call: 0(remote)
-  }
-
 };
 
 crosapi.mojom.GuestOsSkForwarderFactoryRequest = class {
@@ -34,14 +29,6 @@ crosapi.mojom.GuestOsSkForwarderPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'crosapi.mojom.GuestOsSkForwarder';
-  }
-
-  0(message) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(message)
-      resolve({});
-    });
   }
 
 };

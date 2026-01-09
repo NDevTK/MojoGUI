@@ -109,11 +109,6 @@ ash.bluetooth_config.mojom.SystemPropertiesObserverPtr = class {
     this.interfaceName = 'ash.bluetooth_config.mojom.SystemPropertiesObserver';
   }
 
-  changes(disconnected) {
-    // Method: changes
-    // Call: changes(disconnected)
-  }
-
   onPropertiesUpdated(properties) {
     // Method: OnPropertiesUpdated
     // Call: OnPropertiesUpdated(properties)
@@ -182,16 +177,6 @@ ash.bluetooth_config.mojom.KeyEnteredHandlerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.bluetooth_config.mojom.KeyEnteredHandler';
-  }
-
-  handleKeyEntered() {
-    // Method: HandleKeyEntered
-    // Call: HandleKeyEntered()
-  }
-
-  handleKeyEntered() {
-    // Method: HandleKeyEntered
-    // Call: HandleKeyEntered()
   }
 
   handleKeyEntered(num_keys_entered) {
@@ -332,29 +317,14 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigPtr = class {
     this.interfaceName = 'ash.bluetooth_config.mojom.CrosBluetoothConfig';
   }
 
-  onPropertiesUpdated() {
-    // Method: OnPropertiesUpdated
-    // Call: OnPropertiesUpdated()
-  }
-
   observeSystemProperties(observer) {
     // Method: ObserveSystemProperties
     // Call: ObserveSystemProperties(observer)
   }
 
-  onDevicePaired() {
-    // Method: OnDevicePaired
-    // Call: OnDevicePaired()
-  }
-
   observeDeviceStatusChanges(observer) {
     // Method: ObserveDeviceStatusChanges
     // Call: ObserveDeviceStatusChanges(observer)
-  }
-
-  onHasAtLeastOneDiscoverySessionChanged() {
-    // Method: OnHasAtLeastOneDiscoverySessionChanged
-    // Call: OnHasAtLeastOneDiscoverySessionChanged()
   }
 
   observeDiscoverySessionStatusChanges(observer) {

@@ -503,16 +503,6 @@ glic.mojom.PagePtr = class {
     // Call: IntentToShow()
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  getProfileReadyState() {
-    // Method: GetProfileReadyState
-    // Call: GetProfileReadyState()
-  }
-
   setProfileReadyState(ready_state) {
     // Method: SetProfileReadyState
     // Call: SetProfileReadyState(ready_state)
@@ -606,11 +596,6 @@ glic.mojom.PageHandlerPtr = class {
     // Call: CreateWebClient(web_client_receiver)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   prepareForClient() {
     // Method: PrepareForClient
     return new Promise((resolve) => {
@@ -702,11 +687,6 @@ glic.mojom.WebClientHandlerPtr = class {
     this.interfaceName = 'glic.mojom.WebClientHandler';
   }
 
-  initialize() {
-    // Method: initialize
-    // Call: initialize()
-  }
-
   webClientCreated(web_client) {
     // Method: WebClientCreated
     return new Promise((resolve) => {
@@ -715,19 +695,9 @@ glic.mojom.WebClientHandlerPtr = class {
     });
   }
 
-  initialize() {
-    // Method: initialize
-    // Call: initialize()
-  }
-
   webClientInitialized() {
     // Method: WebClientInitialized
     // Call: WebClientInitialized()
-  }
-
-  initialize() {
-    // Method: initialize
-    // Call: initialize()
   }
 
   webClientInitializeFailed() {
@@ -771,11 +741,6 @@ glic.mojom.WebClientHandlerPtr = class {
   attachPanel() {
     // Method: AttachPanel
     // Call: AttachPanel()
-  }
-
-  window(free) {
-    // Method: window
-    // Call: window(free)
   }
 
   detachPanel() {
@@ -854,11 +819,6 @@ glic.mojom.WebClientHandlerPtr = class {
     // Call: UnpinAllTabs(options)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   createSkill(request) {
     // Method: CreateSkill
     return new Promise((resolve) => {
@@ -867,22 +827,12 @@ glic.mojom.WebClientHandlerPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   updateSkill(request) {
     // Method: UpdateSkill
     return new Promise((resolve) => {
       // Call: UpdateSkill(request)
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   getSkill(id) {
@@ -898,29 +848,9 @@ glic.mojom.WebClientHandlerPtr = class {
     // Call: SubscribeToPinCandidates(options, observer)
   }
 
-  createTask(task_options) {
-    // Method: CreateTask
-    // Call: CreateTask(task_options)
-  }
-
-  performActions(actions_proto) {
-    // Method: PerformActions
-    // Call: PerformActions(actions_proto)
-  }
-
-  be() {
-    // Method: be
-    // Call: be()
-  }
-
   stopActorTask(task_id, stop_reason) {
     // Method: StopActorTask
     // Call: StopActorTask(task_id, stop_reason)
-  }
-
-  be() {
-    // Method: be
-    // Call: be()
   }
 
   pauseActorTask(task_id, pause_reason, tab_id) {
@@ -970,11 +900,6 @@ glic.mojom.WebClientHandlerPtr = class {
       // Call: CaptureScreenshot()
       resolve({});
     });
-  }
-
-  browser(cancellation) {
-    // Method: browser
-    // Call: browser(cancellation)
   }
 
   captureRegion(observer) {
@@ -1052,11 +977,6 @@ glic.mojom.WebClientHandlerPtr = class {
       // Call: GetUserProfileInfo()
       resolve({});
     });
-  }
-
-  syncWebviewCookies() {
-    // Method: SyncWebviewCookies
-    // Call: SyncWebviewCookies()
   }
 
   syncCookies() {
@@ -1170,22 +1090,12 @@ glic.mojom.WebClientHandlerPtr = class {
     // Call: OnClosedCaptionsShown()
   }
 
-  and() {
-    // Method: and
-    // Call: and()
-  }
-
   scrollTo(params) {
     // Method: ScrollTo
     return new Promise((resolve) => {
       // Call: ScrollTo(params)
       resolve({});
     });
-  }
-
-  scrollTo() {
-    // Method: scrollTo
-    // Call: scrollTo()
   }
 
   dropScrollToHighlight() {
@@ -1382,11 +1292,6 @@ glic.mojom.WebClientPtr = class {
     // Call: NotifyBrowserIsOpenChanged(browser_is_open)
   }
 
-  inactive(the) {
-    // Method: inactive
-    // Call: inactive(the)
-  }
-
   notifyInstanceActivationChanged(instance_active) {
     // Method: NotifyInstanceActivationChanged
     // Call: NotifyInstanceActivationChanged(instance_active)
@@ -1430,11 +1335,6 @@ glic.mojom.WebClientPtr = class {
   notifyActorTaskStateChanged(task_id, state) {
     // Method: NotifyActorTaskStateChanged
     // Call: NotifyActorTaskStateChanged(task_id, state)
-  }
-
-  change(toggle) {
-    // Method: change
-    // Call: change(toggle)
   }
 
   requestViewChange(request) {

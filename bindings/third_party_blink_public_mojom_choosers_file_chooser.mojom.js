@@ -59,11 +59,6 @@ blink.mojom.FileChooserPtr = class {
     this.interfaceName = 'blink.mojom.FileChooser';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   openFileChooser(params) {
     // Method: OpenFileChooser
     return new Promise((resolve) => {

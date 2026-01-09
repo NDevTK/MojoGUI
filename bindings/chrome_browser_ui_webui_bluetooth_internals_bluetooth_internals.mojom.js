@@ -43,11 +43,6 @@ mojom.BluetoothInternalsHandlerPtr = class {
     });
   }
 
-  supported(user) {
-    // Method: supported
-    // Call: supported(user)
-  }
-
   getDebugLogsChangeHandler() {
     // Method: GetDebugLogsChangeHandler
     return new Promise((resolve) => {
@@ -108,11 +103,6 @@ mojom.BluetoothBtsnoopPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'mojom.BluetoothBtsnoop';
-  }
-
-  startBtsnoop() {
-    // Method: StartBtsnoop
-    // Call: StartBtsnoop()
   }
 
   stop() {

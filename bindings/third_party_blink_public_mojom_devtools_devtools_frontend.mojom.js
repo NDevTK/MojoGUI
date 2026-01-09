@@ -16,16 +16,6 @@ blink.mojom.DevToolsFrontendPtr = class {
     this.interfaceName = 'blink.mojom.DevToolsFrontend';
   }
 
-  object(details) {
-    // Method: object
-    // Call: object(details)
-  }
-
-  devTools(target) {
-    // Method: DevTools
-    // Call: DevTools(target)
-  }
-
   setupDevToolsFrontend(api_script, host) {
     // Method: SetupDevToolsFrontend
     // Call: SetupDevToolsFrontend(api_script, host)

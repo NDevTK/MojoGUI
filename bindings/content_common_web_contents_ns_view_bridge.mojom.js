@@ -58,29 +58,14 @@ remote_cocoa.mojom.WebContentsNSViewPtr = class {
     // Call: MakeFirstResponder()
   }
 
-  back(has) {
-    // Method: back
-    // Call: back(has)
-  }
-
   takeFocus(reverse) {
     // Method: TakeFocus
     // Call: TakeFocus(reverse)
   }
 
-  isPrivileged() {
-    // Method: IsPrivileged
-    // Call: IsPrivileged()
-  }
-
   startDrag(drop_data, source_origin, operation_mask, image, image_offset, is_privileged) {
     // Method: StartDrag
     // Call: StartDrag(drop_data, source_origin, operation_mask, image, image_offset, is_privileged)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   destroy() {
@@ -106,11 +91,6 @@ remote_cocoa.mojom.WebContentsNSViewHostPtr = class {
   onMouseEvent(event) {
     // Method: OnMouseEvent
     // Call: OnMouseEvent(event)
-  }
-
-  direction(any) {
-    // Method: direction
-    // Call: direction(any)
   }
 
   onBecameFirstResponder(direction) {

@@ -44,22 +44,6 @@ arc.mojom.WebApkInstancePtr = class {
     this.interfaceName = 'arc.mojom.WebApkInstance';
   }
 
-  0(package_name, version, app_name, token) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(package_name, version, app_name, token)
-      resolve({});
-    });
-  }
-
-  1(package_name) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(package_name)
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.WebApkInstanceRequest = class {

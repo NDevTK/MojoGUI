@@ -139,31 +139,6 @@ media_session.mojom.MediaSessionObserverPtr = class {
     this.interfaceName = 'media_session.mojom.MediaSessionObserver';
   }
 
-  0(info) {
-    // Method: 0
-    // Call: 0(info)
-  }
-
-  1(metadata) {
-    // Method: 1
-    // Call: 1(metadata)
-  }
-
-  2(action) {
-    // Method: 2
-    // Call: 2(action)
-  }
-
-  3(images) {
-    // Method: 3
-    // Call: 3(images)
-  }
-
-  4(position) {
-    // Method: 4
-    // Call: 4(position)
-  }
-
 };
 
 media_session.mojom.MediaSessionObserverRequest = class {

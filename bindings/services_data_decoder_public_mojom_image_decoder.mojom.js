@@ -36,11 +36,6 @@ data_decoder.mojom.ImageDecoderPtr = class {
     });
   }
 
-  animation(say, image) {
-    // Method: animation
-    // Call: animation(say, image)
-  }
-
   decodeAnimation(encoded_data, shrink_to_fit, max_size_in_bytes) {
     // Method: DecodeAnimation
     return new Promise((resolve) => {

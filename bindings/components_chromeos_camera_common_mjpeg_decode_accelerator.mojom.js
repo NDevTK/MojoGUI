@@ -33,45 +33,6 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorPtr = class {
     this.interfaceName = 'chromeos_camera.mojom.MjpegDecodeAccelerator';
   }
 
-  decode() {
-    // Method: Decode
-    // Call: Decode()
-  }
-
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1(input_buffer, coded_size, output_handle, output_buffer_size) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(input_buffer, coded_size, output_handle, output_buffer_size)
-      resolve({});
-    });
-  }
-
-  3(task_id, src_dmabuf_fd, src_size, src_offset, dst_frame) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(task_id, src_dmabuf_fd, src_size, src_offset, dst_frame)
-      resolve({});
-    });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  4() {
-    // Method: 4
-    // Call: 4()
-  }
-
 };
 
 chromeos_camera.mojom.MjpegDecodeAcceleratorRequest = class {

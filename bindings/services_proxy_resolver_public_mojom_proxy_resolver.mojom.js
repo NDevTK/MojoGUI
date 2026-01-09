@@ -108,11 +108,6 @@ proxy_resolver.mojom.ProxyResolverRequestClientPtr = class {
     // Call: OnError(line_number, error)
   }
 
-  reportResult() {
-    // Method: ReportResult
-    // Call: ReportResult()
-  }
-
   resolveDns(host, operation, network_anonymization_key, client) {
     // Method: ResolveDns
     // Call: ResolveDns(host, operation, network_anonymization_key, client)

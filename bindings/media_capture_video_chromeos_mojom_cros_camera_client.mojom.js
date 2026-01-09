@@ -16,11 +16,6 @@ cros.mojom.CameraHalClientPtr = class {
     this.interfaceName = 'cros.mojom.CameraHalClient';
   }
 
-  0(camera_module) {
-    // Method: 0
-    // Call: 0(camera_module)
-  }
-
 };
 
 cros.mojom.CameraHalClientRequest = class {

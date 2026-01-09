@@ -16,21 +16,6 @@ viz.mojom.LayeredWindowUpdaterPtr = class {
     this.interfaceName = 'viz.mojom.LayeredWindowUpdater';
   }
 
-  draw() {
-    // Method: Draw
-    // Call: Draw()
-  }
-
-  createPlatformCanvasWithSharedSection() {
-    // Method: CreatePlatformCanvasWithSharedSection
-    // Call: CreatePlatformCanvasWithSharedSection()
-  }
-
-  writable(Unsafe) {
-    // Method: writable
-    // Call: writable(Unsafe)
-  }
-
   onAllocatedSharedMemory(pixel_size, region) {
     // Method: OnAllocatedSharedMemory
     // Call: OnAllocatedSharedMemory(pixel_size, region)

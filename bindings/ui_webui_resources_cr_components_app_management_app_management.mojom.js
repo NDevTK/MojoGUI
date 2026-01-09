@@ -231,11 +231,6 @@ app_management.mojom.PageHandlerPtr = class {
     // Call: SetFileHandlingEnabled(app_id, enabled)
   }
 
-  valid(empty) {
-    // Method: valid
-    // Call: valid(empty)
-  }
-
   showDefaultAppAssociationsUi() {
     // Method: ShowDefaultAppAssociationsUi
     // Call: ShowDefaultAppAssociationsUi()

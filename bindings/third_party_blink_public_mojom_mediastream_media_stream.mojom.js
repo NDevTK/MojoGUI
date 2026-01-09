@@ -222,22 +222,12 @@ blink.mojom.MediaStreamDispatcherHostPtr = class {
     this.interfaceName = 'blink.mojom.MediaStreamDispatcherHost';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   generateStreams(request_id, controls, user_gesture, audio_stream_selection_info) {
     // Method: GenerateStreams
     return new Promise((resolve) => {
       // Call: GenerateStreams(request_id, controls, user_gesture, audio_stream_selection_info)
       resolve({});
     });
-  }
-
-  source() {
-    // Method: source
-    // Call: source()
   }
 
   focusCapturedSurface(label, focus) {
@@ -248,11 +238,6 @@ blink.mojom.MediaStreamDispatcherHostPtr = class {
   cancelRequest(request_id) {
     // Method: CancelRequest
     // Call: CancelRequest(request_id)
-  }
-
-  mediaStreamDevice(and) {
-    // Method: MediaStreamDevice
-    // Call: MediaStreamDevice(and)
   }
 
   stopStreamDevice(device_id, session_id) {
@@ -273,34 +258,9 @@ blink.mojom.MediaStreamDispatcherHostPtr = class {
     // Call: CloseDevice(label)
   }
 
-  secure() {
-    // Method: secure
-    // Call: secure()
-  }
-
   setCapturingLinkSecured(session_id, type, is_secure) {
     // Method: SetCapturingLinkSecured
     // Call: SetCapturingLinkSecured(session_id, type, is_secure)
-  }
-
-  sets(changes) {
-    // Method: sets
-    // Call: sets(changes)
-  }
-
-  applySubCaptureTarget() {
-    // Method: ApplySubCaptureTarget
-    // Call: ApplySubCaptureTarget()
-  }
-
-  cropTo() {
-    // Method: cropTo
-    // Call: cropTo()
-  }
-
-  restrictTo() {
-    // Method: restrictTo
-    // Call: restrictTo()
   }
 
   applySubCaptureTarget(session_id, type, sub_capture_target, sub_capture_target_version) {
@@ -311,19 +271,9 @@ blink.mojom.MediaStreamDispatcherHostPtr = class {
     });
   }
 
-  action(event) {
-    // Method: action
-    // Call: action(event)
-  }
-
   sendWheel(session_id, action) {
     // Method: SendWheel
     // Call: SendWheel(session_id, action)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   updateZoomLevel(session_id, action) {

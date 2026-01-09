@@ -21,11 +21,6 @@ viz.mojom.DisplayPrivatePtr = class {
     // Call: SetDisplayVisible(visible)
   }
 
-  resize() {
-    // Method: Resize
-    // Call: Resize()
-  }
-
   disableSwapUntilResize() {
     // Method: DisableSwapUntilResize
     // Call: DisableSwapUntilResize()

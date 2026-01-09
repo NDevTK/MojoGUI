@@ -20,11 +20,6 @@ recording.mojom.DriveFsQuotaDelegatePtr = class {
     this.interfaceName = 'recording.mojom.DriveFsQuotaDelegate';
   }
 
-  drive() {
-    // Method: Drive
-    // Call: Drive()
-  }
-
   getDriveFsFreeSpaceBytes() {
     // Method: GetDriveFsFreeSpaceBytes
     return new Promise((resolve) => {
@@ -68,49 +63,9 @@ recording.mojom.RecordingServicePtr = class {
     this.interfaceName = 'recording.mojom.RecordingService';
   }
 
-  client() {
-    // Method: client
-    // Call: client()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  onFrameSinkSizeChanged() {
-    // Method: OnFrameSinkSizeChanged
-    // Call: OnFrameSinkSizeChanged()
-  }
-
   recordFullscreen(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor) {
     // Method: RecordFullscreen
     // Call: RecordFullscreen(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor)
-  }
-
-  frames(non-root) {
-    // Method: frames
-    // Call: frames(non-root)
-  }
-
-  this() {
-    // Method: this
-    // Call: this()
-  }
-
-  onRecordedWindowSizeChanged() {
-    // Method: OnRecordedWindowSizeChanged
-    // Call: OnRecordedWindowSizeChanged()
-  }
-
-  user(resized, etc.) {
-    // Method: user
-    // Call: user(resized, etc.)
-  }
-
-  onFrameSinkSizeChanged() {
-    // Method: OnFrameSinkSizeChanged
-    // Call: OnFrameSinkSizeChanged()
   }
 
   recordWindow(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, subtree_capture_id, window_size_dip) {
@@ -118,24 +73,9 @@ recording.mojom.RecordingServicePtr = class {
     // Call: RecordWindow(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, subtree_capture_id, window_size_dip)
   }
 
-  resized(rotation, factor) {
-    // Method: resized
-    // Call: resized(rotation, factor)
-  }
-
-  onFrameSinkSizeChanged() {
-    // Method: OnFrameSinkSizeChanged
-    // Call: OnFrameSinkSizeChanged()
-  }
-
   recordRegion(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, crop_region_dip) {
     // Method: RecordRegion
     // Call: RecordRegion(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, crop_region_dip)
-  }
-
-  onRecordingEnded() {
-    // Method: OnRecordingEnded
-    // Call: OnRecordingEnded()
   }
 
   stopRecording() {
@@ -143,39 +83,14 @@ recording.mojom.RecordingServicePtr = class {
     // Call: StopRecording()
   }
 
-  display(window) {
-    // Method: display
-    // Call: display(window)
-  }
-
-  recordWindow() {
-    // Method: RecordWindow
-    // Call: RecordWindow()
-  }
-
   onRecordedWindowChangingRoot(new_frame_sink_id, new_frame_sink_size_dip, new_device_scale_factor) {
     // Method: OnRecordedWindowChangingRoot
     // Call: OnRecordedWindowChangingRoot(new_frame_sink_id, new_frame_sink_size_dip, new_device_scale_factor)
   }
 
-  resized(snapping, resizing) {
-    // Method: resized
-    // Call: resized(snapping, resizing)
-  }
-
-  recordWindow() {
-    // Method: RecordWindow
-    // Call: RecordWindow()
-  }
-
   onRecordedWindowSizeChanged(new_window_size_dip) {
     // Method: OnRecordedWindowSizeChanged
     // Call: OnRecordedWindowSizeChanged(new_window_size_dip)
-  }
-
-  recorded(functions) {
-    // Method: recorded
-    // Call: recorded(functions)
   }
 
   onFrameSinkSizeChanged(new_frame_sink_size_dip, new_device_scale_factor) {

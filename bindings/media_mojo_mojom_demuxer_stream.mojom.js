@@ -16,37 +16,12 @@ media.mojom.DemuxerStreamPtr = class {
     this.interfaceName = 'media.mojom.DemuxerStream';
   }
 
-  read() {
-    // Method: Read
-    // Call: Read()
-  }
-
-  read() {
-    // Method: Read
-    // Call: Read()
-  }
-
   initialize() {
     // Method: Initialize
     return new Promise((resolve) => {
       // Call: Initialize()
       resolve({});
     });
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
   }
 
   read(count) {

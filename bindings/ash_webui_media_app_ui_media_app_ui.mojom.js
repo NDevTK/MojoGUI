@@ -76,11 +76,6 @@ ash.media_app_ui.mojom.PageHandlerPtr = class {
     // Call: EditInPhotos(token, mime_type)
   }
 
-  mediaApp(SWAs) {
-    // Method: MediaApp
-    // Call: MediaApp(SWAs)
-  }
-
   submitForm(url, payload, header) {
     // Method: SubmitForm
     // Call: SubmitForm(url, payload, header)

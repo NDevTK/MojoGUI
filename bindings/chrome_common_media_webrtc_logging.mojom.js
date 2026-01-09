@@ -23,11 +23,6 @@ chrome.mojom.WebRtcLoggingClientPtr = class {
     this.interfaceName = 'chrome.mojom.WebRtcLoggingClient';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   onAddMessages(messages) {
     // Method: OnAddMessages
     // Call: OnAddMessages(messages)

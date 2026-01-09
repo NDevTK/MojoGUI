@@ -43,26 +43,6 @@ webnn.mojom.WebNNTensorPtr = class {
     // Call: WriteTensor(src_buffer)
   }
 
-  aPIs() {
-    // Method: APIs
-    // Call: APIs()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  exportTensor() {
-    // Method: ExportTensor
-    // Call: ExportTensor()
-  }
-
-  exportTensor() {
-    // Method: ExportTensor
-    // Call: ExportTensor()
-  }
-
   importTensor(fence) {
     // Method: ImportTensor
     // Call: ImportTensor(fence)

@@ -38,11 +38,6 @@ sharing.mojom.SharingPtr = class {
     this.interfaceName = 'sharing.mojom.Sharing';
   }
 
-  shutDown() {
-    // Method: ShutDown
-    // Call: ShutDown()
-  }
-
   connect(deps, nearby_connections, nearby_presence, decoder, quick_start_decoder) {
     // Method: Connect
     // Call: Connect(deps, nearby_connections, nearby_presence, decoder, quick_start_decoder)

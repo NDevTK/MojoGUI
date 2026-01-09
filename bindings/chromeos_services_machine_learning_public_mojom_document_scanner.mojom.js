@@ -44,30 +44,6 @@ chromeos.machine_learning.mojom.DocumentScannerPtr = class {
     this.interfaceName = 'chromeos.machine_learning.mojom.DocumentScanner';
   }
 
-  0(nv12_image) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(nv12_image)
-      resolve({});
-    });
-  }
-
-  1(jpeg_image) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(jpeg_image)
-      resolve({});
-    });
-  }
-
-  2(jpeg_image, corners, rotation) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(jpeg_image, corners, rotation)
-      resolve({});
-    });
-  }
-
 };
 
 chromeos.machine_learning.mojom.DocumentScannerRequest = class {

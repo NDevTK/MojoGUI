@@ -34,16 +34,6 @@ media.mojom.MediaMetricsProviderPtr = class {
     this.interfaceName = 'media.mojom.MediaMetricsProvider';
   }
 
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  types(kNone) {
-    // Method: types
-    // Call: types(kNone)
-  }
-
   initialize(is_mse, url_scheme, stream_type) {
     // Method: Initialize
     // Call: Initialize(is_mse, url_scheme, stream_type)
@@ -104,11 +94,6 @@ media.mojom.MediaMetricsProviderPtr = class {
     // Call: SetDemuxerType(demuxer_type)
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
   setKeySystem(key_system) {
     // Method: SetKeySystem
     // Call: SetKeySystem(key_system)
@@ -127,11 +112,6 @@ media.mojom.MediaMetricsProviderPtr = class {
   setHasTrackChange() {
     // Method: SetHasTrackChange
     // Call: SetHasTrackChange()
-  }
-
-  container() {
-    // Method: container
-    // Call: container()
   }
 
   setContainerName(container_name) {

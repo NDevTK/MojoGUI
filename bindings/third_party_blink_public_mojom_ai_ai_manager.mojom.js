@@ -20,11 +20,6 @@ blink.mojom.AIManagerCreateWriterClientPtr = class {
     this.interfaceName = 'blink.mojom.AIManagerCreateWriterClient';
   }
 
-  createWriter() {
-    // Method: CreateWriter
-    // Call: CreateWriter()
-  }
-
   onResult(writer) {
     // Method: OnResult
     // Call: OnResult(writer)
@@ -48,11 +43,6 @@ blink.mojom.AIManagerCreateRewriterClientPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'blink.mojom.AIManagerCreateRewriterClient';
-  }
-
-  createRewriter() {
-    // Method: CreateRewriter
-    // Call: CreateRewriter()
   }
 
   onResult(rewriter) {
@@ -80,11 +70,6 @@ blink.mojom.AIManagerCreateSummarizerClientPtr = class {
     this.interfaceName = 'blink.mojom.AIManagerCreateSummarizerClient';
   }
 
-  createSummarizer() {
-    // Method: CreateSummarizer
-    // Call: CreateSummarizer()
-  }
-
   onResult(summarizer) {
     // Method: OnResult
     // Call: OnResult(summarizer)
@@ -108,11 +93,6 @@ blink.mojom.AIManagerCreateProofreaderClientPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'blink.mojom.AIManagerCreateProofreaderClient';
-  }
-
-  createProofreader() {
-    // Method: CreateProofreader
-    // Call: CreateProofreader()
   }
 
   onResult(proofreader) {
@@ -153,21 +133,6 @@ blink.mojom.AIManagerPtr = class {
     // Call: CreateLanguageModel(client, options)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  capabilities() {
-    // Method: capabilities
-    // Call: capabilities()
-  }
-
-  capabilities() {
-    // Method: capabilities
-    // Call: capabilities()
-  }
-
   canCreateSummarizer(options) {
     // Method: CanCreateSummarizer
     return new Promise((resolve) => {
@@ -197,11 +162,6 @@ blink.mojom.AIManagerPtr = class {
     });
   }
 
-  create() {
-    // Method: create
-    // Call: create()
-  }
-
   createWriter(client, options) {
     // Method: CreateWriter
     // Call: CreateWriter(client, options)
@@ -213,11 +173,6 @@ blink.mojom.AIManagerPtr = class {
       // Call: CanCreateRewriter(options)
       resolve({});
     });
-  }
-
-  create() {
-    // Method: create
-    // Call: create()
   }
 
   createRewriter(client, options) {

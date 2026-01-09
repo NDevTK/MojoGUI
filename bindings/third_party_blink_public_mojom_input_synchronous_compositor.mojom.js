@@ -50,23 +50,10 @@ blink.mojom.SynchronousCompositorPtr = class {
     });
   }
 
-  tiles(resources) {
-    // Method: tiles
-    // Call: tiles(resources)
-  }
-
   setSharedMemory(shm_region) {
     // Method: SetSharedMemory
     return new Promise((resolve) => {
       // Call: SetSharedMemory(shm_region)
-      resolve({});
-    });
-  }
-
-  demandDrawSw(draw_params) {
-    // Method: DemandDrawSw
-    return new Promise((resolve) => {
-      // Call: DemandDrawSw(draw_params)
       resolve({});
     });
   }
@@ -79,14 +66,6 @@ blink.mojom.SynchronousCompositorPtr = class {
   zeroSharedMemory() {
     // Method: ZeroSharedMemory
     // Call: ZeroSharedMemory()
-  }
-
-  zoomBy(delta, anchor) {
-    // Method: ZoomBy
-    return new Promise((resolve) => {
-      // Call: ZoomBy(delta, anchor)
-      resolve({});
-    });
   }
 
   setMemoryPolicy(bytes_limit) {
@@ -107,16 +86,6 @@ blink.mojom.SynchronousCompositorPtr = class {
   setScroll(offset) {
     // Method: SetScroll
     // Call: SetScroll(offset)
-  }
-
-  service() {
-    // Method: service
-    // Call: service()
-  }
-
-  frame() {
-    // Method: frame
-    // Call: frame()
   }
 
   beginFrame(args, timing_details) {

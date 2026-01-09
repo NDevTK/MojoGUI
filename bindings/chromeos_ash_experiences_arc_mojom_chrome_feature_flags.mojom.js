@@ -29,11 +29,6 @@ arc.mojom.ChromeFeatureFlagsInstancePtr = class {
     this.interfaceName = 'arc.mojom.ChromeFeatureFlagsInstance';
   }
 
-  1(flags) {
-    // Method: 1
-    // Call: 1(flags)
-  }
-
 };
 
 arc.mojom.ChromeFeatureFlagsInstanceRequest = class {

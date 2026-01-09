@@ -75,64 +75,6 @@ arc.mojom.ProcessInstancePtr = class {
     this.interfaceName = 'arc.mojom.ProcessInstance';
   }
 
-  1(pid, reason) {
-    // Method: 1
-    // Call: 1(pid, reason)
-  }
-
-  5() {
-    // Method: 5
-    return new Promise((resolve) => {
-      // Call: 5()
-      resolve({});
-    });
-  }
-
-  8() {
-    // Method: 8
-    return new Promise((resolve) => {
-      // Call: 8()
-      resolve({});
-    });
-  }
-
-  9(nspids) {
-    // Method: 9
-    return new Promise((resolve) => {
-      // Call: 9(nspids)
-      resolve({});
-    });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  10(level, reclaim_target) {
-    // Method: 10
-    return new Promise((resolve) => {
-      // Call: 10(level, reclaim_target)
-      resolve({});
-    });
-  }
-
-  11(level, reclaim_target) {
-    // Method: 11
-    return new Promise((resolve) => {
-      // Call: 11(level, reclaim_target)
-      resolve({});
-    });
-  }
-
-  12() {
-    // Method: 12
-    return new Promise((resolve) => {
-      // Call: 12()
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.ProcessInstanceRequest = class {

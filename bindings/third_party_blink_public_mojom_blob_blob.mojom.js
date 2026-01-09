@@ -21,11 +21,6 @@ blink.mojom.BlobReaderClientPtr = class {
     // Call: OnCalculatedSize(total_size, expected_content_size)
   }
 
-  finished(failure) {
-    // Method: finished
-    // Call: finished(failure)
-  }
-
   onComplete(status, data_length) {
     // Method: OnComplete
     // Call: OnComplete(status, data_length)
@@ -61,11 +56,6 @@ blink.mojom.BlobPtr = class {
     // Call: ReadAll(pipe, client)
   }
 
-  1(max) {
-    // Method: 1
-    // Call: 1(max)
-  }
-
   readRange(offset, length, pipe, client) {
     // Method: ReadRange
     // Call: ReadRange(offset, length, pipe, client)
@@ -76,30 +66,12 @@ blink.mojom.BlobPtr = class {
     // Call: Load(loader, request_method, headers, client)
   }
 
-  data(any) {
-    // Method: data
-    // Call: data(any)
-  }
-
   readSideData() {
     // Method: ReadSideData
     return new Promise((resolve) => {
       // Call: ReadSideData()
       resolve({});
     });
-  }
-
-  captureSnapshot() {
-    // Method: CaptureSnapshot
-    return new Promise((resolve) => {
-      // Call: CaptureSnapshot()
-      resolve({});
-    });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   getInternalUUID() {

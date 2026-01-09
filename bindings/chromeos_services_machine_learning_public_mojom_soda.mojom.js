@@ -123,21 +123,6 @@ chromeos.machine_learning.mojom.SodaClientPtr = class {
     this.interfaceName = 'chromeos.machine_learning.mojom.SodaClient';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  2(event) {
-    // Method: 2
-    // Call: 2(event)
-  }
-
 };
 
 chromeos.machine_learning.mojom.SodaClientRequest = class {
@@ -151,26 +136,6 @@ chromeos.machine_learning.mojom.SodaRecognizerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'chromeos.machine_learning.mojom.SodaRecognizer';
-  }
-
-  0(audio) {
-    // Method: 0
-    // Call: 0(audio)
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
-  3() {
-    // Method: 3
-    // Call: 3()
   }
 
 };

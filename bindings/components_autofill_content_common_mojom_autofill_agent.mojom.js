@@ -23,30 +23,10 @@ autofill.mojom.AutofillAgentPtr = class {
 
   triggerFormExtractionWithResponse() {
     // Method: TriggerFormExtractionWithResponse
-    // Call: TriggerFormExtractionWithResponse()
-  }
-
-  triggerFormExtractionWithResponse() {
-    // Method: TriggerFormExtractionWithResponse
-    // Call: TriggerFormExtractionWithResponse()
-  }
-
-  triggerFormExtractionWithResponse() {
-    // Method: TriggerFormExtractionWithResponse
     return new Promise((resolve) => {
       // Call: TriggerFormExtractionWithResponse()
       resolve({});
     });
-  }
-
-  applyFormAction() {
-    // Method: ApplyFormAction
-    // Call: ApplyFormAction()
-  }
-
-  requestRefill() {
-    // Method: RequestRefill
-    // Call: RequestRefill()
   }
 
   applyFieldsAction(action_type, action_persistence, fields, fill_id, supports_refill) {
@@ -65,11 +45,6 @@ autofill.mojom.AutofillAgentPtr = class {
       // Call: ExtractFormWithField(field_id)
       resolve({});
     });
-  }
-
-  extractFinalCheckoutAmountFromDom() {
-    // Method: ExtractFinalCheckoutAmountFromDom
-    // Call: ExtractFinalCheckoutAmountFromDom()
   }
 
   extractLabeledTextNodeValue(value_regex, label_regex, number_of_ancestor_levels_to_search) {
@@ -93,11 +68,6 @@ autofill.mojom.AutofillAgentPtr = class {
   clearPreviewedForm() {
     // Method: ClearPreviewedForm
     // Call: ClearPreviewedForm()
-  }
-
-  askForValuesToFill() {
-    // Method: AskForValuesToFill
-    // Call: AskForValuesToFill()
   }
 
   triggerSuggestions(field, trigger_source) {
@@ -176,11 +146,6 @@ autofill.mojom.PasswordAutofillAgentPtr = class {
     // Call: PreviewPasswordSuggestionById(username_element_id, password_element_id, username, password)
   }
 
-  popups(UIs) {
-    // Method: popups
-    // Call: popups(UIs)
-  }
-
   informNoSavedCredentials(should_show_popup_without_passwords) {
     // Method: InformNoSavedCredentials
     // Call: InformNoSavedCredentials(should_show_popup_without_passwords)
@@ -212,16 +177,6 @@ autofill.mojom.PasswordAutofillAgentPtr = class {
     });
   }
 
-  start(true) {
-    // Method: start
-    // Call: start(true)
-  }
-
-  stop(false) {
-    // Method: stop
-    // Call: stop(false)
-  }
-
   setLoggingState(active) {
     // Method: SetLoggingState
     // Call: SetLoggingState(active)
@@ -230,11 +185,6 @@ autofill.mojom.PasswordAutofillAgentPtr = class {
   triggerFormSubmission() {
     // Method: TriggerFormSubmission
     // Call: TriggerFormSubmission()
-  }
-
-  related() {
-    // Method: related
-    // Call: related()
   }
 
   annotateFieldsWithParsingResult(parsing_result) {

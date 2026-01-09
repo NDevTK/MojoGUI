@@ -70,14 +70,6 @@ ash.ime.mojom.JpUnusedPtr = class {
     this.interfaceName = 'ash.ime.mojom.JpUnused';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
 };
 
 ash.ime.mojom.JpUnusedRequest = class {

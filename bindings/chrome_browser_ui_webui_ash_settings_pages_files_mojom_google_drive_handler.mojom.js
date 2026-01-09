@@ -58,11 +58,6 @@ ash.settings.google_drive.mojom.PageHandlerPtr = class {
     });
   }
 
-  cache(not) {
-    // Method: cache
-    // Call: cache(not)
-  }
-
   clearPinnedFiles() {
     // Method: ClearPinnedFiles
     // Call: ClearPinnedFiles()
@@ -86,11 +81,6 @@ ash.settings.google_drive.mojom.PagePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.settings.google_drive.mojom.Page';
-  }
-
-  services(or) {
-    // Method: services
-    // Call: services(or)
   }
 
   onServiceUnavailable() {

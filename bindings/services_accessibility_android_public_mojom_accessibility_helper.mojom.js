@@ -359,21 +359,6 @@ ax.android.mojom.AccessibilityHelperHostPtr = class {
     this.interfaceName = 'ax.android.mojom.AccessibilityHelperHost';
   }
 
-  1(event_data) {
-    // Method: 1
-    // Call: 1(event_data)
-  }
-
-  2(notification_key, state) {
-    // Method: 2
-    // Call: 2(notification_key, state)
-  }
-
-  3(enabled) {
-    // Method: 3
-    // Call: 3(enabled)
-  }
-
 };
 
 ax.android.mojom.AccessibilityHelperHostRequest = class {
@@ -387,55 +372,6 @@ ax.android.mojom.AccessibilityHelperInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ax.android.mojom.AccessibilityHelperInstance';
-  }
-
-  7(host_remote) {
-    // Method: 7
-    // Call: 7(host_remote)
-  }
-
-  2(filter_type) {
-    // Method: 2
-    // Call: 2(filter_type)
-  }
-
-  4(action_data) {
-    // Method: 4
-    return new Promise((resolve) => {
-      // Call: 4(action_data)
-      resolve({});
-    });
-  }
-
-  8(enabled) {
-    // Method: 8
-    // Call: 8(enabled)
-  }
-
-  9(refresh_data) {
-    // Method: 9
-    return new Promise((resolve) => {
-      // Call: 9(refresh_data)
-      resolve({});
-    });
-  }
-
-  11(window) {
-    // Method: 11
-    // Call: 11(window)
-  }
-
-  chromeVox() {
-    // Method: ChromeVox
-    // Call: ChromeVox()
-  }
-
-  12(enabled) {
-    // Method: 12
-    return new Promise((resolve) => {
-      // Call: 12(enabled)
-      resolve({});
-    });
   }
 
 };

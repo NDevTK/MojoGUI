@@ -70,11 +70,6 @@ chromecast.mojom.CastContentWindowPtr = class {
     // Call: GrantScreenAccess()
   }
 
-  grantScreenAccess() {
-    // Method: GrantScreenAccess
-    // Call: GrantScreenAccess()
-  }
-
   revokeScreenAccess() {
     // Method: RevokeScreenAccess
     // Call: RevokeScreenAccess()

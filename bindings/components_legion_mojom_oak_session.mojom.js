@@ -31,11 +31,6 @@ legion.mojom.OakSessionPtr = class {
     });
   }
 
-  initiateHandshake() {
-    // Method: InitiateHandshake
-    // Call: InitiateHandshake()
-  }
-
   completeHandshake(response) {
     // Method: CompleteHandshake
     return new Promise((resolve) => {

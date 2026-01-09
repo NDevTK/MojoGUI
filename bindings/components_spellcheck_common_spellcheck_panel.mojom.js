@@ -41,11 +41,6 @@ spellcheck.mojom.SpellCheckPanelHostPtr = class {
     this.interfaceName = 'spellcheck.mojom.SpellCheckPanelHost';
   }
 
-  display(display) {
-    // Method: display
-    // Call: display(display)
-  }
-
   showSpellingPanel(show) {
     // Method: ShowSpellingPanel
     // Call: ShowSpellingPanel(show)

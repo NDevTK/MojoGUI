@@ -31,19 +31,6 @@ arc.mojom.PrintSessionInstancePtr = class {
     this.interfaceName = 'arc.mojom.PrintSessionInstance';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1(request) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(request)
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.PrintSessionInstanceRequest = class {
@@ -59,14 +46,6 @@ arc.mojom.PrintSpoolerHostPtr = class {
     this.interfaceName = 'arc.mojom.PrintSpoolerHost';
   }
 
-  1(scoped_handle, task_id, instance) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(scoped_handle, task_id, instance)
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.PrintSpoolerHostRequest = class {
@@ -80,11 +59,6 @@ arc.mojom.PrintSpoolerInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.PrintSpoolerInstance';
-  }
-
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
   }
 
 };

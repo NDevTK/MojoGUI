@@ -16,22 +16,12 @@ blink.mojom.FileSystemAccessObserverHostPtr = class {
     this.interfaceName = 'blink.mojom.FileSystemAccessObserverHost';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   observe(token, is_recursive) {
     // Method: Observe
     return new Promise((resolve) => {
       // Call: Observe(token, is_recursive)
       resolve({});
     });
-  }
-
-  observe() {
-    // Method: Observe
-    // Call: Observe()
   }
 
   unobserve(token) {

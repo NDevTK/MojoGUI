@@ -16,16 +16,6 @@ viz.mojom.InputTargetClientPtr = class {
     this.interfaceName = 'viz.mojom.InputTargetClient';
   }
 
-  isMusHostingViz() {
-    // Method: IsMusHostingViz
-    // Call: IsMusHostingViz()
-  }
-
-  widget(an) {
-    // Method: widget
-    // Call: widget(an)
-  }
-
   frameSinkIdAt(point, trace_id) {
     // Method: FrameSinkIdAt
     return new Promise((resolve) => {

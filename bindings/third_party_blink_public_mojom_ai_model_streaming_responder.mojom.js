@@ -28,11 +28,6 @@ blink.mojom.ModelStreamingResponderPtr = class {
     this.interfaceName = 'blink.mojom.ModelStreamingResponder';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   onCompletion(context_info) {
     // Method: OnCompletion
     // Call: OnCompletion(context_info)
@@ -41,16 +36,6 @@ blink.mojom.ModelStreamingResponderPtr = class {
   onError(status, quota_error_info) {
     // Method: OnError
     // Call: OnError(status, quota_error_info)
-  }
-
-  onCompletion() {
-    // Method: OnCompletion
-    // Call: OnCompletion()
-  }
-
-  onError() {
-    // Method: OnError
-    // Call: OnError()
   }
 
   onStreaming(text) {

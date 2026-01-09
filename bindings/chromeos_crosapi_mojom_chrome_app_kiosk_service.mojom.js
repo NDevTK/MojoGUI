@@ -36,22 +36,6 @@ crosapi.mojom.ChromeKioskLaunchControllerPtr = class {
     this.interfaceName = 'crosapi.mojom.ChromeKioskLaunchController';
   }
 
-  0(params) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(params)
-      resolve({});
-    });
-  }
-
-  1(app_id, is_network_ready) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(app_id, is_network_ready)
-      resolve({});
-    });
-  }
-
 };
 
 crosapi.mojom.ChromeKioskLaunchControllerRequest = class {
@@ -65,11 +49,6 @@ crosapi.mojom.ChromeAppKioskServicePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'crosapi.mojom.ChromeAppKioskService';
-  }
-
-  0(controller) {
-    // Method: 0
-    // Call: 0(controller)
   }
 
 };

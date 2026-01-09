@@ -118,11 +118,6 @@ compose.mojom.ComposeSessionUntrustedPageHandlerPtr = class {
     // Call: LogEditInput()
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   saveWebUIState(webui_state) {
     // Method: SaveWebUIState
     // Call: SaveWebUIState(webui_state)
@@ -142,16 +137,6 @@ compose.mojom.ComposeSessionUntrustedPageHandlerPtr = class {
       // Call: RequestInitialState()
       resolve({});
     });
-  }
-
-  undo() {
-    // Method: Undo
-    // Call: Undo()
-  }
-
-  dialog(pipe) {
-    // Method: dialog
-    // Call: dialog(pipe)
   }
 
   undo() {

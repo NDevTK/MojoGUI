@@ -68,27 +68,12 @@ blink.mojom.FileSystemAccessManagerPtr = class {
     this.interfaceName = 'blink.mojom.FileSystemAccessManager';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   getSandboxedFileSystem() {
     // Method: GetSandboxedFileSystem
     return new Promise((resolve) => {
       // Call: GetSandboxedFileSystem()
       resolve({});
     });
-  }
-
-  path(roundtrips) {
-    // Method: path
-    // Call: path(roundtrips)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   getSandboxedFileSystemForDevtools(directory_path_components) {
@@ -99,11 +84,6 @@ blink.mojom.FileSystemAccessManagerPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   chooseEntries(options) {
     // Method: ChooseEntries
     return new Promise((resolve) => {
@@ -112,49 +92,14 @@ blink.mojom.FileSystemAccessManagerPtr = class {
     });
   }
 
-  postMessage() {
-    // Method: postMessage
-    // Call: postMessage()
-  }
-
-  postMessage() {
-    // Method: postMessage
-    // Call: postMessage()
-  }
-
   getFileHandleFromToken(token, file_handle) {
     // Method: GetFileHandleFromToken
     // Call: GetFileHandleFromToken(token, file_handle)
   }
 
-  getFileHandleFromToken() {
-    // Method: GetFileHandleFromToken
-    // Call: GetFileHandleFromToken()
-  }
-
-  getFileHandleFromToken() {
-    // Method: GetFileHandleFromToken
-    // Call: GetFileHandleFromToken()
-  }
-
   getDirectoryHandleFromToken(token, directory_handle) {
     // Method: GetDirectoryHandleFromToken
     // Call: GetDirectoryHandleFromToken(token, directory_handle)
-  }
-
-  getAsFileSystemHandle() {
-    // Method: getAsFileSystemHandle
-    // Call: getAsFileSystemHandle()
-  }
-
-  event(of, interaction) {
-    // Method: event
-    // Call: event(of, interaction)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   getEntryFromDataTransferToken(token) {

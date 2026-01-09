@@ -57,11 +57,6 @@ ax.mojom.UserInterfacePtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   setFocusRings(focus_rings, at_type) {
     // Method: SetFocusRings
     // Call: SetFocusRings(focus_rings, at_type)

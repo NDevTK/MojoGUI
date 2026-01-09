@@ -16,16 +16,6 @@ arc.mojom.MediaSessionInstancePtr = class {
     this.interfaceName = 'arc.mojom.MediaSessionInstance';
   }
 
-  1(service) {
-    // Method: 1
-    // Call: 1(service)
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
 };
 
 arc.mojom.MediaSessionInstanceRequest = class {

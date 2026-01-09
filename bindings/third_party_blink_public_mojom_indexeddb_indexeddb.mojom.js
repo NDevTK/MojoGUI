@@ -345,19 +345,9 @@ blink.mojom.IDBTransactionPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   setIndexKeys(object_store_id, primary_key, index_keys) {
     // Method: SetIndexKeys
     // Call: SetIndexKeys(object_store_id, primary_key, index_keys)
-  }
-
-  setIndexKeys() {
-    // Method: SetIndexKeys
-    // Call: SetIndexKeys()
   }
 
   setIndexKeysDone() {
@@ -433,31 +423,6 @@ blink.mojom.IDBDatabasePtr = class {
     });
   }
 
-  getAllKeys() {
-    // Method: getAllKeys
-    // Call: getAllKeys()
-  }
-
-  getAll() {
-    // Method: getAll
-    // Call: getAll()
-  }
-
-  getAllRecords() {
-    // Method: getAllRecords
-    // Call: getAllRecords()
-  }
-
-  getAll() {
-    // Method: GetAll
-    // Call: GetAll()
-  }
-
-  getAllKeys() {
-    // Method: getAllKeys
-    // Call: getAllKeys()
-  }
-
   getAll(transaction_id, object_store_id, index_id, key_range, result_type, max_count, direction) {
     // Method: GetAll
     return new Promise((resolve) => {
@@ -474,22 +439,12 @@ blink.mojom.IDBDatabasePtr = class {
     });
   }
 
-  count() {
-    // Method: count
-    // Call: count()
-  }
-
   count(transaction_id, object_store_id, index_id, key_range) {
     // Method: Count
     return new Promise((resolve) => {
       // Call: Count(transaction_id, object_store_id, index_id, key_range)
       resolve({});
     });
-  }
-
-  delete() {
-    // Method: delete
-    // Call: delete()
   }
 
   deleteRange(transaction_id, object_store_id, key_range) {
@@ -508,22 +463,12 @@ blink.mojom.IDBDatabasePtr = class {
     });
   }
 
-  clear() {
-    // Method: clear
-    // Call: clear()
-  }
-
   clear(transaction_id, object_store_id) {
     // Method: Clear
     return new Promise((resolve) => {
       // Call: Clear(transaction_id, object_store_id)
       resolve({});
     });
-  }
-
-  createIndex() {
-    // Method: createIndex
-    // Call: createIndex()
   }
 
   createIndex(transaction_id, object_store_id, index) {
@@ -549,11 +494,6 @@ blink.mojom.IDBDatabasePtr = class {
   didBecomeInactive() {
     // Method: DidBecomeInactive
     // Call: DidBecomeInactive()
-  }
-
-  request(IDBFactory::Open) {
-    // Method: request
-    // Call: request(IDBFactory::Open)
   }
 
   updatePriority(new_priority) {
@@ -582,11 +522,6 @@ blink.mojom.IDBFactoryPtr = class {
       // Call: GetDatabaseInfo()
       resolve({});
     });
-  }
-
-  client() {
-    // Method: client
-    // Call: client()
   }
 
   open(client, database_callbacks, name, version, version_change_transaction_receiver, transaction_id, priority) {

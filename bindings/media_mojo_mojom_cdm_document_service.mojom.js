@@ -31,11 +31,6 @@ media.mojom.CdmDocumentServicePtr = class {
     });
   }
 
-  id(latest) {
-    // Method: Id
-    // Call: Id(latest)
-  }
-
   getStorageId(version) {
     // Method: GetStorageId
     return new Promise((resolve) => {

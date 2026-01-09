@@ -46,29 +46,14 @@ blink.mojom.CredentialManagerPtr = class {
     this.interfaceName = 'blink.mojom.CredentialManager';
   }
 
-  store() {
-    // Method: store
-    // Call: store()
-  }
-
   store(credential) {
     // Method: Store
     // Call: Store(credential)
   }
 
   preventSilentAccess() {
-    // Method: preventSilentAccess
-    // Call: preventSilentAccess()
-  }
-
-  preventSilentAccess() {
     // Method: PreventSilentAccess
     // Call: PreventSilentAccess()
-  }
-
-  get() {
-    // Method: get
-    // Call: get()
   }
 
   get(mediation, include_passwords, federations) {

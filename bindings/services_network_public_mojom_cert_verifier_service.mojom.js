@@ -50,11 +50,6 @@ cert_verifier.mojom.CertVerifierServicePtr = class {
     this.interfaceName = 'cert_verifier.mojom.CertVerifierService';
   }
 
-  verify() {
-    // Method: Verify
-    // Call: Verify()
-  }
-
   enableNetworkAccess(url_loader_factory, reconnector) {
     // Method: EnableNetworkAccess
     // Call: EnableNetworkAccess(url_loader_factory, reconnector)

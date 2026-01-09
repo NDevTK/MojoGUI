@@ -94,11 +94,6 @@ batch_upload.mojom.PagePtr = class {
     this.interfaceName = 'batch_upload.mojom.Page';
   }
 
-  saveToAccount() {
-    // Method: SaveToAccount
-    // Call: SaveToAccount()
-  }
-
   sendBatchUploadData(data) {
     // Method: SendBatchUploadData
     // Call: SendBatchUploadData(data)

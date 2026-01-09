@@ -80,22 +80,12 @@ blink.mojom.AnnotationAgentContainerPtr = class {
     // Call: CreateAgent(host_remote, agent_receiver, type, selector, search_range_start_node_id)
   }
 
-  degenerate(text) {
-    // Method: degenerate
-    // Call: degenerate(text)
-  }
-
   createAgentFromSelection(type) {
     // Method: CreateAgentFromSelection
     return new Promise((resolve) => {
       // Call: CreateAgentFromSelection(type)
       resolve({});
     });
-  }
-
-  type(case) {
-    // Method: type
-    // Call: type(case)
   }
 
   removeAgentsOfType(type) {

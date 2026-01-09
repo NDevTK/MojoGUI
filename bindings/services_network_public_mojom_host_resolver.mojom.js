@@ -137,39 +137,9 @@ network.mojom.ResolveHostClientPtr = class {
     this.interfaceName = 'network.mojom.ResolveHostClient';
   }
 
-  success(OK) {
-    // Method: success
-    // Call: success(OK)
-  }
-
-  information(vs) {
-    // Method: information
-    // Call: information(vs)
-  }
-
-  resolveHost() {
-    // Method: ResolveHost
-    // Call: ResolveHost()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   onComplete(result, resolve_error_info, resolved_addresses, alternative_endpoints) {
     // Method: OnComplete
     // Call: OnComplete(result, resolve_error_info, resolved_addresses, alternative_endpoints)
-  }
-
-  results() {
-    // Method: Results
-    // Call: Results()
-  }
-
-  onComplete() {
-    // Method: OnComplete
-    // Call: OnComplete()
   }
 
   onTextResults(text_results) {
@@ -212,29 +182,9 @@ network.mojom.HostResolverPtr = class {
     this.interfaceName = 'network.mojom.HostResolver';
   }
 
-  hostname(literal) {
-    // Method: hostname
-    // Call: hostname(literal)
-  }
-
-  success(OK) {
-    // Method: success
-    // Call: success(OK)
-  }
-
-  literal(literal) {
-    // Method: literal
-    // Call: literal(literal)
-  }
-
   resolveHost(host, network_anonymization_key, optional_parameters, response_client) {
     // Method: ResolveHost
     // Call: ResolveHost(host, network_anonymization_key, optional_parameters, response_client)
-  }
-
-  success(OK) {
-    // Method: success
-    // Call: success(OK)
   }
 
   mdnsListen(host, query_type, response_client) {

@@ -39,32 +39,6 @@ arc.mojom.VideoDecoderPtr = class {
     this.interfaceName = 'arc.mojom.VideoDecoder';
   }
 
-  0(config, client, video_frame_pool) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(config, client, video_frame_pool)
-      resolve({});
-    });
-  }
-
-  1(buffer) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(buffer)
-      resolve({});
-    });
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
-  3(video_frame_id) {
-    // Method: 3
-    // Call: 3(video_frame_id)
-  }
-
 };
 
 arc.mojom.VideoDecoderRequest = class {
@@ -78,16 +52,6 @@ arc.mojom.VideoDecoderClientPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.VideoDecoderClient';
-  }
-
-  0(video_frame_id, visible_rect, timestamp) {
-    // Method: 0
-    // Call: 0(video_frame_id, visible_rect, timestamp)
-  }
-
-  1(status) {
-    // Method: 1
-    // Call: 1(status)
   }
 
 };

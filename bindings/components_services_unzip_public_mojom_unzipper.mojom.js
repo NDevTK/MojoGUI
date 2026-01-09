@@ -73,11 +73,6 @@ unzip.mojom.UnzipperPtr = class {
     this.interfaceName = 'unzip.mojom.Unzipper';
   }
 
-  archive(incurs) {
-    // Method: archive
-    // Call: archive(incurs)
-  }
-
   unzip(zip_file, output_dir, options, filter, listener) {
     // Method: Unzip
     return new Promise((resolve) => {

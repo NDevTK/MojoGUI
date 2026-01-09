@@ -59,11 +59,6 @@ blink.mojom.PageBroadcastPtr = class {
     // Call: AudioStateChanged(is_audio_playing)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   activatePrerenderedPage(prerender_page_activation_params) {
     // Method: ActivatePrerenderedPage
     // Call: ActivatePrerenderedPage(prerender_page_activation_params)
@@ -87,16 +82,6 @@ blink.mojom.PageBroadcastPtr = class {
   setPageBaseBackgroundColor(color) {
     // Method: SetPageBaseBackgroundColor
     // Call: SetPageBaseBackgroundColor(color)
-  }
-
-  didStartLoading() {
-    // Method: DidStartLoading
-    // Call: DidStartLoading()
-  }
-
-  frames(remotes) {
-    // Method: frames
-    // Call: frames(remotes)
   }
 
   createRemoteMainFrame(token, opener_frame_token, replication_state, is_loading, devtools_frame_token, navigation_metrics_token, remote_frame_interfaces, remote_main_frame_interfaces) {

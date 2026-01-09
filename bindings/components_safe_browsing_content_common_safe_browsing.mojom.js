@@ -62,16 +62,6 @@ safe_browsing.mojom.SafeBrowsingPtr = class {
     this.interfaceName = 'safe_browsing.mojom.SafeBrowsing';
   }
 
-  and(SafeBrowsingUrlChecker) {
-    // Method: and
-    // Call: and(SafeBrowsingUrlChecker)
-  }
-
-  used(used) {
-    // Method: used
-    // Call: used(used)
-  }
-
   createCheckerAndCheck(frame_token, receiver, url, method, headers, load_flags, has_user_gesture, originated_from_service_worker) {
     // Method: CreateCheckerAndCheck
     return new Promise((resolve) => {
@@ -121,11 +111,6 @@ safe_browsing.mojom.PhishingDetectorPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'safe_browsing.mojom.PhishingDetector';
-  }
-
-  isPhishing() {
-    // Method: is_phishing
-    // Call: is_phishing()
   }
 
   startPhishingDetection(url, request_type) {

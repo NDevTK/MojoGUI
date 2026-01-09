@@ -141,19 +141,9 @@ content.mojom.FrameHTMLSerializerHandlerPtr = class {
     this.interfaceName = 'content.mojom.FrameHTMLSerializerHandler';
   }
 
-  getSerializedHtmlWithLocalLinks() {
-    // Method: GetSerializedHtmlWithLocalLinks
-    // Call: GetSerializedHtmlWithLocalLinks()
-  }
-
   didReceiveData(data_buffer) {
     // Method: DidReceiveData
     // Call: DidReceiveData(data_buffer)
-  }
-
-  didReceiveData() {
-    // Method: DidReceiveData
-    // Call: DidReceiveData()
   }
 
   done() {
@@ -189,34 +179,9 @@ content.mojom.FramePtr = class {
     // Call: UpdateSubresourceLoaderFactories(subresource_loader_factories)
   }
 
-  host() {
-    // Method: host
-    // Call: host()
-  }
-
-  didAddMessageToConsole() {
-    // Method: DidAddMessageToConsole
-    // Call: DidAddMessageToConsole()
-  }
-
   setWantErrorMessageStackTrace() {
     // Method: SetWantErrorMessageStackTrace
     // Call: SetWantErrorMessageStackTrace()
-  }
-
-  detached(the) {
-    // Method: detached
-    // Call: detached(the)
-  }
-
-  postMessage() {
-    // Method: postMessage
-    // Call: postMessage()
-  }
-
-  guest(main) {
-    // Method: guest
-    // Call: guest(main)
   }
 
   unload(is_loading, new_remote_frame_replication_state, new_remote_frame_token, new_remote_frame_interfaces, new_remote_main_frame_interfaces, devtools_frame_token) {
@@ -227,41 +192,6 @@ content.mojom.FramePtr = class {
   delete(intention) {
     // Method: Delete
     // Call: Delete(intention)
-  }
-
-  commitNavigation() {
-    // Method: CommitNavigation
-    // Call: CommitNavigation()
-  }
-
-  commitNavigation() {
-    // Method: CommitNavigation
-    // Call: CommitNavigation()
-  }
-
-  commitNavigation() {
-    // Method: CommitNavigation
-    // Call: CommitNavigation()
-  }
-
-  didCommitNavigation() {
-    // Method: DidCommitNavigation
-    // Call: DidCommitNavigation()
-  }
-
-  unload() {
-    // Method: Unload
-    // Call: Unload()
-  }
-
-  postMessage() {
-    // Method: postMessage
-    // Call: postMessage()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   undoCommitNavigation(is_loading, new_remote_frame_replication_state, new_remote_frame_token, new_remote_frame_interfaces, new_remote_main_frame_interfaces) {
@@ -337,16 +267,6 @@ content.mojom.NavigationRendererCancellationListenerPtr = class {
     this.interfaceName = 'content.mojom.NavigationRendererCancellationListener';
   }
 
-  script(window.stop() {
-    // Method: script
-    // Call: script(window.stop()
-  }
-
-  open() {
-    // Method: open
-    // Call: open()
-  }
-
   rendererCancellationWindowEnded() {
     // Method: RendererCancellationWindowEnded
     // Call: RendererCancellationWindowEnded()
@@ -367,22 +287,9 @@ content.mojom.FrameHostPtr = class {
     this.interfaceName = 'content.mojom.FrameHost';
   }
 
-  createNewWindow(params) {
-    // Method: CreateNewWindow
-    return new Promise((resolve) => {
-      // Call: CreateNewWindow(params)
-      resolve({});
-    });
-  }
-
   createChildFrame(child_frame_token, frame, browser_interface_broker, policy_container_bind_params, associated_interface_provider, scope, frame_name, frame_unique_name, is_created_by_script, frame_policy, frame_owner_properties, child_frame_owner_element_type, document_ukm_source_id) {
     // Method: CreateChildFrame
     // Call: CreateChildFrame(child_frame_token, frame, browser_interface_broker, policy_container_bind_params, associated_interface_provider, scope, frame_name, frame_unique_name, is_created_by_script, frame_policy, frame_owner_properties, child_frame_owner_element_type, document_ukm_source_id)
-  }
-
-  from(BrowserInterfaceBroker) {
-    // Method: from
-    // Call: from(BrowserInterfaceBroker)
   }
 
   didCommitProvisionalLoad(params, interface_params) {
@@ -395,29 +302,14 @@ content.mojom.FrameHostPtr = class {
     // Call: DidCommitSameDocumentNavigation(params, same_document_params)
   }
 
-  open() {
-    // Method: open
-    // Call: open()
-  }
-
   didOpenDocumentInputStream(url) {
     // Method: DidOpenDocumentInputStream
     // Call: DidOpenDocumentInputStream(url)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   beginNavigation(common_params, begin_params, blob_url_token, navigation_client, initiator_navigation_state_keep_alive_handle, renderer_cancellation_listener) {
     // Method: BeginNavigation
     // Call: BeginNavigation(common_params, begin_params, blob_url_token, navigation_client, initiator_navigation_state_keep_alive_handle, renderer_cancellation_listener)
-  }
-
-  final(redirects) {
-    // Method: final
-    // Call: final(redirects)
   }
 
   subresourceResponseStarted(final_response_url, cert_status) {

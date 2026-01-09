@@ -27,22 +27,12 @@ chromeos_camera.mojom.JpegEncodeAcceleratorPtr = class {
     this.interfaceName = 'chromeos_camera.mojom.JpegEncodeAccelerator';
   }
 
-  encodeWithFD() {
-    // Method: EncodeWithFD
-    // Call: EncodeWithFD()
-  }
-
   initialize() {
     // Method: Initialize
     return new Promise((resolve) => {
       // Call: Initialize()
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   encodeWithFD(task_id, input_fd, input_buffer_size, coded_size_width, coded_size_height, exif_fd, exif_buffer_size, output_fd, output_buffer_size) {

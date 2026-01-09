@@ -22,11 +22,6 @@ nearby.connections.mojom.EndpointDiscoveryListenerPtr = class {
     // Call: OnEndpointFound(endpoint_id, info)
   }
 
-  onEndpointFound() {
-    // Method: OnEndpointFound
-    // Call: OnEndpointFound()
-  }
-
   onEndpointLost(endpoint_id) {
     // Method: OnEndpointLost
     // Call: OnEndpointLost(endpoint_id)
@@ -47,16 +42,6 @@ nearby.connections.mojom.ConnectionLifecycleListenerPtr = class {
     this.interfaceName = 'nearby.connections.mojom.ConnectionLifecycleListener';
   }
 
-  acceptConnection() {
-    // Method: AcceptConnection
-    // Call: AcceptConnection()
-  }
-
-  rejectConnection() {
-    // Method: RejectConnection
-    // Call: RejectConnection()
-  }
-
   onConnectionInitiated(endpoint_id, info) {
     // Method: OnConnectionInitiated
     // Call: OnConnectionInitiated(endpoint_id, info)
@@ -65,11 +50,6 @@ nearby.connections.mojom.ConnectionLifecycleListenerPtr = class {
   onConnectionAccepted(endpoint_id) {
     // Method: OnConnectionAccepted
     // Call: OnConnectionAccepted(endpoint_id)
-  }
-
-  disconnectFromEndpoint() {
-    // Method: DisconnectFromEndpoint
-    // Call: DisconnectFromEndpoint()
   }
 
 };
@@ -85,11 +65,6 @@ nearby.connections.mojom.PayloadListenerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'nearby.connections.mojom.PayloadListener';
-  }
-
-  onPayloadTransferUpdate() {
-    // Method: OnPayloadTransferUpdate
-    // Call: OnPayloadTransferUpdate()
   }
 
   onPayloadReceived(endpoint_id, payload) {
@@ -117,44 +92,14 @@ nearby.connections.mojom.ConnectionListenerV3Ptr = class {
     this.interfaceName = 'nearby.connections.mojom.ConnectionListenerV3';
   }
 
-  see() {
-    // Method: See
-    // Call: See()
-  }
-
-  take(other) {
-    // Method: take
-    // Call: take(other)
-  }
-
-  acceptConnectionV3() {
-    // Method: AcceptConnectionV3
-    // Call: AcceptConnectionV3()
-  }
-
-  rejectConnectionV3() {
-    // Method: RejectConnectionV3
-    // Call: RejectConnectionV3()
-  }
-
   onConnectionInitiatedV3(endpoint_id, info) {
     // Method: OnConnectionInitiatedV3
     // Call: OnConnectionInitiatedV3(endpoint_id, info)
   }
 
-  connection(rejected) {
-    // Method: connection
-    // Call: connection(rejected)
-  }
-
   onConnectionResultV3(endpoint_id, resolution) {
     // Method: OnConnectionResultV3
     // Call: OnConnectionResultV3(endpoint_id, resolution)
-  }
-
-  service() {
-    // Method: service
-    // Call: service()
   }
 
   onDisconnectedV3(endpoint_id) {
@@ -182,11 +127,6 @@ nearby.connections.mojom.PayloadListenerV3Ptr = class {
     this.interfaceName = 'nearby.connections.mojom.PayloadListenerV3';
   }
 
-  onPayloadTransferUpdateV3() {
-    // Method: OnPayloadTransferUpdateV3
-    // Call: OnPayloadTransferUpdateV3()
-  }
-
   onPayloadReceivedV3(endpoint_id, payload) {
     // Method: OnPayloadReceivedV3
     // Call: OnPayloadReceivedV3(endpoint_id, payload)
@@ -212,22 +152,12 @@ nearby.connections.mojom.NearbyConnectionsPtr = class {
     this.interfaceName = 'nearby.connections.mojom.NearbyConnections';
   }
 
-  startAdvertising() {
-    // Method: StartAdvertising
-    // Call: StartAdvertising()
-  }
-
   startAdvertising(service_id, endpoint_info, options, listener) {
     // Method: StartAdvertising
     return new Promise((resolve) => {
       // Call: StartAdvertising(service_id, endpoint_info, options, listener)
       resolve({});
     });
-  }
-
-  startAdvertising() {
-    // Method: StartAdvertising
-    // Call: StartAdvertising()
   }
 
   stopAdvertising(service_id) {
@@ -246,52 +176,12 @@ nearby.connections.mojom.NearbyConnectionsPtr = class {
     });
   }
 
-  startDiscovery() {
-    // Method: StartDiscovery
-    // Call: StartDiscovery()
-  }
-
   stopDiscovery(service_id) {
     // Method: StopDiscovery
     return new Promise((resolve) => {
       // Call: StopDiscovery(service_id)
       resolve({});
     });
-  }
-
-  startDiscovery() {
-    // Method: StartDiscovery
-    // Call: StartDiscovery()
-  }
-
-  onEndpointFound() {
-    // Method: OnEndpointFound
-    // Call: OnEndpointFound()
-  }
-
-  startDiscovery() {
-    // Method: StartDiscovery
-    // Call: StartDiscovery()
-  }
-
-  startDiscovery() {
-    // Method: StartDiscovery
-    // Call: StartDiscovery()
-  }
-
-  stopDiscovery() {
-    // Method: StopDiscovery
-    // Call: StopDiscovery()
-  }
-
-  startDiscovery() {
-    // Method: StartDiscovery
-    // Call: StartDiscovery()
-  }
-
-  onEndpointFound() {
-    // Method: OnEndpointFound
-    // Call: OnEndpointFound()
   }
 
   injectBluetoothEndpoint(service_id, endpoint_id, endpoint_info, remote_bluetooth_mac_address) {
@@ -302,11 +192,6 @@ nearby.connections.mojom.NearbyConnectionsPtr = class {
     });
   }
 
-  onEndpointFound() {
-    // Method: OnEndpointFound
-    // Call: OnEndpointFound()
-  }
-
   requestConnection(service_id, endpoint_info, endpoint_id, options, listener) {
     // Method: RequestConnection
     return new Promise((resolve) => {
@@ -315,32 +200,12 @@ nearby.connections.mojom.NearbyConnectionsPtr = class {
     });
   }
 
-  onConnectionInitiated() {
-    // Method: OnConnectionInitiated
-    // Call: OnConnectionInitiated()
-  }
-
-  onConnectionInitiated() {
-    // Method: OnConnectionInitiated
-    // Call: OnConnectionInitiated()
-  }
-
   acceptConnection(service_id, endpoint_id, listener) {
     // Method: AcceptConnection
     return new Promise((resolve) => {
       // Call: AcceptConnection(service_id, endpoint_id, listener)
       resolve({});
     });
-  }
-
-  onConnectionInitiated() {
-    // Method: OnConnectionInitiated
-    // Call: OnConnectionInitiated()
-  }
-
-  onConnectionInitiated() {
-    // Method: OnConnectionInitiated
-    // Call: OnConnectionInitiated()
   }
 
   rejectConnection(service_id, endpoint_id) {
@@ -359,42 +224,12 @@ nearby.connections.mojom.NearbyConnectionsPtr = class {
     });
   }
 
-  onConnectionResult() {
-    // Method: OnConnectionResult
-    // Call: OnConnectionResult()
-  }
-
-  discovery(Strategy) {
-    // Method: discovery
-    // Call: discovery(Strategy)
-  }
-
-  active(pending) {
-    // Method: active
-    // Call: active(pending)
-  }
-
-  transmission(different) {
-    // Method: transmission
-    // Call: transmission(different)
-  }
-
-  onPayloadTransferUpdate() {
-    // Method: OnPayloadTransferUpdate
-    // Call: OnPayloadTransferUpdate()
-  }
-
   sendPayload(service_id, endpoint_ids, payload) {
     // Method: SendPayload
     return new Promise((resolve) => {
       // Call: SendPayload(service_id, endpoint_ids, payload)
       resolve({});
     });
-  }
-
-  endpoint() {
-    // Method: endpoint
-    // Call: endpoint()
   }
 
   cancelPayload(service_id, payload_id) {
@@ -413,16 +248,6 @@ nearby.connections.mojom.NearbyConnectionsPtr = class {
     });
   }
 
-  advertising(device) {
-    // Method: advertising
-    // Call: advertising(device)
-  }
-
-  startAdvertising() {
-    // Method: StartAdvertising
-    // Call: StartAdvertising()
-  }
-
   initiateBandwidthUpgrade(service_id, endpoint_id) {
     // Method: InitiateBandwidthUpgrade
     return new Promise((resolve) => {
@@ -439,27 +264,12 @@ nearby.connections.mojom.NearbyConnectionsPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   requestConnectionV3(service_id, remote_device, connection_options, listener) {
     // Method: RequestConnectionV3
     return new Promise((resolve) => {
       // Call: RequestConnectionV3(service_id, remote_device, connection_options, listener)
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   acceptConnectionV3(service_id, remote_device, listener) {
@@ -470,11 +280,6 @@ nearby.connections.mojom.NearbyConnectionsPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   rejectConnectionV3(service_id, remote_device) {
     // Method: RejectConnectionV3
     return new Promise((resolve) => {
@@ -483,27 +288,12 @@ nearby.connections.mojom.NearbyConnectionsPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   disconnectFromDeviceV3(service_id, remote_device) {
     // Method: DisconnectFromDeviceV3
     return new Promise((resolve) => {
       // Call: DisconnectFromDeviceV3(service_id, remote_device)
       resolve({});
     });
-  }
-
-  connectV3() {
-    // Method: ConnectV3
-    // Call: ConnectV3()
-  }
-
-  device() {
-    // Method: device
-    // Call: device()
   }
 
   registerServiceWithPresenceDeviceProvider(service_id) {

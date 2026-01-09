@@ -38,11 +38,6 @@ cros.mojom.CrosDisplayObserverPtr = class {
     this.interfaceName = 'cros.mojom.CrosDisplayObserver';
   }
 
-  0(rotation) {
-    // Method: 0
-    // Call: 0(rotation)
-  }
-
 };
 
 cros.mojom.CrosDisplayObserverRequest = class {
@@ -56,11 +51,6 @@ cros.mojom.CrosLidObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'cros.mojom.CrosLidObserver';
-  }
-
-  0(new_state) {
-    // Method: 0
-    // Call: 0(new_state)
   }
 
 };
@@ -78,16 +68,6 @@ cros.mojom.CrosPowerObserverPtr = class {
     this.interfaceName = 'cros.mojom.CrosPowerObserver';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
 };
 
 cros.mojom.CrosPowerObserverRequest = class {
@@ -101,26 +81,6 @@ cros.mojom.CrosSystemEventMonitorPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'cros.mojom.CrosSystemEventMonitor';
-  }
-
-  0(observer) {
-    // Method: 0
-    // Call: 0(observer)
-  }
-
-  1(observer) {
-    // Method: 1
-    // Call: 1(observer)
-  }
-
-  2(client_name, observer) {
-    // Method: 2
-    // Call: 2(client_name, observer)
-  }
-
-  3(type) {
-    // Method: 3
-    // Call: 3(type)
   }
 
 };

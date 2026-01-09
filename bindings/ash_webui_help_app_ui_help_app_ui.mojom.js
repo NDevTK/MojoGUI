@@ -95,11 +95,6 @@ ash.help_app.mojom.PageHandlerPtr = class {
     // Call: ShowParentalControls()
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   triggerWelcomeTipCallToAction(action_type_id) {
     // Method: TriggerWelcomeTipCallToAction
     // Call: TriggerWelcomeTipCallToAction(action_type_id)
@@ -111,11 +106,6 @@ ash.help_app.mojom.PageHandlerPtr = class {
       // Call: IsLauncherSearchEnabled()
       resolve({});
     });
-  }
-
-  flow(it) {
-    // Method: flow
-    // Call: flow(it)
   }
 
   launchMicrosoft365Setup() {

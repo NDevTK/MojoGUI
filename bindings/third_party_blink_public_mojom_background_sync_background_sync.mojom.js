@@ -69,11 +69,6 @@ blink.mojom.OneShotBackgroundSyncServicePtr = class {
     });
   }
 
-  register() {
-    // Method: register
-    // Call: register()
-  }
-
   didResolveRegistration(registration_info) {
     // Method: DidResolveRegistration
     // Call: DidResolveRegistration(registration_info)

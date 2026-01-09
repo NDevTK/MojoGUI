@@ -31,19 +31,9 @@ media.mojom.WatchTimeRecorderPtr = class {
     this.interfaceName = 'media.mojom.WatchTimeRecorder';
   }
 
-  media(clock) {
-    // Method: media
-    // Call: media(clock)
-  }
-
   recordWatchTime(key, watch_time) {
     // Method: RecordWatchTime
     // Call: RecordWatchTime(key, watch_time)
-  }
-
-  finalization(UMA) {
-    // Method: finalization
-    // Call: finalization(UMA)
   }
 
   finalizeWatchTime(watch_time_keys) {

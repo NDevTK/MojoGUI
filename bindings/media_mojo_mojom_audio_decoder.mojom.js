@@ -23,37 +23,12 @@ media.mojom.AudioDecoderPtr = class {
     this.interfaceName = 'media.mojom.AudioDecoder';
   }
 
-  construct() {
-    // Method: Construct
-    // Call: Construct()
-  }
-
   getSupportedConfigs() {
     // Method: GetSupportedConfigs
     return new Promise((resolve) => {
       // Call: GetSupportedConfigs()
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  configure() {
-    // Method: Configure
-    // Call: Configure()
   }
 
   construct(client, media_log) {
@@ -69,19 +44,9 @@ media.mojom.AudioDecoderPtr = class {
     });
   }
 
-  decode() {
-    // Method: Decode
-    // Call: Decode()
-  }
-
   setDataSource(receive_pipe) {
     // Method: SetDataSource
     // Call: SetDataSource(receive_pipe)
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
   }
 
   decode(buffer) {
@@ -90,16 +55,6 @@ media.mojom.AudioDecoderPtr = class {
       // Call: Decode(buffer)
       resolve({});
     });
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  decode() {
-    // Method: Decode
-    // Call: Decode()
   }
 
   reset() {

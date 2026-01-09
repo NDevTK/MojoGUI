@@ -27,26 +27,6 @@ video_capture.mojom.PushVideoStreamSubscriptionPtr = class {
     // Call: Activate()
   }
 
-  onFrameReadyInBuffer() {
-    // Method: OnFrameReadyInBuffer
-    // Call: OnFrameReadyInBuffer()
-  }
-
-  onFrameDropped() {
-    // Method: OnFrameDropped
-    // Call: OnFrameDropped()
-  }
-
-  onNewBuffer() {
-    // Method: OnNewBuffer
-    // Call: OnNewBuffer()
-  }
-
-  onBufferRetired() {
-    // Method: OnBufferRetired
-    // Call: OnBufferRetired()
-  }
-
   suspend() {
     // Method: Suspend
     // Call: Suspend()
@@ -63,11 +43,6 @@ video_capture.mojom.PushVideoStreamSubscriptionPtr = class {
       // Call: GetPhotoState()
       resolve({});
     });
-  }
-
-  takePhoto() {
-    // Method: TakePhoto
-    // Call: TakePhoto()
   }
 
   setPhotoOptions(settings) {
@@ -109,11 +84,6 @@ video_capture.mojom.VideoSourcePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'video_capture.mojom.VideoSource';
-  }
-
-  onFrameReadyInBuffer() {
-    // Method: OnFrameReadyInBuffer
-    // Call: OnFrameReadyInBuffer()
   }
 
   createPushSubscription(subscriber, requested_settings, force_reopen_with_new_settings, subscription) {

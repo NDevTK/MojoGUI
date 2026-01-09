@@ -55,11 +55,6 @@ password_manager.mojom.PageHandlerPtr = class {
     // Call: ExtendAuthValidity()
   }
 
-  data() {
-    // Method: data
-    // Call: data()
-  }
-
   deleteAllPasswordManagerData() {
     // Method: DeleteAllPasswordManagerData
     return new Promise((resolve) => {
@@ -134,11 +129,6 @@ password_manager.mojom.PageHandlerPtr = class {
       // Call: IsPasswordManagerPinAvailable()
       resolve({});
     });
-  }
-
-  state(filling) {
-    // Method: state
-    // Call: state(filling)
   }
 
   switchBiometricAuthBeforeFillingState() {

@@ -47,11 +47,6 @@ blink.mojom.CodeCacheHostPtr = class {
     // Call: ClearCodeCacheEntry(cache_type, url)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   didGenerateCacheableMetadataInCacheStorage(url, expected_response_time, data, cache_storage_cache_name) {
     // Method: DidGenerateCacheableMetadataInCacheStorage
     // Call: DidGenerateCacheableMetadataInCacheStorage(url, expected_response_time, data, cache_storage_cache_name)

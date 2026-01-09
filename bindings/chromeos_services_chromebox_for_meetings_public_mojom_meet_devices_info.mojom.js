@@ -38,35 +38,6 @@ chromeos.cfm.mojom.MeetDevicesInfoPtr = class {
     this.interfaceName = 'chromeos.cfm.mojom.MeetDevicesInfo';
   }
 
-  0(observer) {
-    // Method: 0
-    // Call: 0(observer)
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
-  2() {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2()
-      resolve({});
-    });
-  }
-
-  3() {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3()
-      resolve({});
-    });
-  }
-
 };
 
 chromeos.cfm.mojom.MeetDevicesInfoRequest = class {
@@ -80,11 +51,6 @@ chromeos.cfm.mojom.PolicyInfoObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'chromeos.cfm.mojom.PolicyInfoObserver';
-  }
-
-  0(info) {
-    // Method: 0
-    // Call: 0(info)
   }
 
 };

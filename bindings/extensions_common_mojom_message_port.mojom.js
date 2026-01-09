@@ -89,11 +89,6 @@ extensions.mojom.MessagePortHostPtr = class {
     this.interfaceName = 'extensions.mojom.MessagePortHost';
   }
 
-  error(retries) {
-    // Method: error
-    // Call: error(retries)
-  }
-
   closePort(close_channel, error_message) {
     // Method: ClosePort
     // Call: ClosePort(close_channel, error_message)

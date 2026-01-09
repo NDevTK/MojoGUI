@@ -56,11 +56,6 @@ blink.mojom.DirectSocketsServicePtr = class {
     this.interfaceName = 'blink.mojom.DirectSocketsService';
   }
 
-  code(success) {
-    // Method: code
-    // Call: code(success)
-  }
-
   openTCPSocket(options, receiver, observer) {
     // Method: OpenTCPSocket
     return new Promise((resolve) => {
@@ -83,11 +78,6 @@ blink.mojom.DirectSocketsServicePtr = class {
       // Call: OpenBoundUDPSocket(options, receiver, listener)
       resolve({});
     });
-  }
-
-  listening() {
-    // Method: listening
-    // Call: listening()
   }
 
   openTCPServerSocket(options, receiver) {

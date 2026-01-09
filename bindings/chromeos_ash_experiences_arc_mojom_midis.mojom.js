@@ -30,16 +30,6 @@ arc.mojom.MidisClientPtr = class {
     this.interfaceName = 'arc.mojom.MidisClient';
   }
 
-  0(device) {
-    // Method: 0
-    // Call: 0(device)
-  }
-
-  1(device) {
-    // Method: 1
-    // Call: 1(device)
-  }
-
 };
 
 arc.mojom.MidisClientRequest = class {
@@ -53,32 +43,6 @@ arc.mojom.MidisServerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.MidisServer';
-  }
-
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  handle(Handle) {
-    // Method: handle
-    // Call: handle(Handle)
-  }
-
-  3(request) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(request)
-      resolve({});
-    });
-  }
-
-  2(request) {
-    // Method: 2
-    // Call: 2(request)
   }
 
 };
@@ -96,11 +60,6 @@ arc.mojom.MidisHostPtr = class {
     this.interfaceName = 'arc.mojom.MidisHost';
   }
 
-  0(server, client) {
-    // Method: 0
-    // Call: 0(server, client)
-  }
-
 };
 
 arc.mojom.MidisHostRequest = class {
@@ -114,11 +73,6 @@ arc.mojom.MidisInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.MidisInstance';
-  }
-
-  1(host_remote) {
-    // Method: 1
-    // Call: 1(host_remote)
   }
 
 };

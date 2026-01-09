@@ -17,22 +17,6 @@ chromeos.cfm.mojom.MeetDevicesDiagnosticsPtr = class {
     this.interfaceName = 'chromeos.cfm.mojom.MeetDevicesDiagnostics';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1(pid) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(pid)
-      resolve({});
-    });
-  }
-
 };
 
 chromeos.cfm.mojom.MeetDevicesDiagnosticsRequest = class {

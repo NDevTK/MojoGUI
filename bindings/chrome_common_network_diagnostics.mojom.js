@@ -41,11 +41,6 @@ chrome.mojom.NetworkDiagnosticsClientPtr = class {
     // Call: SetCanShowNetworkDiagnosticsDialog(can_show)
   }
 
-  failed(result) {
-    // Method: failed
-    // Call: failed(result)
-  }
-
   dNSProbeStatus(status) {
     // Method: DNSProbeStatus
     // Call: DNSProbeStatus(status)

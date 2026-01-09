@@ -336,11 +336,6 @@ network.mojom.NetworkServiceTestPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   disableExclusiveCookieDatabaseLockingForTesting() {
     // Method: DisableExclusiveCookieDatabaseLockingForTesting
     // Call: DisableExclusiveCookieDatabaseLockingForTesting()

@@ -21,11 +21,6 @@ updater.mojom.UpdateServiceInternalPtr = class {
     // Call: Run()
   }
 
-  promoted(this) {
-    // Method: promoted
-    // Call: promoted(this)
-  }
-
   hello() {
     // Method: Hello
     // Call: Hello()

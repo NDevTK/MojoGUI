@@ -17,16 +17,6 @@ ash.camera_app.mojom.PdfBuilderPtr = class {
     this.interfaceName = 'ash.camera_app.mojom.PdfBuilder';
   }
 
-  index() {
-    // Method: index
-    // Call: index()
-  }
-
-  index() {
-    // Method: index
-    // Call: index()
-  }
-
   addPage(jpeg, page_index) {
     // Method: AddPage
     // Call: AddPage(jpeg, page_index)

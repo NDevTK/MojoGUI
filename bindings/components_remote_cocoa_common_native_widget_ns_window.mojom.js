@@ -99,22 +99,12 @@ remote_cocoa.mojom.NativeWidgetNSWindowPtr = class {
     // Call: InitWindow(params)
   }
 
-  dimensions(updates) {
-    // Method: dimensions
-    // Call: dimensions(updates)
-  }
-
   initCompositorView() {
     // Method: InitCompositorView
     return new Promise((resolve) => {
       // Call: InitCompositorView()
       resolve({});
     });
-  }
-
-  functions(view) {
-    // Method: functions
-    // Call: functions(view)
   }
 
   createContentView(ns_view_id, bounds, corner_radius) {
@@ -127,19 +117,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowPtr = class {
     // Call: DestroyContentView()
   }
 
-  window(posted) {
-    // Method: window
-    // Call: window(posted)
-  }
-
   closeWindow() {
     // Method: CloseWindow
     // Call: CloseWindow()
-  }
-
-  window(deleting) {
-    // Method: window
-    // Call: window(deleting)
   }
 
   closeWindowNow() {
@@ -227,34 +207,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowPtr = class {
     // Call: SetWindowLevel(level)
   }
 
-  hidden(programmatically) {
-    // Method: hidden
-    // Call: hidden(programmatically)
-  }
-
   setActivationIndependence(independence) {
     // Method: SetActivationIndependence
     // Call: SetActivationIndependence(independence)
-  }
-
-  to() {
-    // Method: to
-    // Call: to()
-  }
-
-  of() {
-    // Method: of
-    // Call: of()
-  }
-
-  since() {
-    // Method: since
-    // Call: since()
-  }
-
-  remaining() {
-    // Method: remaining
-    // Call: remaining()
   }
 
   setAspectRatio(aspect_ratio, excluded_margin) {
@@ -332,11 +287,6 @@ remote_cocoa.mojom.NativeWidgetNSWindowPtr = class {
     // Call: DisableImmersiveFullscreen()
   }
 
-  toolbar(chrome) {
-    // Method: toolbar
-    // Call: toolbar(chrome)
-  }
-
   updateToolbarVisibility(style) {
     // Method: UpdateToolbarVisibility
     // Call: UpdateToolbarVisibility(style)
@@ -345,21 +295,6 @@ remote_cocoa.mojom.NativeWidgetNSWindowPtr = class {
   onTopContainerViewBoundsChanged(bounds) {
     // Method: OnTopContainerViewBoundsChanged
     // Call: OnTopContainerViewBoundsChanged(bounds)
-  }
-
-  immersiveFullscreenRevealLock() {
-    // Method: ImmersiveFullscreenRevealLock
-    // Call: ImmersiveFullscreenRevealLock()
-  }
-
-  immersiveFullscreenRevealUnlock() {
-    // Method: ImmersiveFullscreenRevealUnlock
-    // Call: ImmersiveFullscreenRevealUnlock()
-  }
-
-  immersiveFullscreenRevealLock() {
-    // Method: ImmersiveFullscreenRevealLock
-    // Call: ImmersiveFullscreenRevealLock()
   }
 
   immersiveFullscreenRevealLock() {

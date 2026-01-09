@@ -69,30 +69,6 @@ chromeos.machine_learning.mojom.TextClassifierPtr = class {
     this.interfaceName = 'chromeos.machine_learning.mojom.TextClassifier';
   }
 
-  0(request) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(request)
-      resolve({});
-    });
-  }
-
-  2(text) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(text)
-      resolve({});
-    });
-  }
-
-  1(request) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(request)
-      resolve({});
-    });
-  }
-
 };
 
 chromeos.machine_learning.mojom.TextClassifierRequest = class {

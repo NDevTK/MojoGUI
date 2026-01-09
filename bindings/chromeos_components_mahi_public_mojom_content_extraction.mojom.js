@@ -50,22 +50,6 @@ mahi.mojom.ContentExtractionServicePtr = class {
     this.interfaceName = 'mahi.mojom.ContentExtractionService';
   }
 
-  0(extraction_request) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(extraction_request)
-      resolve({});
-    });
-  }
-
-  1(extraction_request) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(extraction_request)
-      resolve({});
-    });
-  }
-
 };
 
 mahi.mojom.ContentExtractionServiceRequest = class {
@@ -79,16 +63,6 @@ mahi.mojom.ContentExtractionServiceFactoryPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'mahi.mojom.ContentExtractionServiceFactory';
-  }
-
-  0(content_extraction_service) {
-    // Method: 0
-    // Call: 0(content_extraction_service)
-  }
-
-  1(extractor) {
-    // Method: 1
-    // Call: 1(extractor)
   }
 
 };

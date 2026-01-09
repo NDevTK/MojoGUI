@@ -58,11 +58,6 @@ chromeos.cfm.mojom.LoggerStateObserverPtr = class {
     this.interfaceName = 'chromeos.cfm.mojom.LoggerStateObserver';
   }
 
-  0(state) {
-    // Method: 0
-    // Call: 0(state)
-  }
-
 };
 
 chromeos.cfm.mojom.LoggerStateObserverRequest = class {
@@ -76,19 +71,6 @@ chromeos.cfm.mojom.MeetDevicesLoggerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'chromeos.cfm.mojom.MeetDevicesLogger';
-  }
-
-  0(record, priority) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(record, priority)
-      resolve({});
-    });
-  }
-
-  1(pending_observer) {
-    // Method: 1
-    // Call: 1(pending_observer)
   }
 
 };

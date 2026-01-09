@@ -23,11 +23,6 @@ content.mojom.ChildProcessHostPtr = class {
     this.interfaceName = 'content.mojom.ChildProcessHost';
   }
 
-  timer(seconds) {
-    // Method: timer
-    // Call: timer(seconds)
-  }
-
   ping() {
     // Method: Ping
     // Call: Ping()
@@ -81,39 +76,14 @@ content.mojom.ChildProcessPtr = class {
     // Call: EnableSystemTracingService(remote)
   }
 
-  immediately(crash, report) {
-    // Method: immediately
-    // Call: immediately(crash, report)
-  }
-
   crashHungProcess() {
     // Method: CrashHungProcess
     // Call: CrashHungProcess()
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  runService() {
-    // Method: RunService
-    // Call: RunService()
-  }
-
   bindServiceInterface(receiver) {
     // Method: BindServiceInterface
     // Call: BindServiceInterface(receiver)
-  }
-
-  bindServiceInterface() {
-    // Method: BindServiceInterface
-    // Call: BindServiceInterface()
-  }
-
-  onBindReceiver() {
-    // Method: OnBindReceiver
-    // Call: OnBindReceiver()
   }
 
   bindReceiver(receiver) {

@@ -43,11 +43,6 @@ storage.mojom.BlobDataItemReaderPtr = class {
     });
   }
 
-  data(any) {
-    // Method: data
-    // Call: data(any)
-  }
-
   readSideData() {
     // Method: ReadSideData
     return new Promise((resolve) => {

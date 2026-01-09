@@ -86,16 +86,6 @@ network.mojom.NetworkServicePtr = class {
     // Call: SetParams(params)
   }
 
-  getNetConstants() {
-    // Method: GetNetConstants
-    // Call: GetNetConstants()
-  }
-
-  createBounded() {
-    // Method: CreateBounded
-    // Call: CreateBounded()
-  }
-
   startNetLog(file, max_total_size, capture_mode, constants, duration) {
     // Method: StartNetLog
     // Call: StartNetLog(file, max_total_size, capture_mode, constants, duration)
@@ -104,11 +94,6 @@ network.mojom.NetworkServicePtr = class {
   attachNetLogProxy(proxy_source, proxy_sink) {
     // Method: AttachNetLogProxy
     // Call: AttachNetLogProxy(proxy_source, proxy_sink)
-  }
-
-  setSSLKeyLogger() {
-    // Method: SetSSLKeyLogger
-    // Call: SetSSLKeyLogger()
   }
 
   setSSLKeyLogFile(file) {
@@ -121,11 +106,6 @@ network.mojom.NetworkServicePtr = class {
     // Call: CreateNetworkContext(context, params)
   }
 
-  hTTPS(65) {
-    // Method: HTTPS
-    // Call: HTTPS(65)
-  }
-
   configureStubHostResolver(insecure_dns_client_enabled, happy_eyeballs_v3_enabled, secure_dns_mode, dns_over_https_config, additional_dns_types_enabled, fallback_doh_nameservers) {
     // Method: ConfigureStubHostResolver
     // Call: ConfigureStubHostResolver(insecure_dns_client_enabled, happy_eyeballs_v3_enabled, secure_dns_mode, dns_over_https_config, additional_dns_types_enabled, fallback_doh_nameservers)
@@ -136,29 +116,14 @@ network.mojom.NetworkServicePtr = class {
     // Call: DisableQuic()
   }
 
-  used(currently) {
-    // Method: used
-    // Call: used(currently)
-  }
-
   setUpHttpAuth(http_auth_static_params) {
     // Method: SetUpHttpAuth
     // Call: SetUpHttpAuth(http_auth_static_params)
   }
 
-  setUpAuth() {
-    // Method: SetUpAuth
-    // Call: SetUpAuth()
-  }
-
   configureHttpAuthPrefs(http_auth_dynamic_params) {
     // Method: ConfigureHttpAuthPrefs
     // Call: ConfigureHttpAuthPrefs(http_auth_dynamic_params)
-  }
-
-  reported() {
-    // Method: reported
-    // Call: reported()
   }
 
   setRawHeadersAccess(process_id, origins) {
@@ -259,11 +224,6 @@ network.mojom.NetworkServicePtr = class {
     // Call: UpdateKeyPinsList(pin_list, update_time)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   dumpWithoutCrashing(dump_request_time) {
     // Method: DumpWithoutCrashing
     // Call: DumpWithoutCrashing(dump_request_time)
@@ -302,11 +262,6 @@ network.mojom.NetworkServicePtr = class {
     // Call: SetIPv6ReachabilityOverride(reachability_override)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   setGssapiLibraryLoadObserver(gssapi_library_load_observer) {
     // Method: SetGssapiLibraryLoadObserver
     // Call: SetGssapiLibraryLoadObserver(gssapi_library_load_observer)
@@ -322,34 +277,9 @@ network.mojom.NetworkServicePtr = class {
     // Call: SetTpcdMetadataGrants(settings)
   }
 
-  process(Exchanges) {
-    // Method: process
-    // Call: process(Exchanges)
-  }
-
-  pair() {
-    // Method: pair
-    // Call: pair()
-  }
-
-  pair() {
-    // Method: pair
-    // Call: pair()
-  }
-
   interceptUrlLoaderForBodyDecoding(content_encoding_types, source_body, dest_body, source_url_loader, source_url_loader_client, dest_url_loader, dest_url_loader_client) {
     // Method: InterceptUrlLoaderForBodyDecoding
     // Call: InterceptUrlLoaderForBodyDecoding(content_encoding_types, source_body, dest_body, source_url_loader, source_url_loader_client, dest_url_loader, dest_url_loader_client)
-  }
-
-  failure(error) {
-    // Method: failure
-    // Call: failure(error)
-  }
-
-  side(DevTools) {
-    // Method: side
-    // Call: side(DevTools)
   }
 
   decodeContentEncoding(content_encoding_types, source_body, dest_body) {

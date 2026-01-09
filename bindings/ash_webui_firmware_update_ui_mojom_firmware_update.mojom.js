@@ -132,11 +132,6 @@ ash.firmware_update.mojom.UpdateProviderPtr = class {
     // Call: ObservePeripheralUpdates(observer)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   prepareForUpdate(device_id) {
     // Method: PrepareForUpdate
     return new Promise((resolve) => {

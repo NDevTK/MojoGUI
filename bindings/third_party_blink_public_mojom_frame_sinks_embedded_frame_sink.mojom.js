@@ -66,19 +66,9 @@ blink.mojom.EmbeddedFrameSinkProviderPtr = class {
     // Call: RegisterEmbeddedFrameSink(parent_frame_sink_id, frame_sink_id, client)
   }
 
-  createBundledCompositorFrameSink() {
-    // Method: CreateBundledCompositorFrameSink
-    // Call: CreateBundledCompositorFrameSink()
-  }
-
   registerEmbeddedFrameSinkBundle(bundle_id, receiver, client) {
     // Method: RegisterEmbeddedFrameSinkBundle
     // Call: RegisterEmbeddedFrameSinkBundle(bundle_id, receiver, client)
-  }
-
-  registerEmbeddedFrameSink() {
-    // Method: RegisterEmbeddedFrameSink
-    // Call: RegisterEmbeddedFrameSink()
   }
 
   createCompositorFrameSink(frame_sink_id, client, sink) {
@@ -86,19 +76,9 @@ blink.mojom.EmbeddedFrameSinkProviderPtr = class {
     // Call: CreateCompositorFrameSink(frame_sink_id, client, sink)
   }
 
-  registerEmbeddedFrameSinkBundle() {
-    // Method: RegisterEmbeddedFrameSinkBundle
-    // Call: RegisterEmbeddedFrameSinkBundle()
-  }
-
   createBundledCompositorFrameSink(frame_sink_id, bundle_id, client, sink) {
     // Method: CreateBundledCompositorFrameSink
     // Call: CreateBundledCompositorFrameSink(frame_sink_id, bundle_id, client, sink)
-  }
-
-  call(going) {
-    // Method: call
-    // Call: call(going)
   }
 
   createSimpleCompositorFrameSink(parent_frame_sink_id, frame_sink_id, surface_client, client, sink) {
@@ -109,11 +89,6 @@ blink.mojom.EmbeddedFrameSinkProviderPtr = class {
   connectToEmbedder(frame_sink_id, embedder) {
     // Method: ConnectToEmbedder
     // Call: ConnectToEmbedder(frame_sink_id, embedder)
-  }
-
-  createCompositorFrameSink() {
-    // Method: CreateCompositorFrameSink
-    // Call: CreateCompositorFrameSink()
   }
 
   registerFrameSinkHierarchy(frame_sink_id) {

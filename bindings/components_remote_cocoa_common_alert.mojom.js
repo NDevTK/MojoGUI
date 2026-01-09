@@ -30,11 +30,6 @@ remote_cocoa.mojom.AlertBridgePtr = class {
     this.interfaceName = 'remote_cocoa.mojom.AlertBridge';
   }
 
-  alert(any) {
-    // Method: alert
-    // Call: alert(any)
-  }
-
   show(params) {
     // Method: Show
     return new Promise((resolve) => {

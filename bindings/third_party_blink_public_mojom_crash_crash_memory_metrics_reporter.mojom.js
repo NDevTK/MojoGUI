@@ -16,11 +16,6 @@ blink.mojom.CrashMemoryMetricsReporterPtr = class {
     this.interfaceName = 'blink.mojom.CrashMemoryMetricsReporter';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   setSharedMemory(shared_metrics_buffer) {
     // Method: SetSharedMemory
     // Call: SetSharedMemory(shared_metrics_buffer)

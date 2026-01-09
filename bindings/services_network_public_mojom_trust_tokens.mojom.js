@@ -155,22 +155,12 @@ network.mojom.TrustTokenQueryAnswererPtr = class {
     this.interfaceName = 'network.mojom.TrustTokenQueryAnswerer';
   }
 
-  hTTP() {
-    // Method: HTTP
-    // Call: HTTP()
-  }
-
   hasTrustTokens(issuer) {
     // Method: HasTrustTokens
     return new Promise((resolve) => {
       // Call: HasTrustTokens(issuer)
       resolve({});
     });
-  }
-
-  hTTP() {
-    // Method: HTTP
-    // Call: HTTP()
   }
 
   hasRedemptionRecord(issuer) {

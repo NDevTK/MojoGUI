@@ -24,11 +24,6 @@ ash.mojom.scanner_feedback_ui.PageHandlerPtr = class {
     this.interfaceName = 'ash.mojom.scanner_feedback_ui.PageHandler';
   }
 
-  handler(example) {
-    // Method: handler
-    // Call: handler(example)
-  }
-
   getFeedbackInfo() {
     // Method: GetFeedbackInfo
     return new Promise((resolve) => {
@@ -40,11 +35,6 @@ ash.mojom.scanner_feedback_ui.PageHandlerPtr = class {
   closeDialog() {
     // Method: CloseDialog
     // Call: CloseDialog()
-  }
-
-  getFeedbackInfo() {
-    // Method: GetFeedbackInfo
-    // Call: GetFeedbackInfo()
   }
 
   sendFeedback(user_description) {

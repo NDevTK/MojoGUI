@@ -51,27 +51,6 @@ crosapi.mojom.PrintPreviewCrosDelegatePtr = class {
     this.interfaceName = 'crosapi.mojom.PrintPreviewCrosDelegate';
   }
 
-  1(token, params) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(token, params)
-      resolve({});
-    });
-  }
-
-  done(completed) {
-    // Method: done
-    // Call: done(completed)
-  }
-
-  2(token) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(token)
-      resolve({});
-    });
-  }
-
 };
 
 crosapi.mojom.PrintPreviewCrosDelegateRequest = class {
@@ -85,22 +64,6 @@ crosapi.mojom.PrintPreviewCrosClientPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'crosapi.mojom.PrintPreviewCrosClient';
-  }
-
-  0(token, settings) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(token, settings)
-      resolve({});
-    });
-  }
-
-  1(token) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(token)
-      resolve({});
-    });
   }
 
 };

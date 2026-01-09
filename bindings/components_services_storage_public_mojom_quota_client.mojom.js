@@ -16,27 +16,12 @@ storage.mojom.QuotaClientPtr = class {
     this.interfaceName = 'storage.mojom.QuotaClient';
   }
 
-  deleteBucketData() {
-    // Method: DeleteBucketData
-    // Call: DeleteBucketData()
-  }
-
   getBucketUsage(bucket) {
     // Method: GetBucketUsage
     return new Promise((resolve) => {
       // Call: GetBucketUsage(bucket)
       resolve({});
     });
-  }
-
-  2024(enforced) {
-    // Method: 2024
-    // Call: 2024(enforced)
-  }
-
-  path() {
-    // Method: path
-    // Call: path()
   }
 
   getDefaultStorageKeys() {

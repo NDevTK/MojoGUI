@@ -43,16 +43,6 @@ blink.mojom.OomInterventionPtr = class {
     this.interfaceName = 'blink.mojom.OomIntervention';
   }
 
-  thresholds() {
-    // Method: thresholds
-    // Call: thresholds()
-  }
-
-  onHighMemoryUsage() {
-    // Method: OnHighMemoryUsage
-    // Call: OnHighMemoryUsage()
-  }
-
   startDetection(host, detection_args, renderer_pause_enabled, navigate_ads_enabled, purge_v8_memory_enabled) {
     // Method: StartDetection
     // Call: StartDetection(host, detection_args, renderer_pause_enabled, navigate_ads_enabled, purge_v8_memory_enabled)

@@ -23,24 +23,9 @@ webnn.mojom.WebNNGraphBuilderPtr = class {
     this.interfaceName = 'webnn.mojom.WebNNGraphBuilder';
   }
 
-  build() {
-    // Method: build
-    // Call: build()
-  }
-
-  build() {
-    // Method: build
-    // Call: build()
-  }
-
   createPendingConstant(constant_handle, data_type, data) {
     // Method: CreatePendingConstant
     // Call: CreatePendingConstant(constant_handle, data_type, data)
-  }
-
-  createGraph(graph_info) {
-    // Method: CreateGraph
-    // Call: CreateGraph(graph_info)
   }
 
   isValidGraphForTesting(context_properties, graph_info) {

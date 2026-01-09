@@ -52,11 +52,6 @@ blink.mojom.DeviceAPIServicePtr = class {
     });
   }
 
-  device(for) {
-    // Method: device
-    // Call: device(for)
-  }
-
   getSerialNumber() {
     // Method: GetSerialNumber
     return new Promise((resolve) => {

@@ -16,24 +16,6 @@ arc.mojom.WallpaperHostPtr = class {
     this.interfaceName = 'arc.mojom.WallpaperHost';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1(data, wallpaper_id) {
-    // Method: 1
-    // Call: 1(data, wallpaper_id)
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
 };
 
 arc.mojom.WallpaperHostRequest = class {
@@ -47,16 +29,6 @@ arc.mojom.WallpaperInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.WallpaperInstance';
-  }
-
-  3(host_remote) {
-    // Method: 3
-    // Call: 3(host_remote)
-  }
-
-  1(wallpaper_id) {
-    // Method: 1
-    // Call: 1(wallpaper_id)
   }
 
 };

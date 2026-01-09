@@ -16,11 +16,6 @@ network.mojom.ProxyLookupClientPtr = class {
     this.interfaceName = 'network.mojom.ProxyLookupClient';
   }
 
-  failure() {
-    // Method: failure
-    // Call: failure()
-  }
-
   onProxyLookupComplete(net_error, proxy_info) {
     // Method: OnProxyLookupComplete
     // Call: OnProxyLookupComplete(net_error, proxy_info)

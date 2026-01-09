@@ -16,11 +16,6 @@ wallet.mojom.BoardingPassExtractorPtr = class {
     this.interfaceName = 'wallet.mojom.BoardingPassExtractor';
   }
 
-  bCBP(Coded) {
-    // Method: BCBP
-    // Call: BCBP(Coded)
-  }
-
   extractBoardingPass() {
     // Method: ExtractBoardingPass
     return new Promise((resolve) => {

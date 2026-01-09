@@ -16,32 +16,12 @@ network.mojom.ChunkedDataPipeGetterPtr = class {
     this.interfaceName = 'network.mojom.ChunkedDataPipeGetter';
   }
 
-  startReading() {
-    // Method: StartReading
-    // Call: StartReading()
-  }
-
   getSize() {
     // Method: GetSize
     return new Promise((resolve) => {
       // Call: GetSize()
       resolve({});
     });
-  }
-
-  getSize() {
-    // Method: GetSize
-    // Call: GetSize()
-  }
-
-  getSize() {
-    // Method: GetSize
-    // Call: GetSize()
-  }
-
-  startReading() {
-    // Method: StartReading
-    // Call: StartReading()
   }
 
   startReading(pipe) {

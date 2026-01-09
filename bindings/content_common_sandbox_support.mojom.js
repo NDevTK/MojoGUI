@@ -45,11 +45,6 @@ content.mojom.SandboxSupportPtr = class {
     });
   }
 
-  initializeLocaleData() {
-    // Method: InitializeLocaleData
-    // Call: InitializeLocaleData()
-  }
-
   digitsAndSigns(lcid, defaults) {
     // Method: DigitsAndSigns
     return new Promise((resolve) => {

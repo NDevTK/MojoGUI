@@ -16,11 +16,6 @@ content.mojom.FontCacheWinPtr = class {
     this.interfaceName = 'content.mojom.FontCacheWin';
   }
 
-  preCacheFont() {
-    // Method: PreCacheFont
-    // Call: PreCacheFont()
-  }
-
   preCacheFont(log_font) {
     // Method: PreCacheFont
     // Call: PreCacheFont(log_font)

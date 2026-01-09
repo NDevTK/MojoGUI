@@ -47,16 +47,6 @@ chrome.mojom.SafeArchiveAnalyzerPtr = class {
     });
   }
 
-  entirety(temp) {
-    // Method: entirety
-    // Call: entirety(temp)
-  }
-
-  folders() {
-    // Method: folders
-    // Call: folders()
-  }
-
   analyzeSevenZipFile(seven_zip_file, temp_file_getter) {
     // Method: AnalyzeSevenZipFile
     return new Promise((resolve) => {

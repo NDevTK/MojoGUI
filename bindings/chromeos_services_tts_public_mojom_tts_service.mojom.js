@@ -81,29 +81,14 @@ chromeos.tts.mojom.GoogleTtsStreamPtr = class {
     // Call: Stop()
   }
 
-  playback(1.0) {
-    // Method: playback
-    // Call: playback(1.0)
-  }
-
   setVolume(volume) {
     // Method: SetVolume
     // Call: SetVolume(volume)
   }
 
-  repeatedly(calls) {
-    // Method: repeatedly
-    // Call: repeatedly(calls)
-  }
-
   pause() {
     // Method: Pause
     // Call: Pause()
-  }
-
-  repeatedly(calls) {
-    // Method: repeatedly
-    // Call: repeatedly(calls)
   }
 
   resume() {
@@ -142,11 +127,6 @@ chromeos.tts.mojom.PlaybackTtsStreamPtr = class {
   stop() {
     // Method: Stop
     // Call: Stop()
-  }
-
-  playback(1.0) {
-    // Method: playback
-    // Call: playback(1.0)
   }
 
   setVolume(volume) {

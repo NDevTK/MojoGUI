@@ -61,11 +61,6 @@ webui_browser.mojom.PagePtr = class {
     this.interfaceName = 'webui_browser.mojom.Page';
   }
 
-  explicitly(Ctrl-L) {
-    // Method: explicitly
-    // Call: explicitly(Ctrl-L)
-  }
-
   setFocusToLocationBar(is_user_initiated) {
     // Method: SetFocusToLocationBar
     // Call: SetFocusToLocationBar(is_user_initiated)

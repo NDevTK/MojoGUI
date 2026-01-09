@@ -23,11 +23,6 @@ network.mojom.URLLoaderPtr = class {
     this.interfaceName = 'network.mojom.URLLoader';
   }
 
-  followRedirect() {
-    // Method: FollowRedirect
-    // Call: FollowRedirect()
-  }
-
   followRedirect(removed_headers, modified_headers, modified_cors_exempt_headers, new_url) {
     // Method: FollowRedirect
     // Call: FollowRedirect(removed_headers, modified_headers, modified_cors_exempt_headers, new_url)
@@ -73,49 +68,9 @@ network.mojom.URLLoaderClientPtr = class {
     // Call: OnUploadProgress(current_position, total_size)
   }
 
-  response(both) {
-    // Method: response
-    // Call: response(both)
-  }
-
-  one(in) {
-    // Method: one
-    // Call: one(in)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   onTransferSizeUpdated(transfer_size_diff) {
     // Method: OnTransferSizeUpdated
     // Call: OnTransferSizeUpdated(transfer_size_diff)
-  }
-
-  onReceiveResponse() {
-    // Method: OnReceiveResponse
-    // Call: OnReceiveResponse()
-  }
-
-  onComplete() {
-    // Method: OnComplete
-    // Call: OnComplete()
-  }
-
-  pipe(errored) {
-    // Method: pipe
-    // Call: pipe(errored)
   }
 
   onComplete(status) {

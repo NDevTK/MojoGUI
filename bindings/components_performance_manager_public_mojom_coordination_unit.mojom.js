@@ -44,16 +44,6 @@ performance_manager.mojom.DocumentCoordinationUnitPtr = class {
     // Call: SetHadFormInteraction()
   }
 
-  setHadFormInteraction() {
-    // Method: SetHadFormInteraction
-    // Call: SetHadFormInteraction()
-  }
-
-  setHadUserEdits() {
-    // Method: SetHadUserEdits
-    // Call: SetHadUserEdits()
-  }
-
   setHadUserEdits() {
     // Method: SetHadUserEdits
     // Call: SetHadUserEdits()
@@ -117,29 +107,9 @@ performance_manager.mojom.ProcessCoordinationUnitPtr = class {
     // Call: SetMainThreadTaskLoadIsLow(main_thread_task_load_is_low)
   }
 
-  executionContext() {
-    // Method: ExecutionContext
-    // Call: ExecutionContext()
-  }
-
-  contexts() {
-    // Method: contexts
-    // Call: contexts()
-  }
-
   onV8ContextCreated(description, iframe_attribution_data) {
     // Method: OnV8ContextCreated
     // Call: OnV8ContextCreated(description, iframe_attribution_data)
-  }
-
-  executionContext(OnV8ContextCreated) {
-    // Method: ExecutionContext
-    // Call: ExecutionContext(OnV8ContextCreated)
-  }
-
-  v8Contexts(detached) {
-    // Method: V8Contexts
-    // Call: V8Contexts(detached)
   }
 
   onV8ContextDetached(v8_context_token) {

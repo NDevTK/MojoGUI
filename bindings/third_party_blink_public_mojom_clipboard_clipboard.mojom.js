@@ -124,16 +124,6 @@ blink.mojom.ClipboardHostPtr = class {
     });
   }
 
-  writeFiles() {
-    // Method: WriteFiles
-    // Call: WriteFiles()
-  }
-
-  readFiles() {
-    // Method: ReadFiles
-    // Call: ReadFiles()
-  }
-
   readFiles(buffer) {
     // Method: ReadFiles
     return new Promise((resolve) => {
@@ -148,11 +138,6 @@ blink.mojom.ClipboardHostPtr = class {
       // Call: ReadDataTransferCustomData(buffer, type)
       resolve({});
     });
-  }
-
-  formats(text/html) {
-    // Method: formats
-    // Call: formats(text/html)
   }
 
   readAvailableCustomAndStandardFormats() {
@@ -194,16 +179,6 @@ blink.mojom.ClipboardHostPtr = class {
   writeDataTransferCustomData(data) {
     // Method: WriteDataTransferCustomData
     // Call: WriteDataTransferCustomData(data)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  iPC() {
-    // Method: IPC
-    // Call: IPC()
   }
 
   writeBookmark(url, title) {

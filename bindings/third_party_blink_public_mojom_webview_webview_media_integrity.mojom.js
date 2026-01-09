@@ -23,21 +23,6 @@ blink.mojom.WebViewMediaIntegrityServicePtr = class {
     this.interfaceName = 'blink.mojom.WebViewMediaIntegrityService';
   }
 
-  mAX_SAFE_INTEGER(1) {
-    // Method: MAX_SAFE_INTEGER
-    // Call: MAX_SAFE_INTEGER(1)
-  }
-
-  a() {
-    // Method: a
-    // Call: a()
-  }
-
-  getExperimentalMediaIntegrityTokenProvider() {
-    // Method: getExperimentalMediaIntegrityTokenProvider
-    // Call: getExperimentalMediaIntegrityTokenProvider()
-  }
-
   getIntegrityProvider(provider_receiver, cloud_project_number) {
     // Method: GetIntegrityProvider
     return new Promise((resolve) => {
@@ -59,36 +44,6 @@ blink.mojom.WebViewMediaIntegrityProviderPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'blink.mojom.WebViewMediaIntegrityProvider';
-  }
-
-  string(length) {
-    // Method: string
-    // Call: string(length)
-  }
-
-  verbatim(form) {
-    // Method: verbatim
-    // Call: verbatim(form)
-  }
-
-  unicode(surrogates) {
-    // Method: Unicode
-    // Call: Unicode(surrogates)
-  }
-
-  opaque() {
-    // Method: opaque
-    // Call: opaque()
-  }
-
-  a() {
-    // Method: a
-    // Call: a()
-  }
-
-  requestToken() {
-    // Method: requestToken
-    // Call: requestToken()
   }
 
   requestToken(content_binding) {

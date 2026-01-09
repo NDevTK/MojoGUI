@@ -213,11 +213,6 @@ crosapi.mojom.TelemetryEventObserverPtr = class {
     this.interfaceName = 'crosapi.mojom.TelemetryEventObserver';
   }
 
-  0(info) {
-    // Method: 0
-    // Call: 0(info)
-  }
-
 };
 
 crosapi.mojom.TelemetryEventObserverRequest = class {
@@ -231,24 +226,6 @@ crosapi.mojom.TelemetryEventServicePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'crosapi.mojom.TelemetryEventService';
-  }
-
-  1(category, observer) {
-    // Method: 1
-    // Call: 1(category, observer)
-  }
-
-  addEventObserver() {
-    // Method: AddEventObserver
-    // Call: AddEventObserver()
-  }
-
-  2(category) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(category)
-      resolve({});
-    });
   }
 
 };

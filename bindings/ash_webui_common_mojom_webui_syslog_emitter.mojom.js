@@ -17,11 +17,6 @@ ash.common.mojom.WebUiSyslogEmitterPtr = class {
     this.interfaceName = 'ash.common.mojom.WebUiSyslogEmitter';
   }
 
-  sYSLOG() {
-    // Method: SYSLOG
-    // Call: SYSLOG()
-  }
-
 };
 
 ash.common.mojom.WebUiSyslogEmitterRequest = class {

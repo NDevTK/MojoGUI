@@ -85,11 +85,6 @@ most_visited.mojom.MostVisitedPageHandlerPtr = class {
     // Call: UndoMostVisitedAutoRemoval()
   }
 
-  tiles() {
-    // Method: tiles
-    // Call: tiles()
-  }
-
   undoMostVisitedTileAction(source) {
     // Method: UndoMostVisitedTileAction
     // Call: UndoMostVisitedTileAction(source)

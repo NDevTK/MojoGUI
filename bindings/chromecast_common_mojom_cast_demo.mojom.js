@@ -73,22 +73,12 @@ chromecast.shell.mojom.CastDemoPtr = class {
     // Call: SetDefaultVolumeLevel(level)
   }
 
-  setDefaultVolumeLevel() {
-    // Method: SetDefaultVolumeLevel
-    // Call: SetDefaultVolumeLevel()
-  }
-
   getDefaultVolumeLevel() {
     // Method: GetDefaultVolumeLevel
     return new Promise((resolve) => {
       // Call: GetDefaultVolumeLevel()
       resolve({});
     });
-  }
-
-  setDefaultVolumeLevel() {
-    // Method: SetDefaultVolumeLevel
-    // Call: SetDefaultVolumeLevel()
   }
 
   applyDefaultVolume() {

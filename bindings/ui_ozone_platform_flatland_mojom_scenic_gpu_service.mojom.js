@@ -16,11 +16,6 @@ ui.mojom.ScenicGpuServicePtr = class {
     this.interfaceName = 'ui.mojom.ScenicGpuService';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   initialize(scenic_gpu_host) {
     // Method: Initialize
     // Call: Initialize(scenic_gpu_host)

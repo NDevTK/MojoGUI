@@ -77,46 +77,6 @@ arc.mojom.VideoDecodeClientPtr = class {
     this.interfaceName = 'arc.mojom.VideoDecodeClient';
   }
 
-  pictureReady() {
-    // Method: PictureReady
-    // Call: PictureReady()
-  }
-
-  1(picture) {
-    // Method: 1
-    // Call: 1(picture)
-  }
-
-  2(bitstream_id) {
-    // Method: 2
-    // Call: 2(bitstream_id)
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  reset() {
-    // Method: Reset
-    // Call: Reset()
-  }
-
-  flush() {
-    // Method: Flush
-    // Call: Flush()
-  }
-
-  3(error) {
-    // Method: 3
-    // Call: 3(error)
-  }
-
-  5(format, visible_rect) {
-    // Method: 5
-    // Call: 5(format, visible_rect)
-  }
-
 };
 
 arc.mojom.VideoDecodeClientRequest = class {

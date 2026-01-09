@@ -178,24 +178,9 @@ ash.nearby.presence.mojom.NearbyPresencePtr = class {
     // Call: SetScanObserver(scan_observer)
   }
 
-  nOT() {
-    // Method: NOT
-    // Call: NOT()
-  }
-
   updateLocalDeviceMetadata(metadata) {
     // Method: UpdateLocalDeviceMetadata
     // Call: UpdateLocalDeviceMetadata(metadata)
-  }
-
-  changes(change) {
-    // Method: changes
-    // Call: changes(change)
-  }
-
-  also() {
-    // Method: Also
-    // Call: Also()
   }
 
   updateLocalDeviceMetadataAndGenerateCredentials(metadata) {

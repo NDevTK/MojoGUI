@@ -16,22 +16,6 @@ crosapi.mojom.RemotingPtr = class {
     this.interfaceName = 'crosapi.mojom.Remoting';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1(params) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(params)
-      resolve({});
-    });
-  }
-
 };
 
 crosapi.mojom.RemotingRequest = class {

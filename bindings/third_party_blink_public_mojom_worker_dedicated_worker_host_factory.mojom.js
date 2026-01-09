@@ -16,39 +16,9 @@ blink.mojom.DedicatedWorkerHostFactoryClientPtr = class {
     this.interfaceName = 'blink.mojom.DedicatedWorkerHostFactoryClient';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   onWorkerHostCreated(browser_interface_broker, host, origin) {
     // Method: OnWorkerHostCreated
     // Call: OnWorkerHostCreated(browser_interface_broker, host, origin)
-  }
-
-  onWorkerHostCreated() {
-    // Method: OnWorkerHostCreated
-    // Call: OnWorkerHostCreated()
-  }
-
-  onScriptLoadStartFailed() {
-    // Method: OnScriptLoadStartFailed
-    // Call: OnScriptLoadStartFailed()
-  }
-
-  onScriptLoadStarted(example, is) {
-    // Method: OnScriptLoadStarted
-    // Call: OnScriptLoadStarted(example, is)
-  }
-
-  onWorkerHostCreated() {
-    // Method: OnWorkerHostCreated
-    // Call: OnWorkerHostCreated()
-  }
-
-  onScriptLoadStarted() {
-    // Method: OnScriptLoadStarted
-    // Call: OnScriptLoadStarted()
   }
 
   onScriptLoadStartFailed() {

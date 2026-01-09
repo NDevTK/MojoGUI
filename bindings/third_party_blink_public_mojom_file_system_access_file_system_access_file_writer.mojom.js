@@ -16,16 +16,6 @@ blink.mojom.FileSystemAccessFileWriterPtr = class {
     this.interfaceName = 'blink.mojom.FileSystemAccessFileWriter';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   write(offset, stream) {
     // Method: Write
     return new Promise((resolve) => {
@@ -44,25 +34,10 @@ blink.mojom.FileSystemAccessFileWriterPtr = class {
 
   close() {
     // Method: Close
-    // Call: Close()
-  }
-
-  close() {
-    // Method: Close
-    // Call: Close()
-  }
-
-  close() {
-    // Method: Close
     return new Promise((resolve) => {
       // Call: Close()
       resolve({});
     });
-  }
-
-  abort() {
-    // Method: Abort
-    // Call: Abort()
   }
 
   abort() {

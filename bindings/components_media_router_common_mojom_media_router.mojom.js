@@ -111,32 +111,12 @@ media_router.mojom.MediaRouteProviderPtr = class {
     this.interfaceName = 'media_router.mojom.MediaRouteProvider';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   createRoute(media_source, sink_id, original_presentation_id, origin, frame_tree_node_id, timeout) {
     // Method: CreateRoute
     return new Promise((resolve) => {
       // Call: CreateRoute(media_source, sink_id, original_presentation_id, origin, frame_tree_node_id, timeout)
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   joinRoute(media_source, presentation_id, origin, frame_tree_node_id, timeout) {
@@ -178,11 +158,6 @@ media_router.mojom.MediaRouteProviderPtr = class {
   startObservingMediaRoutes() {
     // Method: StartObservingMediaRoutes
     // Call: StartObservingMediaRoutes()
-  }
-
-  closed(.close() {
-    // Method: closed
-    // Call: closed(.close()
   }
 
   detachRoute(route_id) {
@@ -272,11 +247,6 @@ media_router.mojom.MediaRouterPtr = class {
       // Call: GetMediaSinkServiceStatus()
       resolve({});
     });
-  }
-
-  getLogs() {
-    // Method: GetLogs
-    // Call: GetLogs()
   }
 
   getLogger(receiver) {

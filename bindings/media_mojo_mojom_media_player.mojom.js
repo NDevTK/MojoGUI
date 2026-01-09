@@ -51,11 +51,6 @@ media.mojom.MediaPlayerPtr = class {
     // Call: RequestMute(mute)
   }
 
-  normal() {
-    // Method: normal
-    // Call: normal()
-  }
-
   setVolumeMultiplier(multiplier) {
     // Method: SetVolumeMultiplier
     // Call: SetVolumeMultiplier(multiplier)
@@ -215,11 +210,6 @@ media.mojom.MediaPlayerHostPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'media.mojom.MediaPlayerHost';
-  }
-
-  remote(`player_remote`) {
-    // Method: remote
-    // Call: remote(`player_remote`)
   }
 
   onMediaPlayerAdded(player_remote, observer, player_id) {

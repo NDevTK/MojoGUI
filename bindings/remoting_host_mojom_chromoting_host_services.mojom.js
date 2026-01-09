@@ -46,11 +46,6 @@ remoting.mojom.ChromotingSessionServicesPtr = class {
     // Call: BindRemoteUrlOpener(receiver)
   }
 
-  binary(forwarding) {
-    // Method: binary
-    // Call: binary(forwarding)
-  }
-
   bindSecurityKeyForwarder(receiver) {
     // Method: BindSecurityKeyForwarder
     // Call: BindSecurityKeyForwarder(receiver)

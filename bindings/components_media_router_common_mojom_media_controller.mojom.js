@@ -31,11 +31,6 @@ media_router.mojom.MediaControllerPtr = class {
     // Call: SetMute(mute)
   }
 
-  the() {
-    // Method: the
-    // Call: the()
-  }
-
   setVolume(volume) {
     // Method: SetVolume
     // Call: SetVolume(volume)

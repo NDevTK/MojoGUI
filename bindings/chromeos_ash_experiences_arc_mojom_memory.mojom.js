@@ -34,22 +34,6 @@ arc.mojom.MemoryInstancePtr = class {
     this.interfaceName = 'arc.mojom.MemoryInstance';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  3(request) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(request)
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.MemoryInstanceRequest = class {

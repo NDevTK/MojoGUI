@@ -521,34 +521,6 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServicePtr = class {
     this.interfaceName = 'ash.cros_healthd.mojom.CrosHealthdRoutinesService';
   }
 
-  occur(executing) {
-    // Method: occur
-    // Call: occur(executing)
-  }
-
-  reason(cros_healthd.mojom.Exception) {
-    // Method: reason
-    // Call: reason(cros_healthd.mojom.Exception)
-  }
-
-  initialized(RoutineObserver) {
-    // Method: initialized
-    // Call: initialized(RoutineObserver)
-  }
-
-  0(routine_argument, routine_receiver, routine_observer) {
-    // Method: 0
-    // Call: 0(routine_argument, routine_receiver, routine_observer)
-  }
-
-  1(routine_argument) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(routine_argument)
-      resolve({});
-    });
-  }
-
 };
 
 ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRequest = class {
@@ -564,34 +536,6 @@ ash.cros_healthd.mojom.RoutineControlPtr = class {
     this.interfaceName = 'ash.cros_healthd.mojom.RoutineControl';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  exception(this) {
-    // Method: exception
-    // Call: exception(this)
-  }
-
-  state() {
-    // Method: state
-    // Call: state()
-  }
-
-  2(reply) {
-    // Method: 2
-    // Call: 2(reply)
-  }
-
 };
 
 ash.cros_healthd.mojom.RoutineControlRequest = class {
@@ -605,16 +549,6 @@ ash.cros_healthd.mojom.RoutineObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.cros_healthd.mojom.RoutineObserver';
-  }
-
-  initialized(`CreateRoutine`) {
-    // Method: initialized
-    // Call: initialized(`CreateRoutine`)
-  }
-
-  0(state) {
-    // Method: 0
-    // Call: 0(state)
   }
 
 };

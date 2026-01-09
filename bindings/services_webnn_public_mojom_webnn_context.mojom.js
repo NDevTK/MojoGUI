@@ -36,11 +36,6 @@ webnn.mojom.WebNNContextPtr = class {
     });
   }
 
-  createTensor() {
-    // Method: CreateTensor
-    // Call: CreateTensor()
-  }
-
   createTensorFromMailbox(tensor_info, mailbox, fence) {
     // Method: CreateTensorFromMailbox
     return new Promise((resolve) => {

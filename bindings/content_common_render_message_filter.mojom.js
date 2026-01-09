@@ -23,22 +23,6 @@ content.mojom.RenderMessageFilterPtr = class {
     this.interfaceName = 'content.mojom.RenderMessageFilter';
   }
 
-  generateSingleFrameRoutingInfo() {
-    // Method: GenerateSingleFrameRoutingInfo
-    return new Promise((resolve) => {
-      // Call: GenerateSingleFrameRoutingInfo()
-      resolve({});
-    });
-  }
-
-  generateFrameRoutingInfos() {
-    // Method: GenerateFrameRoutingInfos
-    return new Promise((resolve) => {
-      // Call: GenerateFrameRoutingInfos()
-      resolve({});
-    });
-  }
-
 };
 
 content.mojom.RenderMessageFilterRequest = class {

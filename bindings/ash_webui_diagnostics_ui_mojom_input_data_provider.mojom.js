@@ -194,11 +194,6 @@ ash.diagnostics.mojom.InputDataProviderPtr = class {
     // Call: ObserveConnectedDevices(observer)
   }
 
-  keyboardObserver(InputDataProvider) {
-    // Method: KeyboardObserver
-    // Call: KeyboardObserver(InputDataProvider)
-  }
-
   observeKeyEvents(id, observer) {
     // Method: ObserveKeyEvents
     // Call: ObserveKeyEvents(id, observer)

@@ -58,11 +58,6 @@ ax.mojom.SpeechRecognitionEventObserverPtr = class {
     this.interfaceName = 'ax.mojom.SpeechRecognitionEventObserver';
   }
 
-  stop() {
-    // Method: Stop
-    // Call: Stop()
-  }
-
   onStop() {
     // Method: OnStop
     // Call: OnStop()
@@ -99,11 +94,6 @@ ax.mojom.SpeechRecognitionPtr = class {
       // Call: Start(options)
       resolve({});
     });
-  }
-
-  onStop() {
-    // Method: OnStop
-    // Call: OnStop()
   }
 
   stop(options) {

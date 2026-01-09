@@ -24,16 +24,6 @@ blink.mojom.AndroidFontLookupPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  fetchAllFontFiles() {
-    // Method: FetchAllFontFiles
-    // Call: FetchAllFontFiles()
-  }
-
   matchLocalFontByUniqueName(font_unique_name) {
     // Method: MatchLocalFontByUniqueName
     return new Promise((resolve) => {

@@ -87,30 +87,6 @@ blink.mojom.RemoteObjectPtr = class {
     this.interfaceName = 'blink.mojom.RemoteObject';
   }
 
-  hasMethod(name) {
-    // Method: HasMethod
-    return new Promise((resolve) => {
-      // Call: HasMethod(name)
-      resolve({});
-    });
-  }
-
-  getMethods() {
-    // Method: GetMethods
-    return new Promise((resolve) => {
-      // Call: GetMethods()
-      resolve({});
-    });
-  }
-
-  invokeMethod(name, arguments) {
-    // Method: InvokeMethod
-    return new Promise((resolve) => {
-      // Call: InvokeMethod(name, arguments)
-      resolve({});
-    });
-  }
-
   notifyReleasedObject() {
     // Method: NotifyReleasedObject
     // Call: NotifyReleasedObject()

@@ -65,11 +65,6 @@ on_device_translation.mojom.OnDeviceTranslationServicePtr = class {
     this.interfaceName = 'on_device_translation.mojom.OnDeviceTranslationService';
   }
 
-  updated(uninstalled) {
-    // Method: updated
-    // Call: updated(uninstalled)
-  }
-
   setServiceConfig(config) {
     // Method: SetServiceConfig
     // Call: SetServiceConfig(config)

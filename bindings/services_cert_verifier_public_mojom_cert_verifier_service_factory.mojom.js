@@ -71,16 +71,6 @@ cert_verifier.mojom.CertVerifierServiceFactoryPtr = class {
     // Call: GetNewCertVerifier(receiver, updater, client, creation_params)
   }
 
-  cRLSets(number) {
-    // Method: CRLSets
-    // Call: CRLSets(number)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   updateCRLSet(crl_set) {
     // Method: UpdateCRLSet
     // Call: UpdateCRLSet(crl_set)
@@ -99,11 +89,6 @@ cert_verifier.mojom.CertVerifierServiceFactoryPtr = class {
   updateChromeRootStore(new_root_store) {
     // Method: UpdateChromeRootStore
     // Call: UpdateChromeRootStore(new_root_store)
-  }
-
-  processed(updated) {
-    // Method: processed
-    // Call: processed(updated)
   }
 
   updateMtcMetadata(new_mtc_metadata) {

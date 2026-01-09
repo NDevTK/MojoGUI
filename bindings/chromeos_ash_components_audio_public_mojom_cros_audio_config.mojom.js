@@ -83,11 +83,6 @@ ash.audio_config.mojom.AudioSystemPropertiesObserverPtr = class {
     this.interfaceName = 'ash.audio_config.mojom.AudioSystemPropertiesObserver';
   }
 
-  changes(inactive) {
-    // Method: changes
-    // Call: changes(inactive)
-  }
-
   onPropertiesUpdated(properties) {
     // Method: OnPropertiesUpdated
     // Call: OnPropertiesUpdated(properties)
@@ -106,11 +101,6 @@ ash.audio_config.mojom.CrosAudioConfigPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.audio_config.mojom.CrosAudioConfig';
-  }
-
-  onPropertiesUpdated() {
-    // Method: OnPropertiesUpdated
-    // Call: OnPropertiesUpdated()
   }
 
   observeAudioSystemProperties(observer) {
@@ -166,11 +156,6 @@ ash.audio_config.mojom.CrosAudioConfigPtr = class {
   setForceRespectUiGainsEnabled(enabled) {
     // Method: SetForceRespectUiGainsEnabled
     // Call: SetForceRespectUiGainsEnabled(enabled)
-  }
-
-  profile() {
-    // Method: profile
-    // Call: profile()
   }
 
   setHfpMicSrEnabled(enabled) {
