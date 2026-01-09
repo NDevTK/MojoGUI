@@ -16,7 +16,7 @@ mojo_base.mojom.DictionaryValueSpec = {
       name: 'mojo_base.mojom.DictionaryValue',
       packedSize: 16,
       fields: [
-        { name: 'storage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'storage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +30,7 @@ mojo_base.mojom.ListValueSpec = {
       name: 'mojo_base.mojom.ListValue',
       packedSize: 16,
       fields: [
-        { name: 'storage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'storage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

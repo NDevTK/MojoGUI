@@ -28,7 +28,7 @@ chromeos.network_health.mojom.UInt32ValueSpec = {
       name: 'chromeos.network_health.mojom.UInt32Value',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +42,9 @@ chromeos.network_health.mojom.SignalStrengthStatsSpec = {
       name: 'chromeos.network_health.mojom.SignalStrengthStats',
       packedSize: 24,
       fields: [
-        { name: 'average', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'deviation', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'samples', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'average', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'deviation', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'samples', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -58,15 +58,15 @@ chromeos.network_health.mojom.NetworkSpec = {
       name: 'chromeos.network_health.mojom.Network',
       packedSize: 80,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_health.mojom.NetworkStateSpec, nullable: false },
-        { name: 'guid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'mac_address', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'signal_strength', packedOffset: 40, packedBitOffset: 0, type: chromeos.network_health.mojom.UInt32ValueSpec, nullable: true },
-        { name: 'ipv4_address', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ipv6_addresses', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'portal_state', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_config.mojom.PortalStateSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false },
+        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_health.mojom.NetworkStateSpec, nullable: false },
+        { name: 'guid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'mac_address', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'signal_strength', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_health.mojom.UInt32ValueSpec, nullable: true },
+        { name: 'ipv4_address', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ipv6_addresses', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'portal_state', packedOffset: 72, packedBitOffset: 0, type: chromeos.network_config.mojom.PortalStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -80,7 +80,7 @@ chromeos.network_health.mojom.NetworkHealthStateSpec = {
       name: 'chromeos.network_health.mojom.NetworkHealthState',
       packedSize: 16,
       fields: [
-        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'networks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

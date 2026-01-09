@@ -23,8 +23,8 @@ on_device_translation_internals.mojom.LanguagePackInfoSpec = {
       name: 'on_device_translation_internals.mojom.LanguagePackInfo',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: on_device_translation_internals.mojom.LanguagePackStatusSpec, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: on_device_translation_internals.mojom.LanguagePackStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,8 +94,8 @@ on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_Param
       name: 'on_device_translation_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -179,7 +179,7 @@ on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsS
       name: 'on_device_translation_internals.mojom.PageHandler.InstallLanguagePackage_Params',
       packedSize: 16,
       fields: [
-        { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'package_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -193,7 +193,7 @@ on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_Param
       name: 'on_device_translation_internals.mojom.PageHandler.UninstallLanguagePackage_Params',
       packedSize: 16,
       fields: [
-        { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'package_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -268,7 +268,7 @@ on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec = {
       name: 'on_device_translation_internals.mojom.Page.OnLanguagePackStatus_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

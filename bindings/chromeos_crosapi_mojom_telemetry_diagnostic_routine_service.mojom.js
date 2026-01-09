@@ -123,7 +123,7 @@ crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineArgumentSpec = {
       name: 'crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineArgument',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -215,7 +215,7 @@ crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineRunningInfoSpec = {
       name: 'crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineRunningInfo',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -242,7 +242,7 @@ crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateReplySpec = {
       name: 'crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateReply',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -256,7 +256,7 @@ crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateReplySpec = {
       name: 'crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateReply',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -296,7 +296,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineStateWaitingSpec = {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutineStateWaiting',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -375,7 +375,7 @@ crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineDetailSpec = {
       name: 'crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineDetail',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

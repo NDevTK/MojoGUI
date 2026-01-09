@@ -16,8 +16,8 @@ blink.mojom.ReportBodyElementSpec = {
       name: 'blink.mojom.ReportBodyElement',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -31,7 +31,7 @@ blink.mojom.ReportBodySpec = {
       name: 'blink.mojom.ReportBody',
       packedSize: 16,
       fields: [
-        { name: 'body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'body', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -45,9 +45,9 @@ blink.mojom.ReportSpec = {
       name: 'blink.mojom.Report',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'body', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ReportBodySpec, nullable: true },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'body', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ReportBodySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -117,7 +117,7 @@ blink.mojom.ReportingObserver_Notify_ParamsSpec = {
       name: 'blink.mojom.ReportingObserver.Notify_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ReportSpec, nullable: false },
+        { name: 'report', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ReportSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

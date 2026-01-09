@@ -192,7 +192,7 @@ video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec
       name: 'video_capture.mojom.PushVideoStreamSubscription.GetPhotoState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PhotoStateSpec, nullable: true },
+        { name: 'capabilities', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PhotoStateSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -206,7 +206,7 @@ video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = {
       name: 'video_capture.mojom.PushVideoStreamSubscription.SetPhotoOptions_Params',
       packedSize: 16,
       fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PhotoSettingsSpec, nullable: false },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PhotoSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -219,7 +219,7 @@ video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSp
       name: 'video_capture.mojom.PushVideoStreamSubscription.SetPhotoOptions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -245,7 +245,7 @@ video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec = {
       name: 'video_capture.mojom.PushVideoStreamSubscription.TakePhoto_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: true },
+        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -272,7 +272,7 @@ video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec = {
       name: 'video_capture.mojom.PushVideoStreamSubscription.ProcessFeedback_Params',
       packedSize: 16,
       fields: [
-        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false },
+        { name: 'feedback', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -347,10 +347,10 @@ video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = {
       name: 'video_capture.mojom.VideoSource.CreatePushSubscription_Params',
       packedSize: 40,
       fields: [
-        { name: 'subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'requested_settings', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false },
-        { name: 'force_reopen_with_new_settings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'subscription', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'subscriber', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'requested_settings', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false },
+        { name: 'force_reopen_with_new_settings', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'subscription', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -363,8 +363,8 @@ video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = {
       name: 'video_capture.mojom.VideoSource.CreatePushSubscription_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: video_capture.mojom.CreatePushSubscriptionResultCodeSpec, nullable: false },
-        { name: 'settings_source_was_opened_with', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false },
+        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: video_capture.mojom.CreatePushSubscriptionResultCodeSpec, nullable: false },
+        { name: 'settings_source_was_opened_with', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

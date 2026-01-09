@@ -22,8 +22,8 @@ network.mojom.RestrictedUDPSocketParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocketParams',
       packedSize: 24,
       fields: [
-        { name: 'socket_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.UDPSocketOptionsSpec, nullable: true },
-        { name: 'connection_tracker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'socket_options', packedOffset: 8, packedBitOffset: 0, type: network.mojom.UDPSocketOptionsSpec, nullable: true },
+        { name: 'connection_tracker', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -129,7 +129,7 @@ network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.JoinGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
+        { name: 'group_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -142,7 +142,7 @@ network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.JoinGroup_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -156,7 +156,7 @@ network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.LeaveGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
+        { name: 'group_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -169,7 +169,7 @@ network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.LeaveGroup_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -183,7 +183,7 @@ network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.ReceiveMore_Params',
       packedSize: 16,
       fields: [
-        { name: 'num_additional_datagrams', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'num_additional_datagrams', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,7 +197,7 @@ network.mojom.RestrictedUDPSocket_Send_ParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.Send_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -210,7 +210,7 @@ network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.Send_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -224,9 +224,9 @@ network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.SendTo_Params',
       packedSize: 32,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
-        { name: 'dest_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false },
-        { name: 'dns_query_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
+        { name: 'dest_addr', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false },
+        { name: 'dns_query_type', packedOffset: 24, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -239,7 +239,7 @@ network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.SendTo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

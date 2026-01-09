@@ -23,8 +23,8 @@ mahi.mojom.ExtractionMethodsSpec = {
       name: 'mahi.mojom.ExtractionMethods',
       packedSize: 16,
       fields: [
-        { name: 'use_algorithm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'use_screen2x', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_algorithm', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_screen2x', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

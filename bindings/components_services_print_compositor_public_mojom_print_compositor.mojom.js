@@ -185,7 +185,7 @@ printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec = {
       name: 'printing.mojom.PrintCompositor.NotifyUnavailableSubframe_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'frame_guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -199,9 +199,9 @@ printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec = {
       name: 'printing.mojom.PrintCompositor.AddSubframeContent_Params',
       packedSize: 32,
       fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'serialized_content', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
-        { name: 'subframe_content_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'frame_guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'serialized_content', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'subframe_content_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -215,7 +215,7 @@ printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec = {
       name: 'printing.mojom.PrintCompositor.SetAccessibilityTree_Params',
       packedSize: 16,
       fields: [
-        { name: 'accessibility_tree', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false },
+        { name: 'accessibility_tree', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -229,9 +229,9 @@ printing.mojom.PrintCompositor_CompositePage_ParamsSpec = {
       name: 'printing.mojom.PrintCompositor.CompositePage_Params',
       packedSize: 32,
       fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'sk_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
-        { name: 'subframe_content_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'frame_guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'sk_region', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'subframe_content_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -244,8 +244,8 @@ printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec = {
       name: 'printing.mojom.PrintCompositor.CompositePage_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false },
-        { name: 'document_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false },
+        { name: 'document_region', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -259,10 +259,10 @@ printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec = {
       name: 'printing.mojom.PrintCompositor.CompositeDocument_Params',
       packedSize: 40,
       fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'sk_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
-        { name: 'subframe_content_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'document_type', packedOffset: 24, packedBitOffset: 0, type: printing.mojom.DocumentTypeSpec, nullable: false },
+        { name: 'frame_guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'sk_region', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'subframe_content_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'document_type', packedOffset: 32, packedBitOffset: 0, type: printing.mojom.DocumentTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -275,8 +275,8 @@ printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec = {
       name: 'printing.mojom.PrintCompositor.CompositeDocument_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false },
-        { name: 'document_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false },
+        { name: 'document_region', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -290,7 +290,7 @@ printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec = {
       name: 'printing.mojom.PrintCompositor.PrepareToCompositeDocument_Params',
       packedSize: 16,
       fields: [
-        { name: 'document_type', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.DocumentTypeSpec, nullable: false },
+        { name: 'document_type', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.DocumentTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -303,7 +303,7 @@ printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec = {
       name: 'printing.mojom.PrintCompositor.PrepareToCompositeDocument_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -317,7 +317,7 @@ printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec = {
       name: 'printing.mojom.PrintCompositor.FinishDocumentComposition_Params',
       packedSize: 16,
       fields: [
-        { name: 'pages_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'pages_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -330,8 +330,8 @@ printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec = {
       name: 'printing.mojom.PrintCompositor.FinishDocumentComposition_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false },
-        { name: 'document_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false },
+        { name: 'document_region', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -345,7 +345,7 @@ printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec = {
       name: 'printing.mojom.PrintCompositor.SetWebContentsURL_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -359,7 +359,7 @@ printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec = {
       name: 'printing.mojom.PrintCompositor.SetUserAgent_Params',
       packedSize: 16,
       fields: [
-        { name: 'user_agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'user_agent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -373,7 +373,7 @@ printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec = {
       name: 'printing.mojom.PrintCompositor.SetGenerateDocumentOutline_Params',
       packedSize: 16,
       fields: [
-        { name: 'generate_document_outline', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.GenerateDocumentOutlineSpec, nullable: false },
+        { name: 'generate_document_outline', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.GenerateDocumentOutlineSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -387,7 +387,7 @@ printing.mojom.PrintCompositor_SetTitle_ParamsSpec = {
       name: 'printing.mojom.PrintCompositor.SetTitle_Params',
       packedSize: 16,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -401,7 +401,7 @@ printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec = {
       name: 'printing.mojom.PrintCompositor.SetWatermarkBlock_Params',
       packedSize: 16,
       fields: [
-        { name: 'watermark_block', packedOffset: 0, packedBitOffset: 0, type: watermark.mojom.WatermarkBlockSpec, nullable: true },
+        { name: 'watermark_block', packedOffset: 8, packedBitOffset: 0, type: watermark.mojom.WatermarkBlockSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

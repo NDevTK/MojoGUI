@@ -16,9 +16,9 @@ network.mojom.TrustTokenIssuanceDetailsSpec = {
       name: 'network.mojom.TrustTokenIssuanceDetails',
       packedSize: 32,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'issuer', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
-        { name: 'blocked', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'issuer', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
+        { name: 'blocked', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -32,9 +32,9 @@ network.mojom.TrustTokenRedemptionDetailsSpec = {
       name: 'network.mojom.TrustTokenRedemptionDetails',
       packedSize: 32,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'issuer', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
-        { name: 'blocked', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'issuer', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
+        { name: 'blocked', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -48,8 +48,8 @@ network.mojom.TrustTokenSigningDetailsSpec = {
       name: 'network.mojom.TrustTokenSigningDetails',
       packedSize: 24,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'blocked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'blocked', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -128,7 +128,7 @@ network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec = {
       name: 'network.mojom.TrustTokenAccessObserver.OnTrustTokensAccessed_Params',
       packedSize: 16,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TrustTokenAccessDetailsSpec, nullable: false },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: network.mojom.TrustTokenAccessDetailsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -142,7 +142,7 @@ network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec = {
       name: 'network.mojom.TrustTokenAccessObserver.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

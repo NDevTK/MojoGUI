@@ -254,7 +254,7 @@ blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec = {
       name: 'blink.mojom.NotificationService.GetPermissionStatus_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -268,10 +268,10 @@ blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec = {
       name: 'blink.mojom.NotificationService.DisplayNonPersistentNotification_Params',
       packedSize: 40,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false },
-        { name: 'notification_resources', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NotificationResourcesSpec, nullable: false },
-        { name: 'event_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'notification_data', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false },
+        { name: 'notification_resources', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.NotificationResourcesSpec, nullable: false },
+        { name: 'event_listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -285,7 +285,7 @@ blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec = {
       name: 'blink.mojom.NotificationService.CloseNonPersistentNotification_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -299,9 +299,9 @@ blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec = {
       name: 'blink.mojom.NotificationService.DisplayPersistentNotification_Params',
       packedSize: 32,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false },
-        { name: 'notification_resources', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NotificationResourcesSpec, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'notification_data', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false },
+        { name: 'notification_resources', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.NotificationResourcesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -314,7 +314,7 @@ blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec
       name: 'blink.mojom.NotificationService.DisplayPersistentNotification_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PersistentNotificationErrorSpec, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PersistentNotificationErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -328,7 +328,7 @@ blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec = {
       name: 'blink.mojom.NotificationService.ClosePersistentNotification_Params',
       packedSize: 16,
       fields: [
-        { name: 'notification_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'notification_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -342,9 +342,9 @@ blink.mojom.NotificationService_GetNotifications_ParamsSpec = {
       name: 'blink.mojom.NotificationService.GetNotifications_Params',
       packedSize: 32,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'filter_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'include_triggered', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'filter_tag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'include_triggered', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -357,8 +357,8 @@ blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec = {
       name: 'blink.mojom.NotificationService.GetNotifications_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'notification_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'notification_datas', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'notification_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'notification_datas', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

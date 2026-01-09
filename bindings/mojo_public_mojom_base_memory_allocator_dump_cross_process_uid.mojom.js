@@ -16,7 +16,7 @@ mojo_base.mojom.MemoryAllocatorDumpCrossProcessUidSpec = {
       name: 'mojo_base.mojom.MemoryAllocatorDumpCrossProcessUid',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

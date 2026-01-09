@@ -27,8 +27,8 @@ blink.mojom.PushSubscriptionOptionsSpec = {
       name: 'blink.mojom.PushSubscriptionOptions',
       packedSize: 24,
       fields: [
-        { name: 'user_visible_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'application_server_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'user_visible_only', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'application_server_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,11 +42,11 @@ blink.mojom.PushSubscriptionSpec = {
       name: 'blink.mojom.PushSubscription',
       packedSize: 48,
       fields: [
-        { name: 'endpoint', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'expirationTime', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PushSubscriptionOptionsSpec, nullable: false },
-        { name: 'p256dh', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'auth', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'endpoint', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'expirationTime', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PushSubscriptionOptionsSpec, nullable: false },
+        { name: 'p256dh', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'auth', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,9 +134,9 @@ blink.mojom.PushMessaging_Subscribe_ParamsSpec = {
       name: 'blink.mojom.PushMessaging.Subscribe_Params',
       packedSize: 32,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushSubscriptionOptionsSpec, nullable: false },
-        { name: 'user_gesture', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PushSubscriptionOptionsSpec, nullable: false },
+        { name: 'user_gesture', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -149,8 +149,8 @@ blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec = {
       name: 'blink.mojom.PushMessaging.Subscribe_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PushRegistrationStatusSpec, nullable: false },
-        { name: 'subscription', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushRegistrationStatusSpec, nullable: false },
+        { name: 'subscription', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -164,7 +164,7 @@ blink.mojom.PushMessaging_Unsubscribe_ParamsSpec = {
       name: 'blink.mojom.PushMessaging.Unsubscribe_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -177,9 +177,9 @@ blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec = {
       name: 'blink.mojom.PushMessaging.Unsubscribe_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'error_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PushErrorTypeSpec, nullable: false },
-        { name: 'did_unsubscribe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushErrorTypeSpec, nullable: false },
+        { name: 'did_unsubscribe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'error_message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -193,7 +193,7 @@ blink.mojom.PushMessaging_GetSubscription_ParamsSpec = {
       name: 'blink.mojom.PushMessaging.GetSubscription_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,8 +206,8 @@ blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec = {
       name: 'blink.mojom.PushMessaging.GetSubscription_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PushGetRegistrationStatusSpec, nullable: false },
-        { name: 'subscription', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushGetRegistrationStatusSpec, nullable: false },
+        { name: 'subscription', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -40,10 +40,10 @@ viz.mojom.MultiplanarFormatSpec = {
       name: 'viz.mojom.MultiplanarFormat',
       packedSize: 40,
       fields: [
-        { name: 'plane_config', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.PlaneConfigSpec, nullable: false },
-        { name: 'subsampling', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SubsamplingSpec, nullable: false },
-        { name: 'channel_format', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.ChannelFormatSpec, nullable: false },
-        { name: 'prefers_external_sampler', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'plane_config', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.PlaneConfigSpec, nullable: false },
+        { name: 'subsampling', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.SubsamplingSpec, nullable: false },
+        { name: 'channel_format', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.ChannelFormatSpec, nullable: false },
+        { name: 'prefers_external_sampler', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

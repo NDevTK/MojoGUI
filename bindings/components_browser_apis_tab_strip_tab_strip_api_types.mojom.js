@@ -23,7 +23,7 @@ tabs_api.mojom.NodeIdSpec = {
       name: 'tabs_api.mojom.NodeId',
       packedSize: 16,
       fields: [
-        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnknown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,8 +37,8 @@ tabs_api.mojom.PositionSpec = {
       name: 'tabs_api.mojom.Position',
       packedSize: 24,
       fields: [
-        { name: 'parent_id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: true },
-        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'parent_id', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: true },
+        { name: 'index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

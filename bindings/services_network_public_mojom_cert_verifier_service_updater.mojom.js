@@ -16,8 +16,8 @@ cert_verifier.mojom.CIDRSpec = {
       name: 'cert_verifier.mojom.CIDR',
       packedSize: 24,
       fields: [
-        { name: 'ip', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
-        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
+        { name: 'ip', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
+        { name: 'mask', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -31,9 +31,9 @@ cert_verifier.mojom.CertWithConstraintsSpec = {
       name: 'cert_verifier.mojom.CertWithConstraints',
       packedSize: 32,
       fields: [
-        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'permitted_dns_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'permitted_cidrs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'certificate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'permitted_dns_names', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'permitted_cidrs', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -47,14 +47,14 @@ cert_verifier.mojom.AdditionalCertificatesSpec = {
       name: 'cert_verifier.mojom.AdditionalCertificates',
       packedSize: 72,
       fields: [
-        { name: 'all_certificates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'trust_anchors', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'trust_anchors_with_enforced_constraints', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'trust_anchors_with_additional_constraints', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'trust_anchors_and_leafs', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'trust_leafs', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'distrusted_spkis', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'include_system_trust_store', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'all_certificates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'trust_anchors', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'trust_anchors_with_enforced_constraints', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'trust_anchors_with_additional_constraints', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'trust_anchors_and_leafs', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'trust_leafs', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'distrusted_spkis', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'include_system_trust_store', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -142,7 +142,7 @@ cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_Para
       name: 'cert_verifier.mojom.CertVerifierServiceUpdater.UpdateAdditionalCertificates_Params',
       packedSize: 16,
       fields: [
-        { name: 'certificates', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.AdditionalCertificatesSpec, nullable: false },
+        { name: 'certificates', packedOffset: 8, packedBitOffset: 0, type: cert_verifier.mojom.AdditionalCertificatesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -169,7 +169,7 @@ cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierServiceUpdater.SetCTPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'ct_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CTPolicySpec, nullable: false },
+        { name: 'ct_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CTPolicySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

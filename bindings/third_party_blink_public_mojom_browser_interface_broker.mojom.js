@@ -72,7 +72,7 @@ blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec = {
       name: 'blink.mojom.BrowserInterfaceBroker.GetInterface_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

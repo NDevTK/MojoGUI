@@ -24,15 +24,15 @@ network.mojom.ReportingApiReportSpec = {
       name: 'network.mojom.ReportingApiReport',
       packedSize: 72,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'group', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'depth', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'attempts', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'body', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
-        { name: 'status', packedOffset: 56, packedBitOffset: 0, type: network.mojom.ReportingApiReportStatusSpec, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'group', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'timestamp', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'depth', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'attempts', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'body', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'status', packedOffset: 64, packedBitOffset: 0, type: network.mojom.ReportingApiReportStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -46,17 +46,17 @@ network.mojom.ReportingApiEndpointSpec = {
       name: 'network.mojom.ReportingApiEndpoint',
       packedSize: 72,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'attempted_uploads', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'successful_uploads', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'attempted_reports', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'successful_reports', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'priority', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'weight', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'origin', packedOffset: 32, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'group_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'network_anonymization_key', packedOffset: 48, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false },
-        { name: 'reporting_source', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'attempted_uploads', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'successful_uploads', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'attempted_reports', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'successful_reports', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'priority', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'weight', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'origin', packedOffset: 40, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'group_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'network_anonymization_key', packedOffset: 56, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false },
+        { name: 'reporting_source', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -144,7 +144,7 @@ network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = {
       name: 'network.mojom.ReportingApiObserver.OnReportAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReportingApiReportSpec, nullable: false },
+        { name: 'report', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ReportingApiReportSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -158,7 +158,7 @@ network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = {
       name: 'network.mojom.ReportingApiObserver.OnReportUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReportingApiReportSpec, nullable: false },
+        { name: 'report', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ReportingApiReportSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -172,7 +172,7 @@ network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec = {
       name: 'network.mojom.ReportingApiObserver.OnEndpointsUpdatedForOrigin_Params',
       packedSize: 16,
       fields: [
-        { name: 'endpoints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'endpoints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

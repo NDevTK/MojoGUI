@@ -89,7 +89,7 @@ blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec = {
       name: 'blink.mojom.DisplayCutoutHost.NotifyViewportFitChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ViewportFitSpec, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ViewportFitSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -103,7 +103,7 @@ blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec 
       name: 'blink.mojom.DisplayCutoutHost.NotifyComplexSafeAreaConstraintChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -178,7 +178,7 @@ blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec = {
       name: 'blink.mojom.DisplayCutoutClient.SetSafeArea_Params',
       packedSize: 16,
       fields: [
-        { name: 'safe_area', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.InsetsSpec, nullable: false },
+        { name: 'safe_area', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.InsetsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -24,8 +24,8 @@ network.mojom.UnencodedDigestsSpec = {
       name: 'network.mojom.UnencodedDigests',
       packedSize: 24,
       fields: [
-        { name: 'digests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'issues', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'digests', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'issues', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

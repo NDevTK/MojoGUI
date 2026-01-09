@@ -33,9 +33,9 @@ blink.mojom.ContentIconDefinitionSpec = {
       name: 'blink.mojom.ContentIconDefinition',
       packedSize: 32,
       fields: [
-        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'sizes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'src', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'sizes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -49,12 +49,12 @@ blink.mojom.ContentDescriptionSpec = {
       name: 'blink.mojom.ContentDescription',
       packedSize: 56,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'category', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ContentCategorySpec, nullable: false },
-        { name: 'icons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'launch_url', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'category', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ContentCategorySpec, nullable: false },
+        { name: 'icons', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'launch_url', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -151,7 +151,7 @@ blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec = {
       name: 'blink.mojom.ContentIndexService.GetIconSizes_Params',
       packedSize: 16,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ContentCategorySpec, nullable: false },
+        { name: 'category', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ContentCategorySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -164,7 +164,7 @@ blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec = {
       name: 'blink.mojom.ContentIndexService.GetIconSizes_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'icon_sizes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'icon_sizes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -178,10 +178,10 @@ blink.mojom.ContentIndexService_Add_ParamsSpec = {
       name: 'blink.mojom.ContentIndexService.Add_Params',
       packedSize: 40,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ContentDescriptionSpec, nullable: false },
-        { name: 'icon', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'launchUrl', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ContentDescriptionSpec, nullable: false },
+        { name: 'icon', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'launchUrl', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -194,7 +194,7 @@ blink.mojom.ContentIndexService_Add_ResponseParamsSpec = {
       name: 'blink.mojom.ContentIndexService.Add_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ContentIndexErrorSpec, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ContentIndexErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -208,8 +208,8 @@ blink.mojom.ContentIndexService_Delete_ParamsSpec = {
       name: 'blink.mojom.ContentIndexService.Delete_Params',
       packedSize: 24,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,7 +222,7 @@ blink.mojom.ContentIndexService_Delete_ResponseParamsSpec = {
       name: 'blink.mojom.ContentIndexService.Delete_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ContentIndexErrorSpec, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ContentIndexErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -236,7 +236,7 @@ blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec = {
       name: 'blink.mojom.ContentIndexService.GetDescriptions_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -249,8 +249,8 @@ blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec = {
       name: 'blink.mojom.ContentIndexService.GetDescriptions_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ContentIndexErrorSpec, nullable: false },
-        { name: 'descriptions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ContentIndexErrorSpec, nullable: false },
+        { name: 'descriptions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

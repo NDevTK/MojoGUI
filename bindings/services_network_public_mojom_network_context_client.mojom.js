@@ -117,10 +117,10 @@ network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec = {
       name: 'network.mojom.NetworkContextClient.OnFileUploadRequested_Params',
       packedSize: 40,
       fields: [
-        { name: 'process_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'async', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'file_paths', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'destination_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'process_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'async', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'file_paths', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'destination_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -133,8 +133,8 @@ network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec = {
       name: 'network.mojom.NetworkContextClient.OnFileUploadRequested_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'files', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,7 +148,7 @@ network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec = {
       name: 'network.mojom.NetworkContextClient.OnCanSendReportingReports_Params',
       packedSize: 16,
       fields: [
-        { name: 'origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -161,7 +161,7 @@ network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec 
       name: 'network.mojom.NetworkContextClient.OnCanSendReportingReports_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,7 +175,7 @@ network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec =
       name: 'network.mojom.NetworkContextClient.OnCanSendDomainReliabilityUpload_Params',
       packedSize: 16,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -188,7 +188,7 @@ network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponsePara
       name: 'network.mojom.NetworkContextClient.OnCanSendDomainReliabilityUpload_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -202,10 +202,10 @@ network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec =
       name: 'network.mojom.NetworkContextClient.OnGenerateHttpNegotiateAuthToken_Params',
       packedSize: 40,
       fields: [
-        { name: 'server_auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'can_delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'auth_negotiate_android_account_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'spn', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'server_auth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'can_delegate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'auth_negotiate_android_account_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'spn', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -218,8 +218,8 @@ network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponsePara
       name: 'network.mojom.NetworkContextClient.OnGenerateHttpNegotiateAuthToken_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'auth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'auth_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -245,7 +245,7 @@ network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec
       name: 'network.mojom.NetworkContextClient.OnCanSendSCTAuditingReport_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

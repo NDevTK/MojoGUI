@@ -45,9 +45,9 @@ arc.mojom.CompositionSegmentSpec = {
       name: 'arc.mojom.CompositionSegment',
       packedSize: 24,
       fields: [
-        { name: 'start_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'end_offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'emphasized', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'start_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'end_offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'emphasized', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -61,12 +61,12 @@ arc.mojom.KeyEventDataSpec = {
       name: 'arc.mojom.KeyEventData',
       packedSize: 32,
       fields: [
-        { name: 'pressed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'key_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_shift_down', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_control_down', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_alt_down', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_capslock_on', packedOffset: 12, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'pressed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'key_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_shift_down', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_control_down', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_alt_down', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_capslock_on', packedOffset: 20, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

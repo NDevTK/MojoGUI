@@ -22,7 +22,7 @@ url_rewrite.mojom.UrlRequestRewriteRulesSpec = {
       name: 'url_rewrite.mojom.UrlRequestRewriteRules',
       packedSize: 16,
       fields: [
-        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'rules', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -36,9 +36,9 @@ url_rewrite.mojom.UrlRequestRuleSpec = {
       name: 'url_rewrite.mojom.UrlRequestRule',
       packedSize: 32,
       fields: [
-        { name: 'hosts_filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'schemes_filter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'actions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'hosts_filter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'schemes_filter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'actions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -52,7 +52,7 @@ url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec = {
       name: 'url_rewrite.mojom.UrlRequestRewriteAddHeaders',
       packedSize: 16,
       fields: [
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -66,8 +66,8 @@ url_rewrite.mojom.UrlHeaderSpec = {
       name: 'url_rewrite.mojom.UrlHeader',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -81,8 +81,8 @@ url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec = {
       name: 'url_rewrite.mojom.UrlRequestRewriteRemoveHeader',
       packedSize: 24,
       fields: [
-        { name: 'query_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'header_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'query_pattern', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'header_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -96,8 +96,8 @@ url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec = {
       name: 'url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPattern',
       packedSize: 24,
       fields: [
-        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'substitution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'pattern', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'substitution', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -111,8 +111,8 @@ url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec = {
       name: 'url_rewrite.mojom.UrlRequestRewriteReplaceUrl',
       packedSize: 24,
       fields: [
-        { name: 'url_ends_with', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'new_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url_ends_with', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'new_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -126,7 +126,7 @@ url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec = {
       name: 'url_rewrite.mojom.UrlRequestRewriteAppendToQuery',
       packedSize: 16,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,7 +196,7 @@ url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = {
       name: 'url_rewrite.mojom.UrlRequestRulesReceiver.OnRulesUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: url_rewrite.mojom.UrlRequestRewriteRulesSpec, nullable: false },
+        { name: 'rules', packedOffset: 8, packedBitOffset: 0, type: url_rewrite.mojom.UrlRequestRewriteRulesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

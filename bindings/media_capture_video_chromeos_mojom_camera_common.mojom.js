@@ -40,7 +40,7 @@ cros.mojom.CameraResourceCostSpec = {
       name: 'cros.mojom.CameraResourceCost',
       packedSize: 16,
       fields: [
-        { name: 'resource_cost', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'resource_cost', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -54,10 +54,10 @@ cros.mojom.CameraInfoSpec = {
       name: 'cros.mojom.CameraInfo',
       packedSize: 32,
       fields: [
-        { name: 'facing', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraFacingSpec, nullable: false },
-        { name: 'orientation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'device_version', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'static_camera_characteristics', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.CameraMetadataSpec, nullable: false },
+        { name: 'facing', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.CameraFacingSpec, nullable: false },
+        { name: 'orientation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'device_version', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'static_camera_characteristics', packedOffset: 24, packedBitOffset: 0, type: cros.mojom.CameraMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

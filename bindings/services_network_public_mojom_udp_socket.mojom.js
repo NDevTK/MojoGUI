@@ -16,15 +16,15 @@ network.mojom.UDPSocketOptionsSpec = {
       name: 'network.mojom.UDPSocketOptions',
       packedSize: 48,
       fields: [
-        { name: 'allow_address_reuse', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_broadcast', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_address_sharing_for_multicast', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'multicast_interface', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'multicast_time_to_live', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'multicast_loopback_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'send_buffer_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'receive_buffer_size', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'ipv6_only', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'allow_address_reuse', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_broadcast', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_address_sharing_for_multicast', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'multicast_interface', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'multicast_time_to_live', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'multicast_loopback_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'send_buffer_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'receive_buffer_size', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'ipv6_only', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -193,8 +193,8 @@ network.mojom.UDPSocket_Bind_ParamsSpec = {
       name: 'network.mojom.UDPSocket.Bind_Params',
       packedSize: 24,
       fields: [
-        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
-        { name: 'socket_options', packedOffset: 8, packedBitOffset: 0, type: network.mojom.UDPSocketOptionsSpec, nullable: true },
+        { name: 'local_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
+        { name: 'socket_options', packedOffset: 16, packedBitOffset: 0, type: network.mojom.UDPSocketOptionsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -207,8 +207,8 @@ network.mojom.UDPSocket_Bind_ResponseParamsSpec = {
       name: 'network.mojom.UDPSocket.Bind_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'local_addr_out', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'local_addr_out', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -222,8 +222,8 @@ network.mojom.UDPSocket_Connect_ParamsSpec = {
       name: 'network.mojom.UDPSocket.Connect_Params',
       packedSize: 24,
       fields: [
-        { name: 'remote_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
-        { name: 'socket_options', packedOffset: 8, packedBitOffset: 0, type: network.mojom.UDPSocketOptionsSpec, nullable: true },
+        { name: 'remote_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
+        { name: 'socket_options', packedOffset: 16, packedBitOffset: 0, type: network.mojom.UDPSocketOptionsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -236,8 +236,8 @@ network.mojom.UDPSocket_Connect_ResponseParamsSpec = {
       name: 'network.mojom.UDPSocket.Connect_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'local_addr_out', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'local_addr_out', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -251,7 +251,7 @@ network.mojom.UDPSocket_SetBroadcast_ParamsSpec = {
       name: 'network.mojom.UDPSocket.SetBroadcast_Params',
       packedSize: 16,
       fields: [
-        { name: 'broadcast', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'broadcast', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -264,7 +264,7 @@ network.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec = {
       name: 'network.mojom.UDPSocket.SetBroadcast_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -278,7 +278,7 @@ network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec = {
       name: 'network.mojom.UDPSocket.SetSendBufferSize_Params',
       packedSize: 16,
       fields: [
-        { name: 'send_buffer_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'send_buffer_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -291,7 +291,7 @@ network.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec = {
       name: 'network.mojom.UDPSocket.SetSendBufferSize_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -305,7 +305,7 @@ network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec = {
       name: 'network.mojom.UDPSocket.SetReceiveBufferSize_Params',
       packedSize: 16,
       fields: [
-        { name: 'receive_buffer_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'receive_buffer_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -318,7 +318,7 @@ network.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec = {
       name: 'network.mojom.UDPSocket.SetReceiveBufferSize_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -332,7 +332,7 @@ network.mojom.UDPSocket_JoinGroup_ParamsSpec = {
       name: 'network.mojom.UDPSocket.JoinGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
+        { name: 'group_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -345,7 +345,7 @@ network.mojom.UDPSocket_JoinGroup_ResponseParamsSpec = {
       name: 'network.mojom.UDPSocket.JoinGroup_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -359,7 +359,7 @@ network.mojom.UDPSocket_LeaveGroup_ParamsSpec = {
       name: 'network.mojom.UDPSocket.LeaveGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
+        { name: 'group_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -372,7 +372,7 @@ network.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec = {
       name: 'network.mojom.UDPSocket.LeaveGroup_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -386,7 +386,7 @@ network.mojom.UDPSocket_ReceiveMore_ParamsSpec = {
       name: 'network.mojom.UDPSocket.ReceiveMore_Params',
       packedSize: 16,
       fields: [
-        { name: 'num_additional_datagrams', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'num_additional_datagrams', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -400,8 +400,8 @@ network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec = {
       name: 'network.mojom.UDPSocket.ReceiveMoreWithBufferSize_Params',
       packedSize: 16,
       fields: [
-        { name: 'num_additional_datagrams', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'buffer_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'num_additional_datagrams', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'buffer_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -415,9 +415,9 @@ network.mojom.UDPSocket_SendTo_ParamsSpec = {
       name: 'network.mojom.UDPSocket.SendTo_Params',
       packedSize: 32,
       fields: [
-        { name: 'dest_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
-        { name: 'traffic_annotation', packedOffset: 16, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
+        { name: 'dest_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
+        { name: 'traffic_annotation', packedOffset: 24, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -430,7 +430,7 @@ network.mojom.UDPSocket_SendTo_ResponseParamsSpec = {
       name: 'network.mojom.UDPSocket.SendTo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -444,8 +444,8 @@ network.mojom.UDPSocket_Send_ParamsSpec = {
       name: 'network.mojom.UDPSocket.Send_Params',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
-        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
+        { name: 'traffic_annotation', packedOffset: 16, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -458,7 +458,7 @@ network.mojom.UDPSocket_Send_ResponseParamsSpec = {
       name: 'network.mojom.UDPSocket.Send_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -546,9 +546,9 @@ network.mojom.UDPSocketListener_OnReceived_ParamsSpec = {
       name: 'network.mojom.UDPSocketListener.OnReceived_Params',
       packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'src_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'src_addr', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
+        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

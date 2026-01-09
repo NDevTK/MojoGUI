@@ -72,7 +72,7 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec = {
       name: 'gcpw_hid.mojom.GaiaCredentialProviderHidBroker.OpenDevice_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'device_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec = {
       name: 'gcpw_hid.mojom.GaiaCredentialProviderHidBroker.OpenDevice_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'out_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

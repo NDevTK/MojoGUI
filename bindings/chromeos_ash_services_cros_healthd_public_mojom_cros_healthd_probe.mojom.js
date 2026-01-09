@@ -364,7 +364,7 @@ ash.cros_healthd.mojom.VirtualizationInfoSpec = {
       name: 'ash.cros_healthd.mojom.VirtualizationInfo',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -378,7 +378,7 @@ ash.cros_healthd.mojom.VulnerabilityInfoSpec = {
       name: 'ash.cros_healthd.mojom.VulnerabilityInfo',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -418,7 +418,7 @@ ash.cros_healthd.mojom.CpuVirtualizationInfoSpec = {
       name: 'ash.cros_healthd.mojom.CpuVirtualizationInfo',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -601,7 +601,7 @@ ash.cros_healthd.mojom.OsInfoSpec = {
       name: 'ash.cros_healthd.mojom.OsInfo',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -654,7 +654,7 @@ ash.cros_healthd.mojom.PsrEventSpec = {
       name: 'ash.cros_healthd.mojom.PsrEvent',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -668,7 +668,7 @@ ash.cros_healthd.mojom.PsrInfoSpec = {
       name: 'ash.cros_healthd.mojom.PsrInfo',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1072,7 +1072,7 @@ ash.cros_healthd.mojom.InputDeviceSpec = {
       name: 'ash.cros_healthd.mojom.InputDevice',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1099,7 +1099,7 @@ ash.cros_healthd.mojom.SensorSpec = {
       name: 'ash.cros_healthd.mojom.Sensor',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1126,7 +1126,7 @@ ash.cros_healthd.mojom.ThermalSensorInfoSpec = {
       name: 'ash.cros_healthd.mojom.ThermalSensorInfo',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,10 +16,10 @@ blink.mojom.LocalResourceSourceSpec = {
       name: 'blink.mojom.LocalResourceSource',
       packedSize: 40,
       fields: [
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'should_replace_i18n_in_js', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'path_to_resource_map', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'replacement_strings', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'should_replace_i18n_in_js', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'path_to_resource_map', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'replacement_strings', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -33,7 +33,7 @@ blink.mojom.LocalResourceLoaderConfigSpec = {
       name: 'blink.mojom.LocalResourceLoaderConfig',
       packedSize: 16,
       fields: [
-        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'sources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

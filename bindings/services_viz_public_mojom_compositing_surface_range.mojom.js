@@ -16,8 +16,8 @@ viz.mojom.SurfaceRangeSpec = {
       name: 'viz.mojom.SurfaceRange',
       packedSize: 24,
       fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: true },
-        { name: 'end', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: false },
+        { name: 'start', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: true },
+        { name: 'end', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

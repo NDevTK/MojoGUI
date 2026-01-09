@@ -16,14 +16,14 @@ blink.mojom.PolicyContainerPoliciesSpec = {
       name: 'blink.mojom.PolicyContainerPolicies',
       packedSize: 56,
       fields: [
-        { name: 'connection_allowlists', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistsSpec, nullable: false },
-        { name: 'cross_origin_embedder_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false },
-        { name: 'integrity_policy', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IntegrityPolicySpec, nullable: false },
-        { name: 'integrity_policy_report_only', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IntegrityPolicySpec, nullable: false },
-        { name: 'content_security_policies', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'is_credentialless', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'can_navigate_top_without_user_gesture', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'cross_origin_isolation_enabled_by_dip', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'connection_allowlists', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistsSpec, nullable: false },
+        { name: 'cross_origin_embedder_policy', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false },
+        { name: 'integrity_policy', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IntegrityPolicySpec, nullable: false },
+        { name: 'integrity_policy_report_only', packedOffset: 32, packedBitOffset: 0, type: network.mojom.IntegrityPolicySpec, nullable: false },
+        { name: 'content_security_policies', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_credentialless', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_navigate_top_without_user_gesture', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'cross_origin_isolation_enabled_by_dip', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,8 +37,8 @@ blink.mojom.PolicyContainerSpec = {
       name: 'blink.mojom.PolicyContainer',
       packedSize: 24,
       fields: [
-        { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PolicyContainerPoliciesSpec, nullable: false },
-        { name: 'remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'policies', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PolicyContainerPoliciesSpec, nullable: false },
+        { name: 'remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -52,7 +52,7 @@ blink.mojom.PolicyContainerBindParamsSpec = {
       name: 'blink.mojom.PolicyContainerBindParams',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -131,7 +131,7 @@ blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = {
       name: 'blink.mojom.PolicyContainerHost.SetReferrerPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'referrer_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false },
+        { name: 'referrer_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -145,7 +145,7 @@ blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = {
       name: 'blink.mojom.PolicyContainerHost.AddContentSecurityPolicies_Params',
       packedSize: 16,
       fields: [
-        { name: 'content_security_policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'content_security_policies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

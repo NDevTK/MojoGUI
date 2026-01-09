@@ -16,10 +16,10 @@ gfx.mojom.HDRStaticMetadataSpec = {
       name: 'gfx.mojom.HDRStaticMetadata',
       packedSize: 24,
       fields: [
-        { name: 'max', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'max_avg', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'min', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'supported_eotf_mask', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'max', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'max_avg', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'min', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'supported_eotf_mask', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }

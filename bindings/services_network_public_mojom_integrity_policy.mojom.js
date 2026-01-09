@@ -26,7 +26,7 @@ network.mojom.IntegrityPolicySpec = {
       name: 'network.mojom.IntegrityPolicy',
       packedSize: 16,
       fields: [
-        { name: 'kScript', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kScript', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

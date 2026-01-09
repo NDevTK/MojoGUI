@@ -76,12 +76,12 @@ payments.mojom.PaymentResponseSpec = {
       name: 'payments.mojom.PaymentResponse',
       packedSize: 56,
       fields: [
-        { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'stringified_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'shipping_address', packedOffset: 16, packedBitOffset: 0, type: payments.mojom.PaymentAddressSpec, nullable: true },
-        { name: 'shipping_option', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'payer', packedOffset: 32, packedBitOffset: 0, type: payments.mojom.PayerDetailSpec, nullable: false },
-        { name: 'get_assertion_authenticator_response', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.GetAssertionAuthenticatorResponseSpec, nullable: true },
+        { name: 'method_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'stringified_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'shipping_address', packedOffset: 24, packedBitOffset: 0, type: payments.mojom.PaymentAddressSpec, nullable: true },
+        { name: 'shipping_option', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'payer', packedOffset: 40, packedBitOffset: 0, type: payments.mojom.PayerDetailSpec, nullable: false },
+        { name: 'get_assertion_authenticator_response', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.GetAssertionAuthenticatorResponseSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -95,9 +95,9 @@ payments.mojom.PayerDetailSpec = {
       name: 'payments.mojom.PayerDetail',
       packedSize: 32,
       fields: [
-        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'phone', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'phone', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -111,9 +111,9 @@ payments.mojom.PaymentItemSpec = {
       name: 'payments.mojom.PaymentItem',
       packedSize: 32,
       fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'amount', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: false },
-        { name: 'pending', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'amount', packedOffset: 16, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: false },
+        { name: 'pending', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,10 +127,10 @@ payments.mojom.PaymentShippingOptionSpec = {
       name: 'payments.mojom.PaymentShippingOption',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'amount', packedOffset: 16, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: false },
-        { name: 'selected', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'amount', packedOffset: 24, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: false },
+        { name: 'selected', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -144,17 +144,17 @@ payments.mojom.SecurePaymentConfirmationRequestSpec = {
       name: 'payments.mojom.SecurePaymentConfirmationRequest',
       packedSize: 96,
       fields: [
-        { name: 'credential_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'challenge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'instrument', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PaymentCredentialInstrumentSpec, nullable: false },
-        { name: 'timeout', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
-        { name: 'payee_origin', packedOffset: 32, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
-        { name: 'payee_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'rp_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'extensions', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.AuthenticationExtensionsClientInputsSpec, nullable: true },
-        { name: 'browser_bound_pub_key_cred_params', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'show_opt_out', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'payment_entities_logos', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'credential_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'challenge', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'instrument', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PaymentCredentialInstrumentSpec, nullable: false },
+        { name: 'timeout', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'payee_origin', packedOffset: 40, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
+        { name: 'payee_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rp_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'extensions', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.AuthenticationExtensionsClientInputsSpec, nullable: true },
+        { name: 'browser_bound_pub_key_cred_params', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'show_opt_out', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'payment_entities_logos', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -168,8 +168,8 @@ payments.mojom.NetworkOrIssuerInformationSpec = {
       name: 'payments.mojom.NetworkOrIssuerInformation',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'icon', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -183,8 +183,8 @@ payments.mojom.PaymentEntityLogoSpec = {
       name: 'payments.mojom.PaymentEntityLogo',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -198,13 +198,13 @@ payments.mojom.PaymentMethodDataSpec = {
       name: 'payments.mojom.PaymentMethodData',
       packedSize: 56,
       fields: [
-        { name: 'supported_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'stringified_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'environment', packedOffset: 16, packedBitOffset: 0, type: payments.mojom.AndroidPayEnvironmentSpec, nullable: false },
-        { name: 'min_google_play_services_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'api_version', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'supported_networks', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'secure_payment_confirmation', packedOffset: 40, packedBitOffset: 0, type: payments.mojom.SecurePaymentConfirmationRequestSpec, nullable: true },
+        { name: 'supported_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'stringified_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'environment', packedOffset: 24, packedBitOffset: 0, type: payments.mojom.AndroidPayEnvironmentSpec, nullable: false },
+        { name: 'min_google_play_services_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'api_version', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'supported_networks', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'secure_payment_confirmation', packedOffset: 48, packedBitOffset: 0, type: payments.mojom.SecurePaymentConfirmationRequestSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -218,9 +218,9 @@ payments.mojom.PaymentDetailsModifierSpec = {
       name: 'payments.mojom.PaymentDetailsModifier',
       packedSize: 32,
       fields: [
-        { name: 'total', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentItemSpec, nullable: true },
-        { name: 'additional_display_items', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'method_data', packedOffset: 16, packedBitOffset: 0, type: payments.mojom.PaymentMethodDataSpec, nullable: false },
+        { name: 'total', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentItemSpec, nullable: true },
+        { name: 'additional_display_items', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'method_data', packedOffset: 24, packedBitOffset: 0, type: payments.mojom.PaymentMethodDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -234,14 +234,14 @@ payments.mojom.PaymentDetailsSpec = {
       name: 'payments.mojom.PaymentDetails',
       packedSize: 72,
       fields: [
-        { name: 'total', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentItemSpec, nullable: true },
-        { name: 'display_items', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'shipping_options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'modifiers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'error', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'shipping_address_errors', packedOffset: 40, packedBitOffset: 0, type: payments.mojom.AddressErrorsSpec, nullable: true },
-        { name: 'id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'stringified_payment_method_errors', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'total', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentItemSpec, nullable: true },
+        { name: 'display_items', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'shipping_options', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'modifiers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'error', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'shipping_address_errors', packedOffset: 48, packedBitOffset: 0, type: payments.mojom.AddressErrorsSpec, nullable: true },
+        { name: 'id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'stringified_payment_method_errors', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -255,11 +255,11 @@ payments.mojom.PaymentOptionsSpec = {
       name: 'payments.mojom.PaymentOptions',
       packedSize: 24,
       fields: [
-        { name: 'request_payer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'request_payer_email', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'request_payer_phone', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'request_shipping', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'shipping_type', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentShippingTypeSpec, nullable: false },
+        { name: 'request_payer_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'request_payer_email', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'request_payer_phone', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'request_shipping', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'shipping_type', packedOffset: 16, packedBitOffset: 0, type: payments.mojom.PaymentShippingTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -428,8 +428,8 @@ payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec = {
       name: 'payments.mojom.PaymentRequestClient.OnPaymentMethodChange_Params',
       packedSize: 24,
       fields: [
-        { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'stringified_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'method_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'stringified_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -443,7 +443,7 @@ payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec = {
       name: 'payments.mojom.PaymentRequestClient.OnShippingAddressChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentAddressSpec, nullable: false },
+        { name: 'address', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentAddressSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -457,7 +457,7 @@ payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec = {
       name: 'payments.mojom.PaymentRequestClient.OnShippingOptionChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'shipping_option_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'shipping_option_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -471,7 +471,7 @@ payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec = {
       name: 'payments.mojom.PaymentRequestClient.OnPayerDetailChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'detail', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PayerDetailSpec, nullable: false },
+        { name: 'detail', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PayerDetailSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -485,7 +485,7 @@ payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec = {
       name: 'payments.mojom.PaymentRequestClient.OnPaymentResponse_Params',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -499,8 +499,8 @@ payments.mojom.PaymentRequestClient_OnError_ParamsSpec = {
       name: 'payments.mojom.PaymentRequestClient.OnError_Params',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentErrorReasonSpec, nullable: false },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentErrorReasonSpec, nullable: false },
+        { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -527,7 +527,7 @@ payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec = {
       name: 'payments.mojom.PaymentRequestClient.OnAbort_Params',
       packedSize: 16,
       fields: [
-        { name: 'aborted_successfully', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'aborted_successfully', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -541,7 +541,7 @@ payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec = {
       name: 'payments.mojom.PaymentRequestClient.OnCanMakePayment_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.CanMakePaymentQueryResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.CanMakePaymentQueryResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -555,7 +555,7 @@ payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec = {
       name: 'payments.mojom.PaymentRequestClient.OnHasEnrolledInstrument_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.HasEnrolledInstrumentQueryResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.HasEnrolledInstrumentQueryResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -582,9 +582,9 @@ payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec = {
       name: 'payments.mojom.PaymentRequestClient.AllowConnectToSource_Params',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'url_before_redirects', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'did_follow_redirect', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url_before_redirects', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'did_follow_redirect', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -597,7 +597,7 @@ payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec = {
       name: 'payments.mojom.PaymentRequestClient.AllowConnectToSource_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'allow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -744,10 +744,10 @@ payments.mojom.PaymentRequest_Init_ParamsSpec = {
       name: 'payments.mojom.PaymentRequest.Init_Params',
       packedSize: 40,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'method_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: payments.mojom.PaymentDetailsSpec, nullable: false },
-        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: payments.mojom.PaymentOptionsSpec, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'method_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'details', packedOffset: 24, packedBitOffset: 0, type: payments.mojom.PaymentDetailsSpec, nullable: false },
+        { name: 'options', packedOffset: 32, packedBitOffset: 0, type: payments.mojom.PaymentOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -761,8 +761,8 @@ payments.mojom.PaymentRequest_Show_ParamsSpec = {
       name: 'payments.mojom.PaymentRequest.Show_Params',
       packedSize: 16,
       fields: [
-        { name: 'wait_for_updated_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'had_user_activation', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'wait_for_updated_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'had_user_activation', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -776,7 +776,7 @@ payments.mojom.PaymentRequest_UpdateWith_ParamsSpec = {
       name: 'payments.mojom.PaymentRequest.UpdateWith_Params',
       packedSize: 16,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentDetailsSpec, nullable: false },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentDetailsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -816,7 +816,7 @@ payments.mojom.PaymentRequest_Complete_ParamsSpec = {
       name: 'payments.mojom.PaymentRequest.Complete_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentCompleteSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentCompleteSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -830,7 +830,7 @@ payments.mojom.PaymentRequest_Retry_ParamsSpec = {
       name: 'payments.mojom.PaymentRequest.Retry_Params',
       packedSize: 16,
       fields: [
-        { name: 'errors', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentValidationErrorsSpec, nullable: false },
+        { name: 'errors', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentValidationErrorsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,7 +16,7 @@ mojo_base.mojom.ReadOnlyBufferSpec = {
       name: 'mojo_base.mojom.ReadOnlyBuffer',
       packedSize: 16,
       fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

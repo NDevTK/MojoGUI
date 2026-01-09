@@ -16,9 +16,9 @@ origin_matcher.mojom.SubdomainMatchingRuleSpec = {
       name: 'origin_matcher.mojom.SubdomainMatchingRule',
       packedSize: 32,
       fields: [
-        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'optional_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'optional_port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'scheme', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'optional_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'optional_port', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -32,7 +32,7 @@ origin_matcher.mojom.OriginMatcherRuleSpec = {
       name: 'origin_matcher.mojom.OriginMatcherRule',
       packedSize: 16,
       fields: [
-        { name: 'subdomain_matching_rule', packedOffset: 0, packedBitOffset: 0, type: origin_matcher.mojom.SubdomainMatchingRuleSpec, nullable: true },
+        { name: 'subdomain_matching_rule', packedOffset: 8, packedBitOffset: 0, type: origin_matcher.mojom.SubdomainMatchingRuleSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -46,7 +46,7 @@ origin_matcher.mojom.OriginMatcherSpec = {
       name: 'origin_matcher.mojom.OriginMatcher',
       packedSize: 16,
       fields: [
-        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'rules', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

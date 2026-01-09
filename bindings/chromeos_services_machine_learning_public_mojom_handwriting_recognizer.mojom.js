@@ -39,9 +39,9 @@ chromeos.machine_learning.mojom.InkPointSpec = {
       name: 'chromeos.machine_learning.mojom.InkPoint',
       packedSize: 24,
       fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 't', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 't', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -55,7 +55,7 @@ chromeos.machine_learning.mojom.InkStrokeSpec = {
       name: 'chromeos.machine_learning.mojom.InkStroke',
       packedSize: 16,
       fields: [
-        { name: 'points', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'points', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -69,8 +69,8 @@ chromeos.machine_learning.mojom.WritingGuideSpec = {
       name: 'chromeos.machine_learning.mojom.WritingGuide',
       packedSize: 16,
       fields: [
-        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'height', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -84,8 +84,8 @@ chromeos.machine_learning.mojom.RecognitionContextSpec = {
       name: 'chromeos.machine_learning.mojom.RecognitionContext',
       packedSize: 24,
       fields: [
-        { name: 'writing_guide', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.WritingGuideSpec, nullable: true },
-        { name: 'pre_context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'writing_guide', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.WritingGuideSpec, nullable: true },
+        { name: 'pre_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -99,10 +99,10 @@ chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec = {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognitionQuery',
       packedSize: 40,
       fields: [
-        { name: 'ink', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.RecognitionContextSpec, nullable: true },
-        { name: 'max_num_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'return_segmentation', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ink', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'context', packedOffset: 16, packedBitOffset: 0, type: chromeos.machine_learning.mojom.RecognitionContextSpec, nullable: true },
+        { name: 'max_num_results', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'return_segmentation', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -116,10 +116,10 @@ chromeos.machine_learning.mojom.HandwritingRecognizerInkRangeSpec = {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerInkRange',
       packedSize: 24,
       fields: [
-        { name: 'start_stroke', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'end_stroke', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'start_point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'end_point', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'start_stroke', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'end_stroke', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'start_point', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'end_point', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -133,8 +133,8 @@ chromeos.machine_learning.mojom.HandwritingRecognizerSegmentSpec = {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerSegment',
       packedSize: 24,
       fields: [
-        { name: 'sublabel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'ink_ranges', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'sublabel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'ink_ranges', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,7 +148,7 @@ chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec = {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerSegmentation',
       packedSize: 16,
       fields: [
-        { name: 'segments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'segments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -162,9 +162,9 @@ chromeos.machine_learning.mojom.HandwritingRecognizerCandidateSpec = {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerCandidate',
       packedSize: 32,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'segmentation', packedOffset: 16, packedBitOffset: 0, type: chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec, nullable: true },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'segmentation', packedOffset: 24, packedBitOffset: 0, type: chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -178,7 +178,7 @@ chromeos.machine_learning.mojom.HandwritingRecognizerResultSpec = {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerResult',
       packedSize: 16,
       fields: [
-        { name: 'OK', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'OK', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -192,7 +192,7 @@ chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec = {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerSpec',
       packedSize: 16,
       fields: [
-        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -97,8 +97,8 @@ access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'access_code_cast.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -182,8 +182,8 @@ access_code_cast.mojom.PageHandler_AddSink_ParamsSpec = {
       name: 'access_code_cast.mojom.PageHandler.AddSink_Params',
       packedSize: 24,
       fields: [
-        { name: 'access_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'discovery_method', packedOffset: 8, packedBitOffset: 0, type: access_code_cast.mojom.CastDiscoveryMethodSpec, nullable: false },
+        { name: 'access_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'discovery_method', packedOffset: 16, packedBitOffset: 0, type: access_code_cast.mojom.CastDiscoveryMethodSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,7 +196,7 @@ access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec = {
       name: 'access_code_cast.mojom.PageHandler.AddSink_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: access_code_cast.mojom.AddSinkResultCodeSpec, nullable: false },
+        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: access_code_cast.mojom.AddSinkResultCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,7 +222,7 @@ access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec = {
       name: 'access_code_cast.mojom.PageHandler.CastToSink_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.RouteRequestResultCodeSpec, nullable: false },
+        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: media_router.mojom.RouteRequestResultCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

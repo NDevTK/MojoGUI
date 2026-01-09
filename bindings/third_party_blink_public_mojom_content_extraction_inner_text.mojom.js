@@ -21,8 +21,8 @@ blink.mojom.InnerTextFrameSpec = {
       name: 'blink.mojom.InnerTextFrame',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
-        { name: 'segments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
+        { name: 'segments', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -36,11 +36,11 @@ blink.mojom.InnerTextParamsSpec = {
       name: 'blink.mojom.InnerTextParams',
       packedSize: 32,
       fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
-        { name: 'max_words_per_aggregate_passage', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
-        { name: 'greedily_aggregate_sibling_nodes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
-        { name: 'max_passages', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'min_words_per_passage', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'max_words_per_aggregate_passage', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'greedily_aggregate_sibling_nodes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'max_passages', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'min_words_per_passage', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -110,7 +110,7 @@ blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec = {
       name: 'blink.mojom.InnerTextAgent.GetInnerText_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InnerTextParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.InnerTextParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -123,7 +123,7 @@ blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec = {
       name: 'blink.mojom.InnerTextAgent.GetInnerText_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InnerTextFrameSpec, nullable: false },
+        { name: 'frame', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.InnerTextFrameSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

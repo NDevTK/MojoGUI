@@ -16,7 +16,7 @@ mojo.interface_control.RunMessageParamsSpec = {
       name: 'mojo.interface_control.RunMessageParams',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.interface_control.RunInputSpec, nullable: false },
+        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.interface_control.RunInputSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +30,7 @@ mojo.interface_control.RunResponseMessageParamsSpec = {
       name: 'mojo.interface_control.RunResponseMessageParams',
       packedSize: 16,
       fields: [
-        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.interface_control.RunOutputSpec, nullable: true },
+        { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.interface_control.RunOutputSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -57,7 +57,7 @@ mojo.interface_control.QueryVersionResultSpec = {
       name: 'mojo.interface_control.QueryVersionResult',
       packedSize: 16,
       fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -84,7 +84,7 @@ mojo.interface_control.RunOrClosePipeMessageParamsSpec = {
       name: 'mojo.interface_control.RunOrClosePipeMessageParams',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.interface_control.RunOrClosePipeInputSpec, nullable: false },
+        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.interface_control.RunOrClosePipeInputSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -98,7 +98,7 @@ mojo.interface_control.RequireVersionSpec = {
       name: 'mojo.interface_control.RequireVersion',
       packedSize: 16,
       fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,7 +112,7 @@ mojo.interface_control.EnableIdleTrackingSpec = {
       name: 'mojo.interface_control.EnableIdleTracking',
       packedSize: 16,
       fields: [
-        { name: 'timeout_in_microseconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'timeout_in_microseconds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }

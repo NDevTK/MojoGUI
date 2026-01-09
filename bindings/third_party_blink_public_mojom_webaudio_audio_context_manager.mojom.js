@@ -99,7 +99,7 @@ blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec = 
       name: 'blink.mojom.AudioContextManager.AudioContextAudiblePlaybackStarted_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,7 +113,7 @@ blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec = 
       name: 'blink.mojom.AudioContextManager.AudioContextAudiblePlaybackStopped_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,7 +127,7 @@ blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec = {
       name: 'blink.mojom.AudioContextManager.AudioContextCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -141,7 +141,7 @@ blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec = {
       name: 'blink.mojom.AudioContextManager.AudioContextClosed_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

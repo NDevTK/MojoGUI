@@ -46,16 +46,16 @@ blink.mojom.SpeculationCandidateSpec = {
       name: 'blink.mojom.SpeculationCandidate',
       packedSize: 88,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SpeculationActionSpec, nullable: false },
-        { name: 'referrer', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ReferrerSpec, nullable: false },
-        { name: 'requires_anonymous_client_ip_when_cross_origin', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'target_browsing_context_name_hint', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SpeculationTargetHintSpec, nullable: false },
-        { name: 'eagerness', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.SpeculationEagernessSpec, nullable: false },
-        { name: 'no_vary_search_hint', packedOffset: 48, packedBitOffset: 0, type: network.mojom.NoVarySearchSpec, nullable: true },
-        { name: 'injection_type', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.SpeculationInjectionTypeSpec, nullable: false },
-        { name: 'tags', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'form_submission', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'action', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SpeculationActionSpec, nullable: false },
+        { name: 'referrer', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ReferrerSpec, nullable: false },
+        { name: 'requires_anonymous_client_ip_when_cross_origin', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'target_browsing_context_name_hint', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.SpeculationTargetHintSpec, nullable: false },
+        { name: 'eagerness', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.SpeculationEagernessSpec, nullable: false },
+        { name: 'no_vary_search_hint', packedOffset: 56, packedBitOffset: 0, type: network.mojom.NoVarySearchSpec, nullable: true },
+        { name: 'injection_type', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.SpeculationInjectionTypeSpec, nullable: false },
+        { name: 'tags', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'form_submission', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -143,8 +143,8 @@ blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec = {
       name: 'blink.mojom.SpeculationHost.UpdateSpeculationCandidates_Params',
       packedSize: 24,
       fields: [
-        { name: 'candidates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'enable_cross_origin_prerender_iframes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'candidates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'enable_cross_origin_prerender_iframes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -171,7 +171,7 @@ blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = {
       name: 'blink.mojom.SpeculationHost.InitiatePreview_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

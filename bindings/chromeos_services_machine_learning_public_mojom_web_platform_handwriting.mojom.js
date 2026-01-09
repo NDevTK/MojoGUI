@@ -18,8 +18,8 @@ chromeos.machine_learning.web_platform.mojom.HandwritingPointSpec = {
       name: 'chromeos.machine_learning.web_platform.mojom.HandwritingPoint',
       packedSize: 24,
       fields: [
-        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 't', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 't', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -33,7 +33,7 @@ chromeos.machine_learning.web_platform.mojom.HandwritingStrokeSpec = {
       name: 'chromeos.machine_learning.web_platform.mojom.HandwritingStroke',
       packedSize: 16,
       fields: [
-        { name: 'points', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'points', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -47,9 +47,9 @@ chromeos.machine_learning.web_platform.mojom.HandwritingDrawingSegmentSpec = {
       name: 'chromeos.machine_learning.web_platform.mojom.HandwritingDrawingSegment',
       packedSize: 24,
       fields: [
-        { name: 'stroke_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'begin_point_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'end_point_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'stroke_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'begin_point_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'end_point_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,10 +63,10 @@ chromeos.machine_learning.web_platform.mojom.HandwritingSegmentSpec = {
       name: 'chromeos.machine_learning.web_platform.mojom.HandwritingSegment',
       packedSize: 32,
       fields: [
-        { name: 'grapheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'begin_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'end_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'drawing_segments', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'grapheme', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'begin_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'end_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'drawing_segments', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -80,8 +80,8 @@ chromeos.machine_learning.web_platform.mojom.HandwritingPredictionSpec = {
       name: 'chromeos.machine_learning.web_platform.mojom.HandwritingPrediction',
       packedSize: 24,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'segmentation_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'segmentation_result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,7 +108,7 @@ chromeos.machine_learning.web_platform.mojom.HandwritingModelConstraintSpec = {
       name: 'chromeos.machine_learning.web_platform.mojom.HandwritingModelConstraint',
       packedSize: 16,
       fields: [
-        { name: 'languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'languages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

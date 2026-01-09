@@ -96,9 +96,9 @@ chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec = {
       name: 'chromecast.mojom.SettingsClient.HandleSideSwipe_Params',
       packedSize: 32,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.SideSwipeEventSpec, nullable: false },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: chromecast.mojom.SideSwipeOriginSpec, nullable: false },
-        { name: 'touch_location', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: chromecast.mojom.SideSwipeEventSpec, nullable: false },
+        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: chromecast.mojom.SideSwipeOriginSpec, nullable: false },
+        { name: 'touch_location', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,7 +112,7 @@ chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec = {
       name: 'chromecast.mojom.SettingsClient.SendPlatformInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'platform_info_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'platform_info_json', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,7 +196,7 @@ chromecast.mojom.SettingsPlatform_Connect_ParamsSpec = {
       name: 'chromecast.mojom.SettingsPlatform.Connect_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -210,7 +210,7 @@ chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec = {
       name: 'chromecast.mojom.SettingsPlatform.RequestVisible_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

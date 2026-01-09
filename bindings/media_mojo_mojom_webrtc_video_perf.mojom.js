@@ -16,10 +16,10 @@ media.mojom.WebrtcPredictionFeaturesSpec = {
       name: 'media.mojom.WebrtcPredictionFeatures',
       packedSize: 40,
       fields: [
-        { name: 'is_decode_stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCodecProfileSpec, nullable: false },
-        { name: 'video_pixels', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'hardware_accelerated', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_decode_stats', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'profile', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCodecProfileSpec, nullable: false },
+        { name: 'video_pixels', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'hardware_accelerated', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -33,9 +33,9 @@ media.mojom.WebrtcVideoStatsSpec = {
       name: 'media.mojom.WebrtcVideoStats',
       packedSize: 24,
       fields: [
-        { name: 'frames_processed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'key_frames_processed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'p99_processing_time_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'frames_processed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'key_frames_processed', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'p99_processing_time_ms', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -105,8 +105,8 @@ media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec = {
       name: 'media.mojom.WebrtcVideoPerfRecorder.UpdateRecord_Params',
       packedSize: 24,
       fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.WebrtcPredictionFeaturesSpec, nullable: false },
-        { name: 'video_stats', packedOffset: 8, packedBitOffset: 0, type: media.mojom.WebrtcVideoStatsSpec, nullable: false },
+        { name: 'features', packedOffset: 8, packedBitOffset: 0, type: media.mojom.WebrtcPredictionFeaturesSpec, nullable: false },
+        { name: 'video_stats', packedOffset: 16, packedBitOffset: 0, type: media.mojom.WebrtcVideoStatsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -181,8 +181,8 @@ media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec = {
       name: 'media.mojom.WebrtcVideoPerfHistory.GetPerfInfo_Params',
       packedSize: 24,
       fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.WebrtcPredictionFeaturesSpec, nullable: false },
-        { name: 'frames_per_second', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'features', packedOffset: 8, packedBitOffset: 0, type: media.mojom.WebrtcPredictionFeaturesSpec, nullable: false },
+        { name: 'frames_per_second', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -195,7 +195,7 @@ media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec = {
       name: 'media.mojom.WebrtcVideoPerfHistory.GetPerfInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_smooth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_smooth', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,8 +16,8 @@ network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec = {
       name: 'network.mojom.MutablePartialNetworkTrafficAnnotationTag',
       packedSize: 16,
       fields: [
-        { name: 'unique_id_hash_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'completing_id_hash_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'unique_id_hash_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'completing_id_hash_code', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

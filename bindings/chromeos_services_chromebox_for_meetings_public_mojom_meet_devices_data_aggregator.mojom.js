@@ -22,7 +22,7 @@ ash.cfm.mojom.DataFilterSpec = {
       name: 'ash.cfm.mojom.DataFilter',
       packedSize: 16,
       fields: [
-        { name: 'REGEX', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'REGEX', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

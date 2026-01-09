@@ -104,7 +104,7 @@ blink.mojom.IDBKeyPathSpec = {
       name: 'blink.mojom.IDBKeyPath',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBKeyPathDataSpec, nullable: true },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBKeyPathDataSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -118,10 +118,10 @@ blink.mojom.IDBKeyRangeSpec = {
       name: 'blink.mojom.IDBKeyRange',
       packedSize: 32,
       fields: [
-        { name: 'lower', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
-        { name: 'upper', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
-        { name: 'lower_open', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'upper_open', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'lower', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
+        { name: 'upper', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
+        { name: 'lower_open', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'upper_open', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,11 +135,11 @@ blink.mojom.IDBIndexMetadataSpec = {
       name: 'blink.mojom.IDBIndexMetadata',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'key_path', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBKeyPathSpec, nullable: false },
-        { name: 'unique', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'multi_entry', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'key_path', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBKeyPathSpec, nullable: false },
+        { name: 'unique', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'multi_entry', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -153,12 +153,12 @@ blink.mojom.IDBObjectStoreMetadataSpec = {
       name: 'blink.mojom.IDBObjectStoreMetadata',
       packedSize: 56,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'key_path', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBKeyPathSpec, nullable: false },
-        { name: 'auto_increment', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'max_index_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'indexes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'key_path', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBKeyPathSpec, nullable: false },
+        { name: 'auto_increment', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'max_index_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'indexes', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -172,12 +172,12 @@ blink.mojom.IDBDatabaseMetadataSpec = {
       name: 'blink.mojom.IDBDatabaseMetadata',
       packedSize: 48,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'max_object_store_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'object_stores', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'was_cold_open', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_sqlite', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'max_object_store_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'object_stores', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'was_cold_open', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_sqlite', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -191,8 +191,8 @@ blink.mojom.IDBNameAndVersionSpec = {
       name: 'blink.mojom.IDBNameAndVersion',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,8 +206,8 @@ blink.mojom.IDBIndexKeysSpec = {
       name: 'blink.mojom.IDBIndexKeys',
       packedSize: 24,
       fields: [
-        { name: 'index_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'index_keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'index_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'index_keys', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -221,8 +221,8 @@ blink.mojom.IDBFileInfoSpec = {
       name: 'blink.mojom.IDBFileInfo',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'last_modified', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'last_modified', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -236,10 +236,10 @@ blink.mojom.IDBBlobInfoSpec = {
       name: 'blink.mojom.IDBBlobInfo',
       packedSize: 40,
       fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBFileInfoSpec, nullable: true },
+        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'file', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.IDBFileInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -253,8 +253,8 @@ blink.mojom.IDBValueSpec = {
       name: 'blink.mojom.IDBValue',
       packedSize: 24,
       fields: [
-        { name: 'bits', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
-        { name: 'external_objects', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bits', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'external_objects', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -268,9 +268,9 @@ blink.mojom.IDBReturnValueSpec = {
       name: 'blink.mojom.IDBReturnValue',
       packedSize: 32,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBValueSpec, nullable: false },
-        { name: 'primary_key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
-        { name: 'key_path', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBKeyPathSpec, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBValueSpec, nullable: false },
+        { name: 'primary_key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
+        { name: 'key_path', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBKeyPathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -284,9 +284,9 @@ blink.mojom.IDBRecordSpec = {
       name: 'blink.mojom.IDBRecord',
       packedSize: 32,
       fields: [
-        { name: 'primary_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: true },
-        { name: 'return_value', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBReturnValueSpec, nullable: true },
-        { name: 'index_key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: true },
+        { name: 'primary_key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: true },
+        { name: 'return_value', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBReturnValueSpec, nullable: true },
+        { name: 'index_key', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -300,8 +300,8 @@ blink.mojom.IDBErrorSpec = {
       name: 'blink.mojom.IDBError',
       packedSize: 24,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBExceptionSpec, nullable: false },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBExceptionSpec, nullable: false },
+        { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -315,9 +315,9 @@ blink.mojom.IDBCursorValueSpec = {
       name: 'blink.mojom.IDBCursorValue',
       packedSize: 32,
       fields: [
-        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'primary_keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'values', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'primary_keys', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'values', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -331,10 +331,10 @@ blink.mojom.IDBDatabaseOpenCursorValueSpec = {
       name: 'blink.mojom.IDBDatabaseOpenCursorValue',
       packedSize: 40,
       fields: [
-        { name: 'cursor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
-        { name: 'primary_key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
-        { name: 'value', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBValueSpec, nullable: true },
+        { name: 'cursor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
+        { name: 'primary_key', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
+        { name: 'value', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.IDBValueSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -440,8 +440,8 @@ blink.mojom.IDBFactoryClient_Error_ParamsSpec = {
       name: 'blink.mojom.IDBFactoryClient.Error_Params',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBExceptionSpec, nullable: false },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBExceptionSpec, nullable: false },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -455,7 +455,7 @@ blink.mojom.IDBFactoryClient_Blocked_ParamsSpec = {
       name: 'blink.mojom.IDBFactoryClient.Blocked_Params',
       packedSize: 16,
       fields: [
-        { name: 'existing_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'existing_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -469,11 +469,11 @@ blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec = {
       name: 'blink.mojom.IDBFactoryClient.UpgradeNeeded_Params',
       packedSize: 48,
       fields: [
-        { name: 'pending_database', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'old_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'data_loss', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBDataLossSpec, nullable: false },
-        { name: 'data_loss_message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'db_metadata', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.IDBDatabaseMetadataSpec, nullable: false },
+        { name: 'pending_database', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'old_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'data_loss', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBDataLossSpec, nullable: false },
+        { name: 'data_loss_message', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'db_metadata', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.IDBDatabaseMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -487,8 +487,8 @@ blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec = {
       name: 'blink.mojom.IDBFactoryClient.OpenSuccess_Params',
       packedSize: 24,
       fields: [
-        { name: 'pending_database', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBDatabaseMetadataSpec, nullable: false },
+        { name: 'pending_database', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true },
+        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBDatabaseMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -502,7 +502,7 @@ blink.mojom.IDBFactoryClient_DeleteSuccess_ParamsSpec = {
       name: 'blink.mojom.IDBFactoryClient.DeleteSuccess_Params',
       packedSize: 16,
       fields: [
-        { name: 'old_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'old_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -617,8 +617,8 @@ blink.mojom.IDBDatabaseCallbacks_VersionChange_ParamsSpec = {
       name: 'blink.mojom.IDBDatabaseCallbacks.VersionChange_Params',
       packedSize: 24,
       fields: [
-        { name: 'old_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'new_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'old_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'new_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -632,9 +632,9 @@ blink.mojom.IDBDatabaseCallbacks_Abort_ParamsSpec = {
       name: 'blink.mojom.IDBDatabaseCallbacks.Abort_Params',
       packedSize: 32,
       fields: [
-        { name: 'transaction_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBExceptionSpec, nullable: false },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'code', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBExceptionSpec, nullable: false },
+        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -648,7 +648,7 @@ blink.mojom.IDBDatabaseCallbacks_Complete_ParamsSpec = {
       name: 'blink.mojom.IDBDatabaseCallbacks.Complete_Params',
       packedSize: 16,
       fields: [
-        { name: 'transaction_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -750,7 +750,7 @@ blink.mojom.IDBCursor_Advance_ParamsSpec = {
       name: 'blink.mojom.IDBCursor.Advance_Params',
       packedSize: 16,
       fields: [
-        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -763,7 +763,7 @@ blink.mojom.IDBCursor_Advance_ResponseParamsSpec = {
       name: 'blink.mojom.IDBCursor.Advance_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBCursorResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBCursorResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -777,8 +777,8 @@ blink.mojom.IDBCursor_Continue_ParamsSpec = {
       name: 'blink.mojom.IDBCursor.Continue_Params',
       packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
-        { name: 'primary_key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
+        { name: 'primary_key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -791,7 +791,7 @@ blink.mojom.IDBCursor_Continue_ResponseParamsSpec = {
       name: 'blink.mojom.IDBCursor.Continue_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBCursorResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBCursorResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -805,7 +805,7 @@ blink.mojom.IDBCursor_Prefetch_ParamsSpec = {
       name: 'blink.mojom.IDBCursor.Prefetch_Params',
       packedSize: 16,
       fields: [
-        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -818,7 +818,7 @@ blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec = {
       name: 'blink.mojom.IDBCursor.Prefetch_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBCursorResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBCursorResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -832,7 +832,7 @@ blink.mojom.IDBCursor_PrefetchReset_ParamsSpec = {
       name: 'blink.mojom.IDBCursor.PrefetchReset_Params',
       packedSize: 16,
       fields: [
-        { name: 'used_prefetches', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'used_prefetches', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -952,10 +952,10 @@ blink.mojom.IDBTransaction_CreateObjectStore_ParamsSpec = {
       name: 'blink.mojom.IDBTransaction.CreateObjectStore_Params',
       packedSize: 40,
       fields: [
-        { name: 'object_store_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'key_path', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBKeyPathSpec, nullable: false },
-        { name: 'auto_increment', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'key_path', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBKeyPathSpec, nullable: false },
+        { name: 'auto_increment', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -969,7 +969,7 @@ blink.mojom.IDBTransaction_DeleteObjectStore_ParamsSpec = {
       name: 'blink.mojom.IDBTransaction.DeleteObjectStore_Params',
       packedSize: 16,
       fields: [
-        { name: 'object_store_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -983,11 +983,11 @@ blink.mojom.IDBTransaction_Put_ParamsSpec = {
       name: 'blink.mojom.IDBTransaction.Put_Params',
       packedSize: 48,
       fields: [
-        { name: 'object_store_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBValueSpec, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
-        { name: 'mode', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBPutModeSpec, nullable: false },
-        { name: 'index_keys', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBValueSpec, nullable: false },
+        { name: 'key', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
+        { name: 'mode', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.IDBPutModeSpec, nullable: false },
+        { name: 'index_keys', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1000,7 +1000,7 @@ blink.mojom.IDBTransaction_Put_ResponseParamsSpec = {
       name: 'blink.mojom.IDBTransaction.Put_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBTransactionPutResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBTransactionPutResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1014,9 +1014,9 @@ blink.mojom.IDBTransaction_SetIndexKeys_ParamsSpec = {
       name: 'blink.mojom.IDBTransaction.SetIndexKeys_Params',
       packedSize: 32,
       fields: [
-        { name: 'object_store_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'primary_key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
-        { name: 'index_keys', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBIndexKeysSpec, nullable: false },
+        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'primary_key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBKeySpec, nullable: false },
+        { name: 'index_keys', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBIndexKeysSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1043,7 +1043,7 @@ blink.mojom.IDBTransaction_Commit_ParamsSpec = {
       name: 'blink.mojom.IDBTransaction.Commit_Params',
       packedSize: 16,
       fields: [
-        { name: 'num_errors_handled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'num_errors_handled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1127,8 +1127,8 @@ blink.mojom.IDBDatabaseGetAllResultSink_ReceiveResults_ParamsSpec = {
       name: 'blink.mojom.IDBDatabaseGetAllResultSink.ReceiveResults_Params',
       packedSize: 24,
       fields: [
-        { name: 'records', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'done', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'records', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'done', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1142,7 +1142,7 @@ blink.mojom.IDBDatabaseGetAllResultSink_OnError_ParamsSpec = {
       name: 'blink.mojom.IDBDatabaseGetAllResultSink.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBErrorSpec, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1352,9 +1352,9 @@ blink.mojom.IDBDatabase_RenameObjectStore_ParamsSpec = {
       name: 'blink.mojom.IDBDatabase.RenameObjectStore_Params',
       packedSize: 32,
       fields: [
-        { name: 'transaction_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'new_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'object_store_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'new_name', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1368,11 +1368,11 @@ blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec = {
       name: 'blink.mojom.IDBDatabase.CreateTransaction_Params',
       packedSize: 48,
       fields: [
-        { name: 'transaction_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
-        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'object_store_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'mode', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBTransactionModeSpec, nullable: false },
-        { name: 'durability', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.IDBTransactionDurabilitySpec, nullable: false },
+        { name: 'transaction_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'transaction_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'object_store_ids', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'mode', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.IDBTransactionModeSpec, nullable: false },
+        { name: 'durability', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.IDBTransactionDurabilitySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1399,11 +1399,11 @@ blink.mojom.IDBDatabase_Get_ParamsSpec = {
       name: 'blink.mojom.IDBDatabase.Get_Params',
       packedSize: 48,
       fields: [
-        { name: 'transaction_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'index_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key_range', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBKeyRangeSpec, nullable: false },
-        { name: 'key_only', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'object_store_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'index_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'key_range', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.IDBKeyRangeSpec, nullable: false },
+        { name: 'key_only', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1416,7 +1416,7 @@ blink.mojom.IDBDatabase_Get_ResponseParamsSpec = {
       name: 'blink.mojom.IDBDatabase.Get_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBDatabaseGetResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBDatabaseGetResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1430,13 +1430,13 @@ blink.mojom.IDBDatabase_GetAll_ParamsSpec = {
       name: 'blink.mojom.IDBDatabase.GetAll_Params',
       packedSize: 64,
       fields: [
-        { name: 'transaction_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'index_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key_range', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBKeyRangeSpec, nullable: false },
-        { name: 'result_type', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.IDBGetAllResultTypeSpec, nullable: false },
-        { name: 'max_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'direction', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.IDBCursorDirectionSpec, nullable: false },
+        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'object_store_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'index_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'key_range', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.IDBKeyRangeSpec, nullable: false },
+        { name: 'result_type', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.IDBGetAllResultTypeSpec, nullable: false },
+        { name: 'max_count', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'direction', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.IDBCursorDirectionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1449,7 +1449,7 @@ blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec = {
       name: 'blink.mojom.IDBDatabase.GetAll_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1463,13 +1463,13 @@ blink.mojom.IDBDatabase_OpenCursor_ParamsSpec = {
       name: 'blink.mojom.IDBDatabase.OpenCursor_Params',
       packedSize: 64,
       fields: [
-        { name: 'transaction_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'index_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key_range', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBKeyRangeSpec, nullable: false },
-        { name: 'direction', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.IDBCursorDirectionSpec, nullable: false },
-        { name: 'key_only', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'task_type', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.IDBTaskTypeSpec, nullable: false },
+        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'object_store_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'index_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'key_range', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.IDBKeyRangeSpec, nullable: false },
+        { name: 'direction', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.IDBCursorDirectionSpec, nullable: false },
+        { name: 'key_only', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'task_type', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.IDBTaskTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1482,7 +1482,7 @@ blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec = {
       name: 'blink.mojom.IDBDatabase.OpenCursor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBDatabaseOpenCursorResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBDatabaseOpenCursorResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1496,10 +1496,10 @@ blink.mojom.IDBDatabase_Count_ParamsSpec = {
       name: 'blink.mojom.IDBDatabase.Count_Params',
       packedSize: 40,
       fields: [
-        { name: 'transaction_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'index_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key_range', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBKeyRangeSpec, nullable: false },
+        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'object_store_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'index_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'key_range', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.IDBKeyRangeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1512,8 +1512,8 @@ blink.mojom.IDBDatabase_Count_ResponseParamsSpec = {
       name: 'blink.mojom.IDBDatabase.Count_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1527,9 +1527,9 @@ blink.mojom.IDBDatabase_DeleteRange_ParamsSpec = {
       name: 'blink.mojom.IDBDatabase.DeleteRange_Params',
       packedSize: 32,
       fields: [
-        { name: 'transaction_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key_range', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBKeyRangeSpec, nullable: false },
+        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'object_store_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'key_range', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBKeyRangeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1542,7 +1542,7 @@ blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec = {
       name: 'blink.mojom.IDBDatabase.DeleteRange_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1556,8 +1556,8 @@ blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ParamsSpec = {
       name: 'blink.mojom.IDBDatabase.GetKeyGeneratorCurrentNumber_Params',
       packedSize: 24,
       fields: [
-        { name: 'transaction_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'object_store_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1570,8 +1570,8 @@ blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec = {
       name: 'blink.mojom.IDBDatabase.GetKeyGeneratorCurrentNumber_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBErrorSpec, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1585,8 +1585,8 @@ blink.mojom.IDBDatabase_Clear_ParamsSpec = {
       name: 'blink.mojom.IDBDatabase.Clear_Params',
       packedSize: 24,
       fields: [
-        { name: 'transaction_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'object_store_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1599,7 +1599,7 @@ blink.mojom.IDBDatabase_Clear_ResponseParamsSpec = {
       name: 'blink.mojom.IDBDatabase.Clear_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1613,9 +1613,9 @@ blink.mojom.IDBDatabase_CreateIndex_ParamsSpec = {
       name: 'blink.mojom.IDBDatabase.CreateIndex_Params',
       packedSize: 32,
       fields: [
-        { name: 'transaction_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'index', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBIndexMetadataSpec, nullable: false },
+        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'object_store_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'index', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.IDBIndexMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1629,9 +1629,9 @@ blink.mojom.IDBDatabase_DeleteIndex_ParamsSpec = {
       name: 'blink.mojom.IDBDatabase.DeleteIndex_Params',
       packedSize: 32,
       fields: [
-        { name: 'transaction_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'index_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'object_store_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'index_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1645,10 +1645,10 @@ blink.mojom.IDBDatabase_RenameIndex_ParamsSpec = {
       name: 'blink.mojom.IDBDatabase.RenameIndex_Params',
       packedSize: 40,
       fields: [
-        { name: 'transaction_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'object_store_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'index_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'new_name', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'object_store_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'index_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'new_name', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1662,7 +1662,7 @@ blink.mojom.IDBDatabase_Abort_ParamsSpec = {
       name: 'blink.mojom.IDBDatabase.Abort_Params',
       packedSize: 16,
       fields: [
-        { name: 'transaction_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'transaction_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1689,7 +1689,7 @@ blink.mojom.IDBDatabase_UpdatePriority_ParamsSpec = {
       name: 'blink.mojom.IDBDatabase.UpdatePriority_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'new_priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1794,8 +1794,8 @@ blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec = {
       name: 'blink.mojom.IDBFactory.GetDatabaseInfo_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'names_and_versions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IDBErrorSpec, nullable: false },
+        { name: 'names_and_versions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IDBErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1809,13 +1809,13 @@ blink.mojom.IDBFactory_Open_ParamsSpec = {
       name: 'blink.mojom.IDBFactory.Open_Params',
       packedSize: 56,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'database_callbacks', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'version_change_transaction_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
-        { name: 'transaction_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'priority', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'database_callbacks', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'version_change_transaction_receiver', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'transaction_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'priority', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1829,9 +1829,9 @@ blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec = {
       name: 'blink.mojom.IDBFactory.DeleteDatabase_Params',
       packedSize: 32,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'force_close', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'force_close', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

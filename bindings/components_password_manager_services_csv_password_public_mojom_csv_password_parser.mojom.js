@@ -23,7 +23,7 @@ password_manager.mojom.CSVPasswordSequenceSpec = {
       name: 'password_manager.mojom.CSVPasswordSequence',
       packedSize: 16,
       fields: [
-        { name: 'csv_passwords', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'csv_passwords', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,7 +37,7 @@ password_manager.mojom.CSVPasswordSpec = {
       name: 'password_manager.mojom.CSVPassword',
       packedSize: 16,
       fields: [
-        { name: 'kOK', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kOK', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -107,7 +107,7 @@ password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec = {
       name: 'password_manager.mojom.CSVPasswordParser.ParseCSV_Params',
       packedSize: 16,
       fields: [
-        { name: 'raw_csv', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'raw_csv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -120,7 +120,7 @@ password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec = {
       name: 'password_manager.mojom.CSVPasswordParser.ParseCSV_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'sequence', packedOffset: 0, packedBitOffset: 0, type: password_manager.mojom.CSVPasswordSequenceSpec, nullable: true },
+        { name: 'sequence', packedOffset: 8, packedBitOffset: 0, type: password_manager.mojom.CSVPasswordSequenceSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

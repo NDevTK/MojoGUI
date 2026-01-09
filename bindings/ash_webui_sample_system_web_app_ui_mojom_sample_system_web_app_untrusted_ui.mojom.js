@@ -73,8 +73,8 @@ ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec 
       name: 'ash.mojom.sample_swa.UntrustedPageInterfacesFactory.CreateParentPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'child_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'parent_page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'child_page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'parent_page', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

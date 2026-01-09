@@ -32,10 +32,10 @@ network.mojom.FileEnumerationEntrySpec = {
       name: 'network.mojom.FileEnumerationEntry',
       packedSize: 40,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'last_accessed', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'last_modified', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'last_accessed', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'last_modified', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -105,7 +105,7 @@ network.mojom.FileEnumerator_GetNext_ParamsSpec = {
       name: 'network.mojom.FileEnumerator.GetNext_Params',
       packedSize: 16,
       fields: [
-        { name: 'num_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'num_entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -118,9 +118,9 @@ network.mojom.FileEnumerator_GetNext_ResponseParamsSpec = {
       name: 'network.mojom.FileEnumerator.GetNext_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'error', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'end', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'error', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -267,7 +267,7 @@ network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperations.CreateDirectory_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -280,7 +280,7 @@ network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec 
       name: 'network.mojom.HttpCacheBackendFileOperations.CreateDirectory_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -294,7 +294,7 @@ network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperations.PathExists_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -307,7 +307,7 @@ network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperations.PathExists_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -321,7 +321,7 @@ network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperations.DirectoryExists_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -334,7 +334,7 @@ network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec 
       name: 'network.mojom.HttpCacheBackendFileOperations.DirectoryExists_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -348,8 +348,8 @@ network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperations.OpenFile_Params',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpCacheBackendOpenFileFlagsSpec, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'flags', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpCacheBackendOpenFileFlagsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -362,8 +362,8 @@ network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperations.OpenFile_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -377,8 +377,8 @@ network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperations.DeleteFile_Params',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpCacheBackendDeleteFileModeSpec, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpCacheBackendDeleteFileModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -391,7 +391,7 @@ network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperations.DeleteFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -405,8 +405,8 @@ network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperations.RenameFile_Params',
       packedSize: 24,
       fields: [
-        { name: 'from_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'to_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'from_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'to_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -419,7 +419,7 @@ network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperations.RenameFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -433,7 +433,7 @@ network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperations.GetFileInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -446,7 +446,7 @@ network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperations.GetFileInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileInfoSpec, nullable: true },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -460,8 +460,8 @@ network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperations.EnumerateFiles_Params',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -475,7 +475,7 @@ network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperations.CleanupDirectory_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -488,7 +488,7 @@ network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec
       name: 'network.mojom.HttpCacheBackendFileOperations.CleanupDirectory_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -563,7 +563,7 @@ network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec = {
       name: 'network.mojom.HttpCacheBackendFileOperationsFactory.Create_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

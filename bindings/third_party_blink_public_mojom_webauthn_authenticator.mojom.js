@@ -123,10 +123,10 @@ blink.mojom.CommonCredentialInfoSpec = {
       name: 'blink.mojom.CommonCredentialInfo',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'raw_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'client_data_json', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'authenticator_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'raw_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'client_data_json', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'authenticator_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -140,9 +140,9 @@ blink.mojom.UvmEntrySpec = {
       name: 'blink.mojom.UvmEntry',
       packedSize: 16,
       fields: [
-        { name: 'user_verification_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'key_protection_type', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'matcher_protection_type', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'user_verification_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'key_protection_type', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'matcher_protection_type', packedOffset: 14, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -156,7 +156,7 @@ blink.mojom.SupplementalPubKeysResponseSpec = {
       name: 'blink.mojom.SupplementalPubKeysResponse',
       packedSize: 16,
       fields: [
-        { name: 'signatures', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'signatures', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -170,7 +170,7 @@ blink.mojom.AuthenticationExtensionsPaymentResponseSpec = {
       name: 'blink.mojom.AuthenticationExtensionsPaymentResponse',
       packedSize: 16,
       fields: [
-        { name: 'browser_bound_signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'browser_bound_signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -184,26 +184,26 @@ blink.mojom.MakeCredentialAuthenticatorResponseSpec = {
       name: 'blink.mojom.MakeCredentialAuthenticatorResponse',
       packedSize: 104,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CommonCredentialInfoSpec, nullable: false },
-        { name: 'authenticator_attachment', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AuthenticatorAttachmentSpec, nullable: false },
-        { name: 'attestation_object', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'transports', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'echo_hmac_create_secret', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'hmac_create_secret', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'echo_prf', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'prf', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'prf_results', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.PRFValuesSpec, nullable: true },
-        { name: 'echo_cred_blob', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'cred_blob', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'public_key_der', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'public_key_algo', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'echo_cred_props', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_cred_props_rk', packedOffset: 68, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'cred_props_rk', packedOffset: 68, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'echo_large_blob', packedOffset: 68, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'supports_large_blob', packedOffset: 68, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'supplemental_pub_keys', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.SupplementalPubKeysResponseSpec, nullable: true },
-        { name: 'payment', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.AuthenticationExtensionsPaymentResponseSpec, nullable: true },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CommonCredentialInfoSpec, nullable: false },
+        { name: 'authenticator_attachment', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AuthenticatorAttachmentSpec, nullable: false },
+        { name: 'attestation_object', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'transports', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'echo_hmac_create_secret', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'hmac_create_secret', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'echo_prf', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'prf', packedOffset: 40, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'prf_results', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.PRFValuesSpec, nullable: true },
+        { name: 'echo_cred_blob', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'cred_blob', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'public_key_der', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'public_key_algo', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'echo_cred_props', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_cred_props_rk', packedOffset: 76, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'cred_props_rk', packedOffset: 76, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'echo_large_blob', packedOffset: 76, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'supports_large_blob', packedOffset: 76, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'supplemental_pub_keys', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.SupplementalPubKeysResponseSpec, nullable: true },
+        { name: 'payment', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.AuthenticationExtensionsPaymentResponseSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -217,11 +217,11 @@ blink.mojom.GetAssertionAuthenticatorResponseSpec = {
       name: 'blink.mojom.GetAssertionAuthenticatorResponse',
       packedSize: 48,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CommonCredentialInfoSpec, nullable: false },
-        { name: 'authenticator_attachment', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AuthenticatorAttachmentSpec, nullable: false },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'user_handle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'extensions', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AuthenticationExtensionsClientOutputsSpec, nullable: false },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CommonCredentialInfoSpec, nullable: false },
+        { name: 'authenticator_attachment', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AuthenticatorAttachmentSpec, nullable: false },
+        { name: 'signature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'user_handle', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'extensions', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AuthenticationExtensionsClientOutputsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -235,20 +235,20 @@ blink.mojom.AuthenticationExtensionsClientOutputsSpec = {
       name: 'blink.mojom.AuthenticationExtensionsClientOutputs',
       packedSize: 96,
       fields: [
-        { name: 'echo_appid_extension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'appid_extension', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'echo_user_verification_methods', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'user_verification_methods', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'echo_prf', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'prf_results', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.PRFValuesSpec, nullable: true },
-        { name: 'prf_not_evaluated', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'echo_large_blob', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'large_blob', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'echo_large_blob_written', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'large_blob_written', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'get_cred_blob', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'supplemental_pub_keys', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.SupplementalPubKeysResponseSpec, nullable: true },
-        { name: 'payment', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.AuthenticationExtensionsPaymentResponseSpec, nullable: true },
+        { name: 'echo_appid_extension', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'appid_extension', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'echo_user_verification_methods', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'user_verification_methods', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'echo_prf', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'prf_results', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.PRFValuesSpec, nullable: true },
+        { name: 'prf_not_evaluated', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'echo_large_blob', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'large_blob', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'echo_large_blob_written', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'large_blob_written', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'get_cred_blob', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'supplemental_pub_keys', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.SupplementalPubKeysResponseSpec, nullable: true },
+        { name: 'payment', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.AuthenticationExtensionsPaymentResponseSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -262,8 +262,8 @@ blink.mojom.PublicKeyCredentialRpEntitySpec = {
       name: 'blink.mojom.PublicKeyCredentialRpEntity',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -277,9 +277,9 @@ blink.mojom.PublicKeyCredentialUserEntitySpec = {
       name: 'blink.mojom.PublicKeyCredentialUserEntity',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'display_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -293,8 +293,8 @@ blink.mojom.PublicKeyCredentialParametersSpec = {
       name: 'blink.mojom.PublicKeyCredentialParameters',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialTypeSpec, nullable: false },
-        { name: 'algorithm_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialTypeSpec, nullable: false },
+        { name: 'algorithm_identifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -308,12 +308,12 @@ blink.mojom.CableAuthenticationSpec = {
       name: 'blink.mojom.CableAuthentication',
       packedSize: 56,
       fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'client_eid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'authenticator_eid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'session_pre_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'server_link_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'experiments', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'client_eid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'authenticator_eid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'session_pre_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'server_link_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'experiments', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -327,9 +327,9 @@ blink.mojom.PRFValuesSpec = {
       name: 'blink.mojom.PRFValues',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'first', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'second', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'first', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'second', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -343,12 +343,12 @@ blink.mojom.PaymentOptionsSpec = {
       name: 'blink.mojom.PaymentOptions',
       packedSize: 56,
       fields: [
-        { name: 'total', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: false },
-        { name: 'instrument', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PaymentCredentialInstrumentSpec, nullable: false },
-        { name: 'payee_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'payee_origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
-        { name: 'payment_entities_logos', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'browser_bound_public_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'total', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: false },
+        { name: 'instrument', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PaymentCredentialInstrumentSpec, nullable: false },
+        { name: 'payee_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'payee_origin', packedOffset: 32, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
+        { name: 'payment_entities_logos', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'browser_bound_public_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -362,10 +362,10 @@ blink.mojom.PaymentCredentialInstrumentSpec = {
       name: 'blink.mojom.PaymentCredentialInstrument',
       packedSize: 40,
       fields: [
-        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'iconMustBeShown', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'details', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'icon', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'iconMustBeShown', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'details', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -379,8 +379,8 @@ blink.mojom.ShownPaymentEntityLogoSpec = {
       name: 'blink.mojom.ShownPaymentEntityLogo',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -394,8 +394,8 @@ blink.mojom.RemoteDesktopClientOverrideSpec = {
       name: 'blink.mojom.RemoteDesktopClientOverride',
       packedSize: 24,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'same_origin_with_ancestors', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'same_origin_with_ancestors', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -409,10 +409,10 @@ blink.mojom.SupplementalPubKeysRequestSpec = {
       name: 'blink.mojom.SupplementalPubKeysRequest',
       packedSize: 32,
       fields: [
-        { name: 'device_scope_requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'provider_scope_requested', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'attestation', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AttestationConveyancePreferenceSpec, nullable: false },
-        { name: 'attestation_formats', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'device_scope_requested', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'provider_scope_requested', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'attestation', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AttestationConveyancePreferenceSpec, nullable: false },
+        { name: 'attestation_formats', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -426,14 +426,14 @@ blink.mojom.PublicKeyCredentialRequestOptionsSpec = {
       name: 'blink.mojom.PublicKeyCredentialRequestOptions',
       packedSize: 72,
       fields: [
-        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'challenge_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'timeout', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
-        { name: 'relying_party_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'allow_credentials', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'hints', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'user_verification', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.UserVerificationRequirementSpec, nullable: false },
-        { name: 'extensions', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.AuthenticationExtensionsClientInputsSpec, nullable: false },
+        { name: 'challenge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'challenge_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'timeout', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'relying_party_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'allow_credentials', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'hints', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'user_verification', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.UserVerificationRequirementSpec, nullable: false },
+        { name: 'extensions', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.AuthenticationExtensionsClientInputsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -447,17 +447,17 @@ blink.mojom.AuthenticationExtensionsClientInputsSpec = {
       name: 'blink.mojom.AuthenticationExtensionsClientInputs',
       packedSize: 96,
       fields: [
-        { name: 'appid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cable_authentication_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'user_verification_methods', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'prf', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'prf_inputs', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'large_blob_read', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'large_blob_write', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'get_cred_blob', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'remote_desktop_client_override', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.RemoteDesktopClientOverrideSpec, nullable: true },
-        { name: 'supplemental_pub_keys', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.SupplementalPubKeysRequestSpec, nullable: true },
-        { name: 'payment_browser_bound_key_parameters', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'appid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cable_authentication_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'user_verification_methods', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'prf', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'prf_inputs', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'large_blob_read', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'large_blob_write', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'get_cred_blob', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'remote_desktop_client_override', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.RemoteDesktopClientOverrideSpec, nullable: true },
+        { name: 'supplemental_pub_keys', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.SupplementalPubKeysRequestSpec, nullable: true },
+        { name: 'payment_browser_bound_key_parameters', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -471,9 +471,9 @@ blink.mojom.GetCredentialOptionsSpec = {
       name: 'blink.mojom.GetCredentialOptions',
       packedSize: 32,
       fields: [
-        { name: 'mediation', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediationSpec, nullable: false },
-        { name: 'public_key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialRequestOptionsSpec, nullable: true },
-        { name: 'password', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'mediation', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediationSpec, nullable: false },
+        { name: 'public_key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialRequestOptionsSpec, nullable: true },
+        { name: 'password', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -487,9 +487,9 @@ blink.mojom.AuthenticatorSelectionCriteriaSpec = {
       name: 'blink.mojom.AuthenticatorSelectionCriteria',
       packedSize: 32,
       fields: [
-        { name: 'authenticator_attachment', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuthenticatorAttachmentSpec, nullable: false },
-        { name: 'resident_key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ResidentKeyRequirementSpec, nullable: false },
-        { name: 'user_verification', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.UserVerificationRequirementSpec, nullable: false },
+        { name: 'authenticator_attachment', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AuthenticatorAttachmentSpec, nullable: false },
+        { name: 'resident_key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ResidentKeyRequirementSpec, nullable: false },
+        { name: 'user_verification', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.UserVerificationRequirementSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -503,31 +503,31 @@ blink.mojom.PublicKeyCredentialCreationOptionsSpec = {
       name: 'blink.mojom.PublicKeyCredentialCreationOptions',
       packedSize: 200,
       fields: [
-        { name: 'relying_party', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialRpEntitySpec, nullable: false },
-        { name: 'user', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialUserEntitySpec, nullable: false },
-        { name: 'challenge', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'public_key_parameters', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'timeout', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
-        { name: 'exclude_credentials', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'authenticator_selection', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.AuthenticatorSelectionCriteriaSpec, nullable: true },
-        { name: 'hints', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'attestation', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.AttestationConveyancePreferenceSpec, nullable: false },
-        { name: 'hmac_create_secret', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'prf_enable', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'prf_input', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.PRFValuesSpec, nullable: true },
-        { name: 'protection_policy', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.ProtectionPolicySpec, nullable: false },
-        { name: 'enforce_protection_policy', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'appid_exclude', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cred_props', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'large_blob_enable', packedOffset: 120, packedBitOffset: 0, type: blink.mojom.LargeBlobSupportSpec, nullable: false },
-        { name: 'is_payment_credential_creation', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'cred_blob', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'min_pin_length_requested', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'remote_desktop_client_override', packedOffset: 152, packedBitOffset: 0, type: blink.mojom.RemoteDesktopClientOverrideSpec, nullable: true },
-        { name: 'supplemental_pub_keys', packedOffset: 160, packedBitOffset: 0, type: blink.mojom.SupplementalPubKeysRequestSpec, nullable: true },
-        { name: 'payment_browser_bound_key_parameters', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'attestation_formats', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'is_conditional', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'relying_party', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialRpEntitySpec, nullable: false },
+        { name: 'user', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialUserEntitySpec, nullable: false },
+        { name: 'challenge', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'public_key_parameters', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'timeout', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'exclude_credentials', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'authenticator_selection', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.AuthenticatorSelectionCriteriaSpec, nullable: true },
+        { name: 'hints', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'attestation', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.AttestationConveyancePreferenceSpec, nullable: false },
+        { name: 'hmac_create_secret', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'prf_enable', packedOffset: 80, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'prf_input', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.PRFValuesSpec, nullable: true },
+        { name: 'protection_policy', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.ProtectionPolicySpec, nullable: false },
+        { name: 'enforce_protection_policy', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'appid_exclude', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cred_props', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'large_blob_enable', packedOffset: 128, packedBitOffset: 0, type: blink.mojom.LargeBlobSupportSpec, nullable: false },
+        { name: 'is_payment_credential_creation', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'cred_blob', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'min_pin_length_requested', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'remote_desktop_client_override', packedOffset: 160, packedBitOffset: 0, type: blink.mojom.RemoteDesktopClientOverrideSpec, nullable: true },
+        { name: 'supplemental_pub_keys', packedOffset: 168, packedBitOffset: 0, type: blink.mojom.SupplementalPubKeysRequestSpec, nullable: true },
+        { name: 'payment_browser_bound_key_parameters', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'attestation_formats', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_conditional', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -541,9 +541,9 @@ blink.mojom.PublicKeyCredentialDescriptorSpec = {
       name: 'blink.mojom.PublicKeyCredentialDescriptor',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialTypeSpec, nullable: false },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'transports', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialTypeSpec, nullable: false },
+        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'transports', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -557,8 +557,8 @@ blink.mojom.WebAuthnDOMExceptionDetailsSpec = {
       name: 'blink.mojom.WebAuthnDOMExceptionDetails',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -572,10 +572,10 @@ blink.mojom.PublicKeyCredentialReportOptionsSpec = {
       name: 'blink.mojom.PublicKeyCredentialReportOptions',
       packedSize: 40,
       fields: [
-        { name: 'relying_party_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'unknown_credential_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'all_accepted_credentials', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AllAcceptedCredentialsOptionsSpec, nullable: true },
-        { name: 'current_user_details', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.CurrentUserDetailsOptionsSpec, nullable: true },
+        { name: 'relying_party_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'unknown_credential_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'all_accepted_credentials', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AllAcceptedCredentialsOptionsSpec, nullable: true },
+        { name: 'current_user_details', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.CurrentUserDetailsOptionsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -589,8 +589,8 @@ blink.mojom.AllAcceptedCredentialsOptionsSpec = {
       name: 'blink.mojom.AllAcceptedCredentialsOptions',
       packedSize: 24,
       fields: [
-        { name: 'user_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'all_accepted_credentials_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'user_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'all_accepted_credentials_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -604,9 +604,9 @@ blink.mojom.CurrentUserDetailsOptionsSpec = {
       name: 'blink.mojom.CurrentUserDetailsOptions',
       packedSize: 32,
       fields: [
-        { name: 'user_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'user_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'display_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -620,8 +620,8 @@ blink.mojom.WebAuthnClientCapabilitySpec = {
       name: 'blink.mojom.WebAuthnClientCapability',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'supported', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -635,9 +635,9 @@ blink.mojom.GetAssertionResponseSpec = {
       name: 'blink.mojom.GetAssertionResponse',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuthenticatorStatusSpec, nullable: false },
-        { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.GetAssertionAuthenticatorResponseSpec, nullable: true },
-        { name: 'dom_exception_details', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebAuthnDOMExceptionDetailsSpec, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AuthenticatorStatusSpec, nullable: false },
+        { name: 'credential', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.GetAssertionAuthenticatorResponseSpec, nullable: true },
+        { name: 'dom_exception_details', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.WebAuthnDOMExceptionDetailsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -761,7 +761,7 @@ blink.mojom.Authenticator_MakeCredential_ParamsSpec = {
       name: 'blink.mojom.Authenticator.MakeCredential_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialCreationOptionsSpec, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialCreationOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -774,9 +774,9 @@ blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec = {
       name: 'blink.mojom.Authenticator.MakeCredential_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuthenticatorStatusSpec, nullable: false },
-        { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MakeCredentialAuthenticatorResponseSpec, nullable: true },
-        { name: 'dom_exception_details', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebAuthnDOMExceptionDetailsSpec, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AuthenticatorStatusSpec, nullable: false },
+        { name: 'credential', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MakeCredentialAuthenticatorResponseSpec, nullable: true },
+        { name: 'dom_exception_details', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.WebAuthnDOMExceptionDetailsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -790,7 +790,7 @@ blink.mojom.Authenticator_GetCredential_ParamsSpec = {
       name: 'blink.mojom.Authenticator.GetCredential_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetCredentialOptionsSpec, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.GetCredentialOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -803,7 +803,7 @@ blink.mojom.Authenticator_GetCredential_ResponseParamsSpec = {
       name: 'blink.mojom.Authenticator.GetCredential_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetCredentialResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.GetCredentialResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -829,7 +829,7 @@ blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_Response
       name: 'blink.mojom.Authenticator.IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -855,7 +855,7 @@ blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec = {
       name: 'blink.mojom.Authenticator.IsConditionalMediationAvailable_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -869,7 +869,7 @@ blink.mojom.Authenticator_Report_ParamsSpec = {
       name: 'blink.mojom.Authenticator.Report_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialReportOptionsSpec, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialReportOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -882,8 +882,8 @@ blink.mojom.Authenticator_Report_ResponseParamsSpec = {
       name: 'blink.mojom.Authenticator.Report_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuthenticatorStatusSpec, nullable: false },
-        { name: 'dom_exception_details', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebAuthnDOMExceptionDetailsSpec, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AuthenticatorStatusSpec, nullable: false },
+        { name: 'dom_exception_details', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebAuthnDOMExceptionDetailsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -909,7 +909,7 @@ blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec = {
       name: 'blink.mojom.Authenticator.GetClientCapabilities_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'capabilities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

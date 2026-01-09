@@ -22,7 +22,7 @@ blink.mojom.DevToolsMessageSpec = {
       name: 'blink.mojom.DevToolsMessage',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -36,7 +36,7 @@ blink.mojom.DevToolsSessionStateSpec = {
       name: 'blink.mojom.DevToolsSessionState',
       packedSize: 16,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -124,15 +124,15 @@ blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec = {
       name: 'blink.mojom.DevToolsAgent.AttachDevToolsSession_Params',
       packedSize: 64,
       fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'session', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
-        { name: 'io_session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'reattach_session_state', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.DevToolsSessionStateSpec, nullable: true },
-        { name: 'script_to_evaluate_on_load', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'client_expects_binary_responses', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'client_is_trusted', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'session_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'session_waits_for_debugger', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'session', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'io_session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'reattach_session_state', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.DevToolsSessionStateSpec, nullable: true },
+        { name: 'script_to_evaluate_on_load', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'client_expects_binary_responses', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'client_is_trusted', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'session_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'session_waits_for_debugger', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -146,7 +146,7 @@ blink.mojom.DevToolsAgent_InspectElement_ParamsSpec = {
       name: 'blink.mojom.DevToolsAgent.InspectElement_Params',
       packedSize: 16,
       fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -160,8 +160,8 @@ blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec = {
       name: 'blink.mojom.DevToolsAgent.ReportChildTargets_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'wait_for_debugger', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'report', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'wait_for_debugger', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -263,13 +263,13 @@ blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec = {
       name: 'blink.mojom.DevToolsAgentHost.ChildTargetCreated_Params',
       packedSize: 56,
       fields: [
-        { name: 'worker_devtools_agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'worker_devtools_agent_host', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'devtools_worker_token', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'waiting_for_debugger', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'context_type', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.DevToolsExecutionContextTypeSpec, nullable: false },
+        { name: 'worker_devtools_agent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'worker_devtools_agent_host', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'devtools_worker_token', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'waiting_for_debugger', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'context_type', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.DevToolsExecutionContextTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -392,9 +392,9 @@ blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec = {
       name: 'blink.mojom.DevToolsSession.DispatchProtocolCommand_Params',
       packedSize: 32,
       fields: [
-        { name: 'call_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
+        { name: 'call_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'method', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -491,9 +491,9 @@ blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec = {
       name: 'blink.mojom.DevToolsSessionHost.DispatchProtocolResponse_Params',
       packedSize: 32,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevToolsMessageSpec, nullable: false },
-        { name: 'call_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'updates', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.DevToolsSessionStateSpec, nullable: true },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DevToolsMessageSpec, nullable: false },
+        { name: 'call_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'updates', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.DevToolsSessionStateSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -507,8 +507,8 @@ blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec = {
       name: 'blink.mojom.DevToolsSessionHost.DispatchProtocolNotification_Params',
       packedSize: 24,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevToolsMessageSpec, nullable: false },
-        { name: 'updates', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DevToolsSessionStateSpec, nullable: true },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DevToolsMessageSpec, nullable: false },
+        { name: 'updates', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.DevToolsSessionStateSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

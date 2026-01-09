@@ -16,9 +16,9 @@ network.mojom.EarlyHintsSpec = {
       name: 'network.mojom.EarlyHints',
       packedSize: 32,
       fields: [
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ParsedHeadersSpec, nullable: false },
-        { name: 'referrer_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false },
-        { name: 'ip_address_space', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
+        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ParsedHeadersSpec, nullable: false },
+        { name: 'referrer_policy', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false },
+        { name: 'ip_address_space', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

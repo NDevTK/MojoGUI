@@ -34,8 +34,8 @@ blink.mojom.AILanguageModelSamplingParamsSpec = {
       name: 'blink.mojom.AILanguageModelSamplingParams',
       packedSize: 16,
       fields: [
-        { name: 'top_k', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'temperature', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'top_k', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'temperature', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -49,8 +49,8 @@ blink.mojom.AILanguageModelParamsSpec = {
       name: 'blink.mojom.AILanguageModelParams',
       packedSize: 24,
       fields: [
-        { name: 'default_sampling_params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AILanguageModelSamplingParamsSpec, nullable: false },
-        { name: 'max_sampling_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AILanguageModelSamplingParamsSpec, nullable: false },
+        { name: 'default_sampling_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AILanguageModelSamplingParamsSpec, nullable: false },
+        { name: 'max_sampling_params', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AILanguageModelSamplingParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -64,10 +64,10 @@ blink.mojom.AILanguageModelInstanceInfoSpec = {
       name: 'blink.mojom.AILanguageModelInstanceInfo',
       packedSize: 40,
       fields: [
-        { name: 'input_quota', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'input_usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'sampling_params', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AILanguageModelSamplingParamsSpec, nullable: false },
-        { name: 'input_types', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'input_quota', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'input_usage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'sampling_params', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AILanguageModelSamplingParamsSpec, nullable: false },
+        { name: 'input_types', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -81,8 +81,8 @@ blink.mojom.AILanguageModelExpectedSpec = {
       name: 'blink.mojom.AILanguageModelExpected',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AILanguageModelPromptTypeSpec, nullable: false },
-        { name: 'languages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AILanguageModelPromptTypeSpec, nullable: false },
+        { name: 'languages', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -96,9 +96,9 @@ blink.mojom.AILanguageModelPromptSpec = {
       name: 'blink.mojom.AILanguageModelPrompt',
       packedSize: 32,
       fields: [
-        { name: 'role', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AILanguageModelPromptRoleSpec, nullable: false },
-        { name: 'content', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'is_prefix', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'role', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AILanguageModelPromptRoleSpec, nullable: false },
+        { name: 'content', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_prefix', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,10 +112,10 @@ blink.mojom.AILanguageModelCreateOptionsSpec = {
       name: 'blink.mojom.AILanguageModelCreateOptions',
       packedSize: 40,
       fields: [
-        { name: 'sampling_params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AILanguageModelSamplingParamsSpec, nullable: true },
-        { name: 'initial_prompts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'expected_inputs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'expected_outputs', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'sampling_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AILanguageModelSamplingParamsSpec, nullable: true },
+        { name: 'initial_prompts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'expected_inputs', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'expected_outputs', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -194,8 +194,8 @@ blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec = {
       name: 'blink.mojom.AIManagerCreateLanguageModelClient.OnResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'language_model_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AILanguageModelInstanceInfoSpec, nullable: false },
+        { name: 'language_model_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'info', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AILanguageModelInstanceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -209,8 +209,8 @@ blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec = {
       name: 'blink.mojom.AIManagerCreateLanguageModelClient.OnError_Params',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIManagerCreateClientErrorSpec, nullable: false },
-        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AIManagerCreateClientErrorSpec, nullable: false },
+        { name: 'quota_error_info', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -321,9 +321,9 @@ blink.mojom.AILanguageModel_Prompt_ParamsSpec = {
       name: 'blink.mojom.AILanguageModel.Prompt_Params',
       packedSize: 32,
       fields: [
-        { name: 'prompts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'constraint', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.ResponseConstraintSpec, nullable: true },
-        { name: 'pending_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'prompts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'constraint', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.ResponseConstraintSpec, nullable: true },
+        { name: 'pending_responder', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -337,8 +337,8 @@ blink.mojom.AILanguageModel_Append_ParamsSpec = {
       name: 'blink.mojom.AILanguageModel.Append_Params',
       packedSize: 24,
       fields: [
-        { name: 'prompts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'prompts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -352,7 +352,7 @@ blink.mojom.AILanguageModel_Fork_ParamsSpec = {
       name: 'blink.mojom.AILanguageModel.Fork_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -379,7 +379,7 @@ blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec = {
       name: 'blink.mojom.AILanguageModel.MeasureInputUsage_Params',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -392,7 +392,7 @@ blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec = {
       name: 'blink.mojom.AILanguageModel.MeasureInputUsage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'number_of_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'number_of_tokens', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
       versions: [{version: 0}]
     }

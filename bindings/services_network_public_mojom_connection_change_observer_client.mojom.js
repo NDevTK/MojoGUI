@@ -24,10 +24,10 @@ network.mojom.ConnectionKeepAliveConfigSpec = {
       name: 'network.mojom.ConnectionKeepAliveConfig',
       packedSize: 32,
       fields: [
-        { name: 'idle_timeout_in_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'ping_interval_in_seconds', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'enable_connection_keep_alive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'quic_connection_options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'idle_timeout_in_seconds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'ping_interval_in_seconds', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'enable_connection_keep_alive', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'quic_connection_options', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -128,7 +128,7 @@ network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec = {
       name: 'network.mojom.ConnectionChangeObserverClient.OnNetworkEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkChangeEventSpec, nullable: false },
+        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: network.mojom.NetworkChangeEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

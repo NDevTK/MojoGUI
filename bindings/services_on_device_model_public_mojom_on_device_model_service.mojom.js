@@ -57,11 +57,11 @@ on_device_model.mojom.ModelAssetsSpec = {
       name: 'on_device_model.mojom.ModelAssets',
       packedSize: 48,
       fields: [
-        { name: 'weights', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.ModelFileSpec, nullable: false },
-        { name: 'sp_model_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true },
-        { name: 'cache', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
-        { name: 'encoder_cache', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
-        { name: 'adapter_cache', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
+        { name: 'weights', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.ModelFileSpec, nullable: false },
+        { name: 'sp_model_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true },
+        { name: 'cache', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
+        { name: 'encoder_cache', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
+        { name: 'adapter_cache', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -75,11 +75,11 @@ on_device_model.mojom.LoadModelParamsSpec = {
       name: 'on_device_model.mojom.LoadModelParams',
       packedSize: 48,
       fields: [
-        { name: 'backend_type', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.ModelBackendTypeSpec, nullable: false },
-        { name: 'assets', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.ModelAssetsSpec, nullable: false },
-        { name: 'max_tokens', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'adaptation_ranks', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'performance_hint', packedOffset: 32, packedBitOffset: 0, type: on_device_model.mojom.ModelPerformanceHintSpec, nullable: false },
+        { name: 'backend_type', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.ModelBackendTypeSpec, nullable: false },
+        { name: 'assets', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.ModelAssetsSpec, nullable: false },
+        { name: 'max_tokens', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'adaptation_ranks', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'performance_hint', packedOffset: 40, packedBitOffset: 0, type: on_device_model.mojom.ModelPerformanceHintSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -93,8 +93,8 @@ on_device_model.mojom.TextSafetyModelAssetsSpec = {
       name: 'on_device_model.mojom.TextSafetyModelAssets',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
-        { name: 'sp_model', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
+        { name: 'sp_model', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,7 +108,7 @@ on_device_model.mojom.BertSafetyModelAssetsSpec = {
       name: 'on_device_model.mojom.BertSafetyModelAssets',
       packedSize: 16,
       fields: [
-        { name: 'model', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -122,7 +122,7 @@ on_device_model.mojom.LanguageModelAssetsSpec = {
       name: 'on_device_model.mojom.LanguageModelAssets',
       packedSize: 16,
       fields: [
-        { name: 'model', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -136,8 +136,8 @@ on_device_model.mojom.TextSafetyModelParamsSpec = {
       name: 'on_device_model.mojom.TextSafetyModelParams',
       packedSize: 24,
       fields: [
-        { name: 'safety_assets', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.SafetyModelAssetsSpec, nullable: true },
-        { name: 'language_assets', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.LanguageModelAssetsSpec, nullable: true },
+        { name: 'safety_assets', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.SafetyModelAssetsSpec, nullable: true },
+        { name: 'language_assets', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.LanguageModelAssetsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -286,8 +286,8 @@ on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = {
       name: 'on_device_model.mojom.OnDeviceModelService.LoadModel_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelParamsSpec, nullable: false },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.LoadModelParamsSpec, nullable: false },
+        { name: 'model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -300,7 +300,7 @@ on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec = {
       name: 'on_device_model.mojom.OnDeviceModelService.LoadModel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -314,7 +314,7 @@ on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec = {
       name: 'on_device_model.mojom.OnDeviceModelService.GetCapabilities_Params',
       packedSize: 16,
       fields: [
-        { name: 'weights', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.ModelFileSpec, nullable: false },
+        { name: 'weights', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.ModelFileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -327,7 +327,7 @@ on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec = 
       name: 'on_device_model.mojom.OnDeviceModelService.GetCapabilities_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.CapabilitiesSpec, nullable: false },
+        { name: 'capabilities', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.CapabilitiesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -341,8 +341,8 @@ on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec = {
       name: 'on_device_model.mojom.OnDeviceModelService.LoadTextSafetyModel_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.TextSafetyModelParamsSpec, nullable: false },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.TextSafetyModelParamsSpec, nullable: false },
+        { name: 'model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -368,8 +368,8 @@ on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseP
       name: 'on_device_model.mojom.OnDeviceModelService.GetDeviceAndPerformanceInfo_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'performanceInfo', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.DevicePerformanceInfoSpec, nullable: false },
-        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.DeviceInfoSpec, nullable: false },
+        { name: 'performanceInfo', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.DevicePerformanceInfoSpec, nullable: false },
+        { name: 'device_info', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.DeviceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

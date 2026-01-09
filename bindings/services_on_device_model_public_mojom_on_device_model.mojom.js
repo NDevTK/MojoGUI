@@ -46,8 +46,8 @@ on_device_model.mojom.AdaptationAssetsSpec = {
       name: 'on_device_model.mojom.AdaptationAssets',
       packedSize: 24,
       fields: [
-        { name: 'weights', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
-        { name: 'weights_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true },
+        { name: 'weights', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
+        { name: 'weights_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -61,8 +61,8 @@ on_device_model.mojom.LanguageDetectionResultSpec = {
       name: 'on_device_model.mojom.LanguageDetectionResult',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'reliability', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'reliability', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -76,8 +76,8 @@ on_device_model.mojom.SafetyInfoSpec = {
       name: 'on_device_model.mojom.SafetyInfo',
       packedSize: 24,
       fields: [
-        { name: 'class_scores', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.LanguageDetectionResultSpec, nullable: true },
+        { name: 'class_scores', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'language', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.LanguageDetectionResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -91,8 +91,8 @@ on_device_model.mojom.ResponseChunkSpec = {
       name: 'on_device_model.mojom.ResponseChunk',
       packedSize: 24,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'safety_info', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.SafetyInfoSpec, nullable: true },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'safety_info', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.SafetyInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -106,8 +106,8 @@ on_device_model.mojom.ResponseSummarySpec = {
       name: 'on_device_model.mojom.ResponseSummary',
       packedSize: 24,
       fields: [
-        { name: 'safety_info', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.SafetyInfoSpec, nullable: true },
-        { name: 'output_token_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'safety_info', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.SafetyInfoSpec, nullable: true },
+        { name: 'output_token_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +121,7 @@ on_device_model.mojom.LoadAdaptationParamsSpec = {
       name: 'on_device_model.mojom.LoadAdaptationParams',
       packedSize: 16,
       fields: [
-        { name: 'assets', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.AdaptationAssetsSpec, nullable: false },
+        { name: 'assets', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.AdaptationAssetsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,8 +135,8 @@ on_device_model.mojom.CapabilitiesSpec = {
       name: 'on_device_model.mojom.Capabilities',
       packedSize: 16,
       fields: [
-        { name: 'image_input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'audio_input', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'image_input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'audio_input', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -150,10 +150,10 @@ on_device_model.mojom.SessionParamsSpec = {
       name: 'on_device_model.mojom.SessionParams',
       packedSize: 40,
       fields: [
-        { name: 'max_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'capabilities', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.CapabilitiesSpec, nullable: false },
-        { name: 'top_k', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'temperature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_tokens', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'capabilities', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.CapabilitiesSpec, nullable: false },
+        { name: 'top_k', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'temperature', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -167,7 +167,7 @@ on_device_model.mojom.InputSpec = {
       name: 'on_device_model.mojom.Input',
       packedSize: 16,
       fields: [
-        { name: 'pieces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pieces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -181,8 +181,8 @@ on_device_model.mojom.AppendOptionsSpec = {
       name: 'on_device_model.mojom.AppendOptions',
       packedSize: 24,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.InputSpec, nullable: false },
-        { name: 'max_tokens', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.InputSpec, nullable: false },
+        { name: 'max_tokens', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,8 +196,8 @@ on_device_model.mojom.GenerateOptionsSpec = {
       name: 'on_device_model.mojom.GenerateOptions',
       packedSize: 24,
       fields: [
-        { name: 'max_output_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'constraint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'max_output_tokens', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'constraint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -211,10 +211,10 @@ on_device_model.mojom.AudioDataSpec = {
       name: 'on_device_model.mojom.AudioData',
       packedSize: 32,
       fields: [
-        { name: 'channel_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'sample_rate', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'frame_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'channel_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'sample_rate', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'frame_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -228,8 +228,8 @@ on_device_model.mojom.SpeechRecognitionResultSpec = {
       name: 'on_device_model.mojom.SpeechRecognitionResult',
       packedSize: 24,
       fields: [
-        { name: 'transcript', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_final', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'transcript', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_final', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -243,7 +243,7 @@ on_device_model.mojom.AsrStreamOptionsSpec = {
       name: 'on_device_model.mojom.AsrStreamOptions',
       packedSize: 16,
       fields: [
-        { name: 'sample_rate_hz', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'sample_rate_hz', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -257,8 +257,8 @@ on_device_model.mojom.DevicePerformanceInfoSpec = {
       name: 'on_device_model.mojom.DevicePerformanceInfo',
       packedSize: 24,
       fields: [
-        { name: 'performance_class', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.PerformanceClassSpec, nullable: false },
-        { name: 'vram_mb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'performance_class', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.PerformanceClassSpec, nullable: false },
+        { name: 'vram_mb', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -272,10 +272,10 @@ on_device_model.mojom.DeviceInfoSpec = {
       name: 'on_device_model.mojom.DeviceInfo',
       packedSize: 32,
       fields: [
-        { name: 'vendor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'device_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'driver_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'supports_fp16', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'vendor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'device_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'driver_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'supports_fp16', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

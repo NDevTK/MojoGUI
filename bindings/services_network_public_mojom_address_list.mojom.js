@@ -16,8 +16,8 @@ network.mojom.AddressListSpec = {
       name: 'network.mojom.AddressList',
       packedSize: 24,
       fields: [
-        { name: 'addresses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'dns_aliases', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'addresses', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'dns_aliases', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

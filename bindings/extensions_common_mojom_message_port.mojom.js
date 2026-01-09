@@ -39,10 +39,10 @@ extensions.mojom.PortIdSpec = {
       name: 'extensions.mojom.PortId',
       packedSize: 40,
       fields: [
-        { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'port_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_opener', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'serialization_format', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.SerializationFormatSpec, nullable: false },
+        { name: 'context_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'port_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_opener', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'serialization_format', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.SerializationFormatSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +56,9 @@ extensions.mojom.MessagingEndpointSpec = {
       name: 'extensions.mojom.MessagingEndpoint',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.MessagingEndpointTypeSpec, nullable: false },
-        { name: 'extension_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'native_app_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.MessagingEndpointTypeSpec, nullable: false },
+        { name: 'extension_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'native_app_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -72,10 +72,10 @@ extensions.mojom.TabConnectionInfoSpec = {
       name: 'extensions.mojom.TabConnectionInfo',
       packedSize: 40,
       fields: [
-        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
-        { name: 'frame_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'document_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'document_lifecycle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'tab', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'frame_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'document_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'document_lifecycle', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -89,12 +89,12 @@ extensions.mojom.ExternalConnectionInfoSpec = {
       name: 'extensions.mojom.ExternalConnectionInfo',
       packedSize: 48,
       fields: [
-        { name: 'source_endpoint', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.MessagingEndpointSpec, nullable: false },
-        { name: 'target_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'source_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'source_origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
-        { name: 'guest_process_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'guest_render_frame_routing_id', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'source_endpoint', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.MessagingEndpointSpec, nullable: false },
+        { name: 'target_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'source_origin', packedOffset: 32, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
+        { name: 'guest_process_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'guest_render_frame_routing_id', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,10 +108,10 @@ extensions.mojom.MessageSpec = {
       name: 'extensions.mojom.Message',
       packedSize: 32,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.MessageDataSpec, nullable: false },
-        { name: 'format', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.SerializationFormatSpec, nullable: false },
-        { name: 'user_gesture', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'from_privileged_context', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.MessageDataSpec, nullable: false },
+        { name: 'format', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.SerializationFormatSpec, nullable: false },
+        { name: 'user_gesture', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'from_privileged_context', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -190,7 +190,7 @@ extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec = {
       name: 'extensions.mojom.MessagePort.DispatchDisconnect_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,7 +204,7 @@ extensions.mojom.MessagePort_DeliverMessage_ParamsSpec = {
       name: 'extensions.mojom.MessagePort.DeliverMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.MessageSpec, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.MessageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -297,8 +297,8 @@ extensions.mojom.MessagePortHost_ClosePort_ParamsSpec = {
       name: 'extensions.mojom.MessagePortHost.ClosePort_Params',
       packedSize: 24,
       fields: [
-        { name: 'close_channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'close_channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -312,7 +312,7 @@ extensions.mojom.MessagePortHost_PostMessage_ParamsSpec = {
       name: 'extensions.mojom.MessagePortHost.PostMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.MessageSpec, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.MessageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

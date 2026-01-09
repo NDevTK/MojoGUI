@@ -16,7 +16,7 @@ gfx.mojom.TransformSpec = {
       name: 'gfx.mojom.Transform',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformDataSpec, nullable: true },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.TransformDataSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

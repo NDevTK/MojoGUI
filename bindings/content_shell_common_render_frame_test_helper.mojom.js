@@ -84,7 +84,7 @@ content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec = {
       name: 'content.mojom.RenderFrameTestHelper.GetDocumentToken_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

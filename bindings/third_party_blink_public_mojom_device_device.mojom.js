@@ -194,7 +194,7 @@ blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec = {
       name: 'blink.mojom.DeviceAPIService.GetDirectoryId_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,7 +220,7 @@ blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec = {
       name: 'blink.mojom.DeviceAPIService.GetHostname_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -246,7 +246,7 @@ blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec = {
       name: 'blink.mojom.DeviceAPIService.GetSerialNumber_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -272,7 +272,7 @@ blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec = {
       name: 'blink.mojom.DeviceAPIService.GetAnnotatedAssetId_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -298,7 +298,7 @@ blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec = {
       name: 'blink.mojom.DeviceAPIService.GetAnnotatedLocation_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -382,7 +382,7 @@ blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec = {
       name: 'blink.mojom.ManagedConfigurationService.GetManagedConfiguration_Params',
       packedSize: 16,
       fields: [
-        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -395,7 +395,7 @@ blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSp
       name: 'blink.mojom.ManagedConfigurationService.GetManagedConfiguration_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'configurations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'configurations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -409,7 +409,7 @@ blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSp
       name: 'blink.mojom.ManagedConfigurationService.SubscribeToManagedConfiguration_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

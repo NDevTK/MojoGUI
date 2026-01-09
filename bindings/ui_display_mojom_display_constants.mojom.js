@@ -66,7 +66,7 @@ display.mojom.ModesetFlagsSpec = {
       name: 'display.mojom.ModesetFlags',
       packedSize: 16,
       fields: [
-        { name: 'bitmask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'bitmask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -81,7 +81,7 @@ url.mojom.UrlTest_BounceUrl_ParamsSpec = {
       name: 'url.mojom.UrlTest.BounceUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'in', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,7 +94,7 @@ url.mojom.UrlTest_BounceUrl_ResponseParamsSpec = {
       name: 'url.mojom.UrlTest.BounceUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'out', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,7 +108,7 @@ url.mojom.UrlTest_BounceOrigin_ParamsSpec = {
       name: 'url.mojom.UrlTest.BounceOrigin_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'in', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +121,7 @@ url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec = {
       name: 'url.mojom.UrlTest.BounceOrigin_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'out', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

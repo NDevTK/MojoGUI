@@ -16,24 +16,24 @@ browsing_topics.mojom.WebUIBrowsingTopicsConfigurationSpec = {
       name: 'browsing_topics.mojom.WebUIBrowsingTopicsConfiguration',
       packedSize: 88,
       fields: [
-        { name: 'browsing_topics_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'privacy_sandbox_ads_apis_override_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'override_privacy_sandbox_settings_local_testing_enabled', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'browsing_topics_bypass_ip_is_publicly_routable_check_enabled', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'browsing_topics_document_api_enabled', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'config_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'browsing_topics_parameters_enabled', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'number_of_epochs_to_expose', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'time_period_per_epoch', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'number_of_top_topics_per_epoch', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'use_random_topic_probability_percent', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'max_epoch_introduction_delay', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'number_of_epochs_of_observation_data_to_use_for_filtering', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'max_number_of_api_usage_context_domains_to_keep_per_topic', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'max_number_of_api_usage_context_entries_to_load_per_epoch', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'max_number_of_api_usage_context_domains_to_store_per_page_load', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'taxonomy_version', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'disabled_topics_list', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'browsing_topics_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'privacy_sandbox_ads_apis_override_enabled', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'override_privacy_sandbox_settings_local_testing_enabled', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'browsing_topics_bypass_ip_is_publicly_routable_check_enabled', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'browsing_topics_document_api_enabled', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'config_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'browsing_topics_parameters_enabled', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'number_of_epochs_to_expose', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'time_period_per_epoch', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'number_of_top_topics_per_epoch', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'use_random_topic_probability_percent', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'max_epoch_introduction_delay', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'number_of_epochs_of_observation_data_to_use_for_filtering', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'max_number_of_api_usage_context_domains_to_keep_per_topic', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'max_number_of_api_usage_context_entries_to_load_per_epoch', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'max_number_of_api_usage_context_domains_to_store_per_page_load', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'taxonomy_version', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'disabled_topics_list', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -47,10 +47,10 @@ browsing_topics.mojom.WebUITopicSpec = {
       name: 'browsing_topics.mojom.WebUITopic',
       packedSize: 40,
       fields: [
-        { name: 'topic_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'topic_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'is_real_topic', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'observed_by_domains', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'topic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'topic_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'is_real_topic', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'observed_by_domains', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -64,10 +64,10 @@ browsing_topics.mojom.WebUIEpochSpec = {
       name: 'browsing_topics.mojom.WebUIEpoch',
       packedSize: 40,
       fields: [
-        { name: 'topics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'calculation_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'model_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'taxonomy_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'topics', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'calculation_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'model_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'taxonomy_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -81,8 +81,8 @@ browsing_topics.mojom.WebUIBrowsingTopicsStateSpec = {
       name: 'browsing_topics.mojom.WebUIBrowsingTopicsState',
       packedSize: 24,
       fields: [
-        { name: 'epochs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'next_scheduled_calculation_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'epochs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'next_scheduled_calculation_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -96,8 +96,8 @@ browsing_topics.mojom.WebUIModelInfoSpec = {
       name: 'browsing_topics.mojom.WebUIModelInfo',
       packedSize: 24,
       fields: [
-        { name: 'model_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'model_file_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'model_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'model_file_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,7 +206,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsS
       name: 'browsing_topics.mojom.PageHandler.GetBrowsingTopicsConfiguration_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: browsing_topics.mojom.WebUIBrowsingTopicsConfigurationSpec, nullable: false },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: browsing_topics.mojom.WebUIBrowsingTopicsConfigurationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,7 +220,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec = {
       name: 'browsing_topics.mojom.PageHandler.GetBrowsingTopicsState_Params',
       packedSize: 16,
       fields: [
-        { name: 'calculate_now', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'calculate_now', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -233,7 +233,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec = {
       name: 'browsing_topics.mojom.PageHandler.GetBrowsingTopicsState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: browsing_topics.mojom.WebUIGetBrowsingTopicsStateResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: browsing_topics.mojom.WebUIGetBrowsingTopicsStateResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -259,7 +259,7 @@ browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
       name: 'browsing_topics.mojom.PageHandler.GetModelInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: browsing_topics.mojom.WebUIGetModelInfoResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: browsing_topics.mojom.WebUIGetModelInfoResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -273,7 +273,7 @@ browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec = {
       name: 'browsing_topics.mojom.PageHandler.ClassifyHosts_Params',
       packedSize: 16,
       fields: [
-        { name: 'hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'hosts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -286,7 +286,7 @@ browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec = {
       name: 'browsing_topics.mojom.PageHandler.ClassifyHosts_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'topics_for_hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'topics_for_hosts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

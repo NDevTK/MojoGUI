@@ -16,7 +16,7 @@ network.mojom.SchemefulSiteSpec = {
       name: 'network.mojom.SchemefulSite',
       packedSize: 16,
       fields: [
-        { name: 'site_as_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'site_as_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

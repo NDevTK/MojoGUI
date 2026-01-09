@@ -267,8 +267,8 @@ arc.mojom.BootProgressEventSpec = {
       name: 'arc.mojom.BootProgressEvent',
       packedSize: 24,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'uptimeMillis', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'uptimeMillis', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -282,9 +282,9 @@ arc.mojom.GfxMetricsSpec = {
       name: 'arc.mojom.GfxMetrics',
       packedSize: 32,
       fields: [
-        { name: 'framesTotal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'framesJanky', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'frameTimePercentile95', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'framesTotal', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'framesJanky', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'frameTimePercentile95', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -298,8 +298,8 @@ arc.mojom.AppKillSpec = {
       name: 'arc.mojom.AppKill',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppKillTypeSpec, nullable: false },
-        { name: 'count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AppKillTypeSpec, nullable: false },
+        { name: 'count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -313,8 +313,8 @@ arc.mojom.LowLatencyStylusLibPredictionTargetSpec = {
       name: 'arc.mojom.LowLatencyStylusLibPredictionTarget',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.LowLatencyStylusLibraryTypeSpec, nullable: false },
-        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.LowLatencyStylusLibraryTypeSpec, nullable: false },
+        { name: 'target', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -328,8 +328,8 @@ arc.mojom.AppCategoryDataSizeSpec = {
       name: 'arc.mojom.AppCategoryDataSize',
       packedSize: 24,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AndroidAppCategorySpec, nullable: false },
-        { name: 'data_size_in_mb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'category', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AndroidAppCategorySpec, nullable: false },
+        { name: 'data_size_in_mb', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -343,8 +343,8 @@ arc.mojom.DataDirectorySizeSpec = {
       name: 'arc.mojom.DataDirectorySize',
       packedSize: 24,
       fields: [
-        { name: 'directory', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AndroidDataDirectorySpec, nullable: false },
-        { name: 'size_in_mb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AndroidDataDirectorySpec, nullable: false },
+        { name: 'size_in_mb', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

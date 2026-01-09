@@ -24,7 +24,7 @@ private_aggregation_internals.mojom.AggregatableReportRequestIDSpec = {
       name: 'private_aggregation_internals.mojom.AggregatableReportRequestID',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -38,8 +38,8 @@ private_aggregation_internals.mojom.AggregatableHistogramContributionSpec = {
       name: 'private_aggregation_internals.mojom.AggregatableHistogramContribution',
       packedSize: 24,
       fields: [
-        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.Uint128Spec, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'bucket', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.Uint128Spec, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -53,14 +53,14 @@ private_aggregation_internals.mojom.WebUIAggregatableReportSpec = {
       name: 'private_aggregation_internals.mojom.WebUIAggregatableReport',
       packedSize: 72,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, nullable: true },
-        { name: 'report_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'api_identifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'api_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'report_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'contributions', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'status', packedOffset: 48, packedBitOffset: 0, type: private_aggregation_internals.mojom.ReportStatusSpec, nullable: false },
-        { name: 'report_body', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, nullable: true },
+        { name: 'report_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'api_identifier', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'api_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'report_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'contributions', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 56, packedBitOffset: 0, type: private_aggregation_internals.mojom.ReportStatusSpec, nullable: false },
+        { name: 'report_body', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -152,7 +152,7 @@ private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
       name: 'private_aggregation_internals.mojom.Observer.OnReportHandled_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: private_aggregation_internals.mojom.WebUIAggregatableReportSpec, nullable: false },
+        { name: 'report', packedOffset: 8, packedBitOffset: 0, type: private_aggregation_internals.mojom.WebUIAggregatableReportSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -257,7 +257,7 @@ private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec = {
       name: 'private_aggregation_internals.mojom.Handler.GetReports_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'reports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'reports', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -271,7 +271,7 @@ private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec = {
       name: 'private_aggregation_internals.mojom.Handler.SendReports_Params',
       packedSize: 16,
       fields: [
-        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -359,8 +359,8 @@ private_aggregation_internals.mojom.Factory_Create_ParamsSpec = {
       name: 'private_aggregation_internals.mojom.Factory.Create_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

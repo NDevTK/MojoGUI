@@ -16,8 +16,8 @@ content.mojom.AlternativeErrorPageOverrideInfoSpec = {
       name: 'content.mojom.AlternativeErrorPageOverrideInfo',
       packedSize: 24,
       fields: [
-        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'alternative_error_page_params', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'resource_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'alternative_error_page_params', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

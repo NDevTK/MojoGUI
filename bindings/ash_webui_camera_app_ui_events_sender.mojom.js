@@ -189,7 +189,7 @@ ash.camera_app.mojom.StartSessionEventParamsSpec = {
       name: 'ash.camera_app.mojom.StartSessionEventParams',
       packedSize: 16,
       fields: [
-        { name: 'launch_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.LaunchTypeSpec, nullable: false },
+        { name: 'launch_type', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.LaunchTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,7 +203,7 @@ ash.camera_app.mojom.PhotoDetailsSpec = {
       name: 'ash.camera_app.mojom.PhotoDetails',
       packedSize: 16,
       fields: [
-        { name: 'is_video_snapshot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_video_snapshot', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -230,7 +230,7 @@ ash.camera_app.mojom.GifVideoDetailsSpec = {
       name: 'ash.camera_app.mojom.GifVideoDetails',
       packedSize: 16,
       fields: [
-        { name: 'gif_result_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.GifResultTypeSpec, nullable: false },
+        { name: 'gif_result_type', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.GifResultTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -244,7 +244,7 @@ ash.camera_app.mojom.TimelapseVideoDetailsSpec = {
       name: 'ash.camera_app.mojom.TimelapseVideoDetails',
       packedSize: 16,
       fields: [
-        { name: 'timelapse_speed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'timelapse_speed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -258,11 +258,11 @@ ash.camera_app.mojom.VideoDetailsSpec = {
       name: 'ash.camera_app.mojom.VideoDetails',
       packedSize: 40,
       fields: [
-        { name: 'is_muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'fps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'ever_paused', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'duration', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'record_type_details', packedOffset: 24, packedBitOffset: 0, type: ash.camera_app.mojom.RecordTypeDetailsSpec, nullable: false },
+        { name: 'is_muted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'fps', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'ever_paused', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'duration', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'record_type_details', packedOffset: 32, packedBitOffset: 0, type: ash.camera_app.mojom.RecordTypeDetailsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -276,21 +276,21 @@ ash.camera_app.mojom.CaptureEventParamsSpec = {
       name: 'ash.camera_app.mojom.CaptureEventParams',
       packedSize: 112,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.ModeSpec, nullable: false },
-        { name: 'facing', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.FacingSpec, nullable: false },
-        { name: 'is_mirrored', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'grid_type', packedOffset: 24, packedBitOffset: 0, type: ash.camera_app.mojom.GridTypeSpec, nullable: false },
-        { name: 'timer_type', packedOffset: 32, packedBitOffset: 0, type: ash.camera_app.mojom.TimerTypeSpec, nullable: false },
-        { name: 'shutter_type', packedOffset: 40, packedBitOffset: 0, type: ash.camera_app.mojom.ShutterTypeSpec, nullable: false },
-        { name: 'android_intent_result_type', packedOffset: 48, packedBitOffset: 0, type: ash.camera_app.mojom.AndroidIntentResultTypeSpec, nullable: false },
-        { name: 'is_window_maximized', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_window_portrait', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'resolution_width', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'resolution_height', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'resolution_level', packedOffset: 72, packedBitOffset: 0, type: ash.camera_app.mojom.ResolutionLevelSpec, nullable: false },
-        { name: 'aspect_ratio_set', packedOffset: 80, packedBitOffset: 0, type: ash.camera_app.mojom.AspectRatioSetSpec, nullable: false },
-        { name: 'capture_details', packedOffset: 88, packedBitOffset: 0, type: ash.camera_app.mojom.CaptureDetailsSpec, nullable: true },
-        { name: 'zoom_ratio', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.ModeSpec, nullable: false },
+        { name: 'facing', packedOffset: 16, packedBitOffset: 0, type: ash.camera_app.mojom.FacingSpec, nullable: false },
+        { name: 'is_mirrored', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'grid_type', packedOffset: 32, packedBitOffset: 0, type: ash.camera_app.mojom.GridTypeSpec, nullable: false },
+        { name: 'timer_type', packedOffset: 40, packedBitOffset: 0, type: ash.camera_app.mojom.TimerTypeSpec, nullable: false },
+        { name: 'shutter_type', packedOffset: 48, packedBitOffset: 0, type: ash.camera_app.mojom.ShutterTypeSpec, nullable: false },
+        { name: 'android_intent_result_type', packedOffset: 56, packedBitOffset: 0, type: ash.camera_app.mojom.AndroidIntentResultTypeSpec, nullable: false },
+        { name: 'is_window_maximized', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_window_portrait', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'resolution_width', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'resolution_height', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'resolution_level', packedOffset: 80, packedBitOffset: 0, type: ash.camera_app.mojom.ResolutionLevelSpec, nullable: false },
+        { name: 'aspect_ratio_set', packedOffset: 88, packedBitOffset: 0, type: ash.camera_app.mojom.AspectRatioSetSpec, nullable: false },
+        { name: 'capture_details', packedOffset: 96, packedBitOffset: 0, type: ash.camera_app.mojom.CaptureDetailsSpec, nullable: true },
+        { name: 'zoom_ratio', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -304,10 +304,10 @@ ash.camera_app.mojom.AndroidIntentEventParamsSpec = {
       name: 'ash.camera_app.mojom.AndroidIntentEventParams',
       packedSize: 24,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.ModeSpec, nullable: false },
-        { name: 'should_handle_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'should_downscale', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_secure', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.ModeSpec, nullable: false },
+        { name: 'should_handle_result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'should_downscale', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_secure', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -321,9 +321,9 @@ ash.camera_app.mojom.OpenPTZPanelEventParamsSpec = {
       name: 'ash.camera_app.mojom.OpenPTZPanelEventParams',
       packedSize: 16,
       fields: [
-        { name: 'support_pan', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'support_tilt', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'support_zoom', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'support_pan', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'support_tilt', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'support_zoom', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -337,7 +337,7 @@ ash.camera_app.mojom.DocScanActionEventParamsSpec = {
       name: 'ash.camera_app.mojom.DocScanActionEventParams',
       packedSize: 16,
       fields: [
-        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.DocScanActionTypeSpec, nullable: false },
+        { name: 'action_type', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.DocScanActionTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -351,10 +351,10 @@ ash.camera_app.mojom.DocScanResultEventParamsSpec = {
       name: 'ash.camera_app.mojom.DocScanResultEventParams',
       packedSize: 32,
       fields: [
-        { name: 'result_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.DocScanResultTypeSpec, nullable: false },
-        { name: 'fix_types_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'fix_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'page_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result_type', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.DocScanResultTypeSpec, nullable: false },
+        { name: 'fix_types_mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'fix_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'page_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -381,7 +381,7 @@ ash.camera_app.mojom.UsbCameraModuleSpec = {
       name: 'ash.camera_app.mojom.UsbCameraModule',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -395,7 +395,7 @@ ash.camera_app.mojom.OpenCameraEventParamsSpec = {
       name: 'ash.camera_app.mojom.OpenCameraEventParams',
       packedSize: 16,
       fields: [
-        { name: 'camera_module', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.CameraModuleSpec, nullable: false },
+        { name: 'camera_module', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.CameraModuleSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -409,7 +409,7 @@ ash.camera_app.mojom.LowStorageActionEventParamsSpec = {
       name: 'ash.camera_app.mojom.LowStorageActionEventParams',
       packedSize: 16,
       fields: [
-        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.LowStorageActionTypeSpec, nullable: false },
+        { name: 'action_type', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.LowStorageActionTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -423,8 +423,8 @@ ash.camera_app.mojom.BarcodeDetectedEventParamsSpec = {
       name: 'ash.camera_app.mojom.BarcodeDetectedEventParams',
       packedSize: 24,
       fields: [
-        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.BarcodeContentTypeSpec, nullable: false },
-        { name: 'wifi_security_type', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.WifiSecurityTypeSpec, nullable: false },
+        { name: 'content_type', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.BarcodeContentTypeSpec, nullable: false },
+        { name: 'wifi_security_type', packedOffset: 16, packedBitOffset: 0, type: ash.camera_app.mojom.WifiSecurityTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -438,13 +438,13 @@ ash.camera_app.mojom.PerfEventParamsSpec = {
       name: 'ash.camera_app.mojom.PerfEventParams',
       packedSize: 56,
       fields: [
-        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.PerfEventTypeSpec, nullable: false },
-        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'facing', packedOffset: 16, packedBitOffset: 0, type: ash.camera_app.mojom.FacingSpec, nullable: false },
-        { name: 'resolution_width', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'resolution_height', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'page_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'pressure', packedOffset: 40, packedBitOffset: 0, type: ash.camera_app.mojom.PressureSpec, nullable: false },
+        { name: 'event_type', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.PerfEventTypeSpec, nullable: false },
+        { name: 'duration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'facing', packedOffset: 24, packedBitOffset: 0, type: ash.camera_app.mojom.FacingSpec, nullable: false },
+        { name: 'resolution_width', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'resolution_height', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'page_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'pressure', packedOffset: 48, packedBitOffset: 0, type: ash.camera_app.mojom.PressureSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -458,8 +458,8 @@ ash.camera_app.mojom.MemoryUsageEventParamsSpec = {
       name: 'ash.camera_app.mojom.MemoryUsageEventParams',
       packedSize: 24,
       fields: [
-        { name: 'behaviors_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'memory_usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'behaviors_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'memory_usage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -473,10 +473,10 @@ ash.camera_app.mojom.OcrEventParamsSpec = {
       name: 'ash.camera_app.mojom.OcrEventParams',
       packedSize: 32,
       fields: [
-        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OcrEventTypeSpec, nullable: false },
-        { name: 'is_primary_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'line_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'word_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'event_type', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.OcrEventTypeSpec, nullable: false },
+        { name: 'is_primary_language', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'line_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'word_count', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -654,7 +654,7 @@ ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendStartSessionEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.StartSessionEventParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.StartSessionEventParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -668,7 +668,7 @@ ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendCaptureEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.CaptureEventParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.CaptureEventParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -682,7 +682,7 @@ ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendAndroidIntentEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.AndroidIntentEventParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.AndroidIntentEventParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -696,7 +696,7 @@ ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendOpenPTZPanelEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OpenPTZPanelEventParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.OpenPTZPanelEventParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -710,7 +710,7 @@ ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendDocScanActionEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.DocScanActionEventParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.DocScanActionEventParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -724,7 +724,7 @@ ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendDocScanResultEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.DocScanResultEventParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.DocScanResultEventParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -738,7 +738,7 @@ ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendOpenCameraEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OpenCameraEventParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.OpenCameraEventParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -752,7 +752,7 @@ ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendLowStorageActionEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.LowStorageActionEventParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.LowStorageActionEventParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -766,7 +766,7 @@ ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendBarcodeDetectedEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.BarcodeDetectedEventParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.BarcodeDetectedEventParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -780,7 +780,7 @@ ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendPerfEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.PerfEventParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.PerfEventParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -807,7 +807,7 @@ ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.UpdateMemoryUsageEventParams_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.MemoryUsageEventParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.MemoryUsageEventParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -821,7 +821,7 @@ ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendOcrEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OcrEventParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.OcrEventParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

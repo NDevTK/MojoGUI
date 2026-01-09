@@ -131,7 +131,7 @@ crosapi.mojom.StatusReasonSpec = {
       name: 'crosapi.mojom.StatusReason',
       packedSize: 16,
       fields: [
-        { name: 'kUnknownReason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnknownReason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -262,7 +262,7 @@ crosapi.mojom.PrintJobSpec = {
       name: 'crosapi.mojom.PrintJob',
       packedSize: 16,
       fields: [
-        { name: 'kSimplex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kSimplex', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -276,7 +276,7 @@ crosapi.mojom.PrintServersConfigSpec = {
       name: 'crosapi.mojom.PrintServersConfig',
       packedSize: 16,
       fields: [
-        { name: 'kStandard', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kStandard', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -316,7 +316,7 @@ crosapi.mojom.PoliciesSpec = {
       name: 'crosapi.mojom.Policies',
       packedSize: 16,
       fields: [
-        { name: 'kUnset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -330,8 +330,8 @@ crosapi.mojom.PrintJobUpdateSpec = {
       name: 'crosapi.mojom.PrintJobUpdate',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.PrintJobStatusSpec, nullable: false },
-        { name: 'pages_printed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.PrintJobStatusSpec, nullable: false },
+        { name: 'pages_printed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -371,7 +371,7 @@ crosapi.mojom.OAuthAccessTokenSpec = {
       name: 'crosapi.mojom.OAuthAccessToken',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

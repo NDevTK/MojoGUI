@@ -31,8 +31,8 @@ media_session.mojom.AudioFocusRequestStateSpec = {
       name: 'media_session.mojom.AudioFocusRequestState',
       packedSize: 24,
       fields: [
-        { name: 'session_info', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionInfoSpec, nullable: false },
-        { name: 'audio_focus_type', packedOffset: 8, packedBitOffset: 0, type: media_session.mojom.AudioFocusTypeSpec, nullable: false },
+        { name: 'session_info', packedOffset: 8, packedBitOffset: 0, type: media_session.mojom.MediaSessionInfoSpec, nullable: false },
+        { name: 'audio_focus_type', packedOffset: 16, packedBitOffset: 0, type: media_session.mojom.AudioFocusTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

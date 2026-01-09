@@ -27,10 +27,10 @@ gpu.mojom.SyncTokenSpec = {
       name: 'gpu.mojom.SyncToken',
       packedSize: 40,
       fields: [
-        { name: 'verified_flush', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'namespace_id', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.CommandBufferNamespaceSpec, nullable: false },
-        { name: 'command_buffer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'release_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'verified_flush', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'namespace_id', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.CommandBufferNamespaceSpec, nullable: false },
+        { name: 'command_buffer_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'release_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

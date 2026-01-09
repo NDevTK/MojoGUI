@@ -16,12 +16,12 @@ bluetooth.mojom.GattCharacteristicPermissionsSpec = {
       name: 'bluetooth.mojom.GattCharacteristicPermissions',
       packedSize: 16,
       fields: [
-        { name: 'read', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'write', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'read_encrypted', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'write_encrypted', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'read_encrypted_authenticated', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'write_encrypted_authenticated', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'read', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'write', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'read_encrypted', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'write_encrypted', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'read_encrypted_authenticated', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'write_encrypted_authenticated', packedOffset: 8, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -27,13 +27,13 @@ viz.mojom.CopyOutputResultSpec = {
       name: 'viz.mojom.CopyOutputResult',
       packedSize: 64,
       fields: [
-        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CopyOutputResultFormatSpec, nullable: false },
-        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CopyOutputResultDestinationSpec, nullable: false },
-        { name: 'rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'bitmap', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.BitmapInSharedMemorySpec, nullable: true },
-        { name: 'mailbox', packedOffset: 32, packedBitOffset: 0, type: gpu.mojom.MailboxSpec, nullable: true },
-        { name: 'color_space', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: true },
-        { name: 'releaser', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'format', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CopyOutputResultFormatSpec, nullable: false },
+        { name: 'destination', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.CopyOutputResultDestinationSpec, nullable: false },
+        { name: 'rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'bitmap', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.BitmapInSharedMemorySpec, nullable: true },
+        { name: 'mailbox', packedOffset: 40, packedBitOffset: 0, type: gpu.mojom.MailboxSpec, nullable: true },
+        { name: 'color_space', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: true },
+        { name: 'releaser', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

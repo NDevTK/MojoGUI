@@ -84,7 +84,7 @@ webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec = {
       name: 'webapps.mojom.WebPageMetadataAgent.GetWebPageMetadata_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'web_page_metadata', packedOffset: 0, packedBitOffset: 0, type: webapps.mojom.WebPageMetadataSpec, nullable: false },
+        { name: 'web_page_metadata', packedOffset: 8, packedBitOffset: 0, type: webapps.mojom.WebPageMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

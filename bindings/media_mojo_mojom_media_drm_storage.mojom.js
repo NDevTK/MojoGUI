@@ -16,10 +16,10 @@ media.mojom.SessionDataSpec = {
       name: 'media.mojom.SessionData',
       packedSize: 40,
       fields: [
-        { name: 'KeyType', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'key_set_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'key_type', packedOffset: 24, packedBitOffset: 0, type: media.mojom.KeyTypeSpec, nullable: false },
+        { name: 'KeyType', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_set_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'mime_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key_type', packedOffset: 32, packedBitOffset: 0, type: media.mojom.KeyTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -137,8 +137,8 @@ media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.Initialize_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'origin_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'origin_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -164,7 +164,7 @@ media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.OnProvisioned_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -178,8 +178,8 @@ media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.SavePersistentSession_Params',
       packedSize: 24,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'session_data', packedOffset: 8, packedBitOffset: 0, type: media.mojom.SessionDataSpec, nullable: false },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'session_data', packedOffset: 16, packedBitOffset: 0, type: media.mojom.SessionDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -192,7 +192,7 @@ media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.SavePersistentSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,7 +206,7 @@ media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.LoadPersistentSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -219,7 +219,7 @@ media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.LoadPersistentSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'session_data', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SessionDataSpec, nullable: true },
+        { name: 'session_data', packedOffset: 8, packedBitOffset: 0, type: media.mojom.SessionDataSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -233,7 +233,7 @@ media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.RemovePersistentSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -246,7 +246,7 @@ media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.RemovePersistentSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

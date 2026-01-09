@@ -23,7 +23,7 @@ blink.mojom.AdSizeSpec = {
       name: 'blink.mojom.AdSize',
       packedSize: 16,
       fields: [
-        { name: 'kInvalid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kInvalid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,8 +37,8 @@ blink.mojom.AdDescriptorSpec = {
       name: 'blink.mojom.AdDescriptor',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AdSizeSpec, nullable: true },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AdSizeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

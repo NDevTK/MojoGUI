@@ -17,8 +17,8 @@ ash.settings.mojom.ActionChoiceSpec = {
       name: 'ash.settings.mojom.ActionChoice',
       packedSize: 24,
       fields: [
-        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: ash.settings.mojom.ActionTypeSpec, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'action_type', packedOffset: 8, packedBitOffset: 0, type: ash.settings.mojom.ActionTypeSpec, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -97,7 +97,7 @@ ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec = {
       name: 'ash.settings.mojom.KeyboardSettingsObserver.OnKeyboardListUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'keyboards', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'keyboards', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -111,7 +111,7 @@ ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec
       name: 'ash.settings.mojom.KeyboardSettingsObserver.OnKeyboardPoliciesUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.KeyboardPoliciesSpec, nullable: false },
+        { name: 'policies', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.KeyboardPoliciesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -186,7 +186,7 @@ ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec = {
       name: 'ash.settings.mojom.TouchpadSettingsObserver.OnTouchpadListUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'touchpads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'touchpads', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -261,7 +261,7 @@ ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_Para
       name: 'ash.settings.mojom.PointingStickSettingsObserver.OnPointingStickListUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'pointSticks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pointSticks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -345,7 +345,7 @@ ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec = {
       name: 'ash.settings.mojom.MouseSettingsObserver.OnMouseListUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'mice', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'mice', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -359,7 +359,7 @@ ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec = {
       name: 'ash.settings.mojom.MouseSettingsObserver.OnMousePoliciesUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.MousePoliciesSpec, nullable: false },
+        { name: 'policies', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.MousePoliciesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -434,7 +434,7 @@ ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec = {
       name: 'ash.settings.mojom.ButtonPressObserver.OnButtonPressed_Params',
       packedSize: 16,
       fields: [
-        { name: 'button', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.ButtonSpec, nullable: false },
+        { name: 'button', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.ButtonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -509,7 +509,7 @@ ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_Pa
       name: 'ash.settings.mojom.GraphicsTabletSettingsObserver.OnGraphicsTabletListUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'graphics_tablets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'graphics_tablets', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -584,7 +584,7 @@ ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_Params
       name: 'ash.settings.mojom.KeyboardBrightnessObserver.OnKeyboardBrightnessChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'brightness_percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'brightness_percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -659,7 +659,7 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSens
       name: 'ash.settings.mojom.KeyboardAmbientLightSensorObserver.OnKeyboardAmbientLightSensorEnabledChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'keyboard_ambient_light_sensor_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'keyboard_ambient_light_sensor_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -734,7 +734,7 @@ ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = {
       name: 'ash.settings.mojom.LidStateObserver.OnLidStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_lid_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1061,7 +1061,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpe
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveKeyboardSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1075,7 +1075,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpe
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveTouchpadSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1089,7 +1089,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_Para
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObservePointingStickSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1103,7 +1103,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec =
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveMouseSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1117,7 +1117,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_Par
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveGraphicsTabletSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1131,7 +1131,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec =
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveButtonPresses_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1145,7 +1145,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsS
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveKeyboardBrightness_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1159,7 +1159,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveKeyboardAmbientLightSensor_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1173,7 +1173,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec = {
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveLidState_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1186,7 +1186,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpe
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveLidState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_lid_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1200,7 +1200,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.RestoreDefaultKeyboardRemappings_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1214,8 +1214,8 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec = 
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetKeyboardSettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.KeyboardSettingsSpec, nullable: false },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'settings', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.KeyboardSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1229,8 +1229,8 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSp
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetPointingStickSettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.PointingStickSettingsSpec, nullable: false },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'settings', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.PointingStickSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1244,8 +1244,8 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec = {
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetMouseSettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.MouseSettingsSpec, nullable: false },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'settings', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.MouseSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1259,8 +1259,8 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec = 
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetTouchpadSettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.TouchpadSettingsSpec, nullable: false },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'settings', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.TouchpadSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1274,8 +1274,8 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsS
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetGraphicsTabletSettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.GraphicsTabletSettingsSpec, nullable: false },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'settings', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.GraphicsTabletSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1289,7 +1289,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec 
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetKeyboardBrightness_Params',
       packedSize: 16,
       fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1303,7 +1303,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnab
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetKeyboardAmbientLightSensorEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1317,7 +1317,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec = {
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.StartObserving_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1356,7 +1356,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomiza
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetActionsForMouseButtonCustomization_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1382,7 +1382,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButton
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetActionsForGraphicsTabletButtonCustomization_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1408,7 +1408,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParam
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetMetaKeyToDisplay_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'meta_key', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.MetaKeySpec, nullable: false },
+        { name: 'meta_key', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.MetaKeySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1434,7 +1434,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponsePara
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.HasKeyboardBacklight_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_keyboard_backlight', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_keyboard_backlight', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1460,7 +1460,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponsePar
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.HasAmbientLightSensor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_ambient_light_sensor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_ambient_light_sensor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1486,7 +1486,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponsePa
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.IsRgbKeyboardSupported_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_rgb_keyboard_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_rgb_keyboard_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1513,7 +1513,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFro
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.RecordKeyboardBrightnessChangeFromSlider_Params',
       packedSize: 16,
       fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1527,7 +1527,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec = {
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetDeviceIconImage_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1540,7 +1540,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParams
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetDeviceIconImage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1554,7 +1554,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec = {
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.LaunchCompanionApp_Params',
       packedSize: 16,
       fields: [
-        { name: 'package_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'package_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

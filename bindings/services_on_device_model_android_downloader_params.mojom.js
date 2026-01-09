@@ -16,7 +16,7 @@ on_device_model.mojom.DownloaderParamsSpec = {
       name: 'on_device_model.mojom.DownloaderParams',
       packedSize: 16,
       fields: [
-        { name: 'require_persistent_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'require_persistent_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

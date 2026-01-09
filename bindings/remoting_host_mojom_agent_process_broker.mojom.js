@@ -116,7 +116,7 @@ remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec = {
       name: 'remoting.mojom.AgentProcess.BindRemotingHostControl_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -191,7 +191,7 @@ remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec = {
       name: 'remoting.mojom.AgentProcessBroker.OnAgentProcessLaunched_Params',
       packedSize: 16,
       fields: [
-        { name: 'agent_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'agent_process', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

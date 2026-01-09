@@ -133,9 +133,9 @@ arc.mojom.VisibleNetworkDetailsSpec = {
       name: 'arc.mojom.VisibleNetworkDetails',
       packedSize: 24,
       fields: [
-        { name: 'frequency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'signal_strength', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'bssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'frequency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'signal_strength', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'bssid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -149,8 +149,8 @@ arc.mojom.ConfiguredNetworkDetailsSpec = {
       name: 'arc.mojom.ConfiguredNetworkDetails',
       packedSize: 24,
       fields: [
-        { name: 'passphrase', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'autoconnect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'passphrase', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'autoconnect', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,11 +203,11 @@ arc.mojom.IPConfigurationSpec = {
       name: 'arc.mojom.IPConfiguration',
       packedSize: 48,
       fields: [
-        { name: 'gateway', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'ip_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name_servers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'routing_prefix', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.IPAddressTypeSpec, nullable: false },
+        { name: 'gateway', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'ip_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name_servers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'routing_prefix', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.IPAddressTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -221,12 +221,12 @@ arc.mojom.WiFiSpec = {
       name: 'arc.mojom.WiFi',
       packedSize: 56,
       fields: [
-        { name: 'bssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'frequency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'hex_ssid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'hidden_ssid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'security', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.SecurityTypeSpec, nullable: false },
-        { name: 'signal_strength', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'bssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'frequency', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'hex_ssid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'hidden_ssid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'security', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.SecurityTypeSpec, nullable: false },
+        { name: 'signal_strength', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -240,12 +240,12 @@ arc.mojom.NetworkConfigurationSpec = {
       name: 'arc.mojom.NetworkConfiguration',
       packedSize: 56,
       fields: [
-        { name: 'connection_state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ConnectionStateTypeSpec, nullable: false },
-        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'deprecated_ip_configs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'deprecated_mac_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.NetworkTypeSpec, nullable: false },
-        { name: 'wifi', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.WiFiSpec, nullable: true },
+        { name: 'connection_state', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ConnectionStateTypeSpec, nullable: false },
+        { name: 'guid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'deprecated_ip_configs', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'deprecated_mac_address', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.NetworkTypeSpec, nullable: false },
+        { name: 'wifi', packedOffset: 48, packedBitOffset: 0, type: arc.mojom.WiFiSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -324,8 +324,8 @@ arc.mojom.GetNetworksResponseTypeSpec = {
       name: 'arc.mojom.GetNetworksResponseType',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NetworkResultSpec, nullable: false },
-        { name: 'networks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.NetworkResultSpec, nullable: false },
+        { name: 'networks', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -352,9 +352,9 @@ arc.mojom.ArcDnsResolutionTestResultSpec = {
       name: 'arc.mojom.ArcDnsResolutionTestResult',
       packedSize: 32,
       fields: [
-        { name: 'is_successful', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'response_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'duration_ms', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'is_successful', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'response_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'duration_ms', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -368,10 +368,10 @@ arc.mojom.ArcHttpTestResultSpec = {
       name: 'arc.mojom.ArcHttpTestResult',
       packedSize: 40,
       fields: [
-        { name: 'is_successful', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'status_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'response_header_fields', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'duration_ms', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'is_successful', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'status_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'response_header_fields', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'duration_ms', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -385,8 +385,8 @@ arc.mojom.ArcPingTestResultSpec = {
       name: 'arc.mojom.ArcPingTestResult',
       packedSize: 24,
       fields: [
-        { name: 'is_successful', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'duration_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'is_successful', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'duration_ms', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -413,8 +413,8 @@ arc.mojom.PasspointApprovalRequestSpec = {
       name: 'arc.mojom.PasspointApprovalRequest',
       packedSize: 24,
       fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'app_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'app_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -428,7 +428,7 @@ arc.mojom.PasspointApprovalResponseSpec = {
       name: 'arc.mojom.PasspointApprovalResponse',
       packedSize: 16,
       fields: [
-        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

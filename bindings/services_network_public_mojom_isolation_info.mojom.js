@@ -30,13 +30,13 @@ network.mojom.IsolationInfoSpec = {
       name: 'network.mojom.IsolationInfo',
       packedSize: 64,
       fields: [
-        { name: 'request_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IsolationInfoRequestTypeSpec, nullable: false },
-        { name: 'top_frame_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
-        { name: 'frame_origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
-        { name: 'nonce', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
-        { name: 'site_for_cookies', packedOffset: 32, packedBitOffset: 0, type: network.mojom.SiteForCookiesSpec, nullable: false },
-        { name: 'network_isolation_partition', packedOffset: 40, packedBitOffset: 0, type: network.mojom.NetworkIsolationPartitionSpec, nullable: false },
-        { name: 'frame_ancestor_relation', packedOffset: 48, packedBitOffset: 0, type: network.mojom.IsolationInfoFrameAncestorRelationSpec, nullable: true },
+        { name: 'request_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IsolationInfoRequestTypeSpec, nullable: false },
+        { name: 'top_frame_origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
+        { name: 'frame_origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
+        { name: 'nonce', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'site_for_cookies', packedOffset: 40, packedBitOffset: 0, type: network.mojom.SiteForCookiesSpec, nullable: false },
+        { name: 'network_isolation_partition', packedOffset: 48, packedBitOffset: 0, type: network.mojom.NetworkIsolationPartitionSpec, nullable: false },
+        { name: 'frame_ancestor_relation', packedOffset: 56, packedBitOffset: 0, type: network.mojom.IsolationInfoFrameAncestorRelationSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

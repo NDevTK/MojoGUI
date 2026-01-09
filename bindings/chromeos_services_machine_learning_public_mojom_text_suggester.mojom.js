@@ -71,8 +71,8 @@ chromeos.machine_learning.mojom.TextSuggesterResultSpec = {
       name: 'chromeos.machine_learning.mojom.TextSuggesterResult',
       packedSize: 24,
       fields: [
-        { name: 'OK', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'ERROR', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'OK', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ERROR', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

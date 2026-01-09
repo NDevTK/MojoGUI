@@ -84,7 +84,7 @@ network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
       name: 'network.mojom.CacheEncryptionProvider.GetEncryptor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'encryptor', packedOffset: 0, packedBitOffset: 0, type: os_crypt_async.mojom.EncryptorSpec, nullable: false },
+        { name: 'encryptor', packedOffset: 8, packedBitOffset: 0, type: os_crypt_async.mojom.EncryptorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

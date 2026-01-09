@@ -23,12 +23,12 @@ arc.mojom.PurchaseDetailsSpec = {
       name: 'arc.mojom.PurchaseDetails',
       packedSize: 56,
       fields: [
-        { name: 'item_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'purchase_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'acknowledged', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'purchase_state', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.PurchaseStateSpec, nullable: false },
-        { name: 'purchase_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'will_auto_renew', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'item_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'purchase_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'acknowledged', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'purchase_state', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.PurchaseStateSpec, nullable: false },
+        { name: 'purchase_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'will_auto_renew', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

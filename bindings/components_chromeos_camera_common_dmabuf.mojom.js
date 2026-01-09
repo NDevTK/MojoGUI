@@ -16,10 +16,10 @@ chromeos_camera.mojom.DmaBufPlaneSpec = {
       name: 'chromeos_camera.mojom.DmaBufPlane',
       packedSize: 24,
       fields: [
-        { name: 'fd_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
-        { name: 'stride', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'fd_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
+        { name: 'stride', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'size', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -33,10 +33,10 @@ chromeos_camera.mojom.DmaBufVideoFrameSpec = {
       name: 'chromeos_camera.mojom.DmaBufVideoFrame',
       packedSize: 32,
       fields: [
-        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoPixelFormatSpec, nullable: false },
-        { name: 'coded_width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'coded_height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'planes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'format', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoPixelFormatSpec, nullable: false },
+        { name: 'coded_width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'coded_height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'planes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

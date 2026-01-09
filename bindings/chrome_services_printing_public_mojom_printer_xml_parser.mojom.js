@@ -72,7 +72,7 @@ printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec = {
       name: 'printing.mojom.PrinterXmlParser.ParseXmlForPrinterCapabilities_Params',
       packedSize: 16,
       fields: [
-        { name: 'capabilities_xml', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'capabilities_xml', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

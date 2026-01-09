@@ -31,10 +31,10 @@ blink.mojom.SelectorCreationResultSpec = {
       name: 'blink.mojom.SelectorCreationResult',
       packedSize: 32,
       fields: [
-        { name: 'host_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'agent_remote', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'serialized_selector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'selected_text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'host_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'agent_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'serialized_selector', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'selected_text', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,7 +104,7 @@ blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec = {
       name: 'blink.mojom.AnnotationAgent.ScrollIntoView_Params',
       packedSize: 16,
       fields: [
-        { name: 'applies_focus', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'applies_focus', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -179,8 +179,8 @@ blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec = {
       name: 'blink.mojom.AnnotationAgentHost.DidFinishAttachment_Params',
       packedSize: 24,
       fields: [
-        { name: 'document_relative_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'attachment_result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AttachmentResultSpec, nullable: false },
+        { name: 'document_relative_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'attachment_result', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AttachmentResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -273,11 +273,11 @@ blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec = {
       name: 'blink.mojom.AnnotationAgentContainer.CreateAgent_Params',
       packedSize: 40,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'agent_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnnotationTypeSpec, nullable: false },
-        { name: 'selector', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SelectorSpec, nullable: false },
-        { name: 'search_range_start_node_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'host_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'agent_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AnnotationTypeSpec, nullable: false },
+        { name: 'selector', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.SelectorSpec, nullable: false },
+        { name: 'search_range_start_node_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -291,7 +291,7 @@ blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec = {
       name: 'blink.mojom.AnnotationAgentContainer.CreateAgentFromSelection_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AnnotationTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnnotationTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -304,9 +304,9 @@ blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec
       name: 'blink.mojom.AnnotationAgentContainer.CreateAgentFromSelection_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SelectorCreationResultSpec, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LinkGenerationErrorSpec, nullable: false },
-        { name: 'ready_status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LinkGenerationReadyStatusSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SelectorCreationResultSpec, nullable: true },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LinkGenerationErrorSpec, nullable: false },
+        { name: 'ready_status', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.LinkGenerationReadyStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -320,7 +320,7 @@ blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec = {
       name: 'blink.mojom.AnnotationAgentContainer.RemoveAgentsOfType_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AnnotationTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnnotationTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

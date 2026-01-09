@@ -29,10 +29,10 @@ service_manager.mojom.IdentitySpec = {
       name: 'service_manager.mojom.Identity',
       packedSize: 40,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'instance_group', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
-        { name: 'instance_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
-        { name: 'globally_unique_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'instance_group', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
+        { name: 'instance_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
+        { name: 'globally_unique_id', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -46,7 +46,7 @@ service_manager.mojom.ServiceInfoSpec = {
       name: 'service_manager.mojom.ServiceInfo',
       packedSize: 16,
       fields: [
-        { name: 'sandbox_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'sandbox_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -116,7 +116,7 @@ service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec = {
       name: 'service_manager.mojom.ProcessMetadata.SetPID_Params',
       packedSize: 16,
       fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false },
+        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -227,10 +227,10 @@ service_manager.mojom.Connector_BindInterface_ParamsSpec = {
       name: 'service_manager.mojom.Connector.BindInterface_Params',
       packedSize: 40,
       fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ServiceFilterSpec, nullable: false },
-        { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'priority', packedOffset: 24, packedBitOffset: 0, type: service_manager.mojom.BindInterfacePrioritySpec, nullable: false },
+        { name: 'filter', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.ServiceFilterSpec, nullable: false },
+        { name: 'interface_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'interface_pipe', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'priority', packedOffset: 32, packedBitOffset: 0, type: service_manager.mojom.BindInterfacePrioritySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -243,8 +243,8 @@ service_manager.mojom.Connector_BindInterface_ResponseParamsSpec = {
       name: 'service_manager.mojom.Connector.BindInterface_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false },
-        { name: 'identity', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false },
+        { name: 'identity', packedOffset: 16, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -258,7 +258,7 @@ service_manager.mojom.Connector_QueryService_ParamsSpec = {
       name: 'service_manager.mojom.Connector.QueryService_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'service_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -271,7 +271,7 @@ service_manager.mojom.Connector_QueryService_ResponseParamsSpec = {
       name: 'service_manager.mojom.Connector.QueryService_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ServiceInfoSpec, nullable: true },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.ServiceInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -285,7 +285,7 @@ service_manager.mojom.Connector_WarmService_ParamsSpec = {
       name: 'service_manager.mojom.Connector.WarmService_Params',
       packedSize: 16,
       fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ServiceFilterSpec, nullable: false },
+        { name: 'filter', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.ServiceFilterSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -298,8 +298,8 @@ service_manager.mojom.Connector_WarmService_ResponseParamsSpec = {
       name: 'service_manager.mojom.Connector.WarmService_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false },
-        { name: 'identity', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false },
+        { name: 'identity', packedOffset: 16, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -313,9 +313,9 @@ service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec = {
       name: 'service_manager.mojom.Connector.RegisterServiceInstance_Params',
       packedSize: 32,
       fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false },
-        { name: 'service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'metadata_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'identity', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false },
+        { name: 'service', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'metadata_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -328,7 +328,7 @@ service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec = {
       name: 'service_manager.mojom.Connector.RegisterServiceInstance_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -342,7 +342,7 @@ service_manager.mojom.Connector_Clone_ParamsSpec = {
       name: 'service_manager.mojom.Connector.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

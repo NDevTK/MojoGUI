@@ -22,7 +22,7 @@ variations.mojom.VariationsHeadersSpec = {
       name: 'variations.mojom.VariationsHeaders',
       packedSize: 16,
       fields: [
-        { name: 'headers_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'headers_map', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

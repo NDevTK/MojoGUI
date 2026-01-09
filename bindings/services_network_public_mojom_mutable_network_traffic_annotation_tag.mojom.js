@@ -16,7 +16,7 @@ network.mojom.MutableNetworkTrafficAnnotationTagSpec = {
       name: 'network.mojom.MutableNetworkTrafficAnnotationTag',
       packedSize: 16,
       fields: [
-        { name: 'unique_id_hash_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'unique_id_hash_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

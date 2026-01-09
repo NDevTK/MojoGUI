@@ -23,13 +23,13 @@ blink.mojom.ViewportIntersectionStateSpec = {
       name: 'blink.mojom.ViewportIntersectionState',
       packedSize: 64,
       fields: [
-        { name: 'viewport_intersection', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'main_frame_intersection', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'compositor_visible_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'occlusion_state', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.FrameOcclusionStateSpec, nullable: false },
-        { name: 'outermost_main_frame_size', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'outermost_main_frame_scroll_position', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
-        { name: 'main_frame_transform', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false },
+        { name: 'viewport_intersection', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'main_frame_intersection', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'compositor_visible_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'occlusion_state', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.FrameOcclusionStateSpec, nullable: false },
+        { name: 'outermost_main_frame_size', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'outermost_main_frame_scroll_position', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'main_frame_transform', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

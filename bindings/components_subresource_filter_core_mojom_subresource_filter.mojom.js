@@ -44,12 +44,12 @@ subresource_filter.mojom.ActivationStateSpec = {
       name: 'subresource_filter.mojom.ActivationState',
       packedSize: 32,
       fields: [
-        { name: 'activation_level', packedOffset: 0, packedBitOffset: 0, type: subresource_filter.mojom.ActivationLevelSpec, nullable: false },
-        { name: 'disabled_reason', packedOffset: 8, packedBitOffset: 0, type: subresource_filter.mojom.SubresourceFilterDisabledReasonSpec, nullable: false },
-        { name: 'filtering_disabled_for_document', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'generic_blocking_rules_disabled', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'measure_performance', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_logging', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'activation_level', packedOffset: 8, packedBitOffset: 0, type: subresource_filter.mojom.ActivationLevelSpec, nullable: false },
+        { name: 'disabled_reason', packedOffset: 16, packedBitOffset: 0, type: subresource_filter.mojom.SubresourceFilterDisabledReasonSpec, nullable: false },
+        { name: 'filtering_disabled_for_document', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'generic_blocking_rules_disabled', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'measure_performance', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_logging', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,12 +63,12 @@ subresource_filter.mojom.DocumentLoadStatisticsSpec = {
       name: 'subresource_filter.mojom.DocumentLoadStatistics',
       packedSize: 40,
       fields: [
-        { name: 'num_loads_total', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'num_loads_evaluated', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'num_loads_matching_rules', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'num_loads_disallowed', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'evaluation_total_wall_duration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'evaluation_total_cpu_duration', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'num_loads_total', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'num_loads_evaluated', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'num_loads_matching_rules', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'num_loads_disallowed', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'evaluation_total_wall_duration', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'evaluation_total_cpu_duration', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -138,7 +138,7 @@ subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_P
       name: 'subresource_filter.mojom.SubresourceFilterRulesetObserver.SetRulesetForProcess_Params',
       packedSize: 16,
       fields: [
-        { name: 'ruleset_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
+        { name: 'ruleset_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

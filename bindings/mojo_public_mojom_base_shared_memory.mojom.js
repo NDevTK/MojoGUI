@@ -16,7 +16,7 @@ mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = {
       name: 'mojo_base.mojom.ReadOnlySharedMemoryRegion',
       packedSize: 16,
       fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +30,7 @@ mojo_base.mojom.WritableSharedMemoryRegionSpec = {
       name: 'mojo_base.mojom.WritableSharedMemoryRegion',
       packedSize: 16,
       fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -44,7 +44,7 @@ mojo_base.mojom.UnsafeSharedMemoryRegionSpec = {
       name: 'mojo_base.mojom.UnsafeSharedMemoryRegion',
       packedSize: 16,
       fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -22,10 +22,10 @@ blink.mojom.PrerenderAttributesSpec = {
       name: 'blink.mojom.PrerenderAttributes',
       packedSize: 40,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'trigger_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PrerenderTriggerTypeSpec, nullable: false },
-        { name: 'referrer', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ReferrerSpec, nullable: false },
-        { name: 'view_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'trigger_type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PrerenderTriggerTypeSpec, nullable: false },
+        { name: 'referrer', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ReferrerSpec, nullable: false },
+        { name: 'view_size', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,7 +104,7 @@ blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec = {
       name: 'blink.mojom.NoStatePrefetchProcessor.Start_Params',
       packedSize: 16,
       fields: [
-        { name: 'prerender_attribute', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PrerenderAttributesSpec, nullable: false },
+        { name: 'prerender_attribute', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PrerenderAttributesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

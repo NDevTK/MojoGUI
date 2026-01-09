@@ -16,8 +16,8 @@ userspace_swap.mojom.MemoryRegionSpec = {
       name: 'userspace_swap.mojom.MemoryRegion',
       packedSize: 24,
       fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -87,10 +87,10 @@ userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec 
       name: 'userspace_swap.mojom.UserspaceSwapInitialization.TransferUserfaultFD_Params',
       packedSize: 40,
       fields: [
-        { name: 'uffd_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'uffd_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'mmap_error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'swap_area', packedOffset: 24, packedBitOffset: 0, type: userspace_swap.mojom.MemoryRegionSpec, nullable: false },
+        { name: 'uffd_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'uffd_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mmap_error', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'swap_area', packedOffset: 32, packedBitOffset: 0, type: userspace_swap.mojom.MemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -183,8 +183,8 @@ userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec = {
       name: 'userspace_swap.mojom.UserspaceSwap.MovePTEsLeavingMapping_Params',
       packedSize: 24,
       fields: [
-        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: userspace_swap.mojom.MemoryRegionSpec, nullable: false },
-        { name: 'dest', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'src', packedOffset: 8, packedBitOffset: 0, type: userspace_swap.mojom.MemoryRegionSpec, nullable: false },
+        { name: 'dest', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -198,7 +198,7 @@ userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec = {
       name: 'userspace_swap.mojom.UserspaceSwap.MapArea_Params',
       packedSize: 16,
       fields: [
-        { name: 'area', packedOffset: 0, packedBitOffset: 0, type: userspace_swap.mojom.MemoryRegionSpec, nullable: false },
+        { name: 'area', packedOffset: 8, packedBitOffset: 0, type: userspace_swap.mojom.MemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -212,7 +212,7 @@ userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec = 
       name: 'userspace_swap.mojom.UserspaceSwap.GetPartitionAllocSuperPagesUsed_Params',
       packedSize: 16,
       fields: [
-        { name: 'max_superpages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'max_superpages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -225,7 +225,7 @@ userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParam
       name: 'userspace_swap.mojom.UserspaceSwap.GetPartitionAllocSuperPagesUsed_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'superpages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'superpages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -72,7 +72,7 @@ notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec = {
       name: 'notifications_internals.mojom.PageHandler.ScheduleNotification_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

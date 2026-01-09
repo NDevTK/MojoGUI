@@ -81,7 +81,7 @@ sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec = {
       name: 'sharing.mojom.NearbySharingDecoder.DecodeAdvertisement_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,7 +94,7 @@ sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec = {
       name: 'sharing.mojom.NearbySharingDecoder.DecodeAdvertisement_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'advertisement', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.AdvertisementSpec, nullable: true },
+        { name: 'advertisement', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.AdvertisementSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -108,7 +108,7 @@ sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec = {
       name: 'sharing.mojom.NearbySharingDecoder.DecodeFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +121,7 @@ sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec = {
       name: 'sharing.mojom.NearbySharingDecoder.DecodeFrame_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.FrameSpec, nullable: true },
+        { name: 'frame', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.FrameSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

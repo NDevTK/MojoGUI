@@ -84,7 +84,7 @@ media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_Respons
       name: 'media.mojom.MediaFoundationPreferences.IsHardwareSecureDecryptionAllowed_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

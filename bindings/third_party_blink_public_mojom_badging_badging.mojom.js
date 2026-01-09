@@ -81,7 +81,7 @@ blink.mojom.BadgeService_SetBadge_ParamsSpec = {
       name: 'blink.mojom.BadgeService.SetBadge_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BadgeValueSpec, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BadgeValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

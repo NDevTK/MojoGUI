@@ -142,8 +142,8 @@ media.mojom.AudioLog_OnCreated_ParamsSpec = {
       name: 'media.mojom.AudioLog.OnCreated_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
+        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -209,7 +209,7 @@ media.mojom.AudioLog_OnSetVolume_ParamsSpec = {
       name: 'media.mojom.AudioLog.OnSetVolume_Params',
       packedSize: 16,
       fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'volume', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -223,7 +223,7 @@ media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec = {
       name: 'media.mojom.AudioLog.OnProcessingStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -237,7 +237,7 @@ media.mojom.AudioLog_OnLogMessage_ParamsSpec = {
       name: 'media.mojom.AudioLog.OnLogMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -312,9 +312,9 @@ media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec = {
       name: 'media.mojom.AudioLogFactory.CreateAudioLog_Params',
       packedSize: 24,
       fields: [
-        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioLogComponentSpec, nullable: false },
-        { name: 'component_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'audio_log_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'component', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioLogComponentSpec, nullable: false },
+        { name: 'component_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'audio_log_receiver', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

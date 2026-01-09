@@ -30,11 +30,11 @@ media.mojom.DisplayMediaInformationSpec = {
       name: 'media.mojom.DisplayMediaInformation',
       packedSize: 48,
       fields: [
-        { name: 'display_surface', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DisplayCaptureSurfaceTypeSpec, nullable: false },
-        { name: 'logical_surface', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'cursor', packedOffset: 16, packedBitOffset: 0, type: media.mojom.CursorCaptureTypeSpec, nullable: false },
-        { name: 'capture_handle', packedOffset: 24, packedBitOffset: 0, type: media.mojom.CaptureHandleSpec, nullable: true },
-        { name: 'initial_zoom_level', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'display_surface', packedOffset: 8, packedBitOffset: 0, type: media.mojom.DisplayCaptureSurfaceTypeSpec, nullable: false },
+        { name: 'logical_surface', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'cursor', packedOffset: 24, packedBitOffset: 0, type: media.mojom.CursorCaptureTypeSpec, nullable: false },
+        { name: 'capture_handle', packedOffset: 32, packedBitOffset: 0, type: media.mojom.CaptureHandleSpec, nullable: true },
+        { name: 'initial_zoom_level', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

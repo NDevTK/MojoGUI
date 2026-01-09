@@ -23,8 +23,8 @@ guest_os.mojom.DiagnosticMessageSpec = {
       name: 'guest_os.mojom.DiagnosticMessage',
       packedSize: 24,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'learn_more_link', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'learn_more_link', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -38,7 +38,7 @@ guest_os.mojom.DiagnosticEntrySpec = {
       name: 'guest_os.mojom.DiagnosticEntry',
       packedSize: 16,
       fields: [
-        { name: 'kPass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kPass', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -52,8 +52,8 @@ guest_os.mojom.DiagnosticsSpec = {
       name: 'guest_os.mojom.Diagnostics',
       packedSize: 24,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'top_error', packedOffset: 8, packedBitOffset: 0, type: guest_os.mojom.DiagnosticMessageSpec, nullable: true },
+        { name: 'entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'top_error', packedOffset: 16, packedBitOffset: 0, type: guest_os.mojom.DiagnosticMessageSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -23,7 +23,7 @@ webnn.mojom.CreateContextOptionsSpec = {
       name: 'webnn.mojom.CreateContextOptions',
       packedSize: 16,
       fields: [
-        { name: 'kDefault', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kDefault', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,11 +37,11 @@ webnn.mojom.CreateContextSuccessSpec = {
       name: 'webnn.mojom.CreateContextSuccess',
       packedSize: 48,
       fields: [
-        { name: 'context_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'context_properties', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.ContextPropertiesSpec, nullable: false },
-        { name: 'context_handle', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebNNContextTokenSpec, nullable: false },
-        { name: 'write_tensor_producer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'read_tensor_consumer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'context_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'context_properties', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.ContextPropertiesSpec, nullable: false },
+        { name: 'context_handle', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.WebNNContextTokenSpec, nullable: false },
+        { name: 'write_tensor_producer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'read_tensor_consumer', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -111,7 +111,7 @@ webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
       name: 'webnn.mojom.WebNNContextProvider.CreateWebNNContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateContextOptionsSpec, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.CreateContextOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -124,7 +124,7 @@ webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
       name: 'webnn.mojom.WebNNContextProvider.CreateWebNNContext_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateContextResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.CreateContextResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

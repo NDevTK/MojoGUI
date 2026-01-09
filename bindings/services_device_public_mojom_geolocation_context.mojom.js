@@ -106,10 +106,10 @@ device.mojom.GeolocationContext_BindGeolocation_ParamsSpec = {
       name: 'device.mojom.GeolocationContext.BindGeolocation_Params',
       packedSize: 40,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'requesting_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GeolocationClientIdSpec, nullable: false },
-        { name: 'has_precise_permission', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'requesting_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'client_id', packedOffset: 24, packedBitOffset: 0, type: device.mojom.GeolocationClientIdSpec, nullable: false },
+        { name: 'has_precise_permission', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -123,8 +123,8 @@ device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec = {
       name: 'device.mojom.GeolocationContext.OnPermissionUpdated_Params',
       packedSize: 24,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'permission_level', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GeolocationPermissionLevelSpec, nullable: false },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'permission_level', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GeolocationPermissionLevelSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -138,7 +138,7 @@ device.mojom.GeolocationContext_SetOverride_ParamsSpec = {
       name: 'device.mojom.GeolocationContext.SetOverride_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

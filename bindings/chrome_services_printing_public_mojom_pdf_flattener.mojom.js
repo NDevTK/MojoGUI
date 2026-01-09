@@ -16,8 +16,8 @@ printing.mojom.FlattenPdfResultSpec = {
       name: 'printing.mojom.FlattenPdfResult',
       packedSize: 24,
       fields: [
-        { name: 'flattened_pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
-        { name: 'page_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'flattened_pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'page_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -96,7 +96,7 @@ printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec = {
       name: 'printing.mojom.PdfFlattener.FlattenPdf_Params',
       packedSize: 16,
       fields: [
-        { name: 'src_pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'src_pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -109,7 +109,7 @@ printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec = {
       name: 'printing.mojom.PdfFlattener.FlattenPdf_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.FlattenPdfResultSpec, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.FlattenPdfResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -123,7 +123,7 @@ printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec = {
       name: 'printing.mojom.PdfFlattener.SetUseSkiaRendererPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_skia', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

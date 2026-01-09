@@ -43,7 +43,7 @@ chromeos.cfm.mojom.MachineStatisticsInfoSpec = {
       name: 'chromeos.cfm.mojom.MachineStatisticsInfo',
       packedSize: 16,
       fields: [
-        { name: 'hwid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'hwid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -31,11 +31,11 @@ midi.mojom.PortInfoSpec = {
       name: 'midi.mojom.PortInfo',
       packedSize: 48,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'manufacturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'state', packedOffset: 32, packedBitOffset: 0, type: midi.mojom.PortStateSpec, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'manufacturer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'state', packedOffset: 40, packedBitOffset: 0, type: midi.mojom.PortStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -159,7 +159,7 @@ midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec = {
       name: 'midi.mojom.MidiSessionClient.AddInputPort_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: midi.mojom.PortInfoSpec, nullable: false },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: midi.mojom.PortInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -173,7 +173,7 @@ midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec = {
       name: 'midi.mojom.MidiSessionClient.AddOutputPort_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: midi.mojom.PortInfoSpec, nullable: false },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: midi.mojom.PortInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -187,8 +187,8 @@ midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec = {
       name: 'midi.mojom.MidiSessionClient.SetInputPortState_Params',
       packedSize: 24,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: midi.mojom.PortStateSpec, nullable: false },
+        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: midi.mojom.PortStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -202,8 +202,8 @@ midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec = {
       name: 'midi.mojom.MidiSessionClient.SetOutputPortState_Params',
       packedSize: 24,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: midi.mojom.PortStateSpec, nullable: false },
+        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: midi.mojom.PortStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -217,7 +217,7 @@ midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec = {
       name: 'midi.mojom.MidiSessionClient.SessionStarted_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: midi.mojom.ResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: midi.mojom.ResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -231,7 +231,7 @@ midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec = {
       name: 'midi.mojom.MidiSessionClient.AcknowledgeSentData_Params',
       packedSize: 16,
       fields: [
-        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -245,9 +245,9 @@ midi.mojom.MidiSessionClient_DataReceived_ParamsSpec = {
       name: 'midi.mojom.MidiSessionClient.DataReceived_Params',
       packedSize: 32,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -322,8 +322,8 @@ midi.mojom.MidiSessionProvider_StartSession_ParamsSpec = {
       name: 'midi.mojom.MidiSessionProvider.StartSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -398,9 +398,9 @@ midi.mojom.MidiSession_SendData_ParamsSpec = {
       name: 'midi.mojom.MidiSession.SendData_Params',
       packedSize: 32,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -72,7 +72,7 @@ chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec = {
       name: 'chrome.mojom.GoogleAccountsPrivateApiExtension.SetConsentResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'consent_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'consent_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -139,7 +139,7 @@ ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = {
       name: 'ash.annotator.mojom.UntrustedAnnotatorPage.SetTool_Params',
       packedSize: 16,
       fields: [
-        { name: 'tool', packedOffset: 0, packedBitOffset: 0, type: ash.annotator.mojom.AnnotatorToolSpec, nullable: false },
+        { name: 'tool', packedOffset: 8, packedBitOffset: 0, type: ash.annotator.mojom.AnnotatorToolSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -223,8 +223,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_
       name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandler.OnUndoRedoAvailabilityChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'undo_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'redo_available', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'undo_available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'redo_available', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -238,7 +238,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec
       name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandler.OnCanvasInitialized_Params',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -313,8 +313,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = {
       name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.Create_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'annotator', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'annotator', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

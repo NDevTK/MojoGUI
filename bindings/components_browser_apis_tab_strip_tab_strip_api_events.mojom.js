@@ -16,7 +16,7 @@ tabs_api.mojom.OnTabsCreatedEventSpec = {
       name: 'tabs_api.mojom.OnTabsCreatedEvent',
       packedSize: 16,
       fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tabs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +30,7 @@ tabs_api.mojom.OnTabsClosedEventSpec = {
       name: 'tabs_api.mojom.OnTabsClosedEvent',
       packedSize: 16,
       fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tabs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -44,7 +44,7 @@ tabs_api.mojom.OnDataChangedEventSpec = {
       name: 'tabs_api.mojom.OnDataChangedEvent',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.DataSpec, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.DataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -58,8 +58,8 @@ tabs_api.mojom.OnCollectionCreatedEventSpec = {
       name: 'tabs_api.mojom.OnCollectionCreatedEvent',
       packedSize: 24,
       fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: false },
-        { name: 'collection', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.ContainerSpec, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: false },
+        { name: 'collection', packedOffset: 16, packedBitOffset: 0, type: tabs_api.mojom.ContainerSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -73,9 +73,9 @@ tabs_api.mojom.OnNodeMovedEventSpec = {
       name: 'tabs_api.mojom.OnNodeMovedEvent',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
-        { name: 'from', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: false },
-        { name: 'to', packedOffset: 16, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
+        { name: 'from', packedOffset: 16, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: false },
+        { name: 'to', packedOffset: 24, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -31,7 +31,7 @@ ash.diagnostics.mojom.DeviceCapabilitiesSpec = {
       name: 'ash.diagnostics.mojom.DeviceCapabilities',
       packedSize: 16,
       fields: [
-        { name: 'has_battery', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_battery', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -45,8 +45,8 @@ ash.diagnostics.mojom.VersionInfoSpec = {
       name: 'ash.diagnostics.mojom.VersionInfo',
       packedSize: 24,
       fields: [
-        { name: 'milestone_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'full_version_string', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'milestone_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'full_version_string', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -60,14 +60,14 @@ ash.diagnostics.mojom.SystemInfoSpec = {
       name: 'ash.diagnostics.mojom.SystemInfo',
       packedSize: 64,
       fields: [
-        { name: 'board_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'marketing_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'cpu_model_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'total_memory_kib', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'cpu_threads_count', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'cpu_max_clock_speed_khz', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'version_info', packedOffset: 40, packedBitOffset: 0, type: ash.diagnostics.mojom.VersionInfoSpec, nullable: false },
-        { name: 'device_capabilities', packedOffset: 48, packedBitOffset: 0, type: ash.diagnostics.mojom.DeviceCapabilitiesSpec, nullable: false },
+        { name: 'board_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'marketing_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'cpu_model_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'total_memory_kib', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'cpu_threads_count', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'cpu_max_clock_speed_khz', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'version_info', packedOffset: 48, packedBitOffset: 0, type: ash.diagnostics.mojom.VersionInfoSpec, nullable: false },
+        { name: 'device_capabilities', packedOffset: 56, packedBitOffset: 0, type: ash.diagnostics.mojom.DeviceCapabilitiesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -81,8 +81,8 @@ ash.diagnostics.mojom.BatteryInfoSpec = {
       name: 'ash.diagnostics.mojom.BatteryInfo',
       packedSize: 24,
       fields: [
-        { name: 'manufacturer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'charge_full_design_milliamp_hours', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'manufacturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'charge_full_design_milliamp_hours', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -96,11 +96,11 @@ ash.diagnostics.mojom.BatteryChargeStatusSpec = {
       name: 'ash.diagnostics.mojom.BatteryChargeStatus',
       packedSize: 40,
       fields: [
-        { name: 'power_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'current_now_milliamps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'charge_now_milliamp_hours', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'battery_state', packedOffset: 16, packedBitOffset: 0, type: ash.diagnostics.mojom.BatteryStateSpec, nullable: false },
-        { name: 'power_adapter_status', packedOffset: 24, packedBitOffset: 0, type: ash.diagnostics.mojom.ExternalPowerSourceSpec, nullable: false },
+        { name: 'power_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'current_now_milliamps', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'charge_now_milliamp_hours', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'battery_state', packedOffset: 24, packedBitOffset: 0, type: ash.diagnostics.mojom.BatteryStateSpec, nullable: false },
+        { name: 'power_adapter_status', packedOffset: 32, packedBitOffset: 0, type: ash.diagnostics.mojom.ExternalPowerSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -114,10 +114,10 @@ ash.diagnostics.mojom.BatteryHealthSpec = {
       name: 'ash.diagnostics.mojom.BatteryHealth',
       packedSize: 24,
       fields: [
-        { name: 'charge_full_now_milliamp_hours', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'charge_full_design_milliamp_hours', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'cycle_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'battery_wear_percentage', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'charge_full_now_milliamp_hours', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'charge_full_design_milliamp_hours', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'cycle_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'battery_wear_percentage', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -131,9 +131,9 @@ ash.diagnostics.mojom.MemoryUsageSpec = {
       name: 'ash.diagnostics.mojom.MemoryUsage',
       packedSize: 24,
       fields: [
-        { name: 'total_memory_kib', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'available_memory_kib', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'free_memory_kib', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'total_memory_kib', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'available_memory_kib', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'free_memory_kib', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,11 +147,11 @@ ash.diagnostics.mojom.CpuUsageSpec = {
       name: 'ash.diagnostics.mojom.CpuUsage',
       packedSize: 24,
       fields: [
-        { name: 'percent_usage_user', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'percent_usage_system', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'percent_usage_free', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'average_cpu_temp_celsius', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'scaling_current_frequency_khz', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'percent_usage_user', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'percent_usage_system', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'percent_usage_free', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'average_cpu_temp_celsius', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'scaling_current_frequency_khz', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -221,7 +221,7 @@ ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_P
       name: 'ash.diagnostics.mojom.BatteryChargeStatusObserver.OnBatteryChargeStatusUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'battery_charge_status', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.BatteryChargeStatusSpec, nullable: false },
+        { name: 'battery_charge_status', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.BatteryChargeStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -296,7 +296,7 @@ ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec = 
       name: 'ash.diagnostics.mojom.BatteryHealthObserver.OnBatteryHealthUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'battery_health', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.BatteryHealthSpec, nullable: false },
+        { name: 'battery_health', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.BatteryHealthSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -371,7 +371,7 @@ ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec = {
       name: 'ash.diagnostics.mojom.MemoryUsageObserver.OnMemoryUsageUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.MemoryUsageSpec, nullable: false },
+        { name: 'memory_usage', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.MemoryUsageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -446,7 +446,7 @@ ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec = {
       name: 'ash.diagnostics.mojom.CpuUsageObserver.OnCpuUsageUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'cpu_usage', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.CpuUsageSpec, nullable: false },
+        { name: 'cpu_usage', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.CpuUsageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -578,7 +578,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec = {
       name: 'ash.diagnostics.mojom.SystemDataProvider.GetSystemInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'system_info', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.SystemInfoSpec, nullable: false },
+        { name: 'system_info', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.SystemInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -604,7 +604,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec = {
       name: 'ash.diagnostics.mojom.SystemDataProvider.GetBatteryInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'battery_info', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.BatteryInfoSpec, nullable: false },
+        { name: 'battery_info', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.BatteryInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -618,7 +618,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec =
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveBatteryChargeStatus_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -632,7 +632,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec = {
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveBatteryHealth_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -646,7 +646,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec = {
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveMemoryUsage_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -660,7 +660,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec = {
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveCpuUsage_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

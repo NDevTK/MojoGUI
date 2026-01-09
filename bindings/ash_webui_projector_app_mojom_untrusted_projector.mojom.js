@@ -175,7 +175,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_R
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetNewScreencastPrecondition_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'precondition', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.NewScreencastPreconditionSpec, nullable: false },
+        { name: 'precondition', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.NewScreencastPreconditionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -201,7 +201,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponsePar
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.ShouldDownloadSoda_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'should_download', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'should_download', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -227,7 +227,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.InstallSoda_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'triggered', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'triggered', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -253,7 +253,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_Response
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetPendingScreencasts_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pending_screencasts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pending_screencasts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -267,7 +267,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec = {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetUserPref_Params',
       packedSize: 16,
       fields: [
-        { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.PrefsThatProjectorCanAskForSpec, nullable: false },
+        { name: 'pref', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.PrefsThatProjectorCanAskForSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -280,7 +280,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetUserPref_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -294,8 +294,8 @@ ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec = {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.SetUserPref_Params',
       packedSize: 24,
       fields: [
-        { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.PrefsThatProjectorCanAskForSpec, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
+        { name: 'pref', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.PrefsThatProjectorCanAskForSpec, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -322,7 +322,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSp
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.StartProjectorSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'storage_dir_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false },
+        { name: 'storage_dir_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -335,7 +335,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_Response
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.StartProjectorSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -349,13 +349,13 @@ ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec = {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.SendXhr_Params',
       packedSize: 56,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'method', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.RequestTypeSpec, nullable: false },
-        { name: 'request_body', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'use_credentials', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'use_api_key', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'headers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
-        { name: 'account_email', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'method', packedOffset: 16, packedBitOffset: 0, type: ash.projector.mojom.RequestTypeSpec, nullable: false },
+        { name: 'request_body', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'use_credentials', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_api_key', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'headers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'account_email', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -368,7 +368,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec = {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.SendXhr_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.XhrResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.XhrResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -394,7 +394,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetAccounts_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'accounts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'accounts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -408,8 +408,8 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec = {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetVideo_Params',
       packedSize: 24,
       fields: [
-        { name: 'video_file_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'resource_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'video_file_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'resource_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -422,7 +422,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec = 
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetVideo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.GetVideoResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.GetVideoResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -533,7 +533,7 @@ ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_Pa
       name: 'ash.projector.mojom.UntrustedProjectorPage.OnNewScreencastPreconditionChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'precondition', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.NewScreencastPreconditionSpec, nullable: false },
+        { name: 'precondition', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.NewScreencastPreconditionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -547,7 +547,7 @@ ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSp
       name: 'ash.projector.mojom.UntrustedProjectorPage.OnSodaInstallProgressUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -587,7 +587,7 @@ ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec =
       name: 'ash.projector.mojom.UntrustedProjectorPage.OnScreencastsStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'pending_screencasts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pending_screencasts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -662,8 +662,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec = {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandlerFactory.Create_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

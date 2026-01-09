@@ -31,7 +31,7 @@ printing.mojom.PwgRasterSettingsSpec = {
       name: 'printing.mojom.PwgRasterSettings',
       packedSize: 16,
       fields: [
-        { name: 'TRANSFORM_NORMAL', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'TRANSFORM_NORMAL', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -110,9 +110,9 @@ printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = {
       name: 'printing.mojom.PdfToPwgRasterConverter.Convert_Params',
       packedSize: 32,
       fields: [
-        { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
-        { name: 'pdf_settings', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PdfRenderSettingsSpec, nullable: false },
-        { name: 'pwg_raster_settings', packedOffset: 16, packedBitOffset: 0, type: printing.mojom.PwgRasterSettingsSpec, nullable: false },
+        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'pdf_settings', packedOffset: 16, packedBitOffset: 0, type: printing.mojom.PdfRenderSettingsSpec, nullable: false },
+        { name: 'pwg_raster_settings', packedOffset: 24, packedBitOffset: 0, type: printing.mojom.PwgRasterSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,8 +125,8 @@ printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec = {
       name: 'printing.mojom.PdfToPwgRasterConverter.Convert_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'pwg_raster_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
-        { name: 'page_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'pwg_raster_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
+        { name: 'page_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -140,7 +140,7 @@ printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
       name: 'printing.mojom.PdfToPwgRasterConverter.SetUseSkiaRendererPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_skia', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

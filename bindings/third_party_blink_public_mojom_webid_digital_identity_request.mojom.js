@@ -27,8 +27,8 @@ blink.mojom.DigitalCredentialGetRequestSpec = {
       name: 'blink.mojom.DigitalCredentialGetRequest',
       packedSize: 24,
       fields: [
-        { name: 'protocol', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
+        { name: 'protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,8 +42,8 @@ blink.mojom.DigitalCredentialCreateRequestSpec = {
       name: 'blink.mojom.DigitalCredentialCreateRequest',
       packedSize: 24,
       fields: [
-        { name: 'protocol', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
+        { name: 'protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -131,7 +131,7 @@ blink.mojom.DigitalIdentityRequest_Get_ParamsSpec = {
       name: 'blink.mojom.DigitalIdentityRequest.Get_Params',
       packedSize: 16,
       fields: [
-        { name: 'digital_credential_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'digital_credential_requests', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -144,9 +144,9 @@ blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec = {
       name: 'blink.mojom.DigitalIdentityRequest.Get_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RequestDigitalIdentityStatusSpec, nullable: false },
-        { name: 'protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RequestDigitalIdentityStatusSpec, nullable: false },
+        { name: 'protocol', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -160,7 +160,7 @@ blink.mojom.DigitalIdentityRequest_Create_ParamsSpec = {
       name: 'blink.mojom.DigitalIdentityRequest.Create_Params',
       packedSize: 16,
       fields: [
-        { name: 'digital_credential_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'digital_credential_requests', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -173,9 +173,9 @@ blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec = {
       name: 'blink.mojom.DigitalIdentityRequest.Create_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RequestDigitalIdentityStatusSpec, nullable: false },
-        { name: 'protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RequestDigitalIdentityStatusSpec, nullable: false },
+        { name: 'protocol', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

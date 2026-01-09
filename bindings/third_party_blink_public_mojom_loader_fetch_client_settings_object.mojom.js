@@ -22,9 +22,9 @@ blink.mojom.FetchClientSettingsObjectSpec = {
       name: 'blink.mojom.FetchClientSettingsObject',
       packedSize: 32,
       fields: [
-        { name: 'referrer_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false },
-        { name: 'outgoing_referrer', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'insecure_requests_policy', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.InsecureRequestsPolicySpec, nullable: false },
+        { name: 'referrer_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false },
+        { name: 'outgoing_referrer', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'insecure_requests_policy', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.InsecureRequestsPolicySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

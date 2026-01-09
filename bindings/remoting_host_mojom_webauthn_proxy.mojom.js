@@ -16,8 +16,8 @@ remoting.mojom.WebAuthnExceptionDetailsSpec = {
       name: 'remoting.mojom.WebAuthnExceptionDetails',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -99,7 +99,7 @@ remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec = {
       name: 'remoting.mojom.WebAuthnRequestCanceller.Cancel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'was_canceled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'was_canceled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,7 +204,7 @@ remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Respo
       name: 'remoting.mojom.WebAuthnProxy.IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -218,8 +218,8 @@ remoting.mojom.WebAuthnProxy_Create_ParamsSpec = {
       name: 'remoting.mojom.WebAuthnProxy.Create_Params',
       packedSize: 24,
       fields: [
-        { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'request_canceller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'request_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'request_canceller', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -232,7 +232,7 @@ remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec = {
       name: 'remoting.mojom.WebAuthnProxy.Create_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.WebAuthnCreateResponseSpec, nullable: true },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.WebAuthnCreateResponseSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -246,8 +246,8 @@ remoting.mojom.WebAuthnProxy_Get_ParamsSpec = {
       name: 'remoting.mojom.WebAuthnProxy.Get_Params',
       packedSize: 24,
       fields: [
-        { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'request_canceller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'request_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'request_canceller', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,7 +260,7 @@ remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec = {
       name: 'remoting.mojom.WebAuthnProxy.Get_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.WebAuthnGetResponseSpec, nullable: true },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.WebAuthnGetResponseSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

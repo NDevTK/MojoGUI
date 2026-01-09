@@ -84,7 +84,7 @@ blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec = {
       name: 'blink.mojom.SmartCardService.CreateContext_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardCreateContextResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SmartCardCreateContextResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

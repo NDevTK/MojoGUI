@@ -16,8 +16,8 @@ legion_internals.mojom.LegionResponseSpec = {
       name: 'legion_internals.mojom.LegionResponse',
       packedSize: 24,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -105,8 +105,8 @@ legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec = {
       name: 'legion_internals.mojom.LegionInternalsPageHandler.Connect_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'api_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'api_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -133,8 +133,8 @@ legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec = {
       name: 'legion_internals.mojom.LegionInternalsPageHandler.SendRequest_Params',
       packedSize: 24,
       fields: [
-        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'feature_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,7 +147,7 @@ legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec
       name: 'legion_internals.mojom.LegionInternalsPageHandler.SendRequest_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: legion_internals.mojom.LegionResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: legion_internals.mojom.LegionResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

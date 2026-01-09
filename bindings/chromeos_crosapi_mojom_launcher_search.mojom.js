@@ -85,7 +85,7 @@ crosapi.mojom.SearchResultSpec = {
       name: 'crosapi.mojom.SearchResult',
       packedSize: 16,
       fields: [
-        { name: 'kUnset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

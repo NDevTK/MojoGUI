@@ -25,8 +25,8 @@ mojo.native.SerializedHandleSpec = {
       name: 'mojo.native.SerializedHandle',
       packedSize: 24,
       fields: [
-        { name: 'the_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.native.SerializedHandleTypeSpec, nullable: false },
+        { name: 'the_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.native.SerializedHandleTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -40,8 +40,8 @@ mojo.native.NativeStructSpec = {
       name: 'mojo.native.NativeStruct',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'handles', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'handles', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }

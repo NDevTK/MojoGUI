@@ -24,10 +24,10 @@ action_chips.mojom.TabInfoSpec = {
       name: 'action_chips.mojom.TabInfo',
       packedSize: 40,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'last_active_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'last_active_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -41,10 +41,10 @@ action_chips.mojom.ActionChipSpec = {
       name: 'action_chips.mojom.ActionChip',
       packedSize: 40,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'suggestion', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: action_chips.mojom.ChipTypeSpec, nullable: false },
-        { name: 'tab', packedOffset: 24, packedBitOffset: 0, type: action_chips.mojom.TabInfoSpec, nullable: true },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'suggestion', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: action_chips.mojom.ChipTypeSpec, nullable: false },
+        { name: 'tab', packedOffset: 32, packedBitOffset: 0, type: action_chips.mojom.TabInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -188,7 +188,7 @@ action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec = {
       name: 'action_chips.mojom.Page.OnActionChipsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'action_chips', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'action_chips', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -263,8 +263,8 @@ action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec
       name: 'action_chips.mojom.ActionChipsHandlerFactory.CreateActionChipsHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

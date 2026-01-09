@@ -69,9 +69,9 @@ nearby_share.mojom.PayloadPreviewSpec = {
       name: 'nearby_share.mojom.PayloadPreview',
       packedSize: 32,
       fields: [
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'file_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'share_type', packedOffset: 16, packedBitOffset: 0, type: nearby_share.mojom.ShareTypeSpec, nullable: false },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'file_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'share_type', packedOffset: 24, packedBitOffset: 0, type: nearby_share.mojom.ShareTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,12 +85,12 @@ nearby_share.mojom.ShareTargetSpec = {
       name: 'nearby_share.mojom.ShareTarget',
       packedSize: 56,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetTypeSpec, nullable: false },
-        { name: 'image_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'payload_preview', packedOffset: 32, packedBitOffset: 0, type: nearby_share.mojom.PayloadPreviewSpec, nullable: false },
-        { name: 'for_self_share', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetTypeSpec, nullable: false },
+        { name: 'image_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'payload_preview', packedOffset: 40, packedBitOffset: 0, type: nearby_share.mojom.PayloadPreviewSpec, nullable: false },
+        { name: 'for_self_share', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,11 +104,11 @@ nearby_share.mojom.TransferMetadataSpec = {
       name: 'nearby_share.mojom.TransferMetadata',
       packedSize: 40,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.TransferStatusSpec, nullable: false },
-        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_original', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_final_status', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.TransferStatusSpec, nullable: false },
+        { name: 'progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_original', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_final_status', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -187,7 +187,7 @@ nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec = {
       name: 'nearby_share.mojom.ShareTargetListener.OnShareTargetDiscovered_Params',
       packedSize: 16,
       fields: [
-        { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false },
+        { name: 'share_target', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -201,7 +201,7 @@ nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec = {
       name: 'nearby_share.mojom.ShareTargetListener.OnShareTargetLost_Params',
       packedSize: 16,
       fields: [
-        { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false },
+        { name: 'share_target', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -276,8 +276,8 @@ nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec = {
       name: 'nearby_share.mojom.TransferUpdateListener.OnTransferUpdate_Params',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.TransferStatusSpec, nullable: false },
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.TransferStatusSpec, nullable: false },
+        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -374,7 +374,7 @@ nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec = {
       name: 'nearby_share.mojom.DiscoveryObserver.OnStartDiscoveryResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -485,7 +485,7 @@ nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec = {
       name: 'nearby_share.mojom.DiscoveryManager.AddDiscoveryObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -499,7 +499,7 @@ nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec = {
       name: 'nearby_share.mojom.DiscoveryManager.StartDiscovery_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -512,7 +512,7 @@ nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec = {
       name: 'nearby_share.mojom.DiscoveryManager.StartDiscovery_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.StartDiscoveryResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.StartDiscoveryResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -539,7 +539,7 @@ nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec = {
       name: 'nearby_share.mojom.DiscoveryManager.SelectShareTarget_Params',
       packedSize: 16,
       fields: [
-        { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'share_target_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -552,9 +552,9 @@ nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec = {
       name: 'nearby_share.mojom.DiscoveryManager.SelectShareTarget_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.SelectShareTargetResultSpec, nullable: false },
-        { name: 'transfer_update_listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
-        { name: 'confirmation_manager', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.SelectShareTargetResultSpec, nullable: false },
+        { name: 'transfer_update_listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'confirmation_manager', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -580,7 +580,7 @@ nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec = {
       name: 'nearby_share.mojom.DiscoveryManager.GetPayloadPreview_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'payload_preview', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.PayloadPreviewSpec, nullable: false },
+        { name: 'payload_preview', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.PayloadPreviewSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -685,7 +685,7 @@ nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec = {
       name: 'nearby_share.mojom.ConfirmationManager.Accept_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -711,7 +711,7 @@ nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec = {
       name: 'nearby_share.mojom.ConfirmationManager.Reject_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -737,7 +737,7 @@ nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec = {
       name: 'nearby_share.mojom.ConfirmationManager.Cancel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -839,7 +839,7 @@ nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec = {
       name: 'nearby_share.mojom.ReceiveObserver.OnHighVisibilityChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'in_high_visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'in_high_visibility', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -853,8 +853,8 @@ nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec = {
       name: 'nearby_share.mojom.ReceiveObserver.OnTransferUpdate_Params',
       packedSize: 24,
       fields: [
-        { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.TransferMetadataSpec, nullable: false },
+        { name: 'share_target', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false },
+        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: nearby_share.mojom.TransferMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1009,7 +1009,7 @@ nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec = {
       name: 'nearby_share.mojom.ReceiveManager.AddReceiveObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1035,7 +1035,7 @@ nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec = {
       name: 'nearby_share.mojom.ReceiveManager.IsInHighVisibility_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'in_high_visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'in_high_visibility', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1061,7 +1061,7 @@ nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParam
       name: 'nearby_share.mojom.ReceiveManager.RegisterForegroundReceiveSurface_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.RegisterReceiveSurfaceResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.RegisterReceiveSurfaceResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1087,7 +1087,7 @@ nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponsePar
       name: 'nearby_share.mojom.ReceiveManager.UnregisterForegroundReceiveSurface_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1101,7 +1101,7 @@ nearby_share.mojom.ReceiveManager_Accept_ParamsSpec = {
       name: 'nearby_share.mojom.ReceiveManager.Accept_Params',
       packedSize: 16,
       fields: [
-        { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'share_target_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1114,7 +1114,7 @@ nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec = {
       name: 'nearby_share.mojom.ReceiveManager.Accept_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1128,7 +1128,7 @@ nearby_share.mojom.ReceiveManager_Reject_ParamsSpec = {
       name: 'nearby_share.mojom.ReceiveManager.Reject_Params',
       packedSize: 16,
       fields: [
-        { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'share_target_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1141,7 +1141,7 @@ nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec = {
       name: 'nearby_share.mojom.ReceiveManager.Reject_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1155,7 +1155,7 @@ nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSp
       name: 'nearby_share.mojom.ReceiveManager.RecordFastInitiationNotificationUsage_Params',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

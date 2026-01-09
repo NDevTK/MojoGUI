@@ -112,7 +112,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec = {
       name: 'ntp.safe_browsing.mojom.SafeBrowsingHandler.CanShowModule_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'show', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

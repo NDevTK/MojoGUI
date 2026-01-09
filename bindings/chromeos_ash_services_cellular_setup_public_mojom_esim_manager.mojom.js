@@ -48,8 +48,8 @@ ash.cellular_setup.mojom.EuiccPropertiesSpec = {
       name: 'ash.cellular_setup.mojom.EuiccProperties',
       packedSize: 24,
       fields: [
-        { name: 'eid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_active', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'eid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_active', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,13 +63,13 @@ ash.cellular_setup.mojom.ESimProfilePropertiesSpec = {
       name: 'ash.cellular_setup.mojom.ESimProfileProperties',
       packedSize: 64,
       fields: [
-        { name: 'eid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'iccid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'nickname', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'service_provider', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'state', packedOffset: 40, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileStateSpec, nullable: false },
-        { name: 'activation_code', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'eid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'iccid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'nickname', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'service_provider', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'state', packedOffset: 48, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileStateSpec, nullable: false },
+        { name: 'activation_code', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -83,8 +83,8 @@ ash.cellular_setup.mojom.QRCodeSpec = {
       name: 'ash.cellular_setup.mojom.QRCode',
       packedSize: 24,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -194,7 +194,7 @@ ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec = {
       name: 'ash.cellular_setup.mojom.ESimManagerObserver.OnProfileListChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'euicc', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'euicc', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -208,7 +208,7 @@ ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec = {
       name: 'ash.cellular_setup.mojom.ESimManagerObserver.OnEuiccChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'euicc', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'euicc', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,7 +222,7 @@ ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec = {
       name: 'ash.cellular_setup.mojom.ESimManagerObserver.OnProfileChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -306,7 +306,7 @@ ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec = {
       name: 'ash.cellular_setup.mojom.ESimManager.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -332,7 +332,7 @@ ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec = {
       name: 'ash.cellular_setup.mojom.ESimManager.GetAvailableEuiccs_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'euiccs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'euiccs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -464,7 +464,7 @@ ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec = {
       name: 'ash.cellular_setup.mojom.Euicc.GetProperties_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.EuiccPropertiesSpec, nullable: false },
+        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: ash.cellular_setup.mojom.EuiccPropertiesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -490,7 +490,7 @@ ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec = {
       name: 'ash.cellular_setup.mojom.Euicc.GetProfileList_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'profiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'profiles', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -516,8 +516,8 @@ ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec = {
       name: 'ash.cellular_setup.mojom.Euicc.RequestAvailableProfiles_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimOperationResultSpec, nullable: false },
-        { name: 'profiles', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimOperationResultSpec, nullable: false },
+        { name: 'profiles', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -543,7 +543,7 @@ ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec = {
       name: 'ash.cellular_setup.mojom.Euicc.RefreshInstalledProfiles_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimOperationResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimOperationResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -557,9 +557,9 @@ ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec = {
       name: 'ash.cellular_setup.mojom.Euicc.InstallProfileFromActivationCode_Params',
       packedSize: 32,
       fields: [
-        { name: 'activation_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'confirmation_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'install_method', packedOffset: 16, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileInstallMethodSpec, nullable: false },
+        { name: 'activation_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'confirmation_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'install_method', packedOffset: 24, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileInstallMethodSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -572,8 +572,8 @@ ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSp
       name: 'ash.cellular_setup.mojom.Euicc.InstallProfileFromActivationCode_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileInstallResultSpec, nullable: false },
-        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileInstallResultSpec, nullable: false },
+        { name: 'profile', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -599,7 +599,7 @@ ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec = {
       name: 'ash.cellular_setup.mojom.Euicc.GetEidQRCode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'qr_code', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.QRCodeSpec, nullable: true },
+        { name: 'qr_code', packedOffset: 8, packedBitOffset: 0, type: ash.cellular_setup.mojom.QRCodeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -713,7 +713,7 @@ ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec = {
       name: 'ash.cellular_setup.mojom.ESimProfile.GetProperties_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimProfilePropertiesSpec, nullable: false },
+        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimProfilePropertiesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -727,7 +727,7 @@ ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec = {
       name: 'ash.cellular_setup.mojom.ESimProfile.InstallProfile_Params',
       packedSize: 16,
       fields: [
-        { name: 'confirmation_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'confirmation_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -740,7 +740,7 @@ ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec = {
       name: 'ash.cellular_setup.mojom.ESimProfile.InstallProfile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileInstallResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileInstallResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -766,7 +766,7 @@ ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec = {
       name: 'ash.cellular_setup.mojom.ESimProfile.UninstallProfile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimOperationResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimOperationResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -780,7 +780,7 @@ ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec = {
       name: 'ash.cellular_setup.mojom.ESimProfile.SetProfileNickname_Params',
       packedSize: 16,
       fields: [
-        { name: 'nickname', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'nickname', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -793,7 +793,7 @@ ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec = {
       name: 'ash.cellular_setup.mojom.ESimProfile.SetProfileNickname_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimOperationResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimOperationResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

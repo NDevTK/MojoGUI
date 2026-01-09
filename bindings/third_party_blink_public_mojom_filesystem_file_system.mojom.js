@@ -24,9 +24,9 @@ blink.mojom.FileSystemInfoSpec = {
       name: 'blink.mojom.FileSystemInfo',
       packedSize: 32,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'root_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'mount_type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FileSystemTypeSpec, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'root_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'mount_type', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.FileSystemTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,7 +108,7 @@ blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemCancellableOperation.Cancel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -201,8 +201,8 @@ blink.mojom.FileSystemOperationListener_ResultsRetrieved_ParamsSpec = {
       name: 'blink.mojom.FileSystemOperationListener.ResultsRetrieved_Params',
       packedSize: 24,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'has_more', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'has_more', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -216,8 +216,8 @@ blink.mojom.FileSystemOperationListener_DidWrite_ParamsSpec = {
       name: 'blink.mojom.FileSystemOperationListener.DidWrite_Params',
       packedSize: 24,
       fields: [
-        { name: 'byte_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'complete', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'byte_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'complete', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -231,7 +231,7 @@ blink.mojom.FileSystemOperationListener_ErrorOccurred_ParamsSpec = {
       name: 'blink.mojom.FileSystemOperationListener.ErrorOccurred_Params',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -524,8 +524,8 @@ blink.mojom.FileSystemManager_Open_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Open_Params',
       packedSize: 24,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'file_system_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemTypeSpec, nullable: false },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'file_system_type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FileSystemTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -538,9 +538,9 @@ blink.mojom.FileSystemManager_Open_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Open_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'root_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'error_code', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'root_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'error_code', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -554,7 +554,7 @@ blink.mojom.FileSystemManager_ResolveURL_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.ResolveURL_Params',
       packedSize: 16,
       fields: [
-        { name: 'filesystem_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'filesystem_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -567,10 +567,10 @@ blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.ResolveURL_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemInfoSpec, nullable: false },
-        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'is_directory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'error_code', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemInfoSpec, nullable: false },
+        { name: 'file_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'is_directory', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'error_code', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -584,8 +584,8 @@ blink.mojom.FileSystemManager_Move_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Move_Params',
       packedSize: 24,
       fields: [
-        { name: 'src_path', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'dest_path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'src_path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'dest_path', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -598,7 +598,7 @@ blink.mojom.FileSystemManager_Move_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Move_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -612,8 +612,8 @@ blink.mojom.FileSystemManager_Copy_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Copy_Params',
       packedSize: 24,
       fields: [
-        { name: 'src_path', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'dest_path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'src_path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'dest_path', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -626,7 +626,7 @@ blink.mojom.FileSystemManager_Copy_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Copy_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -640,8 +640,8 @@ blink.mojom.FileSystemManager_Remove_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Remove_Params',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'recursive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'recursive', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -654,7 +654,7 @@ blink.mojom.FileSystemManager_Remove_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Remove_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -668,7 +668,7 @@ blink.mojom.FileSystemManager_ReadMetadata_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.ReadMetadata_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -681,8 +681,8 @@ blink.mojom.FileSystemManager_ReadMetadata_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.ReadMetadata_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'file_info', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileInfoSpec, nullable: false },
-        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'file_info', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileInfoSpec, nullable: false },
+        { name: 'error_code', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -696,10 +696,10 @@ blink.mojom.FileSystemManager_Create_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Create_Params',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'exclusive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_directory', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'recursive', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'exclusive', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_directory', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'recursive', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -712,7 +712,7 @@ blink.mojom.FileSystemManager_Create_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Create_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -726,8 +726,8 @@ blink.mojom.FileSystemManager_Exists_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Exists_Params',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'is_directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'is_directory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -740,7 +740,7 @@ blink.mojom.FileSystemManager_Exists_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Exists_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -754,8 +754,8 @@ blink.mojom.FileSystemManager_ReadDirectory_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.ReadDirectory_Params',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -769,7 +769,7 @@ blink.mojom.FileSystemManager_ReadDirectorySync_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.ReadDirectorySync_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -782,8 +782,8 @@ blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.ReadDirectorySync_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'error_code', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -797,11 +797,11 @@ blink.mojom.FileSystemManager_Write_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Write_Params',
       packedSize: 40,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'op_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'listener', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'position', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'op_receiver', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'listener', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -815,9 +815,9 @@ blink.mojom.FileSystemManager_WriteSync_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.WriteSync_Params',
       packedSize: 32,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'position', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -830,8 +830,8 @@ blink.mojom.FileSystemManager_WriteSync_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.WriteSync_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'byte_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'byte_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'error_code', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -845,9 +845,9 @@ blink.mojom.FileSystemManager_Truncate_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Truncate_Params',
       packedSize: 32,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'op_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'op_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -860,7 +860,7 @@ blink.mojom.FileSystemManager_Truncate_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.Truncate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -874,8 +874,8 @@ blink.mojom.FileSystemManager_TruncateSync_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.TruncateSync_Params',
       packedSize: 24,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -888,7 +888,7 @@ blink.mojom.FileSystemManager_TruncateSync_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.TruncateSync_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -902,7 +902,7 @@ blink.mojom.FileSystemManager_CreateSnapshotFile_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.CreateSnapshotFile_Params',
       packedSize: 16,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -915,10 +915,10 @@ blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.CreateSnapshotFile_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'file_info', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileInfoSpec, nullable: false },
-        { name: 'platform_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'error_code', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
-        { name: 'snapshot_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'file_info', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileInfoSpec, nullable: false },
+        { name: 'platform_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'error_code', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'snapshot_listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -932,7 +932,7 @@ blink.mojom.FileSystemManager_GetPlatformPath_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.GetPlatformPath_Params',
       packedSize: 16,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -945,7 +945,7 @@ blink.mojom.FileSystemManager_GetPlatformPath_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.GetPlatformPath_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'platform_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'platform_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -959,10 +959,10 @@ blink.mojom.FileSystemManager_RegisterBlob_ParamsSpec = {
       name: 'blink.mojom.FileSystemManager.RegisterBlob_Params',
       packedSize: 40,
       fields: [
-        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'expected_modification_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'content_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'expected_modification_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -975,7 +975,7 @@ blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.RegisterBlob_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: false },
+        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

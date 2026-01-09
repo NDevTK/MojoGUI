@@ -38,10 +38,10 @@ ash.personalization_app.mojom.SearchResultSpec = {
       name: 'ash.personalization_app.mojom.SearchResult',
       packedSize: 40,
       fields: [
-        { name: 'search_concept_id', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.SearchConceptIdSpec, nullable: false },
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'relative_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'relevance_score', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'search_concept_id', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.SearchConceptIdSpec, nullable: false },
+        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'relative_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'relevance_score', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -194,8 +194,8 @@ ash.personalization_app.mojom.SearchHandler_Search_ParamsSpec = {
       name: 'ash.personalization_app.mojom.SearchHandler.Search_Params',
       packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'max_num_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -208,7 +208,7 @@ ash.personalization_app.mojom.SearchHandler_Search_ResponseParamsSpec = {
       name: 'ash.personalization_app.mojom.SearchHandler.Search_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,7 +222,7 @@ ash.personalization_app.mojom.SearchHandler_AddObserver_ParamsSpec = {
       name: 'ash.personalization_app.mojom.SearchHandler.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

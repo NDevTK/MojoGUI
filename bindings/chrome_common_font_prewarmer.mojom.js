@@ -72,7 +72,7 @@ chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec = {
       name: 'chrome.mojom.FontPrewarmer.PrewarmFonts_Params',
       packedSize: 16,
       fields: [
-        { name: 'font_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'font_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -159,7 +159,7 @@ chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec
       name: 'chrome.mojom.RenderFrameFontFamilyAccessor.GetFontFamilyNames_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'font_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'font_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

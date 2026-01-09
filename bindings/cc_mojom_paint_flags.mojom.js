@@ -24,8 +24,8 @@ cc.mojom.DynamicRangeLimitSpec = {
       name: 'cc.mojom.DynamicRangeLimit',
       packedSize: 16,
       fields: [
-        { name: 'standard_mix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'constrained_high_mix', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'standard_mix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'constrained_high_mix', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

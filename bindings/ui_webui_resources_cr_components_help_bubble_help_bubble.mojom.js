@@ -39,8 +39,8 @@ help_bubble.mojom.HelpBubbleButtonParamsSpec = {
       name: 'help_bubble.mojom.HelpBubbleButtonParams',
       packedSize: 24,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_default', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_default', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -54,8 +54,8 @@ help_bubble.mojom.ProgressSpec = {
       name: 'help_bubble.mojom.Progress',
       packedSize: 16,
       fields: [
-        { name: 'current', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'total', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'current', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'total', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -69,17 +69,17 @@ help_bubble.mojom.HelpBubbleParamsSpec = {
       name: 'help_bubble.mojom.HelpBubbleParams',
       packedSize: 96,
       fields: [
-        { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: help_bubble.mojom.HelpBubbleArrowPositionSpec, nullable: false },
-        { name: 'title_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'body_text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'close_button_alt_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'body_icon_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'body_icon_alt_text', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'progress', packedOffset: 56, packedBitOffset: 0, type: help_bubble.mojom.ProgressSpec, nullable: true },
-        { name: 'buttons', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'focus_on_show_hint', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
-        { name: 'timeout', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'native_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: help_bubble.mojom.HelpBubbleArrowPositionSpec, nullable: false },
+        { name: 'title_text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'body_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'close_button_alt_text', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'body_icon_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'body_icon_alt_text', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'progress', packedOffset: 64, packedBitOffset: 0, type: help_bubble.mojom.ProgressSpec, nullable: true },
+        { name: 'buttons', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'focus_on_show_hint', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'timeout', packedOffset: 88, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -149,8 +149,8 @@ help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = 
       name: 'help_bubble.mojom.HelpBubbleHandlerFactory.CreateHelpBubbleHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -225,8 +225,8 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec
       name: 'help_bubble.mojom.PdfHelpBubbleHandlerFactory.CreateHelpBubbleHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -319,7 +319,7 @@ help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec = {
       name: 'help_bubble.mojom.HelpBubbleHandler.BindTrackedElementHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -333,8 +333,8 @@ help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec = {
       name: 'help_bubble.mojom.HelpBubbleHandler.HelpBubbleButtonPressed_Params',
       packedSize: 24,
       fields: [
-        { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'button_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'native_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'button_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -348,8 +348,8 @@ help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec = {
       name: 'help_bubble.mojom.HelpBubbleHandler.HelpBubbleClosed_Params',
       packedSize: 24,
       fields: [
-        { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: help_bubble.mojom.HelpBubbleClosedReasonSpec, nullable: false },
+        { name: 'native_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: help_bubble.mojom.HelpBubbleClosedReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -451,7 +451,7 @@ help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec = {
       name: 'help_bubble.mojom.HelpBubbleClient.ShowHelpBubble_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: help_bubble.mojom.HelpBubbleParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: help_bubble.mojom.HelpBubbleParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -465,7 +465,7 @@ help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec = {
       name: 'help_bubble.mojom.HelpBubbleClient.ToggleFocusForAccessibility_Params',
       packedSize: 16,
       fields: [
-        { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'native_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -479,7 +479,7 @@ help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec = {
       name: 'help_bubble.mojom.HelpBubbleClient.HideHelpBubble_Params',
       packedSize: 16,
       fields: [
-        { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'native_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -493,8 +493,8 @@ help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec = {
       name: 'help_bubble.mojom.HelpBubbleClient.ExternalHelpBubbleUpdated_Params',
       packedSize: 24,
       fields: [
-        { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'native_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'shown', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

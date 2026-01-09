@@ -16,15 +16,15 @@ aim_eligibility.mojom.EligibilityStateSpec = {
       name: 'aim_eligibility.mojom.EligibilityState',
       packedSize: 48,
       fields: [
-        { name: 'is_eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_eligible_by_policy', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_eligible_by_dse', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_eligible_by_server', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_server_eligibility_enabled', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'server_response_base64_encoded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'server_response_base64_url_encoded', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'server_response_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_updated', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
+        { name: 'is_eligible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_eligible_by_policy', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_eligible_by_dse', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_eligible_by_server', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_server_eligibility_enabled', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'server_response_base64_encoded', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'server_response_base64_url_encoded', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'server_response_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_updated', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,7 +94,7 @@ aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec = {
       name: 'aim_eligibility.mojom.Page.OnEligibilityStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: aim_eligibility.mojom.EligibilityStateSpec, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: aim_eligibility.mojom.EligibilityStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -199,7 +199,7 @@ aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec = {
       name: 'aim_eligibility.mojom.PageHandler.GetEligibilityState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: aim_eligibility.mojom.EligibilityStateSpec, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: aim_eligibility.mojom.EligibilityStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -226,7 +226,7 @@ aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec 
       name: 'aim_eligibility.mojom.PageHandler.SetEligibilityResponseForDebugging_Params',
       packedSize: 16,
       fields: [
-        { name: 'base64_encoded_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'base64_encoded_response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -239,7 +239,7 @@ aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponsePar
       name: 'aim_eligibility.mojom.PageHandler.SetEligibilityResponseForDebugging_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -314,8 +314,8 @@ aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'aim_eligibility.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

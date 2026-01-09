@@ -72,9 +72,9 @@ media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec 
       name: 'media.mojom.VideoDecoderFactoryProcess.InitializeVideoDecoderFactory_Params',
       packedSize: 24,
       fields: [
-        { name: 'gpu_feature_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuFeatureInfoSpec, nullable: false },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'gpu_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'gpu_feature_info', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.GpuFeatureInfoSpec, nullable: false },
+        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'gpu_remote', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

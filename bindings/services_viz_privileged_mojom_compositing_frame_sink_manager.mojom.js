@@ -16,20 +16,20 @@ viz.mojom.RootCompositorFrameSinkParamsSpec = {
       name: 'viz.mojom.RootCompositorFrameSinkParams',
       packedSize: 88,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'widget', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SurfaceHandleSpec, nullable: false },
-        { name: 'gpu_compositing', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'renderer_settings', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.RendererSettingsSpec, nullable: false },
-        { name: 'send_swap_size_notifications', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'disable_frame_rate_limit', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'create_input_receiver', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'refresh_rate', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'compositor_frame_sink', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
-        { name: 'compositor_frame_sink_client', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'display_private', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
-        { name: 'display_client', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'external_begin_frame_controller', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: true },
-        { name: 'external_begin_frame_controller_client', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'widget', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.SurfaceHandleSpec, nullable: false },
+        { name: 'gpu_compositing', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'renderer_settings', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.RendererSettingsSpec, nullable: false },
+        { name: 'send_swap_size_notifications', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'disable_frame_rate_limit', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'create_input_receiver', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'refresh_rate', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'compositor_frame_sink', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'compositor_frame_sink_client', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'display_private', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'display_client', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'external_begin_frame_controller', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: true },
+        { name: 'external_begin_frame_controller_client', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -43,8 +43,8 @@ viz.mojom.CompositorDisplayLinkParamsSpec = {
       name: 'viz.mojom.CompositorDisplayLinkParams',
       packedSize: 16,
       fields: [
-        { name: 'external_begin_frame_controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
-        { name: 'external_begin_frame_controller_client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'external_begin_frame_controller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'external_begin_frame_controller_client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -339,8 +339,8 @@ viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.RegisterFrameSinkId_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'report_activation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'report_activation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -354,7 +354,7 @@ viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.InvalidateFrameSinkId_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -368,8 +368,8 @@ viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.SetFrameSinkDebugLabel_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'debug_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'debug_label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -383,7 +383,7 @@ viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.CreateRootCompositorFrameSink_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.RootCompositorFrameSinkParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.RootCompositorFrameSinkParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -397,7 +397,7 @@ viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.CreateCompositorDisplayLink_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CompositorDisplayLinkParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CompositorDisplayLinkParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -411,9 +411,9 @@ viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.CreateFrameSinkBundle_Params',
       packedSize: 24,
       fields: [
-        { name: 'bundle_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkBundleIdSpec, nullable: false },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'bundle_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkBundleIdSpec, nullable: false },
+        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -427,11 +427,11 @@ viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.CreateCompositorFrameSink_Params',
       packedSize: 40,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'bundle_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkBundleIdSpec, nullable: true },
-        { name: 'compositor_frame_sink', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'compositor_frame_sink_client', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'config', packedOffset: 24, packedBitOffset: 0, type: input.mojom.RenderInputRouterConfigSpec, nullable: true },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'bundle_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.FrameSinkBundleIdSpec, nullable: true },
+        { name: 'compositor_frame_sink', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'compositor_frame_sink_client', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'config', packedOffset: 32, packedBitOffset: 0, type: input.mojom.RenderInputRouterConfigSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -445,7 +445,7 @@ viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.DestroyCompositorFrameSink_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -459,8 +459,8 @@ viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.RegisterFrameSinkHierarchy_Params',
       packedSize: 24,
       fields: [
-        { name: 'parent_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'child_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'parent_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'child_frame_sink_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -474,8 +474,8 @@ viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.UnregisterFrameSinkHierarchy_Params',
       packedSize: 24,
       fields: [
-        { name: 'parent_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'child_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'parent_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'child_frame_sink_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -489,7 +489,7 @@ viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.AddVideoDetectorObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -503,8 +503,8 @@ viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.CreateVideoCapturer_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'capture_version_source', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'capture_version_source', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -518,7 +518,7 @@ viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.EvictSurfaces_Params',
       packedSize: 16,
       fields: [
-        { name: 'surface_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'surface_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -532,8 +532,8 @@ viz.mojom.FrameSinkManager_Throttle_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.Throttle_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_sink_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'frame_sink_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'interval', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -547,7 +547,7 @@ viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.StartThrottlingAllFrameSinks_Params',
       packedSize: 16,
       fields: [
-        { name: 'interval', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -574,9 +574,9 @@ viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.RequestCopyOfOutput_Params',
       packedSize: 32,
       fields: [
-        { name: 'surface_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: false },
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CopyOutputRequestSpec, nullable: false },
-        { name: 'capture_exact_surface_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: false },
+        { name: 'request', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.CopyOutputRequestSpec, nullable: false },
+        { name: 'capture_exact_surface_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -590,8 +590,8 @@ viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.CacheBackBuffer_Params',
       packedSize: 24,
       fields: [
-        { name: 'cache_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'root_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'cache_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'root_frame_sink_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -605,7 +605,7 @@ viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.EvictBackBuffer_Params',
       packedSize: 16,
       fields: [
-        { name: 'cache_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'cache_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -619,7 +619,7 @@ viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.UpdateDebugRendererSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'debug_settings', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.DebugRendererSettingsSpec, nullable: false },
+        { name: 'debug_settings', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.DebugRendererSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -633,7 +633,7 @@ viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.ClearUnclaimedViewTransitionResources_Params',
       packedSize: 16,
       fields: [
-        { name: 'transition_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false },
+        { name: 'transition_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -647,7 +647,7 @@ viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.CreateMetricsRecorderForTest_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -661,7 +661,7 @@ viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.EnableFrameSinkManagerTestApi_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -675,7 +675,7 @@ viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec =
       name: 'viz.mojom.FrameSinkManager.SetupRendererInputRouterDelegateRegistry_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -689,8 +689,8 @@ viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.NotifyRendererBlockStateChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'render_input_routers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'blocked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'render_input_routers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -832,7 +832,7 @@ viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerClient.OnFirstSurfaceActivation_Params',
       packedSize: 16,
       fields: [
-        { name: 'surface_info', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.SurfaceInfoSpec, nullable: false },
+        { name: 'surface_info', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SurfaceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -846,8 +846,8 @@ viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec
       name: 'viz.mojom.FrameSinkManagerClient.OnAggregatedHitTestRegionListUpdated_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'hit_test_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'hit_test_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -861,9 +861,9 @@ viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerClient.OnFrameTokenChanged_Params',
       packedSize: 32,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'activation_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'frame_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'activation_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -877,7 +877,7 @@ viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerClient.VerifyThreadIdsDoNotBelongToHost_Params',
       packedSize: 16,
       fields: [
-        { name: 'thread_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'thread_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -890,7 +890,7 @@ viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParams
       name: 'viz.mojom.FrameSinkManagerClient.VerifyThreadIdsDoNotBelongToHost_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'passed_verification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'passed_verification', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -904,8 +904,8 @@ viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerClient.OnScreenshotCaptured_Params',
       packedSize: 24,
       fields: [
-        { name: 'destination_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec, nullable: false },
-        { name: 'copy_output_result', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CopyOutputResultSpec, nullable: false },
+        { name: 'destination_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec, nullable: false },
+        { name: 'copy_output_result', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.CopyOutputResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -919,7 +919,7 @@ viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerClient.OnVizTouchStateAvailable_Params',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -933,7 +933,7 @@ viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec = 
       name: 'viz.mojom.FrameSinkManagerClient.OnViewTransitionResourcesCaptured_Params',
       packedSize: 16,
       fields: [
-        { name: 'transition_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false },
+        { name: 'transition_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1008,9 +1008,9 @@ viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConn
       name: 'viz.mojom.RendererInputRouterDelegateRegistry.SetupRenderInputRouterDelegateConnection_Params',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'rir_delegate_client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'rir_delegate_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'rir_delegate_client_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'rir_delegate_receiver', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

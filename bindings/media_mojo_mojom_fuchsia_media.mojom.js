@@ -23,7 +23,7 @@ media.mojom.CdmRequestSpec = {
       name: 'media.mojom.CdmRequest',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,7 +37,7 @@ media.mojom.StreamProcessorRequestSpec = {
       name: 'media.mojom.StreamProcessorRequest',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -107,8 +107,8 @@ media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec = {
       name: 'media.mojom.FuchsiaMediaCdmProvider.CreateCdm_Params',
       packedSize: 24,
       fields: [
-        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'cdm_request', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmRequestSpec, nullable: false },
+        { name: 'key_system', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'cdm_request', packedOffset: 16, packedBitOffset: 0, type: media.mojom.CdmRequestSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -192,9 +192,9 @@ media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec = {
       name: 'media.mojom.FuchsiaMediaCodecProvider.CreateVideoDecoder_Params',
       packedSize: 32,
       fields: [
-        { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCodecSpec, nullable: false },
-        { name: 'secure_mode', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoDecoderSecureMemoryModeSpec, nullable: false },
-        { name: 'stream_processor_request', packedOffset: 16, packedBitOffset: 0, type: media.mojom.StreamProcessorRequestSpec, nullable: false },
+        { name: 'codec', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCodecSpec, nullable: false },
+        { name: 'secure_mode', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoDecoderSecureMemoryModeSpec, nullable: false },
+        { name: 'stream_processor_request', packedOffset: 24, packedBitOffset: 0, type: media.mojom.StreamProcessorRequestSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,7 +220,7 @@ media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponsePa
       name: 'media.mojom.FuchsiaMediaCodecProvider.GetSupportedVideoDecoderConfigs_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'supported_configs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'supported_configs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

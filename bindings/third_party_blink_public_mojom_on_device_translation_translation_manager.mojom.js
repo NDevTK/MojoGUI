@@ -44,7 +44,7 @@ blink.mojom.TranslatorLanguageCodeSpec = {
       name: 'blink.mojom.TranslatorLanguageCode',
       packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -58,9 +58,9 @@ blink.mojom.TranslatorCreateOptionsSpec = {
       name: 'blink.mojom.TranslatorCreateOptions',
       packedSize: 32,
       fields: [
-        { name: 'source_lang', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false },
-        { name: 'target_lang', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false },
-        { name: 'observer_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'source_lang', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false },
+        { name: 'target_lang', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false },
+        { name: 'observer_remote', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -130,9 +130,9 @@ blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec = {
       name: 'blink.mojom.TranslationManagerCreateTranslatorClient.OnResult_Params',
       packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CreateTranslatorResultSpec, nullable: false },
-        { name: 'source_lang', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: true },
-        { name: 'target_lang', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CreateTranslatorResultSpec, nullable: false },
+        { name: 'source_lang', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: true },
+        { name: 'target_lang', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -216,8 +216,8 @@ blink.mojom.TranslationManager_CreateTranslator_ParamsSpec = {
       name: 'blink.mojom.TranslationManager.CreateTranslator_Params',
       packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorCreateOptionsSpec, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TranslatorCreateOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -231,8 +231,8 @@ blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec = {
       name: 'blink.mojom.TranslationManager.TranslationAvailable_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_lang', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false },
-        { name: 'target_lang', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false },
+        { name: 'source_lang', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false },
+        { name: 'target_lang', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -245,7 +245,7 @@ blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec = {
       name: 'blink.mojom.TranslationManager.TranslationAvailable_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CanCreateTranslatorResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CanCreateTranslatorResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

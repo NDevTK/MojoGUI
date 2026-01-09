@@ -109,8 +109,8 @@ ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec = {
       name: 'ash.camera_app.mojom.PdfBuilder.AddPage_Params',
       packedSize: 24,
       fields: [
-        { name: 'jpeg', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
-        { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'jpeg', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'page_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -124,8 +124,8 @@ ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec = {
       name: 'ash.camera_app.mojom.PdfBuilder.AddPageInline_Params',
       packedSize: 24,
       fields: [
-        { name: 'jpeg', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'jpeg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'page_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -139,7 +139,7 @@ ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec = {
       name: 'ash.camera_app.mojom.PdfBuilder.DeletePage_Params',
       packedSize: 16,
       fields: [
-        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -165,7 +165,7 @@ ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec = {
       name: 'ash.camera_app.mojom.PdfBuilder.Save_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pdf', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'pdf', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -191,7 +191,7 @@ ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec = {
       name: 'ash.camera_app.mojom.PdfBuilder.SaveInline_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pdf', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

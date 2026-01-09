@@ -93,7 +93,7 @@ ash.secure_channel.mojom.BluetoothConnectionMetadataSpec = {
       name: 'ash.secure_channel.mojom.BluetoothConnectionMetadata',
       packedSize: 16,
       fields: [
-        { name: 'current_rssi', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'current_rssi', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -107,9 +107,9 @@ ash.secure_channel.mojom.ConnectionMetadataSpec = {
       name: 'ash.secure_channel.mojom.ConnectionMetadata',
       packedSize: 32,
       fields: [
-        { name: 'creation_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'bluetooth_connection_metadata', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.BluetoothConnectionMetadataSpec, nullable: true },
-        { name: 'channel_binding_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'creation_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bluetooth_connection_metadata', packedOffset: 16, packedBitOffset: 0, type: ash.secure_channel.mojom.BluetoothConnectionMetadataSpec, nullable: true },
+        { name: 'channel_binding_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,7 +197,7 @@ ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec = {
       name: 'ash.secure_channel.mojom.Channel.SendMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -211,9 +211,9 @@ ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec = {
       name: 'ash.secure_channel.mojom.Channel.RegisterPayloadFile_Params',
       packedSize: 32,
       fields: [
-        { name: 'payload_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'payload_files', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.PayloadFilesSpec, nullable: false },
-        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'payload_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'payload_files', packedOffset: 16, packedBitOffset: 0, type: ash.secure_channel.mojom.PayloadFilesSpec, nullable: false },
+        { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -226,7 +226,7 @@ ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec = {
       name: 'ash.secure_channel.mojom.Channel.RegisterPayloadFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -252,7 +252,7 @@ ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec = {
       name: 'ash.secure_channel.mojom.Channel.GetConnectionMetadata_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: ash.secure_channel.mojom.ConnectionMetadataSpec, nullable: false },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.ConnectionMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -327,7 +327,7 @@ ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec = {
       name: 'ash.secure_channel.mojom.MessageReceiver.OnMessageReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -411,7 +411,7 @@ ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpe
       name: 'ash.secure_channel.mojom.ConnectionDelegate.OnConnectionAttemptFailure_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: ash.secure_channel.mojom.ConnectionAttemptFailureReasonSpec, nullable: false },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.ConnectionAttemptFailureReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -425,9 +425,9 @@ ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec = {
       name: 'ash.secure_channel.mojom.ConnectionDelegate.OnConnection_Params',
       packedSize: 24,
       fields: [
-        { name: 'channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'message_receiver_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'nearby_connection_state_listener_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'message_receiver_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'nearby_connection_state_listener_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -520,8 +520,8 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttemp
       name: 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger.LogDiscoveryAttempt_Params',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.secure_channel.mojom.DiscoveryResultSpec, nullable: false },
-        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.DiscoveryErrorCodeSpec, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.DiscoveryResultSpec, nullable: false },
+        { name: 'error_code', packedOffset: 16, packedBitOffset: 0, type: ash.secure_channel.mojom.DiscoveryErrorCodeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -535,8 +535,8 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectio
       name: 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger.LogNearbyConnectionState_Params',
       packedSize: 24,
       fields: [
-        { name: 'step', packedOffset: 0, packedBitOffset: 0, type: ash.secure_channel.mojom.NearbyConnectionStepSpec, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.NearbyConnectionStepResultSpec, nullable: false },
+        { name: 'step', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.NearbyConnectionStepSpec, nullable: false },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: ash.secure_channel.mojom.NearbyConnectionStepResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -550,7 +550,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelSt
       name: 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger.LogSecureChannelState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.secure_channel.mojom.SecureChannelStateSpec, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.SecureChannelStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -652,12 +652,12 @@ ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec 
       name: 'ash.secure_channel.mojom.SecureChannel.ListenForConnectionFromDevice_Params',
       packedSize: 56,
       fields: [
-        { name: 'device_to_connect', packedOffset: 0, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: false },
-        { name: 'local_device', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: false },
-        { name: 'feature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'connection_medium', packedOffset: 24, packedBitOffset: 0, type: ash.secure_channel.mojom.ConnectionMediumSpec, nullable: false },
-        { name: 'connection_priority', packedOffset: 32, packedBitOffset: 0, type: ash.secure_channel.mojom.ConnectionPrioritySpec, nullable: false },
-        { name: 'delegate', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'device_to_connect', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: false },
+        { name: 'local_device', packedOffset: 16, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: false },
+        { name: 'feature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'connection_medium', packedOffset: 32, packedBitOffset: 0, type: ash.secure_channel.mojom.ConnectionMediumSpec, nullable: false },
+        { name: 'connection_priority', packedOffset: 40, packedBitOffset: 0, type: ash.secure_channel.mojom.ConnectionPrioritySpec, nullable: false },
+        { name: 'delegate', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -671,13 +671,13 @@ ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec = {
       name: 'ash.secure_channel.mojom.SecureChannel.InitiateConnectionToDevice_Params',
       packedSize: 56,
       fields: [
-        { name: 'device_to_connect', packedOffset: 0, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: false },
-        { name: 'local_device', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: false },
-        { name: 'feature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'connection_medium', packedOffset: 24, packedBitOffset: 0, type: ash.secure_channel.mojom.ConnectionMediumSpec, nullable: false },
-        { name: 'connection_priority', packedOffset: 32, packedBitOffset: 0, type: ash.secure_channel.mojom.ConnectionPrioritySpec, nullable: false },
-        { name: 'delegate', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'secure_channel_structured_metrics_logger', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'device_to_connect', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: false },
+        { name: 'local_device', packedOffset: 16, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: false },
+        { name: 'feature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'connection_medium', packedOffset: 32, packedBitOffset: 0, type: ash.secure_channel.mojom.ConnectionMediumSpec, nullable: false },
+        { name: 'connection_priority', packedOffset: 40, packedBitOffset: 0, type: ash.secure_channel.mojom.ConnectionPrioritySpec, nullable: false },
+        { name: 'delegate', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'secure_channel_structured_metrics_logger', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -691,7 +691,7 @@ ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec = {
       name: 'ash.secure_channel.mojom.SecureChannel.SetNearbyConnector_Params',
       packedSize: 16,
       fields: [
-        { name: 'nearby_connector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'nearby_connector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -705,7 +705,7 @@ ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec = {
       name: 'ash.secure_channel.mojom.SecureChannel.GetLastSeenTimestamp_Params',
       packedSize: 16,
       fields: [
-        { name: 'remote_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'remote_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -718,7 +718,7 @@ ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec =
       name: 'ash.secure_channel.mojom.SecureChannel.GetLastSeenTimestamp_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

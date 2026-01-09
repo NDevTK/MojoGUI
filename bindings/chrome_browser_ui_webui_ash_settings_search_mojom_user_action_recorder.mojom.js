@@ -205,8 +205,8 @@ ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec 
       name: 'ash.settings.mojom.UserActionRecorder.RecordSettingChangeWithDetails_Params',
       packedSize: 24,
       fields: [
-        { name: 'setting', packedOffset: 0, packedBitOffset: 0, type: chromeos.settings.mojom.SettingSpec, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: ash.settings.mojom.SettingChangeValueSpec, nullable: true },
+        { name: 'setting', packedOffset: 8, packedBitOffset: 0, type: chromeos.settings.mojom.SettingSpec, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: ash.settings.mojom.SettingChangeValueSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

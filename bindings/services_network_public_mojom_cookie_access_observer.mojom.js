@@ -22,7 +22,7 @@ network.mojom.CookieAccessDetailsSpec = {
       name: 'network.mojom.CookieAccessDetails',
       packedSize: 16,
       fields: [
-        { name: 'kRead', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kRead', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,7 +101,7 @@ network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec = {
       name: 'network.mojom.CookieAccessObserver.OnCookiesAccessed_Params',
       packedSize: 16,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -115,7 +115,7 @@ network.mojom.CookieAccessObserver_Clone_ParamsSpec = {
       name: 'network.mojom.CookieAccessObserver.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

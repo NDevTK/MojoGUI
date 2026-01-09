@@ -31,12 +31,12 @@ blink.mojom.StylusWritingGestureDataSpec = {
       name: 'blink.mojom.StylusWritingGestureData',
       packedSize: 56,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StylusWritingGestureActionSpec, nullable: false },
-        { name: 'granularity', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StylusWritingGestureGranularitySpec, nullable: false },
-        { name: 'start_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'end_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true },
-        { name: 'text_alternative', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'text_to_insert', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StylusWritingGestureActionSpec, nullable: false },
+        { name: 'granularity', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StylusWritingGestureGranularitySpec, nullable: false },
+        { name: 'start_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'end_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true },
+        { name: 'text_alternative', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'text_to_insert', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
       ],
       versions: [{version: 0}]
     }

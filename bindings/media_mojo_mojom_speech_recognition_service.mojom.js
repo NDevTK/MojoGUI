@@ -72,9 +72,9 @@ media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpe
       name: 'media.mojom.AudioSourceSpeechRecognitionContext.BindAudioSourceFetcher_Params',
       packedSize: 24,
       fields: [
-        { name: 'fetcher_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: media.mojom.SpeechRecognitionOptionsSpec, nullable: false },
+        { name: 'fetcher_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: media.mojom.SpeechRecognitionOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -87,7 +87,7 @@ media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseP
       name: 'media.mojom.AudioSourceSpeechRecognitionContext.BindAudioSourceFetcher_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_multichannel_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_multichannel_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -198,7 +198,7 @@ media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec = {
       name: 'media.mojom.SpeechRecognitionService.BindSpeechRecognitionContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -212,7 +212,7 @@ media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_Par
       name: 'media.mojom.SpeechRecognitionService.BindAudioSourceSpeechRecognitionContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -226,9 +226,9 @@ media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec = {
       name: 'media.mojom.SpeechRecognitionService.SetSodaPaths_Params',
       packedSize: 32,
       fields: [
-        { name: 'binary_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'config_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'primary_language_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'binary_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'config_paths', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'primary_language_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -242,7 +242,7 @@ media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec = {
       name: 'media.mojom.SpeechRecognitionService.SetSodaParams_Params',
       packedSize: 16,
       fields: [
-        { name: 'mask_offensive_words', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'mask_offensive_words', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -256,7 +256,7 @@ media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec = {
       name: 'media.mojom.SpeechRecognitionService.SetSodaConfigPaths_Params',
       packedSize: 16,
       fields: [
-        { name: 'config_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'config_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -340,9 +340,9 @@ media.mojom.AudioSourceFetcher_Start_ParamsSpec = {
       name: 'media.mojom.AudioSourceFetcher.Start_Params',
       packedSize: 32,
       fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'audio_parameters', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
+        { name: 'factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'audio_parameters', packedOffset: 24, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

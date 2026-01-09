@@ -23,8 +23,8 @@ shape_detection.mojom.LandmarkSpec = {
       name: 'shape_detection.mojom.Landmark',
       packedSize: 24,
       fields: [
-        { name: 'locations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: shape_detection.mojom.LandmarkTypeSpec, nullable: false },
+        { name: 'locations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: shape_detection.mojom.LandmarkTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -38,8 +38,8 @@ shape_detection.mojom.FaceDetectionResultSpec = {
       name: 'shape_detection.mojom.FaceDetectionResult',
       packedSize: 24,
       fields: [
-        { name: 'bounding_box', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
-        { name: 'landmarks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bounding_box', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
+        { name: 'landmarks', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -53,8 +53,8 @@ shape_detection.mojom.FaceDetectorOptionsSpec = {
       name: 'shape_detection.mojom.FaceDetectorOptions',
       packedSize: 24,
       fields: [
-        { name: 'max_detected_faces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'fast_mode', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'max_detected_faces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'fast_mode', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -124,7 +124,7 @@ shape_detection.mojom.FaceDetection_Detect_ParamsSpec = {
       name: 'shape_detection.mojom.FaceDetection.Detect_Params',
       packedSize: 16,
       fields: [
-        { name: 'bitmap_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
+        { name: 'bitmap_data', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -137,7 +137,7 @@ shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec = {
       name: 'shape_detection.mojom.FaceDetection.Detect_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

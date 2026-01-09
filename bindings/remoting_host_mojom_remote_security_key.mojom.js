@@ -72,7 +72,7 @@ remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec = {
       name: 'remoting.mojom.SecurityKeyForwarder.OnSecurityKeyRequest_Params',
       packedSize: 16,
       fields: [
-        { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'request_data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec = {
       name: 'remoting.mojom.SecurityKeyForwarder.OnSecurityKeyRequest_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'response_data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

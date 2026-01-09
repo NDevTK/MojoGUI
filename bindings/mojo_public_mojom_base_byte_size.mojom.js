@@ -16,7 +16,7 @@ mojo_base.mojom.ByteSizeSpec = {
       name: 'mojo_base.mojom.ByteSize',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +30,7 @@ mojo_base.mojom.ByteSizeDeltaSpec = {
       name: 'mojo_base.mojom.ByteSizeDelta',
       packedSize: 16,
       fields: [
-        { name: 'delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'delta', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }

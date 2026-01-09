@@ -40,10 +40,10 @@ device_test.mojom.ColorSpec = {
       name: 'device_test.mojom.Color',
       packedSize: 16,
       fields: [
-        { name: 'r', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'g', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'b', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'a', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'r', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'g', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'b', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'a', packedOffset: 11, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -57,9 +57,9 @@ device_test.mojom.ViewDataSpec = {
       name: 'device_test.mojom.ViewData',
       packedSize: 32,
       fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.ColorSpec, nullable: false },
-        { name: 'eye', packedOffset: 8, packedBitOffset: 0, type: device_test.mojom.EyeSpec, nullable: false },
-        { name: 'viewport', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: device_test.mojom.ColorSpec, nullable: false },
+        { name: 'eye', packedOffset: 16, packedBitOffset: 0, type: device_test.mojom.EyeSpec, nullable: false },
+        { name: 'viewport', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -73,7 +73,7 @@ device_test.mojom.DeviceConfigSpec = {
       name: 'device_test.mojom.DeviceConfig',
       packedSize: 16,
       fields: [
-        { name: 'interpupillary_distance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'interpupillary_distance', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -87,9 +87,9 @@ device_test.mojom.ControllerAxisDataSpec = {
       name: 'device_test.mojom.ControllerAxisData',
       packedSize: 24,
       fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'axis_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'axis_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -103,15 +103,15 @@ device_test.mojom.ControllerFrameDataSpec = {
       name: 'device_test.mojom.ControllerFrameData',
       packedSize: 80,
       fields: [
-        { name: 'packet_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'buttons_pressed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'buttons_touched', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'supported_buttons', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'axis_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'pose_data', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true },
-        { name: 'role', packedOffset: 48, packedBitOffset: 0, type: device_test.mojom.ControllerRoleSpec, nullable: false },
-        { name: 'hand_data', packedOffset: 56, packedBitOffset: 0, type: device.mojom.XRHandTrackingDataSpec, nullable: true },
-        { name: 'is_valid', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'packet_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'buttons_pressed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'buttons_touched', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'supported_buttons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'axis_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pose_data', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true },
+        { name: 'role', packedOffset: 56, packedBitOffset: 0, type: device_test.mojom.ControllerRoleSpec, nullable: false },
+        { name: 'hand_data', packedOffset: 64, packedBitOffset: 0, type: device.mojom.XRHandTrackingDataSpec, nullable: true },
+        { name: 'is_valid', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,8 +125,8 @@ device_test.mojom.EventDataSpec = {
       name: 'device_test.mojom.EventData',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.EventTypeSpec, nullable: false },
-        { name: 'interaction_profile', packedOffset: 8, packedBitOffset: 0, type: device.mojom.OpenXrInteractionProfileTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: device_test.mojom.EventTypeSpec, nullable: false },
+        { name: 'interaction_profile', packedOffset: 16, packedBitOffset: 0, type: device.mojom.OpenXrInteractionProfileTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -140,8 +140,8 @@ device_test.mojom.XRVisibilityMaskSpec = {
       name: 'device_test.mojom.XRVisibilityMask',
       packedSize: 24,
       fields: [
-        { name: 'vertices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'indices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'vertices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'indices', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -283,7 +283,7 @@ device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = {
       name: 'device_test.mojom.XRTestHook.OnFrameSubmitted_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'frame_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -309,7 +309,7 @@ device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetDeviceConfig_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.DeviceConfigSpec, nullable: false },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: device_test.mojom.DeviceConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -335,7 +335,7 @@ device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetPresentingPose_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -361,7 +361,7 @@ device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetMagicWindowPose_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -375,7 +375,7 @@ device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSp
       name: 'device_test.mojom.XRTestHook.WaitGetControllerRoleForTrackedDeviceIndex_Params',
       packedSize: 16,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -388,7 +388,7 @@ device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_Response
       name: 'device_test.mojom.XRTestHook.WaitGetControllerRoleForTrackedDeviceIndex_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'role', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.ControllerRoleSpec, nullable: false },
+        { name: 'role', packedOffset: 8, packedBitOffset: 0, type: device_test.mojom.ControllerRoleSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -402,7 +402,7 @@ device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetControllerData_Params',
       packedSize: 16,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -415,7 +415,7 @@ device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetControllerData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.ControllerFrameDataSpec, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: device_test.mojom.ControllerFrameDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -441,7 +441,7 @@ device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetEventData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.EventDataSpec, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: device_test.mojom.EventDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -467,7 +467,7 @@ device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetCanCreateSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'can_create_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_create_session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -481,7 +481,7 @@ device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetVisibilityMask_Params',
       packedSize: 16,
       fields: [
-        { name: 'view_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'view_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -494,7 +494,7 @@ device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetVisibilityMask_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'mask', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.XRVisibilityMaskSpec, nullable: true },
+        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: device_test.mojom.XRVisibilityMaskSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -578,7 +578,7 @@ device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = {
       name: 'device_test.mojom.XRServiceTestHook.SetTestHook_Params',
       packedSize: 16,
       fields: [
-        { name: 'hook', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'hook', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

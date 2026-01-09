@@ -16,7 +16,7 @@ blink.mojom.OriginTrialsSettingsSpec = {
       name: 'blink.mojom.OriginTrialsSettings',
       packedSize: 16,
       fields: [
-        { name: 'disabled_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'disabled_tokens', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

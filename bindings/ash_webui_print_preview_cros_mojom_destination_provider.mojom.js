@@ -74,8 +74,8 @@ ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpe
       name: 'ash.printing.print_preview.mojom.DestinationProvider.FetchCapabilities_Params',
       packedSize: 24,
       fields: [
-        { name: 'destination_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'printer_type', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PrinterTypeSpec, nullable: false },
+        { name: 'destination_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'printer_type', packedOffset: 16, packedBitOffset: 0, type: printing.mojom.PrinterTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -88,7 +88,7 @@ ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseP
       name: 'ash.printing.print_preview.mojom.DestinationProvider.FetchCapabilities_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: ash.printing.print_preview.mojom.CapabilitiesSpec, nullable: false },
+        { name: 'capabilities', packedOffset: 8, packedBitOffset: 0, type: ash.printing.print_preview.mojom.CapabilitiesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

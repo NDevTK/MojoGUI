@@ -16,8 +16,8 @@ arc.mojom.PrivacyApplicationSpec = {
       name: 'arc.mojom.PrivacyApplication',
       packedSize: 24,
       fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'uid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'uid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -31,8 +31,8 @@ arc.mojom.PrivacyItemSpec = {
       name: 'arc.mojom.PrivacyItem',
       packedSize: 24,
       fields: [
-        { name: 'permission_group', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppPermissionGroupSpec, nullable: false },
-        { name: 'privacy_application', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.PrivacyApplicationSpec, nullable: false },
+        { name: 'permission_group', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AppPermissionGroupSpec, nullable: false },
+        { name: 'privacy_application', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.PrivacyApplicationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -43,7 +43,7 @@ arc.mojom.BatterySaverModeStateSpec = {
       name: 'arc.mojom.BatterySaverModeState',
       packedSize: 16,
       fields: [
-        { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'active', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

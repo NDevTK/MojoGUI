@@ -72,7 +72,7 @@ chromecast.mojom.MessageCallback_OnMessage_ParamsSpec = {
       name: 'chromecast.mojom.MessageCallback.OnMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'list', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
+        { name: 'list', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -156,8 +156,8 @@ chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec = {
       name: 'chromecast.mojom.WebUi.RegisterMessageCallback_Params',
       packedSize: 24,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'cb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'cb', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -171,8 +171,8 @@ chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec = {
       name: 'chromecast.mojom.WebUi.CallJavascriptFunction_Params',
       packedSize: 24,
       fields: [
-        { name: 'function', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
+        { name: 'function', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -247,7 +247,7 @@ chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec = {
       name: 'chromecast.mojom.Resources.RequestResourceBytes_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,7 +260,7 @@ chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec = {
       name: 'chromecast.mojom.Resources.RequestResourceBytes_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.RefCountedMemorySpec, nullable: false },
+        { name: 'bytes', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.RefCountedMemorySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -344,9 +344,9 @@ chromecast.mojom.WebUiClient_CreateController_ParamsSpec = {
       name: 'chromecast.mojom.WebUiClient.CreateController_Params',
       packedSize: 24,
       fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'web_ui', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'resources', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'web_ui', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'resources', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -360,8 +360,8 @@ chromecast.mojom.WebUiClient_CreateResources_ParamsSpec = {
       name: 'chromecast.mojom.WebUiClient.CreateResources_Params',
       packedSize: 24,
       fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

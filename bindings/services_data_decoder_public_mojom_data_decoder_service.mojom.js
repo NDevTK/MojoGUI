@@ -126,7 +126,7 @@ data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec = {
       name: 'data_decoder.mojom.DataDecoderService.BindImageDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -140,7 +140,7 @@ data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec = {
       name: 'data_decoder.mojom.DataDecoderService.BindXmlParser_Params',
       packedSize: 16,
       fields: [
-        { name: 'reciever', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'reciever', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -154,7 +154,7 @@ data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec = {
       name: 'data_decoder.mojom.DataDecoderService.BindWebBundleParserFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -168,7 +168,7 @@ data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec = {
       name: 'data_decoder.mojom.DataDecoderService.BindGzipper_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -182,7 +182,7 @@ data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec = {
       name: 'data_decoder.mojom.DataDecoderService.BindStructuredHeadersParser_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,7 +196,7 @@ data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec = {
       name: 'data_decoder.mojom.DataDecoderService.BindCborParser_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -210,7 +210,7 @@ data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = {
       name: 'data_decoder.mojom.DataDecoderService.BindPixCodeValidator_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

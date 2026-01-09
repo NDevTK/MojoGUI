@@ -16,10 +16,10 @@ content.mojom.ResourceTypeStatSpec = {
       name: 'content.mojom.ResourceTypeStat',
       packedSize: 40,
       fields: [
-        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'live_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'decoded_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'live_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'decoded_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -33,12 +33,12 @@ content.mojom.ResourceTypeStatsSpec = {
       name: 'content.mojom.ResourceTypeStats',
       packedSize: 56,
       fields: [
-        { name: 'images', packedOffset: 0, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
-        { name: 'css_style_sheets', packedOffset: 8, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
-        { name: 'scripts', packedOffset: 16, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
-        { name: 'xsl_style_sheets', packedOffset: 24, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
-        { name: 'fonts', packedOffset: 32, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
-        { name: 'other', packedOffset: 40, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
+        { name: 'images', packedOffset: 8, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
+        { name: 'css_style_sheets', packedOffset: 16, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
+        { name: 'scripts', packedOffset: 24, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
+        { name: 'xsl_style_sheets', packedOffset: 32, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
+        { name: 'fonts', packedOffset: 40, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
+        { name: 'other', packedOffset: 48, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -52,10 +52,10 @@ content.mojom.ResourceUsageDataSpec = {
       name: 'content.mojom.ResourceUsageData',
       packedSize: 40,
       fields: [
-        { name: 'reports_v8_stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'v8_bytes_allocated', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'v8_bytes_used', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'web_cache_stats', packedOffset: 24, packedBitOffset: 0, type: content.mojom.ResourceTypeStatsSpec, nullable: true },
+        { name: 'reports_v8_stats', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'v8_bytes_allocated', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'v8_bytes_used', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'web_cache_stats', packedOffset: 32, packedBitOffset: 0, type: content.mojom.ResourceTypeStatsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -137,7 +137,7 @@ content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec = {
       name: 'content.mojom.ResourceUsageReporter.GetUsageData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.ResourceUsageDataSpec, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: content.mojom.ResourceUsageDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

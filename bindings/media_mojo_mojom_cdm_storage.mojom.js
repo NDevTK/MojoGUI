@@ -85,7 +85,7 @@ media.mojom.CdmStorage_Open_ParamsSpec = {
       name: 'media.mojom.CdmStorage.Open_Params',
       packedSize: 16,
       fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -98,8 +98,8 @@ media.mojom.CdmStorage_Open_ResponseParamsSpec = {
       name: 'media.mojom.CdmStorage.Open_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
-        { name: 'cdm_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
+        { name: 'cdm_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -195,8 +195,8 @@ media.mojom.CdmFile_Read_ResponseParamsSpec = {
       name: 'media.mojom.CdmFile.Read_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -210,7 +210,7 @@ media.mojom.CdmFile_Write_ParamsSpec = {
       name: 'media.mojom.CdmFile.Write_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -223,7 +223,7 @@ media.mojom.CdmFile_Write_ResponseParamsSpec = {
       name: 'media.mojom.CdmFile.Write_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

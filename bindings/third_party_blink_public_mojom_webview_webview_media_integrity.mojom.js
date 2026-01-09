@@ -81,8 +81,8 @@ blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec = {
       name: 'blink.mojom.WebViewMediaIntegrityService.GetIntegrityProvider_Params',
       packedSize: 24,
       fields: [
-        { name: 'provider_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'cloud_project_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'provider_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'cloud_project_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec
       name: 'blink.mojom.WebViewMediaIntegrityService.GetIntegrityProvider_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebViewMediaIntegrityErrorCodeSpec, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebViewMediaIntegrityErrorCodeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -170,7 +170,7 @@ blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec = {
       name: 'blink.mojom.WebViewMediaIntegrityProvider.RequestToken_Params',
       packedSize: 16,
       fields: [
-        { name: 'content_binding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'content_binding', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -183,7 +183,7 @@ blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec = {
       name: 'blink.mojom.WebViewMediaIntegrityProvider.RequestToken_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebViewMediaIntegrityTokenResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebViewMediaIntegrityTokenResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,8 +16,8 @@ media.mojom.SpeechRecognitionPhraseSpec = {
       name: 'media.mojom.SpeechRecognitionPhrase',
       packedSize: 24,
       fields: [
-        { name: 'phrase', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'boost', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'phrase', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'boost', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -31,7 +31,7 @@ media.mojom.SpeechRecognitionRecognitionContextSpec = {
       name: 'media.mojom.SpeechRecognitionRecognitionContext',
       packedSize: 16,
       fields: [
-        { name: 'phrases', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'phrases', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

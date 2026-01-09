@@ -88,7 +88,7 @@ ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpe
       name: 'ash.local_search_service.mojom.SearchMetricsReporter.OnSearchPerformed_Params',
       packedSize: 16,
       fields: [
-        { name: 'index_id', packedOffset: 0, packedBitOffset: 0, type: ash.local_search_service.mojom.IndexIdSpec, nullable: false },
+        { name: 'index_id', packedOffset: 8, packedBitOffset: 0, type: ash.local_search_service.mojom.IndexIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -163,10 +163,10 @@ ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec = {
       name: 'ash.local_search_service.mojom.LocalSearchService.BindIndex_Params',
       packedSize: 32,
       fields: [
-        { name: 'index_id', packedOffset: 0, packedBitOffset: 0, type: ash.local_search_service.mojom.IndexIdSpec, nullable: false },
-        { name: 'backend', packedOffset: 8, packedBitOffset: 0, type: ash.local_search_service.mojom.BackendSpec, nullable: false },
-        { name: 'index_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'reporter_remote', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'index_id', packedOffset: 8, packedBitOffset: 0, type: ash.local_search_service.mojom.IndexIdSpec, nullable: false },
+        { name: 'backend', packedOffset: 16, packedBitOffset: 0, type: ash.local_search_service.mojom.BackendSpec, nullable: false },
+        { name: 'index_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'reporter_remote', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -179,7 +179,7 @@ ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec =
       name: 'ash.local_search_service.mojom.LocalSearchService.BindIndex_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

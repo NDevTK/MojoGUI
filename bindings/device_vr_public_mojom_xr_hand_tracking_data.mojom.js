@@ -45,9 +45,9 @@ device.mojom.XRHandJointDataSpec = {
       name: 'device.mojom.XRHandJointData',
       packedSize: 32,
       fields: [
-        { name: 'joint', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRHandJointSpec, nullable: false },
-        { name: 'mojo_from_joint', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true },
-        { name: 'radius', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'joint', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRHandJointSpec, nullable: false },
+        { name: 'mojo_from_joint', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true },
+        { name: 'radius', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -61,7 +61,7 @@ device.mojom.XRHandTrackingDataSpec = {
       name: 'device.mojom.XRHandTrackingData',
       packedSize: 16,
       fields: [
-        { name: 'hand_joint_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'hand_joint_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

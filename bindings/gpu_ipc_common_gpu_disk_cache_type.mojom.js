@@ -23,7 +23,7 @@ gpu.mojom.GpuDiskCacheGlShaderHandleSpec = {
       name: 'gpu.mojom.GpuDiskCacheGlShaderHandle',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,7 +37,7 @@ gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec = {
       name: 'gpu.mojom.GpuDiskCacheDawnWebGPUHandle',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -51,7 +51,7 @@ gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec = {
       name: 'gpu.mojom.GpuDiskCacheDawnGraphiteHandle',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -81,7 +81,7 @@ blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec = {
       name: 'blink.mojom.TextInputHost.GotCharacterIndexAtPoint_Params',
       packedSize: 16,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec = {
       name: 'blink.mojom.TextInputHost.GotFirstRectForRange_Params',
       packedSize: 16,
       fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

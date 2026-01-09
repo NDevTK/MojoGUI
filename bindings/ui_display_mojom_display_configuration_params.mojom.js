@@ -16,10 +16,10 @@ display.mojom.DisplayConfigurationParamsSpec = {
       name: 'display.mojom.DisplayConfigurationParams',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
-        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: display.mojom.DisplayModeSpec, nullable: true },
-        { name: 'enable_vrr', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'mode', packedOffset: 24, packedBitOffset: 0, type: display.mojom.DisplayModeSpec, nullable: true },
+        { name: 'enable_vrr', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

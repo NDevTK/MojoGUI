@@ -28,8 +28,8 @@ ash.cfm.mojom.MenuInfoSpec = {
       name: 'ash.cfm.mojom.MenuInfo',
       packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -43,7 +43,7 @@ ash.cfm.mojom.MenuEntriesSpec = {
       name: 'ash.cfm.mojom.MenuEntries',
       packedSize: 16,
       fields: [
-        { name: 'menu_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'menu_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -57,15 +57,15 @@ ash.cfm.mojom.ControlMappingSpec = {
       name: 'ash.cfm.mojom.ControlMapping',
       packedSize: 56,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'guid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'selector', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'size', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'offset', packedOffset: 26, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'v4l2_type', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'data_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'menu_entries', packedOffset: 40, packedBitOffset: 0, type: ash.cfm.mojom.MenuEntriesSpec, nullable: true },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'guid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'selector', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'size', packedOffset: 33, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'offset', packedOffset: 34, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'v4l2_type', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'data_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'menu_entries', packedOffset: 48, packedBitOffset: 0, type: ash.cfm.mojom.MenuEntriesSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -79,8 +79,8 @@ ash.cfm.mojom.ControlQuerySpec = {
       name: 'ash.cfm.mojom.ControlQuery',
       packedSize: 16,
       fields: [
-        { name: 'unit_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'selector', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'unit_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'selector', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -177,8 +177,8 @@ ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec = {
       name: 'ash.cfm.mojom.XuCamera.GetUnitId_Params',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false },
-        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false },
+        { name: 'guid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -191,8 +191,8 @@ ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec = {
       name: 'ash.cfm.mojom.XuCamera.GetUnitId_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'unit_id', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'unit_id', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,8 +206,8 @@ ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec = {
       name: 'ash.cfm.mojom.XuCamera.MapCtrl_Params',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false },
-        { name: 'mapping_ctrl', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.ControlMappingSpec, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false },
+        { name: 'mapping_ctrl', packedOffset: 16, packedBitOffset: 0, type: ash.cfm.mojom.ControlMappingSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,7 +220,7 @@ ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec = {
       name: 'ash.cfm.mojom.XuCamera.MapCtrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -234,9 +234,9 @@ ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec = {
       name: 'ash.cfm.mojom.XuCamera.GetCtrl_Params',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false },
-        { name: 'ctrl', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.CtrlTypeSpec, nullable: false },
-        { name: 'fn', packedOffset: 16, packedBitOffset: 0, type: ash.cfm.mojom.GetFnSpec, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false },
+        { name: 'ctrl', packedOffset: 16, packedBitOffset: 0, type: ash.cfm.mojom.CtrlTypeSpec, nullable: false },
+        { name: 'fn', packedOffset: 24, packedBitOffset: 0, type: ash.cfm.mojom.GetFnSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -249,8 +249,8 @@ ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec = {
       name: 'ash.cfm.mojom.XuCamera.GetCtrl_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -264,9 +264,9 @@ ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec = {
       name: 'ash.cfm.mojom.XuCamera.SetCtrl_Params',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false },
-        { name: 'ctrl', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.CtrlTypeSpec, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false },
+        { name: 'ctrl', packedOffset: 16, packedBitOffset: 0, type: ash.cfm.mojom.CtrlTypeSpec, nullable: false },
+        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -279,7 +279,7 @@ ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec = {
       name: 'ash.cfm.mojom.XuCamera.SetCtrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }

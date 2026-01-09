@@ -39,14 +39,14 @@ payments.mojom.ItemDetailsSpec = {
       name: 'payments.mojom.ItemDetails',
       packedSize: 72,
       fields: [
-        { name: 'item_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'price', packedOffset: 24, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: false },
-        { name: 'subscription_period', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'free_trial_period', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'introductory_price', packedOffset: 48, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: true },
-        { name: 'introductory_price_period', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'item_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'price', packedOffset: 32, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: false },
+        { name: 'subscription_period', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'free_trial_period', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'introductory_price', packedOffset: 56, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: true },
+        { name: 'introductory_price_period', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -60,8 +60,8 @@ payments.mojom.PurchaseReferenceSpec = {
       name: 'payments.mojom.PurchaseReference',
       packedSize: 24,
       fields: [
-        { name: 'item_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'purchase_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'item_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'purchase_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

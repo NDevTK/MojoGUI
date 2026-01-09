@@ -50,10 +50,10 @@ ash.help_app.mojom.DeviceInfoSpec = {
       name: 'ash.help_app.mojom.DeviceInfo',
       packedSize: 40,
       fields: [
-        { name: 'board', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'user_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_steam_allowed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'board', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'user_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_steam_allowed', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -123,7 +123,7 @@ ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.help_app.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -309,7 +309,7 @@ ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = {
       name: 'ash.help_app.mojom.PageHandler.OpenFeedbackDialog_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -349,7 +349,7 @@ ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec = {
       name: 'ash.help_app.mojom.PageHandler.TriggerWelcomeTipCallToAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action_type_id', packedOffset: 0, packedBitOffset: 0, type: ash.help_app.mojom.ActionTypeIdSpec, nullable: false },
+        { name: 'action_type_id', packedOffset: 8, packedBitOffset: 0, type: ash.help_app.mojom.ActionTypeIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -375,7 +375,7 @@ ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec = {
       name: 'ash.help_app.mojom.PageHandler.IsLauncherSearchEnabled_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -427,7 +427,7 @@ ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec = {
       name: 'ash.help_app.mojom.PageHandler.GetDeviceInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: ash.help_app.mojom.DeviceInfoSpec, nullable: false },
+        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: ash.help_app.mojom.DeviceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -441,7 +441,7 @@ ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpe
       name: 'ash.help_app.mojom.PageHandler.OpenUrlInBrowserAndTriggerInstallDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -455,7 +455,7 @@ ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec = {
       name: 'ash.help_app.mojom.PageHandler.OpenSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: ash.help_app.mojom.SettingsComponentSpec, nullable: false },
+        { name: 'component', packedOffset: 8, packedBitOffset: 0, type: ash.help_app.mojom.SettingsComponentSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

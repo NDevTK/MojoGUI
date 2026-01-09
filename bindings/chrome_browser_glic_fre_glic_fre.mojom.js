@@ -85,7 +85,7 @@ glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'glic.mojom.FrePageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -258,7 +258,7 @@ glic.mojom.FrePageHandler_DismissFre_ParamsSpec = {
       name: 'glic.mojom.FrePageHandler.DismissFre_Params',
       packedSize: 16,
       fields: [
-        { name: 'panel', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.FreWebUiStateSpec, nullable: false },
+        { name: 'panel', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.FreWebUiStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -297,7 +297,7 @@ glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec = {
       name: 'glic.mojom.FrePageHandler.PrepareForClient_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -311,7 +311,7 @@ glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec = {
       name: 'glic.mojom.FrePageHandler.ValidateAndOpenLinkInNewTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -325,7 +325,7 @@ glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec = {
       name: 'glic.mojom.FrePageHandler.WebUiStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.FreWebUiStateSpec, nullable: false },
+        { name: 'new_state', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.FreWebUiStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

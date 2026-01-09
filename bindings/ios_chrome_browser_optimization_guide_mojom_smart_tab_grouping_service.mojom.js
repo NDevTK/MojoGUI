@@ -84,7 +84,7 @@ ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSp
       name: 'ai.mojom.SmartTabGroupingService.ExecuteSmartTabGroupingRequest_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ai.mojom.SmartTabGroupingResponseResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ai.mojom.SmartTabGroupingResponseResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

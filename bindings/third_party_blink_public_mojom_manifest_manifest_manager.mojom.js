@@ -16,8 +16,8 @@ blink.mojom.RequestManifestErrorSpec = {
       name: 'blink.mojom.RequestManifestError',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ManifestRequestResultSpec, nullable: false },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ManifestRequestResultSpec, nullable: false },
+        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -126,9 +126,9 @@ blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec = {
       name: 'blink.mojom.ManifestManager.RequestManifest_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ManifestRequestResultSpec, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'manifest', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ManifestSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ManifestRequestResultSpec, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'manifest', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ManifestSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -167,9 +167,9 @@ blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec = {
       name: 'blink.mojom.ManifestManager.RequestManifestDebugInfo_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'parsed_manifest', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ManifestSpec, nullable: false },
-        { name: 'debug_info', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ManifestDebugInfoSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'parsed_manifest', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ManifestSpec, nullable: false },
+        { name: 'debug_info', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ManifestDebugInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -183,9 +183,9 @@ blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec = {
       name: 'blink.mojom.ManifestManager.ParseManifestFromString_Params',
       packedSize: 32,
       fields: [
-        { name: 'document_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'manifest_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'manifest_content', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'document_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'manifest_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'manifest_content', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -198,7 +198,7 @@ blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec = {
       name: 'blink.mojom.ManifestManager.ParseManifestFromString_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'parsed_manifest', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ManifestSpec, nullable: true },
+        { name: 'parsed_manifest', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ManifestSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

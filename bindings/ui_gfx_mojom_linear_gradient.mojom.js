@@ -16,8 +16,8 @@ gfx.mojom.StepSpec = {
       name: 'gfx.mojom.Step',
       packedSize: 16,
       fields: [
-        { name: 'fraction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'alpha', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'fraction', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'alpha', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -31,9 +31,9 @@ gfx.mojom.LinearGradientSpec = {
       name: 'gfx.mojom.LinearGradient',
       packedSize: 24,
       fields: [
-        { name: 'angle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'step_count', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'steps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'angle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'step_count', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'steps', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

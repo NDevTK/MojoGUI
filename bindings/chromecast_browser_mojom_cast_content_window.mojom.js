@@ -103,7 +103,7 @@ chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec = {
       name: 'chromecast.mojom.CastContentWindowObserver.OnVisibilityChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'visibility_type', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.VisibilityTypeSpec, nullable: false },
+        { name: 'visibility_type', packedOffset: 8, packedBitOffset: 0, type: chromecast.mojom.VisibilityTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -236,8 +236,8 @@ chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec = {
       name: 'chromecast.mojom.CastContentWindow.CreateWindow_Params',
       packedSize: 24,
       fields: [
-        { name: 'z_order', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.ZOrderSpec, nullable: false },
-        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: chromecast.mojom.VisibilityPrioritySpec, nullable: false },
+        { name: 'z_order', packedOffset: 8, packedBitOffset: 0, type: chromecast.mojom.ZOrderSpec, nullable: false },
+        { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: chromecast.mojom.VisibilityPrioritySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -251,7 +251,7 @@ chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec = {
       name: 'chromecast.mojom.CastContentWindow.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -291,7 +291,7 @@ chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec = {
       name: 'chromecast.mojom.CastContentWindow.RequestVisibility_Params',
       packedSize: 16,
       fields: [
-        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.VisibilityPrioritySpec, nullable: false },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: chromecast.mojom.VisibilityPrioritySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -305,7 +305,7 @@ chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec = {
       name: 'chromecast.mojom.CastContentWindow.EnableTouchInput_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

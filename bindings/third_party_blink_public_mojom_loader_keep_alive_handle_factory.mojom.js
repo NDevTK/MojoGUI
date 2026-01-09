@@ -72,7 +72,7 @@ blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec = {
       name: 'blink.mojom.KeepAliveHandleFactory.IssueKeepAliveHandle_Params',
       packedSize: 16,
       fields: [
-        { name: 'keep_alive_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'keep_alive_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -17,7 +17,7 @@ sandbox.mac.mojom.SeatbeltExtensionTokenSpec = {
       name: 'sandbox.mac.mojom.SeatbeltExtensionToken',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

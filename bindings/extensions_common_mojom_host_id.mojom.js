@@ -23,7 +23,7 @@ extensions.mojom.HostIDSpec = {
       name: 'extensions.mojom.HostID',
       packedSize: 16,
       fields: [
-        { name: 'kExtensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kExtensions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

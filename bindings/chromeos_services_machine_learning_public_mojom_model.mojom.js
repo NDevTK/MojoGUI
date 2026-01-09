@@ -43,7 +43,7 @@ chromeos.machine_learning.mojom.GraphExecutorOptionsSpec = {
       name: 'chromeos.machine_learning.mojom.GraphExecutorOptions',
       packedSize: 16,
       fields: [
-        { name: 'use_nnapi', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_nnapi', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -57,7 +57,7 @@ chromeos.machine_learning.mojom.BuiltinModelSpecSpec = {
       name: 'chromeos.machine_learning.mojom.BuiltinModelSpec',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.BuiltinModelIdSpec, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.BuiltinModelIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -71,10 +71,10 @@ chromeos.machine_learning.mojom.FlatBufferModelSpecSpec = {
       name: 'chromeos.machine_learning.mojom.FlatBufferModelSpec',
       packedSize: 40,
       fields: [
-        { name: 'model_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'inputs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'outputs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'metrics_model_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'model_string', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'inputs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'outputs', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'metrics_model_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

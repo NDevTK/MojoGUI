@@ -23,8 +23,8 @@ related_website_sets.mojom.MemberSpec = {
       name: 'related_website_sets.mojom.Member',
       packedSize: 24,
       fields: [
-        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: related_website_sets.mojom.SiteTypeSpec, nullable: false },
+        { name: 'site', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: related_website_sets.mojom.SiteTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -38,9 +38,9 @@ related_website_sets.mojom.RelatedWebsiteSetSpec = {
       name: 'related_website_sets.mojom.RelatedWebsiteSet',
       packedSize: 32,
       fields: [
-        { name: 'primary_site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'member_sites', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'managed_by_enterprise', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'primary_site', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'member_sites', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'managed_by_enterprise', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -122,7 +122,7 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_R
       name: 'related_website_sets.mojom.RelatedWebsiteSetsPageHandler.GetRelatedWebsiteSets_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'related_website_sets_info', packedOffset: 0, packedBitOffset: 0, type: related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec, nullable: false },
+        { name: 'related_website_sets_info', packedOffset: 8, packedBitOffset: 0, type: related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

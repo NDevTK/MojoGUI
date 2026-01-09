@@ -16,9 +16,9 @@ media.mojom.MediaDrmSupportResultSpec = {
       name: 'media.mojom.MediaDrmSupportResult',
       packedSize: 24,
       fields: [
-        { name: 'key_system_supports_video_mp4', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'key_system_supports_video_webm', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'key_system_version', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.VersionSpec, nullable: true },
+        { name: 'key_system_supports_video_mp4', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'key_system_supports_video_webm', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'key_system_version', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.VersionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -88,8 +88,8 @@ media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec = {
       name: 'media.mojom.MediaDrmSupport.IsKeySystemSupported_Params',
       packedSize: 24,
       fields: [
-        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_secure', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'key_system', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_secure', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -102,7 +102,7 @@ media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec = {
       name: 'media.mojom.MediaDrmSupport.IsKeySystemSupported_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'key_system_supports', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaDrmSupportResultSpec, nullable: true },
+        { name: 'key_system_supports', packedOffset: 8, packedBitOffset: 0, type: media.mojom.MediaDrmSupportResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

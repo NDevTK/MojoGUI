@@ -22,7 +22,7 @@ webnn.mojom.ErrorSpec = {
       name: 'webnn.mojom.Error',
       packedSize: 16,
       fields: [
-        { name: 'kUnknownError', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnknownError', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

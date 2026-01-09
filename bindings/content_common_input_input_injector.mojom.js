@@ -55,12 +55,12 @@ content.mojom.SyntheticSmoothDragSpec = {
       name: 'content.mojom.SyntheticSmoothDrag',
       packedSize: 48,
       fields: [
-        { name: 'gesture_source_type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.GestureSourceTypeSpec, nullable: false },
-        { name: 'start_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'distances', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'speed_in_pixels_s', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'vsync_offset_ms', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'input_event_pattern', packedOffset: 32, packedBitOffset: 0, type: content.mojom.InputEventPatternSpec, nullable: false },
+        { name: 'gesture_source_type', packedOffset: 8, packedBitOffset: 0, type: content.mojom.GestureSourceTypeSpec, nullable: false },
+        { name: 'start_point', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'distances', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'speed_in_pixels_s', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'vsync_offset_ms', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'input_event_pattern', packedOffset: 40, packedBitOffset: 0, type: content.mojom.InputEventPatternSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -74,17 +74,17 @@ content.mojom.SyntheticSmoothScrollSpec = {
       name: 'content.mojom.SyntheticSmoothScroll',
       packedSize: 80,
       fields: [
-        { name: 'gesture_source_type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.GestureSourceTypeSpec, nullable: false },
-        { name: 'anchor', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'distances', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'prevent_fling', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'speed_in_pixels_s', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'fling_velocity_x', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'fling_velocity_y', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'granularity', packedOffset: 48, packedBitOffset: 0, type: ui.mojom.ScrollGranularitySpec, nullable: false },
-        { name: 'modifiers', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'vsync_offset_ms', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'input_event_pattern', packedOffset: 64, packedBitOffset: 0, type: content.mojom.InputEventPatternSpec, nullable: false },
+        { name: 'gesture_source_type', packedOffset: 8, packedBitOffset: 0, type: content.mojom.GestureSourceTypeSpec, nullable: false },
+        { name: 'anchor', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'distances', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'prevent_fling', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'speed_in_pixels_s', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'fling_velocity_x', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'fling_velocity_y', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'granularity', packedOffset: 56, packedBitOffset: 0, type: ui.mojom.ScrollGranularitySpec, nullable: false },
+        { name: 'modifiers', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'vsync_offset_ms', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'input_event_pattern', packedOffset: 72, packedBitOffset: 0, type: content.mojom.InputEventPatternSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -98,11 +98,11 @@ content.mojom.SyntheticPinchSpec = {
       name: 'content.mojom.SyntheticPinch',
       packedSize: 40,
       fields: [
-        { name: 'scale_factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'anchor', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'relative_pointer_speed_in_pixels_s', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'vsync_offset_ms', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'input_event_pattern', packedOffset: 24, packedBitOffset: 0, type: content.mojom.InputEventPatternSpec, nullable: false },
+        { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'anchor', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'relative_pointer_speed_in_pixels_s', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'vsync_offset_ms', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'input_event_pattern', packedOffset: 32, packedBitOffset: 0, type: content.mojom.InputEventPatternSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -116,9 +116,9 @@ content.mojom.SyntheticTapSpec = {
       name: 'content.mojom.SyntheticTap',
       packedSize: 32,
       fields: [
-        { name: 'gesture_source_type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.GestureSourceTypeSpec, nullable: false },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'duration_ms', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'gesture_source_type', packedOffset: 8, packedBitOffset: 0, type: content.mojom.GestureSourceTypeSpec, nullable: false },
+        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'duration_ms', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -132,20 +132,20 @@ content.mojom.SyntheticPointerActionParamsSpec = {
       name: 'content.mojom.SyntheticPointerActionParams',
       packedSize: 88,
       fields: [
-        { name: 'pointer_action_type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.PointerActionTypeSpec, nullable: false },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'pointer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'button', packedOffset: 24, packedBitOffset: 0, type: content.mojom.SyntheticButtonSpec, nullable: false },
-        { name: 'key_modifiers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'width', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'height', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'rotation_angle', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'force', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'tangential_pressure', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'tilt_x', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'tilt_y', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'timestamp', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'duration', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'pointer_action_type', packedOffset: 8, packedBitOffset: 0, type: content.mojom.PointerActionTypeSpec, nullable: false },
+        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'pointer_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'button', packedOffset: 32, packedBitOffset: 0, type: content.mojom.SyntheticButtonSpec, nullable: false },
+        { name: 'key_modifiers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'width', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'height', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'rotation_angle', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'force', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'tangential_pressure', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'tilt_x', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tilt_y', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'timestamp', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'duration', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -159,8 +159,8 @@ content.mojom.SyntheticPointerActionSpec = {
       name: 'content.mojom.SyntheticPointerAction',
       packedSize: 24,
       fields: [
-        { name: 'gesture_source_type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.GestureSourceTypeSpec, nullable: false },
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'gesture_source_type', packedOffset: 8, packedBitOffset: 0, type: content.mojom.GestureSourceTypeSpec, nullable: false },
+        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -266,7 +266,7 @@ content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec = {
       name: 'content.mojom.InputInjector.QueueSyntheticSmoothDrag_Params',
       packedSize: 16,
       fields: [
-        { name: 'drag', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticSmoothDragSpec, nullable: false },
+        { name: 'drag', packedOffset: 8, packedBitOffset: 0, type: content.mojom.SyntheticSmoothDragSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -280,7 +280,7 @@ content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec = {
       name: 'content.mojom.InputInjector.QueueSyntheticSmoothScroll_Params',
       packedSize: 16,
       fields: [
-        { name: 'scroll', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticSmoothScrollSpec, nullable: false },
+        { name: 'scroll', packedOffset: 8, packedBitOffset: 0, type: content.mojom.SyntheticSmoothScrollSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -294,7 +294,7 @@ content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec = {
       name: 'content.mojom.InputInjector.QueueSyntheticPinch_Params',
       packedSize: 16,
       fields: [
-        { name: 'pinch', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticPinchSpec, nullable: false },
+        { name: 'pinch', packedOffset: 8, packedBitOffset: 0, type: content.mojom.SyntheticPinchSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -308,7 +308,7 @@ content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec = {
       name: 'content.mojom.InputInjector.QueueSyntheticTap_Params',
       packedSize: 16,
       fields: [
-        { name: 'tap', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticTapSpec, nullable: false },
+        { name: 'tap', packedOffset: 8, packedBitOffset: 0, type: content.mojom.SyntheticTapSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -322,7 +322,7 @@ content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec = {
       name: 'content.mojom.InputInjector.QueueSyntheticPointerAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'pointer_action', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticPointerActionSpec, nullable: false },
+        { name: 'pointer_action', packedOffset: 8, packedBitOffset: 0, type: content.mojom.SyntheticPointerActionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

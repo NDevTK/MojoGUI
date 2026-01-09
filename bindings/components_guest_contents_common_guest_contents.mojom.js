@@ -72,8 +72,8 @@ guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec = {
       name: 'guest_contents.mojom.GuestContentsHost.Attach_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_to_swap', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
-        { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'frame_to_swap', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
+        { name: 'guest_contents_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -86,7 +86,7 @@ guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec = {
       name: 'guest_contents.mojom.GuestContentsHost.Attach_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

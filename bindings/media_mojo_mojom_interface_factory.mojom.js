@@ -196,7 +196,7 @@ media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec = {
       name: 'media.mojom.InterfaceFactory.CreateAudioDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'audio_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'audio_decoder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -210,8 +210,8 @@ media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec = {
       name: 'media.mojom.InterfaceFactory.CreateVideoDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'video_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'dst_video_decoder', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'video_decoder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'dst_video_decoder', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -225,8 +225,8 @@ media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec = {
       name: 'media.mojom.InterfaceFactory.CreateVideoDecoderWithTracker_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'tracker', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'tracker', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -240,7 +240,7 @@ media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec = {
       name: 'media.mojom.InterfaceFactory.CreateAudioEncoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'audio_encoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'audio_encoder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -254,8 +254,8 @@ media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec = {
       name: 'media.mojom.InterfaceFactory.CreateDefaultRenderer_Params',
       packedSize: 24,
       fields: [
-        { name: 'audio_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'audio_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'renderer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -269,8 +269,8 @@ media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec = {
       name: 'media.mojom.InterfaceFactory.CreateCastRenderer_Params',
       packedSize: 24,
       fields: [
-        { name: 'overlay_plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'overlay_plane_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'renderer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -284,9 +284,9 @@ media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec = {
       name: 'media.mojom.InterfaceFactory.CreateMediaFoundationRenderer_Params',
       packedSize: 24,
       fields: [
-        { name: 'media_log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'renderer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'renderer_extension', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'media_log', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'renderer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'renderer_extension', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -300,9 +300,9 @@ media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec = {
       name: 'media.mojom.InterfaceFactory.CreateFlingingRenderer_Params',
       packedSize: 24,
       fields: [
-        { name: 'presentation_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'client_extension', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'renderer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'presentation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'client_extension', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'renderer', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -316,7 +316,7 @@ media.mojom.InterfaceFactory_CreateCdm_ParamsSpec = {
       name: 'media.mojom.InterfaceFactory.CreateCdm_Params',
       packedSize: 16,
       fields: [
-        { name: 'cdm_config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmConfigSpec, nullable: false },
+        { name: 'cdm_config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -329,9 +329,9 @@ media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec = {
       name: 'media.mojom.InterfaceFactory.CreateCdm_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'cdm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'cdm_context', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmContextSpec, nullable: true },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: media.mojom.CreateCdmStatusSpec, nullable: false },
+        { name: 'cdm', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'cdm_context', packedOffset: 16, packedBitOffset: 0, type: media.mojom.CdmContextSpec, nullable: true },
+        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: media.mojom.CreateCdmStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,8 +16,8 @@ blink.mojom.FileSystemAccessCloudIdentifierSpec = {
       name: 'blink.mojom.FileSystemAccessCloudIdentifier',
       packedSize: 24,
       fields: [
-        { name: 'provider_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'provider_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

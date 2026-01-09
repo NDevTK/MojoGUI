@@ -22,8 +22,8 @@ ax.mojom.SpeechRecognitionResultEventSpec = {
       name: 'ax.mojom.SpeechRecognitionResultEvent',
       packedSize: 24,
       fields: [
-        { name: 'transcript', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_final', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'transcript', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_final', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,7 +37,7 @@ ax.mojom.SpeechRecognitionErrorEventSpec = {
       name: 'ax.mojom.SpeechRecognitionErrorEvent',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -51,9 +51,9 @@ ax.mojom.StartOptionsSpec = {
       name: 'ax.mojom.StartOptions',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AssistiveTechnologyTypeSpec, nullable: false },
-        { name: 'locale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'interim_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AssistiveTechnologyTypeSpec, nullable: false },
+        { name: 'locale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'interim_results', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -67,7 +67,7 @@ ax.mojom.StopOptionsSpec = {
       name: 'ax.mojom.StopOptions',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AssistiveTechnologyTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AssistiveTechnologyTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -81,8 +81,8 @@ ax.mojom.SpeechRecognitionStartInfoSpec = {
       name: 'ax.mojom.SpeechRecognitionStartInfo',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.SpeechRecognitionTypeSpec, nullable: false },
-        { name: 'observer_or_error', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.ObserverOrErrorSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.SpeechRecognitionTypeSpec, nullable: false },
+        { name: 'observer_or_error', packedOffset: 16, packedBitOffset: 0, type: ax.mojom.ObserverOrErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -183,7 +183,7 @@ ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec = {
       name: 'ax.mojom.SpeechRecognitionEventObserver.OnResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.SpeechRecognitionResultEventSpec, nullable: false },
+        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.SpeechRecognitionResultEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,7 +197,7 @@ ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec = {
       name: 'ax.mojom.SpeechRecognitionEventObserver.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.SpeechRecognitionErrorEventSpec, nullable: false },
+        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.SpeechRecognitionErrorEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,7 +281,7 @@ ax.mojom.SpeechRecognition_Start_ParamsSpec = {
       name: 'ax.mojom.SpeechRecognition.Start_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.StartOptionsSpec, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.StartOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -294,7 +294,7 @@ ax.mojom.SpeechRecognition_Start_ResponseParamsSpec = {
       name: 'ax.mojom.SpeechRecognition.Start_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.SpeechRecognitionStartInfoSpec, nullable: false },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.SpeechRecognitionStartInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -308,7 +308,7 @@ ax.mojom.SpeechRecognition_Stop_ParamsSpec = {
       name: 'ax.mojom.SpeechRecognition.Stop_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.StopOptionsSpec, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.StopOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -321,7 +321,7 @@ ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec = {
       name: 'ax.mojom.SpeechRecognition.Stop_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

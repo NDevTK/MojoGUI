@@ -54,8 +54,8 @@ auction_worklet.mojom.BucketOffsetSpec = {
       name: 'auction_worklet.mojom.BucketOffset',
       packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.Uint128Spec, nullable: false },
-        { name: 'is_negative', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.Uint128Spec, nullable: false },
+        { name: 'is_negative', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -69,9 +69,9 @@ auction_worklet.mojom.SignalBucketSpec = {
       name: 'auction_worklet.mojom.SignalBucket',
       packedSize: 32,
       fields: [
-        { name: 'base_value', packedOffset: 0, packedBitOffset: 0, type: auction_worklet.mojom.BaseValueSpec, nullable: false },
-        { name: 'scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.BucketOffsetSpec, nullable: true },
+        { name: 'base_value', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.BaseValueSpec, nullable: false },
+        { name: 'scale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'offset', packedOffset: 24, packedBitOffset: 0, type: auction_worklet.mojom.BucketOffsetSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -85,9 +85,9 @@ auction_worklet.mojom.SignalValueSpec = {
       name: 'auction_worklet.mojom.SignalValue',
       packedSize: 32,
       fields: [
-        { name: 'base_value', packedOffset: 0, packedBitOffset: 0, type: auction_worklet.mojom.BaseValueSpec, nullable: false },
-        { name: 'scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'base_value', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.BaseValueSpec, nullable: false },
+        { name: 'scale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,10 +101,10 @@ auction_worklet.mojom.AggregatableReportForEventContributionSpec = {
       name: 'auction_worklet.mojom.AggregatableReportForEventContribution',
       packedSize: 40,
       fields: [
-        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: auction_worklet.mojom.ForEventSignalBucketSpec, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.ForEventSignalValueSpec, nullable: false },
-        { name: 'filtering_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
-        { name: 'event_type', packedOffset: 24, packedBitOffset: 0, type: auction_worklet.mojom.EventTypeSpec, nullable: false },
+        { name: 'bucket', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.ForEventSignalBucketSpec, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.ForEventSignalValueSpec, nullable: false },
+        { name: 'filtering_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
+        { name: 'event_type', packedOffset: 32, packedBitOffset: 0, type: auction_worklet.mojom.EventTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -118,8 +118,8 @@ auction_worklet.mojom.PrivateAggregationRequestSpec = {
       name: 'auction_worklet.mojom.PrivateAggregationRequest',
       packedSize: 24,
       fields: [
-        { name: 'contribution', packedOffset: 0, packedBitOffset: 0, type: auction_worklet.mojom.AggregatableReportContributionSpec, nullable: false },
-        { name: 'debug_mode_details', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DebugModeDetailsSpec, nullable: false },
+        { name: 'contribution', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.AggregatableReportContributionSpec, nullable: false },
+        { name: 'debug_mode_details', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.DebugModeDetailsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -133,9 +133,9 @@ auction_worklet.mojom.FinalizedPrivateAggregationRequestSpec = {
       name: 'auction_worklet.mojom.FinalizedPrivateAggregationRequest',
       packedSize: 32,
       fields: [
-        { name: 'contribution', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AggregatableReportHistogramContributionSpec, nullable: false },
-        { name: 'debug_mode_details', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DebugModeDetailsSpec, nullable: false },
-        { name: 'error_event', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PrivateAggregationErrorEventSpec, nullable: true },
+        { name: 'contribution', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AggregatableReportHistogramContributionSpec, nullable: false },
+        { name: 'debug_mode_details', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.DebugModeDetailsSpec, nullable: false },
+        { name: 'error_event', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PrivateAggregationErrorEventSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

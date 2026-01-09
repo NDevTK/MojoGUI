@@ -16,11 +16,11 @@ sharing.mojom.NsdServiceInfoSpec = {
       name: 'sharing.mojom.NsdServiceInfo',
       packedSize: 48,
       fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'service_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'txt_records', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
-        { name: 'ip_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'port', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
+        { name: 'service_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'service_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'txt_records', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'ip_address', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'port', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -99,7 +99,7 @@ sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec = {
       name: 'sharing.mojom.MdnsObserver.ServiceFound_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_info', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.NsdServiceInfoSpec, nullable: false },
+        { name: 'service_info', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.NsdServiceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,7 +113,7 @@ sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec = {
       name: 'sharing.mojom.MdnsObserver.ServiceLost_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_info', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.NsdServiceInfoSpec, nullable: false },
+        { name: 'service_info', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.NsdServiceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,7 +206,7 @@ sharing.mojom.MdnsManager_AddObserver_ParamsSpec = {
       name: 'sharing.mojom.MdnsManager.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,7 +220,7 @@ sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = {
       name: 'sharing.mojom.MdnsManager.StartDiscoverySession_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'service_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -233,7 +233,7 @@ sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec = {
       name: 'sharing.mojom.MdnsManager.StartDiscoverySession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -247,7 +247,7 @@ sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = {
       name: 'sharing.mojom.MdnsManager.StopDiscoverySession_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'service_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,7 +260,7 @@ sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = {
       name: 'sharing.mojom.MdnsManager.StopDiscoverySession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

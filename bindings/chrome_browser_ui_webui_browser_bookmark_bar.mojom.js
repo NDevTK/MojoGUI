@@ -25,10 +25,10 @@ bookmark_bar.mojom.BookmarkDataSpec = {
       name: 'bookmark_bar.mojom.BookmarkData',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkTypeSpec, nullable: false },
-        { name: 'page_url_for_favicon', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkTypeSpec, nullable: false },
+        { name: 'page_url_for_favicon', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -98,8 +98,8 @@ bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'bookmark_bar.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -195,7 +195,7 @@ bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec = {
       name: 'bookmark_bar.mojom.PageHandler.GetBookmarkBar_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bookmarks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bookmarks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -209,7 +209,7 @@ bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec = {
       name: 'bookmark_bar.mojom.PageHandler.OpenInNewTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -324,7 +324,7 @@ bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec = {
       name: 'bookmark_bar.mojom.Page.FavIconChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'bookmark_data', packedOffset: 0, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkDataSpec, nullable: false },
+        { name: 'bookmark_data', packedOffset: 8, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

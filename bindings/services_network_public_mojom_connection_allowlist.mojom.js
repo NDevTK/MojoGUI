@@ -25,9 +25,9 @@ network.mojom.ConnectionAllowlistSpec = {
       name: 'network.mojom.ConnectionAllowlist',
       packedSize: 32,
       fields: [
-        { name: 'allowlist', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'issues', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'allowlist', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'reporting_endpoint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'issues', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -41,8 +41,8 @@ network.mojom.ConnectionAllowlistsSpec = {
       name: 'network.mojom.ConnectionAllowlists',
       packedSize: 24,
       fields: [
-        { name: 'enforced', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistSpec, nullable: true },
-        { name: 'report_only', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistSpec, nullable: true },
+        { name: 'enforced', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistSpec, nullable: true },
+        { name: 'report_only', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

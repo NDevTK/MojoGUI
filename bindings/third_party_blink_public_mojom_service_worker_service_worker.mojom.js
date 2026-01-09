@@ -29,10 +29,10 @@ blink.mojom.ExtendableMessageEventSpec = {
       name: 'blink.mojom.ExtendableMessageEvent',
       packedSize: 40,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TransferableMessageSpec, nullable: false },
-        { name: 'source_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'source_info_for_client', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true },
-        { name: 'source_info_for_service_worker', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: true },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TransferableMessageSpec, nullable: false },
+        { name: 'source_origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'source_info_for_client', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true },
+        { name: 'source_info_for_service_worker', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -201,8 +201,8 @@ blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.SetCachedMetadata_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -216,7 +216,7 @@ blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.ClearCachedMetadata_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -230,7 +230,7 @@ blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.GetClients_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientQueryOptionsSpec, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientQueryOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -243,7 +243,7 @@ blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.GetClients_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'clients', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'clients', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -257,7 +257,7 @@ blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.GetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'client_uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -270,7 +270,7 @@ blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.GetClient_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -284,7 +284,7 @@ blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.OpenNewTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -297,9 +297,9 @@ blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.OpenNewTab_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true },
-        { name: 'error_msg', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true },
+        { name: 'error_msg', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -313,7 +313,7 @@ blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.OpenPaymentHandlerWindow_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -326,9 +326,9 @@ blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.OpenPaymentHandlerWindow_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true },
-        { name: 'error_msg', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true },
+        { name: 'error_msg', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -342,8 +342,8 @@ blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.PostMessageToClient_Params',
       packedSize: 24,
       fields: [
-        { name: 'client_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TransferableMessageSpec, nullable: false },
+        { name: 'client_uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TransferableMessageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -357,7 +357,7 @@ blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.FocusClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'client_uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -370,7 +370,7 @@ blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.FocusClient_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FocusResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FocusResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -384,8 +384,8 @@ blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.NavigateClient_Params',
       packedSize: 24,
       fields: [
-        { name: 'client_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'client_uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -398,9 +398,9 @@ blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.NavigateClient_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true },
-        { name: 'error_msg', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true },
+        { name: 'error_msg', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -426,7 +426,7 @@ blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.SkipWaiting_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -452,8 +452,8 @@ blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.ClaimClients_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerErrorTypeSpec, nullable: false },
-        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerErrorTypeSpec, nullable: false },
+        { name: 'error_msg', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -467,7 +467,7 @@ blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.AddRoutes_Params',
       packedSize: 16,
       fields: [
-        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRulesSpec, nullable: false },
+        { name: 'rules', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRulesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -480,7 +480,7 @@ blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorkerHost.AddRoutes_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_parse_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_parse_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -789,14 +789,14 @@ blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.InitializeGlobalScope_Params',
       packedSize: 64,
       fields: [
-        { name: 'service_worker_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'associated_interfaces_to_browser', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'associated_interfaces_from_browser', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
-        { name: 'registration_info', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, nullable: false },
-        { name: 'service_worker_info', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: false },
-        { name: 'fetch_handler_existence', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.FetchHandlerExistenceSpec, nullable: false },
-        { name: 'ancestor_frame_type', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AncestorFrameTypeSpec, nullable: false },
-        { name: 'storage_key', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
+        { name: 'service_worker_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'associated_interfaces_to_browser', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'associated_interfaces_from_browser', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'registration_info', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, nullable: false },
+        { name: 'service_worker_info', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: false },
+        { name: 'fetch_handler_existence', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.FetchHandlerExistenceSpec, nullable: false },
+        { name: 'ancestor_frame_type', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.AncestorFrameTypeSpec, nullable: false },
+        { name: 'storage_key', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -822,8 +822,8 @@ blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchInstallEvent_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
-        { name: 'fetch_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'fetch_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -849,7 +849,7 @@ blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchActivateEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -863,7 +863,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchAbortEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false },
+        { name: 'registration', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -876,7 +876,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec =
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchAbortEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -890,7 +890,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchClickEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false },
+        { name: 'registration', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -903,7 +903,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec =
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchClickEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -917,7 +917,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchFailEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false },
+        { name: 'registration', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -930,7 +930,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec = 
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchFailEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -944,7 +944,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchSuccessEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false },
+        { name: 'registration', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -957,7 +957,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchSuccessEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -971,7 +971,7 @@ blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchCookieChangeEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'change', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CookieChangeInfoSpec, nullable: false },
+        { name: 'change', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieChangeInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -984,7 +984,7 @@ blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchCookieChangeEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -998,8 +998,8 @@ blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchFetchEventForMainResource_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DispatchFetchEventParamsSpec, nullable: false },
-        { name: 'response_callback', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DispatchFetchEventParamsSpec, nullable: false },
+        { name: 'response_callback', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1012,7 +1012,7 @@ blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec =
       name: 'blink.mojom.ServiceWorker.DispatchFetchEventForMainResource_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1026,10 +1026,10 @@ blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchNotificationClickEvent_Params',
       packedSize: 40,
       fields: [
-        { name: 'notification_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false },
-        { name: 'action_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'reply', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'notification_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'notification_data', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false },
+        { name: 'action_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'reply', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1042,7 +1042,7 @@ blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchNotificationClickEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1056,8 +1056,8 @@ blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchNotificationCloseEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'notification_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false },
+        { name: 'notification_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'notification_data', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1070,7 +1070,7 @@ blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchNotificationCloseEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1084,7 +1084,7 @@ blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchPushEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'payload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1097,7 +1097,7 @@ blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchPushEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1111,7 +1111,7 @@ blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec =
       name: 'blink.mojom.ServiceWorker.DispatchPushEventRecordingNetworkRequests_Params',
       packedSize: 16,
       fields: [
-        { name: 'payload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1124,8 +1124,8 @@ blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponsePara
       name: 'blink.mojom.ServiceWorker.DispatchPushEventRecordingNetworkRequests_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
-        { name: 'requested_urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'requested_urls', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1139,8 +1139,8 @@ blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchPushSubscriptionChangeEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'old_subscription', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true },
-        { name: 'new_subscription', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true },
+        { name: 'old_subscription', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true },
+        { name: 'new_subscription', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1153,7 +1153,7 @@ blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec
       name: 'blink.mojom.ServiceWorker.DispatchPushSubscriptionChangeEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1167,9 +1167,9 @@ blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchSyncEvent_Params',
       packedSize: 32,
       fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_chance', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'timeout', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_chance', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'timeout', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1182,7 +1182,7 @@ blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchSyncEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1196,8 +1196,8 @@ blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchPeriodicSyncEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'timeout', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'timeout', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1210,7 +1210,7 @@ blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchPeriodicSyncEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1224,7 +1224,7 @@ blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchAbortPaymentEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'result_of_abort_payment', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'result_of_abort_payment', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1237,7 +1237,7 @@ blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchAbortPaymentEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1251,8 +1251,8 @@ blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchCanMakePaymentEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'event_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.CanMakePaymentEventDataSpec, nullable: false },
-        { name: 'result_of_can_make_payment', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'event_data', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.CanMakePaymentEventDataSpec, nullable: false },
+        { name: 'result_of_can_make_payment', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1265,7 +1265,7 @@ blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchCanMakePaymentEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1279,8 +1279,8 @@ blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchPaymentRequestEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentRequestEventDataSpec, nullable: false },
-        { name: 'response_callback', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'request_data', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentRequestEventDataSpec, nullable: false },
+        { name: 'response_callback', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1293,7 +1293,7 @@ blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchPaymentRequestEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1307,7 +1307,7 @@ blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchExtendableMessageEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ExtendableMessageEventSpec, nullable: false },
+        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ExtendableMessageEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1320,7 +1320,7 @@ blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchExtendableMessageEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1334,7 +1334,7 @@ blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchContentDeleteEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1347,7 +1347,7 @@ blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchContentDeleteEvent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1374,7 +1374,7 @@ blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.SetIdleDelay_Params',
       packedSize: 16,
       fields: [
-        { name: 'delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'delay', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1414,8 +1414,8 @@ blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.AddMessageToConsole_Params',
       packedSize: 24,
       fields: [
-        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ConsoleMessageLevelSpec, nullable: false },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'level', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ConsoleMessageLevelSpec, nullable: false },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1429,8 +1429,8 @@ blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.ExecuteScriptForTest_Params',
       packedSize: 24,
       fields: [
-        { name: 'javascript', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigString16Spec, nullable: false },
-        { name: 'wants_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'javascript', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigString16Spec, nullable: false },
+        { name: 'wants_result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1443,8 +1443,8 @@ blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorker.ExecuteScriptForTest_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

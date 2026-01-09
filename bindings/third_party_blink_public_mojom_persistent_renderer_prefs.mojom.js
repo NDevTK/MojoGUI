@@ -72,7 +72,7 @@ blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec 
       name: 'blink.mojom.PersistentRendererPrefsService.SetViewSourceLineWrapping_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

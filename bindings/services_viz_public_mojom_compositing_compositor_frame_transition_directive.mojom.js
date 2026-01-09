@@ -23,8 +23,8 @@ viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec = {
       name: 'viz.mojom.CompositorFrameTransitionDirectiveSharedElement',
       packedSize: 24,
       fields: [
-        { name: 'render_pass_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CompositorRenderPassIdSpec, nullable: false },
-        { name: 'view_transition_element_resource_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false },
+        { name: 'render_pass_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CompositorRenderPassIdSpec, nullable: false },
+        { name: 'view_transition_element_resource_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -38,13 +38,13 @@ viz.mojom.CompositorFrameTransitionDirectiveSpec = {
       name: 'viz.mojom.CompositorFrameTransitionDirective',
       packedSize: 64,
       fields: [
-        { name: 'transition_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false },
-        { name: 'maybe_cross_frame_sink', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'sequence_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.CompositorFrameTransitionDirectiveTypeSpec, nullable: false },
-        { name: 'shared_elements', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'display_color_spaces', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.DisplayColorSpacesSpec, nullable: false },
-        { name: 'delay_layer_tree_view_deletion', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'transition_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false },
+        { name: 'maybe_cross_frame_sink', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'sequence_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.CompositorFrameTransitionDirectiveTypeSpec, nullable: false },
+        { name: 'shared_elements', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'display_color_spaces', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.DisplayColorSpacesSpec, nullable: false },
+        { name: 'delay_layer_tree_view_deletion', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

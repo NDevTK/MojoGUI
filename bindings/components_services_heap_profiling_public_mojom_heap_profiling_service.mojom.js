@@ -90,10 +90,10 @@ heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec = {
       name: 'heap_profiling.mojom.ProfilingService.AddProfilingClient_Params',
       packedSize: 40,
       fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'process_type', packedOffset: 16, packedBitOffset: 0, type: heap_profiling.mojom.ProcessTypeSpec, nullable: false },
-        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: heap_profiling.mojom.ProfilingParamsSpec, nullable: false },
+        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'process_type', packedOffset: 24, packedBitOffset: 0, type: heap_profiling.mojom.ProcessTypeSpec, nullable: false },
+        { name: 'params', packedOffset: 32, packedBitOffset: 0, type: heap_profiling.mojom.ProfilingParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -106,7 +106,7 @@ heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec = {
       name: 'heap_profiling.mojom.ProfilingService.AddProfilingClient_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -132,7 +132,7 @@ heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec = {
       name: 'heap_profiling.mojom.ProfilingService.GetProfiledPids_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

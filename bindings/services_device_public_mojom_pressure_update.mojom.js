@@ -29,9 +29,9 @@ device.mojom.PressureUpdateSpec = {
       name: 'device.mojom.PressureUpdate',
       packedSize: 32,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureDataSpec, nullable: false },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: device.mojom.PressureDataSpec, nullable: false },
+        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -45,8 +45,8 @@ device.mojom.PressureDataSpec = {
       name: 'device.mojom.PressureData',
       packedSize: 24,
       fields: [
-        { name: 'cpu_utilization', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'own_contribution_estimate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'cpu_utilization', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'own_contribution_estimate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }

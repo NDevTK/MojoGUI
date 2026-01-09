@@ -202,7 +202,7 @@ ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ResponseParam
       name: 'ash.mojom.files_internals.PageHandler.GetSmbfsEnableVerboseLogging_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -216,7 +216,7 @@ ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec = 
       name: 'ash.mojom.files_internals.PageHandler.SetSmbfsEnableVerboseLogging_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -242,7 +242,7 @@ ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ResponseParamsSpec =
       name: 'ash.mojom.files_internals.PageHandler.GetOfficeFileHandlers_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'handlers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'handlers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,7 +281,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ResponseP
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'confirmation_shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -307,7 +307,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_Respon
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForOneDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'confirmation_shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -333,7 +333,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_Re
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForLocalToDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'confirmation_shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -359,7 +359,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForLocalToOneDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'confirmation_shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -385,7 +385,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_Re
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForCloudToDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'confirmation_shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -411,7 +411,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive
       name: 'ash.mojom.files_internals.PageHandler.GetMoveConfirmationShownForCloudToOneDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'confirmation_shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -437,7 +437,7 @@ ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponsePa
       name: 'ash.mojom.files_internals.PageHandler.GetAlwaysMoveOfficeFilesToDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'always_move', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -451,7 +451,7 @@ ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec
       name: 'ash.mojom.files_internals.PageHandler.SetAlwaysMoveOfficeFilesToDrive_Params',
       packedSize: 16,
       fields: [
-        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'always_move', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -477,7 +477,7 @@ ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_Respons
       name: 'ash.mojom.files_internals.PageHandler.GetAlwaysMoveOfficeFilesToOneDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'always_move', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -491,7 +491,7 @@ ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsS
       name: 'ash.mojom.files_internals.PageHandler.SetAlwaysMoveOfficeFilesToOneDrive_Params',
       packedSize: 16,
       fields: [
-        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'always_move', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

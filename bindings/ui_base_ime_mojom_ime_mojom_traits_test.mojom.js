@@ -72,7 +72,7 @@ ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = {
       name: 'ui.mojom.IMEStructTraitsTest.EchoTextInputType_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false },
+        { name: 'in', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec = {
       name: 'ui.mojom.IMEStructTraitsTest.EchoTextInputType_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false },
+        { name: 'out', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

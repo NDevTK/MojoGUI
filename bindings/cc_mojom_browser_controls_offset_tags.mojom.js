@@ -16,9 +16,9 @@ cc.mojom.BrowserControlsOffsetTagsSpec = {
       name: 'cc.mojom.BrowserControlsOffsetTags',
       packedSize: 32,
       fields: [
-        { name: 'top_controls_offset_tag', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.OffsetTagSpec, nullable: false },
-        { name: 'content_offset_tag', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.OffsetTagSpec, nullable: false },
-        { name: 'bottom_controls_offset_tag', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.OffsetTagSpec, nullable: false },
+        { name: 'top_controls_offset_tag', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.OffsetTagSpec, nullable: false },
+        { name: 'content_offset_tag', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.OffsetTagSpec, nullable: false },
+        { name: 'bottom_controls_offset_tag', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.OffsetTagSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

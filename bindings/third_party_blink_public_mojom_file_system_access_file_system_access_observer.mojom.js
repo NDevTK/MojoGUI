@@ -68,7 +68,7 @@ blink.mojom.FileSystemAccessChangeTypeMovedSpec = {
       name: 'blink.mojom.FileSystemAccessChangeTypeMoved',
       packedSize: 16,
       fields: [
-        { name: 'former_relative_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'former_relative_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -95,9 +95,9 @@ blink.mojom.FileSystemAccessChangeMetadataSpec = {
       name: 'blink.mojom.FileSystemAccessChangeMetadata',
       packedSize: 32,
       fields: [
-        { name: 'root', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessEntrySpec, nullable: false },
-        { name: 'changed_entry', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessEntrySpec, nullable: false },
-        { name: 'relative_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'root', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessEntrySpec, nullable: false },
+        { name: 'changed_entry', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FileSystemAccessEntrySpec, nullable: false },
+        { name: 'relative_path', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -111,8 +111,8 @@ blink.mojom.FileSystemAccessChangeSpec = {
       name: 'blink.mojom.FileSystemAccessChange',
       packedSize: 24,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessChangeMetadataSpec, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessChangeTypeSpec, nullable: false },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessChangeMetadataSpec, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FileSystemAccessChangeTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -182,7 +182,7 @@ blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessObserver.OnFileChanges_Params',
       packedSize: 16,
       fields: [
-        { name: 'changes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'changes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

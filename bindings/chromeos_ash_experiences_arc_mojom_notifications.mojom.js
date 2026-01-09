@@ -83,8 +83,8 @@ arc.mojom.ArcNotificationButtonSpec = {
       name: 'arc.mojom.ArcNotificationButton',
       packedSize: 24,
       fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'buttonPlaceholder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'buttonPlaceholder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -98,8 +98,8 @@ arc.mojom.ArcNotificationFlagsSpec = {
       name: 'arc.mojom.ArcNotificationFlags',
       packedSize: 24,
       fields: [
-        { name: 'SUPPORT_SNOOZE', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'SUPPORT_SNOOZE', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,43 +113,43 @@ arc.mojom.ArcNotificationDataSpec = {
       name: 'arc.mojom.ArcNotificationData',
       packedSize: 296,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ArcNotificationTypeSpec, nullable: false },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'app_display_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'deprecated_icon_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'priority', packedOffset: 48, packedBitOffset: 0, type: arc.mojom.ArcNotificationPrioritySpec, nullable: false },
-        { name: 'time', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'progress_current', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'progress_max', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'buttons', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'no_clear', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'ongoing_event', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'texts', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'big_picture', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'is_custom_notification', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'small_icon', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'snapshot_image', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'snapshot_image_scale', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'accessible_name', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'expand_state', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'shown_contents', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'remote_input_state', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'swipe_input_rect', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'package_name', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'flags', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'indeterminate_progress', packedOffset: 200, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'snapshot_image_public', packedOffset: 208, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'is_media_notification', packedOffset: 216, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'style', packedOffset: 224, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'is_action_enabled', packedOffset: 232, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'is_inline_reply_enabled', packedOffset: 240, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'render_on_chrome', packedOffset: 248, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'group_key', packedOffset: 256, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'reply_button_index', packedOffset: 264, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'children_data', packedOffset: 272, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'messages', packedOffset: 280, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ArcNotificationTypeSpec, nullable: false },
+        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'app_display_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'deprecated_icon_data', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'priority', packedOffset: 56, packedBitOffset: 0, type: arc.mojom.ArcNotificationPrioritySpec, nullable: false },
+        { name: 'time', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'progress_current', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'progress_max', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'buttons', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'no_clear', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ongoing_event', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'texts', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'big_picture', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'is_custom_notification', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'small_icon', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'snapshot_image', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'snapshot_image_scale', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'accessible_name', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'expand_state', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shown_contents', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_input_state', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'swipe_input_rect', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'package_name', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'flags', packedOffset: 200, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'indeterminate_progress', packedOffset: 208, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'snapshot_image_public', packedOffset: 216, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'is_media_notification', packedOffset: 224, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'style', packedOffset: 232, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_action_enabled', packedOffset: 240, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_inline_reply_enabled', packedOffset: 248, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'render_on_chrome', packedOffset: 256, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'group_key', packedOffset: 264, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'reply_button_index', packedOffset: 272, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'children_data', packedOffset: 280, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'messages', packedOffset: 288, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -163,7 +163,7 @@ arc.mojom.ArcDoNotDisturbStatusSpec = {
       name: 'arc.mojom.ArcDoNotDisturbStatus',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -177,10 +177,10 @@ arc.mojom.ArcNotificationUserActionDataSpec = {
       name: 'arc.mojom.ArcNotificationUserActionData',
       packedSize: 32,
       fields: [
-        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'top_level_notification_key_deprecated', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'defer_until_unlock', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'to_be_focused_after_unlock', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'action_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'top_level_notification_key_deprecated', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'defer_until_unlock', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'to_be_focused_after_unlock', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -194,8 +194,8 @@ arc.mojom.ArcLockScreenNotificationSettingSpec = {
       name: 'arc.mojom.ArcLockScreenNotificationSetting',
       packedSize: 16,
       fields: [
-        { name: 'show_notification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'show_private_notification', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'show_notification', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'show_private_notification', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -209,7 +209,7 @@ arc.mojom.NotificationConfigurationSpec = {
       name: 'arc.mojom.NotificationConfiguration',
       packedSize: 16,
       fields: [
-        { name: 'expansion_animation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'expansion_animation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -223,9 +223,9 @@ arc.mojom.ArcNotificationMessageSpec = {
       name: 'arc.mojom.ArcNotificationMessage',
       packedSize: 32,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'sender_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'sender_icon', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ArcBitmapSpec, nullable: true },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sender_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sender_icon', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.ArcBitmapSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

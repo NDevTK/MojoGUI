@@ -88,7 +88,7 @@ storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec = {
       name: 'storage.mojom.IndexedDBObserver.OnIndexedDBListChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
+        { name: 'bucket_locator', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -102,9 +102,9 @@ storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec = {
       name: 'storage.mojom.IndexedDBObserver.OnIndexedDBContentChanged_Params',
       packedSize: 32,
       fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
-        { name: 'database_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'object_store_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'bucket_locator', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
+        { name: 'database_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'object_store_name', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,10 +260,10 @@ storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControl.BindIndexedDB_Params',
       packedSize: 32,
       fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
-        { name: 'client_info', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketClientInfoSpec, nullable: false },
-        { name: 'client_state_checker_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'receiver', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'bucket_locator', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
+        { name: 'client_info', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.BucketClientInfoSpec, nullable: false },
+        { name: 'client_state_checker_remote', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'receiver', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -277,8 +277,8 @@ storage.mojom.IndexedDBControl_ForceClose_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControl.ForceClose_Params',
       packedSize: 24,
       fields: [
-        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ForceCloseReasonSpec, nullable: false },
+        { name: 'bucket_id', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
+        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.ForceCloseReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -292,7 +292,7 @@ storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControl.DownloadBucketData_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
+        { name: 'bucket_id', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -305,9 +305,9 @@ storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec = {
       name: 'storage.mojom.IndexedDBControl.DownloadBucketData_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'temp_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'zip_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'temp_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'zip_path', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -333,8 +333,8 @@ storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec = {
       name: 'storage.mojom.IndexedDBControl.GetAllBucketsDetails_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'incognito', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'incognito', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -348,7 +348,7 @@ storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControl.StartMetadataRecording_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
+        { name: 'bucket_id', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -362,7 +362,7 @@ storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControl.StopMetadataRecording_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
+        { name: 'bucket_id', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -375,7 +375,7 @@ storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec = {
       name: 'storage.mojom.IndexedDBControl.StopMetadataRecording_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -402,7 +402,7 @@ storage.mojom.IndexedDBControl_AddObserver_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControl.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -416,7 +416,7 @@ storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControl.ApplyPolicyUpdates_Params',
       packedSize: 16,
       fields: [
-        { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'policy_updates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -430,7 +430,7 @@ storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControl.BindTestInterfaceForTesting_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

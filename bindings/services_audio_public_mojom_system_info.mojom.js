@@ -135,7 +135,7 @@ audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec = {
       name: 'audio.mojom.SystemInfo.GetInputStreamParameters_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,7 +148,7 @@ audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec = {
       name: 'audio.mojom.SystemInfo.GetInputStreamParameters_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: true },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -162,7 +162,7 @@ audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec = {
       name: 'audio.mojom.SystemInfo.GetOutputStreamParameters_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,7 +175,7 @@ audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec = {
       name: 'audio.mojom.SystemInfo.GetOutputStreamParameters_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: true },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -201,7 +201,7 @@ audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec = {
       name: 'audio.mojom.SystemInfo.HasInputDevices_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_input_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_input_devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -227,7 +227,7 @@ audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec = {
       name: 'audio.mojom.SystemInfo.HasOutputDevices_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_output_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_output_devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -253,7 +253,7 @@ audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec = {
       name: 'audio.mojom.SystemInfo.GetInputDeviceDescriptions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'device_descriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'device_descriptions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -279,7 +279,7 @@ audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec = {
       name: 'audio.mojom.SystemInfo.GetOutputDeviceDescriptions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'device_descriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'device_descriptions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -293,7 +293,7 @@ audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec = {
       name: 'audio.mojom.SystemInfo.GetAssociatedOutputDeviceID_Params',
       packedSize: 16,
       fields: [
-        { name: 'input_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'input_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -306,7 +306,7 @@ audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec = {
       name: 'audio.mojom.SystemInfo.GetAssociatedOutputDeviceID_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'associated_output_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'associated_output_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -320,7 +320,7 @@ audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec = {
       name: 'audio.mojom.SystemInfo.GetInputDeviceInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'input_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'input_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -333,8 +333,8 @@ audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec = {
       name: 'audio.mojom.SystemInfo.GetInputDeviceInfo_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'input_params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: true },
-        { name: 'associated_output_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'input_params', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: true },
+        { name: 'associated_output_device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

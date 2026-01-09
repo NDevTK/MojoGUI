@@ -100,7 +100,7 @@ blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec = {
       name: 'blink.mojom.LockScreenService.GetKeys_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -114,8 +114,8 @@ blink.mojom.LockScreenService_SetData_ParamsSpec = {
       name: 'blink.mojom.LockScreenService.SetData_Params',
       packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -128,7 +128,7 @@ blink.mojom.LockScreenService_SetData_ResponseParamsSpec = {
       name: 'blink.mojom.LockScreenService.SetData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LockScreenServiceStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LockScreenServiceStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

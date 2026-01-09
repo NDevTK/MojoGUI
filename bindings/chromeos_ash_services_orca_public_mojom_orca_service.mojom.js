@@ -131,7 +131,7 @@ ash.orca.mojom.TriggerContextSpec = {
       name: 'ash.orca.mojom.TriggerContext',
       packedSize: 16,
       fields: [
-        { name: 'freeform_selected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'freeform_selected', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

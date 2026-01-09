@@ -30,11 +30,11 @@ display.mojom.DisplayPlacementSpec = {
       name: 'display.mojom.DisplayPlacement',
       packedSize: 48,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'parent_display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: display.mojom.PositionSpec, nullable: false },
-        { name: 'offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'offset_reference', packedOffset: 32, packedBitOffset: 0, type: display.mojom.OffsetReferenceSpec, nullable: false },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'parent_display_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'position', packedOffset: 24, packedBitOffset: 0, type: display.mojom.PositionSpec, nullable: false },
+        { name: 'offset', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'offset_reference', packedOffset: 40, packedBitOffset: 0, type: display.mojom.OffsetReferenceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -48,9 +48,9 @@ display.mojom.DisplayLayoutSpec = {
       name: 'display.mojom.DisplayLayout',
       packedSize: 32,
       fields: [
-        { name: 'default_unified', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'primary_display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'placement_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'default_unified', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'primary_display_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'placement_list', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -85,8 +85,8 @@ metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec = {
       name: 'metrics.mojom.ChildHistogramFetcherFactory.CreateFetcher_Params',
       packedSize: 24,
       fields: [
-        { name: 'shared_memory', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true },
-        { name: 'child_histogram_fetcher', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'shared_memory', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true },
+        { name: 'child_histogram_fetcher', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -182,7 +182,7 @@ metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseP
       name: 'metrics.mojom.ChildHistogramFetcher.GetChildNonPersistentHistogramData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'deltas', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'deltas', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,7 +196,7 @@ metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec = {
       name: 'metrics.mojom.ChildHistogramFetcher.Ping_Params',
       packedSize: 16,
       fields: [
-        { name: 'call_source', packedOffset: 0, packedBitOffset: 0, type: metrics.mojom.UmaPingCallSourceSpec, nullable: false },
+        { name: 'call_source', packedOffset: 8, packedBitOffset: 0, type: metrics.mojom.UmaPingCallSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

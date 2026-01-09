@@ -16,7 +16,7 @@ blink.mojom.ScriptToolAnnotationsSpec = {
       name: 'blink.mojom.ScriptToolAnnotations',
       packedSize: 16,
       fields: [
-        { name: 'read_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'read_only', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,10 +30,10 @@ blink.mojom.ScriptToolSpec = {
       name: 'blink.mojom.ScriptTool',
       packedSize: 40,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'input_schema', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'annotations', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ScriptToolAnnotationsSpec, nullable: true },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'input_schema', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'annotations', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ScriptToolAnnotationsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -16,9 +16,9 @@ auction_worklet.mojom.InProgressAuctionDownloadSpec = {
       name: 'auction_worklet.mojom.InProgressAuctionDownload',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'endpoints', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLLoaderClientEndpointsSpec, nullable: false },
-        { name: 'devtools_request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'endpoints', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLLoaderClientEndpointsSpec, nullable: false },
+        { name: 'devtools_request_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

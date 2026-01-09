@@ -81,7 +81,7 @@ spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec = {
       name: 'spellcheck.mojom.SpellCheckPanel.ToggleSpellPanel_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -178,7 +178,7 @@ spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec = {
       name: 'spellcheck.mojom.SpellCheckPanelHost.ShowSpellingPanel_Params',
       packedSize: 16,
       fields: [
-        { name: 'show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'show', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -192,7 +192,7 @@ spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_Param
       name: 'spellcheck.mojom.SpellCheckPanelHost.UpdateSpellingPanelWithMisspelledWord_Params',
       packedSize: 16,
       fields: [
-        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'word', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }

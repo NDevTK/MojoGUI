@@ -93,8 +93,8 @@ network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec = {
       name: 'network.mojom.ChunkedDataPipeGetter.GetSize_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,7 +108,7 @@ network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec = {
       name: 'network.mojom.ChunkedDataPipeGetter.StartReading_Params',
       packedSize: 16,
       fields: [
-        { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

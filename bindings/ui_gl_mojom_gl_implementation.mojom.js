@@ -41,8 +41,8 @@ gl.mojom.GLImplementationPartsSpec = {
       name: 'gl.mojom.GLImplementationParts',
       packedSize: 24,
       fields: [
-        { name: 'gl', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GLImplementationSpec, nullable: false },
-        { name: 'angle', packedOffset: 8, packedBitOffset: 0, type: gl.mojom.ANGLEImplementationSpec, nullable: false },
+        { name: 'gl', packedOffset: 8, packedBitOffset: 0, type: gl.mojom.GLImplementationSpec, nullable: false },
+        { name: 'angle', packedOffset: 16, packedBitOffset: 0, type: gl.mojom.ANGLEImplementationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

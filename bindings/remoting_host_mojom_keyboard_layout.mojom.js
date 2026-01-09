@@ -84,7 +84,7 @@ remoting.mojom.KeyBehaviorSpec = {
       name: 'remoting.mojom.KeyBehavior',
       packedSize: 16,
       fields: [
-        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'actions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -98,7 +98,7 @@ remoting.mojom.KeyboardLayoutSpec = {
       name: 'remoting.mojom.KeyboardLayout',
       packedSize: 16,
       fields: [
-        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -30,8 +30,8 @@ download.mojom.DownloadStreamHandleSpec = {
       name: 'download.mojom.DownloadStreamHandle',
       packedSize: 24,
       fields: [
-        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'client_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,7 +101,7 @@ download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
       name: 'download.mojom.DownloadStreamClient.OnStreamCompleted_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: download.mojom.NetworkRequestStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: download.mojom.NetworkRequestStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

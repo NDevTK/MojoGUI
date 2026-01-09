@@ -16,8 +16,8 @@ mirroring.mojom.CastMessageSpec = {
       name: 'mirroring.mojom.CastMessage',
       packedSize: 24,
       fields: [
-        { name: 'message_namespace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'json_format_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message_namespace', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'json_format_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -87,7 +87,7 @@ mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec = {
       name: 'mirroring.mojom.CastMessageChannel.OnMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mirroring.mojom.CastMessageSpec, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mirroring.mojom.CastMessageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

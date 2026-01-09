@@ -89,12 +89,12 @@ gfx.mojom.ColorSpaceSpec = {
       name: 'gfx.mojom.ColorSpace',
       packedSize: 56,
       fields: [
-        { name: 'primaries', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ColorSpacePrimaryIDSpec, nullable: false },
-        { name: 'transfer', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.ColorSpaceTransferIDSpec, nullable: false },
-        { name: 'matrix', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.ColorSpaceMatrixIDSpec, nullable: false },
-        { name: 'range', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.ColorSpaceRangeIDSpec, nullable: false },
-        { name: 'custom_primary_matrix', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'transfer_params', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'primaries', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.ColorSpacePrimaryIDSpec, nullable: false },
+        { name: 'transfer', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.ColorSpaceTransferIDSpec, nullable: false },
+        { name: 'matrix', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.ColorSpaceMatrixIDSpec, nullable: false },
+        { name: 'range', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.ColorSpaceRangeIDSpec, nullable: false },
+        { name: 'custom_primary_matrix', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'transfer_params', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

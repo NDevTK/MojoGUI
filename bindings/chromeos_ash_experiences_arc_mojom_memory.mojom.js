@@ -22,7 +22,7 @@ arc.mojom.ReclaimRequestSpec = {
       name: 'arc.mojom.ReclaimRequest',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ReclaimTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ReclaimTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -36,8 +36,8 @@ arc.mojom.ReclaimResultSpec = {
       name: 'arc.mojom.ReclaimResult',
       packedSize: 16,
       fields: [
-        { name: 'reclaimed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'unreclaimed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'reclaimed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'unreclaimed', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -235,8 +235,8 @@ ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.CreateWindow_Params',
       packedSize: 24,
       fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false },
-        { name: 'initial_bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'widget', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false },
+        { name: 'initial_bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -250,7 +250,7 @@ ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.DestroyWindow_Params',
       packedSize: 16,
       fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false },
+        { name: 'widget', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -264,8 +264,8 @@ ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.SetWindowBounds_Params',
       packedSize: 24,
       fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'widget', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false },
+        { name: 'bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -291,7 +291,7 @@ ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.TakeDisplayControl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -317,7 +317,7 @@ ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.RelinquishDisplayControl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -343,7 +343,7 @@ ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.RefreshNativeDisplays_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'display_snapshots', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'display_snapshots', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -357,8 +357,8 @@ ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.AddGraphicsDevice_Params',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'fd_mojo_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'fd_mojo_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -372,7 +372,7 @@ ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.RemoveGraphicsDevice_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -386,7 +386,7 @@ ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.ShouldDisplayEventTriggerConfiguration_Params',
       packedSize: 16,
       fields: [
-        { name: 'event_props', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'event_props', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -399,7 +399,7 @@ ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSp
       name: 'ui.ozone.mojom.DrmDevice.ShouldDisplayEventTriggerConfiguration_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'should_trigger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'should_trigger', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -413,8 +413,8 @@ ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.ConfigureNativeDisplays_Params',
       packedSize: 24,
       fields: [
-        { name: 'config_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'modeset_flags', packedOffset: 8, packedBitOffset: 0, type: display.mojom.ModesetFlagsSpec, nullable: false },
+        { name: 'config_requests', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'modeset_flags', packedOffset: 16, packedBitOffset: 0, type: display.mojom.ModesetFlagsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -427,8 +427,8 @@ ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.ConfigureNativeDisplays_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'request_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'config_success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'request_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'config_success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -442,8 +442,8 @@ ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.SetHdcpKeyProp_Params',
       packedSize: 24,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -456,8 +456,8 @@ ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.SetHdcpKeyProp_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -471,7 +471,7 @@ ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.GetHDCPState_Params',
       packedSize: 16,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -484,10 +484,10 @@ ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.GetHDCPState_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: display.mojom.HDCPStateSpec, nullable: false },
-        { name: 'protection_method', packedOffset: 24, packedBitOffset: 0, type: display.mojom.ContentProtectionMethodSpec, nullable: false },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'state', packedOffset: 24, packedBitOffset: 0, type: display.mojom.HDCPStateSpec, nullable: false },
+        { name: 'protection_method', packedOffset: 32, packedBitOffset: 0, type: display.mojom.ContentProtectionMethodSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -501,9 +501,9 @@ ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.SetHDCPState_Params',
       packedSize: 32,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: display.mojom.HDCPStateSpec, nullable: false },
-        { name: 'protection_method', packedOffset: 16, packedBitOffset: 0, type: display.mojom.ContentProtectionMethodSpec, nullable: false },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: display.mojom.HDCPStateSpec, nullable: false },
+        { name: 'protection_method', packedOffset: 24, packedBitOffset: 0, type: display.mojom.ContentProtectionMethodSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -516,8 +516,8 @@ ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.SetHDCPState_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -531,8 +531,8 @@ ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.SetColorTemperatureAdjustment_Params',
       packedSize: 24,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'cta', packedOffset: 8, packedBitOffset: 0, type: display.mojom.ColorTemperatureAdjustmentSpec, nullable: false },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'cta', packedOffset: 16, packedBitOffset: 0, type: display.mojom.ColorTemperatureAdjustmentSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -546,8 +546,8 @@ ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.SetColorCalibration_Params',
       packedSize: 24,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'calibration', packedOffset: 8, packedBitOffset: 0, type: display.mojom.ColorCalibrationSpec, nullable: false },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'calibration', packedOffset: 16, packedBitOffset: 0, type: display.mojom.ColorCalibrationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -561,8 +561,8 @@ ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.SetGammaAdjustment_Params',
       packedSize: 24,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'adjustment', packedOffset: 8, packedBitOffset: 0, type: display.mojom.GammaAdjustmentSpec, nullable: false },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'adjustment', packedOffset: 16, packedBitOffset: 0, type: display.mojom.GammaAdjustmentSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -576,8 +576,8 @@ ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.SetPrivacyScreen_Params',
       packedSize: 24,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -590,7 +590,7 @@ ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.SetPrivacyScreen_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -604,7 +604,7 @@ ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.GetSeamlessRefreshRates_Params',
       packedSize: 16,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -617,7 +617,7 @@ ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.GetSeamlessRefreshRates_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ranges', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'ranges', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -631,7 +631,7 @@ ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.GetDeviceCursor_Params',
       packedSize: 16,
       fields: [
-        { name: 'cursor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'cursor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -103,8 +103,8 @@ blink.mojom.WebOTPService_Receive_ResponseParamsSpec = {
       name: 'blink.mojom.WebOTPService.Receive_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SmsStatusSpec, nullable: false },
-        { name: 'otp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SmsStatusSpec, nullable: false },
+        { name: 'otp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

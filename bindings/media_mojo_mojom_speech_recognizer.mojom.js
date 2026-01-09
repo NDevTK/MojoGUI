@@ -24,19 +24,19 @@ media.mojom.StartSpeechRecognitionRequestParamsSpec = {
       name: 'media.mojom.StartSpeechRecognitionRequestParams',
       packedSize: 64,
       fields: [
-        { name: 'session_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'grammars', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'recognition_context', packedOffset: 24, packedBitOffset: 0, type: media.mojom.SpeechRecognitionRecognitionContextSpec, nullable: true },
-        { name: 'max_hypotheses', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'continuous', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'interim_results', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'on_device', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_cloud_fallback', packedOffset: 36, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'audio_forwarder', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
-        { name: 'channel_count', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'sample_rate', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'session_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'language', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'grammars', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'recognition_context', packedOffset: 32, packedBitOffset: 0, type: media.mojom.SpeechRecognitionRecognitionContextSpec, nullable: true },
+        { name: 'max_hypotheses', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'continuous', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'interim_results', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'on_device', packedOffset: 44, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_cloud_fallback', packedOffset: 44, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'audio_forwarder', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'channel_count', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'sample_rate', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -106,7 +106,7 @@ media.mojom.SpeechRecognizer_Start_ParamsSpec = {
       name: 'media.mojom.SpeechRecognizer.Start_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StartSpeechRecognitionRequestParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StartSpeechRecognitionRequestParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -190,7 +190,7 @@ media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec = {
       name: 'media.mojom.OnDeviceSpeechRecognition.Available_Params',
       packedSize: 16,
       fields: [
-        { name: 'languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'languages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,7 +203,7 @@ media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec = {
       name: 'media.mojom.OnDeviceSpeechRecognition.Available_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AvailabilityStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AvailabilityStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -217,7 +217,7 @@ media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec = {
       name: 'media.mojom.OnDeviceSpeechRecognition.Install_Params',
       packedSize: 16,
       fields: [
-        { name: 'languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'languages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -230,7 +230,7 @@ media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec = {
       name: 'media.mojom.OnDeviceSpeechRecognition.Install_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

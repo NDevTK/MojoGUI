@@ -216,11 +216,11 @@ viz.mojom.GpuHost_DidInitialize_ParamsSpec = {
       name: 'viz.mojom.GpuHost.DidInitialize_Params',
       packedSize: 48,
       fields: [
-        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false },
-        { name: 'gpu_feature_info', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.GpuFeatureInfoSpec, nullable: false },
-        { name: 'gpu_info_for_hardware_gpu', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: true },
-        { name: 'gpu_feature_info_for_hardware_gpu', packedOffset: 24, packedBitOffset: 0, type: gpu.mojom.GpuFeatureInfoSpec, nullable: true },
-        { name: 'gpu_extra_info', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.GpuExtraInfoSpec, nullable: false },
+        { name: 'gpu_info', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false },
+        { name: 'gpu_feature_info', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.GpuFeatureInfoSpec, nullable: false },
+        { name: 'gpu_info_for_hardware_gpu', packedOffset: 24, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: true },
+        { name: 'gpu_feature_info_for_hardware_gpu', packedOffset: 32, packedBitOffset: 0, type: gpu.mojom.GpuFeatureInfoSpec, nullable: true },
+        { name: 'gpu_extra_info', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.GpuExtraInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,7 +260,7 @@ viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec = {
       name: 'viz.mojom.GpuHost.DidCreateOffscreenContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -274,7 +274,7 @@ viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec = {
       name: 'viz.mojom.GpuHost.DidDestroyOffscreenContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -288,7 +288,7 @@ viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec = {
       name: 'viz.mojom.GpuHost.DidDestroyChannel_Params',
       packedSize: 16,
       fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -315,8 +315,8 @@ viz.mojom.GpuHost_DidLoseContext_ParamsSpec = {
       name: 'viz.mojom.GpuHost.DidLoseContext_Params',
       packedSize: 24,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ContextLostReasonSpec, nullable: false },
-        { name: 'active_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.ContextLostReasonSpec, nullable: false },
+        { name: 'active_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -330,7 +330,7 @@ viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec = {
       name: 'viz.mojom.GpuHost.DidUpdateGPUInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false },
+        { name: 'gpu_info', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -344,7 +344,7 @@ viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec = {
       name: 'viz.mojom.GpuHost.DidUpdateOverlayInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'overlay_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.OverlayInfoSpec, nullable: false },
+        { name: 'overlay_info', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.OverlayInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -358,7 +358,7 @@ viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec = {
       name: 'viz.mojom.GpuHost.DidUpdateDXGIInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'dxgi_info', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.DXGIInfoSpec, nullable: false },
+        { name: 'dxgi_info', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.DXGIInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -385,8 +385,8 @@ viz.mojom.GpuHost_GetIsolationKey_ParamsSpec = {
       name: 'viz.mojom.GpuHost.GetIsolationKey_Params',
       packedSize: 24,
       fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'wgpu_context_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebGPUExecutionContextTokenSpec, nullable: false },
+        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'wgpu_context_token', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebGPUExecutionContextTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -399,7 +399,7 @@ viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec = {
       name: 'viz.mojom.GpuHost.GetIsolationKey_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'isolation_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'isolation_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -413,9 +413,9 @@ viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec = {
       name: 'viz.mojom.GpuHost.StoreBlobToDisk_Params',
       packedSize: 32,
       fields: [
-        { name: 'cache_handle', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuDiskCacheHandleSpec, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
-        { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'cache_handle', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.GpuDiskCacheHandleSpec, nullable: false },
+        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'blob', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -454,7 +454,7 @@ viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec = {
       name: 'viz.mojom.GpuHost.EnsureWebNNExecutionProvidersReady_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ep_package_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'ep_package_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -480,7 +480,7 @@ viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec = {
       name: 'viz.mojom.GpuHost.CreateWebNNWeightsFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
+        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

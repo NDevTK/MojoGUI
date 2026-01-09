@@ -16,7 +16,7 @@ blink.mojom.SHA256HashValueSpec = {
       name: 'blink.mojom.SHA256HashValue',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,11 +30,11 @@ blink.mojom.PrefetchedSignedExchangeInfoSpec = {
       name: 'blink.mojom.PrefetchedSignedExchangeInfo',
       packedSize: 48,
       fields: [
-        { name: 'outer_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'header_integrity', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SHA256HashValueSpec, nullable: false },
-        { name: 'inner_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'inner_response', packedOffset: 24, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false },
-        { name: 'loader_factory_handle', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'outer_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'header_integrity', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SHA256HashValueSpec, nullable: false },
+        { name: 'inner_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'inner_response', packedOffset: 32, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false },
+        { name: 'loader_factory_handle', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

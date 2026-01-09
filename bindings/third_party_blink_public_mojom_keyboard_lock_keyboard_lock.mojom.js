@@ -32,8 +32,8 @@ blink.mojom.GetKeyboardLayoutMapResultSpec = {
       name: 'blink.mojom.GetKeyboardLayoutMapResult',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetKeyboardLayoutMapStatusSpec, nullable: false },
-        { name: 'layout_map', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.GetKeyboardLayoutMapStatusSpec, nullable: false },
+        { name: 'layout_map', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +121,7 @@ blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec = {
       name: 'blink.mojom.KeyboardLockService.RequestKeyboardLock_Params',
       packedSize: 16,
       fields: [
-        { name: 'key_codes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_codes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,7 +134,7 @@ blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec = {
       name: 'blink.mojom.KeyboardLockService.RequestKeyboardLock_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.KeyboardLockRequestResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.KeyboardLockRequestResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -173,7 +173,7 @@ blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec = {
       name: 'blink.mojom.KeyboardLockService.GetKeyboardLayoutMap_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetKeyboardLayoutMapResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.GetKeyboardLayoutMapResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

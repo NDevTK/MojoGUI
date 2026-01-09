@@ -99,7 +99,7 @@ gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec = {
       name: 'gfx.mojom.TraitsTestService.EchoSelectionBound_Params',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SelectionBoundSpec, nullable: false },
+        { name: 's', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SelectionBoundSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,7 +112,7 @@ gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec = {
       name: 'gfx.mojom.TraitsTestService.EchoSelectionBound_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SelectionBoundSpec, nullable: false },
+        { name: 'pass', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SelectionBoundSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -126,7 +126,7 @@ gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec = {
       name: 'gfx.mojom.TraitsTestService.EchoTransform_Params',
       packedSize: 16,
       fields: [
-        { name: 't', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false },
+        { name: 't', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -139,7 +139,7 @@ gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec = {
       name: 'gfx.mojom.TraitsTestService.EchoTransform_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false },
+        { name: 'pass', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -153,7 +153,7 @@ gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec = {
       name: 'gfx.mojom.TraitsTestService.EchoGpuMemoryBufferHandle_Params',
       packedSize: 16,
       fields: [
-        { name: 'g', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false },
+        { name: 'g', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -166,7 +166,7 @@ gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec = {
       name: 'gfx.mojom.TraitsTestService.EchoGpuMemoryBufferHandle_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false },
+        { name: 'pass', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -180,7 +180,7 @@ gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec = {
       name: 'gfx.mojom.TraitsTestService.EchoRRectF_Params',
       packedSize: 16,
       fields: [
-        { name: 't', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RRectFSpec, nullable: false },
+        { name: 't', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RRectFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -193,7 +193,7 @@ gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec = {
       name: 'gfx.mojom.TraitsTestService.EchoRRectF_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RRectFSpec, nullable: false },
+        { name: 'pass', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RRectFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

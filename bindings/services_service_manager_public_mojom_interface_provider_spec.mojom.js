@@ -16,7 +16,7 @@ service_manager.mojom.InterfaceSetSpec = {
       name: 'service_manager.mojom.InterfaceSet',
       packedSize: 16,
       fields: [
-        { name: 'interfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +30,7 @@ service_manager.mojom.CapabilitySetSpec = {
       name: 'service_manager.mojom.CapabilitySet',
       packedSize: 16,
       fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'capabilities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -44,8 +44,8 @@ service_manager.mojom.InterfaceProviderSpecSpec = {
       name: 'service_manager.mojom.InterfaceProviderSpec',
       packedSize: 24,
       fields: [
-        { name: 'provides', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'needs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'provides', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'needs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

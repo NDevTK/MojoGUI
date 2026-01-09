@@ -16,8 +16,8 @@ network.mojom.ProxyConfigWithAnnotationSpec = {
       name: 'network.mojom.ProxyConfigWithAnnotation',
       packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxyConfigSpec, nullable: false },
-        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ProxyConfigSpec, nullable: false },
+        { name: 'traffic_annotation', packedOffset: 16, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -96,7 +96,7 @@ network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = {
       name: 'network.mojom.ProxyConfigClient.OnProxyConfigUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'proxy_config', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxyConfigWithAnnotationSpec, nullable: false },
+        { name: 'proxy_config', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ProxyConfigWithAnnotationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -267,8 +267,8 @@ network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = {
       name: 'network.mojom.ProxyErrorClient.OnPACScriptError_Params',
       packedSize: 24,
       fields: [
-        { name: 'line_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'line_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -282,7 +282,7 @@ network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec
       name: 'network.mojom.ProxyErrorClient.OnRequestMaybeFailedDueToProxySettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

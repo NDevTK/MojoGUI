@@ -16,8 +16,8 @@ gfx.mojom.ImageSkiaRepSpec = {
       name: 'gfx.mojom.ImageSkiaRep',
       packedSize: 24,
       fields: [
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapWithArbitraryBppSpec, nullable: false },
-        { name: 'scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'bitmap', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapWithArbitraryBppSpec, nullable: false },
+        { name: 'scale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -31,7 +31,7 @@ gfx.mojom.ImageSkiaSpec = {
       name: 'gfx.mojom.ImageSkia',
       packedSize: 16,
       fields: [
-        { name: 'image_reps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'image_reps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

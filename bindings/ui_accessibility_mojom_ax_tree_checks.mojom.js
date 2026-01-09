@@ -16,7 +16,7 @@ ax.mojom.AXTreeChecksSpec = {
       name: 'ax.mojom.AXTreeChecks',
       packedSize: 16,
       fields: [
-        { name: 'node_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'node_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

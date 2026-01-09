@@ -54,12 +54,12 @@ side_panel.customize_chrome.mojom.ActionSpec = {
       name: 'side_panel.customize_chrome.mojom.Action',
       packedSize: 48,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ActionIdSpec, nullable: false },
-        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'pinned', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_enterprise_controlled_pinned_state', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'category', packedOffset: 24, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.CategoryIdSpec, nullable: false },
-        { name: 'icon_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ActionIdSpec, nullable: false },
+        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'pinned', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_enterprise_controlled_pinned_state', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'category', packedOffset: 32, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.CategoryIdSpec, nullable: false },
+        { name: 'icon_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -73,8 +73,8 @@ side_panel.customize_chrome.mojom.CategorySpec = {
       name: 'side_panel.customize_chrome.mojom.Category',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.CategoryIdSpec, nullable: false },
-        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.CategoryIdSpec, nullable: false },
+        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -144,8 +144,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomize
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory.CreateCustomizeToolbarHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -268,7 +268,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponsePa
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.ListActions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'actions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -294,7 +294,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_Respons
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.ListCategories_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'categories', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -308,8 +308,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec =
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.PinAction_Params',
       packedSize: 24,
       fields: [
-        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ActionIdSpec, nullable: false },
-        { name: 'pinned', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'action_id', packedOffset: 8, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ActionIdSpec, nullable: false },
+        { name: 'pinned', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -335,7 +335,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_Respon
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.GetIsCustomized_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'customized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'customized', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -432,8 +432,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsS
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarClient.SetActionPinned_Params',
       packedSize: 24,
       fields: [
-        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ActionIdSpec, nullable: false },
-        { name: 'pinned', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'action_id', packedOffset: 8, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ActionIdSpec, nullable: false },
+        { name: 'pinned', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

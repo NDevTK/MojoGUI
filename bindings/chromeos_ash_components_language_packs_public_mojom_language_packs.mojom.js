@@ -41,8 +41,8 @@ ash.language.mojom.LanguagePackInfoSpec = {
       name: 'ash.language.mojom.LanguagePackInfo',
       packedSize: 24,
       fields: [
-        { name: 'pack_state', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.PackStateSpec, nullable: false },
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'pack_state', packedOffset: 8, packedBitOffset: 0, type: ash.language.mojom.PackStateSpec, nullable: false },
+        { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,8 +56,8 @@ ash.language.mojom.BasePackInfoSpec = {
       name: 'ash.language.mojom.BasePackInfo',
       packedSize: 24,
       fields: [
-        { name: 'pack_state', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.PackStateSpec, nullable: false },
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'pack_state', packedOffset: 8, packedBitOffset: 0, type: ash.language.mojom.PackStateSpec, nullable: false },
+        { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

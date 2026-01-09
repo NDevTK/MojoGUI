@@ -48,7 +48,7 @@ chromeos.machine_learning.mojom.ImageAnnotationResultSpec = {
       name: 'chromeos.machine_learning.mojom.ImageAnnotationResult',
       packedSize: 16,
       fields: [
-        { name: 'OK', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'OK', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -30,11 +30,11 @@ blink.mojom.FrameAdEvidenceSpec = {
       name: 'blink.mojom.FrameAdEvidence',
       packedSize: 40,
       fields: [
-        { name: 'is_complete', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'parent_is_ad', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'latest_filter_list_result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FilterListResultSpec, nullable: false },
-        { name: 'most_restrictive_filter_list_result', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FilterListResultSpec, nullable: false },
-        { name: 'created_by_ad_script', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.FrameCreationStackEvidenceSpec, nullable: false },
+        { name: 'is_complete', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'parent_is_ad', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'latest_filter_list_result', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FilterListResultSpec, nullable: false },
+        { name: 'most_restrictive_filter_list_result', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.FilterListResultSpec, nullable: false },
+        { name: 'created_by_ad_script', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.FrameCreationStackEvidenceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

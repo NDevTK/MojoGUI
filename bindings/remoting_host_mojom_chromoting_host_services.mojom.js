@@ -72,7 +72,7 @@ remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = {
       name: 'remoting.mojom.ChromotingHostServices.BindSessionServices_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -165,7 +165,7 @@ remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = {
       name: 'remoting.mojom.ChromotingSessionServices.BindWebAuthnProxy_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -179,7 +179,7 @@ remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = {
       name: 'remoting.mojom.ChromotingSessionServices.BindRemoteUrlOpener_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -193,7 +193,7 @@ remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = {
       name: 'remoting.mojom.ChromotingSessionServices.BindSecurityKeyForwarder_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

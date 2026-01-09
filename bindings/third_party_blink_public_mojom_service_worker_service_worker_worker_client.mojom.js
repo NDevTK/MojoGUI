@@ -72,7 +72,7 @@ blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerWorkerClient.OnControllerChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerModeSpec, nullable: false },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

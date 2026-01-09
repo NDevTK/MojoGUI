@@ -16,7 +16,7 @@ network.mojom.TransferableSocketSpec = {
       name: 'network.mojom.TransferableSocket',
       packedSize: 16,
       fields: [
-        { name: 'protocol_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'protocol_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +30,7 @@ network.mojom.TransferableSocketSpec = {
       name: 'network.mojom.TransferableSocket',
       packedSize: 16,
       fields: [
-        { name: 'socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'socket', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

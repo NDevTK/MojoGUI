@@ -72,7 +72,7 @@ cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec = {
       name: 'cast_streaming.mojom.RendererController.SetPlaybackController_Params',
       packedSize: 16,
       fields: [
-        { name: 'renderer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

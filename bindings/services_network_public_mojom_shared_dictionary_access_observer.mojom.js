@@ -22,7 +22,7 @@ network.mojom.SharedDictionaryAccessDetailsSpec = {
       name: 'network.mojom.SharedDictionaryAccessDetails',
       packedSize: 16,
       fields: [
-        { name: 'kRead', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kRead', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,7 +101,7 @@ network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSp
       name: 'network.mojom.SharedDictionaryAccessObserver.OnSharedDictionaryAccessed_Params',
       packedSize: 16,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedDictionaryAccessDetailsSpec, nullable: false },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SharedDictionaryAccessDetailsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -115,7 +115,7 @@ network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec = {
       name: 'network.mojom.SharedDictionaryAccessObserver.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

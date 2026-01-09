@@ -16,7 +16,7 @@ mojo_base.mojom.VersionSpec = {
       name: 'mojo_base.mojom.Version',
       packedSize: 16,
       fields: [
-        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'components', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

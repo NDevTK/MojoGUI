@@ -72,7 +72,7 @@ extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec = {
       name: 'extensions.mojom.AppWindow.SetVisuallyDeemphasized_Params',
       packedSize: 16,
       fields: [
-        { name: 'deemphasized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'deemphasized', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

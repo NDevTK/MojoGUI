@@ -24,7 +24,7 @@ blink.mojom.ManifestLaunchHandlerSpec = {
       name: 'blink.mojom.ManifestLaunchHandler',
       packedSize: 16,
       fields: [
-        { name: 'kAuto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kAuto', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

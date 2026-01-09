@@ -25,7 +25,7 @@ viz.mojom.ThreadSpec = {
       name: 'viz.mojom.Thread',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ThreadTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.ThreadTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -22,7 +22,7 @@ device.mojom.VirtualPressureSourceMetadataSpec = {
       name: 'device.mojom.VirtualPressureSourceMetadata',
       packedSize: 16,
       fields: [
-        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -119,9 +119,9 @@ device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec = {
       name: 'device.mojom.PressureManager.AddVirtualPressureSource_Params',
       packedSize: 32,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false },
-        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: device.mojom.VirtualPressureSourceMetadataSpec, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false },
+        { name: 'metadata', packedOffset: 24, packedBitOffset: 0, type: device.mojom.VirtualPressureSourceMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,8 +135,8 @@ device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec = {
       name: 'device.mojom.PressureManager.RemoveVirtualPressureSource_Params',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -150,10 +150,10 @@ device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec = {
       name: 'device.mojom.PressureManager.UpdateVirtualPressureSourceData_Params',
       packedSize: 40,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false },
-        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: device.mojom.PressureStateSpec, nullable: false },
-        { name: 'own_contribution_estimate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false },
+        { name: 'state', packedOffset: 24, packedBitOffset: 0, type: device.mojom.PressureStateSpec, nullable: false },
+        { name: 'own_contribution_estimate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -167,9 +167,9 @@ device.mojom.PressureManager_AddClient_ParamsSpec = {
       name: 'device.mojom.PressureManager.AddClient_Params',
       packedSize: 32,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false },
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false },
+        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -182,7 +182,7 @@ device.mojom.PressureManager_AddClient_ResponseParamsSpec = {
       name: 'device.mojom.PressureManager.AddClient_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureManagerAddClientResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureManagerAddClientResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -257,7 +257,7 @@ device.mojom.PressureClient_OnPressureUpdated_ParamsSpec = {
       name: 'device.mojom.PressureClient.OnPressureUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureUpdateSpec, nullable: false },
+        { name: 'update', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureUpdateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -126,7 +126,7 @@ audio.mojom.AudioService_BindSystemInfo_ParamsSpec = {
       name: 'audio.mojom.AudioService.BindSystemInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -140,7 +140,7 @@ audio.mojom.AudioService_BindDebugRecording_ParamsSpec = {
       name: 'audio.mojom.AudioService.BindDebugRecording_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -154,7 +154,7 @@ audio.mojom.AudioService_BindStreamFactory_ParamsSpec = {
       name: 'audio.mojom.AudioService.BindStreamFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -168,7 +168,7 @@ audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec = {
       name: 'audio.mojom.AudioService.BindDeviceNotifier_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -182,7 +182,7 @@ audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec = {
       name: 'audio.mojom.AudioService.BindLogFactoryManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,7 +196,7 @@ audio.mojom.AudioService_BindTestingApi_ParamsSpec = {
       name: 'audio.mojom.AudioService.BindTestingApi_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -210,7 +210,7 @@ audio.mojom.AudioService_BindMlModelManager_ParamsSpec = {
       name: 'audio.mojom.AudioService.BindMlModelManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

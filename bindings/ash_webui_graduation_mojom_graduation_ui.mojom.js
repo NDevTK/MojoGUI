@@ -30,8 +30,8 @@ ash.graduation_ui.mojom.ProfileInfoSpec = {
       name: 'ash.graduation_ui.mojom.ProfileInfo',
       packedSize: 24,
       fields: [
-        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'photo_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'photo_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -140,7 +140,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSp
       name: 'ash.graduation_ui.mojom.GraduationUiHandler.AuthenticateWebview_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.graduation_ui.mojom.AuthResultSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.graduation_ui.mojom.AuthResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -166,7 +166,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec = 
       name: 'ash.graduation_ui.mojom.GraduationUiHandler.GetProfileInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'profile_info', packedOffset: 0, packedBitOffset: 0, type: ash.graduation_ui.mojom.ProfileInfoSpec, nullable: false },
+        { name: 'profile_info', packedOffset: 8, packedBitOffset: 0, type: ash.graduation_ui.mojom.ProfileInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -180,7 +180,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec = {
       name: 'ash.graduation_ui.mojom.GraduationUiHandler.OnScreenSwitched_Params',
       packedSize: 16,
       fields: [
-        { name: 'screen', packedOffset: 0, packedBitOffset: 0, type: ash.graduation_ui.mojom.GraduationScreenSpec, nullable: false },
+        { name: 'screen', packedOffset: 8, packedBitOffset: 0, type: ash.graduation_ui.mojom.GraduationScreenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

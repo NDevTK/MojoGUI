@@ -16,8 +16,8 @@ blink.mojom.SharedFileSpec = {
       name: 'blink.mojom.SharedFile',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false },
-        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false },
+        { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -87,10 +87,10 @@ blink.mojom.ShareService_Share_ParamsSpec = {
       name: 'blink.mojom.ShareService.Share_Params',
       packedSize: 40,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'files', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'files', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -103,7 +103,7 @@ blink.mojom.ShareService_Share_ResponseParamsSpec = {
       name: 'blink.mojom.ShareService.Share_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ShareErrorSpec, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ShareErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

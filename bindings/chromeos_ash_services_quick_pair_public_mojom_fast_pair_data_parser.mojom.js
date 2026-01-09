@@ -42,12 +42,12 @@ ash.quick_pair.mojom.DecryptedResponseSpec = {
       name: 'ash.quick_pair.mojom.DecryptedResponse',
       packedSize: 48,
       fields: [
-        { name: 'message_type', packedOffset: 0, packedBitOffset: 0, type: ash.quick_pair.mojom.MessageTypeSpec, nullable: false },
-        { name: 'address_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'salt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'flags', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
-        { name: 'num_addresses', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
-        { name: 'secondary_address_bytes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'message_type', packedOffset: 8, packedBitOffset: 0, type: ash.quick_pair.mojom.MessageTypeSpec, nullable: false },
+        { name: 'address_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'salt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
+        { name: 'num_addresses', packedOffset: 33, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
+        { name: 'secondary_address_bytes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -61,9 +61,9 @@ ash.quick_pair.mojom.DecryptedPasskeySpec = {
       name: 'ash.quick_pair.mojom.DecryptedPasskey',
       packedSize: 32,
       fields: [
-        { name: 'message_type', packedOffset: 0, packedBitOffset: 0, type: ash.quick_pair.mojom.MessageTypeSpec, nullable: false },
-        { name: 'passkey', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'salt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'message_type', packedOffset: 8, packedBitOffset: 0, type: ash.quick_pair.mojom.MessageTypeSpec, nullable: false },
+        { name: 'passkey', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'salt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -77,8 +77,8 @@ ash.quick_pair.mojom.BatteryInfoSpec = {
       name: 'ash.quick_pair.mojom.BatteryInfo',
       packedSize: 24,
       fields: [
-        { name: 'is_charging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'percentage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'is_charging', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'percentage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -92,10 +92,10 @@ ash.quick_pair.mojom.BatteryNotificationSpec = {
       name: 'ash.quick_pair.mojom.BatteryNotification',
       packedSize: 40,
       fields: [
-        { name: 'show_ui', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'left_bud_info', packedOffset: 8, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false },
-        { name: 'right_bud_info', packedOffset: 16, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false },
-        { name: 'case_info', packedOffset: 24, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false },
+        { name: 'show_ui', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'left_bud_info', packedOffset: 16, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false },
+        { name: 'right_bud_info', packedOffset: 24, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false },
+        { name: 'case_info', packedOffset: 32, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -109,9 +109,9 @@ ash.quick_pair.mojom.BatteryUpdateSpec = {
       name: 'ash.quick_pair.mojom.BatteryUpdate',
       packedSize: 32,
       fields: [
-        { name: 'left_bud_info', packedOffset: 0, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false },
-        { name: 'right_bud_info', packedOffset: 8, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false },
-        { name: 'case_info', packedOffset: 16, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false },
+        { name: 'left_bud_info', packedOffset: 8, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false },
+        { name: 'right_bud_info', packedOffset: 16, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false },
+        { name: 'case_info', packedOffset: 24, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,8 +125,8 @@ ash.quick_pair.mojom.RingDeviceSpec = {
       name: 'ash.quick_pair.mojom.RingDevice',
       packedSize: 16,
       fields: [
-        { name: 'ring_device_byte', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'timeout_in_seconds', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'ring_device_byte', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'timeout_in_seconds', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -140,9 +140,9 @@ ash.quick_pair.mojom.AcknowledgementMessageSpec = {
       name: 'ash.quick_pair.mojom.AcknowledgementMessage',
       packedSize: 32,
       fields: [
-        { name: 'action_message_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'acknowledgement', packedOffset: 8, packedBitOffset: 0, type: ash.quick_pair.mojom.AcknowledgementSpec, nullable: false },
-        { name: 'action_message_group', packedOffset: 16, packedBitOffset: 0, type: ash.quick_pair.mojom.MessageGroupSpec, nullable: false },
+        { name: 'action_message_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'acknowledgement', packedOffset: 16, packedBitOffset: 0, type: ash.quick_pair.mojom.AcknowledgementSpec, nullable: false },
+        { name: 'action_message_group', packedOffset: 24, packedBitOffset: 0, type: ash.quick_pair.mojom.MessageGroupSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -156,10 +156,10 @@ ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec = {
       name: 'ash.quick_pair.mojom.NotDiscoverableAdvertisement',
       packedSize: 40,
       fields: [
-        { name: 'account_key_filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'salt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'show_ui', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'battery_notification', packedOffset: 24, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryNotificationSpec, nullable: true },
+        { name: 'account_key_filter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'salt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'show_ui', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'battery_notification', packedOffset: 32, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryNotificationSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -265,7 +265,7 @@ ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec 
       name: 'ash.quick_pair.mojom.FastPairDataParser.GetHexModelIdFromServiceData_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'service_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -278,7 +278,7 @@ ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponsePar
       name: 'ash.quick_pair.mojom.FastPairDataParser.GetHexModelIdFromServiceData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'model_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -292,8 +292,8 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec = {
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseDecryptedResponse_Params',
       packedSize: 24,
       fields: [
-        { name: 'aes_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'encrypted_response_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'aes_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'encrypted_response_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -306,7 +306,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpe
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseDecryptedResponse_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.quick_pair.mojom.DecryptedResponseSpec, nullable: true },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: ash.quick_pair.mojom.DecryptedResponseSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -320,8 +320,8 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec = {
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseDecryptedPasskey_Params',
       packedSize: 24,
       fields: [
-        { name: 'aes_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'encrypted_passkey_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'aes_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'encrypted_passkey_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -334,7 +334,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseDecryptedPasskey_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'passkey', packedOffset: 0, packedBitOffset: 0, type: ash.quick_pair.mojom.DecryptedPasskeySpec, nullable: true },
+        { name: 'passkey', packedOffset: 8, packedBitOffset: 0, type: ash.quick_pair.mojom.DecryptedPasskeySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -348,8 +348,8 @@ ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_Params
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseNotDiscoverableAdvertisement_Params',
       packedSize: 24,
       fields: [
-        { name: 'service_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'service_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -362,7 +362,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_Respon
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseNotDiscoverableAdvertisement_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'advertisement', packedOffset: 0, packedBitOffset: 0, type: ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec, nullable: true },
+        { name: 'advertisement', packedOffset: 8, packedBitOffset: 0, type: ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -376,7 +376,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec = 
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseMessageStreamMessages_Params',
       packedSize: 16,
       fields: [
-        { name: 'message_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'message_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -389,7 +389,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParam
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseMessageStreamMessages_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'messages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'messages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

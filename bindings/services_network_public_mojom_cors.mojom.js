@@ -51,12 +51,12 @@ network.mojom.CorsErrorStatusSpec = {
       name: 'network.mojom.CorsErrorStatus',
       packedSize: 56,
       fields: [
-        { name: 'cors_error', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CorsErrorSpec, nullable: false },
-        { name: 'failed_parameter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'resource_address_space', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
-        { name: 'inconsistent_address_space', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
-        { name: 'has_authorization_covered_by_wildcard_on_preflight', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'issue_id', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'cors_error', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CorsErrorSpec, nullable: false },
+        { name: 'failed_parameter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'resource_address_space', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
+        { name: 'inconsistent_address_space', packedOffset: 32, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
+        { name: 'has_authorization_covered_by_wildcard_on_preflight', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'issue_id', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

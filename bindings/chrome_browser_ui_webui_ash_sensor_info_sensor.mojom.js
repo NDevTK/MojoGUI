@@ -26,10 +26,10 @@ sensor.mojom.NonLidAngleUpdateInfoSpec = {
       name: 'sensor.mojom.NonLidAngleUpdateInfo',
       packedSize: 32,
       fields: [
-        { name: 'sensor_type', packedOffset: 0, packedBitOffset: 0, type: sensor.mojom.SensorTypeSpec, nullable: false },
-        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'z', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'sensor_type', packedOffset: 8, packedBitOffset: 0, type: sensor.mojom.SensorTypeSpec, nullable: false },
+        { name: 'x', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'y', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'z', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -43,8 +43,8 @@ sensor.mojom.LidAngleUpdateInfoSpec = {
       name: 'sensor.mojom.LidAngleUpdateInfo',
       packedSize: 24,
       fields: [
-        { name: 'sensor_type', packedOffset: 0, packedBitOffset: 0, type: sensor.mojom.SensorTypeSpec, nullable: false },
-        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'sensor_type', packedOffset: 8, packedBitOffset: 0, type: sensor.mojom.SensorTypeSpec, nullable: false },
+        { name: 'x', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -114,7 +114,7 @@ sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'sensor.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

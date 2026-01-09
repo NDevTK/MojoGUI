@@ -39,7 +39,7 @@ ash.cros_healthd.internal.mojom.InputDeviceSpec = {
       name: 'ash.cros_healthd.internal.mojom.InputDevice',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

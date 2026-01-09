@@ -72,7 +72,7 @@ media.mojom.MediaLog_AddLogRecord_ParamsSpec = {
       name: 'media.mojom.MediaLog.AddLogRecord_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaLogRecordSpec, nullable: false },
+        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: media.mojom.MediaLogRecordSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

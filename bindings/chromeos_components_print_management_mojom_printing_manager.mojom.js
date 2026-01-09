@@ -54,7 +54,7 @@ chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec = {
       name: 'chromeos.printing.printing_manager.mojom.CompletedPrintJobInfo',
       packedSize: 16,
       fields: [
-        { name: 'completion_status', packedOffset: 0, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.PrintJobCompletionStatusSpec, nullable: false },
+        { name: 'completion_status', packedOffset: 8, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.PrintJobCompletionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -68,8 +68,8 @@ chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec = {
       name: 'chromeos.printing.printing_manager.mojom.ActivePrintJobInfo',
       packedSize: 24,
       fields: [
-        { name: 'printed_pages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'active_state', packedOffset: 8, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.ActivePrintJobStateSpec, nullable: false },
+        { name: 'printed_pages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'active_state', packedOffset: 16, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.ActivePrintJobStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -83,16 +83,16 @@ chromeos.printing.printing_manager.mojom.PrintJobInfoSpec = {
       name: 'chromeos.printing.printing_manager.mojom.PrintJobInfo',
       packedSize: 88,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'creation_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'number_of_pages', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'printer_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'printer_name', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'printer_uri', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'printer_error_code', packedOffset: 56, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.PrinterErrorCodeSpec, nullable: false },
-        { name: 'completed_info', packedOffset: 64, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec, nullable: true },
-        { name: 'active_print_job_info', packedOffset: 72, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec, nullable: true },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'creation_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'number_of_pages', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'printer_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'printer_name', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'printer_uri', packedOffset: 56, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'printer_error_code', packedOffset: 64, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.PrinterErrorCodeSpec, nullable: false },
+        { name: 'completed_info', packedOffset: 72, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec, nullable: true },
+        { name: 'active_print_job_info', packedOffset: 80, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -184,7 +184,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_Para
       name: 'chromeos.printing.printing_manager.mojom.PrintJobsObserver.OnPrintJobUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'print_job', packedOffset: 0, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.PrintJobInfoSpec, nullable: false },
+        { name: 'print_job', packedOffset: 8, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.PrintJobInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -304,7 +304,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJo
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.ObservePrintJobs_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -330,7 +330,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_R
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.GetPrintJobs_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'print_jobs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'print_jobs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -356,7 +356,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrint
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.DeleteAllPrintJobs_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -370,7 +370,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.CancelPrintJob_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -383,7 +383,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.CancelPrintJob_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'attempted_cancel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'attempted_cancel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -409,7 +409,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrint
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.GetDeletePrintJobHistoryAllowedByPolicy_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_allowed_by_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_allowed_by_policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -435,8 +435,8 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHis
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.GetPrintJobHistoryExpirationPeriod_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'expiration_period_in_days', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'is_from_policy', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'expiration_period_in_days', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'is_from_policy', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -520,7 +520,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSet
       name: 'chromeos.printing.printing_manager.mojom.PrintManagementHandler.LaunchPrinterSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.LaunchSourceSpec, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.LaunchSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -534,7 +534,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJo
       name: 'chromeos.printing.printing_manager.mojom.PrintManagementHandler.RecordGetPrintJobsRequestDuration_Params',
       packedSize: 16,
       fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

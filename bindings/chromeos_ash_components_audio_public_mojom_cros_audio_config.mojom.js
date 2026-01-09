@@ -62,9 +62,9 @@ ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec = {
       name: 'ash.audio_config.mojom.VoiceIsolationUIAppearance',
       packedSize: 32,
       fields: [
-        { name: 'toggle_type', packedOffset: 0, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectTypeSpec, nullable: false },
-        { name: 'effect_mode_options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'show_effect_fallback_message', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'toggle_type', packedOffset: 8, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectTypeSpec, nullable: false },
+        { name: 'effect_mode_options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'show_effect_fallback_message', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -78,15 +78,15 @@ ash.audio_config.mojom.AudioDeviceSpec = {
       name: 'ash.audio_config.mojom.AudioDevice',
       packedSize: 80,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_active', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'device_type', packedOffset: 24, packedBitOffset: 0, type: ash.audio_config.mojom.AudioDeviceTypeSpec, nullable: false },
-        { name: 'noise_cancellation_state', packedOffset: 32, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false },
-        { name: 'style_transfer_state', packedOffset: 40, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false },
-        { name: 'force_respect_ui_gains_state', packedOffset: 48, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false },
-        { name: 'hfp_mic_sr_state', packedOffset: 56, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false },
-        { name: 'spatial_audio_state', packedOffset: 64, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_active', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'device_type', packedOffset: 32, packedBitOffset: 0, type: ash.audio_config.mojom.AudioDeviceTypeSpec, nullable: false },
+        { name: 'noise_cancellation_state', packedOffset: 40, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false },
+        { name: 'style_transfer_state', packedOffset: 48, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false },
+        { name: 'force_respect_ui_gains_state', packedOffset: 56, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false },
+        { name: 'hfp_mic_sr_state', packedOffset: 64, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false },
+        { name: 'spatial_audio_state', packedOffset: 72, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -100,13 +100,13 @@ ash.audio_config.mojom.AudioSystemPropertiesSpec = {
       name: 'ash.audio_config.mojom.AudioSystemProperties',
       packedSize: 56,
       fields: [
-        { name: 'output_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'output_volume_percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'input_gain_percent', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'output_mute_state', packedOffset: 16, packedBitOffset: 0, type: ash.audio_config.mojom.MuteStateSpec, nullable: false },
-        { name: 'input_devices', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'input_mute_state', packedOffset: 32, packedBitOffset: 0, type: ash.audio_config.mojom.MuteStateSpec, nullable: false },
-        { name: 'voice_isolation_ui_appearance', packedOffset: 40, packedBitOffset: 0, type: ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec, nullable: false },
+        { name: 'output_devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'output_volume_percent', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'input_gain_percent', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'output_mute_state', packedOffset: 24, packedBitOffset: 0, type: ash.audio_config.mojom.MuteStateSpec, nullable: false },
+        { name: 'input_devices', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'input_mute_state', packedOffset: 40, packedBitOffset: 0, type: ash.audio_config.mojom.MuteStateSpec, nullable: false },
+        { name: 'voice_isolation_ui_appearance', packedOffset: 48, packedBitOffset: 0, type: ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -176,7 +176,7 @@ ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsS
       name: 'ash.audio_config.mojom.AudioSystemPropertiesObserver.OnPropertiesUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: ash.audio_config.mojom.AudioSystemPropertiesSpec, nullable: false },
+        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: ash.audio_config.mojom.AudioSystemPropertiesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -359,7 +359,7 @@ ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec =
       name: 'ash.audio_config.mojom.CrosAudioConfig.ObserveAudioSystemProperties_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -373,7 +373,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetOutputMuted_Params',
       packedSize: 16,
       fields: [
-        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'muted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -387,7 +387,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetOutputVolumePercent_Params',
       packedSize: 16,
       fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'volume', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -401,7 +401,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetInputGainPercent_Params',
       packedSize: 16,
       fields: [
-        { name: 'gain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'gain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -415,7 +415,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetActiveDevice_Params',
       packedSize: 16,
       fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -429,7 +429,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetInputMuted_Params',
       packedSize: 16,
       fields: [
-        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'muted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -456,7 +456,7 @@ ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange
       name: 'ash.audio_config.mojom.CrosAudioConfig.RecordVoiceIsolationPreferredEffectChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'preferred_effect', packedOffset: 0, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectTypeSpec, nullable: false },
+        { name: 'preferred_effect', packedOffset: 8, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -470,7 +470,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec = 
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetNoiseCancellationEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -484,7 +484,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetStyleTransferEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -498,7 +498,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec 
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetForceRespectUiGainsEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -512,7 +512,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetHfpMicSrEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -526,7 +526,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetSpatialAudioEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

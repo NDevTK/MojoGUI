@@ -84,7 +84,7 @@ crosapi.mojom.GoogleServiceAuthErrorSpec = {
       name: 'crosapi.mojom.GoogleServiceAuthError',
       packedSize: 16,
       fields: [
-        { name: 'kNone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kNone', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -111,8 +111,8 @@ crosapi.mojom.AccountUpsertionResultSpec = {
       name: 'crosapi.mojom.AccountUpsertionResult',
       packedSize: 24,
       fields: [
-        { name: 'kSuccess', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'kUnexpectedResponse', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kSuccess', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnexpectedResponse', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

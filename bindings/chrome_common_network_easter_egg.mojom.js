@@ -102,7 +102,7 @@ chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec = {
       name: 'chrome.mojom.NetworkEasterEgg.GetHighScore_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'high_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'high_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -116,7 +116,7 @@ chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec = {
       name: 'chrome.mojom.NetworkEasterEgg.UpdateHighScore_Params',
       packedSize: 16,
       fields: [
-        { name: 'high_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'high_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

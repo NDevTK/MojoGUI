@@ -28,8 +28,8 @@ heap_profiling.mojom.ProfilingParamsSpec = {
       name: 'heap_profiling.mojom.ProfilingParams',
       packedSize: 24,
       fields: [
-        { name: 'stack_mode', packedOffset: 0, packedBitOffset: 0, type: heap_profiling.mojom.StackModeSpec, nullable: false },
-        { name: 'sampling_rate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'stack_mode', packedOffset: 8, packedBitOffset: 0, type: heap_profiling.mojom.StackModeSpec, nullable: false },
+        { name: 'sampling_rate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -43,11 +43,11 @@ heap_profiling.mojom.HeapProfileSampleSpec = {
       name: 'heap_profiling.mojom.HeapProfileSample',
       packedSize: 48,
       fields: [
-        { name: 'allocator', packedOffset: 0, packedBitOffset: 0, type: heap_profiling.mojom.AllocatorTypeSpec, nullable: false },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'total', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'context_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'stack', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'allocator', packedOffset: 8, packedBitOffset: 0, type: heap_profiling.mojom.AllocatorTypeSpec, nullable: false },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'total', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'context_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'stack', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -61,8 +61,8 @@ heap_profiling.mojom.HeapProfileSpec = {
       name: 'heap_profiling.mojom.HeapProfile',
       packedSize: 24,
       fields: [
-        { name: 'samples', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'strings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'samples', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'strings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -141,7 +141,7 @@ heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec = {
       name: 'heap_profiling.mojom.ProfilingClient.StartProfiling_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: heap_profiling.mojom.ProfilingParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: heap_profiling.mojom.ProfilingParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -167,7 +167,7 @@ heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec = {
       name: 'heap_profiling.mojom.ProfilingClient.RetrieveHeapProfile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: heap_profiling.mojom.HeapProfileSpec, nullable: false },
+        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: heap_profiling.mojom.HeapProfileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

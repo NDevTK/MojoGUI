@@ -72,9 +72,9 @@ device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec = {
       name: 'device.mojom.PublicIpAddressGeolocationProvider.CreateGeolocation_Params',
       packedSize: 32,
       fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec, nullable: false },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GeolocationClientIdSpec, nullable: false },
+        { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec, nullable: false },
+        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client_id', packedOffset: 24, packedBitOffset: 0, type: device.mojom.GeolocationClientIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

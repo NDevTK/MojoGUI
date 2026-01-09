@@ -124,7 +124,7 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponsePara
       name: 'supervised_user.mojom.SupervisedUserCommands.RequestUrlAccessRemote_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'request_issued', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'request_issued', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -150,7 +150,7 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParam
       name: 'supervised_user.mojom.SupervisedUserCommands.RequestUrlAccessLocal_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'request_issued', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'request_issued', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

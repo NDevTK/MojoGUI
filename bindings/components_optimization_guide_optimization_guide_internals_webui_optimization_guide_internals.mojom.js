@@ -16,9 +16,9 @@ optimization_guide_internals.mojom.DownloadedModelInfoSpec = {
       name: 'optimization_guide_internals.mojom.DownloadedModelInfo',
       packedSize: 32,
       fields: [
-        { name: 'optimization_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'file_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'optimization_target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'file_path', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -32,7 +32,7 @@ optimization_guide_internals.mojom.LoggedClientIdsSpec = {
       name: 'optimization_guide_internals.mojom.LoggedClientIds',
       packedSize: 16,
       fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -46,9 +46,9 @@ optimization_guide_internals.mojom.MqlsLogSpec = {
       name: 'optimization_guide_internals.mojom.MqlsLog',
       packedSize: 32,
       fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'proto', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'proto', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -145,7 +145,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSp
       name: 'optimization_guide_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -171,7 +171,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInf
       name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestDownloadedModelsInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'downloaded_models_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'downloaded_models_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,7 +197,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityC
       name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestLoggedModelQualityClientIds_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'logged_client_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'logged_client_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -223,7 +223,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponsePa
       name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestMqlsLogs_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'mqls_logs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'mqls_logs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -298,11 +298,11 @@ optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
       name: 'optimization_guide_internals.mojom.Page.OnLogMessageAdded_Params',
       packedSize: 48,
       fields: [
-        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'log_source', packedOffset: 8, packedBitOffset: 0, type: optimization_guide_common.mojom.LogSourceSpec, nullable: false },
-        { name: 'source_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'source_line', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'message', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'event_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'log_source', packedOffset: 16, packedBitOffset: 0, type: optimization_guide_common.mojom.LogSourceSpec, nullable: false },
+        { name: 'source_file', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source_line', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'message', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

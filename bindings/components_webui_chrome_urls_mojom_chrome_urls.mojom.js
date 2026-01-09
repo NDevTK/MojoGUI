@@ -16,9 +16,9 @@ chrome_urls.mojom.WebuiUrlInfoSpec = {
       name: 'chrome_urls.mojom.WebuiUrlInfo',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'internal', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'internal', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -32,9 +32,9 @@ chrome_urls.mojom.ChromeUrlsDataSpec = {
       name: 'chrome_urls.mojom.ChromeUrlsData',
       packedSize: 32,
       fields: [
-        { name: 'webui_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'command_urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'internal_debugging_uis_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'webui_urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'command_urls', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'internal_debugging_uis_enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,8 +104,8 @@ chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'chrome_urls.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -201,7 +201,7 @@ chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec = {
       name: 'chrome_urls.mojom.PageHandler.GetUrls_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'urls_data', packedOffset: 0, packedBitOffset: 0, type: chrome_urls.mojom.ChromeUrlsDataSpec, nullable: false },
+        { name: 'urls_data', packedOffset: 8, packedBitOffset: 0, type: chrome_urls.mojom.ChromeUrlsDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -215,7 +215,7 @@ chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec = {
       name: 'chrome_urls.mojom.PageHandler.SetDebugPagesEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

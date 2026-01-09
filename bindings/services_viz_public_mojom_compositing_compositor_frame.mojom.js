@@ -16,9 +16,9 @@ viz.mojom.CompositorFrameSpec = {
       name: 'viz.mojom.CompositorFrame',
       packedSize: 32,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CompositorFrameMetadataSpec, nullable: false },
-        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'passes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CompositorFrameMetadataSpec, nullable: false },
+        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'passes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

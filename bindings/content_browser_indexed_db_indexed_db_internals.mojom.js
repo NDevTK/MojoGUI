@@ -16,8 +16,8 @@ storage.mojom.IdbPartitionMetadataSpec = {
       name: 'storage.mojom.IdbPartitionMetadata',
       packedSize: 24,
       fields: [
-        { name: 'partition_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'origin_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'partition_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'origin_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -144,8 +144,8 @@ storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponsePara
       name: 'storage.mojom.IdbInternalsHandler.GetAllBucketsAcrossAllStorageKeys_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'partitions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'partitions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -159,7 +159,7 @@ storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec = {
       name: 'storage.mojom.IdbInternalsHandler.DownloadBucketData_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucketId', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
+        { name: 'bucketId', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -172,7 +172,7 @@ storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec = {
       name: 'storage.mojom.IdbInternalsHandler.DownloadBucketData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -186,7 +186,7 @@ storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec = {
       name: 'storage.mojom.IdbInternalsHandler.ForceClose_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucketId', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
+        { name: 'bucketId', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -199,7 +199,7 @@ storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec = {
       name: 'storage.mojom.IdbInternalsHandler.ForceClose_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -213,7 +213,7 @@ storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec = {
       name: 'storage.mojom.IdbInternalsHandler.StartMetadataRecording_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
+        { name: 'bucket_id', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -226,7 +226,7 @@ storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec = {
       name: 'storage.mojom.IdbInternalsHandler.StartMetadataRecording_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -240,7 +240,7 @@ storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec = {
       name: 'storage.mojom.IdbInternalsHandler.StopMetadataRecording_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
+        { name: 'bucket_id', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -253,8 +253,8 @@ storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec = {
       name: 'storage.mojom.IdbInternalsHandler.StopMetadataRecording_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -268,7 +268,7 @@ storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec = {
       name: 'storage.mojom.IdbInternalsHandler.InspectClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client_info', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketClientInfoSpec, nullable: false },
+        { name: 'client_info', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketClientInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,7 +281,7 @@ storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec = {
       name: 'storage.mojom.IdbInternalsHandler.InspectClient_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

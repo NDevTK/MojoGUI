@@ -17,8 +17,8 @@ content.mojom.sandbox.UtilityConfigSpec = {
       name: 'content.mojom.sandbox.UtilityConfig',
       packedSize: 24,
       fields: [
-        { name: 'preload_libraries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'bootstrap_event_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'preload_libraries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bootstrap_event_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

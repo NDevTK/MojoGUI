@@ -20,9 +20,9 @@ infobar_internals.mojom.InfoBarEntrySpec = {
       name: 'infobar_internals.mojom.InfoBarEntry',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: infobar_internals.mojom.InfoBarTypeSpec, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: infobar_internals.mojom.InfoBarTypeSpec, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -165,7 +165,7 @@ infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec = {
       name: 'infobar_internals.mojom.PageHandler.GetInfoBars_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'infobars', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'infobars', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -179,7 +179,7 @@ infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec = {
       name: 'infobar_internals.mojom.PageHandler.TriggerInfoBar_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: infobar_internals.mojom.InfoBarTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: infobar_internals.mojom.InfoBarTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -192,7 +192,7 @@ infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec = {
       name: 'infobar_internals.mojom.PageHandler.TriggerInfoBar_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -267,8 +267,8 @@ infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'infobar_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

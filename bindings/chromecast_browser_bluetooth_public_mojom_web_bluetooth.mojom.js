@@ -72,7 +72,7 @@ chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec = 
       name: 'chromecast.mojom.BluetoothDeviceAccessProvider.RequestDeviceAccess_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -156,7 +156,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec = {
       name: 'chromecast.mojom.BluetoothDeviceAccessProviderClient.GrantAccess_Params',
       packedSize: 16,
       fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,9 +16,9 @@ media.mojom.CastApplicationMediaInfoSpec = {
       name: 'media.mojom.CastApplicationMediaInfo',
       packedSize: 24,
       fields: [
-        { name: 'application_session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'mixer_audio_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_audio_only_session', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'application_session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'mixer_audio_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_audio_only_session', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -100,7 +100,7 @@ media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_Response
       name: 'media.mojom.CastApplicationMediaInfoManager.GetCastApplicationMediaInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'cast_application_media_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CastApplicationMediaInfoSpec, nullable: false },
+        { name: 'cast_application_media_info', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CastApplicationMediaInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

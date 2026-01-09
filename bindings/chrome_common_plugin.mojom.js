@@ -26,11 +26,11 @@ chrome.mojom.PluginInfoSpec = {
       name: 'chrome.mojom.PluginInfo',
       packedSize: 48,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.PluginStatusSpec, nullable: false },
-        { name: 'plugin', packedOffset: 8, packedBitOffset: 0, type: content.mojom.WebPluginInfoSpec, nullable: false },
-        { name: 'actual_mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'group_identifier', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'group_name', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.PluginStatusSpec, nullable: false },
+        { name: 'plugin', packedOffset: 16, packedBitOffset: 0, type: content.mojom.WebPluginInfoSpec, nullable: false },
+        { name: 'actual_mime_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'group_identifier', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'group_name', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -44,8 +44,8 @@ chrome.mojom.PluginParamSpec = {
       name: 'chrome.mojom.PluginParam',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -115,7 +115,7 @@ chrome.mojom.PluginHost_OpenPDF_ParamsSpec = {
       name: 'chrome.mojom.PluginHost.OpenPDF_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -190,8 +190,8 @@ chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec = {
       name: 'chrome.mojom.PluginAuthHost.BlockedUnauthorizedPlugin_Params',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'group_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -266,9 +266,9 @@ chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec = {
       name: 'chrome.mojom.PluginInfoHost.GetPluginInfo_Params',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'mime_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,7 +281,7 @@ chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec = {
       name: 'chrome.mojom.PluginInfoHost.GetPluginInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'plugin_info', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.PluginInfoSpec, nullable: false },
+        { name: 'plugin_info', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.PluginInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

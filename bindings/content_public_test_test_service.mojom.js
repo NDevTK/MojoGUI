@@ -231,7 +231,7 @@ content.mojom.TestService_CreateFolder_ResponseParamsSpec = {
       name: 'content.mojom.TestService.CreateFolder_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'succeeded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -257,7 +257,7 @@ content.mojom.TestService_GetRequestorName_ResponseParamsSpec = {
       name: 'content.mojom.TestService.GetRequestorName_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -271,7 +271,7 @@ content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec = {
       name: 'content.mojom.TestService.CreateReadOnlySharedMemoryRegion_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -284,7 +284,7 @@ content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec = 
       name: 'content.mojom.TestService.CreateReadOnlySharedMemoryRegion_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -298,7 +298,7 @@ content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec = {
       name: 'content.mojom.TestService.CreateWritableSharedMemoryRegion_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -311,7 +311,7 @@ content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec = 
       name: 'content.mojom.TestService.CreateWritableSharedMemoryRegion_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.WritableSharedMemoryRegionSpec, nullable: true },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.WritableSharedMemoryRegionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -325,7 +325,7 @@ content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec = {
       name: 'content.mojom.TestService.CreateUnsafeSharedMemoryRegion_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -338,7 +338,7 @@ content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec = {
       name: 'content.mojom.TestService.CreateUnsafeSharedMemoryRegion_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -352,7 +352,7 @@ content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec = {
       name: 'content.mojom.TestService.CloneSharedMemoryContents_Params',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -365,7 +365,7 @@ content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec = {
       name: 'content.mojom.TestService.CloneSharedMemoryContents_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'new_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
+        { name: 'new_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -391,7 +391,7 @@ content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec = {
       name: 'content.mojom.TestService.IsProcessSandboxed_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_sandboxed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_sandboxed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -405,7 +405,7 @@ content.mojom.TestService_PseudonymizeString_ParamsSpec = {
       name: 'content.mojom.TestService.PseudonymizeString_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -418,7 +418,7 @@ content.mojom.TestService_PseudonymizeString_ResponseParamsSpec = {
       name: 'content.mojom.TestService.PseudonymizeString_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -432,7 +432,7 @@ content.mojom.TestService_PassWriteableFile_ParamsSpec = {
       name: 'content.mojom.TestService.PassWriteableFile_Params',
       packedSize: 16,
       fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
+        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

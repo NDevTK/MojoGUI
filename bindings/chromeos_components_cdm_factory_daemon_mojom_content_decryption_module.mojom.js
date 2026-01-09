@@ -85,10 +85,10 @@ chromeos.cdm.mojom.CdmPromiseResultSpec = {
       name: 'chromeos.cdm.mojom.CdmPromiseResult',
       packedSize: 40,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'exception', packedOffset: 8, packedBitOffset: 0, type: chromeos.cdm.mojom.PromiseExceptionSpec, nullable: false },
-        { name: 'system_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'error_message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'exception', packedOffset: 16, packedBitOffset: 0, type: chromeos.cdm.mojom.PromiseExceptionSpec, nullable: false },
+        { name: 'system_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'error_message', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -102,9 +102,9 @@ chromeos.cdm.mojom.CdmKeyInformationSpec = {
       name: 'chromeos.cdm.mojom.CdmKeyInformation',
       packedSize: 32,
       fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: chromeos.cdm.mojom.CdmKeyStatusSpec, nullable: false },
-        { name: 'system_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'key_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: chromeos.cdm.mojom.CdmKeyStatusSpec, nullable: false },
+        { name: 'system_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -118,8 +118,8 @@ chromeos.cdm.mojom.EncryptionPatternSpec = {
       name: 'chromeos.cdm.mojom.EncryptionPattern',
       packedSize: 16,
       fields: [
-        { name: 'crypt_byte_block', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'skip_byte_block', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'crypt_byte_block', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'skip_byte_block', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -133,8 +133,8 @@ chromeos.cdm.mojom.SubsampleEntrySpec = {
       name: 'chromeos.cdm.mojom.SubsampleEntry',
       packedSize: 16,
       fields: [
-        { name: 'clear_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'cipher_bytes', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'clear_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'cipher_bytes', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,11 +148,11 @@ chromeos.cdm.mojom.DecryptConfigSpec = {
       name: 'chromeos.cdm.mojom.DecryptConfig',
       packedSize: 48,
       fields: [
-        { name: 'encryption_scheme', packedOffset: 0, packedBitOffset: 0, type: chromeos.cdm.mojom.EncryptionSchemeSpec, nullable: false },
-        { name: 'key_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'iv', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'subsamples', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'encryption_pattern', packedOffset: 32, packedBitOffset: 0, type: chromeos.cdm.mojom.EncryptionPatternSpec, nullable: true },
+        { name: 'encryption_scheme', packedOffset: 8, packedBitOffset: 0, type: chromeos.cdm.mojom.EncryptionSchemeSpec, nullable: false },
+        { name: 'key_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'iv', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'subsamples', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'encryption_pattern', packedOffset: 40, packedBitOffset: 0, type: chromeos.cdm.mojom.EncryptionPatternSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

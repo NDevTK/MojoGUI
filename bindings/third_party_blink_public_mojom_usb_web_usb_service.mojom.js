@@ -16,8 +16,8 @@ blink.mojom.WebUsbRequestDeviceOptionsSpec = {
       name: 'blink.mojom.WebUsbRequestDeviceOptions',
       packedSize: 24,
       fields: [
-        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'exclusion_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'exclusion_filters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,7 +135,7 @@ blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec = {
       name: 'blink.mojom.WebUsbService.GetDevices_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -149,8 +149,8 @@ blink.mojom.WebUsbService_GetDevice_ParamsSpec = {
       name: 'blink.mojom.WebUsbService.GetDevice_Params',
       packedSize: 24,
       fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -164,7 +164,7 @@ blink.mojom.WebUsbService_GetPermission_ParamsSpec = {
       name: 'blink.mojom.WebUsbService.GetPermission_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebUsbRequestDeviceOptionsSpec, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebUsbRequestDeviceOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -177,7 +177,7 @@ blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec = {
       name: 'blink.mojom.WebUsbService.GetPermission_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -191,7 +191,7 @@ blink.mojom.WebUsbService_ForgetDevice_ParamsSpec = {
       name: 'blink.mojom.WebUsbService.ForgetDevice_Params',
       packedSize: 16,
       fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -205,7 +205,7 @@ blink.mojom.WebUsbService_SetClient_ParamsSpec = {
       name: 'blink.mojom.WebUsbService.SetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -118,9 +118,9 @@ arc.mojom.OemCryptoSecureBufferSpec = {
       name: 'arc.mojom.OemCryptoSecureBuffer',
       packedSize: 24,
       fields: [
-        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
-        { name: 'max_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'buffer_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
+        { name: 'max_length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,8 +134,8 @@ arc.mojom.OemCryptoSubstringSpec = {
       name: 'arc.mojom.OemCryptoSubstring',
       packedSize: 16,
       fields: [
-        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -149,14 +149,14 @@ arc.mojom.OemCryptoKeyObjectV14Spec = {
       name: 'arc.mojom.OemCryptoKeyObjectV14',
       packedSize: 48,
       fields: [
-        { name: 'key_id_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'key_id_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'key_data_iv_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'key_data_offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'key_data_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'key_control_iv_offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'key_control_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'cipher_mode', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.OemCryptoCipherModeSpec, nullable: false },
+        { name: 'key_id_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'key_id_length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'key_data_iv_offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'key_data_offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'key_data_length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'key_control_iv_offset', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'key_control_offset', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'cipher_mode', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.OemCryptoCipherModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -170,11 +170,11 @@ arc.mojom.OemCryptoKeyObjectSpec = {
       name: 'arc.mojom.OemCryptoKeyObject',
       packedSize: 48,
       fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
-        { name: 'key_data_iv', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
-        { name: 'key_data', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
-        { name: 'key_control_iv', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
-        { name: 'key_control', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'key_id', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'key_data_iv', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'key_data', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'key_control_iv', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'key_control', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -188,10 +188,10 @@ arc.mojom.OemCryptoEntitledContentKeyObjectV14Spec = {
       name: 'arc.mojom.OemCryptoEntitledContentKeyObjectV14',
       packedSize: 40,
       fields: [
-        { name: 'entitlement_key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'content_key_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'content_key_data_iv', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'content_key_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'entitlement_key_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'content_key_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'content_key_data_iv', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'content_key_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -205,10 +205,10 @@ arc.mojom.OemCryptoEntitledContentKeyObjectSpec = {
       name: 'arc.mojom.OemCryptoEntitledContentKeyObject',
       packedSize: 40,
       fields: [
-        { name: 'entitlement_key_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
-        { name: 'content_key_id', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
-        { name: 'content_key_data_iv', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
-        { name: 'content_key_data', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'entitlement_key_id', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'content_key_id', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'content_key_data_iv', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'content_key_data', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,11 +222,11 @@ arc.mojom.OemCryptoKeyRefreshObjectV14Spec = {
       name: 'arc.mojom.OemCryptoKeyRefreshObjectV14',
       packedSize: 32,
       fields: [
-        { name: 'key_id_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'key_id_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'has_key_control_iv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'key_control_iv_offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'key_control_offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'key_id_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'key_id_length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'has_key_control_iv', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'key_control_iv_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'key_control_offset', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -240,9 +240,9 @@ arc.mojom.OemCryptoKeyRefreshObjectSpec = {
       name: 'arc.mojom.OemCryptoKeyRefreshObject',
       packedSize: 32,
       fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
-        { name: 'key_control_iv', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
-        { name: 'key_control', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'key_id', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'key_control_iv', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'key_control', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -256,9 +256,9 @@ arc.mojom.OemCryptoCencEncryptPatternDescSpec = {
       name: 'arc.mojom.OemCryptoCencEncryptPatternDesc',
       packedSize: 24,
       fields: [
-        { name: 'encrypt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'skip', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'encrypt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'skip', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -272,12 +272,12 @@ arc.mojom.OemCryptoPstReportSpec = {
       name: 'arc.mojom.OemCryptoPstReport',
       packedSize: 48,
       fields: [
-        { name: 'signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'clock_security_level', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'seconds_since_license_received', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'seconds_since_first_decrypt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'seconds_since_last_decrypt', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'clock_security_level', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'seconds_since_license_received', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'seconds_since_first_decrypt', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'seconds_since_last_decrypt', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -291,10 +291,10 @@ arc.mojom.SubSampleDescriptionSpec = {
       name: 'arc.mojom.SubSampleDescription',
       packedSize: 24,
       fields: [
-        { name: 'num_bytes_clear', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'num_bytes_encrypted', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'subsample_flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'block_offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'num_bytes_clear', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'num_bytes_encrypted', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'subsample_flags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'block_offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

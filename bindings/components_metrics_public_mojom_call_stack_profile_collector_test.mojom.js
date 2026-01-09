@@ -72,7 +72,7 @@ metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec = {
       name: 'metrics.mojom.CallStackProfileCollectorTest.BounceSampledProfile_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: metrics.mojom.SampledProfileSpec, nullable: false },
+        { name: 'in', packedOffset: 8, packedBitOffset: 0, type: metrics.mojom.SampledProfileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsS
       name: 'metrics.mojom.CallStackProfileCollectorTest.BounceSampledProfile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: metrics.mojom.SampledProfileSpec, nullable: false },
+        { name: 'out', packedOffset: 8, packedBitOffset: 0, type: metrics.mojom.SampledProfileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

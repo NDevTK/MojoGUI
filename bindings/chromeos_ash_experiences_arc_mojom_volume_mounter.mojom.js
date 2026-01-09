@@ -29,12 +29,12 @@ arc.mojom.MountPointInfoSpec = {
       name: 'arc.mojom.MountPointInfo',
       packedSize: 56,
       fields: [
-        { name: 'mount_event', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MountEventSpec, nullable: false },
-        { name: 'source_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'mount_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'fs_uuid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'label', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'device_type', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.DeviceTypeSpec, nullable: false },
+        { name: 'mount_event', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.MountEventSpec, nullable: false },
+        { name: 'source_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'mount_path', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'fs_uuid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'label', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_type', packedOffset: 48, packedBitOffset: 0, type: arc.mojom.DeviceTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

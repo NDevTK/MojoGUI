@@ -109,10 +109,10 @@ ash.personalization_app.mojom.WallpaperCollectionSpec = {
       name: 'ash.personalization_app.mojom.WallpaperCollection',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'description_content', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'previews', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description_content', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'previews', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -126,12 +126,12 @@ ash.personalization_app.mojom.GooglePhotosAlbumSpec = {
       name: 'ash.personalization_app.mojom.GooglePhotosAlbum',
       packedSize: 56,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'photo_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'preview', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'is_shared', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'photo_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'preview', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'timestamp', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'is_shared', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -145,8 +145,8 @@ ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec = {
       name: 'ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponse',
       packedSize: 24,
       fields: [
-        { name: 'albums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'resume_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'albums', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'resume_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -160,11 +160,11 @@ ash.personalization_app.mojom.WallpaperImageSpec = {
       name: 'ash.personalization_app.mojom.WallpaperImage',
       packedSize: 48,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'attribution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'asset_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'unit_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: ash.personalization_app.mojom.OnlineImageTypeSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'attribution', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'asset_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'unit_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: ash.personalization_app.mojom.OnlineImageTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -178,12 +178,12 @@ ash.personalization_app.mojom.GooglePhotosPhotoSpec = {
       name: 'ash.personalization_app.mojom.GooglePhotosPhoto',
       packedSize: 56,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'dedup_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'date', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'location', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'dedup_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'date', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'location', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -197,8 +197,8 @@ ash.personalization_app.mojom.FetchGooglePhotosPhotosResponseSpec = {
       name: 'ash.personalization_app.mojom.FetchGooglePhotosPhotosResponse',
       packedSize: 24,
       fields: [
-        { name: 'photos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'resume_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'photos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'resume_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -212,8 +212,8 @@ ash.personalization_app.mojom.CurrentAttributionSpec = {
       name: 'ash.personalization_app.mojom.CurrentAttribution',
       packedSize: 24,
       fields: [
-        { name: 'attribution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'attribution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -227,12 +227,12 @@ ash.personalization_app.mojom.CurrentWallpaperSpec = {
       name: 'ash.personalization_app.mojom.CurrentWallpaper',
       packedSize: 56,
       fields: [
-        { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.WallpaperLayoutSpec, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.WallpaperTypeSpec, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'description_title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'description_content', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'action_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'layout', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.WallpaperLayoutSpec, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: ash.personalization_app.mojom.WallpaperTypeSpec, nullable: false },
+        { name: 'key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description_title', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description_content', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'action_url', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -246,10 +246,10 @@ ash.personalization_app.mojom.SampleColorSchemeSpec = {
       name: 'ash.personalization_app.mojom.SampleColorScheme',
       packedSize: 40,
       fields: [
-        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: ash.style.mojom.ColorSchemeSpec, nullable: false },
-        { name: 'primary', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
-        { name: 'secondary', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
-        { name: 'tertiary', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'scheme', packedOffset: 8, packedBitOffset: 0, type: ash.style.mojom.ColorSchemeSpec, nullable: false },
+        { name: 'primary', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'secondary', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'tertiary', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -263,8 +263,8 @@ ash.personalization_app.mojom.UserInfoSpec = {
       name: 'ash.personalization_app.mojom.UserInfo',
       packedSize: 24,
       fields: [
-        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -278,8 +278,8 @@ ash.personalization_app.mojom.DeprecatedSourceInfoSpec = {
       name: 'ash.personalization_app.mojom.DeprecatedSourceInfo',
       packedSize: 24,
       fields: [
-        { name: 'author', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'website', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'author', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'website', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -293,10 +293,10 @@ ash.personalization_app.mojom.DefaultUserImageSpec = {
       name: 'ash.personalization_app.mojom.DefaultUserImage',
       packedSize: 40,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'source_info', packedOffset: 24, packedBitOffset: 0, type: ash.personalization_app.mojom.DeprecatedSourceInfoSpec, nullable: true },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'source_info', packedOffset: 32, packedBitOffset: 0, type: ash.personalization_app.mojom.DeprecatedSourceInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -336,13 +336,13 @@ ash.personalization_app.mojom.AmbientModeAlbumSpec = {
       name: 'ash.personalization_app.mojom.AmbientModeAlbum',
       packedSize: 64,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'checked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'number_of_photos', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'topic_source', packedOffset: 40, packedBitOffset: 0, type: ash.personalization_app.mojom.TopicSourceSpec, nullable: false },
-        { name: 'url', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'checked', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'number_of_photos', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'topic_source', packedOffset: 48, packedBitOffset: 0, type: ash.personalization_app.mojom.TopicSourceSpec, nullable: false },
+        { name: 'url', packedOffset: 56, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -443,7 +443,7 @@ ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec 
       name: 'ash.personalization_app.mojom.WallpaperObserver.OnAttributionChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'attribution', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.CurrentAttributionSpec, nullable: true },
+        { name: 'attribution', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.CurrentAttributionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -457,7 +457,7 @@ ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec = 
       name: 'ash.personalization_app.mojom.WallpaperObserver.OnWallpaperChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.CurrentWallpaperSpec, nullable: true },
+        { name: 'image', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.CurrentWallpaperSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -795,7 +795,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsS
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchCollections_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'collections', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'collections', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -809,7 +809,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsS
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchImagesForCollection_Params',
       packedSize: 16,
       fields: [
-        { name: 'collection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'collection_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -822,7 +822,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_Respons
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchImagesForCollection_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'images', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -836,7 +836,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSp
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosAlbums_Params',
       packedSize: 16,
       fields: [
-        { name: 'resume_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'resume_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -849,7 +849,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_Response
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosAlbums_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -863,7 +863,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_Pa
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosSharedAlbums_Params',
       packedSize: 16,
       fields: [
-        { name: 'resume_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'resume_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -876,7 +876,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_Re
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosSharedAlbums_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -902,7 +902,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_Respons
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosEnabled_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.GooglePhotosEnablementStateSpec, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.GooglePhotosEnablementStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -916,9 +916,9 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSp
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosPhotos_Params',
       packedSize: 32,
       fields: [
-        { name: 'item_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'album_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'resume_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'item_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'album_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'resume_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -931,7 +931,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_Response
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosPhotos_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.FetchGooglePhotosPhotosResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.FetchGooglePhotosPhotosResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -957,7 +957,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpe
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetLocalImages_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'images', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -983,7 +983,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_Respons
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetDefaultImageThumbnail_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -997,7 +997,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpe
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetLocalImageThumbnail_Params',
       packedSize: 16,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1010,7 +1010,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseP
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetLocalImageThumbnail_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1024,7 +1024,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec 
       name: 'ash.personalization_app.mojom.WallpaperProvider.SetWallpaperObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1038,8 +1038,8 @@ ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec = {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectWallpaper_Params',
       packedSize: 24,
       fields: [
-        { name: 'unit_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'preview_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'unit_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'preview_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1052,7 +1052,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSp
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectWallpaper_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1078,7 +1078,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParam
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectDefaultImage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1092,9 +1092,9 @@ ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec = {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectLocalImage_Params',
       packedSize: 32,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'layout', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.WallpaperLayoutSpec, nullable: false },
-        { name: 'preview_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'layout', packedOffset: 16, packedBitOffset: 0, type: ash.personalization_app.mojom.WallpaperLayoutSpec, nullable: false },
+        { name: 'preview_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1107,7 +1107,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsS
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectLocalImage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1121,9 +1121,9 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSp
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectGooglePhotosPhoto_Params',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'layout', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.WallpaperLayoutSpec, nullable: false },
-        { name: 'preview_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'layout', packedOffset: 16, packedBitOffset: 0, type: ash.personalization_app.mojom.WallpaperLayoutSpec, nullable: false },
+        { name: 'preview_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1136,7 +1136,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_Response
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectGooglePhotosPhoto_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1150,7 +1150,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSp
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectGooglePhotosAlbum_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1163,7 +1163,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_Response
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectGooglePhotosAlbum_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1189,7 +1189,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbum
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetGooglePhotosDailyRefreshAlbumId_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'album_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'album_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1203,7 +1203,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_Params
       name: 'ash.personalization_app.mojom.WallpaperProvider.SetCurrentWallpaperLayout_Params',
       packedSize: 16,
       fields: [
-        { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.WallpaperLayoutSpec, nullable: false },
+        { name: 'layout', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.WallpaperLayoutSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1217,7 +1217,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_Para
       name: 'ash.personalization_app.mojom.WallpaperProvider.SetDailyRefreshCollectionId_Params',
       packedSize: 16,
       fields: [
-        { name: 'collection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'collection_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1230,7 +1230,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_Resp
       name: 'ash.personalization_app.mojom.WallpaperProvider.SetDailyRefreshCollectionId_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1256,7 +1256,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_Resp
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetDailyRefreshCollectionId_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'collection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'collection_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1282,7 +1282,7 @@ ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_Resp
       name: 'ash.personalization_app.mojom.WallpaperProvider.UpdateDailyRefreshWallpaper_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1308,7 +1308,7 @@ ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpe
       name: 'ash.personalization_app.mojom.WallpaperProvider.IsInTabletMode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'tablet_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1360,7 +1360,7 @@ ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDial
       name: 'ash.personalization_app.mojom.WallpaperProvider.ShouldShowTimeOfDayWallpaperDialog_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'should_show_dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'should_show_dialog', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1489,7 +1489,7 @@ ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec = {
       name: 'ash.personalization_app.mojom.ThemeObserver.OnColorModeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'dark_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'dark_mode_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1503,7 +1503,7 @@ ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_Param
       name: 'ash.personalization_app.mojom.ThemeObserver.OnColorModeAutoScheduleChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1517,7 +1517,7 @@ ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec = {
       name: 'ash.personalization_app.mojom.ThemeObserver.OnColorSchemeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'color_scheme', packedOffset: 0, packedBitOffset: 0, type: ash.style.mojom.ColorSchemeSpec, nullable: false },
+        { name: 'color_scheme', packedOffset: 8, packedBitOffset: 0, type: ash.style.mojom.ColorSchemeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1531,7 +1531,7 @@ ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSp
       name: 'ash.personalization_app.mojom.ThemeObserver.OnSampleColorSchemesChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'sample_color_schemes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'sample_color_schemes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1545,7 +1545,7 @@ ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec = {
       name: 'ash.personalization_app.mojom.ThemeObserver.OnStaticColorChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true },
+        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1559,8 +1559,8 @@ ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServ
       name: 'ash.personalization_app.mojom.ThemeObserver.OnGeolocationPermissionForSystemServicesChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_user_modifiable', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_user_modifiable', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1574,8 +1574,8 @@ ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec = {
       name: 'ash.personalization_app.mojom.ThemeObserver.OnDaylightTimeChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'sunrise_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'sunset_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'sunrise_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'sunset_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1758,7 +1758,7 @@ ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec = {
       name: 'ash.personalization_app.mojom.ThemeProvider.SetThemeObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1772,7 +1772,7 @@ ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec = {
       name: 'ash.personalization_app.mojom.ThemeProvider.SetColorModePref_Params',
       packedSize: 16,
       fields: [
-        { name: 'dark_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'dark_mode_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1786,7 +1786,7 @@ ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_Para
       name: 'ash.personalization_app.mojom.ThemeProvider.SetColorModeAutoScheduleEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1800,7 +1800,7 @@ ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec = {
       name: 'ash.personalization_app.mojom.ThemeProvider.SetColorScheme_Params',
       packedSize: 16,
       fields: [
-        { name: 'colorScheme', packedOffset: 0, packedBitOffset: 0, type: ash.style.mojom.ColorSchemeSpec, nullable: false },
+        { name: 'colorScheme', packedOffset: 8, packedBitOffset: 0, type: ash.style.mojom.ColorSchemeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1814,7 +1814,7 @@ ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec = {
       name: 'ash.personalization_app.mojom.ThemeProvider.SetStaticColor_Params',
       packedSize: 16,
       fields: [
-        { name: 'static_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'static_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1853,7 +1853,7 @@ ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec = 
       name: 'ash.personalization_app.mojom.ThemeProvider.GetColorScheme_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'color_scheme', packedOffset: 0, packedBitOffset: 0, type: ash.style.mojom.ColorSchemeSpec, nullable: false },
+        { name: 'color_scheme', packedOffset: 8, packedBitOffset: 0, type: ash.style.mojom.ColorSchemeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1879,7 +1879,7 @@ ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec = 
       name: 'ash.personalization_app.mojom.ThemeProvider.GetStaticColor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'static_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true },
+        { name: 'static_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1905,7 +1905,7 @@ ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseP
       name: 'ash.personalization_app.mojom.ThemeProvider.GenerateSampleColorSchemes_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'sample_color_schemes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'sample_color_schemes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1931,7 +1931,7 @@ ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_Respo
       name: 'ash.personalization_app.mojom.ThemeProvider.IsColorModeAutoScheduleEnabled_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1957,7 +1957,7 @@ ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec
       name: 'ash.personalization_app.mojom.ThemeProvider.IsDarkModeEnabled_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'dark_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'dark_mode_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1983,7 +1983,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemService
       name: 'ash.personalization_app.mojom.ThemeProvider.IsGeolocationEnabledForSystemServices_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'geolocation_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'geolocation_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2009,7 +2009,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_Response
       name: 'ash.personalization_app.mojom.ThemeProvider.IsGeolocationUserModifiable_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'geolocation_is_user_modifiable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'geolocation_is_user_modifiable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2111,7 +2111,7 @@ ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec = 
       name: 'ash.personalization_app.mojom.UserImageObserver.OnUserImageChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'user_image', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.UserImageSpec, nullable: false },
+        { name: 'user_image', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.UserImageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2125,7 +2125,7 @@ ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_Params
       name: 'ash.personalization_app.mojom.UserImageObserver.OnUserProfileImageUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'profile_image', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'profile_image', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2139,7 +2139,7 @@ ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_Params
       name: 'ash.personalization_app.mojom.UserImageObserver.OnCameraPresenceCheckDone_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_camera_present', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_camera_present', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2153,7 +2153,7 @@ ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_Par
       name: 'ash.personalization_app.mojom.UserImageObserver.OnIsEnterpriseManagedChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_enterprise_managed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_enterprise_managed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2291,7 +2291,7 @@ ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec = {
       name: 'ash.personalization_app.mojom.UserProvider.SetUserImageObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2317,7 +2317,7 @@ ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec = {
       name: 'ash.personalization_app.mojom.UserProvider.GetUserInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'user_info', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.UserInfoSpec, nullable: false },
+        { name: 'user_info', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.UserInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2343,7 +2343,7 @@ ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSp
       name: 'ash.personalization_app.mojom.UserProvider.GetDefaultUserImages_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'default_user_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'default_user_images', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2357,7 +2357,7 @@ ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec = {
       name: 'ash.personalization_app.mojom.UserProvider.SelectDefaultImage_Params',
       packedSize: 16,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2384,7 +2384,7 @@ ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec = {
       name: 'ash.personalization_app.mojom.UserProvider.SelectCameraImage_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2566,7 +2566,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_Params
       name: 'ash.personalization_app.mojom.AmbientObserver.OnAmbientModeEnabledChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'ambient_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ambient_mode_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2580,7 +2580,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec =
       name: 'ash.personalization_app.mojom.AmbientObserver.OnAmbientThemeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'ambient_theme', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.AmbientThemeSpec, nullable: false },
+        { name: 'ambient_theme', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.AmbientThemeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2594,7 +2594,7 @@ ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec = 
       name: 'ash.personalization_app.mojom.AmbientObserver.OnTopicSourceChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'topic_source', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.TopicSourceSpec, nullable: false },
+        { name: 'topic_source', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.TopicSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2608,7 +2608,7 @@ ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_Param
       name: 'ash.personalization_app.mojom.AmbientObserver.OnScreenSaverDurationChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'minutes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'minutes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2622,7 +2622,7 @@ ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpe
       name: 'ash.personalization_app.mojom.AmbientObserver.OnTemperatureUnitChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'temperature_unit', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.TemperatureUnitSpec, nullable: false },
+        { name: 'temperature_unit', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.TemperatureUnitSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2636,7 +2636,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec = {
       name: 'ash.personalization_app.mojom.AmbientObserver.OnAlbumsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'albums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'albums', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2650,7 +2650,7 @@ ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec = {
       name: 'ash.personalization_app.mojom.AmbientObserver.OnPreviewsFetched_Params',
       packedSize: 16,
       fields: [
-        { name: 'previews', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'previews', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2664,7 +2664,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_Param
       name: 'ash.personalization_app.mojom.AmbientObserver.OnAmbientUiVisibilityChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.AmbientUiVisibilitySpec, nullable: false },
+        { name: 'visibility', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.AmbientUiVisibilitySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2678,8 +2678,8 @@ ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemSe
       name: 'ash.personalization_app.mojom.AmbientObserver.OnGeolocationPermissionForSystemServicesChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_user_modifiable', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_user_modifiable', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2693,7 +2693,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged
       name: 'ash.personalization_app.mojom.AmbientObserver.OnAmbientThemePreviewImagesChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'previews', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'previews', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2915,7 +2915,7 @@ ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParam
       name: 'ash.personalization_app.mojom.AmbientProvider.IsAmbientModeEnabled_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2929,7 +2929,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec =
       name: 'ash.personalization_app.mojom.AmbientProvider.SetAmbientModeEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2943,7 +2943,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec = {
       name: 'ash.personalization_app.mojom.AmbientProvider.SetAmbientObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2957,7 +2957,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec = {
       name: 'ash.personalization_app.mojom.AmbientProvider.SetAmbientTheme_Params',
       packedSize: 16,
       fields: [
-        { name: 'ambient_theme', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.AmbientThemeSpec, nullable: false },
+        { name: 'ambient_theme', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.AmbientThemeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2971,7 +2971,7 @@ ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec 
       name: 'ash.personalization_app.mojom.AmbientProvider.SetScreenSaverDuration_Params',
       packedSize: 16,
       fields: [
-        { name: 'minutes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'minutes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2985,7 +2985,7 @@ ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec = {
       name: 'ash.personalization_app.mojom.AmbientProvider.SetTopicSource_Params',
       packedSize: 16,
       fields: [
-        { name: 'topic_source', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.TopicSourceSpec, nullable: false },
+        { name: 'topic_source', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.TopicSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2999,7 +2999,7 @@ ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec = {
       name: 'ash.personalization_app.mojom.AmbientProvider.SetTemperatureUnit_Params',
       packedSize: 16,
       fields: [
-        { name: 'temperature_unit', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.TemperatureUnitSpec, nullable: false },
+        { name: 'temperature_unit', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.TemperatureUnitSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3013,9 +3013,9 @@ ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec = {
       name: 'ash.personalization_app.mojom.AmbientProvider.SetAlbumSelected_Params',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'topic_source', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.TopicSourceSpec, nullable: false },
-        { name: 'selected', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'topic_source', packedOffset: 16, packedBitOffset: 0, type: ash.personalization_app.mojom.TopicSourceSpec, nullable: false },
+        { name: 'selected', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3080,7 +3080,7 @@ ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_Response
       name: 'ash.personalization_app.mojom.AmbientProvider.ShouldShowTimeOfDayBanner_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'should_show_banner', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'should_show_banner', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3119,7 +3119,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServi
       name: 'ash.personalization_app.mojom.AmbientProvider.IsGeolocationEnabledForSystemServices_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'geolocation_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'geolocation_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3145,7 +3145,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_Respon
       name: 'ash.personalization_app.mojom.AmbientProvider.IsGeolocationUserModifiable_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'geolocation_is_user_modifiable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'geolocation_is_user_modifiable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3242,7 +3242,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_
       name: 'ash.personalization_app.mojom.KeyboardBacklightObserver.OnBacklightStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'currentBacklightState', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.CurrentBacklightStateSpec, nullable: false },
+        { name: 'currentBacklightState', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.CurrentBacklightStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3256,7 +3256,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_
       name: 'ash.personalization_app.mojom.KeyboardBacklightObserver.OnWallpaperColorChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'wallpaper_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'wallpaper_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3367,7 +3367,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObse
       name: 'ash.personalization_app.mojom.KeyboardBacklightProvider.SetKeyboardBacklightObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3381,7 +3381,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_Params
       name: 'ash.personalization_app.mojom.KeyboardBacklightProvider.SetBacklightColor_Params',
       packedSize: 16,
       fields: [
-        { name: 'backlight_color', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.BacklightColorSpec, nullable: false },
+        { name: 'backlight_color', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.BacklightColorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3395,8 +3395,8 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_Pa
       name: 'ash.personalization_app.mojom.KeyboardBacklightProvider.SetBacklightZoneColor_Params',
       packedSize: 24,
       fields: [
-        { name: 'zone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'backlight_color', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.BacklightColorSpec, nullable: false },
+        { name: 'zone', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'backlight_color', packedOffset: 16, packedBitOffset: 0, type: ash.personalization_app.mojom.BacklightColorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3422,7 +3422,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_Response
       name: 'ash.personalization_app.mojom.KeyboardBacklightProvider.ShouldShowNudge_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'should_show_nudge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'should_show_nudge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

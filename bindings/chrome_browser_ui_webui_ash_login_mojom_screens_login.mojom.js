@@ -299,7 +299,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec = {
       name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetUIState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.screens_login.mojom.ArcVmUIStateSpec, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: ash.screens_login.mojom.ArcVmUIStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -313,7 +313,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSp
       name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetRequiredFreeDiskSpace_Params',
       packedSize: 16,
       fields: [
-        { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'required_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -327,7 +327,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSp
       name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetMinimumBatteryPercent_Params',
       packedSize: 16,
       fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -341,8 +341,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec = {
       name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetBatteryState_Params',
       packedSize: 16,
       fields: [
-        { name: 'enough', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'connected', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'enough', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'connected', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -356,7 +356,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec =
       name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetMigrationProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -370,7 +370,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsS
       name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetEstimatedRemainingTime_Params',
       packedSize: 16,
       fields: [
-        { name: 'remaining_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'remaining_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -652,7 +652,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec = {
       name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetUIState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.screens_login.mojom.UIStateSpec, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: ash.screens_login.mojom.UIStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -666,7 +666,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec 
       name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetMigrationProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -680,7 +680,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec = {
       name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetIsResuming_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_resuming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_resuming', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -694,9 +694,9 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec = {
       name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetBatteryState_Params',
       packedSize: 24,
       fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'is_enough', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_charging', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'is_enough', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_charging', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -710,7 +710,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_Param
       name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetNecessaryBatteryPercent_Params',
       packedSize: 16,
       fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -724,8 +724,8 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec 
       name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetSpaceInfoInString_Params',
       packedSize: 24,
       fields: [
-        { name: 'available_space', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'required_space', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'available_space', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'required_space', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }

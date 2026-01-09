@@ -16,8 +16,8 @@ schema_org.mojom.PropertySpec = {
       name: 'schema_org.mojom.Property',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: schema_org.mojom.ValuesSpec, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'values', packedOffset: 16, packedBitOffset: 0, type: schema_org.mojom.ValuesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -31,8 +31,8 @@ schema_org.mojom.EntitySpec = {
       name: 'schema_org.mojom.Entity',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

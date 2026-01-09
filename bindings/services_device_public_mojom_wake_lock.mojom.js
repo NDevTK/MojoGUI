@@ -148,7 +148,7 @@ device.mojom.WakeLock_AddClient_ParamsSpec = {
       name: 'device.mojom.WakeLock.AddClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'wake_lock', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'wake_lock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -162,7 +162,7 @@ device.mojom.WakeLock_ChangeType_ParamsSpec = {
       name: 'device.mojom.WakeLock.ChangeType_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,7 +175,7 @@ device.mojom.WakeLock_ChangeType_ResponseParamsSpec = {
       name: 'device.mojom.WakeLock.ChangeType_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -201,7 +201,7 @@ device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec = {
       name: 'device.mojom.WakeLock.HasWakeLockForTests_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

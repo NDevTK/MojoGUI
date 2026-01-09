@@ -15,7 +15,7 @@ mojom.AudioConsumerRequestSpec = {
       name: 'mojom.AudioConsumerRequest',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -106,7 +106,7 @@ mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec =
       name: 'mojom.WebEngineMediaResourceProvider.ShouldUseAudioConsumer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -120,7 +120,7 @@ mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec = {
       name: 'mojom.WebEngineMediaResourceProvider.CreateAudioConsumer_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojom.AudioConsumerRequestSpec, nullable: false },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojom.AudioConsumerRequestSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

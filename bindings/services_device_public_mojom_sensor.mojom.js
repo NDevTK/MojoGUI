@@ -36,8 +36,8 @@ device.mojom.SensorReadingRawSpec = {
       name: 'device.mojom.SensorReadingRaw',
       packedSize: 24,
       fields: [
-        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'values', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -51,7 +51,7 @@ device.mojom.SensorConfigurationSpec = {
       name: 'device.mojom.SensorConfiguration',
       packedSize: 16,
       fields: [
-        { name: 'frequency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'frequency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -178,7 +178,7 @@ device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec = {
       name: 'device.mojom.Sensor.GetDefaultConfiguration_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'configuration', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorConfigurationSpec, nullable: false },
+        { name: 'configuration', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SensorConfigurationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -192,7 +192,7 @@ device.mojom.Sensor_AddConfiguration_ParamsSpec = {
       name: 'device.mojom.Sensor.AddConfiguration_Params',
       packedSize: 16,
       fields: [
-        { name: 'configuration', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorConfigurationSpec, nullable: false },
+        { name: 'configuration', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SensorConfigurationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -205,7 +205,7 @@ device.mojom.Sensor_AddConfiguration_ResponseParamsSpec = {
       name: 'device.mojom.Sensor.AddConfiguration_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -219,7 +219,7 @@ device.mojom.Sensor_RemoveConfiguration_ParamsSpec = {
       name: 'device.mojom.Sensor.RemoveConfiguration_Params',
       packedSize: 16,
       fields: [
-        { name: 'configuration', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorConfigurationSpec, nullable: false },
+        { name: 'configuration', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SensorConfigurationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -259,7 +259,7 @@ device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec = {
       name: 'device.mojom.Sensor.ConfigureReadingChangeNotifications_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

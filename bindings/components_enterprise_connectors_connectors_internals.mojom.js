@@ -47,7 +47,7 @@ connectors_internals.mojom.Int32ValueSpec = {
       name: 'connectors_internals.mojom.Int32Value',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -61,11 +61,11 @@ connectors_internals.mojom.LoadedKeyInfoSpec = {
       name: 'connectors_internals.mojom.LoadedKeyInfo',
       packedSize: 48,
       fields: [
-        { name: 'trust_level', packedOffset: 0, packedBitOffset: 0, type: connectors_internals.mojom.KeyTrustLevelSpec, nullable: false },
-        { name: 'key_type', packedOffset: 8, packedBitOffset: 0, type: connectors_internals.mojom.KeyTypeSpec, nullable: false },
-        { name: 'encoded_spki_hash', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'key_upload_status', packedOffset: 24, packedBitOffset: 0, type: connectors_internals.mojom.KeyUploadStatusSpec, nullable: true },
-        { name: 'has_ssl_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'trust_level', packedOffset: 8, packedBitOffset: 0, type: connectors_internals.mojom.KeyTrustLevelSpec, nullable: false },
+        { name: 'key_type', packedOffset: 16, packedBitOffset: 0, type: connectors_internals.mojom.KeyTypeSpec, nullable: false },
+        { name: 'encoded_spki_hash', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key_upload_status', packedOffset: 32, packedBitOffset: 0, type: connectors_internals.mojom.KeyUploadStatusSpec, nullable: true },
+        { name: 'has_ssl_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -79,9 +79,9 @@ connectors_internals.mojom.KeyInfoSpec = {
       name: 'connectors_internals.mojom.KeyInfo',
       packedSize: 32,
       fields: [
-        { name: 'is_key_manager_initialized', packedOffset: 0, packedBitOffset: 0, type: connectors_internals.mojom.KeyManagerInitializedValueSpec, nullable: false },
-        { name: 'loaded_key_info', packedOffset: 8, packedBitOffset: 0, type: connectors_internals.mojom.LoadedKeyInfoSpec, nullable: true },
-        { name: 'permanent_failure', packedOffset: 16, packedBitOffset: 0, type: connectors_internals.mojom.KeyManagerPermanentFailureSpec, nullable: false },
+        { name: 'is_key_manager_initialized', packedOffset: 8, packedBitOffset: 0, type: connectors_internals.mojom.KeyManagerInitializedValueSpec, nullable: false },
+        { name: 'loaded_key_info', packedOffset: 16, packedBitOffset: 0, type: connectors_internals.mojom.LoadedKeyInfoSpec, nullable: true },
+        { name: 'permanent_failure', packedOffset: 24, packedBitOffset: 0, type: connectors_internals.mojom.KeyManagerPermanentFailureSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,8 +95,8 @@ connectors_internals.mojom.ConsentMetadataSpec = {
       name: 'connectors_internals.mojom.ConsentMetadata',
       packedSize: 16,
       fields: [
-        { name: 'can_collect_signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'consent_received', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_collect_signals', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'consent_received', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -110,11 +110,11 @@ connectors_internals.mojom.DeviceTrustStateSpec = {
       name: 'connectors_internals.mojom.DeviceTrustState',
       packedSize: 48,
       fields: [
-        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'policy_enabled_levels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'key_info', packedOffset: 16, packedBitOffset: 0, type: connectors_internals.mojom.KeyInfoSpec, nullable: false },
-        { name: 'signals_json', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'consent_metadata', packedOffset: 32, packedBitOffset: 0, type: connectors_internals.mojom.ConsentMetadataSpec, nullable: true },
+        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'policy_enabled_levels', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_info', packedOffset: 24, packedBitOffset: 0, type: connectors_internals.mojom.KeyInfoSpec, nullable: false },
+        { name: 'signals_json', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'consent_metadata', packedOffset: 40, packedBitOffset: 0, type: connectors_internals.mojom.ConsentMetadataSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -128,12 +128,12 @@ connectors_internals.mojom.CertificateMetadataSpec = {
       name: 'connectors_internals.mojom.CertificateMetadata',
       packedSize: 56,
       fields: [
-        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'fingerprint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'creation_date_string', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'expiration_date_string', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'subject_display_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'issuer_display_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'serial_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'fingerprint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'creation_date_string', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'expiration_date_string', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'subject_display_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'issuer_display_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,9 +147,9 @@ connectors_internals.mojom.ClientIdentitySpec = {
       name: 'connectors_internals.mojom.ClientIdentity',
       packedSize: 32,
       fields: [
-        { name: 'identity_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'loaded_key_info', packedOffset: 8, packedBitOffset: 0, type: connectors_internals.mojom.LoadedKeyInfoSpec, nullable: true },
-        { name: 'certificate_metadata', packedOffset: 16, packedBitOffset: 0, type: connectors_internals.mojom.CertificateMetadataSpec, nullable: true },
+        { name: 'identity_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'loaded_key_info', packedOffset: 16, packedBitOffset: 0, type: connectors_internals.mojom.LoadedKeyInfoSpec, nullable: true },
+        { name: 'certificate_metadata', packedOffset: 24, packedBitOffset: 0, type: connectors_internals.mojom.CertificateMetadataSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -163,9 +163,9 @@ connectors_internals.mojom.ClientCertificateStateSpec = {
       name: 'connectors_internals.mojom.ClientCertificateState',
       packedSize: 32,
       fields: [
-        { name: 'policy_enabled_levels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'managed_profile_identity', packedOffset: 8, packedBitOffset: 0, type: connectors_internals.mojom.ClientIdentitySpec, nullable: true },
-        { name: 'managed_browser_identity', packedOffset: 16, packedBitOffset: 0, type: connectors_internals.mojom.ClientIdentitySpec, nullable: true },
+        { name: 'policy_enabled_levels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'managed_profile_identity', packedOffset: 16, packedBitOffset: 0, type: connectors_internals.mojom.ClientIdentitySpec, nullable: true },
+        { name: 'managed_browser_identity', packedOffset: 24, packedBitOffset: 0, type: connectors_internals.mojom.ClientIdentitySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -179,13 +179,13 @@ connectors_internals.mojom.SignalsReportingStateSpec = {
       name: 'connectors_internals.mojom.SignalsReportingState',
       packedSize: 56,
       fields: [
-        { name: 'error_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'status_report_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'signals_report_enabled', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'last_upload_attempt_timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_upload_success_timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_signals_upload_config', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'can_collect_all_fields', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status_report_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'signals_report_enabled', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'last_upload_attempt_timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_upload_success_timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_signals_upload_config', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'can_collect_all_fields', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -294,7 +294,7 @@ connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec = 
       name: 'connectors_internals.mojom.PageHandler.GetDeviceTrustState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: connectors_internals.mojom.DeviceTrustStateSpec, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: connectors_internals.mojom.DeviceTrustStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -333,7 +333,7 @@ connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsS
       name: 'connectors_internals.mojom.PageHandler.GetClientCertificateState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: connectors_internals.mojom.ClientCertificateStateSpec, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: connectors_internals.mojom.ClientCertificateStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -359,7 +359,7 @@ connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSp
       name: 'connectors_internals.mojom.PageHandler.GetSignalsReportingState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: connectors_internals.mojom.SignalsReportingStateSpec, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: connectors_internals.mojom.SignalsReportingStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -151,15 +151,15 @@ network.mojom.CookieManagerParamsSpec = {
       name: 'network.mojom.CookieManagerParams',
       packedSize: 64,
       fields: [
-        { name: 'block_third_party_cookies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'tracking_protection_enabled_for_3pcd', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'mitigations_enabled_for_3pcd', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'content_settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'secure_origin_cookies_allowed_schemes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'matching_scheme_cookies_allowed_schemes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'third_party_cookies_allowed_schemes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'allow_file_scheme_cookies', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'cookie_access_delegate_type', packedOffset: 48, packedBitOffset: 0, type: network.mojom.CookieAccessDelegateTypeSpec, nullable: false },
+        { name: 'block_third_party_cookies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'tracking_protection_enabled_for_3pcd', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'mitigations_enabled_for_3pcd', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'content_settings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'secure_origin_cookies_allowed_schemes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'matching_scheme_cookies_allowed_schemes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'third_party_cookies_allowed_schemes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'allow_file_scheme_cookies', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'cookie_access_delegate_type', packedOffset: 56, packedBitOffset: 0, type: network.mojom.CookieAccessDelegateTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -173,8 +173,8 @@ network.mojom.CookieSameSiteContextMetadataSpec = {
       name: 'network.mojom.CookieSameSiteContextMetadata',
       packedSize: 24,
       fields: [
-        { name: 'cross_site_redirect_downgrade', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CookieSameSiteContextMetadataDowngradeTypeSpec, nullable: false },
-        { name: 'redirect_type_bug_1221316', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ContextRedirectTypeBug1221316Spec, nullable: false },
+        { name: 'cross_site_redirect_downgrade', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieSameSiteContextMetadataDowngradeTypeSpec, nullable: false },
+        { name: 'redirect_type_bug_1221316', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ContextRedirectTypeBug1221316Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -188,10 +188,10 @@ network.mojom.CookieSameSiteContextSpec = {
       name: 'network.mojom.CookieSameSiteContext',
       packedSize: 40,
       fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ContextTypeSpec, nullable: false },
-        { name: 'schemeful_context', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ContextTypeSpec, nullable: false },
-        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookieSameSiteContextMetadataSpec, nullable: false },
-        { name: 'schemeful_metadata', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CookieSameSiteContextMetadataSpec, nullable: false },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ContextTypeSpec, nullable: false },
+        { name: 'schemeful_context', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ContextTypeSpec, nullable: false },
+        { name: 'metadata', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CookieSameSiteContextMetadataSpec, nullable: false },
+        { name: 'schemeful_metadata', packedOffset: 32, packedBitOffset: 0, type: network.mojom.CookieSameSiteContextMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -205,10 +205,10 @@ network.mojom.CookieOptionsSpec = {
       name: 'network.mojom.CookieOptions',
       packedSize: 32,
       fields: [
-        { name: 'exclude_httponly', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'same_site_cookie_context', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieSameSiteContextSpec, nullable: false },
-        { name: 'update_access_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'return_excluded_cookies', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'exclude_httponly', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'same_site_cookie_context', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookieSameSiteContextSpec, nullable: false },
+        { name: 'update_access_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'return_excluded_cookies', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,22 +222,22 @@ network.mojom.CanonicalCookieSpec = {
       name: 'network.mojom.CanonicalCookie',
       packedSize: 128,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'domain', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'path', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'creation', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'expiry', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'last_access', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'last_update', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'secure', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'httponly', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'site_restrictions', packedOffset: 72, packedBitOffset: 0, type: network.mojom.CookieSameSiteSpec, nullable: false },
-        { name: 'priority', packedOffset: 80, packedBitOffset: 0, type: network.mojom.CookiePrioritySpec, nullable: false },
-        { name: 'source_scheme', packedOffset: 88, packedBitOffset: 0, type: network.mojom.CookieSourceSchemeSpec, nullable: false },
-        { name: 'partition_key', packedOffset: 96, packedBitOffset: 0, type: network.mojom.CookiePartitionKeySpec, nullable: true },
-        { name: 'source_port', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'source_type', packedOffset: 112, packedBitOffset: 0, type: network.mojom.CookieSourceTypeSpec, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'domain', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'path', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'creation', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'expiry', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'last_access', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'last_update', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'secure', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'httponly', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'site_restrictions', packedOffset: 80, packedBitOffset: 0, type: network.mojom.CookieSameSiteSpec, nullable: false },
+        { name: 'priority', packedOffset: 88, packedBitOffset: 0, type: network.mojom.CookiePrioritySpec, nullable: false },
+        { name: 'source_scheme', packedOffset: 96, packedBitOffset: 0, type: network.mojom.CookieSourceSchemeSpec, nullable: false },
+        { name: 'partition_key', packedOffset: 104, packedBitOffset: 0, type: network.mojom.CookiePartitionKeySpec, nullable: true },
+        { name: 'source_port', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'source_type', packedOffset: 120, packedBitOffset: 0, type: network.mojom.CookieSourceTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -251,7 +251,7 @@ network.mojom.ExclusionReasonsSpec = {
       name: 'network.mojom.ExclusionReasons',
       packedSize: 16,
       fields: [
-        { name: 'exclusions_bitmask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'exclusions_bitmask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -265,7 +265,7 @@ network.mojom.WarningReasonsSpec = {
       name: 'network.mojom.WarningReasons',
       packedSize: 16,
       fields: [
-        { name: 'warnings_bitmask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'warnings_bitmask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -279,9 +279,9 @@ network.mojom.CookieInclusionStatusSpec = {
       name: 'network.mojom.CookieInclusionStatus',
       packedSize: 32,
       fields: [
-        { name: 'exclusion_reasons', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ExclusionReasonsSpec, nullable: false },
-        { name: 'warning_reasons', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WarningReasonsSpec, nullable: false },
-        { name: 'exemption_reason', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookieExemptionReasonSpec, nullable: false },
+        { name: 'exclusion_reasons', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ExclusionReasonsSpec, nullable: false },
+        { name: 'warning_reasons', packedOffset: 16, packedBitOffset: 0, type: network.mojom.WarningReasonsSpec, nullable: false },
+        { name: 'exemption_reason', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CookieExemptionReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -295,9 +295,9 @@ network.mojom.CookieAndLineWithAccessResultSpec = {
       name: 'network.mojom.CookieAndLineWithAccessResult',
       packedSize: 32,
       fields: [
-        { name: 'cookie', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CanonicalCookieSpec, nullable: true },
-        { name: 'cookie_string', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'access_result', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookieAccessResultSpec, nullable: false },
+        { name: 'cookie', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CanonicalCookieSpec, nullable: true },
+        { name: 'cookie_string', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'access_result', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CookieAccessResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -311,8 +311,8 @@ network.mojom.CookieOrLineWithAccessResultSpec = {
       name: 'network.mojom.CookieOrLineWithAccessResult',
       packedSize: 24,
       fields: [
-        { name: 'cookie_or_line', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CookieOrLineSpec, nullable: false },
-        { name: 'access_result', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieAccessResultSpec, nullable: false },
+        { name: 'cookie_or_line', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieOrLineSpec, nullable: false },
+        { name: 'access_result', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookieAccessResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -326,11 +326,11 @@ network.mojom.CookieAccessResultSpec = {
       name: 'network.mojom.CookieAccessResult',
       packedSize: 48,
       fields: [
-        { name: 'effective_same_site', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CookieEffectiveSameSiteSpec, nullable: false },
-        { name: 'access_semantics', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieAccessSemanticsSpec, nullable: false },
-        { name: 'scope_semantics', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookieScopeSemanticsSpec, nullable: false },
-        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CookieInclusionStatusSpec, nullable: false },
-        { name: 'is_allowed_to_access_secure_cookies', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'effective_same_site', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieEffectiveSameSiteSpec, nullable: false },
+        { name: 'access_semantics', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookieAccessSemanticsSpec, nullable: false },
+        { name: 'scope_semantics', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CookieScopeSemanticsSpec, nullable: false },
+        { name: 'status', packedOffset: 32, packedBitOffset: 0, type: network.mojom.CookieInclusionStatusSpec, nullable: false },
+        { name: 'is_allowed_to_access_secure_cookies', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -344,8 +344,8 @@ network.mojom.CookieWithAccessResultSpec = {
       name: 'network.mojom.CookieWithAccessResult',
       packedSize: 24,
       fields: [
-        { name: 'cookie', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CanonicalCookieSpec, nullable: false },
-        { name: 'access_result', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieAccessResultSpec, nullable: false },
+        { name: 'cookie', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CanonicalCookieSpec, nullable: false },
+        { name: 'access_result', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookieAccessResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -359,9 +359,9 @@ network.mojom.CookieChangeInfoSpec = {
       name: 'network.mojom.CookieChangeInfo',
       packedSize: 32,
       fields: [
-        { name: 'cookie', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CanonicalCookieSpec, nullable: false },
-        { name: 'access_result', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieAccessResultSpec, nullable: false },
-        { name: 'cause', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookieChangeCauseSpec, nullable: false },
+        { name: 'cookie', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CanonicalCookieSpec, nullable: false },
+        { name: 'access_result', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookieAccessResultSpec, nullable: false },
+        { name: 'cause', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CookieChangeCauseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -375,16 +375,16 @@ network.mojom.CookieDeletionFilterSpec = {
       name: 'network.mojom.CookieDeletionFilter',
       packedSize: 88,
       fields: [
-        { name: 'created_after_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
-        { name: 'created_before_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
-        { name: 'excluding_domains', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'including_domains', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'cookie_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'host_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'session_control', packedOffset: 56, packedBitOffset: 0, type: network.mojom.CookieDeletionSessionControlSpec, nullable: false },
-        { name: 'cookie_partition_key_collection', packedOffset: 64, packedBitOffset: 0, type: network.mojom.CookiePartitionKeyCollectionSpec, nullable: true },
-        { name: 'partitioned_state_only', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'created_after_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'created_before_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'excluding_domains', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'including_domains', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'cookie_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'host_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 56, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'session_control', packedOffset: 64, packedBitOffset: 0, type: network.mojom.CookieDeletionSessionControlSpec, nullable: false },
+        { name: 'cookie_partition_key_collection', packedOffset: 72, packedBitOffset: 0, type: network.mojom.CookiePartitionKeyCollectionSpec, nullable: true },
+        { name: 'partitioned_state_only', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -454,7 +454,7 @@ network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec = {
       name: 'network.mojom.CookieChangeListener.OnCookieChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'change', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CookieChangeInfoSpec, nullable: false },
+        { name: 'change', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieChangeInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -703,7 +703,7 @@ network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec = {
       name: 'network.mojom.CookieManager.GetAllCookies_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'cookies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'cookies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -729,8 +729,8 @@ network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec 
       name: 'network.mojom.CookieManager.GetAllCookiesWithAccessSemantics_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'cookies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'access_semantics_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'cookies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'access_semantics_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -744,9 +744,9 @@ network.mojom.CookieManager_GetCookieList_ParamsSpec = {
       name: 'network.mojom.CookieManager.GetCookieList_Params',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'cookie_options', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieOptionsSpec, nullable: false },
-        { name: 'cookie_partition_key_collection', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookiePartitionKeyCollectionSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'cookie_options', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookieOptionsSpec, nullable: false },
+        { name: 'cookie_partition_key_collection', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CookiePartitionKeyCollectionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -759,8 +759,8 @@ network.mojom.CookieManager_GetCookieList_ResponseParamsSpec = {
       name: 'network.mojom.CookieManager.GetCookieList_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'cookies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'excluded_cookies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'cookies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'excluded_cookies', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -774,9 +774,9 @@ network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec = {
       name: 'network.mojom.CookieManager.SetCanonicalCookie_Params',
       packedSize: 32,
       fields: [
-        { name: 'cookie', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CanonicalCookieSpec, nullable: false },
-        { name: 'source_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'cookie_options', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookieOptionsSpec, nullable: false },
+        { name: 'cookie', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CanonicalCookieSpec, nullable: false },
+        { name: 'source_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'cookie_options', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CookieOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -789,7 +789,7 @@ network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec = {
       name: 'network.mojom.CookieManager.SetCanonicalCookie_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'access_result', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CookieAccessResultSpec, nullable: false },
+        { name: 'access_result', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieAccessResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -803,7 +803,7 @@ network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec = {
       name: 'network.mojom.CookieManager.DeleteCanonicalCookie_Params',
       packedSize: 16,
       fields: [
-        { name: 'cookie', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CanonicalCookieSpec, nullable: false },
+        { name: 'cookie', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CanonicalCookieSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -816,7 +816,7 @@ network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec = {
       name: 'network.mojom.CookieManager.DeleteCanonicalCookie_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -830,7 +830,7 @@ network.mojom.CookieManager_DeleteCookies_ParamsSpec = {
       name: 'network.mojom.CookieManager.DeleteCookies_Params',
       packedSize: 16,
       fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CookieDeletionFilterSpec, nullable: false },
+        { name: 'filter', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieDeletionFilterSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -843,7 +843,7 @@ network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec = {
       name: 'network.mojom.CookieManager.DeleteCookies_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'num_deleted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'num_deleted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -869,7 +869,7 @@ network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec = {
       name: 'network.mojom.CookieManager.DeleteSessionOnlyCookies_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'num_deleted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'num_deleted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -895,7 +895,7 @@ network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec = {
       name: 'network.mojom.CookieManager.DeleteStaleSessionOnlyCookies_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'num_deleted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'num_deleted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -909,9 +909,9 @@ network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec = {
       name: 'network.mojom.CookieManager.AddCookieChangeListener_Params',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -925,7 +925,7 @@ network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec = {
       name: 'network.mojom.CookieManager.AddGlobalChangeListener_Params',
       packedSize: 16,
       fields: [
-        { name: 'notification_pointer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'notification_pointer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -939,7 +939,7 @@ network.mojom.CookieManager_CloneInterface_ParamsSpec = {
       name: 'network.mojom.CookieManager.CloneInterface_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_interface', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'new_interface', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -966,7 +966,7 @@ network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec = {
       name: 'network.mojom.CookieManager.AllowFileSchemeCookies_Params',
       packedSize: 16,
       fields: [
-        { name: 'allow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -979,7 +979,7 @@ network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec = {
       name: 'network.mojom.CookieManager.AllowFileSchemeCookies_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -993,8 +993,8 @@ network.mojom.CookieManager_SetContentSettings_ParamsSpec = {
       name: 'network.mojom.CookieManager.SetContentSettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'content_settings_type', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsTypeSpec, nullable: false },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'content_settings_type', packedOffset: 8, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsTypeSpec, nullable: false },
+        { name: 'settings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1021,7 +1021,7 @@ network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec = {
       name: 'network.mojom.CookieManager.BlockThirdPartyCookies_Params',
       packedSize: 16,
       fields: [
-        { name: 'block', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'block', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1035,7 +1035,7 @@ network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec = {
       name: 'network.mojom.CookieManager.SetMitigationsEnabledFor3pcd_Params',
       packedSize: 16,
       fields: [
-        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1049,7 +1049,7 @@ network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec = {
       name: 'network.mojom.CookieManager.SetTrackingProtectionEnabledFor3pcd_Params',
       packedSize: 16,
       fields: [
-        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1063,7 +1063,7 @@ network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec = {
       name: 'network.mojom.CookieManager.SetPreCommitCallbackDelayForTesting_Params',
       packedSize: 16,
       fields: [
-        { name: 'delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'delay', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

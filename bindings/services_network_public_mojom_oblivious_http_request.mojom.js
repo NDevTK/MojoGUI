@@ -16,8 +16,8 @@ network.mojom.ObliviousHttpRequestBodySpec = {
       name: 'network.mojom.ObliviousHttpRequestBody',
       packedSize: 24,
       fields: [
-        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
-        { name: 'content_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'content', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -31,9 +31,9 @@ network.mojom.ObliviousHttpResponseSpec = {
       name: 'network.mojom.ObliviousHttpResponse',
       packedSize: 32,
       fields: [
-        { name: 'response_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false },
-        { name: 'response_body', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'response_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false },
+        { name: 'response_body', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -47,9 +47,9 @@ network.mojom.ObliviousHttpPaddingParametersSpec = {
       name: 'network.mojom.ObliviousHttpPaddingParameters',
       packedSize: 32,
       fields: [
-        { name: 'add_exponential_pad', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'exponential_mean', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'pad_to_next_power_of_two', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'add_exponential_pad', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'exponential_mean', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'pad_to_next_power_of_two', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,15 +63,15 @@ network.mojom.ObliviousHttpRequestSpec = {
       name: 'network.mojom.ObliviousHttpRequest',
       packedSize: 80,
       fields: [
-        { name: 'relay_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
-        { name: 'timeout_duration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
-        { name: 'key_config', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'resource_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'method', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'request_body', packedOffset: 48, packedBitOffset: 0, type: network.mojom.ObliviousHttpRequestBodySpec, nullable: true },
-        { name: 'trust_token_params', packedOffset: 56, packedBitOffset: 0, type: network.mojom.TrustTokenParamsSpec, nullable: true },
-        { name: 'padding_params', packedOffset: 64, packedBitOffset: 0, type: network.mojom.ObliviousHttpPaddingParametersSpec, nullable: true },
+        { name: 'relay_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'traffic_annotation', packedOffset: 16, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
+        { name: 'timeout_duration', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'key_config', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'resource_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'method', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'request_body', packedOffset: 56, packedBitOffset: 0, type: network.mojom.ObliviousHttpRequestBodySpec, nullable: true },
+        { name: 'trust_token_params', packedOffset: 64, packedBitOffset: 0, type: network.mojom.TrustTokenParamsSpec, nullable: true },
+        { name: 'padding_params', packedOffset: 72, packedBitOffset: 0, type: network.mojom.ObliviousHttpPaddingParametersSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -141,7 +141,7 @@ network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = {
       name: 'network.mojom.ObliviousHttpClient.OnCompleted_Params',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ObliviousHttpCompletionResultSpec, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ObliviousHttpCompletionResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

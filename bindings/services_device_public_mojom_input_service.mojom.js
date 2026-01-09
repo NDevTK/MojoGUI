@@ -31,18 +31,18 @@ device.mojom.InputDeviceInfoSpec = {
       name: 'device.mojom.InputDeviceInfo',
       packedSize: 48,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'subsystem', packedOffset: 16, packedBitOffset: 0, type: device.mojom.InputDeviceSubsystemSpec, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: device.mojom.InputDeviceTypeSpec, nullable: false },
-        { name: 'is_accelerometer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_joystick', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_key', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_keyboard', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_mouse', packedOffset: 32, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_tablet', packedOffset: 32, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_touchpad', packedOffset: 32, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_touchscreen', packedOffset: 32, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'subsystem', packedOffset: 24, packedBitOffset: 0, type: device.mojom.InputDeviceSubsystemSpec, nullable: false },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: device.mojom.InputDeviceTypeSpec, nullable: false },
+        { name: 'is_accelerometer', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_joystick', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_key', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_keyboard', packedOffset: 40, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_mouse', packedOffset: 40, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_tablet', packedOffset: 40, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_touchpad', packedOffset: 40, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_touchscreen', packedOffset: 40, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +121,7 @@ device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec = {
       name: 'device.mojom.InputDeviceManagerClient.InputDeviceAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.InputDeviceInfoSpec, nullable: false },
+        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: device.mojom.InputDeviceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,7 +135,7 @@ device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec = {
       name: 'device.mojom.InputDeviceManagerClient.InputDeviceRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -219,7 +219,7 @@ device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec = {
       name: 'device.mojom.InputDeviceManager.GetDevicesAndSetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -232,7 +232,7 @@ device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec = {
       name: 'device.mojom.InputDeviceManager.GetDevicesAndSetClient_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -258,7 +258,7 @@ device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec = {
       name: 'device.mojom.InputDeviceManager.GetDevices_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

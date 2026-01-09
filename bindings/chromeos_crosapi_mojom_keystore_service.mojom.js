@@ -66,7 +66,7 @@ crosapi.mojom.KeystoreEcdsaParamsSpec = {
       name: 'crosapi.mojom.KeystoreEcdsaParams',
       packedSize: 16,
       fields: [
-        { name: 'named_curve', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'named_curve', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -80,8 +80,8 @@ crosapi.mojom.GetPublicKeySuccessResultSpec = {
       name: 'crosapi.mojom.GetPublicKeySuccessResult',
       packedSize: 24,
       fields: [
-        { name: 'public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'algorithm_properties', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.KeystoreAlgorithmSpec, nullable: false },
+        { name: 'public_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'algorithm_properties', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.KeystoreAlgorithmSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

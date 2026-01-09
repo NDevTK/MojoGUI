@@ -16,11 +16,11 @@ network.mojom.IfAddrMsgSpec = {
       name: 'network.mojom.IfAddrMsg',
       packedSize: 16,
       fields: [
-        { name: 'ifa_family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'ifa_prefixlen', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'ifa_flags', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'ifa_scope', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'ifa_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'ifa_family', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'ifa_prefixlen', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'ifa_flags', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'ifa_scope', packedOffset: 11, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'ifa_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -34,7 +34,7 @@ network.mojom.AddressMapSpec = {
       name: 'network.mojom.AddressMap',
       packedSize: 16,
       fields: [
-        { name: 'address_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'address_map', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -48,7 +48,7 @@ network.mojom.OnlineLinksSpec = {
       name: 'network.mojom.OnlineLinks',
       packedSize: 16,
       fields: [
-        { name: 'online_links', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'online_links', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -62,8 +62,8 @@ network.mojom.InitialAddressMapSpec = {
       name: 'network.mojom.InitialAddressMap',
       packedSize: 24,
       fields: [
-        { name: 'address_map', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressMapSpec, nullable: false },
-        { name: 'online_links', packedOffset: 8, packedBitOffset: 0, type: network.mojom.OnlineLinksSpec, nullable: false },
+        { name: 'address_map', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AddressMapSpec, nullable: false },
+        { name: 'online_links', packedOffset: 16, packedBitOffset: 0, type: network.mojom.OnlineLinksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -77,8 +77,8 @@ network.mojom.NetworkInterfaceChangeParamsSpec = {
       name: 'network.mojom.NetworkInterfaceChangeParams',
       packedSize: 24,
       fields: [
-        { name: 'address_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
-        { name: 'online_links', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'address_map', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'online_links', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,7 +148,7 @@ network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSp
       name: 'network.mojom.NetworkInterfaceChangeListener.OnNetworkInterfacesChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkInterfaceChangeParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: network.mojom.NetworkInterfaceChangeParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

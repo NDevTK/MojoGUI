@@ -22,7 +22,7 @@ blink.mojom.PerformanceMarkOrMeasureSpec = {
       name: 'blink.mojom.PerformanceMarkOrMeasure',
       packedSize: 16,
       fields: [
-        { name: 'kMark', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kMark', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

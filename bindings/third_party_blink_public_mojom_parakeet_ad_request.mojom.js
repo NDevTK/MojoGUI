@@ -24,12 +24,12 @@ blink.mojom.AdPropertiesSpec = {
       name: 'blink.mojom.AdProperties',
       packedSize: 56,
       fields: [
-        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'slot', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'lang', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'ad_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'bid_floor', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'height', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'slot', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'lang', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'ad_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'bid_floor', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -43,8 +43,8 @@ blink.mojom.AdGeolocationSpec = {
       name: 'blink.mojom.AdGeolocation',
       packedSize: 24,
       fields: [
-        { name: 'latitude', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'longitude', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'latitude', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'longitude', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -58,8 +58,8 @@ blink.mojom.AdTargetingSpec = {
       name: 'blink.mojom.AdTargeting',
       packedSize: 24,
       fields: [
-        { name: 'interests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'geolocation', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AdGeolocationSpec, nullable: true },
+        { name: 'interests', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'geolocation', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AdGeolocationSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -73,12 +73,12 @@ blink.mojom.AdRequestConfigSpec = {
       name: 'blink.mojom.AdRequestConfig',
       packedSize: 56,
       fields: [
-        { name: 'ad_request_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'ad_properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'publisher_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'targeting', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AdTargetingSpec, nullable: true },
-        { name: 'anonymized_proxied_signals', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'fallback_source', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'ad_request_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'ad_properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'publisher_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'targeting', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AdTargetingSpec, nullable: true },
+        { name: 'anonymized_proxied_signals', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'fallback_source', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

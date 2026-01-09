@@ -16,7 +16,7 @@ content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec = {
       name: 'content.mojom.DidCommitProvisionalLoadInterfaceParams',
       packedSize: 16,
       fields: [
-        { name: 'browser_interface_broker_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'browser_interface_broker_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

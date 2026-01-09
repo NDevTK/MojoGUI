@@ -72,8 +72,8 @@ blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec = 
       name: 'blink.mojom.ModelDownloadProgressObserver.OnDownloadProgressUpdate_Params',
       packedSize: 24,
       fields: [
-        { name: 'downloaded_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'total_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'downloaded_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'total_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

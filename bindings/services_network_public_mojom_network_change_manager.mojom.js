@@ -141,7 +141,7 @@ network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec = {
       name: 'network.mojom.NetworkChangeManagerClient.OnInitialConnectionType_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -155,7 +155,7 @@ network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec = {
       name: 'network.mojom.NetworkChangeManagerClient.OnNetworkChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,7 +248,7 @@ network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec = {
       name: 'network.mojom.NetworkChangeManager.RequestNotifications_Params',
       packedSize: 16,
       fields: [
-        { name: 'client_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -262,12 +262,12 @@ network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec = {
       name: 'network.mojom.NetworkChangeManager.OnNetworkChanged_Params',
       packedSize: 56,
       fields: [
-        { name: 'dns_changed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'ip_address_change_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressChangeTypeSpec, nullable: false },
-        { name: 'connection_type_changed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'new_connection_type', packedOffset: 24, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false },
-        { name: 'connection_subtype_changed', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'new_connection_subtype', packedOffset: 40, packedBitOffset: 0, type: network.mojom.ConnectionSubtypeSpec, nullable: false },
+        { name: 'dns_changed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ip_address_change_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressChangeTypeSpec, nullable: false },
+        { name: 'connection_type_changed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'new_connection_type', packedOffset: 32, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false },
+        { name: 'connection_subtype_changed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'new_connection_subtype', packedOffset: 48, packedBitOffset: 0, type: network.mojom.ConnectionSubtypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,7 +281,7 @@ network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec
       name: 'network.mojom.NetworkChangeManager.BindNetworkInterfaceChangeListener_Params',
       packedSize: 16,
       fields: [
-        { name: 'notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'notifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

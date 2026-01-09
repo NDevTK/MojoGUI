@@ -144,7 +144,7 @@ mirroring.mojom.SessionObserver_OnError_ParamsSpec = {
       name: 'mirroring.mojom.SessionObserver.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mirroring.mojom.SessionErrorSpec, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mirroring.mojom.SessionErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -184,7 +184,7 @@ mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec = {
       name: 'mirroring.mojom.SessionObserver.LogInfoMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -198,7 +198,7 @@ mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec = {
       name: 'mirroring.mojom.SessionObserver.LogErrorMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -225,7 +225,7 @@ mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec = {
       name: 'mirroring.mojom.SessionObserver.OnRemotingStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_remoting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_remoting', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

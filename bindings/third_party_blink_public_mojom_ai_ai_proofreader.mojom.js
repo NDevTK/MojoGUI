@@ -16,10 +16,10 @@ blink.mojom.AIProofreaderCreateOptionsSpec = {
       name: 'blink.mojom.AIProofreaderCreateOptions',
       packedSize: 32,
       fields: [
-        { name: 'include_correction_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'include_correction_explanations', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'correction_explanation_language', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AILanguageCodeSpec, nullable: false },
-        { name: 'expected_input_languages', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'include_correction_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'include_correction_explanations', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'correction_explanation_language', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AILanguageCodeSpec, nullable: false },
+        { name: 'expected_input_languages', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -98,8 +98,8 @@ blink.mojom.AIProofreader_Proofread_ParamsSpec = {
       name: 'blink.mojom.AIProofreader.Proofread_Params',
       packedSize: 24,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'pending_responder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'pending_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,10 +113,10 @@ blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec = {
       name: 'blink.mojom.AIProofreader.GetCorrectionType_Params',
       packedSize: 40,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'corrected_input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'correction_instruction', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'pending_responder', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'corrected_input', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'correction_instruction', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'pending_responder', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

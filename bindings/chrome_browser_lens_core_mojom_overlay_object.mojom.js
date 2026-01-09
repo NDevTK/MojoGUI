@@ -16,8 +16,8 @@ lens.mojom.OverlayObjectSpec = {
       name: 'lens.mojom.OverlayObject',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'geometry', packedOffset: 8, packedBitOffset: 0, type: lens.mojom.GeometrySpec, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'geometry', packedOffset: 16, packedBitOffset: 0, type: lens.mojom.GeometrySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

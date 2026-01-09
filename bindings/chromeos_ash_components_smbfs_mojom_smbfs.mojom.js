@@ -44,9 +44,9 @@ smbfs.mojom.PasswordSpec = {
       name: 'smbfs.mojom.Password',
       packedSize: 24,
       fields: [
-        { name: 'kMaxLength', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
-        { name: 'length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'kMaxLength', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fd', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
+        { name: 'length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -60,7 +60,7 @@ smbfs.mojom.KerberosConfigSpec = {
       name: 'smbfs.mojom.KerberosConfig',
       packedSize: 16,
       fields: [
-        { name: 'kActiveDirectory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kActiveDirectory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -74,9 +74,9 @@ smbfs.mojom.CredentialStorageOptionsSpec = {
       name: 'smbfs.mojom.CredentialStorageOptions',
       packedSize: 32,
       fields: [
-        { name: 'kMinSaltLength', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'account_hash', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'salt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'kMinSaltLength', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'account_hash', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'salt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -90,14 +90,14 @@ smbfs.mojom.MountOptionsSpec = {
       name: 'smbfs.mojom.MountOptions',
       packedSize: 64,
       fields: [
-        { name: 'share_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'resolved_host', packedOffset: 8, packedBitOffset: 0, type: smbfs.mojom.IPAddressSpec, nullable: true },
-        { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'workgroup', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'password', packedOffset: 32, packedBitOffset: 0, type: smbfs.mojom.PasswordSpec, nullable: true },
-        { name: 'kerberos_config', packedOffset: 40, packedBitOffset: 0, type: smbfs.mojom.KerberosConfigSpec, nullable: true },
-        { name: 'allow_ntlm', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'skip_connect', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'share_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'resolved_host', packedOffset: 16, packedBitOffset: 0, type: smbfs.mojom.IPAddressSpec, nullable: true },
+        { name: 'username', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'workgroup', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'password', packedOffset: 40, packedBitOffset: 0, type: smbfs.mojom.PasswordSpec, nullable: true },
+        { name: 'kerberos_config', packedOffset: 48, packedBitOffset: 0, type: smbfs.mojom.KerberosConfigSpec, nullable: true },
+        { name: 'allow_ntlm', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'skip_connect', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -111,9 +111,9 @@ smbfs.mojom.CredentialsSpec = {
       name: 'smbfs.mojom.Credentials',
       packedSize: 32,
       fields: [
-        { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'workgroup', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'password', packedOffset: 16, packedBitOffset: 0, type: smbfs.mojom.PasswordSpec, nullable: true },
+        { name: 'username', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'workgroup', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'password', packedOffset: 24, packedBitOffset: 0, type: smbfs.mojom.PasswordSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -183,8 +183,8 @@ smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec = {
       name: 'smbfs.mojom.SmbFsBootstrap.MountShare_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.MountOptionsSpec, nullable: false },
-        { name: 'delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: smbfs.mojom.MountOptionsSpec, nullable: false },
+        { name: 'delegate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,8 +197,8 @@ smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = {
       name: 'smbfs.mojom.SmbFsBootstrap.MountShare_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.MountErrorSpec, nullable: false },
-        { name: 'smbfs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: smbfs.mojom.MountErrorSpec, nullable: false },
+        { name: 'smbfs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -294,7 +294,7 @@ smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec = {
       name: 'smbfs.mojom.SmbFs.RemoveSavedCredentials_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -308,7 +308,7 @@ smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = {
       name: 'smbfs.mojom.SmbFs.DeleteRecursively_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.FilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: smbfs.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -321,7 +321,7 @@ smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec = {
       name: 'smbfs.mojom.SmbFs.DeleteRecursively_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.DeleteRecursivelyErrorSpec, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: smbfs.mojom.DeleteRecursivelyErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -408,7 +408,7 @@ smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = {
       name: 'smbfs.mojom.SmbFsDelegate.RequestCredentials_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.CredentialsSpec, nullable: true },
+        { name: 'credentials', packedOffset: 8, packedBitOffset: 0, type: smbfs.mojom.CredentialsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

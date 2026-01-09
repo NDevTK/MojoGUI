@@ -16,8 +16,8 @@ blink.mojom.EditorBoundsInfoSpec = {
       name: 'blink.mojom.EditorBoundsInfo',
       packedSize: 24,
       fields: [
-        { name: 'editor_bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
-        { name: 'handwriting_bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
+        { name: 'editor_bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
+        { name: 'handwriting_bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -31,7 +31,7 @@ blink.mojom.TextAppearanceInfoSpec = {
       name: 'blink.mojom.TextAppearanceInfo',
       packedSize: 16,
       fields: [
-        { name: 'text_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'text_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -45,12 +45,12 @@ blink.mojom.InputCursorAnchorInfoSpec = {
       name: 'blink.mojom.InputCursorAnchorInfo',
       packedSize: 56,
       fields: [
-        { name: 'character_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'editor_bounds_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.EditorBoundsInfoSpec, nullable: false },
-        { name: 'text_appearance_info', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TextAppearanceInfoSpec, nullable: false },
-        { name: 'visible_line_bounds', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'insertion_marker', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true },
-        { name: 'requested', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'character_bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'editor_bounds_info', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.EditorBoundsInfoSpec, nullable: false },
+        { name: 'text_appearance_info', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.TextAppearanceInfoSpec, nullable: false },
+        { name: 'visible_line_bounds', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'insertion_marker', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true },
+        { name: 'requested', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -120,7 +120,7 @@ blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec = {
       name: 'blink.mojom.ImeRenderWidgetHost.UpdateCursorAnchorInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'cursor_anchor_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InputCursorAnchorInfoSpec, nullable: false },
+        { name: 'cursor_anchor_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.InputCursorAnchorInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

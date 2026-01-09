@@ -17,8 +17,8 @@ arc.keymint.mojom.ChapsKeyDataSpec = {
       name: 'arc.keymint.mojom.ChapsKeyData',
       packedSize: 24,
       fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -32,8 +32,8 @@ arc.keymint.mojom.ChromeOsKeySpec = {
       name: 'arc.keymint.mojom.ChromeOsKey',
       packedSize: 24,
       fields: [
-        { name: 'base64_subject_public_key_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: arc.keymint.mojom.KeyDataSpec, nullable: false },
+        { name: 'base64_subject_public_key_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key_data', packedOffset: 16, packedBitOffset: 0, type: arc.keymint.mojom.KeyDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

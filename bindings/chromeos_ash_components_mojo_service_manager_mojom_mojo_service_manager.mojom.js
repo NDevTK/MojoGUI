@@ -71,7 +71,7 @@ chromeos.mojo_service_manager.mojom.ServiceEventSpec = {
       name: 'chromeos.mojo_service_manager.mojom.ServiceEvent',
       packedSize: 16,
       fields: [
-        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnknown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

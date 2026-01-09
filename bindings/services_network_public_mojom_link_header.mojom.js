@@ -41,12 +41,12 @@ network.mojom.LinkHeaderSpec = {
       name: 'network.mojom.LinkHeader',
       packedSize: 56,
       fields: [
-        { name: 'href', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'rel', packedOffset: 8, packedBitOffset: 0, type: network.mojom.LinkRelAttributeSpec, nullable: false },
-        { name: 'as', packedOffset: 16, packedBitOffset: 0, type: network.mojom.LinkAsAttributeSpec, nullable: false },
-        { name: 'cross_origin', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CrossOriginAttributeSpec, nullable: false },
-        { name: 'fetch_priority', packedOffset: 32, packedBitOffset: 0, type: network.mojom.FetchPriorityAttributeSpec, nullable: false },
-        { name: 'mime_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'href', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'rel', packedOffset: 16, packedBitOffset: 0, type: network.mojom.LinkRelAttributeSpec, nullable: false },
+        { name: 'as', packedOffset: 24, packedBitOffset: 0, type: network.mojom.LinkAsAttributeSpec, nullable: false },
+        { name: 'cross_origin', packedOffset: 32, packedBitOffset: 0, type: network.mojom.CrossOriginAttributeSpec, nullable: false },
+        { name: 'fetch_priority', packedOffset: 40, packedBitOffset: 0, type: network.mojom.FetchPriorityAttributeSpec, nullable: false },
+        { name: 'mime_type', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
