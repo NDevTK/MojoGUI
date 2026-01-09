@@ -109,6 +109,7 @@ jobs:
                   'imports': [],
                   'interfaces': [],
                   'structs': [],
+                  'unions': [],
                   'enums': []
               }
 
@@ -198,6 +199,17 @@ jobs:
                   fields = parse_params(struct_body)
                   result['structs'].append({'name': struct_name, 'fields': fields})
 
+              # Extract unions
+              union_pattern = r'union\s+(\w+)\s*\{([^}]*)\}'
+              for match in re.finditer(union_pattern, content_no_comments, re.DOTALL):
+                  union_name = match.group(1)
+                  union_body = match.group(2)
+                  fields = parse_params(union_body)
+                  # Unions in Mojo have ordinals, often explicit. parse_params handles basic "Type Name".
+                  # We need to ensure ordinals are parsed if possible, or auto-assigned.
+                  # For now, simple parsing is enough as we reuse parse_params.
+                  result['unions'].append({'name': union_name, 'fields': fields})
+
               return result
 
           def parse_params(params_str):
@@ -236,11 +248,17 @@ jobs:
                   return None
               
               param_str = re.sub(r'//.*$', '', param_str, flags=re.MULTILINE).strip()
+              param_str = re.sub(r'\[.*?\]', '', param_str).strip() # Remove attributes
+              param_str = re.sub(r'@\d+', '', param_str).strip() # Remove explicit ordinals
               param_str = re.sub(r'=.*$', '', param_str).strip()
               param_str = param_str.rstrip(';').strip()
               
               if not param_str:
                   return None
+              
+              ordinal_match = re.search(r'@(\d+)', param_str)
+              ordinal = int(ordinal_match.group(1)) if ordinal_match else None
+              param_str = re.sub(r'@\d+', '', param_str).strip() # Remove explicit ordinals
               
               optional = '?' in param_str
               param_str = param_str.replace('?', '').strip()
@@ -258,7 +276,7 @@ jobs:
               if param_name and not re.match(r'^[a-zA-Z_][a-zA-Z0-9_]*$', param_name):
                   return None
               
-              return {'type': param_type, 'name': param_name, 'optional': optional}
+              return {'type': param_type, 'name': param_name, 'optional': optional, 'ordinal': ordinal}
 
           def to_camel_case(name):
               """Convert PascalCase to camelCase."""
@@ -297,7 +315,7 @@ jobs:
               return 'mojo.internal.Pointer'
 
 
-          def generate_js_binding(parsed):
+          def generate_js_binding(parsed, global_kind_map={}):
               """Generate JavaScript binding code that works with the Mojo runtime."""
               if not parsed or not parsed.get('module'):
                   return None
@@ -387,19 +405,27 @@ jobs:
                   
                   def get_size_weight(param):
                       p_type = resolve_mojo_type(param.get('type', 'string'))
+                      
+                      # Basic Types
                       if p_type == 'mojo.internal.Bool': return 0
-                      # Need to handle actual type refs which are Pointers (weight 8) or Enums (Int32, weight 4)
-                      # If it's a Spec reference (contains dot or Spec), it's a pointer to struct -> 8 bytes?
-                      # Or if it ends in Spec?
-                      # Structs are passed by pointer in MojoJS -> 8 bytes.
-                      # Enums are Int32 -> 4 bytes.
-                      # We need to distinguish Enums from Structs in resolve_mojo_type or here.
-                      # For now, if it resolves to a Spec string, assume Struct (8 bytes).
-                      if 'Spec' in p_type and 'Enum' not in p_type: return 8
                       if p_type in ('mojo.internal.Int8', 'mojo.internal.Uint8'): return 1
                       if p_type in ('mojo.internal.Int16', 'mojo.internal.Uint16'): return 2
                       if p_type in ('mojo.internal.Int32', 'mojo.internal.Uint32', 'mojo.internal.Float', 'mojo.internal.InterfaceRequest', 'mojo.internal.InterfaceProxy', 'mojo.internal.AssociatedInterfaceRequest', 'mojo.internal.AssociatedInterfaceProxy', 'mojo.internal.Handle'): return 4
-                      return 8 # Default 8
+                      if p_type in ('mojo.internal.Int64', 'mojo.internal.Uint64', 'mojo.internal.Double'): return 8
+                      if p_type.startswith('mojo.internal.'): return 8 # Array/Map/Pointer
+
+                      # Spec Types (Struct/Enum/Union)
+                      # Resolve to kind using Global Map
+                      spec_name = p_type.replace('Spec', '') # e.g. device.mojom.BatteryStatus
+                      kind = global_kind_map.get(spec_name)
+                      
+                      if kind == 'enum': return 4 # Enums are Int32
+                      if kind == 'union': return 16 # Unions are 16 bytes
+                      if kind == 'struct': return 8 # Struct Pointers
+                      
+                      # Fallback
+                      if 'Spec' in p_type and 'Enum' not in p_type: return 8
+                      return 8
 
                   # Sort: primary by size (desc), secondary by original index (stable)
                   # REVERTED: Mojo actually uses definition order (mostly) with alignment padding.
@@ -470,6 +496,29 @@ jobs:
                   for i, value in enumerate(enum['values']):
                       js_code += f"  {value}: {i},\n"
                   js_code += "};\n"
+
+              # Generate unions
+              for union in parsed.get('unions', []):
+                  union_name = union['name']
+                  full_name = f"{current_ns}.{union_name}"
+                  
+                  js_code += f"\n// Union: {union_name}\n"
+                  js_code += f"{full_name}Spec = {{ $: mojo.internal.Union(\n"
+                  js_code += f"    '{module}.{union_name}', {{\n"
+                  
+                  for i, field in enumerate(union['fields']):
+                      f_type = resolve_mojo_type(field['type'])
+                      f_ordinal = field.get('ordinal', i) # Fallback to index if no ordinal
+                      if f_ordinal is None: f_ordinal = i
+                      
+                      js_code += f"      '{field['name']}': {{\n"
+                      js_code += f"        'ordinal': {f_ordinal},\n"
+                      js_code += f"        'type': {f_type},\n"
+                      if field.get('optional') or '?' in field.get('type', ''):
+                          js_code += "        'nullable': true,\n"
+                      js_code += "      }},\n"
+                      
+                  js_code += "    })\n};\n"
 
               # Generate structs
               for struct in parsed.get('structs', []):
@@ -630,37 +679,56 @@ jobs:
                   'files': []
               }
               
-              for mojom_path in files:
-                  if not os.path.isfile(mojom_path):
-                      continue
-                  
-                  # Parse and generate bindings
-                  parsed = parse_mojom_file(mojom_path)
-                  if parsed and (parsed.get('interfaces') or parsed.get('structs') or parsed.get('enums')):
-                      rel_path = mojom_path.replace('chromium_src/', '')
-                      out_filename = rel_path.replace('/', '_').replace('.mojom', '.mojom.js')
-                      out_path = bindings_dir / out_filename
-                      
-                      js_code = generate_js_binding(parsed)
-                      if js_code:
-                          with open(out_path, 'w') as f:
-                              f.write(js_code)
-                          success_count += 1
-                          
-                          for interface in parsed['interfaces']:
-                              index_data['interfaces'].append({
-                                  'name': interface['name'],
-                                  'module': parsed['module'],
-                                  'file': out_filename,
-                                  'methods': [m['name'] for m in interface.get('methods', [])]
-                              })
-                          
-                          index_data['files'].append({
-                              'filename': out_filename,
-                              'source': rel_path,
-                              'module': parsed['module'],
-                              'imports': parsed.get('imports', [])
-                          })
+               # Pass 1: Parse all files and build Global Type Map
+               all_parsed = []
+               global_kind_map = {}
+               
+               for mojom_path in files:
+                   if not os.path.isfile(mojom_path):
+                       continue
+                   
+                   parsed = parse_mojom_file(mojom_path)
+                   if parsed:
+                       all_parsed.append({'path': mojom_path, 'data': parsed})
+                       
+                       # Populate Global Map
+                       mod_prefix = f"{parsed['module']}." if parsed.get('module') else ""
+                       for s in parsed.get('structs', []): global_kind_map[f"{mod_prefix}{s['name']}"] = 'struct'
+                       for u in parsed.get('unions', []): global_kind_map[f"{mod_prefix}{u['name']}"] = 'union'
+                       for e in parsed.get('enums', []): global_kind_map[f"{mod_prefix}{e['name']}"] = 'enum'
+               
+               print(f"Global Type Map detected {len(global_kind_map)} types.")
+
+               # Pass 2: Generate Bindings
+               for item in all_parsed:
+                   mojom_path = item['path']
+                   parsed = item['data']
+                   
+                   if parsed and (parsed.get('interfaces') or parsed.get('structs') or parsed.get('unions') or parsed.get('enums')):
+                       rel_path = mojom_path.replace('chromium_src/', '')
+                       out_filename = rel_path.replace('/', '_').replace('.mojom', '.mojom.js')
+                       out_path = bindings_dir / out_filename
+                       
+                       js_code = generate_js_binding(parsed, global_kind_map)
+                       if js_code:
+                           with open(out_path, 'w') as f:
+                               f.write(js_code)
+                           success_count += 1
+                           
+                           for interface in parsed['interfaces']:
+                               index_data['interfaces'].append({
+                                   'name': interface['name'],
+                                   'module': parsed['module'],
+                                   'file': out_filename,
+                                   'methods': [m['name'] for m in interface.get('methods', [])]
+                               })
+                           
+                           index_data['files'].append({
+                               'filename': out_filename,
+                               'source': rel_path,
+                               'module': parsed['module'],
+                               'imports': parsed.get('imports', [])
+                           })
               
               # Write index.json
               with open(bindings_dir / 'index.json', 'w') as f:
