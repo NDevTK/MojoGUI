@@ -209,6 +209,11 @@ printing.mojom.PrintRenderFramePtr = class {
     // Call: PrintRequestedPages()
   }
 
+  printWithParams(params) {
+    // Method: PrintWithParams
+    // Call: PrintWithParams(params)
+  }
+
   printForSystemDialog() {
     // Method: PrintForSystemDialog
     // Call: PrintForSystemDialog()

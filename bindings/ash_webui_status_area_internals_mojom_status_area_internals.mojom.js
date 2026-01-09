@@ -26,6 +26,66 @@ ash.mojom.status_area_internals.PageHandlerPtr = class {
     this.interfaceName = 'ash.mojom.status_area_internals.PageHandler';
   }
 
+  toggleImeTray(visible) {
+    // Method: ToggleImeTray
+    // Call: ToggleImeTray(visible)
+  }
+
+  togglePaletteTray(visible) {
+    // Method: TogglePaletteTray
+    // Call: TogglePaletteTray(visible)
+  }
+
+  toggleLogoutTray(visible) {
+    // Method: ToggleLogoutTray
+    // Call: ToggleLogoutTray(visible)
+  }
+
+  toggleVirtualKeyboardTray(visible) {
+    // Method: ToggleVirtualKeyboardTray
+    // Call: ToggleVirtualKeyboardTray(visible)
+  }
+
+  toggleDictationTray(visible) {
+    // Method: ToggleDictationTray
+    // Call: ToggleDictationTray(visible)
+  }
+
+  toggleVideoConferenceTray(visible) {
+    // Method: ToggleVideoConferenceTray
+    // Call: ToggleVideoConferenceTray(visible)
+  }
+
+  toggleAnnotationTray(visible) {
+    // Method: ToggleAnnotationTray
+    // Call: ToggleAnnotationTray(visible)
+  }
+
+  setIsInUserChildSession(in_child_session) {
+    // Method: SetIsInUserChildSession
+    // Call: SetIsInUserChildSession(in_child_session)
+  }
+
+  triggerPrivacyIndicators(app_id, app_name, is_camera_used, is_microphone_used) {
+    // Method: TriggerPrivacyIndicators
+    // Call: TriggerPrivacyIndicators(app_id, app_name, is_camera_used, is_microphone_used)
+  }
+
+  resetHmrConsentStatus() {
+    // Method: ResetHmrConsentStatus
+    // Call: ResetHmrConsentStatus()
+  }
+
+  setBatteryIcon(icon) {
+    // Method: SetBatteryIcon
+    // Call: SetBatteryIcon(icon)
+  }
+
+  setBatteryPercent(percent) {
+    // Method: SetBatteryPercent
+    // Call: SetBatteryPercent(percent)
+  }
+
 };
 
 ash.mojom.status_area_internals.PageHandlerRequest = class {

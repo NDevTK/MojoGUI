@@ -39,6 +39,14 @@ content.mojom.RendererHostPtr = class {
     // Call: SetPrivateMemoryFootprint(private_memory_footprint_bytes)
   }
 
+  hasGpuProcess() {
+    // Method: HasGpuProcess
+    return new Promise((resolve) => {
+      // Call: HasGpuProcess()
+      resolve({});
+    });
+  }
+
 };
 
 content.mojom.RendererHostRequest = class {

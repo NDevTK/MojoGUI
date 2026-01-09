@@ -31,6 +31,19 @@ content_settings.mojom.ContentSettingsManagerPtr = class {
     // Call: Clone(clone)
   }
 
+  allowStorageAccess(frame_token, storage_type, origin, site_for_cookies, top_frame_origin) {
+    // Method: AllowStorageAccess
+    return new Promise((resolve) => {
+      // Call: AllowStorageAccess(frame_token, storage_type, origin, site_for_cookies, top_frame_origin)
+      resolve({});
+    });
+  }
+
+  onContentBlocked(frame_token, type) {
+    // Method: OnContentBlocked
+    // Call: OnContentBlocked(frame_token, type)
+  }
+
 };
 
 content_settings.mojom.ContentSettingsManagerRequest = class {

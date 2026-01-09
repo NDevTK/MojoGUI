@@ -73,6 +73,26 @@ printing.mojom.PrintBackendServicePtr = class {
     // Call: Poke()
   }
 
+  enumeratePrinters() {
+    // Method: EnumeratePrinters
+    // Call: EnumeratePrinters()
+  }
+
+  getDefaultPrinterName() {
+    // Method: GetDefaultPrinterName
+    // Call: GetDefaultPrinterName()
+  }
+
+  getPrinterSemanticCapsAndDefaults(printer_name) {
+    // Method: GetPrinterSemanticCapsAndDefaults
+    // Call: GetPrinterSemanticCapsAndDefaults(printer_name)
+  }
+
+  fetchCapabilities(printer_name) {
+    // Method: FetchCapabilities
+    // Call: FetchCapabilities(printer_name)
+  }
+
   getPaperPrintableArea(printer_name, media) {
     // Method: GetPaperPrintableArea
     return new Promise((resolve) => {
@@ -84,6 +104,21 @@ printing.mojom.PrintBackendServicePtr = class {
   establishPrintingContext(context_id, parent_window_id) {
     // Method: EstablishPrintingContext
     // Call: EstablishPrintingContext(context_id, parent_window_id)
+  }
+
+  useDefaultSettings(context_id) {
+    // Method: UseDefaultSettings
+    // Call: UseDefaultSettings(context_id)
+  }
+
+  askUserForSettings(context_id, max_pages, has_selection, is_scripted) {
+    // Method: AskUserForSettings
+    // Call: AskUserForSettings(context_id, max_pages, has_selection, is_scripted)
+  }
+
+  updatePrintSettings(context_id, job_settings) {
+    // Method: UpdatePrintSettings
+    // Call: UpdatePrintSettings(context_id, job_settings)
   }
 
   startPrinting(context_id, document_cookie, document_name, settings) {

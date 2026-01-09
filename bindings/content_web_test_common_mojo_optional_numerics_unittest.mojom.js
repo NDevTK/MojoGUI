@@ -472,6 +472,214 @@ content.optional_numerics_unittest.mojom.ResponseParamsPtr = class {
     });
   }
 
+  getNullBoolMap() {
+    // Method: GetNullBoolMap
+    return new Promise((resolve) => {
+      // Call: GetNullBoolMap()
+      resolve({});
+    });
+  }
+
+  getNullInt32Map() {
+    // Method: GetNullInt32Map
+    return new Promise((resolve) => {
+      // Call: GetNullInt32Map()
+      resolve({});
+    });
+  }
+
+  getNullEnumMap() {
+    // Method: GetNullEnumMap
+    return new Promise((resolve) => {
+      // Call: GetNullEnumMap()
+      resolve({});
+    });
+  }
+
+  getOptionalBool(value) {
+    // Method: GetOptionalBool
+    return new Promise((resolve) => {
+      // Call: GetOptionalBool(value)
+      resolve({});
+    });
+  }
+
+  getOptionalUint8(value) {
+    // Method: GetOptionalUint8
+    return new Promise((resolve) => {
+      // Call: GetOptionalUint8(value)
+      resolve({});
+    });
+  }
+
+  getOptionalInt8(value) {
+    // Method: GetOptionalInt8
+    return new Promise((resolve) => {
+      // Call: GetOptionalInt8(value)
+      resolve({});
+    });
+  }
+
+  getOptionalUint16(value) {
+    // Method: GetOptionalUint16
+    return new Promise((resolve) => {
+      // Call: GetOptionalUint16(value)
+      resolve({});
+    });
+  }
+
+  getOptionalInt16(value) {
+    // Method: GetOptionalInt16
+    return new Promise((resolve) => {
+      // Call: GetOptionalInt16(value)
+      resolve({});
+    });
+  }
+
+  getOptionalUint32(value) {
+    // Method: GetOptionalUint32
+    return new Promise((resolve) => {
+      // Call: GetOptionalUint32(value)
+      resolve({});
+    });
+  }
+
+  getOptionalInt32(value) {
+    // Method: GetOptionalInt32
+    return new Promise((resolve) => {
+      // Call: GetOptionalInt32(value)
+      resolve({});
+    });
+  }
+
+  getOptionalUint64(value) {
+    // Method: GetOptionalUint64
+    return new Promise((resolve) => {
+      // Call: GetOptionalUint64(value)
+      resolve({});
+    });
+  }
+
+  getOptionalInt64(value) {
+    // Method: GetOptionalInt64
+    return new Promise((resolve) => {
+      // Call: GetOptionalInt64(value)
+      resolve({});
+    });
+  }
+
+  getOptionalFloat(value) {
+    // Method: GetOptionalFloat
+    return new Promise((resolve) => {
+      // Call: GetOptionalFloat(value)
+      resolve({});
+    });
+  }
+
+  getOptionalDouble(value) {
+    // Method: GetOptionalDouble
+    return new Promise((resolve) => {
+      // Call: GetOptionalDouble(value)
+      resolve({});
+    });
+  }
+
+  getOptionalEnum(value) {
+    // Method: GetOptionalEnum
+    return new Promise((resolve) => {
+      // Call: GetOptionalEnum(value)
+      resolve({});
+    });
+  }
+
+  getOptionalBools(value) {
+    // Method: GetOptionalBools
+    return new Promise((resolve) => {
+      // Call: GetOptionalBools(value)
+      resolve({});
+    });
+  }
+
+  getOptionalInt16s(value) {
+    // Method: GetOptionalInt16s
+    return new Promise((resolve) => {
+      // Call: GetOptionalInt16s(value)
+      resolve({});
+    });
+  }
+
+  getOptionalUint32s(value) {
+    // Method: GetOptionalUint32s
+    return new Promise((resolve) => {
+      // Call: GetOptionalUint32s(value)
+      resolve({});
+    });
+  }
+
+  getOptionalDoubles(value) {
+    // Method: GetOptionalDoubles
+    return new Promise((resolve) => {
+      // Call: GetOptionalDoubles(value)
+      resolve({});
+    });
+  }
+
+  getOptionalEnums(value) {
+    // Method: GetOptionalEnums
+    return new Promise((resolve) => {
+      // Call: GetOptionalEnums(value)
+      resolve({});
+    });
+  }
+
+  getOptionalBoolMap(key, value) {
+    // Method: GetOptionalBoolMap
+    return new Promise((resolve) => {
+      // Call: GetOptionalBoolMap(key, value)
+      resolve({});
+    });
+  }
+
+  getOptionalFloatMap(key, value) {
+    // Method: GetOptionalFloatMap
+    return new Promise((resolve) => {
+      // Call: GetOptionalFloatMap(key, value)
+      resolve({});
+    });
+  }
+
+  getOptionalEnumMap(key, value) {
+    // Method: GetOptionalEnumMap
+    return new Promise((resolve) => {
+      // Call: GetOptionalEnumMap(key, value)
+      resolve({});
+    });
+  }
+
+  getNullStructWithOptionalNumerics() {
+    // Method: GetNullStructWithOptionalNumerics
+    return new Promise((resolve) => {
+      // Call: GetNullStructWithOptionalNumerics()
+      resolve({});
+    });
+  }
+
+  getStructWithNullOptionalNumerics() {
+    // Method: GetStructWithNullOptionalNumerics
+    return new Promise((resolve) => {
+      // Call: GetStructWithNullOptionalNumerics()
+      resolve({});
+    });
+  }
+
+  getStructWithOptionalNumerics(bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value) {
+    // Method: GetStructWithOptionalNumerics
+    return new Promise((resolve) => {
+      // Call: GetStructWithOptionalNumerics(bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value)
+      resolve({});
+    });
+  }
+
 };
 
 content.optional_numerics_unittest.mojom.ResponseParamsRequest = class {

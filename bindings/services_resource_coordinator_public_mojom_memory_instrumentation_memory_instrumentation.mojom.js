@@ -254,6 +254,38 @@ memory_instrumentation.mojom.CoordinatorPtr = class {
     this.interfaceName = 'memory_instrumentation.mojom.Coordinator';
   }
 
+  requestGlobalMemoryDump(dump_type, level_of_detail, determinism, allocator_dump_names) {
+    // Method: RequestGlobalMemoryDump
+    return new Promise((resolve) => {
+      // Call: RequestGlobalMemoryDump(dump_type, level_of_detail, determinism, allocator_dump_names)
+      resolve({});
+    });
+  }
+
+  requestGlobalMemoryDumpForPid(pid, allocator_dump_names) {
+    // Method: RequestGlobalMemoryDumpForPid
+    return new Promise((resolve) => {
+      // Call: RequestGlobalMemoryDumpForPid(pid, allocator_dump_names)
+      resolve({});
+    });
+  }
+
+  requestPrivateMemoryFootprint(pid) {
+    // Method: RequestPrivateMemoryFootprint
+    return new Promise((resolve) => {
+      // Call: RequestPrivateMemoryFootprint(pid)
+      resolve({});
+    });
+  }
+
+  requestGlobalMemoryDumpAndAppendToTrace(dump_type, level_of_detail, determinism) {
+    // Method: RequestGlobalMemoryDumpAndAppendToTrace
+    return new Promise((resolve) => {
+      // Call: RequestGlobalMemoryDumpAndAppendToTrace(dump_type, level_of_detail, determinism)
+      resolve({});
+    });
+  }
+
 };
 
 memory_instrumentation.mojom.CoordinatorRequest = class {

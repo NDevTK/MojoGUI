@@ -76,6 +76,36 @@ ash.screens_login.mojom.ArcVmDataMigrationPagePtr = class {
     this.interfaceName = 'ash.screens_login.mojom.ArcVmDataMigrationPage';
   }
 
+  setUIState(state) {
+    // Method: SetUIState
+    // Call: SetUIState(state)
+  }
+
+  setRequiredFreeDiskSpace(required_space) {
+    // Method: SetRequiredFreeDiskSpace
+    // Call: SetRequiredFreeDiskSpace(required_space)
+  }
+
+  setMinimumBatteryPercent(percent) {
+    // Method: SetMinimumBatteryPercent
+    // Call: SetMinimumBatteryPercent(percent)
+  }
+
+  setBatteryState(enough, connected) {
+    // Method: SetBatteryState
+    // Call: SetBatteryState(enough, connected)
+  }
+
+  setMigrationProgress(progress) {
+    // Method: SetMigrationProgress
+    // Call: SetMigrationProgress(progress)
+  }
+
+  setEstimatedRemainingTime(remaining_time) {
+    // Method: SetEstimatedRemainingTime
+    // Call: SetEstimatedRemainingTime(remaining_time)
+  }
+
 };
 
 ash.screens_login.mojom.ArcVmDataMigrationPageRequest = class {
@@ -129,6 +159,36 @@ ash.screens_login.mojom.EncryptionMigrationPagePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.screens_login.mojom.EncryptionMigrationPage';
+  }
+
+  setUIState(state) {
+    // Method: SetUIState
+    // Call: SetUIState(state)
+  }
+
+  setMigrationProgress(progress) {
+    // Method: SetMigrationProgress
+    // Call: SetMigrationProgress(progress)
+  }
+
+  setIsResuming(is_resuming) {
+    // Method: SetIsResuming
+    // Call: SetIsResuming(is_resuming)
+  }
+
+  setBatteryState(percent, is_enough, is_charging) {
+    // Method: SetBatteryState
+    // Call: SetBatteryState(percent, is_enough, is_charging)
+  }
+
+  setNecessaryBatteryPercent(percent) {
+    // Method: SetNecessaryBatteryPercent
+    // Call: SetNecessaryBatteryPercent(percent)
+  }
+
+  setSpaceInfoInString(available_space, required_space) {
+    // Method: SetSpaceInfoInString
+    // Call: SetSpaceInfoInString(available_space, required_space)
   }
 
 };

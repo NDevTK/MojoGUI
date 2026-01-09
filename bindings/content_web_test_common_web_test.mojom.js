@@ -352,6 +352,21 @@ content.mojom.WebTestControlHostPtr = class {
     // Call: SetAcceptLanguages(accept_languages)
   }
 
+  setRegisterProtocolHandlerMode(mode) {
+    // Method: SetRegisterProtocolHandlerMode
+    // Call: SetRegisterProtocolHandlerMode(mode)
+  }
+
+  enableAutoResize(min_size, max_size) {
+    // Method: EnableAutoResize
+    // Call: EnableAutoResize(min_size, max_size)
+  }
+
+  disableAutoResize(new_size) {
+    // Method: DisableAutoResize
+    // Call: DisableAutoResize(new_size)
+  }
+
 };
 
 content.mojom.WebTestControlHostRequest = class {

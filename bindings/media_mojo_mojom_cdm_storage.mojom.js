@@ -26,6 +26,14 @@ media.mojom.CdmStoragePtr = class {
     this.interfaceName = 'media.mojom.CdmStorage';
   }
 
+  open(file_name) {
+    // Method: Open
+    return new Promise((resolve) => {
+      // Call: Open(file_name)
+      resolve({});
+    });
+  }
+
 };
 
 media.mojom.CdmStorageRequest = class {
@@ -39,6 +47,22 @@ media.mojom.CdmFilePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'media.mojom.CdmFile';
+  }
+
+  read() {
+    // Method: Read
+    return new Promise((resolve) => {
+      // Call: Read()
+      resolve({});
+    });
+  }
+
+  write(data) {
+    // Method: Write
+    return new Promise((resolve) => {
+      // Call: Write(data)
+      resolve({});
+    });
   }
 
 };

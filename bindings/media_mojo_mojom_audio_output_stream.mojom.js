@@ -59,6 +59,21 @@ media.mojom.AudioOutputStreamObserverPtr = class {
     this.interfaceName = 'media.mojom.AudioOutputStreamObserver';
   }
 
+  didStartPlaying() {
+    // Method: DidStartPlaying
+    // Call: DidStartPlaying()
+  }
+
+  didStopPlaying() {
+    // Method: DidStopPlaying
+    // Call: DidStopPlaying()
+  }
+
+  didChangeAudibleState(is_audible) {
+    // Method: DidChangeAudibleState
+    // Call: DidChangeAudibleState(is_audible)
+  }
+
 };
 
 media.mojom.AudioOutputStreamObserverRequest = class {

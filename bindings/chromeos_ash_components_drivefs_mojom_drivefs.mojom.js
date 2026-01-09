@@ -618,6 +618,83 @@ drivefs.mojom.DriveFsPtr = class {
     });
   }
 
+  cancelUploadByPath(path, cancel_mode) {
+    // Method: CancelUploadByPath
+    // Call: CancelUploadByPath(path, cancel_mode)
+  }
+
+  setDocsOfflineEnabled(enabled) {
+    // Method: SetDocsOfflineEnabled
+    return new Promise((resolve) => {
+      // Call: SetDocsOfflineEnabled(enabled)
+      resolve({});
+    });
+  }
+
+  getOfflineFilesSpaceUsage() {
+    // Method: GetOfflineFilesSpaceUsage
+    return new Promise((resolve) => {
+      // Call: GetOfflineFilesSpaceUsage()
+      resolve({});
+    });
+  }
+
+  clearOfflineFiles() {
+    // Method: ClearOfflineFiles
+    return new Promise((resolve) => {
+      // Call: ClearOfflineFiles()
+      resolve({});
+    });
+  }
+
+  immediatelyUpload(path) {
+    // Method: ImmediatelyUpload
+    return new Promise((resolve) => {
+      // Call: ImmediatelyUpload(path)
+      resolve({});
+    });
+  }
+
+  updateFromPairedDoc(path) {
+    // Method: UpdateFromPairedDoc
+    return new Promise((resolve) => {
+      // Call: UpdateFromPairedDoc(path)
+      resolve({});
+    });
+  }
+
+  getItemFromCloudStore(path) {
+    // Method: GetItemFromCloudStore
+    return new Promise((resolve) => {
+      // Call: GetItemFromCloudStore(path)
+      resolve({});
+    });
+  }
+
+  getDocsOfflineStats() {
+    // Method: GetDocsOfflineStats
+    return new Promise((resolve) => {
+      // Call: GetDocsOfflineStats()
+      resolve({});
+    });
+  }
+
+  getMirrorSyncStatusForFile(path) {
+    // Method: GetMirrorSyncStatusForFile
+    return new Promise((resolve) => {
+      // Call: GetMirrorSyncStatusForFile(path)
+      resolve({});
+    });
+  }
+
+  getMirrorSyncStatusForDirectory(path) {
+    // Method: GetMirrorSyncStatusForDirectory
+    return new Promise((resolve) => {
+      // Call: GetMirrorSyncStatusForDirectory(path)
+      resolve({});
+    });
+  }
+
 };
 
 drivefs.mojom.DriveFsRequest = class {
@@ -674,6 +751,78 @@ drivefs.mojom.DriveFsDelegatePtr = class {
   onTeamDrivesListReady(team_drive_ids) {
     // Method: OnTeamDrivesListReady
     // Call: OnTeamDrivesListReady(team_drive_ids)
+  }
+
+  onTeamDriveChanged(team_drive_id, change_type) {
+    // Method: OnTeamDriveChanged
+    // Call: OnTeamDriveChanged(team_drive_id, change_type)
+  }
+
+  onHeartbeat() {
+    // Method: OnHeartbeat
+    // Call: OnHeartbeat()
+  }
+
+  connectToExtension(params, port, host) {
+    // Method: ConnectToExtension
+    return new Promise((resolve) => {
+      // Call: ConnectToExtension(params, port, host)
+      resolve({});
+    });
+  }
+
+  displayConfirmDialog(reason) {
+    // Method: DisplayConfirmDialog
+    return new Promise((resolve) => {
+      // Call: DisplayConfirmDialog(reason)
+      resolve({});
+    });
+  }
+
+  executeHttpRequest(request, delegate) {
+    // Method: ExecuteHttpRequest
+    // Call: ExecuteHttpRequest(request, delegate)
+  }
+
+  getMachineRootID() {
+    // Method: GetMachineRootID
+    return new Promise((resolve) => {
+      // Call: GetMachineRootID()
+      resolve({});
+    });
+  }
+
+  persistMachineRootID(doc_id) {
+    // Method: PersistMachineRootID
+    // Call: PersistMachineRootID(doc_id)
+  }
+
+  onMirrorSyncingStatusUpdate(status) {
+    // Method: OnMirrorSyncingStatusUpdate
+    // Call: OnMirrorSyncingStatusUpdate(status)
+  }
+
+  onItemProgress(progress_event) {
+    // Method: OnItemProgress
+    // Call: OnItemProgress(progress_event)
+  }
+
+  getAccessTokenWithExpiry(client_id, app_id, scopes) {
+    // Method: GetAccessTokenWithExpiry
+    return new Promise((resolve) => {
+      // Call: GetAccessTokenWithExpiry(client_id, app_id, scopes)
+      resolve({});
+    });
+  }
+
+  onNotificationReceived(notification) {
+    // Method: OnNotificationReceived
+    // Call: OnNotificationReceived(notification)
+  }
+
+  onMirrorSyncError(error_list) {
+    // Method: OnMirrorSyncError
+    // Call: OnMirrorSyncError(error_list)
   }
 
 };

@@ -76,6 +76,11 @@ media.mojom.AudioInputStreamObserverPtr = class {
     this.interfaceName = 'media.mojom.AudioInputStreamObserver';
   }
 
+  didStartRecording() {
+    // Method: DidStartRecording
+    // Call: DidStartRecording()
+  }
+
 };
 
 media.mojom.AudioInputStreamObserverRequest = class {

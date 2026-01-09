@@ -171,6 +171,19 @@ blink.mojom.BackgroundFetchRegistrationServicePtr = class {
     });
   }
 
+  matchRequests(request_to_match, cache_query_options, match_all) {
+    // Method: MatchRequests
+    return new Promise((resolve) => {
+      // Call: MatchRequests(request_to_match, cache_query_options, match_all)
+      resolve({});
+    });
+  }
+
+  addRegistrationObserver(observer) {
+    // Method: AddRegistrationObserver
+    // Call: AddRegistrationObserver(observer)
+  }
+
 };
 
 blink.mojom.BackgroundFetchRegistrationServiceRequest = class {

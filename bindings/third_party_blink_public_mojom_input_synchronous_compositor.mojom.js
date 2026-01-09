@@ -58,6 +58,14 @@ blink.mojom.SynchronousCompositorPtr = class {
     });
   }
 
+  demandDrawSw(draw_params) {
+    // Method: DemandDrawSw
+    return new Promise((resolve) => {
+      // Call: DemandDrawSw(draw_params)
+      resolve({});
+    });
+  }
+
   willSkipDraw() {
     // Method: WillSkipDraw
     // Call: WillSkipDraw()
@@ -66,6 +74,14 @@ blink.mojom.SynchronousCompositorPtr = class {
   zeroSharedMemory() {
     // Method: ZeroSharedMemory
     // Call: ZeroSharedMemory()
+  }
+
+  zoomBy(delta, anchor) {
+    // Method: ZoomBy
+    return new Promise((resolve) => {
+      // Call: ZoomBy(delta, anchor)
+      resolve({});
+    });
   }
 
   setMemoryPolicy(bytes_limit) {

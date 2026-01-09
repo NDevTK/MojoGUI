@@ -76,6 +76,38 @@ pdf.mojom.PdfListenerPtr = class {
     // Call: SetSelectionBounds(base, extent)
   }
 
+  getPdfBytes(size_limit) {
+    // Method: GetPdfBytes
+    return new Promise((resolve) => {
+      // Call: GetPdfBytes(size_limit)
+      resolve({});
+    });
+  }
+
+  getPageText(page_index) {
+    // Method: GetPageText
+    return new Promise((resolve) => {
+      // Call: GetPageText(page_index)
+      resolve({});
+    });
+  }
+
+  getMostVisiblePageIndex() {
+    // Method: GetMostVisiblePageIndex
+    return new Promise((resolve) => {
+      // Call: GetMostVisiblePageIndex()
+      resolve({});
+    });
+  }
+
+  getSaveDataBufferHandlerForDrive(request_type) {
+    // Method: GetSaveDataBufferHandlerForDrive
+    return new Promise((resolve) => {
+      // Call: GetSaveDataBufferHandlerForDrive(request_type)
+      resolve({});
+    });
+  }
+
 };
 
 pdf.mojom.PdfListenerRequest = class {

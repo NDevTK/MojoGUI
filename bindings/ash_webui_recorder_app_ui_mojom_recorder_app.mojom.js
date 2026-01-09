@@ -109,6 +109,114 @@ ash.recorder_app.mojom.PageHandlerPtr = class {
     });
   }
 
+  formatModelInput(uuid, feature, fields) {
+    // Method: FormatModelInput
+    return new Promise((resolve) => {
+      // Call: FormatModelInput(uuid, feature, fields)
+      resolve({});
+    });
+  }
+
+  validateSafetyResult(safety_feature, text, safety_info) {
+    // Method: ValidateSafetyResult
+    return new Promise((resolve) => {
+      // Call: ValidateSafetyResult(safety_feature, text, safety_info)
+      resolve({});
+    });
+  }
+
+  addModelMonitor(model_id, monitor) {
+    // Method: AddModelMonitor
+    return new Promise((resolve) => {
+      // Call: AddModelMonitor(model_id, monitor)
+      resolve({});
+    });
+  }
+
+  getAvailableLangPacks() {
+    // Method: GetAvailableLangPacks
+    return new Promise((resolve) => {
+      // Call: GetAvailableLangPacks()
+      resolve({});
+    });
+  }
+
+  getDefaultLanguage() {
+    // Method: GetDefaultLanguage
+    return new Promise((resolve) => {
+      // Call: GetDefaultLanguage()
+      resolve({});
+    });
+  }
+
+  addSodaMonitor(language, monitor) {
+    // Method: AddSodaMonitor
+    return new Promise((resolve) => {
+      // Call: AddSodaMonitor(language, monitor)
+      resolve({});
+    });
+  }
+
+  installSoda(language) {
+    // Method: InstallSoda
+    // Call: InstallSoda(language)
+  }
+
+  loadSpeechRecognizer(language, soda_client, soda_recognizer) {
+    // Method: LoadSpeechRecognizer
+    return new Promise((resolve) => {
+      // Call: LoadSpeechRecognizer(language, soda_client, soda_recognizer)
+      resolve({});
+    });
+  }
+
+  openAiFeedbackDialog(description_template) {
+    // Method: OpenAiFeedbackDialog
+    // Call: OpenAiFeedbackDialog(description_template)
+  }
+
+  getMicrophoneInfo(source_id) {
+    // Method: GetMicrophoneInfo
+    return new Promise((resolve) => {
+      // Call: GetMicrophoneInfo(source_id)
+      resolve({});
+    });
+  }
+
+  addQuietModeMonitor(monitor) {
+    // Method: AddQuietModeMonitor
+    return new Promise((resolve) => {
+      // Call: AddQuietModeMonitor(monitor)
+      resolve({});
+    });
+  }
+
+  setQuietMode(quiet_mode) {
+    // Method: SetQuietMode
+    // Call: SetQuietMode(quiet_mode)
+  }
+
+  canUseSpeakerLabel() {
+    // Method: CanUseSpeakerLabel
+    return new Promise((resolve) => {
+      // Call: CanUseSpeakerLabel()
+      resolve({});
+    });
+  }
+
+  recordSpeakerLabelConsent(consent_given, consent_description_names, consent_confirmation_name) {
+    // Method: RecordSpeakerLabelConsent
+    // Call: RecordSpeakerLabelConsent(consent_given, consent_description_names, consent_confirmation_name)
+  }
+
+  canCaptureSystemAudioWithLoopback() {
+    // Method: CanCaptureSystemAudioWithLoopback
+    return new Promise((resolve) => {
+      // Call: CanCaptureSystemAudioWithLoopback()
+      resolve({});
+    });
+  }
+
 };
 
 ash.recorder_app.mojom.PageHandlerRequest = class {

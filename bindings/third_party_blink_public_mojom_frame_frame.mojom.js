@@ -463,6 +463,101 @@ blink.mojom.LocalFrameHostPtr = class {
     // Call: ReceivedDelegatedCapability(delegated_capability)
   }
 
+  sendFencedFrameReportingBeacon(event_data, event_type, destinations, cross_origin_exposed) {
+    // Method: SendFencedFrameReportingBeacon
+    // Call: SendFencedFrameReportingBeacon(event_data, event_type, destinations, cross_origin_exposed)
+  }
+
+  sendFencedFrameReportingBeaconToCustomURL(destination_url, cross_origin_exposed) {
+    // Method: SendFencedFrameReportingBeaconToCustomURL
+    // Call: SendFencedFrameReportingBeaconToCustomURL(destination_url, cross_origin_exposed)
+  }
+
+  disableUntrustedNetworkInFencedFrame() {
+    // Method: DisableUntrustedNetworkInFencedFrame
+    // Call: DisableUntrustedNetworkInFencedFrame()
+  }
+
+  exemptUrlFromNetworkRevocationForTesting(exempted_url) {
+    // Method: ExemptUrlFromNetworkRevocationForTesting
+    // Call: ExemptUrlFromNetworkRevocationForTesting(exempted_url)
+  }
+
+  sendLegacyTechEvent(type, code_location) {
+    // Method: SendLegacyTechEvent
+    // Call: SendLegacyTechEvent(type, code_location)
+  }
+
+  setFencedFrameAutomaticBeaconReportEventData(event_type, event_data, destinations, once, cross_origin_exposed) {
+    // Method: SetFencedFrameAutomaticBeaconReportEventData
+    // Call: SetFencedFrameAutomaticBeaconReportEventData(event_type, event_data, destinations, once, cross_origin_exposed)
+  }
+
+  sendPrivateAggregationRequestsForFencedFrameEvent(event_type) {
+    // Method: SendPrivateAggregationRequestsForFencedFrameEvent
+    // Call: SendPrivateAggregationRequestsForFencedFrameEvent(event_type)
+  }
+
+  createFencedFrame(fenced_frame, remote_frame_interfaces, frame_token, devtools_frame_token) {
+    // Method: CreateFencedFrame
+    // Call: CreateFencedFrame(fenced_frame, remote_frame_interfaces, frame_token, devtools_frame_token)
+  }
+
+  forwardFencedFrameEventAndUserActivationToEmbedder(event_type) {
+    // Method: ForwardFencedFrameEventAndUserActivationToEmbedder
+    // Call: ForwardFencedFrameEventAndUserActivationToEmbedder(event_type)
+  }
+
+  onViewTransitionOptInChanged(view_transition_opt_in) {
+    // Method: OnViewTransitionOptInChanged
+    // Call: OnViewTransitionOptInChanged(view_transition_opt_in)
+  }
+
+  startDragging(drag_data, operations_allowed, image, cursor_offset_in_dip, drag_obj_rect_in_dip, event_info) {
+    // Method: StartDragging
+    // Call: StartDragging(drag_data, operations_allowed, image, cursor_offset_in_dip, drag_obj_rect_in_dip, event_info)
+  }
+
+  issueKeepAliveHandle(receiver) {
+    // Method: IssueKeepAliveHandle
+    // Call: IssueKeepAliveHandle(receiver)
+  }
+
+  notifyStorageAccessed(storageType, blocked) {
+    // Method: NotifyStorageAccessed
+    // Call: NotifyStorageAccessed(storageType, blocked)
+  }
+
+  recordWindowProxyUsageMetrics(target_frame_token, access_type) {
+    // Method: RecordWindowProxyUsageMetrics
+    // Call: RecordWindowProxyUsageMetrics(target_frame_token, access_type)
+  }
+
+  notifyDocumentInteractive() {
+    // Method: NotifyDocumentInteractive
+    // Call: NotifyDocumentInteractive()
+  }
+
+  setStorageAccessApiStatus(status) {
+    // Method: SetStorageAccessApiStatus
+    // Call: SetStorageAccessApiStatus(status)
+  }
+
+  initializeCrashReportStorage(length) {
+    // Method: InitializeCrashReportStorage
+    // Call: InitializeCrashReportStorage(length)
+  }
+
+  setCrashReportStorageKey(key, value) {
+    // Method: SetCrashReportStorageKey
+    // Call: SetCrashReportStorageKey(key, value)
+  }
+
+  removeCrashReportStorageKey(key) {
+    // Method: RemoveCrashReportStorageKey
+    // Call: RemoveCrashReportStorageKey(key)
+  }
+
 };
 
 blink.mojom.LocalFrameHostRequest = class {

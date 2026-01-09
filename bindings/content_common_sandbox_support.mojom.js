@@ -53,6 +53,22 @@ content.mojom.SandboxSupportPtr = class {
     });
   }
 
+  localeString(lcid, defaults, type) {
+    // Method: LocaleString
+    return new Promise((resolve) => {
+      // Call: LocaleString(lcid, defaults, type)
+      resolve({});
+    });
+  }
+
+  localeStrings(lcid, defaults, collection) {
+    // Method: LocaleStrings
+    return new Promise((resolve) => {
+      // Call: LocaleStrings(lcid, defaults, collection)
+      resolve({});
+    });
+  }
+
 };
 
 content.mojom.SandboxSupportRequest = class {

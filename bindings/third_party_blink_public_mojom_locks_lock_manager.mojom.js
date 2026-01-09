@@ -76,6 +76,19 @@ blink.mojom.LockManagerPtr = class {
     this.interfaceName = 'blink.mojom.LockManager';
   }
 
+  requestLock(name, mode, wait, request) {
+    // Method: RequestLock
+    // Call: RequestLock(name, mode, wait, request)
+  }
+
+  queryState() {
+    // Method: QueryState
+    return new Promise((resolve) => {
+      // Call: QueryState()
+      resolve({});
+    });
+  }
+
 };
 
 blink.mojom.LockManagerRequest = class {

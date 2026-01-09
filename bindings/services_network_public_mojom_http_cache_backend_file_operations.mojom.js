@@ -38,6 +38,14 @@ network.mojom.FileEnumeratorPtr = class {
     this.interfaceName = 'network.mojom.FileEnumerator';
   }
 
+  getNext(num_entries) {
+    // Method: GetNext
+    return new Promise((resolve) => {
+      // Call: GetNext(num_entries)
+      resolve({});
+    });
+  }
+
 };
 
 network.mojom.FileEnumeratorRequest = class {
@@ -51,6 +59,62 @@ network.mojom.HttpCacheBackendFileOperationsPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'network.mojom.HttpCacheBackendFileOperations';
+  }
+
+  createDirectory(path) {
+    // Method: CreateDirectory
+    return new Promise((resolve) => {
+      // Call: CreateDirectory(path)
+      resolve({});
+    });
+  }
+
+  pathExists(path) {
+    // Method: PathExists
+    return new Promise((resolve) => {
+      // Call: PathExists(path)
+      resolve({});
+    });
+  }
+
+  directoryExists(path) {
+    // Method: DirectoryExists
+    return new Promise((resolve) => {
+      // Call: DirectoryExists(path)
+      resolve({});
+    });
+  }
+
+  openFile(path, flags) {
+    // Method: OpenFile
+    return new Promise((resolve) => {
+      // Call: OpenFile(path, flags)
+      resolve({});
+    });
+  }
+
+  deleteFile(path, mode) {
+    // Method: DeleteFile
+    return new Promise((resolve) => {
+      // Call: DeleteFile(path, mode)
+      resolve({});
+    });
+  }
+
+  renameFile(from_path, to_path) {
+    // Method: RenameFile
+    return new Promise((resolve) => {
+      // Call: RenameFile(from_path, to_path)
+      resolve({});
+    });
+  }
+
+  getFileInfo(path) {
+    // Method: GetFileInfo
+    return new Promise((resolve) => {
+      // Call: GetFileInfo(path)
+      resolve({});
+    });
   }
 
   enumerateFiles(path, receiver) {

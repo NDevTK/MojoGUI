@@ -34,6 +34,22 @@ media.mojom.OutputProtectionPtr = class {
     this.interfaceName = 'media.mojom.OutputProtection';
   }
 
+  queryStatus() {
+    // Method: QueryStatus
+    return new Promise((resolve) => {
+      // Call: QueryStatus()
+      resolve({});
+    });
+  }
+
+  enableProtection(desired_protection_mask) {
+    // Method: EnableProtection
+    return new Promise((resolve) => {
+      // Call: EnableProtection(desired_protection_mask)
+      resolve({});
+    });
+  }
+
 };
 
 media.mojom.OutputProtectionRequest = class {

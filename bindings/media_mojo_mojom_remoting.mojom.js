@@ -169,6 +169,16 @@ media.mojom.RemoteePtr = class {
     // Call: StartDataStreams(audio_stream, video_stream)
   }
 
+  onFlushUntil(audio_frame_count, video_frame_count) {
+    // Method: OnFlushUntil
+    // Call: OnFlushUntil(audio_frame_count, video_frame_count)
+  }
+
+  onVideoNaturalSizeChange(size) {
+    // Method: OnVideoNaturalSizeChange
+    // Call: OnVideoNaturalSizeChange(size)
+  }
+
 };
 
 media.mojom.RemoteeRequest = class {

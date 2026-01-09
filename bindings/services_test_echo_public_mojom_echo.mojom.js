@@ -52,6 +52,22 @@ echo.mojom.EchoServicePtr = class {
     // Call: DelayLoad()
   }
 
+  loadNativeLibrary(library, call_winmm_delayload) {
+    // Method: LoadNativeLibrary
+    return new Promise((resolve) => {
+      // Call: LoadNativeLibrary(library, call_winmm_delayload)
+      resolve({});
+    });
+  }
+
+  decryptEncrypt(encryptor, input) {
+    // Method: DecryptEncrypt
+    return new Promise((resolve) => {
+      // Call: DecryptEncrypt(encryptor, input)
+      resolve({});
+    });
+  }
+
 };
 
 echo.mojom.EchoServiceRequest = class {

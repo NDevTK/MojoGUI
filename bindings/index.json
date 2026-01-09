@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-09T02:34:35.095545Z",
+  "generated_at": "2026-01-09T02:40:12.950092Z",
   "interfaces": [
     {
       "name": "GpuChannel",
@@ -8,7 +8,17 @@
       "methods": [
         "CrashForTesting",
         "TerminateForTesting",
+        "GetChannelToken",
+        "Flush",
+        "GetSharedMemoryForFlushId",
+        "CreateCommandBuffer",
+        "DestroyCommandBuffer",
         "FlushDeferredRequests",
+        "CreateGpuMemoryBuffer",
+        "CreateDCOMPTexture",
+        "RegisterOverlayStateObserver",
+        "WaitForTokenInRange",
+        "WaitForGetOffsetInRange",
         "RegisterSysmemBufferCollection",
         "CopyToGpuMemoryBufferAsync",
         "CopyNativeGmbToSharedMemoryAsync"
@@ -104,7 +114,22 @@
       "file": "ash_webui_recorder_app_ui_mojom_recorder_app.mojom.js",
       "methods": [
         "GetModelInfo",
-        "LoadModel"
+        "LoadModel",
+        "FormatModelInput",
+        "ValidateSafetyResult",
+        "AddModelMonitor",
+        "GetAvailableLangPacks",
+        "GetDefaultLanguage",
+        "AddSodaMonitor",
+        "InstallSoda",
+        "LoadSpeechRecognizer",
+        "OpenAiFeedbackDialog",
+        "GetMicrophoneInfo",
+        "AddQuietModeMonitor",
+        "SetQuietMode",
+        "CanUseSpeakerLabel",
+        "RecordSpeakerLabelConsent",
+        "CanCaptureSystemAudioWithLoopback"
       ]
     },
     {
@@ -666,7 +691,9 @@
       "name": "WebUiSyslogEmitter",
       "module": "ash.common.mojom",
       "file": "ash_webui_common_mojom_webui_syslog_emitter.mojom.js",
-      "methods": []
+      "methods": [
+        "EmitSyslog"
+      ]
     },
     {
       "name": "AcceleratorFetcherObserver",
@@ -1296,7 +1323,20 @@
       "name": "PageHandler",
       "module": "ash.mojom.status_area_internals",
       "file": "ash_webui_status_area_internals_mojom_status_area_internals.mojom.js",
-      "methods": []
+      "methods": [
+        "ToggleImeTray",
+        "TogglePaletteTray",
+        "ToggleLogoutTray",
+        "ToggleVirtualKeyboardTray",
+        "ToggleDictationTray",
+        "ToggleVideoConferenceTray",
+        "ToggleAnnotationTray",
+        "SetIsInUserChildSession",
+        "TriggerPrivacyIndicators",
+        "ResetHmrConsentStatus",
+        "SetBatteryIcon",
+        "SetBatteryPercent"
+      ]
     },
     {
       "name": "PageHandler",
@@ -1916,7 +1956,8 @@
         "InitializeVideoDecoder",
         "DecryptAndDecodeAudio",
         "DecryptAndDecodeVideo",
-        "ResetDecoder"
+        "ResetDecoder",
+        "DeinitializeDecoder"
       ]
     },
     {
@@ -2060,13 +2101,18 @@
       "name": "CdmStorage",
       "module": "media.mojom",
       "file": "media_mojo_mojom_cdm_storage.mojom.js",
-      "methods": []
+      "methods": [
+        "Open"
+      ]
     },
     {
       "name": "CdmFile",
       "module": "media.mojom",
       "file": "media_mojo_mojom_cdm_storage.mojom.js",
-      "methods": []
+      "methods": [
+        "Read",
+        "Write"
+      ]
     },
     {
       "name": "SpeechRecognitionContext",
@@ -2361,7 +2407,9 @@
       "name": "AudioInputStreamObserver",
       "module": "media.mojom",
       "file": "media_mojo_mojom_audio_input_stream.mojom.js",
-      "methods": []
+      "methods": [
+        "DidStartRecording"
+      ]
     },
     {
       "name": "CastApplicationMediaInfoManager",
@@ -2434,7 +2482,11 @@
       "name": "AudioOutputStreamObserver",
       "module": "media.mojom",
       "file": "media_mojo_mojom_audio_output_stream.mojom.js",
-      "methods": []
+      "methods": [
+        "DidStartPlaying",
+        "DidStopPlaying",
+        "DidChangeAudibleState"
+      ]
     },
     {
       "name": "AudioOutputStreamProvider",
@@ -2541,7 +2593,9 @@
       "methods": [
         "OnRemotingSinkReady",
         "SendMessageToSource",
-        "StartDataStreams"
+        "StartDataStreams",
+        "OnFlushUntil",
+        "OnVideoNaturalSizeChange"
       ]
     },
     {
@@ -2639,7 +2693,10 @@
       "name": "OutputProtection",
       "module": "media.mojom",
       "file": "media_mojo_mojom_output_protection.mojom.js",
-      "methods": []
+      "methods": [
+        "QueryStatus",
+        "EnableProtection"
+      ]
     },
     {
       "name": "KeySystemSupportObserver",
@@ -3040,7 +3097,9 @@
       "name": "EventDispatcher",
       "module": "extensions.mojom",
       "file": "extensions_common_mojom_event_dispatcher.mojom.js",
-      "methods": []
+      "methods": [
+        "DispatchEvent"
+      ]
     },
     {
       "name": "RendererHost",
@@ -3537,7 +3596,10 @@
       "name": "TrackedPreferenceValidationDelegate",
       "module": "prefs.mojom",
       "file": "services_preferences_public_mojom_tracked_preference_validation_delegate.mojom.js",
-      "methods": []
+      "methods": [
+        "OnAtomicPreferenceValidation",
+        "OnSplitPreferenceValidation"
+      ]
     },
     {
       "name": "SingularUkmInterface",
@@ -3804,7 +3866,15 @@
       "name": "VideoSourceProvider",
       "module": "video_capture.mojom",
       "file": "services_video_capture_public_mojom_video_source_provider.mojom.js",
-      "methods": []
+      "methods": [
+        "GetSourceInfos",
+        "GetVideoSource",
+        "AddSharedMemoryVirtualDevice",
+        "AddTextureVirtualDevice",
+        "RegisterVirtualDevicesChangedObserver",
+        "RegisterDevicesChangedObserver",
+        "Close"
+      ]
     },
     {
       "name": "AcceleratorFactory",
@@ -4247,7 +4317,12 @@
       "name": "MdnsListenClient",
       "module": "network.mojom",
       "file": "services_network_public_mojom_host_resolver.mojom.js",
-      "methods": []
+      "methods": [
+        "OnAddressResult",
+        "OnTextResult",
+        "OnHostnameResult",
+        "OnUnhandledResult"
+      ]
     },
     {
       "name": "HostResolver",
@@ -4700,13 +4775,22 @@
       "name": "FileEnumerator",
       "module": "network.mojom",
       "file": "services_network_public_mojom_http_cache_backend_file_operations.mojom.js",
-      "methods": []
+      "methods": [
+        "GetNext"
+      ]
     },
     {
       "name": "HttpCacheBackendFileOperations",
       "module": "network.mojom",
       "file": "services_network_public_mojom_http_cache_backend_file_operations.mojom.js",
       "methods": [
+        "CreateDirectory",
+        "PathExists",
+        "DirectoryExists",
+        "OpenFile",
+        "DeleteFile",
+        "RenameFile",
+        "GetFileInfo",
         "EnumerateFiles",
         "CleanupDirectory"
       ]
@@ -4788,7 +4872,76 @@
         "ClearCorsPreflightCache",
         "ClearReportingCacheReports",
         "ClearReportingCacheClients",
-        "ClearNetworkErrorLogging"
+        "ClearNetworkErrorLogging",
+        "ClearDomainReliability",
+        "ClearSharedDictionaryCache",
+        "ClearSharedDictionaryCacheForIsolationKey",
+        "SetDocumentReportingEndpoints",
+        "SetEnterpriseReportingEndpoints",
+        "SendReportsAndRemoveSource",
+        "QueueReport",
+        "QueueEnterpriseReport",
+        "QueueSignedExchangeReport",
+        "CloseAllConnections",
+        "CloseIdleConnections",
+        "SetNetworkConditions",
+        "SetAcceptLanguage",
+        "SetEnableReferrers",
+        "SetCTPolicy",
+        "CreateUDPSocket",
+        "CreateRestrictedUDPSocket",
+        "CreateTCPServerSocket",
+        "CreateTCPConnectedSocket",
+        "CreateTCPBoundSocket",
+        "CreateProxyResolvingSocketFactory",
+        "LookUpProxyForURL",
+        "ForceReloadProxyConfig",
+        "ClearBadProxiesCache",
+        "CreateWebSocket",
+        "CreateWebTransport",
+        "CreateNetLogExporter",
+        "PreconnectSockets",
+        "CreateP2PSocketManager",
+        "CreateMdnsResponder",
+        "ResolveHost",
+        "CreateHostResolver",
+        "VerifyCert",
+        "VerifyCertForSignedExchange",
+        "Verify2QwacCertBinding",
+        "AddHSTS",
+        "IsHSTSActiveForHost",
+        "GetHSTSState",
+        "SetCorsOriginAccessListsForOrigin",
+        "DeleteDynamicDataForHost",
+        "SetSplitAuthCacheByNetworkAnonymizationKey",
+        "SaveHttpAuthCacheProxyEntries",
+        "LoadHttpAuthCacheProxyEntries",
+        "AddAuthCacheEntry",
+        "SetCorsNonWildcardRequestHeadersSupport",
+        "LookupProxyAuthCredentials",
+        "EnableStaticKeyPinningForTesting",
+        "VerifyCertificateForTesting",
+        "GetTrustAnchorIDsForTesting",
+        "AddDomainReliabilityContextForTesting",
+        "ForceDomainReliabilityUploadsForTesting",
+        "SetSCTAuditingMode",
+        "AddReportingApiObserver",
+        "GetSharedDictionaryUsageInfo",
+        "GetSharedDictionaryInfo",
+        "GetSharedDictionaryOriginsBetween",
+        "SetSharedDictionaryCacheMaxSize",
+        "PreloadSharedDictionaryInfoForDocument",
+        "HasPreloadedSharedDictionaryInfoForTesting",
+        "FlushCachedClientCertIfNeeded",
+        "FlushMatchingCachedClientCert",
+        "FlushClientCertCache",
+        "RevokeNetworkForNonces",
+        "ClearNonces",
+        "ExemptUrlFromNetworkRevocationForNonce",
+        "Prefetch",
+        "GetBoundNetworkForTesting",
+        "GetDeviceBoundSessionManager",
+        "AddQuicHints"
       ]
     },
     {
@@ -4822,9 +4975,11 @@
       "module": "network.mojom",
       "file": "services_network_public_mojom_restricted_cookie_manager.mojom.js",
       "methods": [
+        "GetAllForUrl",
         "SetCanonicalCookie",
         "AddChangeListener",
         "SetCookieFromString",
+        "GetCookiesString",
         "CookiesEnabledFor"
       ]
     },
@@ -4945,7 +5100,12 @@
       "name": "Coordinator",
       "module": "memory_instrumentation.mojom",
       "file": "services_resource_coordinator_public_mojom_memory_instrumentation_memory_instrumentation.mojom.js",
-      "methods": []
+      "methods": [
+        "RequestGlobalMemoryDump",
+        "RequestGlobalMemoryDumpForPid",
+        "RequestPrivateMemoryFootprint",
+        "RequestGlobalMemoryDumpAndAppendToTrace"
+      ]
     },
     {
       "name": "CoordinatorConnector",
@@ -4985,6 +5145,7 @@
       "file": "services_webnn_public_mojom_webnn_graph_builder.mojom.js",
       "methods": [
         "CreatePendingConstant",
+        "CreateGraph",
         "IsValidGraphForTesting"
       ]
     },
@@ -5013,6 +5174,7 @@
       "methods": [
         "ReadTensor",
         "WriteTensor",
+        "ExportTensor",
         "ImportTensor"
       ]
     },
@@ -5450,7 +5612,6 @@
       "module": "device.mojom",
       "file": "services_device_public_mojom_nfc.mojom.js",
       "methods": [
-        "SetClient",
         "SetClient",
         "Push",
         "CancelPush",
@@ -6156,7 +6317,9 @@
         "EchoStringToSharedMemory",
         "Quit",
         "Crash",
-        "DelayLoad"
+        "DelayLoad",
+        "LoadNativeLibrary",
+        "DecryptEncrypt"
       ]
     },
     {
@@ -6299,7 +6462,11 @@
       "methods": [
         "SetCaretPosition",
         "MoveRangeSelectionExtent",
-        "SetSelectionBounds"
+        "SetSelectionBounds",
+        "GetPdfBytes",
+        "GetPageText",
+        "GetMostVisiblePageIndex",
+        "GetSaveDataBufferHandlerForDrive"
       ]
     },
     {
@@ -6610,7 +6777,11 @@
         "SetDefaultVolumeLevel",
         "GetDefaultVolumeLevel",
         "ApplyDefaultVolume",
-        "SetWifiCredentials"
+        "SetWifiCredentials",
+        "GetAvailableWifiNetworks",
+        "GetConnectionStatus",
+        "AddVolumeChangeObserver",
+        "PersistLocalStorage"
       ]
     },
     {
@@ -7156,6 +7327,10 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_cache_storage_cache_storage.mojom.js",
       "methods": [
+        "Match",
+        "MatchAll",
+        "GetAllMatchedEntries",
+        "Keys",
         "Batch",
         "WriteSideData"
       ]
@@ -7167,7 +7342,9 @@
       "methods": [
         "Has",
         "Delete",
-        "Keys"
+        "Keys",
+        "Match",
+        "Open"
       ]
     },
     {
@@ -7750,6 +7927,9 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_remote_objects_remote_objects.mojom.js",
       "methods": [
+        "HasMethod",
+        "GetMethods",
+        "InvokeMethod",
         "NotifyReleasedObject"
       ]
     },
@@ -8007,7 +8187,18 @@
       "file": "third_party_blink_public_mojom_peerconnection_peer_connection_tracker.mojom.js",
       "methods": [
         "AddPeerConnection",
-        "RemovePeerConnection"
+        "RemovePeerConnection",
+        "UpdatePeerConnection",
+        "OnPeerConnectionSessionIdSet",
+        "GetUserMedia",
+        "GetUserMediaSuccess",
+        "GetUserMediaFailure",
+        "GetDisplayMedia",
+        "GetDisplayMediaSuccess",
+        "GetDisplayMediaFailure",
+        "WebRtcEventLogWrite",
+        "WebRtcDataChannelLogWrite",
+        "AddStandardStats"
       ]
     },
     {
@@ -8045,7 +8236,9 @@
       "name": "SharedWorkerFactory",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_worker_shared_worker_factory.mojom.js",
-      "methods": []
+      "methods": [
+        "CreateSharedWorker"
+      ]
     },
     {
       "name": "SharedWorkerClient",
@@ -8065,6 +8258,7 @@
       "file": "third_party_blink_public_mojom_worker_dedicated_worker_host_factory.mojom.js",
       "methods": [
         "OnWorkerHostCreated",
+        "OnScriptLoadStarted",
         "OnScriptLoadStartFailed"
       ]
     },
@@ -8398,7 +8592,11 @@
       "name": "ServiceWorkerRegistrationObject",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_service_worker_service_worker_registration.mojom.js",
-      "methods": []
+      "methods": [
+        "SetServiceWorkerObjects",
+        "SetUpdateViaCache",
+        "UpdateFound"
+      ]
     },
     {
       "name": "WebUsbService",
@@ -8427,6 +8625,7 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_notifications_notification_service.mojom.js",
       "methods": [
+        "GetPermissionStatus",
         "DisplayNonPersistentNotification",
         "CloseNonPersistentNotification",
         "DisplayPersistentNotification",
@@ -8451,7 +8650,9 @@
       "name": "BrowsingTopicsDocumentService",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_browsing_topics_browsing_topics.mojom.js",
-      "methods": []
+      "methods": [
+        "GetBrowsingTopics"
+      ]
     },
     {
       "name": "WebPrintJobStateObserver",
@@ -8813,6 +9014,7 @@
       "file": "third_party_blink_public_mojom_manifest_manifest_manager.mojom.js",
       "methods": [
         "RequestManifest",
+        "RequestManifestAndErrors",
         "RequestManifestDebugInfo",
         "ParseManifestFromString"
       ]
@@ -8988,7 +9190,9 @@
         "LeaveInterestGroupForDocument",
         "ClearOriginJoinedInterestGroups",
         "UpdateAdInterestGroups",
-        "DeprecatedGetURLFromURN"
+        "DeprecatedGetURLFromURN",
+        "DeprecatedReplaceInURN",
+        "GetInterestGroupAdAuctionData"
       ]
     },
     {
@@ -9028,7 +9232,9 @@
       "name": "V8DetailedMemoryReporter",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_performance_manager_v8_detailed_memory_reporter.mojom.js",
-      "methods": []
+      "methods": [
+        "GetV8MemoryUsage"
+      ]
     },
     {
       "name": "BackgroundFetchRegistrationObserver",
@@ -9057,7 +9263,9 @@
       "file": "third_party_blink_public_mojom_background_fetch_background_fetch.mojom.js",
       "methods": [
         "UpdateUI",
-        "Abort"
+        "Abort",
+        "MatchRequests",
+        "AddRegistrationObserver"
       ]
     },
     {
@@ -9486,7 +9694,26 @@
         "FrameSizeChanged",
         "DidInferColorScheme",
         "DidChangeSrcDoc",
-        "ReceivedDelegatedCapability"
+        "ReceivedDelegatedCapability",
+        "SendFencedFrameReportingBeacon",
+        "SendFencedFrameReportingBeaconToCustomURL",
+        "DisableUntrustedNetworkInFencedFrame",
+        "ExemptUrlFromNetworkRevocationForTesting",
+        "SendLegacyTechEvent",
+        "SetFencedFrameAutomaticBeaconReportEventData",
+        "SendPrivateAggregationRequestsForFencedFrameEvent",
+        "CreateFencedFrame",
+        "ForwardFencedFrameEventAndUserActivationToEmbedder",
+        "OnViewTransitionOptInChanged",
+        "StartDragging",
+        "IssueKeepAliveHandle",
+        "NotifyStorageAccessed",
+        "RecordWindowProxyUsageMetrics",
+        "NotifyDocumentInteractive",
+        "SetStorageAccessApiStatus",
+        "InitializeCrashReportStorage",
+        "SetCrashReportStorageKey",
+        "RemoveCrashReportStorageKey"
       ]
     },
     {
@@ -9701,7 +9928,10 @@
       "name": "LockManager",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_locks_lock_manager.mojom.js",
-      "methods": []
+      "methods": [
+        "RequestLock",
+        "QueryState"
+      ]
     },
     {
       "name": "AttributionHost",
@@ -9749,8 +9979,10 @@
         "DemandDrawHwAsync",
         "DemandDrawHw",
         "SetSharedMemory",
+        "DemandDrawSw",
         "WillSkipDraw",
         "ZeroSharedMemory",
+        "ZoomBy",
         "SetMemoryPolicy",
         "ReclaimResources",
         "OnCompositorFrameTransitionDirectiveProcessed",
@@ -9919,6 +10151,7 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_blob_blob_url_store.mojom.js",
       "methods": [
+        "Register",
         "Revoke",
         "ResolveAsURLLoaderFactory",
         "ResolveAsBlobURLToken"
@@ -9946,6 +10179,7 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_blob_blob_registry.mojom.js",
       "methods": [
+        "Register",
         "RegisterFromStream"
       ]
     },
@@ -9969,6 +10203,7 @@
         "ReadRange",
         "Load",
         "ReadSideData",
+        "CaptureSnapshot",
         "GetInternalUUID"
       ]
     },
@@ -9987,7 +10222,8 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_blob_file_backed_blob_factory.mojom.js",
       "methods": [
-        "RegisterBlob"
+        "RegisterBlob",
+        "RegisterBlobSync"
       ]
     },
     {
@@ -10693,7 +10929,9 @@
       "name": "SearchResultExtractor",
       "module": "continuous_search.mojom",
       "file": "components_continuous_search_common_public_mojom_continuous_search.mojom.js",
-      "methods": []
+      "methods": [
+        "ExtractCurrentSearchResults"
+      ]
     },
     {
       "name": "RssLinkReader",
@@ -10711,14 +10949,23 @@
         "MatchFamilyName",
         "OpenStream",
         "FallbackFontForCharacter",
-        "FontRenderStyleForStrike"
+        "FontRenderStyleForStrike",
+        "MatchFontByPostscriptNameOrFullFontName",
+        "ListFamilies",
+        "MatchFontWithFallback"
       ]
     },
     {
       "name": "PaintPreviewCompositor",
       "module": "paint_preview.mojom",
       "file": "components_services_paint_preview_compositor_public_mojom_paint_preview_compositor.mojom.js",
-      "methods": []
+      "methods": [
+        "BeginSeparatedFrameComposite",
+        "BitmapForSeparatedFrame",
+        "BeginMainFrameComposite",
+        "BitmapForMainFrame",
+        "SetRootFrameUrl"
+      ]
     },
     {
       "name": "PaintPreviewCompositorCollection",
@@ -11003,7 +11250,9 @@
       "name": "FileLock",
       "module": "storage.mojom",
       "file": "components_services_storage_public_mojom_filesystem_directory.mojom.js",
-      "methods": []
+      "methods": [
+        "Release"
+      ]
     },
     {
       "name": "Directory",
@@ -11075,7 +11324,20 @@
       "name": "PrintCompositor",
       "module": "printing.mojom",
       "file": "components_services_print_compositor_public_mojom_print_compositor.mojom.js",
-      "methods": []
+      "methods": [
+        "NotifyUnavailableSubframe",
+        "AddSubframeContent",
+        "SetAccessibilityTree",
+        "CompositePage",
+        "CompositeDocument",
+        "PrepareToCompositeDocument",
+        "FinishDocumentComposition",
+        "SetWebContentsURL",
+        "SetUserAgent",
+        "SetGenerateDocumentOutline",
+        "SetTitle",
+        "SetWatermarkBlock"
+      ]
     },
     {
       "name": "Quarantine",
@@ -11110,13 +11372,24 @@
       "name": "TabStripExperimentService",
       "module": "tabs_api.mojom",
       "file": "components_browser_apis_tab_strip_tab_strip_experiment_api.mojom.js",
-      "methods": []
+      "methods": [
+        "UpdateTabGroupVisual",
+        "ShowTabContextMenu"
+      ]
     },
     {
       "name": "TabStripService",
       "module": "tabs_api.mojom",
       "file": "components_browser_apis_tab_strip_tab_strip_api.mojom.js",
-      "methods": []
+      "methods": [
+        "GetTabs",
+        "GetTab",
+        "CreateTabAt",
+        "CloseTabs",
+        "ActivateTab",
+        "SetSelectedTabs",
+        "MoveNode"
+      ]
     },
     {
       "name": "TabsObserver",
@@ -11661,6 +11934,7 @@
       "file": "components_printing_common_print.mojom.js",
       "methods": [
         "PrintRequestedPages",
+        "PrintWithParams",
         "PrintForSystemDialog",
         "InitiatePrintPreview",
         "SetPrintPreviewUI",
@@ -11928,7 +12202,12 @@
       "module": "unexportable_keys.mojom",
       "file": "components_unexportable_keys_mojom_unexportable_key_service.mojom.js",
       "methods": [
-        "DeleteKey"
+        "GenerateSigningKey",
+        "FromWrappedSigningKey",
+        "Sign",
+        "GetAllSigningKeysForGarbageCollection",
+        "DeleteKey",
+        "DeleteAllKeys"
       ]
     },
     {
@@ -12167,7 +12446,9 @@
       "module": "content_settings.mojom",
       "file": "components_content_settings_common_content_settings_manager.mojom.js",
       "methods": [
-        "Clone"
+        "Clone",
+        "AllowStorageAccess",
+        "OnContentBlocked"
       ]
     },
     {
@@ -12336,6 +12617,7 @@
       "module": "paint_preview.mojom",
       "file": "components_paint_preview_common_mojom_paint_preview_recorder.mojom.js",
       "methods": [
+        "CapturePaintPreview",
         "GetGeometryMetadata"
       ]
     },
@@ -12770,6 +13052,8 @@
         "UpdateSkill",
         "GetSkill",
         "SubscribeToPinCandidates",
+        "CreateTask",
+        "PerformActions",
         "StopActorTask",
         "PauseActorTask",
         "ResumeActorTask",
@@ -13149,7 +13433,14 @@
       "name": "ArcVmDataMigrationPage",
       "module": "ash.screens_login.mojom",
       "file": "chrome_browser_ui_webui_ash_login_mojom_screens_login.mojom.js",
-      "methods": []
+      "methods": [
+        "SetUIState",
+        "SetRequiredFreeDiskSpace",
+        "SetMinimumBatteryPercent",
+        "SetBatteryState",
+        "SetMigrationProgress",
+        "SetEstimatedRemainingTime"
+      ]
     },
     {
       "name": "EncryptionMigrationPageHandler",
@@ -13167,7 +13458,14 @@
       "name": "EncryptionMigrationPage",
       "module": "ash.screens_login.mojom",
       "file": "chrome_browser_ui_webui_ash_login_mojom_screens_login.mojom.js",
-      "methods": []
+      "methods": [
+        "SetUIState",
+        "SetMigrationProgress",
+        "SetIsResuming",
+        "SetBatteryState",
+        "SetNecessaryBatteryPercent",
+        "SetSpaceInfoInString"
+      ]
     },
     {
       "name": "ConsumerUpdatePageHandler",
@@ -13184,7 +13482,13 @@
       "name": "ConsumerUpdatePage",
       "module": "ash.screens_oobe.mojom",
       "file": "chrome_browser_ui_webui_ash_login_mojom_screens_oobe.mojom.js",
-      "methods": []
+      "methods": [
+        "ShowSkipButton",
+        "SetLowBatteryWarningVisible",
+        "SetScreenStep",
+        "SetUpdateStatusMessage",
+        "SetAutoTransition"
+      ]
     },
     {
       "name": "PackagedLicensePageHandler",
@@ -13267,7 +13571,10 @@
       "name": "GaiaInfoPageHandler",
       "module": "ash.screens_common.mojom",
       "file": "chrome_browser_ui_webui_ash_login_mojom_screens_common.mojom.js",
-      "methods": []
+      "methods": [
+        "OnBackClicked",
+        "OnNextClicked"
+      ]
     },
     {
       "name": "GaiaInfoPage",
@@ -13281,7 +13588,11 @@
       "name": "GestureNavigationPageHandler",
       "module": "ash.screens_common.mojom",
       "file": "chrome_browser_ui_webui_ash_login_mojom_screens_common.mojom.js",
-      "methods": []
+      "methods": [
+        "OnPageChange",
+        "OnSkipClicked",
+        "OnExitClicked"
+      ]
     },
     {
       "name": "GeminiIntroPageHandler",
@@ -13347,7 +13658,8 @@
       "module": "ash.manage_mirrorsync.mojom",
       "file": "chrome_browser_ui_webui_ash_manage_mirrorsync_manage_mirrorsync.mojom.js",
       "methods": [
-        "GetChildFolders"
+        "GetChildFolders",
+        "GetSyncingPaths"
       ]
     },
     {
@@ -14139,7 +14451,13 @@
       "name": "PageHandler",
       "module": "search_engine_choice.mojom",
       "file": "chrome_browser_ui_webui_search_engine_choice_search_engine_choice.mojom.js",
-      "methods": []
+      "methods": [
+        "DisplayDialog",
+        "HandleSearchEngineChoiceSelected",
+        "HandleLearnMoreLinkClicked",
+        "HandleMoreButtonClicked",
+        "RecordScrollState"
+      ]
     },
     {
       "name": "MicrosoftAuthUntrustedDocument",
@@ -15367,6 +15685,7 @@
       "file": "chrome_browser_ui_webui_omnibox_omnibox_internals.mojom.js",
       "methods": [
         "SetClientPage",
+        "StartOmniboxQuery",
         "GetMlModelVersion",
         "StartMl"
       ]
@@ -15813,8 +16132,15 @@
       "methods": [
         "Init",
         "Poke",
+        "EnumeratePrinters",
+        "GetDefaultPrinterName",
+        "GetPrinterSemanticCapsAndDefaults",
+        "FetchCapabilities",
         "GetPaperPrintableArea",
         "EstablishPrintingContext",
+        "UseDefaultSettings",
+        "AskUserForSettings",
+        "UpdatePrintSettings",
         "StartPrinting",
         "RenderPrintedPage",
         "RenderPrintedDocument",
@@ -15835,7 +16161,12 @@
       "name": "PdfNupConverter",
       "module": "printing.mojom",
       "file": "chrome_services_printing_public_mojom_pdf_nup_converter.mojom.js",
-      "methods": []
+      "methods": [
+        "NupPageConvert",
+        "NupDocumentConvert",
+        "SetWebContentsURL",
+        "SetUseSkiaRendererPolicy"
+      ]
     },
     {
       "name": "PdfToEmfConverter",
@@ -15868,7 +16199,9 @@
       "name": "PrinterXmlParser",
       "module": "printing.mojom",
       "file": "chrome_services_printing_public_mojom_printer_xml_parser.mojom.js",
-      "methods": []
+      "methods": [
+        "ParseXmlForPrinterCapabilities"
+      ]
     },
     {
       "name": "PrintingService",
@@ -16713,13 +17046,26 @@
       "name": "XRTestHook",
       "module": "device_test.mojom",
       "file": "device_vr_public_mojom_test_browser_test_interfaces.mojom.js",
-      "methods": []
+      "methods": [
+        "OnFrameSubmitted",
+        "WaitGetDeviceConfig",
+        "WaitGetPresentingPose",
+        "WaitGetMagicWindowPose",
+        "WaitGetControllerRoleForTrackedDeviceIndex",
+        "WaitGetControllerData",
+        "WaitGetEventData",
+        "WaitGetCanCreateSession",
+        "WaitGetVisibilityMask"
+      ]
     },
     {
       "name": "XRServiceTestHook",
       "module": "device_test.mojom",
       "file": "device_vr_public_mojom_test_browser_test_interfaces.mojom.js",
-      "methods": []
+      "methods": [
+        "SetTestHook",
+        "TerminateDeviceServiceProcessForTesting"
+      ]
     },
     {
       "name": "VRService",
@@ -16730,7 +17076,8 @@
         "RequestSession",
         "SupportsSession",
         "ExitPresent",
-        "SetFramesThrottled"
+        "SetFramesThrottled",
+        "MakeXrCompatible"
       ]
     },
     {
@@ -19686,7 +20033,17 @@
         "PollHostedFilePinStates",
         "GetPooledQuotaUsage",
         "SetPinnedByStableId",
-        "GetMetadataByStableId"
+        "GetMetadataByStableId",
+        "CancelUploadByPath",
+        "SetDocsOfflineEnabled",
+        "GetOfflineFilesSpaceUsage",
+        "ClearOfflineFiles",
+        "ImmediatelyUpload",
+        "UpdateFromPairedDoc",
+        "GetItemFromCloudStore",
+        "GetDocsOfflineStats",
+        "GetMirrorSyncStatusForFile",
+        "GetMirrorSyncStatusForDirectory"
       ]
     },
     {
@@ -19701,7 +20058,19 @@
         "OnSyncingStatusUpdate",
         "OnFilesChanged",
         "OnError",
-        "OnTeamDrivesListReady"
+        "OnTeamDrivesListReady",
+        "OnTeamDriveChanged",
+        "OnHeartbeat",
+        "ConnectToExtension",
+        "DisplayConfirmDialog",
+        "ExecuteHttpRequest",
+        "GetMachineRootID",
+        "PersistMachineRootID",
+        "OnMirrorSyncingStatusUpdate",
+        "OnItemProgress",
+        "GetAccessTokenWithExpiry",
+        "OnNotificationReceived",
+        "OnMirrorSyncError"
       ]
     },
     {
@@ -21209,7 +21578,9 @@
       "methods": [
         "GetSystemColors",
         "LcidAndFirstDayOfWeek",
-        "DigitsAndSigns"
+        "DigitsAndSigns",
+        "LocaleString",
+        "LocaleStrings"
       ]
     },
     {
@@ -21225,7 +21596,10 @@
       "name": "RenderMessageFilter",
       "module": "content.mojom",
       "file": "content_common_render_message_filter.mojom.js",
-      "methods": []
+      "methods": [
+        "GenerateSingleFrameRoutingInfo",
+        "GenerateFrameRoutingInfos"
+      ]
     },
     {
       "name": "DomAutomationControllerHost",
@@ -21361,7 +21735,8 @@
         "GetBrowserHistogram",
         "SuddenTerminationAllowedChanged",
         "RecordUserMetricsAction",
-        "SetPrivateMemoryFootprint"
+        "SetPrivateMemoryFootprint",
+        "HasGpuProcess"
       ]
     },
     {
@@ -21462,6 +21837,7 @@
       "module": "content.mojom",
       "file": "content_common_frame.mojom.js",
       "methods": [
+        "CreateNewWindow",
         "CreateChildFrame",
         "DidCommitProvisionalLoad",
         "DidCommitSameDocumentNavigation",
@@ -21593,7 +21969,33 @@
         "GetNullInt16s",
         "GetNullUint32s",
         "GetNullDoubles",
-        "GetNullEnums"
+        "GetNullEnums",
+        "GetNullBoolMap",
+        "GetNullInt32Map",
+        "GetNullEnumMap",
+        "GetOptionalBool",
+        "GetOptionalUint8",
+        "GetOptionalInt8",
+        "GetOptionalUint16",
+        "GetOptionalInt16",
+        "GetOptionalUint32",
+        "GetOptionalInt32",
+        "GetOptionalUint64",
+        "GetOptionalInt64",
+        "GetOptionalFloat",
+        "GetOptionalDouble",
+        "GetOptionalEnum",
+        "GetOptionalBools",
+        "GetOptionalInt16s",
+        "GetOptionalUint32s",
+        "GetOptionalDoubles",
+        "GetOptionalEnums",
+        "GetOptionalBoolMap",
+        "GetOptionalFloatMap",
+        "GetOptionalEnumMap",
+        "GetNullStructWithOptionalNumerics",
+        "GetStructWithNullOptionalNumerics",
+        "GetStructWithOptionalNumerics"
       ]
     },
     {
@@ -21703,7 +22105,10 @@
         "WorkItemAdded",
         "RequestWorkItem",
         "WorkQueueStatesChanged",
-        "SetAcceptLanguages"
+        "SetAcceptLanguages",
+        "SetRegisterProtocolHandlerMode",
+        "EnableAutoResize",
+        "DisableAutoResize"
       ]
     },
     {

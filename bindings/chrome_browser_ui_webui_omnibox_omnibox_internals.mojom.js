@@ -60,6 +60,11 @@ mojom.OmniboxPageHandlerPtr = class {
     // Call: SetClientPage(page)
   }
 
+  startOmniboxQuery(input_string, reset_autocomplete_controller, cursor_position, zero_suggest, prevent_inline_autocomplete, prefer_keyword, current_url, page_classification) {
+    // Method: StartOmniboxQuery
+    // Call: StartOmniboxQuery(input_string, reset_autocomplete_controller, cursor_position, zero_suggest, prevent_inline_autocomplete, prefer_keyword, current_url, page_classification)
+  }
+
   getMlModelVersion() {
     // Method: GetMlModelVersion
     return new Promise((resolve) => {

@@ -51,6 +51,14 @@ blink.mojom.V8DetailedMemoryReporterPtr = class {
     this.interfaceName = 'blink.mojom.V8DetailedMemoryReporter';
   }
 
+  getV8MemoryUsage(mode) {
+    // Method: GetV8MemoryUsage
+    return new Promise((resolve) => {
+      // Call: GetV8MemoryUsage(mode)
+      resolve({});
+    });
+  }
+
 };
 
 blink.mojom.V8DetailedMemoryReporterRequest = class {

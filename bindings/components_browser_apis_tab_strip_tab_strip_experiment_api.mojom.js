@@ -16,6 +16,16 @@ tabs_api.mojom.TabStripExperimentServicePtr = class {
     this.interfaceName = 'tabs_api.mojom.TabStripExperimentService';
   }
 
+  updateTabGroupVisual(id, visual_data) {
+    // Method: UpdateTabGroupVisual
+    // Call: UpdateTabGroupVisual(id, visual_data)
+  }
+
+  showTabContextMenu(tab_id, location) {
+    // Method: ShowTabContextMenu
+    // Call: ShowTabContextMenu(tab_id, location)
+  }
+
 };
 
 tabs_api.mojom.TabStripExperimentServiceRequest = class {

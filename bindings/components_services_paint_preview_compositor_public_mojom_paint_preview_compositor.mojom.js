@@ -55,6 +55,43 @@ paint_preview.mojom.PaintPreviewCompositorPtr = class {
     this.interfaceName = 'paint_preview.mojom.PaintPreviewCompositor';
   }
 
+  beginSeparatedFrameComposite(request) {
+    // Method: BeginSeparatedFrameComposite
+    return new Promise((resolve) => {
+      // Call: BeginSeparatedFrameComposite(request)
+      resolve({});
+    });
+  }
+
+  bitmapForSeparatedFrame(frame_guid, clip_rect, scale_factor) {
+    // Method: BitmapForSeparatedFrame
+    return new Promise((resolve) => {
+      // Call: BitmapForSeparatedFrame(frame_guid, clip_rect, scale_factor)
+      resolve({});
+    });
+  }
+
+  beginMainFrameComposite(request) {
+    // Method: BeginMainFrameComposite
+    return new Promise((resolve) => {
+      // Call: BeginMainFrameComposite(request)
+      resolve({});
+    });
+  }
+
+  bitmapForMainFrame(clip_rect, scale_factor) {
+    // Method: BitmapForMainFrame
+    return new Promise((resolve) => {
+      // Call: BitmapForMainFrame(clip_rect, scale_factor)
+      resolve({});
+    });
+  }
+
+  setRootFrameUrl(url) {
+    // Method: SetRootFrameUrl
+    // Call: SetRootFrameUrl(url)
+  }
+
 };
 
 paint_preview.mojom.PaintPreviewCompositorRequest = class {

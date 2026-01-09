@@ -36,6 +36,11 @@ blink.mojom.BlobRegistryPtr = class {
     this.interfaceName = 'blink.mojom.BlobRegistry';
   }
 
+  register(blob, uuid, content_type, content_disposition, elements) {
+    // Method: Register
+    // Call: Register(blob, uuid, content_type, content_disposition, elements)
+  }
+
   registerFromStream(content_type, content_disposition, length_hint, data, progress_client) {
     // Method: RegisterFromStream
     return new Promise((resolve) => {

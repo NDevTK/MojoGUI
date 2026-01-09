@@ -287,6 +287,14 @@ content.mojom.FrameHostPtr = class {
     this.interfaceName = 'content.mojom.FrameHost';
   }
 
+  createNewWindow(params) {
+    // Method: CreateNewWindow
+    return new Promise((resolve) => {
+      // Call: CreateNewWindow(params)
+      resolve({});
+    });
+  }
+
   createChildFrame(child_frame_token, frame, browser_interface_broker, policy_container_bind_params, associated_interface_provider, scope, frame_name, frame_unique_name, is_created_by_script, frame_policy, frame_owner_properties, child_frame_owner_element_type, document_ukm_source_id) {
     // Method: CreateChildFrame
     // Call: CreateChildFrame(child_frame_token, frame, browser_interface_broker, policy_container_bind_params, associated_interface_provider, scope, frame_name, frame_unique_name, is_created_by_script, frame_policy, frame_owner_properties, child_frame_owner_element_type, document_ukm_source_id)
