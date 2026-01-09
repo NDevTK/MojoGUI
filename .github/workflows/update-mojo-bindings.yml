@@ -346,7 +346,7 @@ jobs:
               def get_struct_layout(params):
                   """Calculate field offsets and size with boolean bit packing."""
                   fields_code = []
-                  offset = 0
+                  offset = 8 # Start after 8-byte Struct Header
                   bit = 0
                   
                   # Filter valid params and assign weight
@@ -407,7 +407,7 @@ jobs:
                   if offset % 8 != 0:
                       offset += (8 - (offset % 8))
                   
-                  packed_size = 8 + offset  # Header (8 bytes) + payload
+                  packed_size = offset  # Total size including header
                   return fields_code, packed_size
 
               
