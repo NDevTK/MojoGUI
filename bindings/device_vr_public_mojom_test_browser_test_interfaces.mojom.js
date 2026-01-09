@@ -88,75 +88,6 @@ device_test.mojom.XRTestHookPtr = class {
     this.interfaceName = 'device_test.mojom.XRTestHook';
   }
 
-  onFrameSubmitted(frame_data) {
-    // Method: OnFrameSubmitted
-    // Call: OnFrameSubmitted(frame_data)
-  }
-
-  waitGetDeviceConfig() {
-    // Method: WaitGetDeviceConfig
-    return new Promise((resolve) => {
-      // Call: WaitGetDeviceConfig()
-      resolve({});
-    });
-  }
-
-  waitGetPresentingPose() {
-    // Method: WaitGetPresentingPose
-    return new Promise((resolve) => {
-      // Call: WaitGetPresentingPose()
-      resolve({});
-    });
-  }
-
-  waitGetMagicWindowPose() {
-    // Method: WaitGetMagicWindowPose
-    return new Promise((resolve) => {
-      // Call: WaitGetMagicWindowPose()
-      resolve({});
-    });
-  }
-
-  waitGetControllerRoleForTrackedDeviceIndex(index) {
-    // Method: WaitGetControllerRoleForTrackedDeviceIndex
-    return new Promise((resolve) => {
-      // Call: WaitGetControllerRoleForTrackedDeviceIndex(index)
-      resolve({});
-    });
-  }
-
-  waitGetControllerData(index) {
-    // Method: WaitGetControllerData
-    return new Promise((resolve) => {
-      // Call: WaitGetControllerData(index)
-      resolve({});
-    });
-  }
-
-  waitGetEventData() {
-    // Method: WaitGetEventData
-    return new Promise((resolve) => {
-      // Call: WaitGetEventData()
-      resolve({});
-    });
-  }
-
-  waitGetCanCreateSession() {
-    // Method: WaitGetCanCreateSession
-    return new Promise((resolve) => {
-      // Call: WaitGetCanCreateSession()
-      resolve({});
-    });
-  }
-
-  waitGetVisibilityMask(view_index) {
-    // Method: WaitGetVisibilityMask
-    return new Promise((resolve) => {
-      // Call: WaitGetVisibilityMask(view_index)
-      resolve({});
-    });
-  }
-
 };
 
 device_test.mojom.XRTestHookRequest = class {
@@ -170,26 +101,6 @@ device_test.mojom.XRServiceTestHookPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'device_test.mojom.XRServiceTestHook';
-  }
-
-  runtime(when) {
-    // Method: runtime
-    // Call: runtime(when)
-  }
-
-  setTestHook(hook) {
-    // Method: SetTestHook
-    // Call: SetTestHook(hook)
-  }
-
-  or(expectedly) {
-    // Method: or
-    // Call: or(expectedly)
-  }
-
-  terminateDeviceServiceProcessForTesting() {
-    // Method: TerminateDeviceServiceProcessForTesting
-    // Call: TerminateDeviceServiceProcessForTesting()
   }
 
 };

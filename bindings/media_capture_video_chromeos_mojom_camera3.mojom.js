@@ -196,49 +196,6 @@ cros.mojom.Camera3CallbackOpsPtr = class {
     this.interfaceName = 'cros.mojom.Camera3CallbackOps';
   }
 
-  processCaptureResult() {
-    // Method: ProcessCaptureResult
-    // Call: ProcessCaptureResult()
-  }
-
-  0(result) {
-    // Method: 0
-    // Call: 0(result)
-  }
-
-  notify() {
-    // Method: Notify
-    // Call: Notify()
-  }
-
-  1(msg) {
-    // Method: 1
-    // Call: 1(msg)
-  }
-
-  requestStreamBuffers() {
-    // Method: RequestStreamBuffers
-    // Call: RequestStreamBuffers()
-  }
-
-  2(buffer_reqs) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(buffer_reqs)
-      resolve({});
-    });
-  }
-
-  returnStreamBuffers() {
-    // Method: ReturnStreamBuffers
-    // Call: ReturnStreamBuffers()
-  }
-
-  3(buffers) {
-    // Method: 3
-    // Call: 3(buffers)
-  }
-
 };
 
 cros.mojom.Camera3CallbackOpsRequest = class {
@@ -252,81 +209,6 @@ cros.mojom.Camera3DeviceOpsPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'cros.mojom.Camera3DeviceOps';
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  0(callback_ops) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(callback_ops)
-      resolve({});
-    });
-  }
-
-  configureStreams() {
-    // Method: ConfigureStreams
-    // Call: ConfigureStreams()
-  }
-
-  1(config) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(config)
-      resolve({});
-    });
-  }
-
-  constructDefaultRequestSettings() {
-    // Method: ConstructDefaultRequestSettings
-    // Call: ConstructDefaultRequestSettings()
-  }
-
-  2(type) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(type)
-      resolve({});
-    });
-  }
-
-  processCaptureRequest() {
-    // Method: ProcessCaptureRequest
-    // Call: ProcessCaptureRequest()
-  }
-
-  3(request) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(request)
-      resolve({});
-    });
-  }
-
-  dump() {
-    // Method: Dump
-    // Call: Dump()
-  }
-
-  4(fd) {
-    // Method: 4
-    // Call: 4(fd)
-  }
-
-  flush() {
-    // Method: Flush
-    // Call: Flush()
-  }
-
-  5() {
-    // Method: 5
-    return new Promise((resolve) => {
-      // Call: 5()
-      resolve({});
-    });
   }
 
 };

@@ -21,26 +21,6 @@ storage.mojom.IndexedDBClientStateCheckerPtr = class {
     this.interfaceName = 'storage.mojom.IndexedDBClientStateChecker';
   }
 
-  events(the) {
-    // Method: events
-    // Call: events(the)
-  }
-
-  states(BFCache) {
-    // Method: states
-    // Call: states(BFCache)
-  }
-
-  state(BFCache) {
-    // Method: state
-    // Call: state(BFCache)
-  }
-
-  isInactiveAndDisallowActivation() {
-    // Method: IsInactiveAndDisallowActivation
-    // Call: IsInactiveAndDisallowActivation()
-  }
-
   disallowInactiveClient(connection_id, reason, keep_active) {
     // Method: DisallowInactiveClient
     return new Promise((resolve) => {

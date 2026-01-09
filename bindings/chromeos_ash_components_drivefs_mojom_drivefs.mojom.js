@@ -490,11 +490,6 @@ drivefs.mojom.DriveFsPtr = class {
     // Call: FetchAllChangeLogs()
   }
 
-  changelog() {
-    // Method: changelog
-    // Call: changelog()
-  }
-
   fetchChangeLog(options) {
     // Method: FetchChangeLog
     // Call: FetchChangeLog(options)
@@ -539,19 +534,9 @@ drivefs.mojom.DriveFsPtr = class {
     // Call: ForcePauseSyncing(enable)
   }
 
-  settings(flags) {
-    // Method: settings
-    // Call: settings(flags)
-  }
-
   dumpAccountSettings() {
     // Method: DumpAccountSettings
     // Call: DumpAccountSettings()
-  }
-
-  settings(flags) {
-    // Method: settings
-    // Call: settings(flags)
   }
 
   loadAccountSettings() {

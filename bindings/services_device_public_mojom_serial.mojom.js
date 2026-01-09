@@ -171,19 +171,9 @@ device.mojom.SerialPortPtr = class {
     this.interfaceName = 'device.mojom.SerialPort';
   }
 
-  open() {
-    // Method: Open
-    // Call: Open()
-  }
-
   startWriting(consumer) {
     // Method: StartWriting
     // Call: StartWriting(consumer)
-  }
-
-  open() {
-    // Method: Open
-    // Call: Open()
   }
 
   startReading(producer) {
@@ -196,19 +186,9 @@ device.mojom.SerialPortPtr = class {
     // Call: Flush(mode)
   }
 
-  startWriting() {
-    // Method: StartWriting
-    // Call: StartWriting()
-  }
-
   drain() {
     // Method: Drain
     // Call: Drain()
-  }
-
-  signals() {
-    // Method: signals
-    // Call: signals()
   }
 
   getControlSignals() {

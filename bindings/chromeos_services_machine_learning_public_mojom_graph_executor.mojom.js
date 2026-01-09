@@ -31,14 +31,6 @@ chromeos.machine_learning.mojom.GraphExecutorPtr = class {
     this.interfaceName = 'chromeos.machine_learning.mojom.GraphExecutor';
   }
 
-  0(inputs, output_names) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(inputs, output_names)
-      resolve({});
-    });
-  }
-
 };
 
 chromeos.machine_learning.mojom.GraphExecutorRequest = class {

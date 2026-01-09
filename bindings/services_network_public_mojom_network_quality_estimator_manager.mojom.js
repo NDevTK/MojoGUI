@@ -16,21 +16,6 @@ network.mojom.NetworkQualityEstimatorManagerClientPtr = class {
     this.interfaceName = 'network.mojom.NetworkQualityEstimatorManagerClient';
   }
 
-  events(change) {
-    // Method: events
-    // Call: events(change)
-  }
-
-  sent(after) {
-    // Method: sent
-    // Call: sent(after)
-  }
-
-  estimate() {
-    // Method: estimate
-    // Call: estimate()
-  }
-
   onNetworkQualityChanged(type, http_rtt, transport_rtt, downlink_bandwidth_kbps) {
     // Method: OnNetworkQualityChanged
     // Call: OnNetworkQualityChanged(type, http_rtt, transport_rtt, downlink_bandwidth_kbps)

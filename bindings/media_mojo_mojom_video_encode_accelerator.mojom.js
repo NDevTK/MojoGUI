@@ -203,11 +203,6 @@ media.mojom.VideoEncodeAcceleratorPtr = class {
     this.interfaceName = 'media.mojom.VideoEncodeAccelerator';
   }
 
-  requireBitstreamBuffers() {
-    // Method: RequireBitstreamBuffers
-    // Call: RequireBitstreamBuffers()
-  }
-
   initialize(config, client, media_log) {
     // Method: Initialize
     return new Promise((resolve) => {
@@ -229,11 +224,6 @@ media.mojom.VideoEncodeAcceleratorPtr = class {
   requestEncodingParametersChangeWithLayers(bitrate_allocation, framerate, size) {
     // Method: RequestEncodingParametersChangeWithLayers
     // Call: RequestEncodingParametersChangeWithLayers(bitrate_allocation, framerate, size)
-  }
-
-  mode(constant) {
-    // Method: mode
-    // Call: mode(constant)
   }
 
   requestEncodingParametersChangeWithBitrate(bitrate, framerate, size) {
@@ -270,11 +260,6 @@ media.mojom.VideoEncodeAcceleratorClientPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'media.mojom.VideoEncodeAcceleratorClient';
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
   }
 
   requireBitstreamBuffers(input_count, input_coded_size, output_buffer_size) {

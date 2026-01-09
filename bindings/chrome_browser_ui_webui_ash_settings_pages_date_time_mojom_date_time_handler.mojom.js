@@ -43,11 +43,6 @@ ash.settings.date_time.mojom.PageHandlerPtr = class {
     // Call: ShowParentAccessForTimezone()
   }
 
-  values(name) {
-    // Method: values
-    // Call: values(name)
-  }
-
   getTimezones() {
     // Method: GetTimezones
     return new Promise((resolve) => {

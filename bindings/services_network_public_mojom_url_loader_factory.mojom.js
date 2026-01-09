@@ -16,11 +16,6 @@ network.mojom.URLLoaderFactoryPtr = class {
     this.interfaceName = 'network.mojom.URLLoaderFactory';
   }
 
-  createLoaderAndStart() {
-    // Method: CreateLoaderAndStart
-    // Call: CreateLoaderAndStart()
-  }
-
   createLoaderAndStart(loader, request_id, options, request, client, traffic_annotation) {
     // Method: CreateLoaderAndStart
     // Call: CreateLoaderAndStart(loader, request_id, options, request, client, traffic_annotation)

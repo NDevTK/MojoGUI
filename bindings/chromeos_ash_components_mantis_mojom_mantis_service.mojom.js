@@ -28,11 +28,6 @@ mantis.mojom.PlatformModelProgressObserverPtr = class {
     this.interfaceName = 'mantis.mojom.PlatformModelProgressObserver';
   }
 
-  0(progress) {
-    // Method: 0
-    // Call: 0(progress)
-  }
-
 };
 
 mantis.mojom.PlatformModelProgressObserverRequest = class {
@@ -46,22 +41,6 @@ mantis.mojom.MantisServicePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'mantis.mojom.MantisService';
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
-  0(progress_observer, processor, dlc_uuid, text_classifier) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(progress_observer, processor, dlc_uuid, text_classifier)
-      resolve({});
-    });
   }
 
 };

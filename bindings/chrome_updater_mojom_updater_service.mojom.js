@@ -122,16 +122,6 @@ updater.mojom.StateChangeObserverPtr = class {
     this.interfaceName = 'updater.mojom.StateChangeObserver';
   }
 
-  0(state) {
-    // Method: 0
-    // Call: 0(state)
-  }
-
-  1(result) {
-    // Method: 1
-    // Call: 1(result)
-  }
-
 };
 
 updater.mojom.StateChangeObserverRequest = class {

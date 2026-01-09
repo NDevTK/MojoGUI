@@ -16,36 +16,6 @@ blink.mojom.SharedWorkerFactoryPtr = class {
     this.interfaceName = 'blink.mojom.SharedWorkerFactory';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  createSharedWorker(info, token) {
-    // Method: CreateSharedWorker
-    // Call: CreateSharedWorker(info, token)
-  }
-
-  canAccessSharedWorkers() {
-    // Method: CanAccessSharedWorkers
-    // Call: CanAccessSharedWorkers()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  sharedWorker() {
-    // Method: SharedWorker
-    // Call: SharedWorker()
-  }
-
-  http() {
-    // Method: http
-    // Call: http()
-  }
-
 };
 
 blink.mojom.SharedWorkerFactoryRequest = class {

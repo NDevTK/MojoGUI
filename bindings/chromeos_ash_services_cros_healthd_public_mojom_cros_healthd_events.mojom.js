@@ -276,36 +276,6 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPtr = class {
     this.interfaceName = 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
-  3() {
-    // Method: 3
-    // Call: 3()
-  }
-
-  4() {
-    // Method: 4
-    // Call: 4()
-  }
-
-  5() {
-    // Method: 5
-    // Call: 5()
-  }
-
 };
 
 ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRequest = class {
@@ -319,16 +289,6 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.cros_healthd.mojom.CrosHealthdLidObserver';
-  }
-
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
   }
 
 };
@@ -346,26 +306,6 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverPtr = class {
     this.interfaceName = 'ash.cros_healthd.mojom.CrosHealthdPowerObserver';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
-  3() {
-    // Method: 3
-    // Call: 3()
-  }
-
 };
 
 ash.cros_healthd.mojom.CrosHealthdPowerObserverRequest = class {
@@ -379,16 +319,6 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.cros_healthd.mojom.CrosHealthdAudioObserver';
-  }
-
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
   }
 
 };
@@ -406,26 +336,6 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPtr = class {
     this.interfaceName = 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
-  3() {
-    // Method: 3
-    // Call: 3()
-  }
-
 };
 
 ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRequest = class {
@@ -439,16 +349,6 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.cros_healthd.mojom.CrosHealthdUsbObserver';
-  }
-
-  0(info) {
-    // Method: 0
-    // Call: 0(info)
-  }
-
-  1(info) {
-    // Method: 1
-    // Call: 1(info)
   }
 
 };
@@ -466,16 +366,6 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverPtr = class {
     this.interfaceName = 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
 };
 
 ash.cros_healthd.mojom.CrosHealthdSdCardObserverRequest = class {
@@ -489,11 +379,6 @@ ash.cros_healthd.mojom.EventObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.cros_healthd.mojom.EventObserver';
-  }
-
-  0(info) {
-    // Method: 0
-    // Call: 0(info)
   }
 
 };

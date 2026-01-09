@@ -60,16 +60,6 @@ video_capture.mojom.DevicePtr = class {
     // Call: ProcessFeedback(feedback)
   }
 
-  pauses(capturer) {
-    // Method: pauses
-    // Call: pauses(capturer)
-  }
-
-  frame(indeterminate) {
-    // Method: frame
-    // Call: frame(indeterminate)
-  }
-
   requestRefreshFrame() {
     // Method: RequestRefreshFrame
     // Call: RequestRefreshFrame()

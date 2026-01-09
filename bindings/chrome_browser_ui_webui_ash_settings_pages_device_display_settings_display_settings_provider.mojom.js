@@ -97,11 +97,6 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverPtr = class {
     this.interfaceName = 'ash.settings.mojom.DisplayBrightnessSettingsObserver';
   }
 
-  sensor() {
-    // Method: Sensor
-    // Call: Sensor()
-  }
-
   onDisplayBrightnessChanged(brightness_percent, triggered_by_als) {
     // Method: OnDisplayBrightnessChanged
     // Call: OnDisplayBrightnessChanged(brightness_percent, triggered_by_als)
@@ -120,11 +115,6 @@ ash.settings.mojom.AmbientLightSensorObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.settings.mojom.AmbientLightSensorObserver';
-  }
-
-  disabled(will) {
-    // Method: disabled
-    // Call: disabled(will)
   }
 
   onAmbientLightSensorEnabledChanged(is_ambient_light_sensor_enabled) {

@@ -46,11 +46,6 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerPtr = class {
     // Call: AddObserver(observer)
   }
 
-  app(app_id) {
-    // Method: app
-    // Call: app(app_id)
-  }
-
   setNotificationPermission(app_id, permission) {
     // Method: SetNotificationPermission
     // Call: SetNotificationPermission(app_id, permission)
@@ -95,11 +90,6 @@ ash.settings.app_notification.mojom.AppNotificationsObserverPtr = class {
   onNotificationAppChanged(app) {
     // Method: OnNotificationAppChanged
     // Call: OnNotificationAppChanged(app)
-  }
-
-  doNotDisturb() {
-    // Method: DoNotDisturb
-    // Call: DoNotDisturb()
   }
 
   onQuietModeChanged(enabled) {

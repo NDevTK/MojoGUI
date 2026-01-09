@@ -30,11 +30,6 @@ drivefs.mojom.NativeMessagingPortPtr = class {
     this.interfaceName = 'drivefs.mojom.NativeMessagingPort';
   }
 
-  0(message) {
-    // Method: 0
-    // Call: 0(message)
-  }
-
 };
 
 drivefs.mojom.NativeMessagingPortRequest = class {
@@ -48,11 +43,6 @@ drivefs.mojom.NativeMessagingHostPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'drivefs.mojom.NativeMessagingHost';
-  }
-
-  0(message) {
-    // Method: 0
-    // Call: 0(message)
   }
 
 };

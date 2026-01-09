@@ -21,11 +21,6 @@ storage.mojom.StorageServicePtr = class {
     // Call: EnableAggressiveDomStorageFlushing()
   }
 
-  service(any) {
-    // Method: service
-    // Call: service(any)
-  }
-
   setDataDirectory(path, directory) {
     // Method: SetDataDirectory
     // Call: SetDataDirectory(path, directory)

@@ -16,11 +16,6 @@ blink.mojom.RendererAudioOutputStreamFactoryPtr = class {
     this.interfaceName = 'blink.mojom.RendererAudioOutputStreamFactory';
   }
 
-  discarded(bound) {
-    // Method: discarded
-    // Call: discarded(bound)
-  }
-
   requestDeviceAuthorization(stream_provider_receiver, session_id, device_id) {
     // Method: RequestDeviceAuthorization
     return new Promise((resolve) => {

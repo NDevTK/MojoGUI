@@ -68,49 +68,9 @@ printing.mojom.PrintBackendServicePtr = class {
     // Call: Init(locale, remote)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   poke() {
     // Method: Poke
     // Call: Poke()
-  }
-
-  enumeratePrinters() {
-    // Method: EnumeratePrinters
-    // Call: EnumeratePrinters()
-  }
-
-  getDefaultPrinterName() {
-    // Method: GetDefaultPrinterName
-    // Call: GetDefaultPrinterName()
-  }
-
-  getPrinterSemanticCapsAndDefaults(printer_name) {
-    // Method: GetPrinterSemanticCapsAndDefaults
-    // Call: GetPrinterSemanticCapsAndDefaults(printer_name)
-  }
-
-  fetchCapabilities(printer_name) {
-    // Method: FetchCapabilities
-    // Call: FetchCapabilities(printer_name)
-  }
-
-  fetchCapabilities() {
-    // Method: FetchCapabilities
-    // Call: FetchCapabilities()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  getPrinterSemanticCapsAndDefaults() {
-    // Method: GetPrinterSemanticCapsAndDefaults
-    // Call: GetPrinterSemanticCapsAndDefaults()
   }
 
   getPaperPrintableArea(printer_name, media) {
@@ -121,94 +81,9 @@ printing.mojom.PrintBackendServicePtr = class {
     });
   }
 
-  startPrinting() {
-    // Method: StartPrinting
-    // Call: StartPrinting()
-  }
-
-  useDefaultSettings() {
-    // Method: UseDefaultSettings
-    // Call: UseDefaultSettings()
-  }
-
-  askUserForSettings() {
-    // Method: AskUserForSettings
-    // Call: AskUserForSettings()
-  }
-
-  askUserForSettings() {
-    // Method: AskUserForSettings
-    // Call: AskUserForSettings()
-  }
-
-  startPrinting() {
-    // Method: StartPrinting
-    // Call: StartPrinting()
-  }
-
   establishPrintingContext(context_id, parent_window_id) {
     // Method: EstablishPrintingContext
     // Call: EstablishPrintingContext(context_id, parent_window_id)
-  }
-
-  establishPrintingContext() {
-    // Method: EstablishPrintingContext
-    // Call: EstablishPrintingContext()
-  }
-
-  useDefaultSettings(context_id) {
-    // Method: UseDefaultSettings
-    // Call: UseDefaultSettings(context_id)
-  }
-
-  establishPrintingContext() {
-    // Method: EstablishPrintingContext
-    // Call: EstablishPrintingContext()
-  }
-
-  askUserForSettings() {
-    // Method: AskUserForSettings
-    // Call: AskUserForSettings()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  askUserForSettings(context_id, max_pages, has_selection, is_scripted) {
-    // Method: AskUserForSettings
-    // Call: AskUserForSettings(context_id, max_pages, has_selection, is_scripted)
-  }
-
-  establishPrintingContext() {
-    // Method: EstablishPrintingContext
-    // Call: EstablishPrintingContext()
-  }
-
-  updatePrintSettings(context_id, job_settings) {
-    // Method: UpdatePrintSettings
-    // Call: UpdatePrintSettings(context_id, job_settings)
-  }
-
-  establishPrintingContext() {
-    // Method: EstablishPrintingContext
-    // Call: EstablishPrintingContext()
-  }
-
-  startPrinting() {
-    // Method: StartPrinting
-    // Call: StartPrinting()
-  }
-
-  completed() {
-    // Method: completed
-    // Call: completed()
-  }
-
-  updatePrintSettings() {
-    // Method: UpdatePrintSettings
-    // Call: UpdatePrintSettings()
   }
 
   startPrinting(context_id, document_cookie, document_name, settings) {

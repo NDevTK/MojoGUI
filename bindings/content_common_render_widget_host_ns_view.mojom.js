@@ -43,11 +43,6 @@ remote_cocoa.mojom.RenderWidgetHostNSViewPtr = class {
     this.interfaceName = 'remote_cocoa.mojom.RenderWidgetHostNSView';
   }
 
-  popup(picker) {
-    // Method: popup
-    // Call: popup(picker)
-  }
-
   initAsPopup(content_rect, popup_parent_ns_view_id) {
     // Method: InitAsPopup
     // Call: InitAsPopup(content_rect, popup_parent_ns_view_id)
@@ -58,11 +53,6 @@ remote_cocoa.mojom.RenderWidgetHostNSViewPtr = class {
     // Call: SetParentWebContentsNSView(parent_ns_view_id)
   }
 
-  content(color) {
-    // Method: content
-    // Call: content(color)
-  }
-
   disableDisplay() {
     // Method: DisableDisplay
     // Call: DisableDisplay()
@@ -71,11 +61,6 @@ remote_cocoa.mojom.RenderWidgetHostNSViewPtr = class {
   makeFirstResponder() {
     // Method: MakeFirstResponder
     // Call: MakeFirstResponder()
-  }
-
-  nSWindow(the) {
-    // Method: NSWindow
-    // Call: NSWindow(the)
   }
 
   setBounds(rect) {
@@ -138,11 +123,6 @@ remote_cocoa.mojom.RenderWidgetHostNSViewPtr = class {
     // Call: SetCursorLocked(locked)
   }
 
-  unaccelerated() {
-    // Method: unaccelerated
-    // Call: unaccelerated()
-  }
-
   setCursorLockedUnacceleratedMovement(unaccelerated_movement) {
     // Method: SetCursorLockedUnacceleratedMovement
     // Call: SetCursorLockedUnacceleratedMovement(unaccelerated_movement)
@@ -174,11 +154,6 @@ remote_cocoa.mojom.RenderWidgetHostNSViewPtr = class {
       // Call: ShowSharingServicePicker(title, text, url, file_paths)
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   destroy() {
@@ -227,11 +202,6 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostPtr = class {
     });
   }
 
-  down(date/time) {
-    // Method: down
-    // Call: down(date/time)
-  }
-
   requestShutdown() {
     // Method: RequestShutdown
     // Call: RequestShutdown()
@@ -247,24 +217,9 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostPtr = class {
     // Call: OnWindowIsKeyChanged(is_key)
   }
 
-  system() {
-    // Method: system
-    // Call: system()
-  }
-
-  nSWindow(not, |view_bounds_in_window_dip|'s, relevant) {
-    // Method: NSWindow
-    // Call: NSWindow(not, |view_bounds_in_window_dip|'s, relevant)
-  }
-
   onBoundsInWindowChanged(view_bounds_in_window_dip, attached_to_window) {
     // Method: OnBoundsInWindowChanged
     // Call: OnBoundsInWindowChanged(view_bounds_in_window_dip, attached_to_window)
-  }
-
-  system(of) {
-    // Method: system
-    // Call: system(of)
   }
 
   onWindowFrameInScreenChanged(window_frame_in_screen_dip) {

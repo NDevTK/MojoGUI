@@ -38,31 +38,6 @@ payments.mojom.PaymentHandlerHostPtr = class {
     this.interfaceName = 'payments.mojom.PaymentHandlerHost';
   }
 
-  onPaymentMethodChange() {
-    // Method: OnPaymentMethodChange
-    // Call: OnPaymentMethodChange()
-  }
-
-  onShippingAddressChange(address) {
-    // Method: OnShippingAddressChange
-    // Call: OnShippingAddressChange(address)
-  }
-
-  onShippingOptionChange(shipping_option_id) {
-    // Method: OnShippingOptionChange
-    // Call: OnShippingOptionChange(shipping_option_id)
-  }
-
-  updateWith() {
-    // Method: UpdateWith
-    // Call: UpdateWith()
-  }
-
-  onPaymentDetailsNotUpdated() {
-    // Method: OnPaymentDetailsNotUpdated
-    // Call: OnPaymentDetailsNotUpdated()
-  }
-
   changePaymentMethod(method_data) {
     // Method: ChangePaymentMethod
     return new Promise((resolve) => {

@@ -48,19 +48,9 @@ input.mojom.RenderInputRouterDelegatePtr = class {
     // Call: StopFlingingOnViz(frame_sink_id)
   }
 
-  thread(to) {
-    // Method: thread
-    // Call: thread(to)
-  }
-
   restartInputEventAckTimeoutIfNecessary(frame_sink_id) {
     // Method: RestartInputEventAckTimeoutIfNecessary
     // Call: RestartInputEventAckTimeoutIfNecessary(frame_sink_id)
-  }
-
-  thread(to) {
-    // Method: thread
-    // Call: thread(to)
   }
 
   notifyVisibilityChanged(frame_sink_id, is_hidden) {
@@ -88,19 +78,9 @@ input.mojom.RenderInputRouterDelegateClientPtr = class {
     this.interfaceName = 'input.mojom.RenderInputRouterDelegateClient';
   }
 
-  viz(InputVizard) {
-    // Method: Viz
-    // Call: Viz(InputVizard)
-  }
-
   notifyObserversOfInputEvent(event, dispatched_to_renderer) {
     // Method: NotifyObserversOfInputEvent
     // Call: NotifyObserversOfInputEvent(event, dispatched_to_renderer)
-  }
-
-  viz(InputVizard) {
-    // Method: Viz
-    // Call: Viz(InputVizard)
   }
 
   notifyObserversOfInputEventAcks(ack_source, ack_result, event) {

@@ -34,11 +34,6 @@ chromecast.mojom.SettingsClientPtr = class {
     // Call: HandleSideSwipe(event, origin, touch_location)
   }
 
-  widget(bar, info) {
-    // Method: widget
-    // Call: widget(bar, info)
-  }
-
   sendPlatformInfo(platform_info_json) {
     // Method: SendPlatformInfo
     // Call: SendPlatformInfo(platform_info_json)

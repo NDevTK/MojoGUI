@@ -16,22 +16,6 @@ arc.mojom.WakeLockHostPtr = class {
     this.interfaceName = 'arc.mojom.WakeLockHost';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.WakeLockHostRequest = class {
@@ -45,11 +29,6 @@ arc.mojom.WakeLockInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.WakeLockInstance';
-  }
-
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
   }
 
 };

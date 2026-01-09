@@ -45,11 +45,6 @@ network.mojom.ReportingApiObserverPtr = class {
     // Call: OnReportAdded(report)
   }
 
-  updated(incremented) {
-    // Method: updated
-    // Call: updated(incremented)
-  }
-
   onReportUpdated(report) {
     // Method: OnReportUpdated
     // Call: OnReportUpdated(report)

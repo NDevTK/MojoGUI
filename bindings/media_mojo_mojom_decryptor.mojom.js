@@ -16,31 +16,6 @@ media.mojom.DecryptorPtr = class {
     this.interfaceName = 'media.mojom.Decryptor';
   }
 
-  type() {
-    // Method: type
-    // Call: type()
-  }
-
-  decryptAndDecodeAudio() {
-    // Method: DecryptAndDecodeAudio
-    // Call: DecryptAndDecodeAudio()
-  }
-
-  decryptAndDecodeVideo() {
-    // Method: DecryptAndDecodeVideo
-    // Call: DecryptAndDecodeVideo()
-  }
-
-  decrypt() {
-    // Method: Decrypt
-    // Call: Decrypt()
-  }
-
-  onDecryptDone() {
-    // Method: OnDecryptDone
-    // Call: OnDecryptDone()
-  }
-
   initialize(audio_pipe, video_pipe, decrypt_pipe, decrypted_pipe) {
     // Method: Initialize
     // Call: Initialize(audio_pipe, video_pipe, decrypt_pipe, decrypted_pipe)
@@ -75,11 +50,6 @@ media.mojom.DecryptorPtr = class {
     });
   }
 
-  closed(bound) {
-    // Method: closed
-    // Call: closed(bound)
-  }
-
   decryptAndDecodeAudio(encrypted) {
     // Method: DecryptAndDecodeAudio
     return new Promise((resolve) => {
@@ -99,16 +69,6 @@ media.mojom.DecryptorPtr = class {
   resetDecoder(stream_type) {
     // Method: ResetDecoder
     // Call: ResetDecoder(stream_type)
-  }
-
-  initialization(false) {
-    // Method: initialization
-    // Call: initialization(false)
-  }
-
-  decode(ERROR) {
-    // Method: decode
-    // Call: decode(ERROR)
   }
 
 };

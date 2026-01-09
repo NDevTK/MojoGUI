@@ -143,11 +143,6 @@ blink.mojom.EmbeddedPermissionControlClientPtr = class {
     this.interfaceName = 'blink.mojom.EmbeddedPermissionControlClient';
   }
 
-  allowed(frames) {
-    // Method: allowed
-    // Call: allowed(frames)
-  }
-
   onEmbeddedPermissionControlRegistered(allow, statuses) {
     // Method: OnEmbeddedPermissionControlRegistered
     // Call: OnEmbeddedPermissionControlRegistered(allow, statuses)

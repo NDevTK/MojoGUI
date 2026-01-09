@@ -16,11 +16,6 @@ device.mojom.VibrationManagerPtr = class {
     this.interfaceName = 'device.mojom.VibrationManager';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   vibrate(milliseconds) {
     // Method: Vibrate
     // Call: Vibrate(milliseconds)

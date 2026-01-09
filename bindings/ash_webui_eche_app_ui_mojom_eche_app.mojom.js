@@ -145,11 +145,6 @@ ash.eche_app.mojom.SystemInfoObserverPtr = class {
     // Call: OnScreenBacklightStateChanged(state)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   onReceivedTabletModeChanged(is_tablet_mode) {
     // Method: OnReceivedTabletModeChanged
     // Call: OnReceivedTabletModeChanged(is_tablet_mode)
@@ -410,41 +405,6 @@ ash.eche_app.mojom.KeyboardLayoutObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.eche_app.mojom.KeyboardLayoutObserver';
-  }
-
-  iME() {
-    // Method: IME
-    // Call: IME()
-  }
-
-  iME() {
-    // Method: IME
-    // Call: IME()
-  }
-
-  code() {
-    // Method: code
-    // Call: code()
-  }
-
-  name() {
-    // Method: name
-    // Call: name()
-  }
-
-  us() {
-    // Method: us
-    // Call: us()
-  }
-
-  fr() {
-    // Method: fr
-    // Call: fr()
-  }
-
-  gb() {
-    // Method: gb
-    // Call: gb()
   }
 
   onKeyboardLayoutChanged(id, longName, shortName, layoutTag) {

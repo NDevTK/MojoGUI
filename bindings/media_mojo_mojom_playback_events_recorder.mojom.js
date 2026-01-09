@@ -46,21 +46,6 @@ media.mojom.PlaybackEventsRecorderPtr = class {
     // Call: OnBuffering()
   }
 
-  initialized(created) {
-    // Method: initialized
-    // Call: initialized(created)
-  }
-
-  onSeeking() {
-    // Method: OnSeeking
-    // Call: OnSeeking()
-  }
-
-  onBuffering() {
-    // Method: OnBuffering
-    // Call: OnBuffering()
-  }
-
   onBufferingComplete() {
     // Method: OnBufferingComplete
     // Call: OnBufferingComplete()
@@ -69,11 +54,6 @@ media.mojom.PlaybackEventsRecorderPtr = class {
   onNaturalSizeChanged(size) {
     // Method: OnNaturalSizeChanged
     // Call: OnNaturalSizeChanged(size)
-  }
-
-  periodically(second) {
-    // Method: periodically
-    // Call: periodically(second)
   }
 
   onPipelineStatistics(stats) {

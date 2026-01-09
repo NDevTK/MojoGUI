@@ -17,32 +17,6 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessPtr = class {
     this.interfaceName = 'chromeos.cfm.mojom.ExternalDisplayBrightness';
   }
 
-  0(enabled) {
-    // Method: 0
-    // Call: 0(enabled)
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
-  2(percent) {
-    // Method: 2
-    // Call: 2(percent)
-  }
-
-  3() {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3()
-      resolve({});
-    });
-  }
-
 };
 
 chromeos.cfm.mojom.ExternalDisplayBrightnessRequest = class {

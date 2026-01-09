@@ -59,11 +59,6 @@ theme_color_picker.mojom.ThemeColorPickerHandlerPtr = class {
     });
   }
 
-  setTheme() {
-    // Method: SetTheme
-    // Call: SetTheme()
-  }
-
   updateTheme() {
     // Method: UpdateTheme
     // Call: UpdateTheme()

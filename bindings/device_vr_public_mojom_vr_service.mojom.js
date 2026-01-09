@@ -593,24 +593,9 @@ device.mojom.VRServicePtr = class {
     // Call: ExitPresent()
   }
 
-  it(page) {
-    // Method: it
-    // Call: it(page)
-  }
-
-  can(may) {
-    // Method: can
-    // Call: can(may)
-  }
-
   setFramesThrottled(throttled) {
     // Method: SetFramesThrottled
     // Call: SetFramesThrottled(throttled)
-  }
-
-  makeXRCompatible() {
-    // Method: makeXRCompatible
-    // Call: makeXRCompatible()
   }
 
 };
@@ -626,11 +611,6 @@ device.mojom.XRSessionMetricsRecorderPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'device.mojom.XRSessionMetricsRecorder';
-  }
-
-  use(request) {
-    // Method: use
-    // Call: use(request)
   }
 
   reportFeatureUsed(feature) {
@@ -692,11 +672,6 @@ device.mojom.XREnvironmentIntegrationProviderPtr = class {
   unsubscribeFromHitTest(subscription_id) {
     // Method: UnsubscribeFromHitTest
     // Call: UnsubscribeFromHitTest(subscription_id)
-  }
-
-  floating() {
-    // Method: floating
-    // Call: floating()
   }
 
   createAnchor(native_origin_information, native_origin_from_anchor, plane_id) {
@@ -795,11 +770,6 @@ device.mojom.XRPresentationClientPtr = class {
     this.interfaceName = 'device.mojom.XRPresentationClient';
   }
 
-  data(GpuMemoryBuffer) {
-    // Method: data
-    // Call: data(GpuMemoryBuffer)
-  }
-
   onSubmitFrameTransferred(success) {
     // Method: OnSubmitFrameTransferred
     // Call: OnSubmitFrameTransferred(success)
@@ -853,11 +823,6 @@ device.mojom.XRLayerManagerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'device.mojom.XRLayerManager';
-  }
-
-  layer(layer, layer) {
-    // Method: layer
-    // Call: layer(layer, layer)
   }
 
   createCompositionLayer(create_data) {

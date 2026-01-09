@@ -38,9 +38,9 @@ cert_verifier.mojom.CertVerifierServiceUpdaterPtr = class {
     this.interfaceName = 'cert_verifier.mojom.CertVerifierServiceUpdater';
   }
 
-  provide(certificates) {
-    // Method: provide
-    // Call: provide(certificates)
+  updateAdditionalCertificates(certificates) {
+    // Method: UpdateAdditionalCertificates
+    // Call: UpdateAdditionalCertificates(certificates)
   }
 
   waitUntilNextUpdateForTesting() {

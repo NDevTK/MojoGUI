@@ -94,11 +94,6 @@ media.mojom.AudioOutputStreamProviderClientPtr = class {
     this.interfaceName = 'media.mojom.AudioOutputStreamProviderClient';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   created(stream, data_pipe) {
     // Method: Created
     // Call: Created(stream, data_pipe)

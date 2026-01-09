@@ -120,19 +120,9 @@ lens.mojom.LensPageHandlerPtr = class {
     // Call: InfoRequestedByOverlay(click_modifiers)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   issueLensRegionRequest(region, is_click) {
     // Method: IssueLensRegionRequest
     // Call: IssueLensRegionRequest(region, is_click)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   issueLensObjectRequest(region, is_mask_click) {
@@ -145,29 +135,14 @@ lens.mojom.LensPageHandlerPtr = class {
     // Call: IssueTextSelectionRequest(query, selection_start_index, selection_end_index, is_translate)
   }
 
-  issueTextSelectionRequest() {
-    // Method: IssueTextSelectionRequest
-    // Call: IssueTextSelectionRequest()
-  }
-
   issueTranslateSelectionRequest(query, content_language, selection_start_index, selection_end_index) {
     // Method: IssueTranslateSelectionRequest
     // Call: IssueTranslateSelectionRequest(query, content_language, selection_start_index, selection_end_index)
   }
 
-  issueTextSelectionRequest() {
-    // Method: IssueTextSelectionRequest
-    // Call: IssueTextSelectionRequest()
-  }
-
   issueMathSelectionRequest(query, formula, selection_start_index, selection_end_index) {
     // Method: IssueMathSelectionRequest
     // Call: IssueMathSelectionRequest(query, formula, selection_start_index, selection_end_index)
-  }
-
-  issueTranslateSelectionRequest() {
-    // Method: IssueTranslateSelectionRequest
-    // Call: IssueTranslateSelectionRequest()
   }
 
   issueTranslateFullPageRequest(source_language, target_language) {

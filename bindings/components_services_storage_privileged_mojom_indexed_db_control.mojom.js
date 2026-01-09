@@ -23,11 +23,6 @@ storage.mojom.IndexedDBObserverPtr = class {
     this.interfaceName = 'storage.mojom.IndexedDBObserver';
   }
 
-  changes(disk) {
-    // Method: changes
-    // Call: changes(disk)
-  }
-
   onIndexedDBListChanged(bucket_locator) {
     // Method: OnIndexedDBListChanged
     // Call: OnIndexedDBListChanged(bucket_locator)

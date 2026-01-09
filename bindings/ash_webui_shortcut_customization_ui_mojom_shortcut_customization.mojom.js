@@ -70,11 +70,6 @@ ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverPtr = class {
     this.interfaceName = 'ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver';
   }
 
-  prefs(TreatTopRowAsFKey) {
-    // Method: prefs
-    // Call: prefs(TreatTopRowAsFKey)
-  }
-
   onAcceleratorsUpdated(config) {
     // Method: OnAcceleratorsUpdated
     // Call: OnAcceleratorsUpdated(config)
@@ -200,16 +195,6 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderPtr = class {
       // Call: RemoveAccelerator(source, action_id, accelerator)
       resolve({});
     });
-  }
-
-  removeAccelerator() {
-    // Method: RemoveAccelerator
-    // Call: RemoveAccelerator()
-  }
-
-  addAccelerator() {
-    // Method: AddAccelerator
-    // Call: AddAccelerator()
   }
 
   replaceAccelerator(source, action_id, old_accelerator, new_accelerator) {

@@ -50,97 +50,12 @@ blink.mojom.SharedStorageWorkletHostPtr = class {
     this.interfaceName = 'blink.mojom.SharedStorageWorkletHost';
   }
 
-  selectURL() {
-    // Method: selectURL
-    // Call: selectURL()
-  }
-
-  register() {
-    // Method: register
-    // Call: register()
-  }
-
-  serialize() {
-    // Method: Serialize
-    // Call: Serialize()
-  }
-
-  environment(worklet) {
-    // Method: environment
-    // Call: environment(worklet)
-  }
-
-  contains() {
-    // Method: contains
-    // Call: contains()
-  }
-
-  aggregation() {
-    // Method: Aggregation
-    // Call: Aggregation()
-  }
-
-  selectURL() {
-    // Method: selectURL
-    // Call: selectURL()
-  }
-
-  selectURL() {
-    // Method: selectURL
-    // Call: selectURL()
-  }
-
   selectURL(name, urls_with_metadata, serialized_data, keep_alive_after_operation, private_aggregation_config, resolve_to_config, saved_query_name, start_time) {
     // Method: SelectURL
     return new Promise((resolve) => {
       // Call: SelectURL(name, urls_with_metadata, serialized_data, keep_alive_after_operation, private_aggregation_config, resolve_to_config, saved_query_name, start_time)
       resolve({});
     });
-  }
-
-  run() {
-    // Method: run
-    // Call: run()
-  }
-
-  register() {
-    // Method: register
-    // Call: register()
-  }
-
-  serialize() {
-    // Method: Serialize
-    // Call: Serialize()
-  }
-
-  environment(worklet) {
-    // Method: environment
-    // Call: environment(worklet)
-  }
-
-  run() {
-    // Method: run
-    // Call: run()
-  }
-
-  selectURL() {
-    // Method: selectURL
-    // Call: selectURL()
-  }
-
-  contains() {
-    // Method: contains
-    // Call: contains()
-  }
-
-  aggregation(enabled) {
-    // Method: Aggregation
-    // Call: Aggregation(enabled)
-  }
-
-  run() {
-    // Method: run
-    // Call: run()
   }
 
   run(name, serialized_data, keep_alive_after_operation, private_aggregation_config, start_time) {
@@ -172,11 +87,6 @@ blink.mojom.SharedStorageDocumentServicePtr = class {
       // Call: CreateWorklet(script_source_url, data_origin, data_origin_type, credentials_mode, creation_method, origin_trial_features, worklet_host)
       resolve({});
     });
-  }
-
-  get() {
-    // Method: get
-    // Call: get()
   }
 
   sharedStorageGet(key) {

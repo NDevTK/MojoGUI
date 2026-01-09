@@ -25,21 +25,6 @@ arc.mojom.SystemUiInstancePtr = class {
     this.interfaceName = 'arc.mojom.SystemUiInstance';
   }
 
-  0(active) {
-    // Method: 0
-    // Call: 0(active)
-  }
-
-  color() {
-    // Method: color
-    // Call: color()
-  }
-
-  1(source_color, theme_style) {
-    // Method: 1
-    // Call: 1(source_color, theme_style)
-  }
-
 };
 
 arc.mojom.SystemUiInstanceRequest = class {

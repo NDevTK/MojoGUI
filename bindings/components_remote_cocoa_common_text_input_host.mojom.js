@@ -32,11 +32,6 @@ remote_cocoa.mojom.TextInputHostPtr = class {
     });
   }
 
-  rTL() {
-    // Method: RTL
-    // Call: RTL()
-  }
-
   isRTL() {
     // Method: IsRTL
     return new Promise((resolve) => {
@@ -95,11 +90,6 @@ remote_cocoa.mojom.TextInputHostPtr = class {
       // Call: GetCompositionTextRange()
       resolve({});
     });
-  }
-
-  invalidRange() {
-    // Method: InvalidRange
-    // Call: InvalidRange()
   }
 
   getAttributedSubstringForRange(requested_range) {

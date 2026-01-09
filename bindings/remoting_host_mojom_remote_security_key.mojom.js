@@ -16,16 +16,6 @@ remoting.mojom.SecurityKeyForwarderPtr = class {
     this.interfaceName = 'remoting.mojom.SecurityKeyForwarder';
   }
 
-  website(host) {
-    // Method: website
-    // Call: website(host)
-  }
-
-  host(host) {
-    // Method: host
-    // Call: host(host)
-  }
-
   onSecurityKeyRequest(request_data) {
     // Method: OnSecurityKeyRequest
     return new Promise((resolve) => {

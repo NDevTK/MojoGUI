@@ -49,11 +49,6 @@ ash.cfm.mojom.XuCameraPtr = class {
     this.interfaceName = 'ash.cfm.mojom.XuCamera';
   }
 
-  gUID() {
-    // Method: GUID
-    // Call: GUID()
-  }
-
   getUnitId(id, guid) {
     // Method: GetUnitId
     return new Promise((resolve) => {

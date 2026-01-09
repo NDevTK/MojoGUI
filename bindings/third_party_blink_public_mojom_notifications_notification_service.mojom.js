@@ -33,11 +33,6 @@ blink.mojom.NonPersistentNotificationListenerPtr = class {
     // Call: OnClick()
   }
 
-  close() {
-    // Method: close
-    // Call: close()
-  }
-
   onClose() {
     // Method: OnClose
     // Call: OnClose()
@@ -58,22 +53,9 @@ blink.mojom.NotificationServicePtr = class {
     this.interfaceName = 'blink.mojom.NotificationService';
   }
 
-  getPermissionStatus() {
-    // Method: GetPermissionStatus
-    return new Promise((resolve) => {
-      // Call: GetPermissionStatus()
-      resolve({});
-    });
-  }
-
   displayNonPersistentNotification(token, notification_data, notification_resources, event_listener) {
     // Method: DisplayNonPersistentNotification
     // Call: DisplayNonPersistentNotification(token, notification_data, notification_resources, event_listener)
-  }
-
-  closed(non-empty) {
-    // Method: closed
-    // Call: closed(non-empty)
   }
 
   closeNonPersistentNotification(token) {
@@ -89,24 +71,9 @@ blink.mojom.NotificationServicePtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   closePersistentNotification(notification_id) {
     // Method: ClosePersistentNotification
     // Call: ClosePersistentNotification(notification_id)
-  }
-
-  registration(via) {
-    // Method: registration
-    // Call: registration(via)
-  }
-
-  returned() {
-    // Method: returned
-    // Call: returned()
   }
 
   getNotifications(service_worker_registration_id, filter_tag, include_triggered) {

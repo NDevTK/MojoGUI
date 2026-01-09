@@ -21,11 +21,6 @@ arc.mojom.PipHostPtr = class {
     this.interfaceName = 'arc.mojom.PipHost';
   }
 
-  0(event) {
-    // Method: 0
-    // Call: 0(event)
-  }
-
 };
 
 arc.mojom.PipHostRequest = class {
@@ -39,21 +34,6 @@ arc.mojom.PipInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.PipInstance';
-  }
-
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  2(suppressed) {
-    // Method: 2
-    // Call: 2(suppressed)
   }
 
 };

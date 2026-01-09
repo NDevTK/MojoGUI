@@ -37,11 +37,6 @@ ntp_promo.mojom.NtpPromoHandlerPtr = class {
     this.interfaceName = 'ntp_promo.mojom.NtpPromoHandler';
   }
 
-  setPromos() {
-    // Method: SetPromos
-    // Call: SetPromos()
-  }
-
   requestPromos() {
     // Method: RequestPromos
     // Call: RequestPromos()

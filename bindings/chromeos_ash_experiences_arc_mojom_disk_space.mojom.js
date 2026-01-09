@@ -37,64 +37,6 @@ arc.mojom.DiskSpaceHostPtr = class {
     this.interfaceName = 'arc.mojom.DiskSpaceHost';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1(uid) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(uid)
-      resolve({});
-    });
-  }
-
-  2(gid) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(gid)
-      resolve({});
-    });
-  }
-
-  3(project_id) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(project_id)
-      resolve({});
-    });
-  }
-
-  fails(is, fails) {
-    // Method: fails
-    // Call: fails(is, fails)
-  }
-
-  returned(type) {
-    // Method: returned
-    // Call: returned(type)
-  }
-
-  6(uids, gids, project_ids) {
-    // Method: 6
-    return new Promise((resolve) => {
-      // Call: 6(uids, gids, project_ids)
-      resolve({});
-    });
-  }
-
-  5() {
-    // Method: 5
-    return new Promise((resolve) => {
-      // Call: 5()
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.DiskSpaceHostRequest = class {
@@ -108,29 +50,6 @@ arc.mojom.DiskSpaceInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.DiskSpaceInstance';
-  }
-
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
-  }
-
-  usage(cache) {
-    // Method: usage
-    // Call: usage(cache)
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
-  2(free_space_bytes) {
-    // Method: 2
-    // Call: 2(free_space_bytes)
   }
 
 };

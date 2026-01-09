@@ -41,11 +41,6 @@ mirroring.mojom.ResourceProviderPtr = class {
     // Call: BindGpu(receiver)
   }
 
-  events() {
-    // Method: events
-    // Call: events()
-  }
-
   getVideoCaptureHost(receiver) {
     // Method: GetVideoCaptureHost
     // Call: GetVideoCaptureHost(receiver)

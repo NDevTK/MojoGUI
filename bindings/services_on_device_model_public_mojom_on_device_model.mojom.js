@@ -158,21 +158,6 @@ on_device_model.mojom.StreamingResponderPtr = class {
     this.interfaceName = 'on_device_model.mojom.StreamingResponder';
   }
 
-  0(chunk) {
-    // Method: 0
-    // Call: 0(chunk)
-  }
-
-  onComplete() {
-    // Method: OnComplete
-    // Call: OnComplete()
-  }
-
-  1(summary) {
-    // Method: 1
-    // Call: 1(summary)
-  }
-
 };
 
 on_device_model.mojom.StreamingResponderRequest = class {
@@ -186,11 +171,6 @@ on_device_model.mojom.ContextClientPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'on_device_model.mojom.ContextClient';
-  }
-
-  0(tokens_processed) {
-    // Method: 0
-    // Call: 0(tokens_processed)
   }
 
 };
@@ -208,65 +188,6 @@ on_device_model.mojom.SessionPtr = class {
     this.interfaceName = 'on_device_model.mojom.Session';
   }
 
-  append() {
-    // Method: Append
-    // Call: Append()
-  }
-
-  6(options, client) {
-    // Method: 6
-    // Call: 6(options, client)
-  }
-
-  append() {
-    // Method: Append
-    // Call: Append()
-  }
-
-  7(options, responder) {
-    // Method: 7
-    // Call: 7(options, responder)
-  }
-
-  5(input) {
-    // Method: 5
-    return new Promise((resolve) => {
-      // Call: 5(input)
-      resolve({});
-    });
-  }
-
-  3(text) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(text)
-      resolve({});
-    });
-  }
-
-  4(session) {
-    // Method: 4
-    // Call: 4(session)
-  }
-
-  8(text) {
-    // Method: 8
-    return new Promise((resolve) => {
-      // Call: 8(text)
-      resolve({});
-    });
-  }
-
-  9(priority) {
-    // Method: 9
-    // Call: 9(priority)
-  }
-
-  10(options, stream, responder) {
-    // Method: 10
-    // Call: 10(options, stream, responder)
-  }
-
 };
 
 on_device_model.mojom.SessionRequest = class {
@@ -280,35 +201,6 @@ on_device_model.mojom.OnDeviceModelPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'on_device_model.mojom.OnDeviceModel';
-  }
-
-  0(session, params) {
-    // Method: 0
-    // Call: 0(session, params)
-  }
-
-  1(text) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(text)
-      resolve({});
-    });
-  }
-
-  2(text) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(text)
-      resolve({});
-    });
-  }
-
-  3(params, model) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(params, model)
-      resolve({});
-    });
   }
 
 };
@@ -326,27 +218,6 @@ on_device_model.mojom.TextSafetySessionPtr = class {
     this.interfaceName = 'on_device_model.mojom.TextSafetySession';
   }
 
-  1(text) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(text)
-      resolve({});
-    });
-  }
-
-  2(text) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(text)
-      resolve({});
-    });
-  }
-
-  3(session) {
-    // Method: 3
-    // Call: 3(session)
-  }
-
 };
 
 on_device_model.mojom.TextSafetySessionRequest = class {
@@ -360,11 +231,6 @@ on_device_model.mojom.TextSafetyModelPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'on_device_model.mojom.TextSafetyModel';
-  }
-
-  0(session) {
-    // Method: 0
-    // Call: 0(session)
   }
 
 };
@@ -382,11 +248,6 @@ on_device_model.mojom.AsrStreamResponderPtr = class {
     this.interfaceName = 'on_device_model.mojom.AsrStreamResponder';
   }
 
-  0(result) {
-    // Method: 0
-    // Call: 0(result)
-  }
-
 };
 
 on_device_model.mojom.AsrStreamResponderRequest = class {
@@ -400,11 +261,6 @@ on_device_model.mojom.AsrStreamInputPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'on_device_model.mojom.AsrStreamInput';
-  }
-
-  0(data) {
-    // Method: 0
-    // Call: 0(data)
   }
 
 };

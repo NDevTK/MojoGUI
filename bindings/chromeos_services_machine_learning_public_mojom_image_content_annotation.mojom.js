@@ -48,22 +48,6 @@ chromeos.machine_learning.mojom.ImageContentAnnotatorPtr = class {
     this.interfaceName = 'chromeos.machine_learning.mojom.ImageContentAnnotator';
   }
 
-  0(rgb_bytes, width, height, line_stride) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(rgb_bytes, width, height, line_stride)
-      resolve({});
-    });
-  }
-
-  1(encoded_image) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(encoded_image)
-      resolve({});
-    });
-  }
-
 };
 
 chromeos.machine_learning.mojom.ImageContentAnnotatorRequest = class {

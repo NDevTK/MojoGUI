@@ -48,11 +48,6 @@ blink.mojom.FindInPagePtr = class {
     // Call: ClearActiveFindMatch()
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   setClient(client) {
     // Method: SetClient
     // Call: SetClient(client)
@@ -66,29 +61,9 @@ blink.mojom.FindInPagePtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   activateNearestFindResult(request_id, point) {
     // Method: ActivateNearestFindResult
     // Call: ActivateNearestFindResult(request_id, point)
-  }
-
-  list(change) {
-    // Method: list
-    // Call: list(change)
-  }
-
-  call() {
-    // Method: call
-    // Call: call()
-  }
-
-  coords(there) {
-    // Method: coords
-    // Call: coords(there)
   }
 
   findMatchRects(current_version) {

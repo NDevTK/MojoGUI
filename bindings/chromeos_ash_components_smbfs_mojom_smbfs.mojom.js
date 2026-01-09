@@ -98,11 +98,6 @@ smbfs.mojom.SmbFsPtr = class {
     });
   }
 
-  path(SMB, /dir_a/file_b) {
-    // Method: path
-    // Call: path(SMB, /dir_a/file_b)
-  }
-
   deleteRecursively(path) {
     // Method: DeleteRecursively
     return new Promise((resolve) => {

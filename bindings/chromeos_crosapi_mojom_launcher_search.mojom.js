@@ -98,11 +98,6 @@ crosapi.mojom.SearchResultsPublisherPtr = class {
     this.interfaceName = 'crosapi.mojom.SearchResultsPublisher';
   }
 
-  0(status, result) {
-    // Method: 0
-    // Call: 0(status, result)
-  }
-
 };
 
 crosapi.mojom.SearchResultsPublisherRequest = class {
@@ -118,14 +113,6 @@ crosapi.mojom.SearchControllerPtr = class {
     this.interfaceName = 'crosapi.mojom.SearchController';
   }
 
-  0(query) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(query)
-      resolve({});
-    });
-  }
-
 };
 
 crosapi.mojom.SearchControllerRequest = class {
@@ -139,11 +126,6 @@ crosapi.mojom.SearchResultConsumerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'crosapi.mojom.SearchResultConsumer';
-  }
-
-  0(favicon) {
-    // Method: 0
-    // Call: 0(favicon)
   }
 
 };

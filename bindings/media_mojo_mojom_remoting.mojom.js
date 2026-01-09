@@ -16,11 +16,6 @@ media.mojom.RemoterFactoryPtr = class {
     this.interfaceName = 'media.mojom.RemoterFactory';
   }
 
-  use(unavailable) {
-    // Method: use
-    // Call: use(unavailable)
-  }
-
   create(source, remoter) {
     // Method: Create
     // Call: Create(source, remoter)
@@ -46,11 +41,6 @@ media.mojom.RemotingDataStreamSenderPtr = class {
     // Call: SendFrame(frame)
   }
 
-  sendFrame() {
-    // Method: SendFrame
-    // Call: SendFrame()
-  }
-
   cancelInFlightData() {
     // Method: CancelInFlightData
     // Call: CancelInFlightData()
@@ -71,41 +61,6 @@ media.mojom.RemoterPtr = class {
     this.interfaceName = 'media.mojom.Remoter';
   }
 
-  session(available) {
-    // Method: session
-    // Call: session(available)
-  }
-
-  onStarted() {
-    // Method: OnStarted
-    // Call: OnStarted()
-  }
-
-  onStartFailed() {
-    // Method: OnStartFailed
-    // Call: OnStartFailed()
-  }
-
-  onStarted() {
-    // Method: OnStarted
-    // Call: OnStarted()
-  }
-
-  sendMessageToSink() {
-    // Method: SendMessageToSink
-    // Call: SendMessageToSink()
-  }
-
-  onMessageFromSink() {
-    // Method: OnMessageFromSink
-    // Call: OnMessageFromSink()
-  }
-
-  start() {
-    // Method: Start
-    // Call: Start()
-  }
-
   start() {
     // Method: Start
     // Call: Start()
@@ -114,16 +69,6 @@ media.mojom.RemoterPtr = class {
   startWithPermissionAlreadyGranted() {
     // Method: StartWithPermissionAlreadyGranted
     // Call: StartWithPermissionAlreadyGranted()
-  }
-
-  start() {
-    // Method: Start
-    // Call: Start()
-  }
-
-  pipes(corresponding) {
-    // Method: pipes
-    // Call: pipes(corresponding)
   }
 
   startDataStreams(audio_pipe, video_pipe, audio_sender, video_sender) {
@@ -179,49 +124,14 @@ media.mojom.RemotingSourcePtr = class {
     // Call: OnStarted()
   }
 
-  onStopped() {
-    // Method: OnStopped
-    // Call: OnStopped()
-  }
-
-  onStartFailed() {
-    // Method: OnStartFailed
-    // Call: OnStartFailed()
-  }
-
-  onStarted() {
-    // Method: OnStarted
-    // Call: OnStarted()
-  }
-
   onStartFailed(reason) {
     // Method: OnStartFailed
     // Call: OnStartFailed(reason)
   }
 
-  onStarted() {
-    // Method: OnStarted
-    // Call: OnStarted()
-  }
-
-  onStopped() {
-    // Method: OnStopped
-    // Call: OnStopped()
-  }
-
   onMessageFromSink(message) {
     // Method: OnMessageFromSink
     // Call: OnMessageFromSink(message)
-  }
-
-  stop() {
-    // Method: Stop
-    // Call: Stop()
-  }
-
-  events(external) {
-    // Method: events
-    // Call: events(external)
   }
 
   onStopped(reason) {

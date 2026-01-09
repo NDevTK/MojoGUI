@@ -63,11 +63,6 @@ midi.mojom.MidiSessionClientPtr = class {
     // Call: SessionStarted(result)
   }
 
-  sendData() {
-    // Method: SendData
-    // Call: SendData()
-  }
-
   acknowledgeSentData(bytes) {
     // Method: AcknowledgeSentData
     // Call: AcknowledgeSentData(bytes)
@@ -111,11 +106,6 @@ midi.mojom.MidiSessionPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'midi.mojom.MidiSession';
-  }
-
-  client(AddOutputPort) {
-    // Method: client
-    // Call: client(AddOutputPort)
   }
 
   sendData(port, data, timestamp) {

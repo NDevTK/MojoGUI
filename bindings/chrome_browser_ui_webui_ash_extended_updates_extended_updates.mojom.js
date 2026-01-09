@@ -52,11 +52,6 @@ ash.extended_updates.mojom.PageHandlerPtr = class {
     });
   }
 
-  send() {
-    // Method: send
-    // Call: send()
-  }
-
   closeDialog() {
     // Method: CloseDialog
     // Call: CloseDialog()

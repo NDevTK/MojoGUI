@@ -56,11 +56,6 @@ content.mojom.RendererPtr = class {
     // Call: OnNetworkConnectionChanged(connection_type, max_bandwidth_mbps)
   }
 
-  invalidRTT() {
-    // Method: InvalidRTT
-    // Call: InvalidRTT()
-  }
-
   onNetworkQualityChanged(effective_connection_type, http_rtt, transport_rtt, bandwidth_kbps) {
     // Method: OnNetworkQualityChanged
     // Call: OnNetworkQualityChanged(effective_connection_type, http_rtt, transport_rtt, bandwidth_kbps)
@@ -101,11 +96,6 @@ content.mojom.RendererPtr = class {
     // Call: SetProcessState(process_priority, visible_state)
   }
 
-  site(https:) {
-    // Method: site
-    // Call: site(https:)
-  }
-
   setIsLockedToSite() {
     // Method: SetIsLockedToSite
     // Call: SetIsLockedToSite()
@@ -114,11 +104,6 @@ content.mojom.RendererPtr = class {
   writeClangProfilingProfile() {
     // Method: WriteClangProfilingProfile
     // Call: WriteClangProfilingProfile()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   setIsCrossOriginIsolated(value) {
@@ -131,16 +116,6 @@ content.mojom.RendererPtr = class {
     // Call: SetIsWebSecurityDisabled(value)
   }
 
-  setIsCrossOriginIsolated() {
-    // Method: SetIsCrossOriginIsolated
-    // Call: SetIsCrossOriginIsolated()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   setIsIsolatedContext(value) {
     // Method: SetIsIsolatedContext
     // Call: SetIsIsolatedContext(value)
@@ -149,16 +124,6 @@ content.mojom.RendererPtr = class {
   setWebUIResourceUrlToCodeCacheMap(resource_map) {
     // Method: SetWebUIResourceUrlToCodeCacheMap
     // Call: SetWebUIResourceUrlToCodeCacheMap(resource_map)
-  }
-
-  setUserAgent() {
-    // Method: SetUserAgent
-    // Call: SetUserAgent()
-  }
-
-  checking(DCHECKs) {
-    // Method: checking
-    // Call: checking(DCHECKs)
   }
 
   initializeRenderer(user_agent, metadata, cors_exempt_header_list, origin_trials_settings, cpu_performance_tier, trace_id) {

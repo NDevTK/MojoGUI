@@ -23,11 +23,6 @@ IPC.mojom.ChannelPtr = class {
     this.interfaceName = 'IPC.mojom.Channel';
   }
 
-  receive() {
-    // Method: Receive
-    // Call: Receive()
-  }
-
   setPeerPid(pid) {
     // Method: SetPeerPid
     // Call: SetPeerPid(pid)

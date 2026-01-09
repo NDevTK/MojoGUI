@@ -48,11 +48,6 @@ network.mojom.NetworkContextClientPtr = class {
     });
   }
 
-  not(from) {
-    // Method: not
-    // Call: not(from)
-  }
-
   onCanSendSCTAuditingReport() {
     // Method: OnCanSendSCTAuditingReport
     return new Promise((resolve) => {

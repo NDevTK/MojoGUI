@@ -46,11 +46,6 @@ passage_embeddings.mojom.PassageEmbedderPtr = class {
     this.interfaceName = 'passage_embeddings.mojom.PassageEmbedder';
   }
 
-  embeddings() {
-    // Method: embeddings
-    // Call: embeddings()
-  }
-
   generateEmbeddings(passages, priority) {
     // Method: GenerateEmbeddings
     return new Promise((resolve) => {

@@ -62,34 +62,9 @@ auction_worklet.mojom.AuctionWorkletServicePtr = class {
     // Call: SetTrustedSignalsCache(trusted_signals_cache)
   }
 
-  uRLs(usage) {
-    // Method: URLs
-    // Call: URLs(usage)
-  }
-
-  generateBid() {
-    // Method: GenerateBid
-    // Call: GenerateBid()
-  }
-
-  auction() {
-    // Method: auction
-    // Call: auction()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   loadBidderWorklet(bidder_worklet, shared_storage_hosts, pause_for_debugger_on_start, url_loader_factory, auction_network_events_handler, script_source_load, wasm_helper_load, trusted_bidding_signals_url, trusted_bidding_signals_slot_size_param, top_window_origin, permissions_policy_state, experiment_group_id, public_key) {
     // Method: LoadBidderWorklet
     // Call: LoadBidderWorklet(bidder_worklet, shared_storage_hosts, pause_for_debugger_on_start, url_loader_factory, auction_network_events_handler, script_source_load, wasm_helper_load, trusted_bidding_signals_url, trusted_bidding_signals_slot_size_param, top_window_origin, permissions_policy_state, experiment_group_id, public_key)
-  }
-
-  hooks(made) {
-    // Method: hooks
-    // Call: hooks(made)
   }
 
   loadSellerWorklet(seller_worklet, shared_storage_hosts, pause_for_debugger_on_start, url_loader_factory, auction_network_events_handler, script_source_load, trusted_scoring_signals_url, top_window_origin, permissions_policy_state, experiment_group_id, send_creative_scanning_metadata, public_key, load_seller_worklet_client) {

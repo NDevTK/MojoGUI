@@ -44,16 +44,6 @@ network.mojom.RestrictedCookieManagerPtr = class {
     this.interfaceName = 'network.mojom.RestrictedCookieManager';
   }
 
-  getAllForUrl(url, site_for_cookies, top_frame_origin, storage_access_api_status, options, is_ad_tagged, apply_devtools_overrides) {
-    // Method: GetAllForUrl
-    // Call: GetAllForUrl(url, site_for_cookies, top_frame_origin, storage_access_api_status, options, is_ad_tagged, apply_devtools_overrides)
-  }
-
-  isInclude() {
-    // Method: IsInclude
-    // Call: IsInclude()
-  }
-
   setCanonicalCookie(cookie, url, site_for_cookies, top_frame_origin, storage_access_api_status, status, is_ad_tagged, apply_devtools_overrides) {
     // Method: SetCanonicalCookie
     return new Promise((resolve) => {
@@ -73,11 +63,6 @@ network.mojom.RestrictedCookieManagerPtr = class {
       // Call: SetCookieFromString(url, site_for_cookies, top_frame_origin, storage_access_api_status, get_version_shared_memory, is_ad_tagged, apply_devtools_overrides, cookie)
       resolve({});
     });
-  }
-
-  getCookiesString(url, site_for_cookies, top_frame_origin, storage_access_api_status, get_version_shared_memory, is_ad_tagged, apply_devtools_overrides) {
-    // Method: GetCookiesString
-    // Call: GetCookiesString(url, site_for_cookies, top_frame_origin, storage_access_api_status, get_version_shared_memory, is_ad_tagged, apply_devtools_overrides)
   }
 
   cookiesEnabledFor(url, site_for_cookies, top_frame_origin, storage_access_api_status, apply_devtools_overrides) {

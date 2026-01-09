@@ -106,11 +106,6 @@ remoting.mojom.HostStatusObserverPtr = class {
     // Call: OnClientDisconnected(signaling_id)
   }
 
-  change(Direct) {
-    // Method: change
-    // Call: change(Direct)
-  }
-
   onClientRouteChange(signaling_id, channel_name, route) {
     // Method: OnClientRouteChange
     // Call: OnClientRouteChange(signaling_id, channel_name, route)

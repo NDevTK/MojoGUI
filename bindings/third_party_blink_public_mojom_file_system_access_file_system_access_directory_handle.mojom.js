@@ -23,11 +23,6 @@ blink.mojom.FileSystemAccessDirectoryEntriesListenerPtr = class {
     this.interfaceName = 'blink.mojom.FileSystemAccessDirectoryEntriesListener';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   didReadDirectory(result, entries, has_more_entries) {
     // Method: DidReadDirectory
     // Call: DidReadDirectory(result, entries, has_more_entries)
@@ -56,11 +51,6 @@ blink.mojom.FileSystemAccessDirectoryHandlePtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   requestPermission(mode) {
     // Method: RequestPermission
     return new Promise((resolve) => {
@@ -69,22 +59,12 @@ blink.mojom.FileSystemAccessDirectoryHandlePtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   getFile(basename, create) {
     // Method: GetFile
     return new Promise((resolve) => {
       // Call: GetFile(basename, create)
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   getDirectory(basename, create) {
@@ -132,11 +112,6 @@ blink.mojom.FileSystemAccessDirectoryHandlePtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   resolve(possible_child) {
     // Method: Resolve
     return new Promise((resolve) => {
@@ -150,27 +125,12 @@ blink.mojom.FileSystemAccessDirectoryHandlePtr = class {
     // Call: Transfer(token)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   getUniqueId() {
     // Method: GetUniqueId
     return new Promise((resolve) => {
       // Call: GetUniqueId()
       resolve({});
     });
-  }
-
-  identifiers(`id`) {
-    // Method: identifiers
-    // Call: identifiers(`id`)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   getCloudIdentifiers() {

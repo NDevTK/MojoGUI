@@ -46,26 +46,6 @@ remoting.mojom.AgentProcessBrokerPtr = class {
     this.interfaceName = 'remoting.mojom.AgentProcessBroker';
   }
 
-  resumeProcess() {
-    // Method: ResumeProcess
-    // Call: ResumeProcess()
-  }
-
-  suspendProcess() {
-    // Method: SuspendProcess
-    // Call: SuspendProcess()
-  }
-
-  resumeProcess() {
-    // Method: ResumeProcess
-    // Call: ResumeProcess()
-  }
-
-  resumeProcess() {
-    // Method: ResumeProcess
-    // Call: ResumeProcess()
-  }
-
   onAgentProcessLaunched(agent_process) {
     // Method: OnAgentProcessLaunched
     // Call: OnAgentProcessLaunched(agent_process)

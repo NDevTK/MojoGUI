@@ -38,16 +38,6 @@ blink.mojom.WebInstallServicePtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  install() {
-    // Method: Install
-    // Call: Install()
-  }
-
   installFromElement(options) {
     // Method: InstallFromElement
     return new Promise((resolve) => {

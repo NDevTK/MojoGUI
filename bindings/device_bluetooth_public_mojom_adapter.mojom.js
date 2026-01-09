@@ -175,11 +175,6 @@ bluetooth.mojom.GattServicePtr = class {
 
   register() {
     // Method: Register
-    // Call: Register()
-  }
-
-  register() {
-    // Method: Register
     return new Promise((resolve) => {
       // Call: Register()
       resolve({});
@@ -222,11 +217,6 @@ bluetooth.mojom.AdapterPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'bluetooth.mojom.Adapter';
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   connectToDevice(address) {
@@ -274,11 +264,6 @@ bluetooth.mojom.AdapterPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   setName(name) {
     // Method: SetName
     return new Promise((resolve) => {
@@ -295,27 +280,12 @@ bluetooth.mojom.AdapterPtr = class {
     });
   }
 
-  bonding() {
-    // Method: bonding
-    // Call: bonding()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   connectToServiceInsecurely(address, service_uuid, should_unbond_on_error) {
     // Method: ConnectToServiceInsecurely
     return new Promise((resolve) => {
       // Call: ConnectToServiceInsecurely(address, service_uuid, should_unbond_on_error)
       resolve({});
     });
-  }
-
-  bonding() {
-    // Method: bonding
-    // Call: bonding()
   }
 
   createRfcommServiceInsecurely(service_name, service_uuid) {
@@ -326,22 +296,12 @@ bluetooth.mojom.AdapterPtr = class {
     });
   }
 
-  isLeScatternetDualRoleSupported() {
-    // Method: IsLeScatternetDualRoleSupported
-    // Call: IsLeScatternetDualRoleSupported()
-  }
-
   createLocalGattService(service_id, observer) {
     // Method: CreateLocalGattService
     return new Promise((resolve) => {
       // Call: CreateLocalGattService(service_id, observer)
       resolve({});
     });
-  }
-
-  createLocalGattService() {
-    // Method: CreateLocalGattService
-    // Call: CreateLocalGattService()
   }
 
   isLeScatternetDualRoleSupported() {

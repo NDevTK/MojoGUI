@@ -129,19 +129,9 @@ tab_strip.mojom.PageHandlerPtr = class {
     // Call: ReportTabActivationDuration(duration_ms)
   }
 
-  getTabs() {
-    // Method: getTabs
-    // Call: getTabs()
-  }
-
   reportTabDataReceivedDuration(tab_count, duration_ms) {
     // Method: ReportTabDataReceivedDuration
     // Call: ReportTabDataReceivedDuration(tab_count, duration_ms)
-  }
-
-  getTabs() {
-    // Method: getTabs
-    // Call: getTabs()
   }
 
   reportTabCreationDuration(tab_count, duration_ms) {

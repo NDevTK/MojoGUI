@@ -122,11 +122,6 @@ screen_ai.mojom.Screen2xMainContentExtractorPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   extractMainNode(snapshot) {
     // Method: ExtractMainNode
     return new Promise((resolve) => {

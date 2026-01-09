@@ -20,11 +20,6 @@ device.mojom.GeolocationContextPtr = class {
     this.interfaceName = 'device.mojom.GeolocationContext';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   bindGeolocation(receiver, requesting_url, client_id, has_precise_permission) {
     // Method: BindGeolocation
     // Call: BindGeolocation(receiver, requesting_url, client_id, has_precise_permission)

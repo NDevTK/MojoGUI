@@ -29,32 +29,6 @@ arc.mojom.PolicyHostPtr = class {
     this.interfaceName = 'arc.mojom.PolicyHost';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1(request) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(request)
-      resolve({});
-    });
-  }
-
-  7(version) {
-    // Method: 7
-    // Call: 7(version)
-  }
-
-  8(time, package_names) {
-    // Method: 8
-    // Call: 8(time, package_names)
-  }
-
 };
 
 arc.mojom.PolicyHostRequest = class {
@@ -68,29 +42,6 @@ arc.mojom.PolicyInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.PolicyInstance';
-  }
-
-  2(host_remote) {
-    // Method: 2
-    // Call: 2(host_remote)
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  chrome(for) {
-    // Method: Chrome
-    // Call: Chrome(for)
-  }
-
-  3(command) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(command)
-      resolve({});
-    });
   }
 
 };

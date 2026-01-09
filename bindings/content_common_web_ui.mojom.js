@@ -16,16 +16,6 @@ content.mojom.WebUIHostPtr = class {
     this.interfaceName = 'content.mojom.WebUIHost';
   }
 
-  when() {
-    // Method: When
-    // Call: When()
-  }
-
-  send() {
-    // Method: send
-    // Call: send()
-  }
-
   send(message, args) {
     // Method: Send
     // Call: Send(message, args)

@@ -17,11 +17,6 @@ ash.cros_healthd.mojom.AshEventReporterPtr = class {
     this.interfaceName = 'ash.cros_healthd.mojom.AshEventReporter';
   }
 
-  0(info) {
-    // Method: 0
-    // Call: 0(info)
-  }
-
 };
 
 ash.cros_healthd.mojom.AshEventReporterRequest = class {

@@ -31,11 +31,6 @@ blink.mojom.StorageAccessHandlePtr = class {
     // Call: BindCaches(receiver)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   getDirectory() {
     // Method: GetDirectory
     return new Promise((resolve) => {

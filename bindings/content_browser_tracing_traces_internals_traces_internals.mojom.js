@@ -103,11 +103,6 @@ traces_internals.mojom.PageHandlerPtr = class {
     });
   }
 
-  onTraceComplete() {
-    // Method: OnTraceComplete
-    // Call: OnTraceComplete()
-  }
-
   stopTraceSession() {
     // Method: StopTraceSession
     return new Promise((resolve) => {
@@ -262,11 +257,6 @@ traces_internals.mojom.PagePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'traces_internals.mojom.Page';
-  }
-
-  stop() {
-    // Method: Stop
-    // Call: Stop()
   }
 
   onTraceComplete(trace, uuid) {

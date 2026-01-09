@@ -208,19 +208,9 @@ blink.mojom.WidgetInputHandlerHostPtr = class {
     // Call: SetMouseCapture(capture)
   }
 
-  target(frame) {
-    // Method: target
-    // Call: target(frame)
-  }
-
   setAutoscrollSelectionActiveInMainFrame(autoscroll_selection) {
     // Method: SetAutoscrollSelectionActiveInMainFrame
     // Call: SetAutoscrollSelectionActiveInMainFrame(autoscroll_selection)
-  }
-
-  returns(accelerated) {
-    // Method: returns
-    // Call: returns(accelerated)
   }
 
   requestMouseLock(from_user_gesture, unadjusted_movement) {
@@ -269,11 +259,6 @@ blink.mojom.FrameWidgetInputHandlerPtr = class {
   extendSelectionAndReplace(before, after, replacement_text) {
     // Method: ExtendSelectionAndReplace
     // Call: ExtendSelectionAndReplace(before, after, replacement_text)
-  }
-
-  chars(Unit) {
-    // Method: chars
-    // Call: chars(Unit)
   }
 
   deleteSurroundingText(before, after) {
@@ -392,11 +377,6 @@ blink.mojom.FrameWidgetInputHandlerPtr = class {
     // Call: MoveRangeSelectionExtent(extent)
   }
 
-  node(content) {
-    // Method: node
-    // Call: node(content)
-  }
-
   scrollFocusedEditableNodeIntoView() {
     // Method: ScrollFocusedEditableNodeIntoView
     // Call: ScrollFocusedEditableNodeIntoView()
@@ -420,11 +400,6 @@ blink.mojom.FrameWidgetInputHandlerPtr = class {
   stopAutoscroll() {
     // Method: StopAutoscroll
     // Call: StopAutoscroll()
-  }
-
-  coordinates() {
-    // Method: coordinates
-    // Call: coordinates()
   }
 
   rectForEditFieldChars(range) {
@@ -490,19 +465,9 @@ blink.mojom.WidgetInputHandlerPtr = class {
     // Call: RequestTextInputStateUpdate()
   }
 
-  frame(composition) {
-    // Method: frame
-    // Call: frame(composition)
-  }
-
   requestCompositionUpdates(immediate_request, monitor_request) {
     // Method: RequestCompositionUpdates
     // Call: RequestCompositionUpdates(immediate_request, monitor_request)
-  }
-
-  it(passed) {
-    // Method: it
-    // Call: it(passed)
   }
 
   dispatchEvent(event, original_event_for_gesture) {
@@ -516,11 +481,6 @@ blink.mojom.WidgetInputHandlerPtr = class {
   dispatchNonBlockingEvent(event) {
     // Method: DispatchNonBlockingEvent
     // Call: DispatchNonBlockingEvent(event)
-  }
-
-  compositorFrame(input) {
-    // Method: CompositorFrame
-    // Call: CompositorFrame(input)
   }
 
   waitForInputProcessed() {

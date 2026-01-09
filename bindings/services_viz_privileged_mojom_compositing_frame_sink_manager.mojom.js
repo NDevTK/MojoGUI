@@ -31,16 +31,6 @@ viz.mojom.FrameSinkManagerPtr = class {
     this.interfaceName = 'viz.mojom.FrameSinkManager';
   }
 
-  create() {
-    // Method: Create
-    // Call: Create()
-  }
-
-  compositorFrameSink() {
-    // Method: CompositorFrameSink
-    // Call: CompositorFrameSink()
-  }
-
   registerFrameSinkId(frame_sink_id, report_activation) {
     // Method: RegisterFrameSinkId
     // Call: RegisterFrameSinkId(frame_sink_id, report_activation)
@@ -54,21 +44,6 @@ viz.mojom.FrameSinkManagerPtr = class {
   setFrameSinkDebugLabel(frame_sink_id, debug_label) {
     // Method: SetFrameSinkDebugLabel
     // Call: SetFrameSinkDebugLabel(frame_sink_id, debug_label)
-  }
-
-  client(WindowServer) {
-    // Method: client
-    // Call: client(WindowServer)
-  }
-
-  display(ResizeDisplay() {
-    // Method: Display
-    // Call: Display(ResizeDisplay()
-  }
-
-  setDisplayVisible() {
-    // Method: SetDisplayVisible
-    // Call: SetDisplayVisible()
   }
 
   createRootCompositorFrameSink(params) {
@@ -86,19 +61,9 @@ viz.mojom.FrameSinkManagerPtr = class {
     // Call: CreateFrameSinkBundle(bundle_id, receiver, client)
   }
 
-  onBeginFrame() {
-    // Method: OnBeginFrame
-    // Call: OnBeginFrame()
-  }
-
   createCompositorFrameSink(frame_sink_id, bundle_id, compositor_frame_sink, compositor_frame_sink_client, config) {
     // Method: CreateCompositorFrameSink
     // Call: CreateCompositorFrameSink(frame_sink_id, bundle_id, compositor_frame_sink, compositor_frame_sink_client, config)
-  }
-
-  compositorFrameSink() {
-    // Method: CompositorFrameSink
-    // Call: CompositorFrameSink()
   }
 
   destroyCompositorFrameSink(frame_sink_id) {
@@ -141,11 +106,6 @@ viz.mojom.FrameSinkManagerPtr = class {
     // Call: StartThrottlingAllFrameSinks(interval)
   }
 
-  startThrottlingAllFrameSinks() {
-    // Method: StartThrottlingAllFrameSinks
-    // Call: StartThrottlingAllFrameSinks()
-  }
-
   stopThrottlingAllFrameSinks() {
     // Method: StopThrottlingAllFrameSinks
     // Call: StopThrottlingAllFrameSinks()
@@ -184,16 +144,6 @@ viz.mojom.FrameSinkManagerPtr = class {
   enableFrameSinkManagerTestApi(receiver) {
     // Method: EnableFrameSinkManagerTestApi
     // Call: EnableFrameSinkManagerTestApi(receiver)
-  }
-
-  renderWidgetHosts() {
-    // Method: RenderWidgetHosts
-    // Call: RenderWidgetHosts()
-  }
-
-  inputManager(thread) {
-    // Method: InputManager
-    // Call: InputManager(thread)
   }
 
   setupRendererInputRouterDelegateRegistry(receiver) {
@@ -241,11 +191,6 @@ viz.mojom.FrameSinkManagerClientPtr = class {
     // Call: OnFrameTokenChanged(frame_sink_id, frame_token, activation_time)
   }
 
-  process(itself) {
-    // Method: process
-    // Call: process(itself)
-  }
-
   verifyThreadIdsDoNotBelongToHost(thread_ids) {
     // Method: VerifyThreadIdsDoNotBelongToHost
     return new Promise((resolve) => {
@@ -282,16 +227,6 @@ viz.mojom.RendererInputRouterDelegateRegistryPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'viz.mojom.RendererInputRouterDelegateRegistry';
-  }
-
-  browser(level) {
-    // Method: Browser
-    // Call: Browser(level)
-  }
-
-  thread(level) {
-    // Method: thread
-    // Call: thread(level)
   }
 
   setupRenderInputRouterDelegateConnection(id, rir_delegate_client_remote, rir_delegate_receiver) {

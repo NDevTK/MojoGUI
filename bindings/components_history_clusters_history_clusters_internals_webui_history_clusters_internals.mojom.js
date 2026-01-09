@@ -44,11 +44,6 @@ history_clusters_internals.mojom.PageHandlerPtr = class {
     });
   }
 
-  onLogMessageAdded() {
-    // Method: OnLogMessageAdded
-    // Call: OnLogMessageAdded()
-  }
-
   printKeywordBagStateToLogMessages() {
     // Method: PrintKeywordBagStateToLogMessages
     // Call: PrintKeywordBagStateToLogMessages()

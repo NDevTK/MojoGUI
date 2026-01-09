@@ -49,11 +49,6 @@ blink.mojom.IdleManagerPtr = class {
     this.interfaceName = 'blink.mojom.IdleManager';
   }
 
-  update() {
-    // Method: Update
-    // Call: Update()
-  }
-
   addMonitor(monitor) {
     // Method: AddMonitor
     return new Promise((resolve) => {

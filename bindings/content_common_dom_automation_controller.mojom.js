@@ -16,21 +16,6 @@ content.mojom.DomAutomationControllerHostPtr = class {
     this.interfaceName = 'content.mojom.DomAutomationControllerHost';
   }
 
-  value() {
-    // Method: value
-    // Call: value()
-  }
-
-  send() {
-    // Method: send
-    // Call: send()
-  }
-
-  foo() {
-    // Method: foo
-    // Call: foo()
-  }
-
   domOperationResponse(json_string) {
     // Method: DomOperationResponse
     // Call: DomOperationResponse(json_string)

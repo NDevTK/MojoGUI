@@ -82,47 +82,12 @@ blink.mojom.CacheStorageCachePtr = class {
     this.interfaceName = 'blink.mojom.CacheStorageCache';
   }
 
-  match(request, query_options, in_related_fetch_event, in_range_fetch_event, trace_id) {
-    // Method: Match
-    // Call: Match(request, query_options, in_related_fetch_event, in_range_fetch_event, trace_id)
-  }
-
-  matchAll(request, query_options, trace_id) {
-    // Method: MatchAll
-    // Call: MatchAll(request, query_options, trace_id)
-  }
-
-  cached() {
-    // Method: cached
-    // Call: cached()
-  }
-
-  getAllMatchedEntries(request, query_options, trace_id) {
-    // Method: GetAllMatchedEntries
-    // Call: GetAllMatchedEntries(request, query_options, trace_id)
-  }
-
-  keys(requests) {
-    // Method: keys
-    // Call: keys(requests)
-  }
-
-  keys(request, query_options, trace_id) {
-    // Method: Keys
-    // Call: Keys(request, query_options, trace_id)
-  }
-
   batch(batch_operations, trace_id) {
     // Method: Batch
     return new Promise((resolve) => {
       // Call: Batch(batch_operations, trace_id)
       resolve({});
     });
-  }
-
-  data(cache) {
-    // Method: data
-    // Call: data(cache)
   }
 
   writeSideData(url, expected_response_time, data, trace_id) {
@@ -170,16 +135,6 @@ blink.mojom.CacheStoragePtr = class {
       // Call: Keys(trace_id)
       resolve({});
     });
-  }
-
-  match(request, match_options, in_related_fetch_event, in_range_fetch_event, trace_id) {
-    // Method: Match
-    // Call: Match(request, match_options, in_related_fetch_event, in_range_fetch_event, trace_id)
-  }
-
-  open(cache_name, trace_id) {
-    // Method: Open
-    // Call: Open(cache_name, trace_id)
   }
 
 };

@@ -34,11 +34,6 @@ chromecast.mojom.GestureHandlerPtr = class {
     // Call: OnTopDragGestureProgress(touch_location)
   }
 
-  completes(lifted) {
-    // Method: completes
-    // Call: completes(lifted)
-  }
-
   onTopDragGestureDone() {
     // Method: OnTopDragGestureDone
     // Call: OnTopDragGestureDone()
@@ -49,19 +44,14 @@ chromecast.mojom.GestureHandlerPtr = class {
     // Call: OnRightDragGestureProgress(touch_location)
   }
 
-  completes(lifted) {
-    // Method: completes
-    // Call: completes(lifted)
-  }
-
   onRightDragGestureDone() {
     // Method: OnRightDragGestureDone
     // Call: OnRightDragGestureDone()
   }
 
-  cancelled(OnBackGestureCancel() {
-    // Method: cancelled
-    // Call: cancelled(OnBackGestureCancel()
+  onBackGestureCancel() {
+    // Method: OnBackGestureCancel
+    // Call: OnBackGestureCancel()
   }
 
   onTapGesture() {

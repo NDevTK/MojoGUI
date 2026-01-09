@@ -23,11 +23,6 @@ contextual_tasks.mojom.PageHandlerPtr = class {
     this.interfaceName = 'contextual_tasks.mojom.PageHandler';
   }
 
-  thread(mode) {
-    // Method: thread
-    // Call: thread(mode)
-  }
-
   getThreadUrl() {
     // Method: GetThreadUrl
     return new Promise((resolve) => {
@@ -105,11 +100,6 @@ contextual_tasks.mojom.PageHandlerPtr = class {
     // Call: OnTabClickedFromSourcesMenu(tab_id, url)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   onWebviewMessage(message) {
     // Method: OnWebviewMessage
     // Call: OnWebviewMessage(message)
@@ -148,11 +138,6 @@ contextual_tasks.mojom.PagePtr = class {
     // Call: SetThreadTitle(title)
   }
 
-  details(ID, ID, ID) {
-    // Method: details
-    // Call: details(ID, ID, ID)
-  }
-
   setTaskDetails(uuid, thread_id, turn_id) {
     // Method: SetTaskDetails
     // Call: SetTaskDetails(uuid, thread_id, turn_id)
@@ -163,24 +148,9 @@ contextual_tasks.mojom.PagePtr = class {
     // Call: OnSidePanelStateChanged()
   }
 
-  process() {
-    // Method: process
-    // Call: process()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   postMessageToWebview(message) {
     // Method: PostMessageToWebview
     // Call: PostMessageToWebview(message)
-  }
-
-  process() {
-    // Method: process
-    // Call: process()
   }
 
   onHandshakeComplete() {
@@ -193,34 +163,14 @@ contextual_tasks.mojom.PagePtr = class {
     // Call: SetOAuthToken(oauth_token)
   }
 
-  process() {
-    // Method: process
-    // Call: process()
-  }
-
-  updated(added/removed) {
-    // Method: updated
-    // Call: updated(added/removed)
-  }
-
   onContextUpdated(context_tabs) {
     // Method: OnContextUpdated
     // Call: OnContextUpdated(context_tabs)
   }
 
-  process() {
-    // Method: process
-    // Call: process()
-  }
-
   hideInput() {
     // Method: HideInput
     // Call: HideInput()
-  }
-
-  process() {
-    // Method: process
-    // Call: process()
   }
 
   restoreInput() {
@@ -233,19 +183,9 @@ contextual_tasks.mojom.PagePtr = class {
     // Call: OnZeroStateChange(is_zero_state)
   }
 
-  process() {
-    // Method: process
-    // Call: process()
-  }
-
   onAiPageStatusChanged(is_ai_page) {
     // Method: OnAiPageStatusChanged
     // Call: OnAiPageStatusChanged(is_ai_page)
-  }
-
-  process() {
-    // Method: process
-    // Call: process()
   }
 
   onLensOverlayStateChanged(is_showing) {
@@ -253,19 +193,9 @@ contextual_tasks.mojom.PagePtr = class {
     // Call: OnLensOverlayStateChanged(is_showing)
   }
 
-  process() {
-    // Method: process
-    // Call: process()
-  }
-
   showErrorPage() {
     // Method: ShowErrorPage
     // Call: ShowErrorPage()
-  }
-
-  process() {
-    // Method: process
-    // Call: process()
   }
 
   hideErrorPage() {

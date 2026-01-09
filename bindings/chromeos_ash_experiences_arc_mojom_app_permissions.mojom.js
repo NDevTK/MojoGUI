@@ -35,16 +35,6 @@ arc.mojom.AppPermissionsInstancePtr = class {
     this.interfaceName = 'arc.mojom.AppPermissionsInstance';
   }
 
-  0(package_name, permission) {
-    // Method: 0
-    // Call: 0(package_name, permission)
-  }
-
-  1(package_name, permission) {
-    // Method: 1
-    // Call: 1(package_name, permission)
-  }
-
 };
 
 arc.mojom.AppPermissionsInstanceRequest = class {

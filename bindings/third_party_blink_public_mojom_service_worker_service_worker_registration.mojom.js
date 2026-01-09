@@ -31,22 +31,12 @@ blink.mojom.ServiceWorkerRegistrationObjectHostPtr = class {
     this.interfaceName = 'blink.mojom.ServiceWorkerRegistrationObjectHost';
   }
 
-  update() {
-    // Method: update
-    // Call: update()
-  }
-
   update(outside_fetch_client_settings_object) {
     // Method: Update
     return new Promise((resolve) => {
       // Call: Update(outside_fetch_client_settings_object)
       resolve({});
     });
-  }
-
-  unregister() {
-    // Method: unregister
-    // Call: unregister()
   }
 
   unregister() {
@@ -57,16 +47,6 @@ blink.mojom.ServiceWorkerRegistrationObjectHostPtr = class {
     });
   }
 
-  enable() {
-    // Method: enable
-    // Call: enable()
-  }
-
-  disable() {
-    // Method: disable
-    // Call: disable()
-  }
-
   enableNavigationPreload(enable) {
     // Method: EnableNavigationPreload
     return new Promise((resolve) => {
@@ -75,22 +55,12 @@ blink.mojom.ServiceWorkerRegistrationObjectHostPtr = class {
     });
   }
 
-  getState() {
-    // Method: getState
-    // Call: getState()
-  }
-
   getNavigationPreloadState() {
     // Method: GetNavigationPreloadState
     return new Promise((resolve) => {
       // Call: GetNavigationPreloadState()
       resolve({});
     });
-  }
-
-  setHeaderValue() {
-    // Method: setHeaderValue
-    // Call: setHeaderValue()
   }
 
   setNavigationPreloadHeader(value) {

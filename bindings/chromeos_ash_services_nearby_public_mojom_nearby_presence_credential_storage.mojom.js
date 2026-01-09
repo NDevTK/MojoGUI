@@ -18,22 +18,12 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStoragePtr = class {
     this.interfaceName = 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   saveCredentials(local_credentials, shared_credentials, public_credential_type) {
     // Method: SaveCredentials
     return new Promise((resolve) => {
       // Call: SaveCredentials(local_credentials, shared_credentials, public_credential_type)
       resolve({});
     });
-  }
-
-  type() {
-    // Method: type
-    // Call: type()
   }
 
   getPublicCredentials(public_credential_type) {

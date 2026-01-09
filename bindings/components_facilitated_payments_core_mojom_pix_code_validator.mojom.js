@@ -24,21 +24,6 @@ payments.facilitated.mojom.PixCodeValidatorPtr = class {
     this.interfaceName = 'payments.facilitated.mojom.PixCodeValidator';
   }
 
-  identifier("99") {
-    // Method: identifier
-    // Call: identifier("99")
-  }
-
-  length("99") {
-    // Method: length
-    // Call: length("99")
-  }
-
-  in() {
-    // Method: in
-    // Call: in()
-  }
-
   validatePixCode(input_text) {
     // Method: ValidatePixCode
     return new Promise((resolve) => {

@@ -83,31 +83,6 @@ arc.mojom.VideoEncodeClientPtr = class {
     this.interfaceName = 'arc.mojom.VideoEncodeClient';
   }
 
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  encode() {
-    // Method: Encode
-    // Call: Encode()
-  }
-
-  0(input_count, input_coded_size, output_buffer_size) {
-    // Method: 0
-    // Call: 0(input_count, input_coded_size, output_buffer_size)
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  2(error) {
-    // Method: 2
-    // Call: 2(error)
-  }
-
 };
 
 arc.mojom.VideoEncodeClientRequest = class {

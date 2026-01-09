@@ -16,11 +16,6 @@ printing.mojom.PrinterXmlParserPtr = class {
     this.interfaceName = 'printing.mojom.PrinterXmlParser';
   }
 
-  parseXmlForPrinterCapabilities(capabilities_xml) {
-    // Method: ParseXmlForPrinterCapabilities
-    // Call: ParseXmlForPrinterCapabilities(capabilities_xml)
-  }
-
 };
 
 printing.mojom.PrinterXmlParserRequest = class {

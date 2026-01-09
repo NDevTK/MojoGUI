@@ -83,11 +83,6 @@ ash.projector.mojom.UntrustedProjectorPageHandlerPtr = class {
     });
   }
 
-  accounts(and) {
-    // Method: accounts
-    // Call: accounts(and)
-  }
-
   getAccounts() {
     // Method: GetAccounts
     return new Promise((resolve) => {

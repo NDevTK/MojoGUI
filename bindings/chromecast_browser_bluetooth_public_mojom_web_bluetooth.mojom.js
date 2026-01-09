@@ -41,11 +41,6 @@ chromecast.mojom.BluetoothDeviceAccessProviderClientPtr = class {
     // Call: GrantAccess(address)
   }
 
-  grantAccess() {
-    // Method: GrantAccess
-    // Call: GrantAccess()
-  }
-
   grantAccessToAllDevices() {
     // Method: GrantAccessToAllDevices
     // Call: GrantAccessToAllDevices()

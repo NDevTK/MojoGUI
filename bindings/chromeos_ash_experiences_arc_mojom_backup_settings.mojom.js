@@ -16,11 +16,6 @@ arc.mojom.BackupSettingsInstancePtr = class {
     this.interfaceName = 'arc.mojom.BackupSettingsInstance';
   }
 
-  0(enabled, managed) {
-    // Method: 0
-    // Call: 0(enabled, managed)
-  }
-
 };
 
 arc.mojom.BackupSettingsInstanceRequest = class {

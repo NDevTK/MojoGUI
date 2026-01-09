@@ -17,11 +17,6 @@ ntp.calendar.mojom.OutlookCalendarPageHandlerPtr = class {
     this.interfaceName = 'ntp.calendar.mojom.OutlookCalendarPageHandler';
   }
 
-  dismissModule() {
-    // Method: DismissModule
-    // Call: DismissModule()
-  }
-
   getEvents() {
     // Method: GetEvents
     return new Promise((resolve) => {

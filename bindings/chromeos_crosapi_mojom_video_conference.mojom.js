@@ -71,35 +71,6 @@ crosapi.mojom.VideoConferenceManagerClientPtr = class {
     this.interfaceName = 'crosapi.mojom.VideoConferenceManagerClient';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1(id) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(id)
-      resolve({});
-    });
-  }
-
-  2(device, enabled) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(device, enabled)
-      resolve({});
-    });
-  }
-
-  3() {
-    // Method: 3
-    // Call: 3()
-  }
-
 };
 
 crosapi.mojom.VideoConferenceManagerClientRequest = class {

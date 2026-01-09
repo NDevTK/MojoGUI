@@ -70,29 +70,14 @@ blink.mojom.PresentationConnectionPtr = class {
     this.interfaceName = 'blink.mojom.PresentationConnection';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   onMessage(message) {
     // Method: OnMessage
     // Call: OnMessage(message)
   }
 
-  didClose() {
-    // Method: DidClose
-    // Call: DidClose()
-  }
-
   didChangeState(state) {
     // Method: DidChangeState
     // Call: DidChangeState(state)
-  }
-
-  close() {
-    // Method: close
-    // Call: close()
   }
 
   didClose(reason) {
@@ -120,16 +105,6 @@ blink.mojom.PresentationServicePtr = class {
     // Call: SetController(controller)
   }
 
-  connections(controller) {
-    // Method: connections
-    // Call: connections(controller)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   setReceiver(receiver) {
     // Method: SetReceiver
     // Call: SetReceiver(receiver)
@@ -150,27 +125,12 @@ blink.mojom.PresentationServicePtr = class {
     // Call: StopListeningForScreenAvailability(availability_url)
   }
 
-  start() {
-    // Method: start
-    // Call: start()
-  }
-
   startPresentation(presentation_urls) {
     // Method: StartPresentation
     return new Promise((resolve) => {
       // Call: StartPresentation(presentation_urls)
       resolve({});
     });
-  }
-
-  reconnect() {
-    // Method: reconnect
-    // Call: reconnect()
-  }
-
-  reconnect() {
-    // Method: reconnect
-    // Call: reconnect()
   }
 
   reconnectPresentation(presentation_urls, presentation_id) {
@@ -181,29 +141,9 @@ blink.mojom.PresentationServicePtr = class {
     });
   }
 
-  close() {
-    // Method: close
-    // Call: close()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   closeConnection(presentation_url, presentation_id) {
     // Method: CloseConnection
     // Call: CloseConnection(presentation_url, presentation_id)
-  }
-
-  terminate() {
-    // Method: terminate
-    // Call: terminate()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   terminate(presentation_url, presentation_id) {

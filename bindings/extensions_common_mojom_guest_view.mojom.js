@@ -49,16 +49,6 @@ extensions.mojom.MimeHandlerViewContainerManagerPtr = class {
     // Call: SetInternalId(token_id)
   }
 
-  aPI(embedder) {
-    // Method: API
-    // Call: API(embedder)
-  }
-
-  mimeHandlerView(type) {
-    // Method: MimeHandlerView
-    // Call: MimeHandlerView(type)
-  }
-
   createBeforeUnloadControl() {
     // Method: CreateBeforeUnloadControl
     return new Promise((resolve) => {
@@ -70,11 +60,6 @@ extensions.mojom.MimeHandlerViewContainerManagerPtr = class {
   destroyFrameContainer(element_instance_id) {
     // Method: DestroyFrameContainer
     // Call: DestroyFrameContainer(element_instance_id)
-  }
-
-  guestView(any) {
-    // Method: GuestView
-    // Call: GuestView(any)
   }
 
   didLoad(mime_handler_view_guest_element_instance_id, resource_url) {

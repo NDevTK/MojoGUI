@@ -45,16 +45,6 @@ network.mojom.RestrictedUDPSocketPtr = class {
     });
   }
 
-  onReceived() {
-    // Method: OnReceived
-    // Call: OnReceived()
-  }
-
-  times(count) {
-    // Method: times
-    // Call: times(count)
-  }
-
   receiveMore(num_additional_datagrams) {
     // Method: ReceiveMore
     // Call: ReceiveMore(num_additional_datagrams)
@@ -66,11 +56,6 @@ network.mojom.RestrictedUDPSocketPtr = class {
       // Call: Send(data)
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   sendTo(data, dest_addr, dns_query_type) {

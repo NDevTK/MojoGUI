@@ -169,24 +169,9 @@ printing.mojom.PrintPreviewUIPtr = class {
     // Call: PrintPreviewFailed(document_cookie, request_id)
   }
 
-  printPreviewFailed() {
-    // Method: PrintPreviewFailed
-    // Call: PrintPreviewFailed()
-  }
-
   printPreviewCancelled(document_cookie, request_id) {
     // Method: PrintPreviewCancelled
     // Call: PrintPreviewCancelled(document_cookie, request_id)
-  }
-
-  settings(or) {
-    // Method: settings
-    // Call: settings(or)
-  }
-
-  printPreviewFailed() {
-    // Method: PrintPreviewFailed
-    // Call: PrintPreviewFailed()
   }
 
   printerSettingsInvalid(document_cookie, request_id) {
@@ -222,16 +207,6 @@ printing.mojom.PrintRenderFramePtr = class {
   printRequestedPages() {
     // Method: PrintRequestedPages
     // Call: PrintRequestedPages()
-  }
-
-  browser(over) {
-    // Method: browser
-    // Call: browser(over)
-  }
-
-  printWithParams(params) {
-    // Method: PrintWithParams
-    // Call: PrintWithParams(params)
   }
 
   printForSystemDialog() {
@@ -315,11 +290,6 @@ printing.mojom.PrintManagerHostPtr = class {
     // Call: DidShowPrintDialog()
   }
 
-  printRequestedPages() {
-    // Method: PrintRequestedPages
-    // Call: PrintRequestedPages()
-  }
-
   didPrintDocument(params) {
     // Method: DidPrintDocument
     return new Promise((resolve) => {
@@ -357,11 +327,6 @@ printing.mojom.PrintManagerHostPtr = class {
     });
   }
 
-  print() {
-    // Method: print
-    // Call: print()
-  }
-
   setupScriptedPrintPreview() {
     // Method: SetupScriptedPrintPreview
     // Call: SetupScriptedPrintPreview()
@@ -383,11 +348,6 @@ printing.mojom.PrintManagerHostPtr = class {
       // Call: CheckForCancel(preview_ui_id, request_id)
       resolve({});
     });
-  }
-
-  tagged() {
-    // Method: tagged
-    // Call: tagged()
   }
 
   setAccessibilityTree(cookie, accessibility_tree) {

@@ -89,11 +89,6 @@ ash.settings.app_permission.mojom.AppPermissionsObserverPtr = class {
     // Call: OnAppRemoved(app_id)
   }
 
-  field() {
-    // Method: field
-    // Call: field()
-  }
-
   onAppUpdated(app) {
     // Method: OnAppUpdated
     // Call: OnAppUpdated(app)

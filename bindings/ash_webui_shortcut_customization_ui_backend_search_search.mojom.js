@@ -25,11 +25,6 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverPtr = class {
     this.interfaceName = 'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver';
   }
 
-  search() {
-    // Method: Search
-    // Call: Search()
-  }
-
   onSearchResultsAvailabilityChanged() {
     // Method: OnSearchResultsAvailabilityChanged
     // Call: OnSearchResultsAvailabilityChanged()

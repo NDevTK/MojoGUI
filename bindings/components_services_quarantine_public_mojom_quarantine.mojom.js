@@ -21,11 +21,6 @@ quarantine.mojom.QuarantinePtr = class {
     this.interfaceName = 'quarantine.mojom.Quarantine';
   }
 
-  uRL() {
-    // Method: URL
-    // Call: URL()
-  }
-
   quarantineFile(full_path, source_url, referrer_url, request_initiator, client_guid) {
     // Method: QuarantineFile
     return new Promise((resolve) => {

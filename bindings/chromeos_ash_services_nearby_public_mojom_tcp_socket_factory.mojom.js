@@ -24,11 +24,6 @@ sharing.mojom.TcpSocketFactoryPtr = class {
     });
   }
 
-  practice(minutes) {
-    // Method: practice
-    // Call: practice(minutes)
-  }
-
   createTCPConnectedSocket(timeout, local_addr, remote_addr_list, tcp_connected_socket_options, traffic_annotation, socket, observer) {
     // Method: CreateTCPConnectedSocket
     return new Promise((resolve) => {

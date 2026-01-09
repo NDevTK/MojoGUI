@@ -34,42 +34,12 @@ blink.mojom.ControllerServiceWorkerPtr = class {
     this.interfaceName = 'blink.mojom.ControllerServiceWorker';
   }
 
-  respondWith() {
-    // Method: respondWith
-    // Call: respondWith()
-  }
-
-  waitUntil() {
-    // Method: waitUntil
-    // Call: waitUntil()
-  }
-
-  respondWith() {
-    // Method: respondWith
-    // Call: respondWith()
-  }
-
-  respondWith() {
-    // Method: respondWith
-    // Call: respondWith()
-  }
-
   dispatchFetchEventForSubresource(params, response_callback) {
     // Method: DispatchFetchEventForSubresource
     return new Promise((resolve) => {
       // Call: DispatchFetchEventForSubresource(params, response_callback)
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  dispatchExtendableMessageEvent() {
-    // Method: DispatchExtendableMessageEvent
-    // Call: DispatchExtendableMessageEvent()
   }
 
   clone(receiver, cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter) {
@@ -90,11 +60,6 @@ blink.mojom.ControllerServiceWorkerConnectorPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'blink.mojom.ControllerServiceWorkerConnector';
-  }
-
-  claim() {
-    // Method: claim
-    // Call: claim()
   }
 
   updateController(controller) {

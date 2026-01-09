@@ -21,11 +21,6 @@ blink.mojom.PictureInPictureSessionObserverPtr = class {
     // Call: OnWindowSizeChanged(size)
   }
 
-  stop() {
-    // Method: Stop
-    // Call: Stop()
-  }
-
   onStopped() {
     // Method: OnStopped
     // Call: OnStopped()
@@ -44,11 +39,6 @@ blink.mojom.PictureInPictureSessionPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'blink.mojom.PictureInPictureSession';
-  }
-
-  stop() {
-    // Method: Stop
-    // Call: Stop()
   }
 
   update(player_id, player_remote, surface_id, natural_size, show_play_pause_button) {

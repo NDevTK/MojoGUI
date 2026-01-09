@@ -17,11 +17,6 @@ ui.ozone.mojom.DrmDevicePtr = class {
     this.interfaceName = 'ui.ozone.mojom.DrmDevice';
   }
 
-  setWindowBounds() {
-    // Method: SetWindowBounds
-    // Call: SetWindowBounds()
-  }
-
   createWindow(widget, initial_bounds) {
     // Method: CreateWindow
     // Call: CreateWindow(widget, initial_bounds)
@@ -79,16 +74,6 @@ ui.ozone.mojom.DrmDevicePtr = class {
     });
   }
 
-  configures() {
-    // Method: Configures
-    // Call: Configures()
-  }
-
-  used(requests) {
-    // Method: used
-    // Call: used(requests)
-  }
-
   configureNativeDisplays(config_requests, modeset_flags) {
     // Method: ConfigureNativeDisplays
     return new Promise((resolve) => {
@@ -105,11 +90,6 @@ ui.ozone.mojom.DrmDevicePtr = class {
     });
   }
 
-  protection() {
-    // Method: protection
-    // Call: protection()
-  }
-
   getHDCPState(display_id) {
     // Method: GetHDCPState
     return new Promise((resolve) => {
@@ -118,22 +98,12 @@ ui.ozone.mojom.DrmDevicePtr = class {
     });
   }
 
-  protection() {
-    // Method: protection
-    // Call: protection()
-  }
-
   setHDCPState(display_id, state, protection_method) {
     // Method: SetHDCPState
     return new Promise((resolve) => {
       // Call: SetHDCPState(display_id, state, protection_method)
       resolve({});
     });
-  }
-
-  adjustment(light) {
-    // Method: adjustment
-    // Call: adjustment(light)
   }
 
   setColorTemperatureAdjustment(display_id, cta) {
@@ -165,11 +135,6 @@ ui.ozone.mojom.DrmDevicePtr = class {
       // Call: GetSeamlessRefreshRates(display_id)
       resolve({});
     });
-  }
-
-  createWindow() {
-    // Method: CreateWindow
-    // Call: CreateWindow()
   }
 
   getDeviceCursor(cursor) {

@@ -44,11 +44,6 @@ device.mojom.PressureManagerPtr = class {
     // Call: UpdateVirtualPressureSourceData(token, source, state, own_contribution_estimate)
   }
 
-  addVirtualPressureSource() {
-    // Method: AddVirtualPressureSource
-    // Call: AddVirtualPressureSource()
-  }
-
   addClient(source, token, client) {
     // Method: AddClient
     return new Promise((resolve) => {

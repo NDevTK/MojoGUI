@@ -51,22 +51,12 @@ media.mojom.OnDeviceSpeechRecognitionPtr = class {
     this.interfaceName = 'media.mojom.OnDeviceSpeechRecognition';
   }
 
-  tags() {
-    // Method: tags
-    // Call: tags()
-  }
-
   available(languages) {
     // Method: Available
     return new Promise((resolve) => {
       // Call: Available(languages)
       resolve({});
     });
-  }
-
-  tags() {
-    // Method: tags
-    // Call: tags()
   }
 
   install(languages) {
@@ -92,21 +82,6 @@ media.mojom.SpeechRecognitionSessionPtr = class {
     this.interfaceName = 'media.mojom.SpeechRecognitionSession';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  2(recognition_context) {
-    // Method: 2
-    // Call: 2(recognition_context)
-  }
-
 };
 
 media.mojom.SpeechRecognitionSessionRequest = class {
@@ -120,46 +95,6 @@ media.mojom.SpeechRecognitionSessionClientPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'media.mojom.SpeechRecognitionSessionClient';
-  }
-
-  0(results) {
-    // Method: 0
-    // Call: 0(results)
-  }
-
-  1(error) {
-    // Method: 1
-    // Call: 1(error)
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
-  3() {
-    // Method: 3
-    // Call: 3()
-  }
-
-  4() {
-    // Method: 4
-    // Call: 4()
-  }
-
-  5() {
-    // Method: 5
-    // Call: 5()
-  }
-
-  6() {
-    // Method: 6
-    // Call: 6()
-  }
-
-  7() {
-    // Method: 7
-    // Call: 7()
   }
 
 };

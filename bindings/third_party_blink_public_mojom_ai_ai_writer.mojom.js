@@ -43,16 +43,6 @@ blink.mojom.AIWriterPtr = class {
     this.interfaceName = 'blink.mojom.AIWriter';
   }
 
-  write() {
-    // Method: write
-    // Call: write()
-  }
-
-  write() {
-    // Method: write
-    // Call: write()
-  }
-
   write(input, context, pending_responder) {
     // Method: Write
     // Call: Write(input, context, pending_responder)

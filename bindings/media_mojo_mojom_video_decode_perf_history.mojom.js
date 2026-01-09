@@ -16,11 +16,6 @@ media.mojom.VideoDecodePerfHistoryPtr = class {
     this.interfaceName = 'media.mojom.VideoDecodePerfHistory';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   getPerfInfo(features) {
     // Method: GetPerfInfo
     return new Promise((resolve) => {

@@ -31,21 +31,6 @@ media.mojom.VideoFrameHandleReleaserPtr = class {
     this.interfaceName = 'media.mojom.VideoFrameHandleReleaser';
   }
 
-  mailboxes() {
-    // Method: mailboxes
-    // Call: mailboxes()
-  }
-
-  releaseVideoFrame() {
-    // Method: ReleaseVideoFrame
-    // Call: ReleaseVideoFrame()
-  }
-
-  supplied(supplied) {
-    // Method: supplied
-    // Call: supplied(supplied)
-  }
-
   releaseVideoFrame(release_token, release_sync_token) {
     // Method: ReleaseVideoFrame
     // Call: ReleaseVideoFrame(release_token, release_sync_token)
@@ -66,16 +51,6 @@ media.mojom.VideoDecoderPtr = class {
     this.interfaceName = 'media.mojom.VideoDecoder';
   }
 
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  construct() {
-    // Method: Construct
-    // Call: Construct()
-  }
-
   getSupportedConfigs() {
     // Method: GetSupportedConfigs
     return new Promise((resolve) => {
@@ -84,84 +59,9 @@ media.mojom.VideoDecoderPtr = class {
     });
   }
 
-  getSupportedConfigs() {
-    // Method: GetSupportedConfigs
-    // Call: GetSupportedConfigs()
-  }
-
-  released(the) {
-    // Method: released
-    // Call: released(the)
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  configure() {
-    // Method: Configure
-    // Call: Configure()
-  }
-
   construct(client, media_log, video_frame_handle_releaser, decoder_buffer_pipe, command_buffer_id, target_color_space) {
     // Method: Construct
     // Call: Construct(client, media_log, video_frame_handle_releaser, decoder_buffer_pipe, command_buffer_id, target_color_space)
-  }
-
-  configure(reconfigure) {
-    // Method: Configure
-    // Call: Configure(reconfigure)
-  }
-
-  decode() {
-    // Method: Decode
-    // Call: Decode()
-  }
-
-  decode() {
-    // Method: Decode
-    // Call: Decode()
-  }
-
-  isEncrypted() {
-    // Method: is_encrypted
-    // Call: is_encrypted()
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  decode() {
-    // Method: Decode
-    // Call: Decode()
-  }
-
-  reset() {
-    // Method: Reset
-    // Call: Reset()
   }
 
   initialize(config, low_delay, cdm) {
@@ -172,57 +72,12 @@ media.mojom.VideoDecoderPtr = class {
     });
   }
 
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
-  reset() {
-    // Method: Reset
-    // Call: Reset()
-  }
-
-  decode() {
-    // Method: Decode
-    // Call: Decode()
-  }
-
-  decode() {
-    // Method: Decode
-    // Call: Decode()
-  }
-
-  reported(EOS) {
-    // Method: reported
-    // Call: reported(EOS)
-  }
-
-  decode() {
-    // Method: Decode
-    // Call: Decode()
-  }
-
-  decode() {
-    // Method: Decode
-    // Call: Decode()
-  }
-
   decode(buffer) {
     // Method: Decode
     return new Promise((resolve) => {
       // Call: Decode(buffer)
       resolve({});
     });
-  }
-
-  decode() {
-    // Method: Decode
-    // Call: Decode()
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
   }
 
   reset() {
@@ -250,11 +105,6 @@ media.mojom.VideoDecoderClientPtr = class {
     this.interfaceName = 'media.mojom.VideoDecoderClient';
   }
 
-  release() {
-    // Method: Release
-    // Call: Release()
-  }
-
   onVideoFrameDecoded(frame, can_read_without_stalling, release_token) {
     // Method: OnVideoFrameDecoded
     // Call: OnVideoFrameDecoded(frame, can_read_without_stalling, release_token)
@@ -263,11 +113,6 @@ media.mojom.VideoDecoderClientPtr = class {
   onWaiting(reason) {
     // Method: OnWaiting
     // Call: OnWaiting(reason)
-  }
-
-  onOverlayInfoChanged() {
-    // Method: OnOverlayInfoChanged
-    // Call: OnOverlayInfoChanged()
   }
 
   requestOverlayInfo() {

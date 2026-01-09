@@ -16,11 +16,6 @@ blink.mojom.MemoryUsageMonitorLinuxPtr = class {
     this.interfaceName = 'blink.mojom.MemoryUsageMonitorLinux';
   }
 
-  open() {
-    // Method: open
-    // Call: open()
-  }
-
   setProcFiles(statm_file, status_file) {
     // Method: SetProcFiles
     // Call: SetProcFiles(statm_file, status_file)

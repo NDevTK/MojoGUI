@@ -43,11 +43,6 @@ search_engine_choice.mojom.PageHandlerPtr = class {
     this.interfaceName = 'search_engine_choice.mojom.PageHandler';
   }
 
-  ifChange() {
-    // Method: IfChange
-    // Call: IfChange()
-  }
-
 };
 
 search_engine_choice.mojom.PageHandlerRequest = class {

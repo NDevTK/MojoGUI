@@ -29,22 +29,6 @@ ash.cros_safety.mojom.CrosSafetyServicePtr = class {
     this.interfaceName = 'ash.cros_safety.mojom.CrosSafetyService';
   }
 
-  0(session) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(session)
-      resolve({});
-    });
-  }
-
-  1(session) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(session)
-      resolve({});
-    });
-  }
-
 };
 
 ash.cros_safety.mojom.CrosSafetyServiceRequest = class {

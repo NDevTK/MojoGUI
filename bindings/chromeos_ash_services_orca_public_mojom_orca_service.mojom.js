@@ -97,101 +97,6 @@ ash.orca.mojom.EditorClientPtr = class {
     this.interfaceName = 'ash.orca.mojom.EditorClient';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1(text_query_id, text_override) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(text_query_id, text_override)
-      resolve({});
-    });
-  }
-
-  2(input, text_override) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(input, text_override)
-      resolve({});
-    });
-  }
-
-  3(input) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(input)
-      resolve({});
-    });
-  }
-
-  4(text) {
-    // Method: 4
-    // Call: 4(text)
-  }
-
-  5() {
-    // Method: 5
-    // Call: 5()
-  }
-
-  6() {
-    // Method: 6
-    // Call: 6()
-  }
-
-  7() {
-    // Method: 7
-    // Call: 7()
-  }
-
-  8(url) {
-    // Method: 8
-    // Call: 8(url)
-  }
-
-  9() {
-    // Method: 9
-    // Call: 9()
-  }
-
-  10() {
-    // Method: 10
-    // Call: 10()
-  }
-
-  11(text) {
-    // Method: 11
-    // Call: 11(text)
-  }
-
-  12(result_id) {
-    // Method: 12
-    return new Promise((resolve) => {
-      // Call: 12(result_id)
-      resolve({});
-    });
-  }
-
-  13(result_id, user_description) {
-    // Method: 13
-    // Call: 13(result_id, user_description)
-  }
-
-  14(trigger_context) {
-    // Method: 14
-    // Call: 14(trigger_context)
-  }
-
-  15(metric_event) {
-    // Method: 15
-    // Call: 15(metric_event)
-  }
-
 };
 
 ash.orca.mojom.EditorClientRequest = class {
@@ -205,11 +110,6 @@ ash.orca.mojom.EditorClientConnectorPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.orca.mojom.EditorClientConnector';
-  }
-
-  0(editor_client) {
-    // Method: 0
-    // Call: 0(editor_client)
   }
 
 };
@@ -227,11 +127,6 @@ ash.orca.mojom.EditorEventSinkPtr = class {
     this.interfaceName = 'ash.orca.mojom.EditorEventSink';
   }
 
-  0(context) {
-    // Method: 0
-    // Call: 0(context)
-  }
-
 };
 
 ash.orca.mojom.EditorEventSinkRequest = class {
@@ -245,51 +140,6 @@ ash.orca.mojom.SystemActuatorPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.orca.mojom.SystemActuator';
-  }
-
-  0(text) {
-    // Method: 0
-    // Call: 0(text)
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
-  3(url) {
-    // Method: 3
-    // Call: 3(url)
-  }
-
-  4() {
-    // Method: 4
-    // Call: 4()
-  }
-
-  5() {
-    // Method: 5
-    // Call: 5()
-  }
-
-  6(description) {
-    // Method: 6
-    // Call: 6(description)
-  }
-
-  7(trigger_context) {
-    // Method: 7
-    // Call: 7(trigger_context)
-  }
-
-  8(metric_event) {
-    // Method: 8
-    // Call: 8(metric_event)
   }
 
 };
@@ -307,19 +157,6 @@ ash.orca.mojom.TextQueryProviderPtr = class {
     this.interfaceName = 'ash.orca.mojom.TextQueryProvider';
   }
 
-  response() {
-    // Method: response
-    // Call: response()
-  }
-
-  0(request) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(request)
-      resolve({});
-    });
-  }
-
 };
 
 ash.orca.mojom.TextQueryProviderRequest = class {
@@ -333,11 +170,6 @@ ash.orca.mojom.OrcaServicePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.orca.mojom.OrcaService';
-  }
-
-  0(system_actuator, text_query_provider, client_connector, event_sink, editor_config) {
-    // Method: 0
-    // Call: 0(system_actuator, text_query_provider, client_connector, event_sink, editor_config)
   }
 
 };

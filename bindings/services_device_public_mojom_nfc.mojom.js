@@ -154,11 +154,6 @@ device.mojom.NFCClientPtr = class {
     this.interfaceName = 'device.mojom.NFCClient';
   }
 
-  watch() {
-    // Method: Watch
-    // Call: Watch()
-  }
-
   onWatch(watch_ids, serial_number, message) {
     // Method: OnWatch
     // Call: OnWatch(watch_ids, serial_number, message)
@@ -182,11 +177,6 @@ device.mojom.RawNFCClientPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'device.mojom.RawNFCClient';
-  }
-
-  watch() {
-    // Method: Watch
-    // Call: Watch()
   }
 
   onWatch(watch_ids, message) {

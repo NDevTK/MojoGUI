@@ -16,22 +16,12 @@ media.mojom.RendererPtr = class {
     this.interfaceName = 'media.mojom.Renderer';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   initialize(client, streams) {
     // Method: Initialize
     return new Promise((resolve) => {
       // Call: Initialize(client, streams)
       resolve({});
     });
-  }
-
-  onError() {
-    // Method: OnError
-    // Call: OnError()
   }
 
   flush() {
@@ -82,11 +72,6 @@ media.mojom.RendererClientPtr = class {
     this.interfaceName = 'media.mojom.RendererClient';
   }
 
-  onTimeUpdate() {
-    // Method: OnTimeUpdate
-    // Call: OnTimeUpdate()
-  }
-
   onTimeUpdate(time, max_time, capture_time) {
     // Method: OnTimeUpdate
     // Call: OnTimeUpdate(time, max_time, capture_time)
@@ -100,11 +85,6 @@ media.mojom.RendererClientPtr = class {
   onEnded() {
     // Method: OnEnded
     // Call: OnEnded()
-  }
-
-  onError() {
-    // Method: OnError
-    // Call: OnError()
   }
 
   onError(status) {

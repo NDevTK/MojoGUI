@@ -31,19 +31,6 @@ arc.keymint.mojom.CertStoreInstancePtr = class {
     this.interfaceName = 'arc.keymint.mojom.CertStoreInstance';
   }
 
-  1(keys) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(keys)
-      resolve({});
-    });
-  }
-
-  2(serial_number) {
-    // Method: 2
-    // Call: 2(serial_number)
-  }
-
 };
 
 arc.keymint.mojom.CertStoreInstanceRequest = class {

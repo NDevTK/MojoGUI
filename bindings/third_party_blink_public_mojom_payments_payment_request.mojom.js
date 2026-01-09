@@ -217,11 +217,6 @@ payments.mojom.PaymentRequestClientPtr = class {
     // Call: WarnNoFavicon()
   }
 
-  policy() {
-    // Method: Policy
-    // Call: Policy()
-  }
-
   allowConnectToSource(url, url_before_redirects, did_follow_redirect) {
     // Method: AllowConnectToSource
     return new Promise((resolve) => {
@@ -250,39 +245,9 @@ payments.mojom.PaymentRequestPtr = class {
     // Call: Init(client, method_data, details, options)
   }
 
-  show() {
-    // Method: show
-    // Call: show()
-  }
-
-  updateWith() {
-    // Method: UpdateWith
-    // Call: UpdateWith()
-  }
-
-  show() {
-    // Method: Show
-    // Call: Show()
-  }
-
   show(wait_for_updated_details, had_user_activation) {
     // Method: Show
     // Call: Show(wait_for_updated_details, had_user_activation)
-  }
-
-  to() {
-    // Method: to
-    // Call: to()
-  }
-
-  or() {
-    // Method: or
-    // Call: or()
-  }
-
-  show() {
-    // Method: show
-    // Call: show()
   }
 
   updateWith(details) {
@@ -303,11 +268,6 @@ payments.mojom.PaymentRequestPtr = class {
   complete(result) {
     // Method: Complete
     // Call: Complete(result)
-  }
-
-  retry() {
-    // Method: retry
-    // Call: retry()
   }
 
   retry(errors) {

@@ -235,16 +235,6 @@ ash.personalization_app.mojom.WallpaperProviderPtr = class {
     // Call: MakeTransparent()
   }
 
-  makeTransparent() {
-    // Method: MakeTransparent
-    // Call: MakeTransparent()
-  }
-
-  makeTransparent() {
-    // Method: MakeTransparent
-    // Call: MakeTransparent()
-  }
-
   makeOpaque() {
     // Method: MakeOpaque
     // Call: MakeOpaque()
@@ -288,11 +278,6 @@ ash.personalization_app.mojom.WallpaperProviderPtr = class {
       // Call: FetchGooglePhotosEnabled()
       resolve({});
     });
-  }
-
-  photo() {
-    // Method: photo
-    // Call: photo()
   }
 
   fetchGooglePhotosPhotos(item_id, album_id, resume_token) {
@@ -473,11 +458,6 @@ ash.personalization_app.mojom.ThemeObserverPtr = class {
   onStaticColorChanged(color) {
     // Method: OnStaticColorChanged
     // Call: OnStaticColorChanged(color)
-  }
-
-  isUserModifiable() {
-    // Method: IsUserModifiable
-    // Call: IsUserModifiable()
   }
 
   onGeolocationPermissionForSystemServicesChanged(enabled, is_user_modifiable) {
@@ -742,11 +722,6 @@ ash.personalization_app.mojom.AmbientObserverPtr = class {
     // Call: OnAmbientUiVisibilityChanged(visibility)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   onGeolocationPermissionForSystemServicesChanged(enabled, is_user_modifiable) {
     // Method: OnGeolocationPermissionForSystemServicesChanged
     // Call: OnGeolocationPermissionForSystemServicesChanged(enabled, is_user_modifiable)
@@ -800,16 +775,6 @@ ash.personalization_app.mojom.AmbientProviderPtr = class {
     // Call: SetScreenSaverDuration(minutes)
   }
 
-  setAmbientTheme() {
-    // Method: SetAmbientTheme
-    // Call: SetAmbientTheme()
-  }
-
-  setTopicSource() {
-    // Method: SetTopicSource
-    // Call: SetTopicSource()
-  }
-
   setTopicSource(topic_source) {
     // Method: SetTopicSource
     // Call: SetTopicSource(topic_source)
@@ -818,11 +783,6 @@ ash.personalization_app.mojom.AmbientProviderPtr = class {
   setTemperatureUnit(temperature_unit) {
     // Method: SetTemperatureUnit
     // Call: SetTemperatureUnit(temperature_unit)
-  }
-
-  setTopicSource() {
-    // Method: SetTopicSource
-    // Call: SetTopicSource()
   }
 
   setAlbumSelected(id, topic_source, selected) {

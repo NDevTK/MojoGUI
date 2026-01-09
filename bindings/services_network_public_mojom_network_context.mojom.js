@@ -226,11 +226,6 @@ network.mojom.CustomProxyConnectionObserverPtr = class {
     this.interfaceName = 'network.mojom.CustomProxyConnectionObserver';
   }
 
-  error(directed) {
-    // Method: error
-    // Call: error(directed)
-  }
-
   onFallback(bad_chain, net_error) {
     // Method: OnFallback
     // Call: OnFallback(bad_chain, net_error)
@@ -372,39 +367,9 @@ network.mojom.NetworkContextPtr = class {
     // Call: GetCookieManager(cookie_manager)
   }
 
-  sCRIPT(particular) {
-    // Method: SCRIPT
-    // Call: SCRIPT(particular)
-  }
-
-  nETWORK(request) {
-    // Method: NETWORK
-    // Call: NETWORK(request)
-  }
-
   getRestrictedCookieManager(restricted_cookie_manager, role, origin, isolation_info, cookie_setting_overrides, devtools_cookie_setting_overrides, cookie_observer) {
     // Method: GetRestrictedCookieManager
     // Call: GetRestrictedCookieManager(restricted_cookie_manager, role, origin, isolation_info, cookie_setting_overrides, devtools_cookie_setting_overrides, cookie_observer)
-  }
-
-  hasTrustTokens() {
-    // Method: HasTrustTokens
-    // Call: HasTrustTokens()
-  }
-
-  hasRedemptionRecord() {
-    // Method: HasRedemptionRecord
-    // Call: HasRedemptionRecord()
-  }
-
-  ensure(ReportBadMessage) {
-    // Method: ensure
-    // Call: ensure(ReportBadMessage)
-  }
-
-  serialization() {
-    // Method: serialization
-    // Call: serialization()
   }
 
   getTrustTokenQueryAnswerer(trust_token_query_answerer, top_frame_origin) {
@@ -462,16 +427,6 @@ network.mojom.NetworkContextPtr = class {
   clearHttpCache(start_time, end_time, filter) {
     // Method: ClearHttpCache
     // Call: ClearHttpCache(start_time, end_time, filter)
-  }
-
-  time() {
-    // Method: Time
-    // Call: Time()
-  }
-
-  max() {
-    // Method: Max
-    // Call: Max()
   }
 
   computeHttpCacheSize(start_time, end_time) {

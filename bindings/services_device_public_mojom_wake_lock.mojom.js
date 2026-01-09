@@ -30,44 +30,19 @@ device.mojom.WakeLockPtr = class {
     this.interfaceName = 'device.mojom.WakeLock';
   }
 
-  cancelWakeLock() {
-    // Method: CancelWakeLock
-    // Call: CancelWakeLock()
-  }
-
   requestWakeLock() {
     // Method: RequestWakeLock
     // Call: RequestWakeLock()
   }
 
-  lock() {
-    // Method: lock
-    // Call: lock()
-  }
-
   cancelWakeLock() {
     // Method: CancelWakeLock
     // Call: CancelWakeLock()
   }
 
-  requestWakelock() {
-    // Method: RequestWakelock
-    // Call: RequestWakelock()
-  }
-
   addClient(wake_lock) {
     // Method: AddClient
     // Call: AddClient(wake_lock)
-  }
-
-  client(AddClient() {
-    // Method: client
-    // Call: client(AddClient()
-  }
-
-  state(RequestWakeLock() {
-    // Method: state
-    // Call: state(RequestWakeLock()
   }
 
   changeType(type) {

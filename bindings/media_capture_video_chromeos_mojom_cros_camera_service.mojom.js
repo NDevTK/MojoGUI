@@ -85,21 +85,6 @@ cros.mojom.KioskVisionObserverPtr = class {
     this.interfaceName = 'cros.mojom.KioskVisionObserver';
   }
 
-  0(detection) {
-    // Method: 0
-    // Call: 0(detection)
-  }
-
-  1(track) {
-    // Method: 1
-    // Call: 1(track)
-  }
-
-  2(error) {
-    // Method: 2
-    // Call: 2(error)
-  }
-
 };
 
 cros.mojom.KioskVisionObserverRequest = class {
@@ -113,14 +98,6 @@ cros.mojom.CameraHalDispatcherPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'cros.mojom.CameraHalDispatcher';
-  }
-
-  5(client, type, auth_token) {
-    // Method: 5
-    return new Promise((resolve) => {
-      // Call: 5(client, type, auth_token)
-      resolve({});
-    });
   }
 
 };
@@ -138,36 +115,6 @@ cros.mojom.CrosCameraServiceObserverPtr = class {
     this.interfaceName = 'cros.mojom.CrosCameraServiceObserver';
   }
 
-  closed(used) {
-    // Method: closed
-    // Call: closed(used)
-  }
-
-  0(camera_id, opened, type) {
-    // Method: 0
-    // Call: 0(camera_id, opened, type)
-  }
-
-  1(state, camera_id) {
-    // Method: 1
-    // Call: 1(state, camera_id)
-  }
-
-  2(state) {
-    // Method: 2
-    // Call: 2(state)
-  }
-
-  3(config) {
-    // Method: 3
-    // Call: 3(config)
-  }
-
-  4(state) {
-    // Method: 4
-    // Call: 4(state)
-  }
-
 };
 
 cros.mojom.CrosCameraServiceObserverRequest = class {
@@ -181,63 +128,6 @@ cros.mojom.CrosCameraServicePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'cros.mojom.CrosCameraService';
-  }
-
-  0(type) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(type)
-      resolve({});
-    });
-  }
-
-  1(enabled) {
-    // Method: 1
-    // Call: 1(enabled)
-  }
-
-  2(state) {
-    // Method: 2
-    // Call: 2(state)
-  }
-
-  3() {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3()
-      resolve({});
-    });
-  }
-
-  4(state) {
-    // Method: 4
-    // Call: 4(state)
-  }
-
-  5() {
-    // Method: 5
-    return new Promise((resolve) => {
-      // Call: 5()
-      resolve({});
-    });
-  }
-
-  6(config) {
-    // Method: 6
-    return new Promise((resolve) => {
-      // Call: 6(config)
-      resolve({});
-    });
-  }
-
-  7(observer) {
-    // Method: 7
-    // Call: 7(observer)
-  }
-
-  8(dlc_path, observer) {
-    // Method: 8
-    // Call: 8(dlc_path, observer)
   }
 
 };

@@ -46,11 +46,6 @@ blink.mojom.WidgetHostPtr = class {
     // Call: UpdateTooltipUnderCursor(tooltip_text, text_direction_hint)
   }
 
-  bounds(DIPS) {
-    // Method: bounds
-    // Call: bounds(DIPS)
-  }
-
   updateTooltipFromKeyboard(tooltip_text, text_direction_hint, bounds) {
     // Method: UpdateTooltipFromKeyboard
     // Call: UpdateTooltipFromKeyboard(tooltip_text, text_direction_hint, bounds)
@@ -96,11 +91,6 @@ blink.mojom.WidgetPtr = class {
     this.interfaceName = 'blink.mojom.Widget';
   }
 
-  renderer(draw, output) {
-    // Method: renderer
-    // Call: renderer(draw, output)
-  }
-
   forceRedraw() {
     // Method: ForceRedraw
     // Call: ForceRedraw()
@@ -111,11 +101,6 @@ blink.mojom.WidgetPtr = class {
     // Call: UpdateVisualProperties(visual_properties)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   updateScreenRects(widget_screen_rect, window_screen_rect) {
     // Method: UpdateScreenRects
     // Call: UpdateScreenRects(widget_screen_rect, window_screen_rect)
@@ -124,11 +109,6 @@ blink.mojom.WidgetPtr = class {
   wasHidden() {
     // Method: WasHidden
     // Call: WasHidden()
-  }
-
-  hidden(WasHidden) {
-    // Method: hidden
-    // Call: hidden(WasHidden)
   }
 
   wasShown(was_evicted, record_tab_switch_time_request) {

@@ -44,22 +44,12 @@ network.mojom.UDPSocketPtr = class {
     });
   }
 
-  bind() {
-    // Method: Bind
-    // Call: Bind()
-  }
-
   connect(remote_addr, socket_options) {
     // Method: Connect
     return new Promise((resolve) => {
       // Call: Connect(remote_addr, socket_options)
       resolve({});
     });
-  }
-
-  bind() {
-    // Method: Bind
-    // Call: Bind()
   }
 
   setBroadcast(broadcast) {
@@ -70,22 +60,12 @@ network.mojom.UDPSocketPtr = class {
     });
   }
 
-  size(bytes) {
-    // Method: size
-    // Call: size(bytes)
-  }
-
   setSendBufferSize(send_buffer_size) {
     // Method: SetSendBufferSize
     return new Promise((resolve) => {
       // Call: SetSendBufferSize(send_buffer_size)
       resolve({});
     });
-  }
-
-  size(bytes) {
-    // Method: size
-    // Call: size(bytes)
   }
 
   setReceiveBufferSize(receive_buffer_size) {
@@ -112,139 +92,14 @@ network.mojom.UDPSocketPtr = class {
     });
   }
 
-  onReceived() {
-    // Method: OnReceived
-    // Call: OnReceived()
-  }
-
-  times(count) {
-    // Method: times
-    // Call: times(count)
-  }
-
-  onReceived() {
-    // Method: OnReceived
-    // Call: OnReceived()
-  }
-
-  receiveMore() {
-    // Method: ReceiveMore
-    // Call: ReceiveMore()
-  }
-
-  receiveMore() {
-    // Method: ReceiveMore
-    // Call: ReceiveMore()
-  }
-
-  onReceived() {
-    // Method: OnReceived
-    // Call: OnReceived()
-  }
-
-  onReceived() {
-    // Method: OnReceived
-    // Call: OnReceived()
-  }
-
-  receiveMore() {
-    // Method: ReceiveMore
-    // Call: ReceiveMore()
-  }
-
-  onReceived() {
-    // Method: OnReceived
-    // Call: OnReceived()
-  }
-
-  receiveMore() {
-    // Method: ReceiveMore
-    // Call: ReceiveMore()
-  }
-
-  receiveMore() {
-    // Method: ReceiveMore
-    // Call: ReceiveMore()
-  }
-
-  onReceived() {
-    // Method: OnReceived
-    // Call: OnReceived()
-  }
-
-  onReceived() {
-    // Method: OnReceived
-    // Call: OnReceived()
-  }
-
-  onReceived() {
-    // Method: OnReceived
-    // Call: OnReceived()
-  }
-
-  receiveMore() {
-    // Method: ReceiveMore
-    // Call: ReceiveMore()
-  }
-
-  onReceived() {
-    // Method: OnReceived
-    // Call: OnReceived()
-  }
-
-  receiveMore() {
-    // Method: ReceiveMore
-    // Call: ReceiveMore()
-  }
-
-  onReceived() {
-    // Method: OnReceived
-    // Call: OnReceived()
-  }
-
-  receiveMore() {
-    // Method: ReceiveMore
-    // Call: ReceiveMore()
-  }
-
-  onReceived() {
-    // Method: OnReceived
-    // Call: OnReceived()
-  }
-
   receiveMore(num_additional_datagrams) {
     // Method: ReceiveMore
     // Call: ReceiveMore(num_additional_datagrams)
   }
 
-  receiveMore() {
-    // Method: ReceiveMore
-    // Call: ReceiveMore()
-  }
-
   receiveMoreWithBufferSize(num_additional_datagrams, buffer_size) {
     // Method: ReceiveMoreWithBufferSize
     // Call: ReceiveMoreWithBufferSize(num_additional_datagrams, buffer_size)
-  }
-
-  bind() {
-    // Method: Bind
-    // Call: Bind()
-  }
-
-  layer() {
-    // Method: layer
-    // Call: layer()
-  }
-
-  including(to) {
-    // Method: including
-    // Call: including(to)
-  }
-
-  quickly(completion) {
-    // Method: quickly
-    // Call: quickly(completion)
   }
 
   sendTo(dest_addr, data, traffic_annotation) {
@@ -255,42 +110,12 @@ network.mojom.UDPSocketPtr = class {
     });
   }
 
-  sendTo() {
-    // Method: SendTo
-    // Call: SendTo()
-  }
-
-  connect() {
-    // Method: Connect
-    // Call: Connect()
-  }
-
-  connect() {
-    // Method: Connect
-    // Call: Connect()
-  }
-
   send(data, traffic_annotation) {
     // Method: Send
     return new Promise((resolve) => {
       // Call: Send(data, traffic_annotation)
       resolve({});
     });
-  }
-
-  connect() {
-    // Method: Connect
-    // Call: Connect()
-  }
-
-  bind() {
-    // Method: Bind
-    // Call: Bind()
-  }
-
-  close() {
-    // Method: Close
-    // Call: Close()
   }
 
   close() {
@@ -311,21 +136,6 @@ network.mojom.UDPSocketListenerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'network.mojom.UDPSocketListener';
-  }
-
-  bind() {
-    // Method: Bind
-    // Call: Bind()
-  }
-
-  connect() {
-    // Method: Connect
-    // Call: Connect()
-  }
-
-  connect() {
-    // Method: Connect
-    // Call: Connect()
   }
 
   onReceived(result, src_addr, data) {

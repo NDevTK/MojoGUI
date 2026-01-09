@@ -110,11 +110,6 @@ history_clusters.mojom.PageHandlerPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   removeVisitByUrlAndTime(url, timestamp) {
     // Method: RemoveVisitByUrlAndTime
     return new Promise((resolve) => {
@@ -163,11 +158,6 @@ history_clusters.mojom.PagePtr = class {
     this.interfaceName = 'history_clusters.mojom.Page';
   }
 
-  queryClusters() {
-    // Method: QueryClusters
-    // Call: QueryClusters()
-  }
-
   onClustersQueryResult(result) {
     // Method: OnClustersQueryResult
     // Call: OnClustersQueryResult(result)
@@ -178,19 +168,9 @@ history_clusters.mojom.PagePtr = class {
     // Call: OnClusterImageUpdated(cluster_index, image_url)
   }
 
-  hideVisits() {
-    // Method: HideVisits
-    // Call: HideVisits()
-  }
-
   onVisitsHidden(hidden_visits) {
     // Method: OnVisitsHidden
     // Call: OnVisitsHidden(hidden_visits)
-  }
-
-  removeVisits() {
-    // Method: RemoveVisits
-    // Call: RemoveVisits()
   }
 
   onVisitsRemoved(removed_visits) {

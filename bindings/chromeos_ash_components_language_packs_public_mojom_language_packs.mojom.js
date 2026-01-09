@@ -53,11 +53,6 @@ ash.language.mojom.LanguagePacksObserverPtr = class {
     this.interfaceName = 'ash.language.mojom.LanguagePacksObserver';
   }
 
-  0(info) {
-    // Method: 0
-    // Call: 0(info)
-  }
-
 };
 
 ash.language.mojom.LanguagePacksObserverRequest = class {
@@ -71,60 +66,6 @@ ash.language.mojom.LanguagePacksPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.language.mojom.LanguagePacks';
-  }
-
-  feature(handwriting) {
-    // Method: feature
-    // Call: feature(handwriting)
-  }
-
-  0(feature_id, language) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(feature_id, language)
-      resolve({});
-    });
-  }
-
-  feature(handwriting) {
-    // Method: feature
-    // Call: feature(handwriting)
-  }
-
-  1(feature_id, language) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(feature_id, language)
-      resolve({});
-    });
-  }
-
-  feature(handwriting) {
-    // Method: feature
-    // Call: feature(handwriting)
-  }
-
-  2(feature_id) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(feature_id)
-      resolve({});
-    });
-  }
-
-  feature(handwriting) {
-    // Method: feature
-    // Call: feature(handwriting)
-  }
-
-  3(feature_id, language) {
-    // Method: 3
-    // Call: 3(feature_id, language)
-  }
-
-  4(observer) {
-    // Method: 4
-    // Call: 4(observer)
   }
 
 };

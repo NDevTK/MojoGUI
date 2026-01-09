@@ -76,11 +76,6 @@ ash.scanning.mojom.ScanJobObserverPtr = class {
     // Call: OnPageProgress(page_number, progress_percent)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   onPageComplete(page_data, new_page_index) {
     // Method: OnPageComplete
     // Call: OnPageComplete(page_data, new_page_index)
@@ -122,11 +117,6 @@ ash.scanning.mojom.ScanServicePtr = class {
       // Call: GetScanners()
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   getScannerCapabilities(scanner_id) {

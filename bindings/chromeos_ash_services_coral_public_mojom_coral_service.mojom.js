@@ -108,11 +108,6 @@ coral.mojom.TitleObserverPtr = class {
     this.interfaceName = 'coral.mojom.TitleObserver';
   }
 
-  0(group_id, title) {
-    // Method: 0
-    // Call: 0(group_id, title)
-  }
-
 };
 
 coral.mojom.TitleObserverRequest = class {
@@ -128,22 +123,6 @@ coral.mojom.CoralProcessorPtr = class {
     this.interfaceName = 'coral.mojom.CoralProcessor';
   }
 
-  0(request, observer) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(request, observer)
-      resolve({});
-    });
-  }
-
-  1(request) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(request)
-      resolve({});
-    });
-  }
-
 };
 
 coral.mojom.CoralProcessorRequest = class {
@@ -157,32 +136,6 @@ coral.mojom.CoralServicePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'coral.mojom.CoralService';
-  }
-
-  0(request, observer) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(request, observer)
-      resolve({});
-    });
-  }
-
-  1(request) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(request)
-      resolve({});
-    });
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
-  3(ml_service, processor, language_code) {
-    // Method: 3
-    // Call: 3(ml_service, processor, language_code)
   }
 
 };

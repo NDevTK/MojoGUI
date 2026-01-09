@@ -109,16 +109,6 @@ chrome.mojom.UtilWinPtr = class {
     });
   }
 
-  dialogs() {
-    // Method: dialogs
-    // Call: dialogs()
-  }
-
-  dialogs() {
-    // Method: dialogs
-    // Call: dialogs()
-  }
-
   callExecuteSelectFile(type, owner, title, default_path, filter, file_type_index, default_extension) {
     // Method: CallExecuteSelectFile
     return new Promise((resolve) => {

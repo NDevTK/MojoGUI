@@ -42,11 +42,6 @@ chromeos.machine_learning.mojom.HeatmapPalmRejectionClientPtr = class {
     this.interfaceName = 'chromeos.machine_learning.mojom.HeatmapPalmRejectionClient';
   }
 
-  0(event) {
-    // Method: 0
-    // Call: 0(event)
-  }
-
 };
 
 chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRequest = class {

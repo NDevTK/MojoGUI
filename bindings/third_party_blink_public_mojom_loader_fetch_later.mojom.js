@@ -16,16 +16,6 @@ blink.mojom.FetchLaterLoaderFactoryPtr = class {
     this.interfaceName = 'blink.mojom.FetchLaterLoaderFactory';
   }
 
-  createLoaderAndStart() {
-    // Method: CreateLoaderAndStart
-    // Call: CreateLoaderAndStart()
-  }
-
-  createLoader() {
-    // Method: CreateLoader
-    // Call: CreateLoader()
-  }
-
   createLoader(loader, request_id, options, request, traffic_annotation) {
     // Method: CreateLoader
     // Call: CreateLoader(loader, request_id, options, request, traffic_annotation)

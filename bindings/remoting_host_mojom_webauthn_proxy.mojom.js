@@ -47,31 +47,11 @@ remoting.mojom.WebAuthnProxyPtr = class {
   }
 
   isUserVerifyingPlatformAuthenticatorAvailable() {
-    // Method: isUserVerifyingPlatformAuthenticatorAvailable
-    // Call: isUserVerifyingPlatformAuthenticatorAvailable()
-  }
-
-  isUserVerifyingPlatformAuthenticatorAvailable() {
     // Method: IsUserVerifyingPlatformAuthenticatorAvailable
     return new Promise((resolve) => {
       // Call: IsUserVerifyingPlatformAuthenticatorAvailable()
       resolve({});
     });
-  }
-
-  create() {
-    // Method: create
-    // Call: create()
-  }
-
-  create() {
-    // Method: create
-    // Call: create()
-  }
-
-  create() {
-    // Method: create
-    // Call: create()
   }
 
   create(request_data, request_canceller) {
@@ -80,21 +60,6 @@ remoting.mojom.WebAuthnProxyPtr = class {
       // Call: Create(request_data, request_canceller)
       resolve({});
     });
-  }
-
-  get() {
-    // Method: get
-    // Call: get()
-  }
-
-  get() {
-    // Method: get
-    // Call: get()
-  }
-
-  get() {
-    // Method: get
-    // Call: get()
   }
 
   get(request_data, request_canceller) {

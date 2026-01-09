@@ -16,36 +16,6 @@ media_session.mojom.MediaSessionServicePtr = class {
     this.interfaceName = 'media_session.mojom.MediaSessionService';
   }
 
-  0(receiver) {
-    // Method: 0
-    // Call: 0(receiver)
-  }
-
-  1(receiver) {
-    // Method: 1
-    // Call: 1(receiver)
-  }
-
-  2(receiver) {
-    // Method: 2
-    // Call: 2(receiver)
-  }
-
-  process() {
-    // Method: process
-    // Call: process()
-  }
-
-  process() {
-    // Method: process
-    // Call: process()
-  }
-
-  3(receiver) {
-    // Method: 3
-    // Call: 3(receiver)
-  }
-
 };
 
 media_session.mojom.MediaSessionServiceRequest = class {

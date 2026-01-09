@@ -110,16 +110,6 @@ content.mojom.WebTestRenderFramePtr = class {
     // Call: StartTest()
   }
 
-  javascript() {
-    // Method: javascript
-    // Call: javascript()
-  }
-
-  possible(soon) {
-    // Method: possible
-    // Call: possible(soon)
-  }
-
   setupRendererProcessForNonTestWindow() {
     // Method: SetupRendererProcessForNonTestWindow
     // Call: SetupRendererProcessForNonTestWindow()
@@ -133,11 +123,6 @@ content.mojom.WebTestRenderFramePtr = class {
   testFinishedFromSecondaryRenderer() {
     // Method: TestFinishedFromSecondaryRenderer
     // Call: TestFinishedFromSecondaryRenderer()
-  }
-
-  resetRendererAfterWebTest() {
-    // Method: ResetRendererAfterWebTest
-    // Call: ResetRendererAfterWebTest()
   }
 
   resetRendererAfterWebTest() {
@@ -178,11 +163,6 @@ content.mojom.WebTestControlHostPtr = class {
   testFinishedInSecondaryRenderer() {
     // Method: TestFinishedInSecondaryRenderer
     // Call: TestFinishedInSecondaryRenderer()
-  }
-
-  stderr(files, debugging) {
-    // Method: stderr
-    // Call: stderr(files, debugging)
   }
 
   printMessageToStderr(message) {
@@ -317,11 +297,6 @@ content.mojom.WebTestControlHostPtr = class {
   simulateWebContentIndexDelete(id) {
     // Method: SimulateWebContentIndexDelete
     // Call: SimulateWebContentIndexDelete(id)
-  }
-
-  flags(dump_as_text) {
-    // Method: flags
-    // Call: flags(dump_as_text)
   }
 
   webTestRuntimeFlagsChanged(changed_web_test_runtime_flags) {

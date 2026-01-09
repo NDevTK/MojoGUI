@@ -16,16 +16,6 @@ blink.mojom.FencedFrameOwnerHostPtr = class {
     this.interfaceName = 'blink.mojom.FencedFrameOwnerHost';
   }
 
-  setSharedStorageContext() {
-    // Method: setSharedStorageContext
-    // Call: setSharedStorageContext()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   navigate(url, navigation_start_time, embedder_shared_storage_context) {
     // Method: Navigate
     // Call: Navigate(url, navigation_start_time, embedder_shared_storage_context)

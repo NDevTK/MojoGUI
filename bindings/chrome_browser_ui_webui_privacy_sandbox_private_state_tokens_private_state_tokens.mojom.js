@@ -31,11 +31,6 @@ private_state_tokens.mojom.PrivateStateTokensPageHandlerPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
 };
 
 private_state_tokens.mojom.PrivateStateTokensPageHandlerRequest = class {

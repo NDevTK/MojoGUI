@@ -320,11 +320,6 @@ bluetooth.mojom.FakeCentralPtr = class {
     });
   }
 
-  cHECK() {
-    // Method: CHECK
-    // Call: CHECK()
-  }
-
   setClient(client) {
     // Method: SetClient
     // Call: SetClient(client)

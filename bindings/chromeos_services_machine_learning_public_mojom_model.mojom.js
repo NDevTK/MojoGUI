@@ -55,27 +55,6 @@ chromeos.machine_learning.mojom.ModelPtr = class {
     this.interfaceName = 'chromeos.machine_learning.mojom.Model';
   }
 
-  0(receiver) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(receiver)
-      resolve({});
-    });
-  }
-
-  memory() {
-    // Method: memory
-    // Call: memory()
-  }
-
-  1(options, receiver) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(options, receiver)
-      resolve({});
-    });
-  }
-
 };
 
 chromeos.machine_learning.mojom.ModelRequest = class {

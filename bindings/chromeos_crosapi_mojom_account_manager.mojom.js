@@ -116,36 +116,6 @@ crosapi.mojom.AccountManagerObserverPtr = class {
     this.interfaceName = 'crosapi.mojom.AccountManagerObserver';
   }
 
-  0(account) {
-    // Method: 0
-    // Call: 0(account)
-  }
-
-  1(account) {
-    // Method: 1
-    // Call: 1(account)
-  }
-
-  appropriate(non-transient) {
-    // Method: appropriate
-    // Call: appropriate(non-transient)
-  }
-
-  states(any) {
-    // Method: states
-    // Call: states(any)
-  }
-
-  2(account, error) {
-    // Method: 2
-    // Call: 2(account, error)
-  }
-
-  3() {
-    // Method: 3
-    // Call: 3()
-  }
-
 };
 
 crosapi.mojom.AccountManagerObserverRequest = class {
@@ -161,102 +131,6 @@ crosapi.mojom.AccountManagerPtr = class {
     this.interfaceName = 'crosapi.mojom.AccountManager';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
-  completed(invoked) {
-    // Method: completed
-    // Call: completed(invoked)
-  }
-
-  2() {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2()
-      resolve({});
-    });
-  }
-
-  3(add_account_options) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(add_account_options)
-      resolve({});
-    });
-  }
-
-  4(email) {
-    // Method: 4
-    return new Promise((resolve) => {
-      // Call: 4(email)
-      resolve({});
-    });
-  }
-
-  5() {
-    // Method: 5
-    // Call: 5()
-  }
-
-  6(account) {
-    // Method: 6
-    return new Promise((resolve) => {
-      // Call: 6(account)
-      resolve({});
-    });
-  }
-
-  error() {
-    // Method: error
-    // Call: error()
-  }
-
-  7(account_key, oauth_consumer_name) {
-    // Method: 7
-    return new Promise((resolve) => {
-      // Call: 7(account_key, oauth_consumer_name)
-      resolve({});
-    });
-  }
-
-  report() {
-    // Method: report
-    // Call: report()
-  }
-
-  s() {
-    // Method: s
-    // Call: s()
-  }
-
-  application(OS) {
-    // Method: application
-    // Call: application(OS)
-  }
-
-  errors() {
-    // Method: errors
-    // Call: errors()
-  }
-
-  8(account, error) {
-    // Method: 8
-    // Call: 8(account, error)
-  }
-
 };
 
 crosapi.mojom.AccountManagerRequest = class {
@@ -270,14 +144,6 @@ crosapi.mojom.AccessTokenFetcherPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'crosapi.mojom.AccessTokenFetcher';
-  }
-
-  0(scopes) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(scopes)
-      resolve({});
-    });
   }
 
 };

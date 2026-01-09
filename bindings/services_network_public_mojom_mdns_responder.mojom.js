@@ -16,11 +16,6 @@ network.mojom.MdnsResponderPtr = class {
     this.interfaceName = 'network.mojom.MdnsResponder';
   }
 
-  seconds(6762, 10) {
-    // Method: seconds
-    // Call: seconds(6762, 10)
-  }
-
   createNameForAddress(address) {
     // Method: CreateNameForAddress
     return new Promise((resolve) => {

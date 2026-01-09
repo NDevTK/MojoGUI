@@ -87,11 +87,6 @@ blink.mojom.PeerConnectionTrackerHostPtr = class {
     this.interfaceName = 'blink.mojom.PeerConnectionTrackerHost';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   addPeerConnection(info) {
     // Method: AddPeerConnection
     // Call: AddPeerConnection(info)

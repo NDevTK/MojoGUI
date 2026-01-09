@@ -163,14 +163,6 @@ arc.mojom.KeymasterHostPtr = class {
     this.interfaceName = 'arc.mojom.KeymasterHost';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.KeymasterHostRequest = class {
@@ -186,11 +178,6 @@ arc.mojom.KeymasterInstancePtr = class {
     this.interfaceName = 'arc.mojom.KeymasterInstance';
   }
 
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
-  }
-
 };
 
 arc.mojom.KeymasterInstanceRequest = class {
@@ -204,115 +191,6 @@ arc.mojom.KeymasterServerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.KeymasterServer';
-  }
-
-  0(os_version, os_patchlevel) {
-    // Method: 0
-    // Call: 0(os_version, os_patchlevel)
-  }
-
-  1(data) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(data)
-      resolve({});
-    });
-  }
-
-  2(request) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(request)
-      resolve({});
-    });
-  }
-
-  3(key_params) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(key_params)
-      resolve({});
-    });
-  }
-
-  4(request) {
-    // Method: 4
-    return new Promise((resolve) => {
-      // Call: 4(request)
-      resolve({});
-    });
-  }
-
-  5(request) {
-    // Method: 5
-    return new Promise((resolve) => {
-      // Call: 5(request)
-      resolve({});
-    });
-  }
-
-  6(request) {
-    // Method: 6
-    return new Promise((resolve) => {
-      // Call: 6(request)
-      resolve({});
-    });
-  }
-
-  7(request) {
-    // Method: 7
-    return new Promise((resolve) => {
-      // Call: 7(request)
-      resolve({});
-    });
-  }
-
-  8(key_blob) {
-    // Method: 8
-    return new Promise((resolve) => {
-      // Call: 8(key_blob)
-      resolve({});
-    });
-  }
-
-  9() {
-    // Method: 9
-    return new Promise((resolve) => {
-      // Call: 9()
-      resolve({});
-    });
-  }
-
-  10(request) {
-    // Method: 10
-    return new Promise((resolve) => {
-      // Call: 10(request)
-      resolve({});
-    });
-  }
-
-  11(request) {
-    // Method: 11
-    return new Promise((resolve) => {
-      // Call: 11(request)
-      resolve({});
-    });
-  }
-
-  12(request) {
-    // Method: 12
-    return new Promise((resolve) => {
-      // Call: 12(request)
-      resolve({});
-    });
-  }
-
-  13(op_handle) {
-    // Method: 13
-    return new Promise((resolve) => {
-      // Call: 13(op_handle)
-      resolve({});
-    });
   }
 
 };

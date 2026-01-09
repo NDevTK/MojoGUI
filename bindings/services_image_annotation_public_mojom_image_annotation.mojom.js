@@ -38,16 +38,6 @@ image_annotation.mojom.ImageProcessorPtr = class {
     this.interfaceName = 'image_annotation.mojom.ImageProcessor';
   }
 
-  the(compressed) {
-    // Method: the
-    // Call: the(compressed)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   getJpgImageData() {
     // Method: GetJpgImageData
     return new Promise((resolve) => {
@@ -69,26 +59,6 @@ image_annotation.mojom.AnnotatorPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'image_annotation.mojom.Annotator';
-  }
-
-  annotations(OCR) {
-    // Method: annotations
-    // Call: annotations(OCR)
-  }
-
-  image(data) {
-    // Method: image
-    // Call: image(data)
-  }
-
-  generated(for) {
-    // Method: generated
-    // Call: generated(for)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   annotateImage(source_id, description_language_tag, image_processor) {

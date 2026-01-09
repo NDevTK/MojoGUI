@@ -43,11 +43,6 @@ reload_button.mojom.PageHandlerPtr = class {
     this.interfaceName = 'reload_button.mojom.PageHandler';
   }
 
-  logic(the, pressed) {
-    // Method: logic
-    // Call: logic(the, pressed)
-  }
-
   reload(ignore_cache, flags) {
     // Method: Reload
     // Call: Reload(ignore_cache, flags)

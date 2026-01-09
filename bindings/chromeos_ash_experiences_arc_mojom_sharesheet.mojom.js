@@ -16,11 +16,6 @@ arc.mojom.SharesheetHostPtr = class {
     this.interfaceName = 'arc.mojom.SharesheetHost';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
 };
 
 arc.mojom.SharesheetHostRequest = class {
@@ -34,11 +29,6 @@ arc.mojom.SharesheetInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.SharesheetInstance';
-  }
-
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
   }
 
 };

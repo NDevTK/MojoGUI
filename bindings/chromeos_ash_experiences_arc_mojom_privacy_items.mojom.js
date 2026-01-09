@@ -30,21 +30,6 @@ arc.mojom.PrivacyItemsHostPtr = class {
     this.interfaceName = 'arc.mojom.PrivacyItemsHost';
   }
 
-  0(privacy_items) {
-    // Method: 0
-    // Call: 0(privacy_items)
-  }
-
-  1(flag) {
-    // Method: 1
-    // Call: 1(flag)
-  }
-
-  2(flag) {
-    // Method: 2
-    // Call: 2(flag)
-  }
-
 };
 
 arc.mojom.PrivacyItemsHostRequest = class {
@@ -58,16 +43,6 @@ arc.mojom.PrivacyItemsInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.PrivacyItemsInstance';
-  }
-
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
-  }
-
-  1(displayId, bounds) {
-    // Method: 1
-    // Call: 1(displayId, bounds)
   }
 
 };

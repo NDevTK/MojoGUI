@@ -23,11 +23,6 @@ arc.mojom.SystemStateHostPtr = class {
     this.interfaceName = 'arc.mojom.SystemStateHost';
   }
 
-  0(state) {
-    // Method: 0
-    // Call: 0(state)
-  }
-
 };
 
 arc.mojom.SystemStateHostRequest = class {
@@ -41,11 +36,6 @@ arc.mojom.SystemStateInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.SystemStateInstance';
-  }
-
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
   }
 
 };

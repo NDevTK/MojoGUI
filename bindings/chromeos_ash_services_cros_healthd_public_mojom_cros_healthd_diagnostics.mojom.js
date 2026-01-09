@@ -133,14 +133,6 @@ ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPtr = class {
     this.interfaceName = 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
 };
 
 ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRequest = class {

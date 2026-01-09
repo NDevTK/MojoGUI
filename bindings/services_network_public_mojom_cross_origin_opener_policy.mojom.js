@@ -48,11 +48,6 @@ network.mojom.CrossOriginOpenerPolicyReporterPtr = class {
     this.interfaceName = 'network.mojom.CrossOriginOpenerPolicyReporter';
   }
 
-  property() {
-    // Method: property
-    // Call: property()
-  }
-
   queueAccessReport(report_type, property, source_location, reported_window_url) {
     // Method: QueueAccessReport
     // Call: QueueAccessReport(report_type, property, source_location, reported_window_url)

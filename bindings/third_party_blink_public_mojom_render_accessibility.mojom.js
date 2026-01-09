@@ -27,49 +27,9 @@ blink.mojom.RenderAccessibilityHostPtr = class {
     this.interfaceName = 'blink.mojom.RenderAccessibilityHost';
   }
 
-  reset() {
-    // Method: Reset
-    // Call: Reset()
-  }
-
-  setMode() {
-    // Method: SetMode
-    // Call: SetMode()
-  }
-
-  dOM(metadata) {
-    // Method: DOM
-    // Call: DOM(metadata)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   handleAXEvents(events_and_updates, location_and_scroll_updates, reset_token) {
     // Method: HandleAXEvents
     // Call: HandleAXEvents(events_and_updates, location_and_scroll_updates, reset_token)
-  }
-
-  unbounded(in) {
-    // Method: unbounded
-    // Call: unbounded(in)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  reset() {
-    // Method: Reset
-    // Call: Reset()
-  }
-
-  setMode() {
-    // Method: SetMode
-    // Call: SetMode()
   }
 
   handleAXLocationChanges(changes, reset_token) {

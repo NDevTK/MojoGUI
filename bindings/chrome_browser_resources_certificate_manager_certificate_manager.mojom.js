@@ -67,11 +67,6 @@ certificate_manager.mojom.CertificateManagerPageHandlerPtr = class {
     });
   }
 
-  metadata(policies) {
-    // Method: metadata
-    // Call: metadata(policies)
-  }
-
   getCertManagementMetadata() {
     // Method: GetCertManagementMetadata
     return new Promise((resolve) => {

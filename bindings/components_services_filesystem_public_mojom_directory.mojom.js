@@ -30,11 +30,6 @@ filesystem.mojom.DirectoryPtr = class {
     this.interfaceName = 'filesystem.mojom.Directory';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   read() {
     // Method: Read
     return new Promise((resolve) => {
@@ -57,11 +52,6 @@ filesystem.mojom.DirectoryPtr = class {
       // Call: OpenFileHandles(files)
       resolve({});
     });
-  }
-
-  mkdir() {
-    // Method: mkdir
-    // Call: mkdir()
   }
 
   openDirectory(path, directory, open_flags) {
@@ -88,11 +78,6 @@ filesystem.mojom.DirectoryPtr = class {
     });
   }
 
-  directory() {
-    // Method: directory
-    // Call: directory()
-  }
-
   delete(path, delete_flags) {
     // Method: Delete
     return new Promise((resolve) => {
@@ -115,16 +100,6 @@ filesystem.mojom.DirectoryPtr = class {
       // Call: IsWritable(path)
       resolve({});
     });
-  }
-
-  fsync() {
-    // Method: fsync
-    // Call: fsync()
-  }
-
-  flushFileBuffers() {
-    // Method: FlushFileBuffers
-    // Call: FlushFileBuffers()
   }
 
   flush() {
@@ -162,26 +137,6 @@ filesystem.mojom.DirectoryPtr = class {
       // Call: WriteFile(path, data)
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  implementation(needs) {
-    // Method: implementation
-    // Call: implementation(needs)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
 };

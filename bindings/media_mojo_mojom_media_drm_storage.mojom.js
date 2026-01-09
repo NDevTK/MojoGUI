@@ -23,32 +23,12 @@ media.mojom.MediaDrmStoragePtr = class {
     this.interfaceName = 'media.mojom.MediaDrmStorage';
   }
 
-  successful(true) {
-    // Method: successful
-    // Call: successful(true)
-  }
-
-  information(ID) {
-    // Method: information
-    // Call: information(ID)
-  }
-
-  initialize() {
-    // Method: Initialize
-    // Call: Initialize()
-  }
-
   initialize() {
     // Method: Initialize
     return new Promise((resolve) => {
       // Call: Initialize()
       resolve({});
     });
-  }
-
-  information(ID, time) {
-    // Method: information
-    // Call: information(ID, time)
   }
 
   onProvisioned() {

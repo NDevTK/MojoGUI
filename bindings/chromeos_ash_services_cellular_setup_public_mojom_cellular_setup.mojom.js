@@ -60,11 +60,6 @@ ash.cellular_setup.mojom.ActivationDelegatePtr = class {
     this.interfaceName = 'ash.cellular_setup.mojom.ActivationDelegate';
   }
 
-  activation(valid, SIM) {
-    // Method: activation
-    // Call: activation(valid, SIM)
-  }
-
   onActivationStarted(metadata) {
     // Method: OnActivationStarted
     // Call: OnActivationStarted(metadata)

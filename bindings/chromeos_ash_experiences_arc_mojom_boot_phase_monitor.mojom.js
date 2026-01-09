@@ -16,11 +16,6 @@ arc.mojom.BootPhaseMonitorHostPtr = class {
     this.interfaceName = 'arc.mojom.BootPhaseMonitorHost';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
 };
 
 arc.mojom.BootPhaseMonitorHostRequest = class {
@@ -34,11 +29,6 @@ arc.mojom.BootPhaseMonitorInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.BootPhaseMonitorInstance';
-  }
-
-  1(host_remote) {
-    // Method: 1
-    // Call: 1(host_remote)
   }
 
 };

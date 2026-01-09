@@ -179,16 +179,6 @@ blink.mojom.WebBluetoothServicePtr = class {
     });
   }
 
-  requestDevice() {
-    // Method: RequestDevice
-    // Call: RequestDevice()
-  }
-
-  forgetDevice() {
-    // Method: ForgetDevice
-    // Call: ForgetDevice()
-  }
-
   getDevices() {
     // Method: GetDevices
     return new Promise((resolve) => {

@@ -16,11 +16,6 @@ metrics.mojom.SingleSampleMetricsProviderPtr = class {
     this.interfaceName = 'metrics.mojom.SingleSampleMetricsProvider';
   }
 
-  setSample() {
-    // Method: SetSample
-    // Call: SetSample()
-  }
-
   acquireSingleSampleMetric(histogram_name, min, max, bucket_count, flags, receiver) {
     // Method: AcquireSingleSampleMetric
     // Call: AcquireSingleSampleMetric(histogram_name, min, max, bucket_count, flags, receiver)

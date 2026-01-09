@@ -41,11 +41,6 @@ blink.mojom.RendererAudioInputStreamFactoryClientPtr = class {
     this.interfaceName = 'blink.mojom.RendererAudioInputStreamFactoryClient';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   streamCreated(stream, client_request, data_pipe, initially_muted, stream_id) {
     // Method: StreamCreated
     // Call: StreamCreated(stream, client_request, data_pipe, initially_muted, stream_id)

@@ -44,11 +44,6 @@ ash.manage_mirrorsync.mojom.PageHandlerPtr = class {
     this.interfaceName = 'ash.manage_mirrorsync.mojom.PageHandler';
   }
 
-  children(descendants) {
-    // Method: children
-    // Call: children(descendants)
-  }
-
   getChildFolders(path) {
     // Method: GetChildFolders
     return new Promise((resolve) => {

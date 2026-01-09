@@ -32,22 +32,6 @@ chromeos.cfm.mojom.CfmServiceContextPtr = class {
     this.interfaceName = 'chromeos.cfm.mojom.CfmServiceContext';
   }
 
-  0(interface_name, adaptor_remote) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(interface_name, adaptor_remote)
-      resolve({});
-    });
-  }
-
-  1(interface_name, receiver_pipe) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(interface_name, receiver_pipe)
-      resolve({});
-    });
-  }
-
 };
 
 chromeos.cfm.mojom.CfmServiceContextRequest = class {
@@ -61,16 +45,6 @@ chromeos.cfm.mojom.CfmServiceAdaptorPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'chromeos.cfm.mojom.CfmServiceAdaptor';
-  }
-
-  clients(BindingSet) {
-    // Method: clients
-    // Call: clients(BindingSet)
-  }
-
-  0(receiver_pipe) {
-    // Method: 0
-    // Call: 0(receiver_pipe)
   }
 
 };

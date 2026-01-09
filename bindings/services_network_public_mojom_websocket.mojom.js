@@ -79,16 +79,6 @@ network.mojom.WebSocketHandshakeClientPtr = class {
     // Call: OnFailure(message, net_error, response_code)
   }
 
-  message() {
-    // Method: message
-    // Call: message()
-  }
-
-  sendMessage() {
-    // Method: SendMessage
-    // Call: SendMessage()
-  }
-
   onConnectionEstablished(socket, client_receiver, response, readable, writable) {
     // Method: OnConnectionEstablished
     // Call: OnConnectionEstablished(socket, client_receiver, response, readable, writable)
@@ -142,16 +132,6 @@ network.mojom.WebSocketPtr = class {
   sendMessage(type, data_length) {
     // Method: SendMessage
     // Call: SendMessage(type, data_length)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  connect() {
-    // Method: Connect
-    // Call: Connect()
   }
 
   startReceiving() {

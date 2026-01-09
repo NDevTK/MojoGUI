@@ -149,11 +149,6 @@ cros.mojom.CameraAppDevicePtr = class {
     // Call: SetStillCaptureResolution(resolution)
   }
 
-  getUserMedia() {
-    // Method: getUserMedia
-    // Call: getUserMedia()
-  }
-
   setCaptureIntent(intent) {
     // Method: SetCaptureIntent
     // Call: SetCaptureIntent(intent)

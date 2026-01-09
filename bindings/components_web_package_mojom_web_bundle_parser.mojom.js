@@ -172,11 +172,6 @@ web_package.mojom.WebBundleParserPtr = class {
     });
   }
 
-  the() {
-    // Method: the
-    // Call: the()
-  }
-
   parseMetadata(offset) {
     // Method: ParseMetadata
     return new Promise((resolve) => {
@@ -235,11 +230,6 @@ web_package.mojom.BundleDataSourcePtr = class {
       // Call: IsRandomAccessContext()
       resolve({});
     });
-  }
-
-  data() {
-    // Method: data
-    // Call: data()
   }
 
   close() {

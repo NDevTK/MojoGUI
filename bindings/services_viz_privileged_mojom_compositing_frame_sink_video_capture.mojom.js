@@ -56,34 +56,9 @@ viz.mojom.FrameSinkVideoConsumerPtr = class {
     this.interfaceName = 'viz.mojom.FrameSinkVideoConsumer';
   }
 
-  done() {
-    // Method: Done
-    // Call: Done()
-  }
-
-  metadata(set:) {
-    // Method: metadata
-    // Call: metadata(set:)
-  }
-
   onFrameCaptured(data, info, content_rect, callbacks) {
     // Method: OnFrameCaptured
     // Call: OnFrameCaptured(data, info, content_rect, callbacks)
-  }
-
-  onFrameCaptured() {
-    // Method: OnFrameCaptured
-    // Call: OnFrameCaptured()
-  }
-
-  cropTo() {
-    // Method: cropTo
-    // Call: cropTo()
-  }
-
-  restrictTo() {
-    // Method: restrictTo
-    // Call: restrictTo()
   }
 
   onNewCaptureVersion(capture_version) {
@@ -94,11 +69,6 @@ viz.mojom.FrameSinkVideoConsumerPtr = class {
   onFrameWithEmptyRegionCapture() {
     // Method: OnFrameWithEmptyRegionCapture
     // Call: OnFrameWithEmptyRegionCapture()
-  }
-
-  onFrameCaptured() {
-    // Method: OnFrameCaptured
-    // Call: OnFrameCaptured()
   }
 
   onStopped() {
@@ -131,11 +101,6 @@ viz.mojom.FrameSinkVideoCapturerPtr = class {
     // Call: SetFormat(format)
   }
 
-  second(FPS) {
-    // Method: second
-    // Call: second(FPS)
-  }
-
   setMinCapturePeriod(min_period) {
     // Method: SetMinCapturePeriod
     // Call: SetMinCapturePeriod(min_period)
@@ -144,21 +109,6 @@ viz.mojom.FrameSinkVideoCapturerPtr = class {
   setMinSizeChangePeriod(min_period) {
     // Method: SetMinSizeChangePeriod
     // Call: SetMinSizeChangePeriod(min_period)
-  }
-
-  range(any) {
-    // Method: range
-    // Call: range(any)
-  }
-
-  640x360(definition) {
-    // Method: 640x360
-    // Call: 640x360(definition)
-  }
-
-  3840x2160() {
-    // Method: 3840x2160
-    // Call: 3840x2160()
   }
 
   setResolutionConstraints(min_size, max_size, use_fixed_aspect_ratio) {
@@ -176,16 +126,6 @@ viz.mojom.FrameSinkVideoCapturerPtr = class {
     // Call: SetAnimationFpsLockIn(enabled, majority_damaged_pixel_min_ratio)
   }
 
-  start() {
-    // Method: Start
-    // Call: Start()
-  }
-
-  value(calls) {
-    // Method: value
-    // Call: value(calls)
-  }
-
   changeTarget(target, sub_capture_version) {
     // Method: ChangeTarget
     // Call: ChangeTarget(target, sub_capture_version)
@@ -194,11 +134,6 @@ viz.mojom.FrameSinkVideoCapturerPtr = class {
   start(consumer, buffer_format_preference) {
     // Method: Start
     // Call: Start(consumer, buffer_format_preference)
-  }
-
-  onStopped() {
-    // Method: OnStopped
-    // Call: OnStopped()
   }
 
   stop() {
@@ -231,39 +166,14 @@ viz.mojom.FrameSinkVideoCaptureOverlayPtr = class {
     this.interfaceName = 'viz.mojom.FrameSinkVideoCaptureOverlay';
   }
 
-  content(the) {
-    // Method: content
-    // Call: content(the)
-  }
-
-  setBounds() {
-    // Method: SetBounds
-    // Call: SetBounds()
-  }
-
   setImageAndBounds(image, bounds) {
     // Method: SetImageAndBounds
     // Call: SetImageAndBounds(image, bounds)
   }
 
-  showImageAt() {
-    // Method: ShowImageAt
-    // Call: ShowImageAt()
-  }
-
   setBounds(bounds) {
     // Method: SetBounds
     // Call: SetBounds(bounds)
-  }
-
-  content(top, edge) {
-    // Method: content
-    // Call: content(top, edge)
-  }
-
-  value() {
-    // Method: value
-    // Call: value()
   }
 
   onCapturedMouseEvent(coordinates) {

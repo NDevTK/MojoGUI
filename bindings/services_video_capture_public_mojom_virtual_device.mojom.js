@@ -49,39 +49,14 @@ video_capture.mojom.TextureVirtualDevicePtr = class {
     // Call: OnNewSharedImageBufferHandle(buffer_id, shared_image_handle)
   }
 
-  onFrameReadyInBuffer() {
-    // Method: OnFrameReadyInBuffer
-    // Call: OnFrameReadyInBuffer()
-  }
-
-  onFinishedConsumingBuffer() {
-    // Method: OnFinishedConsumingBuffer
-    // Call: OnFinishedConsumingBuffer()
-  }
-
   onFrameAccessHandlerReady(frame_access_handler) {
     // Method: OnFrameAccessHandlerReady
     // Call: OnFrameAccessHandlerReady(frame_access_handler)
   }
 
-  onFinishedConsumingBuffer() {
-    // Method: OnFinishedConsumingBuffer
-    // Call: OnFinishedConsumingBuffer()
-  }
-
   onFrameReadyInBuffer(buffer_id, frame_info) {
     // Method: OnFrameReadyInBuffer
     // Call: OnFrameReadyInBuffer(buffer_id, frame_info)
-  }
-
-  onNewMailboxHolderBufferHandle() {
-    // Method: OnNewMailboxHolderBufferHandle
-    // Call: OnNewMailboxHolderBufferHandle()
-  }
-
-  onFrameReadyInBuffer() {
-    // Method: OnFrameReadyInBuffer
-    // Call: OnFrameReadyInBuffer()
   }
 
   onBufferRetired(buffer_id) {
@@ -109,39 +84,14 @@ video_capture.mojom.GpuMemoryBufferVirtualDevicePtr = class {
     // Call: OnNewGpuMemoryBufferHandle(buffer_id, gmb_handle)
   }
 
-  onFrameReadyInBuffer() {
-    // Method: OnFrameReadyInBuffer
-    // Call: OnFrameReadyInBuffer()
-  }
-
-  onFinishedConsumingBuffer() {
-    // Method: OnFinishedConsumingBuffer
-    // Call: OnFinishedConsumingBuffer()
-  }
-
   onFrameAccessHandlerReady(frame_access_handler) {
     // Method: OnFrameAccessHandlerReady
     // Call: OnFrameAccessHandlerReady(frame_access_handler)
   }
 
-  onFinishedConsumingBuffer() {
-    // Method: OnFinishedConsumingBuffer
-    // Call: OnFinishedConsumingBuffer()
-  }
-
   onFrameReadyInBuffer(buffer_id, frame_info) {
     // Method: OnFrameReadyInBuffer
     // Call: OnFrameReadyInBuffer(buffer_id, frame_info)
-  }
-
-  onNewGpuMemoryBufferHandle() {
-    // Method: OnNewGpuMemoryBufferHandle
-    // Call: OnNewGpuMemoryBufferHandle()
-  }
-
-  onFrameReadyInBuffer() {
-    // Method: OnFrameReadyInBuffer
-    // Call: OnFrameReadyInBuffer()
   }
 
   onBufferRetired(buffer_id) {

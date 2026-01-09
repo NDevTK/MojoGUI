@@ -50,11 +50,6 @@ ukm.mojom.UkmRecorderClientInterfacePtr = class {
     this.interfaceName = 'ukm.mojom.UkmRecorderClientInterface';
   }
 
-  clients(testing) {
-    // Method: clients
-    // Call: clients(testing)
-  }
-
   setParameters(params) {
     // Method: SetParameters
     // Call: SetParameters(params)

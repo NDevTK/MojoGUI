@@ -334,22 +334,6 @@ crosapi.mojom.TelemetryProbeServicePtr = class {
     this.interfaceName = 'crosapi.mojom.TelemetryProbeService';
   }
 
-  0(categories) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(categories)
-      resolve({});
-    });
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
 };
 
 crosapi.mojom.TelemetryProbeServiceRequest = class {

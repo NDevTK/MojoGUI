@@ -16,11 +16,6 @@ blink.mojom.ServiceWorkerWorkerClientPtr = class {
     this.interfaceName = 'blink.mojom.ServiceWorkerWorkerClient';
   }
 
-  worker(there) {
-    // Method: worker
-    // Call: worker(there)
-  }
-
   onControllerChanged(mode) {
     // Method: OnControllerChanged
     // Call: OnControllerChanged(mode)

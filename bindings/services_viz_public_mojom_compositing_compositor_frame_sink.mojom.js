@@ -43,26 +43,6 @@ viz.mojom.CompositorFrameSinkPtr = class {
     // Call: SetNeedsBeginFrame(needs_begin_frame)
   }
 
-  surface(resize) {
-    // Method: surface
-    // Call: surface(resize)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  didReceiveCompositorFrameAck() {
-    // Method: DidReceiveCompositorFrameAck
-    // Call: DidReceiveCompositorFrameAck()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   submitCompositorFrame(local_surface_id, frame, hit_test_region_list, submit_time) {
     // Method: SubmitCompositorFrame
     // Call: SubmitCompositorFrame(local_surface_id, frame, hit_test_region_list, submit_time)
@@ -103,29 +83,9 @@ viz.mojom.CompositorFrameSinkClientPtr = class {
     this.interfaceName = 'viz.mojom.CompositorFrameSinkClient';
   }
 
-  submitCompositorFrame() {
-    // Method: SubmitCompositorFrame
-    // Call: SubmitCompositorFrame()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   didReceiveCompositorFrameAck(resources) {
     // Method: DidReceiveCompositorFrameAck
     // Call: DidReceiveCompositorFrameAck(resources)
-  }
-
-  submitCompositorFrame() {
-    // Method: SubmitCompositorFrame
-    // Call: SubmitCompositorFrame()
-  }
-
-  didNotProduceFrame() {
-    // Method: DidNotProduceFrame
-    // Call: DidNotProduceFrame()
   }
 
   onBeginFrame(args, details, resources) {

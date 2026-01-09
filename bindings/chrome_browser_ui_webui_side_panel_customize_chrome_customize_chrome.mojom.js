@@ -158,19 +158,9 @@ side_panel.mojom.CustomizeChromePageHandlerPtr = class {
     // Call: UpdateModulesSettings()
   }
 
-  setTheme() {
-    // Method: SetTheme
-    // Call: SetTheme()
-  }
-
   updateTheme() {
     // Method: UpdateTheme
     // Call: UpdateTheme()
-  }
-
-  setThemeEditable() {
-    // Method: SetThemeEditable
-    // Call: SetThemeEditable()
   }
 
   updateThemeEditable(is_theme_editable) {
@@ -256,11 +246,6 @@ side_panel.mojom.CustomizeChromePageHandlerPtr = class {
     // Call: SetToolChipsVisible(visible)
   }
 
-  setToolsSettings() {
-    // Method: SetToolsSettings
-    // Call: SetToolsSettings()
-  }
-
   updateToolChipsSettings() {
     // Method: UpdateToolChipsSettings
     // Call: UpdateToolChipsSettings()
@@ -271,24 +256,9 @@ side_panel.mojom.CustomizeChromePageHandlerPtr = class {
     // Call: UpdateScrollToSection()
   }
 
-  updateScrollToSection() {
-    // Method: UpdateScrollToSection
-    // Call: UpdateScrollToSection()
-  }
-
-  attachedTabStateUpdated() {
-    // Method: AttachedTabStateUpdated
-    // Call: AttachedTabStateUpdated()
-  }
-
   updateAttachedTabState() {
     // Method: UpdateAttachedTabState
     // Call: UpdateAttachedTabState()
-  }
-
-  ntpManagedByNameUpdated() {
-    // Method: NtpManagedByNameUpdated
-    // Call: NtpManagedByNameUpdated()
   }
 
   updateNtpManagedByName() {
@@ -299,11 +269,6 @@ side_panel.mojom.CustomizeChromePageHandlerPtr = class {
   setFooterVisible(visible) {
     // Method: SetFooterVisible
     // Call: SetFooterVisible(visible)
-  }
-
-  setFooterSettings() {
-    // Method: SetFooterSettings
-    // Call: SetFooterSettings()
   }
 
   updateFooterSettings() {
@@ -354,11 +319,6 @@ side_panel.mojom.CustomizeChromePagePtr = class {
   setThemeEditable(is_theme_editable) {
     // Method: SetThemeEditable
     // Call: SetThemeEditable(is_theme_editable)
-  }
-
-  updateScrollToSection() {
-    // Method: UpdateScrollToSection
-    // Call: UpdateScrollToSection()
   }
 
   scrollToSection(section) {

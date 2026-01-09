@@ -28,11 +28,6 @@ tracing.mojom.BackgroundTracingAgentClientPtr = class {
     // Call: OnInitialized()
   }
 
-  setUMACallback() {
-    // Method: SetUMACallback
-    // Call: SetUMACallback()
-  }
-
   onTriggerBackgroundTrace(rule, histogram_value, flow_id) {
     // Method: OnTriggerBackgroundTrace
     // Call: OnTriggerBackgroundTrace(rule, histogram_value, flow_id)

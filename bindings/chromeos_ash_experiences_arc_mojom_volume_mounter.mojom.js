@@ -34,24 +34,6 @@ arc.mojom.VolumeMounterHostPtr = class {
     this.interfaceName = 'arc.mojom.VolumeMounterHost';
   }
 
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  3(media_provider_uid) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(media_provider_uid)
-      resolve({});
-    });
-  }
-
-  4(success) {
-    // Method: 4
-    // Call: 4(success)
-  }
-
 };
 
 arc.mojom.VolumeMounterHostRequest = class {
@@ -65,24 +47,6 @@ arc.mojom.VolumeMounterInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.VolumeMounterInstance';
-  }
-
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
-  }
-
-  1(mount_point_info) {
-    // Method: 1
-    // Call: 1(mount_point_info)
-  }
-
-  2(path) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(path)
-      resolve({});
-    });
   }
 
 };

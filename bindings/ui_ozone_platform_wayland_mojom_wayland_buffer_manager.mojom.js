@@ -22,11 +22,6 @@ ui.ozone.mojom.WaylandBufferManagerHostPtr = class {
     // Call: SetWaylandBufferManagerGpu(buffer_manager_gpu_associated)
   }
 
-  format(gfx::BufferFormat) {
-    // Method: format
-    // Call: format(gfx::BufferFormat)
-  }
-
   createDmabufBasedBuffer(dmabuf_fd, size, strides, offsets, modifiers, format, planes_count, color_space, hdr_metadata, buffer_id) {
     // Method: CreateDmabufBasedBuffer
     // Call: CreateDmabufBasedBuffer(dmabuf_fd, size, strides, offsets, modifiers, format, planes_count, color_space, hdr_metadata, buffer_id)
@@ -75,11 +70,6 @@ ui.ozone.mojom.WaylandBufferManagerGpuPtr = class {
   onSubmission(widget, frame_id, swap_result, release_fence_handle, presentation_infos) {
     // Method: OnSubmission
     // Call: OnSubmission(widget, frame_id, swap_result, release_fence_handle, presentation_infos)
-  }
-
-  onSubmission() {
-    // Method: OnSubmission
-    // Call: OnSubmission()
   }
 
   onPresentation(widget, presentation_infos) {

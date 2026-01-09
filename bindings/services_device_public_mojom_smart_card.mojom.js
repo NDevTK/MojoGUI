@@ -152,27 +152,12 @@ device.mojom.SmartCardConnectionPtr = class {
     });
   }
 
-  device() {
-    // Method: Device
-    // Call: Device()
-  }
-
-  handler() {
-    // Method: Handler
-    // Call: Handler()
-  }
-
   control(control_code, data) {
     // Method: Control
     return new Promise((resolve) => {
       // Call: Control(control_code, data)
       resolve({});
     });
-  }
-
-  handler(driver) {
-    // Method: Handler
-    // Call: Handler(driver)
   }
 
   getAttrib(id) {
@@ -256,11 +241,6 @@ device.mojom.SmartCardContextPtr = class {
       // Call: GetStatusChange(timeout, reader_states)
       resolve({});
     });
-  }
-
-  getStatusChange() {
-    // Method: GetStatusChange
-    // Call: GetStatusChange()
   }
 
   cancel() {

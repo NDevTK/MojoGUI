@@ -44,16 +44,6 @@ blink.mojom.AIRewriterPtr = class {
     this.interfaceName = 'blink.mojom.AIRewriter';
   }
 
-  rewrite() {
-    // Method: rewrite
-    // Call: rewrite()
-  }
-
-  rewrite() {
-    // Method: rewrite
-    // Call: rewrite()
-  }
-
   rewrite(input, context, pending_responder) {
     // Method: Rewrite
     // Call: Rewrite(input, context, pending_responder)

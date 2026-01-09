@@ -137,16 +137,6 @@ media.mojom.ContentDecryptionModuleClientPtr = class {
     // Call: OnSessionMessage(session_id, message_type, message)
   }
 
-  closeSession() {
-    // Method: CloseSession
-    // Call: CloseSession()
-  }
-
-  onSessionClosed() {
-    // Method: OnSessionClosed
-    // Call: OnSessionClosed()
-  }
-
   onSessionClosed(session_id, reason) {
     // Method: OnSessionClosed
     // Call: OnSessionClosed(session_id, reason)
@@ -155,11 +145,6 @@ media.mojom.ContentDecryptionModuleClientPtr = class {
   onSessionKeysChange(session_id, has_additional_usable_key, keys_info) {
     // Method: OnSessionKeysChange
     // Call: OnSessionKeysChange(session_id, has_additional_usable_key, keys_info)
-  }
-
-  epoch(1) {
-    // Method: epoch
-    // Call: epoch(1)
   }
 
   onSessionExpirationUpdate(session_id, new_expiry_time_sec) {
@@ -180,11 +165,6 @@ media.mojom.CdmFactoryPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'media.mojom.CdmFactory';
-  }
-
-  process(renderer) {
-    // Method: process
-    // Call: process(renderer)
   }
 
   createCdm(cdm_config) {

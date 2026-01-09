@@ -17,11 +17,6 @@ ash.mojom.sample_swa.ChildUntrustedPagePtr = class {
     this.interfaceName = 'ash.mojom.sample_swa.ChildUntrustedPage';
   }
 
-  embedding() {
-    // Method: embedding
-    // Call: embedding()
-  }
-
   doSomethingForParent(task) {
     // Method: DoSomethingForParent
     // Call: DoSomethingForParent(task)

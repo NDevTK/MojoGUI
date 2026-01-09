@@ -17,16 +17,6 @@ ash.mall.mojom.PageHandlerPtr = class {
     this.interfaceName = 'ash.mall.mojom.PageHandler';
   }
 
-  settings(flags) {
-    // Method: settings
-    // Call: settings(flags)
-  }
-
-  path(in) {
-    // Method: path
-    // Call: path(in)
-  }
-
   getMallEmbedUrl(path) {
     // Method: GetMallEmbedUrl
     return new Promise((resolve) => {

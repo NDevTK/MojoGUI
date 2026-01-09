@@ -18,11 +18,6 @@ ash.cros_healthd.connectivity.mojom.StatePtr = class {
     this.interfaceName = 'ash.cros_healthd.connectivity.mojom.State';
   }
 
-  foo() {
-    // Method: Foo
-    // Call: Foo()
-  }
-
   lastCallHasNext() {
     // Method: LastCallHasNext
     return new Promise((resolve) => {
@@ -31,19 +26,9 @@ ash.cros_healthd.connectivity.mojom.StatePtr = class {
     });
   }
 
-  foo() {
-    // Method: Foo
-    // Call: Foo()
-  }
-
   waitLastCall() {
     // Method: WaitLastCall
     // Call: WaitLastCall()
-  }
-
-  ocurrs(mismatch) {
-    // Method: ocurrs
-    // Call: ocurrs(mismatch)
   }
 
   fulfillLastCallCallback() {

@@ -62,29 +62,6 @@ chromeos.mojo_service_manager.mojom.ServiceManagerPtr = class {
     this.interfaceName = 'chromeos.mojo_service_manager.mojom.ServiceManager';
   }
 
-  0(service_name, service_provider) {
-    // Method: 0
-    // Call: 0(service_name, service_provider)
-  }
-
-  1(service_name, timeout, receiver) {
-    // Method: 1
-    // Call: 1(service_name, timeout, receiver)
-  }
-
-  2(service_name) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(service_name)
-      resolve({});
-    });
-  }
-
-  3(observer) {
-    // Method: 3
-    // Call: 3(observer)
-  }
-
 };
 
 chromeos.mojo_service_manager.mojom.ServiceManagerRequest = class {
@@ -100,11 +77,6 @@ chromeos.mojo_service_manager.mojom.ServiceProviderPtr = class {
     this.interfaceName = 'chromeos.mojo_service_manager.mojom.ServiceProvider';
   }
 
-  0(client_identity, receiver) {
-    // Method: 0
-    // Call: 0(client_identity, receiver)
-  }
-
 };
 
 chromeos.mojo_service_manager.mojom.ServiceProviderRequest = class {
@@ -118,11 +90,6 @@ chromeos.mojo_service_manager.mojom.ServiceObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'chromeos.mojo_service_manager.mojom.ServiceObserver';
-  }
-
-  0(event) {
-    // Method: 0
-    // Call: 0(event)
   }
 
 };

@@ -16,11 +16,6 @@ crosapi.mojom.StructuredMetricsServicePtr = class {
     this.interfaceName = 'crosapi.mojom.StructuredMetricsService';
   }
 
-  0(events) {
-    // Method: 0
-    // Call: 0(events)
-  }
-
 };
 
 crosapi.mojom.StructuredMetricsServiceRequest = class {

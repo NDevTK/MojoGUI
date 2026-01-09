@@ -50,11 +50,6 @@ blink.mojom.PrivateAggregationHostPtr = class {
     // Call: ContributeToHistogramOnEvent(error_event, contributions)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   enableDebugMode(debug_key) {
     // Method: EnableDebugMode
     // Call: EnableDebugMode(debug_key)

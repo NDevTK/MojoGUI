@@ -67,29 +67,14 @@ emoji_picker.mojom.PageHandlerPtr = class {
     // Call: ShowUI()
   }
 
-  emoji(picker) {
-    // Method: emoji
-    // Call: emoji(picker)
-  }
-
   insertEmoji(emoji, is_variant, search_length) {
     // Method: InsertEmoji
     // Call: InsertEmoji(emoji, is_variant, search_length)
   }
 
-  gif(picker) {
-    // Method: gif
-    // Call: gif(picker)
-  }
-
   insertGif(gif) {
     // Method: InsertGif
     // Call: InsertGif(gif)
-  }
-
-  field(etc.) {
-    // Method: field
-    // Call: field(etc.)
   }
 
   isIncognitoTextField() {
@@ -98,11 +83,6 @@ emoji_picker.mojom.PageHandlerPtr = class {
       // Call: IsIncognitoTextField()
       resolve({});
     });
-  }
-
-  picker(switches) {
-    // Method: picker
-    // Call: picker(switches)
   }
 
   getFeatureList() {

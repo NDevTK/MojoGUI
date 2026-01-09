@@ -193,16 +193,6 @@ blink.mojom.FederatedAuthRequestPtr = class {
   }
 
   preventSilentAccess() {
-    // Method: preventSilentAccess
-    // Call: preventSilentAccess()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  preventSilentAccess() {
     // Method: PreventSilentAccess
     // Call: PreventSilentAccess()
   }

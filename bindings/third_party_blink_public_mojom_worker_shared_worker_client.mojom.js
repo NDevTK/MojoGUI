@@ -16,11 +16,6 @@ blink.mojom.SharedWorkerClientPtr = class {
     this.interfaceName = 'blink.mojom.SharedWorkerClient';
   }
 
-  started(already) {
-    // Method: started
-    // Call: started(already)
-  }
-
   onCreated(creation_context_type) {
     // Method: OnCreated
     // Call: OnCreated(creation_context_type)

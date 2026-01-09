@@ -23,11 +23,6 @@ blink.mojom.ServiceWorkerObjectHostPtr = class {
     this.interfaceName = 'blink.mojom.ServiceWorkerObjectHost';
   }
 
-  postMessage() {
-    // Method: postMessage
-    // Call: postMessage()
-  }
-
   postMessageToServiceWorker(message) {
     // Method: PostMessageToServiceWorker
     // Call: PostMessageToServiceWorker(message)

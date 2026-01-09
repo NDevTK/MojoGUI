@@ -34,11 +34,6 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerPtr = class {
     // Call: SetAcceptedDisclosureVersion(version)
   }
 
-  succeeded(shown) {
-    // Method: succeeded
-    // Call: succeeded(shown)
-  }
-
   maybeShowDisclosure(urls, name, set_id) {
     // Method: MaybeShowDisclosure
     return new Promise((resolve) => {

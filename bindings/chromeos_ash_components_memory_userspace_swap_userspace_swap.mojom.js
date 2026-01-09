@@ -43,34 +43,14 @@ userspace_swap.mojom.UserspaceSwapPtr = class {
     this.interfaceName = 'userspace_swap.mojom.UserspaceSwap';
   }
 
-  detected(userfaultfd) {
-    // Method: detected
-    // Call: detected(userfaultfd)
-  }
-
   movePTEsLeavingMapping(src, dest) {
     // Method: MovePTEsLeavingMapping
     // Call: MovePTEsLeavingMapping(src, dest)
   }
 
-  created(MAP_FIXED) {
-    // Method: created
-    // Call: created(MAP_FIXED)
-  }
-
-  mmap() {
-    // Method: mmap
-    // Call: mmap()
-  }
-
   mapArea(area) {
     // Method: MapArea
     // Call: MapArea(area)
-  }
-
-  mincore() {
-    // Method: mincore
-    // Call: mincore()
   }
 
   getPartitionAllocSuperPagesUsed(max_superpages) {

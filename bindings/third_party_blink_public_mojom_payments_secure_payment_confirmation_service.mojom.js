@@ -31,11 +31,6 @@ payments.mojom.SecurePaymentConfirmationServicePtr = class {
     this.interfaceName = 'payments.mojom.SecurePaymentConfirmationService';
   }
 
-  context(compatible) {
-    // Method: context
-    // Call: context(compatible)
-  }
-
   securePaymentConfirmationAvailability() {
     // Method: SecurePaymentConfirmationAvailability
     return new Promise((resolve) => {

@@ -66,11 +66,6 @@ blink.mojom.DomStorageClientPtr = class {
     this.interfaceName = 'blink.mojom.DomStorageClient';
   }
 
-  properly() {
-    // Method: properly
-    // Call: properly()
-  }
-
   resetSessionStorageConnections() {
     // Method: ResetSessionStorageConnections
     // Call: ResetSessionStorageConnections()

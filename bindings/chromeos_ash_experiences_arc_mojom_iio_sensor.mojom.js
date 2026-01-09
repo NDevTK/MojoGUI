@@ -16,11 +16,6 @@ arc.mojom.IioSensorHostPtr = class {
     this.interfaceName = 'arc.mojom.IioSensorHost';
   }
 
-  0(client) {
-    // Method: 0
-    // Call: 0(client)
-  }
-
 };
 
 arc.mojom.IioSensorHostRequest = class {
@@ -34,16 +29,6 @@ arc.mojom.IioSensorInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.IioSensorInstance';
-  }
-
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
-  }
-
-  1(is_tablet_mode_on) {
-    // Method: 1
-    // Call: 1(is_tablet_mode_on)
   }
 
 };

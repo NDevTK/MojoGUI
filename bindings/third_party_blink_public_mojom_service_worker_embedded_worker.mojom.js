@@ -38,24 +38,9 @@ blink.mojom.EmbeddedWorkerInstanceClientPtr = class {
     this.interfaceName = 'blink.mojom.EmbeddedWorkerInstanceClient';
   }
 
-  onThreadStarted() {
-    // Method: OnThreadStarted
-    // Call: OnThreadStarted()
-  }
-
-  onStarted() {
-    // Method: OnStarted
-    // Call: OnStarted()
-  }
-
   startWorker(params) {
     // Method: StartWorker
     // Call: StartWorker(params)
-  }
-
-  onStopped() {
-    // Method: OnStopped
-    // Call: OnStopped()
   }
 
   stopWorker() {
@@ -80,20 +65,10 @@ blink.mojom.EmbeddedWorkerInstanceHostPtr = class {
 
   requestTermination() {
     // Method: RequestTermination
-    // Call: RequestTermination()
-  }
-
-  requestTermination() {
-    // Method: RequestTermination
     return new Promise((resolve) => {
       // Call: RequestTermination()
       resolve({});
     });
-  }
-
-  countFeature() {
-    // Method: CountFeature
-    // Call: CountFeature()
   }
 
   countFeature(feature) {
@@ -104,16 +79,6 @@ blink.mojom.EmbeddedWorkerInstanceHostPtr = class {
   onReadyForInspection(agent, agent_host) {
     // Method: OnReadyForInspection
     // Call: OnReadyForInspection(agent, agent_host)
-  }
-
-  new() {
-    // Method: new
-    // Call: new()
-  }
-
-  resumeAfterDownloaded() {
-    // Method: ResumeAfterDownloaded
-    // Call: ResumeAfterDownloaded()
   }
 
   onScriptLoaded() {

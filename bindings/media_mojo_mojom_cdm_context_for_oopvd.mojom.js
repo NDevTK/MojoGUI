@@ -49,11 +49,6 @@ media.mojom.CdmContextForOOPVDPtr = class {
     this.interfaceName = 'media.mojom.CdmContextForOOPVD';
   }
 
-  getChromeOsCdmContext() {
-    // Method: GetChromeOsCdmContext
-    // Call: GetChromeOsCdmContext()
-  }
-
   getHwKeyData(decrypt_config, hw_identifier) {
     // Method: GetHwKeyData
     return new Promise((resolve) => {
@@ -67,22 +62,12 @@ media.mojom.CdmContextForOOPVDPtr = class {
     // Call: RegisterEventCallback(callback)
   }
 
-  getChromeOsCdmContext() {
-    // Method: GetChromeOsCdmContext
-    // Call: GetChromeOsCdmContext()
-  }
-
   getHwConfigData() {
     // Method: GetHwConfigData
     return new Promise((resolve) => {
       // Call: GetHwConfigData()
       resolve({});
     });
-  }
-
-  getChromeOsCdmContext() {
-    // Method: GetChromeOsCdmContext
-    // Call: GetChromeOsCdmContext()
   }
 
   getScreenResolutions() {
@@ -93,11 +78,6 @@ media.mojom.CdmContextForOOPVDPtr = class {
     });
   }
 
-  getChromeOsCdmContext() {
-    // Method: GetChromeOsCdmContext
-    // Call: GetChromeOsCdmContext()
-  }
-
   allocateSecureBuffer(size) {
     // Method: AllocateSecureBuffer
     return new Promise((resolve) => {
@@ -106,22 +86,12 @@ media.mojom.CdmContextForOOPVDPtr = class {
     });
   }
 
-  getChromeOsCdmContext() {
-    // Method: GetChromeOsCdmContext
-    // Call: GetChromeOsCdmContext()
-  }
-
   parseEncryptedSliceHeader(secure_handle, offset, stream_data) {
     // Method: ParseEncryptedSliceHeader
     return new Promise((resolve) => {
       // Call: ParseEncryptedSliceHeader(secure_handle, offset, stream_data)
       resolve({});
     });
-  }
-
-  getDecryptor() {
-    // Method: GetDecryptor
-    // Call: GetDecryptor()
   }
 
   decryptVideoBuffer(buffer, bytes) {

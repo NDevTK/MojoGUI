@@ -36,44 +36,9 @@ blink.mojom.DevToolsAgentPtr = class {
     this.interfaceName = 'blink.mojom.DevToolsAgent';
   }
 
-  one(DevToolsSessionHost) {
-    // Method: one
-    // Call: one(DevToolsSessionHost)
-  }
-
-  devToolsAgent(process) {
-    // Method: DevToolsAgent
-    // Call: DevToolsAgent(process)
-  }
-
-  first(above) {
-    // Method: first
-    // Call: first(above)
-  }
-
-  detached(unbound) {
-    // Method: detached
-    // Call: detached(unbound)
-  }
-
-  responses() {
-    // Method: responses
-    // Call: responses()
-  }
-
-  binary() {
-    // Method: binary
-    // Call: binary()
-  }
-
   attachDevToolsSession(host, session, io_session, reattach_session_state, script_to_evaluate_on_load, client_expects_binary_responses, client_is_trusted, session_id, session_waits_for_debugger) {
     // Method: AttachDevToolsSession
     // Call: AttachDevToolsSession(host, session, io_session, reattach_session_state, script_to_evaluate_on_load, client_expects_binary_responses, client_is_trusted, session_id, session_waits_for_debugger)
-  }
-
-  session(yet) {
-    // Method: session
-    // Call: session(yet)
   }
 
   inspectElement(point) {
@@ -106,19 +71,9 @@ blink.mojom.DevToolsAgentHostPtr = class {
     // Call: ChildTargetCreated(worker_devtools_agent, worker_devtools_agent_host, url, name, devtools_worker_token, waiting_for_debugger, context_type)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   mainThreadDebuggerPaused() {
     // Method: MainThreadDebuggerPaused
     // Call: MainThreadDebuggerPaused()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   mainThreadDebuggerResumed() {
@@ -146,16 +101,6 @@ blink.mojom.DevToolsSessionPtr = class {
     this.interfaceName = 'blink.mojom.DevToolsSession';
   }
 
-  protocol("Runtime.evaluate") {
-    // Method: protocol
-    // Call: protocol("Runtime.evaluate")
-  }
-
-  message(DevToolsSessionHost) {
-    // Method: message
-    // Call: message(DevToolsSessionHost)
-  }
-
   dispatchProtocolCommand(call_id, method, message) {
     // Method: DispatchProtocolCommand
     // Call: DispatchProtocolCommand(call_id, method, message)
@@ -179,16 +124,6 @@ blink.mojom.DevToolsSessionHostPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'blink.mojom.DevToolsSessionHost';
-  }
-
-  reattach() {
-    // Method: reattach
-    // Call: reattach()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   dispatchProtocolResponse(message, call_id, updates) {

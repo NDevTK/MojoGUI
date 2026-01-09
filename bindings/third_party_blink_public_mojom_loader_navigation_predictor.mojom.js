@@ -108,19 +108,9 @@ blink.mojom.AnchorElementMetricsHostPtr = class {
     // Call: ReportAnchorElementClick(clicked)
   }
 
-  created(the) {
-    // Method: created
-    // Call: created(the)
-  }
-
   reportNewAnchorElements(metrics, removed_elements) {
     // Method: ReportNewAnchorElements
     // Call: ReportNewAnchorElements(metrics, removed_elements)
-  }
-
-  reportNewAnchorElements(were) {
-    // Method: ReportNewAnchorElements
-    // Call: ReportNewAnchorElements(were)
   }
 
   reportAnchorElementsEnteredViewport(elements) {

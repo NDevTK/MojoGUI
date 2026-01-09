@@ -43,11 +43,6 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTtsPtr = class {
     this.interfaceName = 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   getAudioData(request) {
     // Method: GetAudioData
     return new Promise((resolve) => {

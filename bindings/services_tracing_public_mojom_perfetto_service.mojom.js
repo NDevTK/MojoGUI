@@ -134,21 +134,6 @@ tracing.mojom.ProducerHostPtr = class {
     this.interfaceName = 'tracing.mojom.ProducerHost';
   }
 
-  service(|chunks_to_move|) {
-    // Method: service
-    // Call: service(|chunks_to_move|)
-  }
-
-  data(diff) {
-    // Method: data
-    // Call: data(diff)
-  }
-
-  buffer(overwritten) {
-    // Method: buffer
-    // Call: buffer(overwritten)
-  }
-
   commitData(data_request) {
     // Method: CommitData
     // Call: CommitData(data_request)
@@ -192,11 +177,6 @@ tracing.mojom.ProducerClientPtr = class {
   onTracingStart() {
     // Method: OnTracingStart
     // Call: OnTracingStart()
-  }
-
-  perfetto(ProducerHost) {
-    // Method: Perfetto
-    // Call: Perfetto(ProducerHost)
   }
 
   startDataSource(id, data_source_config) {
@@ -254,16 +234,6 @@ tracing.mojom.ConsumerHostPtr = class {
     this.interfaceName = 'tracing.mojom.ConsumerHost';
   }
 
-  priorities(through) {
-    // Method: priorities
-    // Call: priorities(through)
-  }
-
-  to() {
-    // Method: to
-    // Call: to()
-  }
-
   enableTracing(tracing_session_host, tracing_session_client, config, output_file) {
     // Method: EnableTracing
     // Call: EnableTracing(tracing_session_host, tracing_session_client, config, output_file)
@@ -302,16 +272,6 @@ tracing.mojom.TracingSessionHostPtr = class {
     // Call: DisableTracing()
   }
 
-  disableTracing() {
-    // Method: DisableTracing
-    // Call: DisableTracing()
-  }
-
-  readBuffers() {
-    // Method: ReadBuffers
-    // Call: ReadBuffers()
-  }
-
   readBuffers(stream) {
     // Method: ReadBuffers
     // Call: ReadBuffers(stream)
@@ -323,11 +283,6 @@ tracing.mojom.TracingSessionHostPtr = class {
       // Call: RequestBufferUsage()
       resolve({});
     });
-  }
-
-  label("traceEvents") {
-    // Method: label
-    // Call: label("traceEvents")
   }
 
   disableTracingAndEmitJson(agent_label_filter, stream, privacy_filtering_enabled) {

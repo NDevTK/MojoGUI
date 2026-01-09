@@ -16,16 +16,6 @@ pdf.mojom.PdfProgressiveSearchifierPtr = class {
     this.interfaceName = 'pdf.mojom.PdfProgressiveSearchifier';
   }
 
-  index() {
-    // Method: index
-    // Call: index()
-  }
-
-  index() {
-    // Method: index
-    // Call: index()
-  }
-
   addPage(image, page_index) {
     // Method: AddPage
     // Call: AddPage(image, page_index)

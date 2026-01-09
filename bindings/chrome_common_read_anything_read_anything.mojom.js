@@ -250,11 +250,6 @@ read_anything.mojom.UntrustedPageHandlerPtr = class {
     // Call: OnDistillationStatus(status, word_count)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   scrollToTargetNode(target_tree_id, target_node_id) {
     // Method: ScrollToTargetNode
     // Call: ScrollToTargetNode(target_tree_id, target_node_id)
@@ -313,11 +308,6 @@ read_anything.mojom.UntrustedPagePtr = class {
   accessibilityLocationChangesReceived(tree_id, details) {
     // Method: AccessibilityLocationChangesReceived
     // Call: AccessibilityLocationChangesReceived(tree_id, details)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   onActiveAXTreeIDChanged(tree_id, ukm_source_id, is_pdf) {

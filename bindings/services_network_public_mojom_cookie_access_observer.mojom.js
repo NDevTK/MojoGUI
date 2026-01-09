@@ -29,21 +29,6 @@ network.mojom.CookieAccessObserverPtr = class {
     this.interfaceName = 'network.mojom.CookieAccessObserver';
   }
 
-  access(write) {
-    // Method: access
-    // Call: access(write)
-  }
-
-  blocked(reason) {
-    // Method: blocked
-    // Call: blocked(reason)
-  }
-
-  events(unchanged) {
-    // Method: events
-    // Call: events(unchanged)
-  }
-
   onCookiesAccessed(details) {
     // Method: OnCookiesAccessed
     // Call: OnCookiesAccessed(details)

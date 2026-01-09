@@ -16,34 +16,14 @@ blink.mojom.ContentSecurityNotifierPtr = class {
     this.interfaceName = 'blink.mojom.ContentSecurityNotifier';
   }
 
-  content(script) {
-    // Method: content
-    // Call: content(script)
-  }
-
   notifyContentWithCertificateErrorsRan() {
     // Method: NotifyContentWithCertificateErrorsRan
     // Call: NotifyContentWithCertificateErrorsRan()
   }
 
-  content(image) {
-    // Method: content
-    // Call: content(image)
-  }
-
   notifyContentWithCertificateErrorsDisplayed() {
     // Method: NotifyContentWithCertificateErrorsDisplayed
     // Call: NotifyContentWithCertificateErrorsDisplayed()
-  }
-
-  content(script) {
-    // Method: content
-    // Call: content(script)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   notifyInsecureContentRan(origin, insecure_url) {

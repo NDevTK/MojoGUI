@@ -51,11 +51,6 @@ chromecast.mojom.DisplaySettingsPtr = class {
     // Call: SetScreenOn(display_on)
   }
 
-  setScreenOn() {
-    // Method: SetScreenOn
-    // Call: SetScreenOn()
-  }
-
   setAllowScreenPowerOff(allow_power_off) {
     // Method: SetAllowScreenPowerOff
     // Call: SetAllowScreenPowerOff(allow_power_off)

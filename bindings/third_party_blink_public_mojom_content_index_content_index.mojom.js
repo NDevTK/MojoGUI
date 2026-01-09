@@ -39,11 +39,6 @@ blink.mojom.ContentIndexServicePtr = class {
     this.interfaceName = 'blink.mojom.ContentIndexService';
   }
 
-  sizes(pixels) {
-    // Method: sizes
-    // Call: sizes(pixels)
-  }
-
   getIconSizes(category) {
     // Method: GetIconSizes
     return new Promise((resolve) => {

@@ -254,11 +254,6 @@ network.mojom.CookieChangeListenerPtr = class {
     this.interfaceName = 'network.mojom.CookieChangeListener';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   onCookieChange(change) {
     // Method: OnCookieChange
     // Call: OnCookieChange(change)
@@ -279,32 +274,12 @@ network.mojom.CookieManagerPtr = class {
     this.interfaceName = 'network.mojom.CookieManager';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  length(first) {
-    // Method: length
-    // Call: length(first)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   getAllCookies() {
     // Method: GetAllCookies
     return new Promise((resolve) => {
       // Call: GetAllCookies()
       resolve({});
     });
-  }
-
-  length(first) {
-    // Method: length
-    // Call: length(first)
   }
 
   getAllCookiesWithAccessSemantics() {
@@ -315,22 +290,12 @@ network.mojom.CookieManagerPtr = class {
     });
   }
 
-  length(first) {
-    // Method: length
-    // Call: length(first)
-  }
-
   getCookieList(url, cookie_options, cookie_partition_key_collection) {
     // Method: GetCookieList
     return new Promise((resolve) => {
       // Call: GetCookieList(url, cookie_options, cookie_partition_key_collection)
       resolve({});
     });
-  }
-
-  overwritten(a) {
-    // Method: overwritten
-    // Call: overwritten(a)
   }
 
   setCanonicalCookie(cookie, source_url, cookie_options) {
@@ -373,24 +338,9 @@ network.mojom.CookieManagerPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   addCookieChangeListener(url, name, listener) {
     // Method: AddCookieChangeListener
     // Call: AddCookieChangeListener(url, name, listener)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   addGlobalChangeListener(notification_pointer) {
@@ -401,11 +351,6 @@ network.mojom.CookieManagerPtr = class {
   cloneInterface(new_interface) {
     // Method: CloneInterface
     // Call: CloneInterface(new_interface)
-  }
-
-  store(any) {
-    // Method: store
-    // Call: store(any)
   }
 
   flushCookieStore() {
@@ -439,11 +384,6 @@ network.mojom.CookieManagerPtr = class {
   setMitigationsEnabledFor3pcd(enable) {
     // Method: SetMitigationsEnabledFor3pcd
     // Call: SetMitigationsEnabledFor3pcd(enable)
-  }
-
-  3PCD(UX) {
-    // Method: 3PCD
-    // Call: 3PCD(UX)
   }
 
   setTrackingProtectionEnabledFor3pcd(enable) {

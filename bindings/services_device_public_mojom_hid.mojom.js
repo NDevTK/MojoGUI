@@ -73,21 +73,6 @@ device.mojom.HidManagerClientPtr = class {
     this.interfaceName = 'device.mojom.HidManagerClient';
   }
 
-  0(device_info) {
-    // Method: 0
-    // Call: 0(device_info)
-  }
-
-  1(device_info) {
-    // Method: 1
-    // Call: 1(device_info)
-  }
-
-  2(device_info) {
-    // Method: 2
-    // Call: 2(device_info)
-  }
-
 };
 
 device.mojom.HidManagerClientRequest = class {
@@ -101,45 +86,6 @@ device.mojom.HidManagerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'device.mojom.HidManager';
-  }
-
-  deviceAdded() {
-    // Method: DeviceAdded
-    // Call: DeviceAdded()
-  }
-
-  deviceRemoved() {
-    // Method: DeviceRemoved
-    // Call: DeviceRemoved()
-  }
-
-  0(client) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(client)
-      resolve({});
-    });
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
-  2(device_guid, connection_client, watcher, allow_protected_reports, allow_fido_reports) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(device_guid, connection_client, watcher, allow_protected_reports, allow_fido_reports)
-      resolve({});
-    });
-  }
-
-  3(receiver) {
-    // Method: 3
-    // Call: 3(receiver)
   }
 
 };
@@ -157,38 +103,6 @@ device.mojom.HidConnectionPtr = class {
     this.interfaceName = 'device.mojom.HidConnection';
   }
 
-  0() {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0()
-      resolve({});
-    });
-  }
-
-  1(report_id, buffer) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(report_id, buffer)
-      resolve({});
-    });
-  }
-
-  2(report_id) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(report_id)
-      resolve({});
-    });
-  }
-
-  3(report_id, buffer) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(report_id, buffer)
-      resolve({});
-    });
-  }
-
 };
 
 device.mojom.HidConnectionRequest = class {
@@ -202,11 +116,6 @@ device.mojom.HidConnectionClientPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'device.mojom.HidConnectionClient';
-  }
-
-  0(report_id, buffer) {
-    // Method: 0
-    // Call: 0(report_id, buffer)
   }
 
 };

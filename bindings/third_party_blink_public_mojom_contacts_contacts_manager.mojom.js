@@ -30,11 +30,6 @@ blink.mojom.ContactsManagerPtr = class {
     this.interfaceName = 'blink.mojom.ContactsManager';
   }
 
-  contacts(selection) {
-    // Method: contacts
-    // Call: contacts(selection)
-  }
-
   select(multiple, include_names, include_emails, include_tel, include_addresses, include_icons) {
     // Method: Select
     return new Promise((resolve) => {

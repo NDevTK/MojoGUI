@@ -60,11 +60,6 @@ mojom.OmniboxPageHandlerPtr = class {
     // Call: SetClientPage(page)
   }
 
-  startOmniboxQuery(input_string, reset_autocomplete_controller, cursor_position, zero_suggest, prevent_inline_autocomplete, prefer_keyword) {
-    // Method: StartOmniboxQuery
-    // Call: StartOmniboxQuery(input_string, reset_autocomplete_controller, cursor_position, zero_suggest, prevent_inline_autocomplete, prefer_keyword)
-  }
-
   getMlModelVersion() {
     // Method: GetMlModelVersion
     return new Promise((resolve) => {
@@ -104,11 +99,6 @@ mojom.OmniboxPagePtr = class {
   handleNewAutocompleteResponse(autocomplete_controller_type, response) {
     // Method: HandleNewAutocompleteResponse
     // Call: HandleNewAutocompleteResponse(autocomplete_controller_type, response)
-  }
-
-  created(`HandleNewAutocompleteResponse() {
-    // Method: created
-    // Call: created(`HandleNewAutocompleteResponse()
   }
 
   handleNewMlResponse(autocomplete_controller_type, input_text, matches) {

@@ -70,11 +70,6 @@ ash.hotspot_config.mojom.CrosHotspotConfigPtr = class {
     this.interfaceName = 'ash.hotspot_config.mojom.CrosHotspotConfig';
   }
 
-  onHotspotInfoChange() {
-    // Method: OnHotspotInfoChange
-    // Call: OnHotspotInfoChange()
-  }
-
   addObserver(observer) {
     // Method: AddObserver
     // Call: AddObserver(observer)

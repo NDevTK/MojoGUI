@@ -16,11 +16,6 @@ blink.mojom.DiskAllocatorPtr = class {
     this.interfaceName = 'blink.mojom.DiskAllocator';
   }
 
-  closing(DELETE_ON_CLOSE) {
-    // Method: closing
-    // Call: closing(DELETE_ON_CLOSE)
-  }
-
   provideTemporaryFile(file) {
     // Method: ProvideTemporaryFile
     // Call: ProvideTemporaryFile(file)

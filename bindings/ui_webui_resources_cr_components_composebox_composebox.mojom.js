@@ -61,11 +61,6 @@ composebox.mojom.PageHandlerPtr = class {
     // Call: HandleFileUpload(is_image)
   }
 
-  window(message) {
-    // Method: window
-    // Call: window(message)
-  }
-
   navigateUrl(url) {
     // Method: NavigateUrl
     // Call: NavigateUrl(url)

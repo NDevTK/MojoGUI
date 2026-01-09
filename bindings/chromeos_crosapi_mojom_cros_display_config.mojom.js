@@ -133,79 +133,6 @@ crosapi.mojom.CrosDisplayConfigControllerPtr = class {
     this.interfaceName = 'crosapi.mojom.CrosDisplayConfigController';
   }
 
-  0(observer) {
-    // Method: 0
-    // Call: 0(observer)
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
-  2(info) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(info)
-      resolve({});
-    });
-  }
-
-  3(single_unified) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(single_unified)
-      resolve({});
-    });
-  }
-
-  4(id, properties, source) {
-    // Method: 4
-    return new Promise((resolve) => {
-      // Call: 4(id, properties, source)
-      resolve({});
-    });
-  }
-
-  5(enabled) {
-    // Method: 5
-    // Call: 5(enabled)
-  }
-
-  6(display_id, op, delta) {
-    // Method: 6
-    return new Promise((resolve) => {
-      // Call: 6(display_id, op, delta)
-      resolve({});
-    });
-  }
-
-  7(display_id, op, calibration) {
-    // Method: 7
-    return new Promise((resolve) => {
-      // Call: 7(display_id, op, calibration)
-      resolve({});
-    });
-  }
-
-  8(id) {
-    // Method: 8
-    // Call: 8(id)
-  }
-
-  dragDisplayDelta() {
-    // Method: DragDisplayDelta
-    // Call: DragDisplayDelta()
-  }
-
-  9(display_id, delta_x, delta_y) {
-    // Method: 9
-    // Call: 9(display_id, delta_x, delta_y)
-  }
-
 };
 
 crosapi.mojom.CrosDisplayConfigControllerRequest = class {
@@ -219,11 +146,6 @@ crosapi.mojom.CrosDisplayConfigObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'crosapi.mojom.CrosDisplayConfigObserver';
-  }
-
-  0() {
-    // Method: 0
-    // Call: 0()
   }
 
 };

@@ -97,11 +97,6 @@ viz.mojom.LayerContextClientPtr = class {
     // Call: OnRequestCommitForFrame(args)
   }
 
-  client() {
-    // Method: client
-    // Call: client()
-  }
-
   onTilingsReadyForCleanup(layer_id, tiling_scales_to_clean_up) {
     // Method: OnTilingsReadyForCleanup
     // Call: OnTilingsReadyForCleanup(layer_id, tiling_scales_to_clean_up)

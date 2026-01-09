@@ -44,22 +44,12 @@ chrome.mojom.ChromeRenderFramePtr = class {
     });
   }
 
-  boundsInWidget() {
-    // Method: BoundsInWidget
-    // Call: BoundsInWidget()
-  }
-
   requestBitmapForContextNodeWithBoundsHint() {
     // Method: RequestBitmapForContextNodeWithBoundsHint
     return new Promise((resolve) => {
       // Call: RequestBitmapForContextNodeWithBoundsHint()
       resolve({});
     });
-  }
-
-  requestBitmapForContextNode() {
-    // Method: RequestBitmapForContextNode
-    // Call: RequestBitmapForContextNode()
   }
 
   requestBoundsHintForAllImages() {
@@ -88,22 +78,12 @@ chrome.mojom.ChromeRenderFramePtr = class {
     // Call: SetCCTClientHeader(header)
   }
 
-  renderer(one) {
-    // Method: renderer
-    // Call: renderer(one)
-  }
-
   getMediaFeedURL() {
     // Method: GetMediaFeedURL
     return new Promise((resolve) => {
       // Call: GetMediaFeedURL()
       resolve({});
     });
-  }
-
-  identifier(all) {
-    // Method: identifier
-    // Call: identifier(all)
   }
 
   loadBlockedPlugins(identifier) {
@@ -116,57 +96,12 @@ chrome.mojom.ChromeRenderFramePtr = class {
     // Call: SetShouldDeferMediaLoad(should_defer)
   }
 
-  invokeTool() {
-    // Method: InvokeTool
-    // Call: InvokeTool()
-  }
-
-  invokeTool() {
-    // Method: InvokeTool
-    // Call: InvokeTool()
-  }
-
   invokeTool(request) {
     // Method: InvokeTool
     return new Promise((resolve) => {
       // Call: InvokeTool(request)
       resolve({});
     });
-  }
-
-  completion(doesn't) {
-    // Method: completion
-    // Call: completion(doesn't)
-  }
-
-  invokeTool() {
-    // Method: InvokeTool
-    // Call: InvokeTool()
-  }
-
-  invokeTool() {
-    // Method: InvokeTool
-    // Call: InvokeTool()
-  }
-
-  result(timeout) {
-    // Method: result
-    // Call: result(timeout)
-  }
-
-  cancelTool() {
-    // Method: CancelTool
-    // Call: CancelTool()
-  }
-
-  invokeTool() {
-    // Method: InvokeTool
-    // Call: InvokeTool()
-  }
-
-  cancelTool() {
-    // Method: CancelTool
-    // Call: CancelTool()
   }
 
   cancelTool(task_id) {

@@ -16,26 +16,6 @@ content.mojom.AgentSchedulingGroupHostPtr = class {
     this.interfaceName = 'content.mojom.AgentSchedulingGroupHost';
   }
 
-  unload() {
-    // Method: Unload
-    // Call: Unload()
-  }
-
-  unload() {
-    // Method: Unload
-    // Call: Unload()
-  }
-
-  associatedReceiver(RenderFrame) {
-    // Method: AssociatedReceiver
-    // Call: AssociatedReceiver(RenderFrame)
-  }
-
-  unload(tears) {
-    // Method: unload
-    // Call: unload(tears)
-  }
-
   didUnloadRenderFrame(frame_token) {
     // Method: DidUnloadRenderFrame
     // Call: DidUnloadRenderFrame(frame_token)
@@ -54,21 +34,6 @@ content.mojom.AgentSchedulingGroupPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'content.mojom.AgentSchedulingGroup';
-  }
-
-  remote() {
-    // Method: remote
-    // Call: remote()
-  }
-
-  createAgentSchedulingGroup() {
-    // Method: CreateAgentSchedulingGroup
-    // Call: CreateAgentSchedulingGroup()
-  }
-
-  createAgentAssociatedSchedulingGroup() {
-    // Method: CreateAgentAssociatedSchedulingGroup
-    // Call: CreateAgentAssociatedSchedulingGroup()
   }
 
   bindAssociatedInterfaces(remote_host, route_provider_receiver) {

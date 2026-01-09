@@ -79,11 +79,6 @@ omnibox_popup_aim.mojom.PagePtr = class {
     });
   }
 
-  dialog(dialog) {
-    // Method: dialog
-    // Call: dialog(dialog)
-  }
-
   setPreserveContextOnClose(preserve_context_on_close) {
     // Method: SetPreserveContextOnClose
     // Call: SetPreserveContextOnClose(preserve_context_on_close)

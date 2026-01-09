@@ -86,11 +86,6 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerPtr = class {
     });
   }
 
-  data(count) {
-    // Method: data
-    // Call: data(count)
-  }
-
   clearFeaturePromoData(feature_name) {
     // Method: ClearFeaturePromoData
     return new Promise((resolve) => {

@@ -29,11 +29,6 @@ blink.mojom.AbortableAdAuctionPtr = class {
     this.interfaceName = 'blink.mojom.AbortableAdAuction';
   }
 
-  cancelled(different) {
-    // Method: cancelled
-    // Call: cancelled(different)
-  }
-
   resolvedPromiseParam(auction, field, json_value) {
     // Method: ResolvedPromiseParam
     // Call: ResolvedPromiseParam(auction, field, json_value)
@@ -79,29 +74,9 @@ blink.mojom.AbortableAdAuctionPtr = class {
     // Call: ResolvedAuctionAdResponsePromise(auction, result)
   }
 
-  decoded() {
-    // Method: decoded
-    // Call: decoded()
-  }
-
   resolvedAdditionalBids(auction) {
     // Method: ResolvedAdditionalBids
     // Call: ResolvedAdditionalBids(auction)
-  }
-
-  runAdAuction() {
-    // Method: RunAdAuction
-    // Call: RunAdAuction()
-  }
-
-  finished(most) {
-    // Method: finished
-    // Call: finished(most)
-  }
-
-  runAdAuction() {
-    // Method: RunAdAuction
-    // Call: RunAdAuction()
   }
 
   abort() {
@@ -138,11 +113,6 @@ blink.mojom.AdAuctionServicePtr = class {
       // Call: FinalizeAd(ads_guid, config)
       resolve({});
     });
-  }
-
-  abort() {
-    // Method: Abort
-    // Call: Abort()
   }
 
   runAdAuction(config, abort_receiver) {
@@ -182,24 +152,9 @@ blink.mojom.AdAuctionServicePtr = class {
     });
   }
 
-  joinInterestGroup() {
-    // Method: JoinInterestGroup
-    // Call: JoinInterestGroup()
-  }
-
   updateAdInterestGroups() {
     // Method: UpdateAdInterestGroups
     // Call: UpdateAdInterestGroups()
-  }
-
-  deprecatedGetURLFromURN() {
-    // Method: DeprecatedGetURLFromURN
-    // Call: DeprecatedGetURLFromURN()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   deprecatedGetURLFromURN(uuid_url, send_reports) {

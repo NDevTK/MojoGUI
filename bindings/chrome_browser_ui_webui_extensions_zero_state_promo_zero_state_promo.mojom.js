@@ -40,11 +40,6 @@ zero_state_promo.mojom.PageHandlerPtr = class {
     this.interfaceName = 'zero_state_promo.mojom.PageHandler';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   launchWebStoreLink(link) {
     // Method: LaunchWebStoreLink
     // Call: LaunchWebStoreLink(link)

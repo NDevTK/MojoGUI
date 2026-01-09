@@ -73,11 +73,6 @@ commerce.mojom.CommerceInternalsHandlerPtr = class {
     });
   }
 
-  used(stored) {
-    // Method: used
-    // Call: used(stored)
-  }
-
   resetPriceTrackingEmailPref() {
     // Method: ResetPriceTrackingEmailPref
     // Call: ResetPriceTrackingEmailPref()

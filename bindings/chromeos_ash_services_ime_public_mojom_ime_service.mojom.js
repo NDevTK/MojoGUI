@@ -17,42 +17,12 @@ ash.ime.mojom.InputEngineManagerPtr = class {
     this.interfaceName = 'ash.ime.mojom.InputEngineManager';
   }
 
-  failure(found) {
-    // Method: failure
-    // Call: failure(found)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  connectToProtoModeSharedLibInputMethod() {
-    // Method: ConnectToProtoModeSharedLibInputMethod
-    // Call: ConnectToProtoModeSharedLibInputMethod()
-  }
-
   connectToImeEngine(ime_spec, to_engine_request, from_engine, extra) {
     // Method: ConnectToImeEngine
     return new Promise((resolve) => {
       // Call: ConnectToImeEngine(ime_spec, to_engine_request, from_engine, extra)
       resolve({});
     });
-  }
-
-  pipe(details) {
-    // Method: pipe
-    // Call: pipe(details)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  initializeMojoModeSharedLibConnectionFactory() {
-    // Method: InitializeMojoModeSharedLibConnectionFactory
-    // Call: InitializeMojoModeSharedLibConnectionFactory()
   }
 
   initializeConnectionFactory(connection_factory) {
@@ -99,11 +69,6 @@ ash.ime.mojom.ImeServicePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.ime.mojom.ImeService';
-  }
-
-  client(browser) {
-    // Method: client
-    // Call: client(browser)
   }
 
   setPlatformAccessProvider(provider) {

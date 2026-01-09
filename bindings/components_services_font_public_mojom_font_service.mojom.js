@@ -78,27 +78,12 @@ font_service.mojom.FontServicePtr = class {
     });
   }
 
-  size(pixels) {
-    // Method: size
-    // Call: size(pixels)
-  }
-
-  slant(not) {
-    // Method: slant
-    // Call: slant(not)
-  }
-
   fontRenderStyleForStrike(family, size, is_italic, is_bold, device_scale_factor) {
     // Method: FontRenderStyleForStrike
     return new Promise((resolve) => {
       // Call: FontRenderStyleForStrike(family, size, is_italic, is_bold, device_scale_factor)
       resolve({});
     });
-  }
-
-  local() {
-    // Method: local
-    // Call: local()
   }
 
 };

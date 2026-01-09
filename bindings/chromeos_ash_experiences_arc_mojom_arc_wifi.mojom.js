@@ -24,40 +24,6 @@ arc.mojom.ArcWifiHostPtr = class {
     this.interfaceName = 'arc.mojom.ArcWifiHost';
   }
 
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
-  2(enabled) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(enabled)
-      resolve({});
-    });
-  }
-
-  getScanResults() {
-    // Method: GetScanResults
-    // Call: GetScanResults()
-  }
-
-  3() {
-    // Method: 3
-    // Call: 3()
-  }
-
-  4() {
-    // Method: 4
-    return new Promise((resolve) => {
-      // Call: 4()
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.ArcWifiHostRequest = class {
@@ -71,31 +37,6 @@ arc.mojom.ArcWifiInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.ArcWifiInstance';
-  }
-
-  1(host_remote) {
-    // Method: 1
-    // Call: 1(host_remote)
-  }
-
-  2(enabled) {
-    // Method: 2
-    // Call: 2(enabled)
-  }
-
-  startScan() {
-    // Method: StartScan
-    // Call: StartScan()
-  }
-
-  startScan() {
-    // Method: StartScan
-    // Call: StartScan()
-  }
-
-  3() {
-    // Method: 3
-    // Call: 3()
   }
 
 };

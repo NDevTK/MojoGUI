@@ -379,11 +379,6 @@ tab_search.mojom.PagePtr = class {
     // Call: HostWindowChanged()
   }
 
-  1(active) {
-    // Method: 1
-    // Call: 1(active)
-  }
-
   tabsChanged(profile_tabs) {
     // Method: TabsChanged
     // Call: TabsChanged(profile_tabs)

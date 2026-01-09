@@ -34,39 +34,14 @@ network.mojom.ClientCertificateResponderPtr = class {
     this.interfaceName = 'network.mojom.ClientCertificateResponder';
   }
 
-  getProviderName() {
-    // Method: GetProviderName
-    // Call: GetProviderName()
-  }
-
-  getAlgorithmPreferences() {
-    // Method: GetAlgorithmPreferences
-    // Call: GetAlgorithmPreferences()
-  }
-
   continueWithCertificate(x509_certificate, provider_name, algorithm_preferences, ssl_private_key) {
     // Method: ContinueWithCertificate
     // Call: ContinueWithCertificate(x509_certificate, provider_name, algorithm_preferences, ssl_private_key)
   }
 
-  certificate(future) {
-    // Method: certificate
-    // Call: certificate(future)
-  }
-
-  continueWithCertificate() {
-    // Method: ContinueWithCertificate
-    // Call: ContinueWithCertificate()
-  }
-
   continueWithoutCertificate() {
     // Method: ContinueWithoutCertificate
     // Call: ContinueWithoutCertificate()
-  }
-
-  cancelWithError() {
-    // Method: CancelWithError
-    // Call: CancelWithError()
   }
 
   cancelRequest() {
@@ -140,11 +115,6 @@ network.mojom.URLLoaderNetworkServiceObserverPtr = class {
     });
   }
 
-  response(disconnect) {
-    // Method: response
-    // Call: response(disconnect)
-  }
-
   onCertificateRequested(window_id, cert_info, cert_responder) {
     // Method: OnCertificateRequested
     // Call: OnCertificateRequested(window_id, cert_info, cert_responder)
@@ -163,16 +133,6 @@ network.mojom.URLLoaderNetworkServiceObserverPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  concerns(booleans) {
-    // Method: concerns
-    // Call: concerns(booleans)
-  }
-
   onClearSiteData(url, header_value, load_flags, cookie_partition_key, partitioned_state_allowed_only) {
     // Method: OnClearSiteData
     // Call: OnClearSiteData(url, header_value, load_flags, cookie_partition_key, partitioned_state_allowed_only)
@@ -188,34 +148,9 @@ network.mojom.URLLoaderNetworkServiceObserverPtr = class {
     // Call: OnDataUseUpdate(network_traffic_annotation_id_hash, recv_bytes, sent_bytes)
   }
 
-  header() {
-    // Method: header
-    // Call: header()
-  }
-
-  process(API) {
-    // Method: process
-    // Call: process(API)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  onSharedStorageHeaderReceived() {
-    // Method: OnSharedStorageHeaderReceived
-    // Call: OnSharedStorageHeaderReceived()
-  }
-
   onSharedStorageHeaderReceived(request_origin, methods_with_options, with_lock) {
     // Method: OnSharedStorageHeaderReceived
     // Call: OnSharedStorageHeaderReceived(request_origin, methods_with_options, with_lock)
-  }
-
-  generateBid() {
-    // Method: generateBid
-    // Call: generateBid()
   }
 
   onAdAuctionEventRecordHeaderReceived(ad_auction_event_record, top_frame_origin) {

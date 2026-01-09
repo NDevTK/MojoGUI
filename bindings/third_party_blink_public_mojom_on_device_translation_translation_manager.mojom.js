@@ -50,11 +50,6 @@ blink.mojom.TranslationManagerCreateTranslatorClientPtr = class {
     this.interfaceName = 'blink.mojom.TranslationManagerCreateTranslatorClient';
   }
 
-  createTranslator() {
-    // Method: CreateTranslator
-    // Call: CreateTranslator()
-  }
-
   onResult(result, source_lang, target_lang) {
     // Method: OnResult
     // Call: OnResult(result, source_lang, target_lang)

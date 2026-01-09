@@ -54,16 +54,6 @@ device.mojom.SensorPtr = class {
     });
   }
 
-  platform(buffer) {
-    // Method: platform
-    // Call: platform(buffer)
-  }
-
-  added(invalid) {
-    // Method: added
-    // Call: added(invalid)
-  }
-
   addConfiguration(configuration) {
     // Method: AddConfiguration
     return new Promise((resolve) => {
@@ -110,11 +100,6 @@ device.mojom.SensorClientPtr = class {
   raiseError() {
     // Method: RaiseError
     // Call: RaiseError()
-  }
-
-  changed(with) {
-    // Method: changed
-    // Call: changed(with)
   }
 
   sensorReadingChanged() {

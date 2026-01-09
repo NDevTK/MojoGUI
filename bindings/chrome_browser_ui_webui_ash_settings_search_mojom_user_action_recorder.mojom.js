@@ -22,11 +22,6 @@ ash.settings.mojom.UserActionRecorderPtr = class {
     // Call: RecordPageFocus()
   }
 
-  blurred(longer) {
-    // Method: blurred
-    // Call: blurred(longer)
-  }
-
   recordPageBlur() {
     // Method: RecordPageBlur
     // Call: RecordPageBlur()
@@ -45,11 +40,6 @@ ash.settings.mojom.UserActionRecorderPtr = class {
   recordSearch() {
     // Method: RecordSearch
     // Call: RecordSearch()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   recordSettingChange() {

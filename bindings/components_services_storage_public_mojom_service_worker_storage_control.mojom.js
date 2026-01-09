@@ -64,11 +64,6 @@ storage.mojom.ServiceWorkerResourceReaderPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   prepareReadData(size) {
     // Method: PrepareReadData
     return new Promise((resolve) => {
@@ -228,11 +223,6 @@ storage.mojom.ServiceWorkerStorageControlPtr = class {
     });
   }
 
-  one(future) {
-    // Method: one
-    // Call: one(future)
-  }
-
   getFakeRegistrationForClientUrl(client_url, key) {
     // Method: GetFakeRegistrationForClientUrl
     return new Promise((resolve) => {
@@ -342,16 +332,6 @@ storage.mojom.ServiceWorkerStorageControlPtr = class {
   createResourceMetadataWriter(resource_id, writer) {
     // Method: CreateResourceMetadataWriter
     // Call: CreateResourceMetadataWriter(resource_id, writer)
-  }
-
-  storeRegistration() {
-    // Method: StoreRegistration
-    // Call: StoreRegistration()
-  }
-
-  doomUncommittedResources() {
-    // Method: DoomUncommittedResources
-    // Call: DoomUncommittedResources()
   }
 
   storeUncommittedResourceId(resource_id) {

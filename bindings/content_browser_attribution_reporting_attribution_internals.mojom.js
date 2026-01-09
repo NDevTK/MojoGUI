@@ -175,11 +175,6 @@ attribution_internals.mojom.HandlerPtr = class {
     this.interfaceName = 'attribution_internals.mojom.Handler';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   isAttributionReportingEnabled() {
     // Method: IsAttributionReportingEnabled
     return new Promise((resolve) => {

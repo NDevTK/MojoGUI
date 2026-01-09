@@ -16,22 +16,12 @@ audio.mojom.SystemInfoPtr = class {
     this.interfaceName = 'audio.mojom.SystemInfo';
   }
 
-  device(if) {
-    // Method: device
-    // Call: device(if)
-  }
-
   getInputStreamParameters(device_id) {
     // Method: GetInputStreamParameters
     return new Promise((resolve) => {
       // Call: GetInputStreamParameters(device_id)
       resolve({});
     });
-  }
-
-  device(if) {
-    // Method: device
-    // Call: device(if)
   }
 
   getOutputStreamParameters(device_id) {
@@ -74,37 +64,12 @@ audio.mojom.SystemInfoPtr = class {
     });
   }
 
-  device(association) {
-    // Method: device
-    // Call: device(association)
-  }
-
   getAssociatedOutputDeviceID(input_device_id) {
     // Method: GetAssociatedOutputDeviceID
     return new Promise((resolve) => {
       // Call: GetAssociatedOutputDeviceID(input_device_id)
       resolve({});
     });
-  }
-
-  device(if) {
-    // Method: device
-    // Call: device(if)
-  }
-
-  getInputStreamParameters() {
-    // Method: GetInputStreamParameters
-    // Call: GetInputStreamParameters()
-  }
-
-  getAssociatedOutputDeviceID() {
-    // Method: GetAssociatedOutputDeviceID
-    // Call: GetAssociatedOutputDeviceID()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   getInputDeviceInfo(input_device_id) {

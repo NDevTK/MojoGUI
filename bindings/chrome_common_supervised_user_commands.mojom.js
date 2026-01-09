@@ -29,11 +29,6 @@ supervised_user.mojom.SupervisedUserCommandsPtr = class {
     });
   }
 
-  initiated() {
-    // Method: initiated
-    // Call: initiated()
-  }
-
   requestUrlAccessLocal() {
     // Method: RequestUrlAccessLocal
     return new Promise((resolve) => {

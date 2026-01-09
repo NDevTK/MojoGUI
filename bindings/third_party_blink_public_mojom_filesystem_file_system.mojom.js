@@ -104,22 +104,12 @@ blink.mojom.FileSystemManagerPtr = class {
     this.interfaceName = 'blink.mojom.FileSystemManager';
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   open(origin, file_system_type) {
     // Method: Open
     return new Promise((resolve) => {
       // Call: Open(origin, file_system_type)
       resolve({});
     });
-  }
-
-  metadata(type) {
-    // Method: metadata
-    // Call: metadata(type)
   }
 
   resolveURL(filesystem_url) {
@@ -191,11 +181,6 @@ blink.mojom.FileSystemManagerPtr = class {
     });
   }
 
-  data(|blob|) {
-    // Method: data
-    // Call: data(|blob|)
-  }
-
   write(file_path, blob, position, op_receiver, listener) {
     // Method: Write
     // Call: Write(file_path, blob, position, op_receiver, listener)
@@ -225,21 +210,6 @@ blink.mojom.FileSystemManagerPtr = class {
     });
   }
 
-  image() {
-    // Method: image
-    // Call: image()
-  }
-
-  itself(would) {
-    // Method: itself
-    // Call: itself(would)
-  }
-
-  listener(drop) {
-    // Method: listener
-    // Call: listener(drop)
-  }
-
   createSnapshotFile(file_path) {
     // Method: CreateSnapshotFile
     return new Promise((resolve) => {
@@ -254,16 +224,6 @@ blink.mojom.FileSystemManagerPtr = class {
       // Call: GetPlatformPath(file_path)
       resolve({});
     });
-  }
-
-  serializedBlob(to) {
-    // Method: SerializedBlob
-    // Call: SerializedBlob(to)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   registerBlob(content_type, url, length, expected_modification_time) {

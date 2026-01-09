@@ -30,14 +30,6 @@ arc.mojom.ArcShellExecutionInstancePtr = class {
     this.interfaceName = 'arc.mojom.ArcShellExecutionInstance';
   }
 
-  0(request) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(request)
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.ArcShellExecutionInstanceRequest = class {

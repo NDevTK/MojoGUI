@@ -618,11 +618,6 @@ ash.shimless_rma.mojom.ShimlessRmaServicePtr = class {
     });
   }
 
-  iD() {
-    // Method: ID
-    // Call: ID()
-  }
-
   getRsuDisableWriteProtectHwid() {
     // Method: GetRsuDisableWriteProtectHwid
     return new Promise((resolve) => {
@@ -677,11 +672,6 @@ ash.shimless_rma.mojom.ShimlessRmaServicePtr = class {
       // Call: GetComponentList()
       resolve({});
     });
-  }
-
-  repaired(others) {
-    // Method: repaired
-    // Call: repaired(others)
   }
 
   setComponentList(components) {
@@ -956,11 +946,6 @@ ash.shimless_rma.mojom.ShimlessRmaServicePtr = class {
       // Call: CriticalErrorReboot()
       resolve({});
     });
-  }
-
-  party() {
-    // Method: party
-    // Call: party()
   }
 
   get3pDiagnosticsProvider() {

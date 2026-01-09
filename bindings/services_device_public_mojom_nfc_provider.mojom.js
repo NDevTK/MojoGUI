@@ -16,11 +16,6 @@ device.mojom.NFCProviderPtr = class {
     this.interfaceName = 'device.mojom.NFCProvider';
   }
 
-  android(NFCDelegate.java) {
-    // Method: Android
-    // Call: Android(NFCDelegate.java)
-  }
-
   getNFCForHost(host_id, receiver) {
     // Method: GetNFCForHost
     // Call: GetNFCForHost(host_id, receiver)

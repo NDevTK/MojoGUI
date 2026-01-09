@@ -22,11 +22,6 @@ ash.mojom.sample_swa.UntrustedPageInterfacesFactoryPtr = class {
     // Call: CreateParentPage(child_page, parent_page)
   }
 
-  createPageHandler() {
-    // Method: CreatePageHandler
-    // Call: CreatePageHandler()
-  }
-
 };
 
 ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRequest = class {

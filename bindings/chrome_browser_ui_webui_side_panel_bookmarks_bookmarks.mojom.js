@@ -177,11 +177,6 @@ side_panel.mojom.BookmarksPageHandlerPtr = class {
     // Call: ShowUI()
   }
 
-  view(account) {
-    // Method: view
-    // Call: view(account)
-  }
-
   getAllBookmarks() {
     // Method: GetAllBookmarks
     return new Promise((resolve) => {

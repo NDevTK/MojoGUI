@@ -80,11 +80,6 @@ network.mojom.NetworkChangeManagerClientPtr = class {
     // Call: OnInitialConnectionType(type)
   }
 
-  connection(done) {
-    // Method: connection
-    // Call: connection(done)
-  }
-
   onNetworkChanged(type) {
     // Method: OnNetworkChanged
     // Call: OnNetworkChanged(type)

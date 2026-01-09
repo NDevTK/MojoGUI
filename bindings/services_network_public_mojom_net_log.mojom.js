@@ -32,11 +32,6 @@ network.mojom.NetLogExporterPtr = class {
     this.interfaceName = 'network.mojom.NetLogExporter';
   }
 
-  stop() {
-    // Method: Stop
-    // Call: Stop()
-  }
-
   start(destination, extra_constants, capture_mode, max_file_size) {
     // Method: Start
     return new Promise((resolve) => {
@@ -86,11 +81,6 @@ network.mojom.NetLogProxySinkPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'network.mojom.NetLogProxySink';
-  }
-
-  initializeSourceIdPartition() {
-    // Method: InitializeSourceIdPartition
-    // Call: InitializeSourceIdPartition()
   }
 
   addEntry(type, net_log_source, phase, time, params) {

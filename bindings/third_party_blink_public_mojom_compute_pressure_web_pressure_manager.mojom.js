@@ -16,11 +16,6 @@ blink.mojom.WebPressureManagerPtr = class {
     this.interfaceName = 'blink.mojom.WebPressureManager';
   }
 
-  addClient() {
-    // Method: AddClient
-    // Call: AddClient()
-  }
-
   addClient(source, client) {
     // Method: AddClient
     return new Promise((resolve) => {

@@ -21,16 +21,6 @@ ax.mojom.AutomationPtr = class {
     // Call: DispatchTreeDestroyedEvent(tree_id)
   }
 
-  client(process) {
-    // Method: client
-    // Call: client(process)
-  }
-
-  performAction(cases) {
-    // Method: performAction
-    // Call: performAction(cases)
-  }
-
   dispatchActionResult(data, result) {
     // Method: DispatchActionResult
     // Call: DispatchActionResult(data, result)

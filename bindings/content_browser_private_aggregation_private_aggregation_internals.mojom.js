@@ -46,11 +46,6 @@ private_aggregation_internals.mojom.ObserverPtr = class {
     this.interfaceName = 'private_aggregation_internals.mojom.Observer';
   }
 
-  getReports() {
-    // Method: GetReports
-    // Call: GetReports()
-  }
-
   onRequestStorageModified() {
     // Method: OnRequestStorageModified
     // Call: OnRequestStorageModified()

@@ -52,11 +52,6 @@ network.mojom.DevToolsObserverPtr = class {
     // Call: OnEarlyHintsResponse(devtool_request_id, headers)
   }
 
-  future() {
-    // Method: future
-    // Call: future()
-  }
-
   onPrivateNetworkRequest(devtool_request_id, url, is_warning, resource_address_space, client_security_state) {
     // Method: OnPrivateNetworkRequest
     // Call: OnPrivateNetworkRequest(devtool_request_id, url, is_warning, resource_address_space, client_security_state)

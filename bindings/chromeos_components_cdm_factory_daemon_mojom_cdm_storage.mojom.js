@@ -17,51 +17,6 @@ chromeos.cdm.mojom.CdmStoragePtr = class {
     this.interfaceName = 'chromeos.cdm.mojom.CdmStorage';
   }
 
-  0(file_name) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(file_name)
-      resolve({});
-    });
-  }
-
-  write() {
-    // Method: Write
-    // Call: Write()
-  }
-
-  1(file_name, data) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(file_name, data)
-      resolve({});
-    });
-  }
-
-  2(file_name) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(file_name)
-      resolve({});
-    });
-  }
-
-  3(file_name) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(file_name)
-      resolve({});
-    });
-  }
-
-  4(file_name) {
-    // Method: 4
-    return new Promise((resolve) => {
-      // Call: 4(file_name)
-      resolve({});
-    });
-  }
-
 };
 
 chromeos.cdm.mojom.CdmStorageRequest = class {

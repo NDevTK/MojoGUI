@@ -35,11 +35,6 @@ network.mojom.FirstPartySetsAccessDelegatePtr = class {
     // Call: NotifyReady(ready_event)
   }
 
-  setting(update) {
-    // Method: setting
-    // Call: setting(update)
-  }
-
   setEnabled(enabled) {
     // Method: SetEnabled
     // Call: SetEnabled(enabled)

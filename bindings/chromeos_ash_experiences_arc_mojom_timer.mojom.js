@@ -35,30 +35,6 @@ arc.mojom.TimerHostPtr = class {
     this.interfaceName = 'arc.mojom.TimerHost';
   }
 
-  0(timer_requests) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(timer_requests)
-      resolve({});
-    });
-  }
-
-  1(clock_id, absolute_expiration_time) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(clock_id, absolute_expiration_time)
-      resolve({});
-    });
-  }
-
-  2(time) {
-    // Method: 2
-    return new Promise((resolve) => {
-      // Call: 2(time)
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.TimerHostRequest = class {
@@ -72,11 +48,6 @@ arc.mojom.TimerInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.TimerInstance';
-  }
-
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
   }
 
 };

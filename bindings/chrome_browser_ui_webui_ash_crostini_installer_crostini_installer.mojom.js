@@ -52,34 +52,9 @@ ash.crostini_installer.mojom.PageHandlerPtr = class {
     // Call: CancelBeforeStart()
   }
 
-  dialog(whatever) {
-    // Method: dialog
-    // Call: dialog(whatever)
-  }
-
-  requestClose() {
-    // Method: RequestClose
-    // Call: RequestClose()
-  }
-
-  spontaneously() {
-    // Method: spontaneously
-    // Call: spontaneously()
-  }
-
-  send() {
-    // Method: send
-    // Call: send()
-  }
-
   onPageClosed() {
     // Method: OnPageClosed
     // Call: OnPageClosed()
-  }
-
-  crostini(to) {
-    // Method: Crostini
-    // Call: Crostini(to)
   }
 
   requestAmountOfFreeDiskSpace() {
@@ -118,11 +93,6 @@ ash.crostini_installer.mojom.PagePtr = class {
   onCanceled() {
     // Method: OnCanceled
     // Call: OnCanceled()
-  }
-
-  onPageClosed() {
-    // Method: OnPageClosed
-    // Call: OnPageClosed()
   }
 
   requestClose() {

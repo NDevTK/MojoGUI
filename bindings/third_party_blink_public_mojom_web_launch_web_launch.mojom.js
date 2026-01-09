@@ -21,16 +21,6 @@ blink.mojom.WebLaunchServicePtr = class {
     // Call: SetLaunchFiles(files)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  setLaunchFiles() {
-    // Method: SetLaunchFiles
-    // Call: SetLaunchFiles()
-  }
-
   enqueueLaunchParams(launch_url, time_navigation_started_in_browser, navigation_started) {
     // Method: EnqueueLaunchParams
     // Call: EnqueueLaunchParams(launch_url, time_navigation_started_in_browser, navigation_started)

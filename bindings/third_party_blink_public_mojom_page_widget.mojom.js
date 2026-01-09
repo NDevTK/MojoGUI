@@ -45,11 +45,6 @@ blink.mojom.FrameWidgetPtr = class {
     });
   }
 
-  dragTargetDragEnter() {
-    // Method: DragTargetDragEnter
-    // Call: DragTargetDragEnter()
-  }
-
   dragTargetDragOver(point_in_viewport, screen_point, operations_allowed, key_modifiers) {
     // Method: DragTargetDragOver
     return new Promise((resolve) => {
@@ -94,11 +89,6 @@ blink.mojom.FrameWidgetPtr = class {
   setBackgroundOpaque(opaque) {
     // Method: SetBackgroundOpaque
     // Call: SetBackgroundOpaque(opaque)
-  }
-
-  field(any) {
-    // Method: field
-    // Call: field(any)
   }
 
   setTextDirection(direction) {

@@ -16,16 +16,6 @@ arc.mojom.AdbdMonitorHostPtr = class {
     this.interfaceName = 'arc.mojom.AdbdMonitorHost';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
 };
 
 arc.mojom.AdbdMonitorHostRequest = class {
@@ -39,11 +29,6 @@ arc.mojom.AdbdMonitorInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.AdbdMonitorInstance';
-  }
-
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
   }
 
 };

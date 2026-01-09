@@ -93,19 +93,6 @@ media.mojom.SpeechRecognitionContextPtr = class {
     this.interfaceName = 'media.mojom.SpeechRecognitionContext';
   }
 
-  0(receiver, client, options) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(receiver, client, options)
-      resolve({});
-    });
-  }
-
-  1(session_receiver, session_client, audio_forwarder, channel_count, sample_rate, options, continuous) {
-    // Method: 1
-    // Call: 1(session_receiver, session_client, audio_forwarder, channel_count, sample_rate, options, continuous)
-  }
-
 };
 
 media.mojom.SpeechRecognitionContextRequest = class {
@@ -119,36 +106,6 @@ media.mojom.SpeechRecognitionRecognizerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'media.mojom.SpeechRecognitionRecognizer';
-  }
-
-  0(buffer, media_start_pts) {
-    // Method: 0
-    // Call: 0(buffer, media_start_pts)
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  string("en-US") {
-    // Method: string
-    // Call: string("en-US")
-  }
-
-  2(language) {
-    // Method: 2
-    // Call: 2(language)
-  }
-
-  3(mask_offensive_words) {
-    // Method: 3
-    // Call: 3(mask_offensive_words)
-  }
-
-  4(recognition_context) {
-    // Method: 4
-    // Call: 4(recognition_context)
   }
 
 };
@@ -166,29 +123,6 @@ media.mojom.SpeechRecognitionRecognizerClientPtr = class {
     this.interfaceName = 'media.mojom.SpeechRecognitionRecognizerClient';
   }
 
-  0(result) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(result)
-      resolve({});
-    });
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  2() {
-    // Method: 2
-    // Call: 2()
-  }
-
-  3(event) {
-    // Method: 3
-    // Call: 3(event)
-  }
-
 };
 
 media.mojom.SpeechRecognitionRecognizerClientRequest = class {
@@ -202,21 +136,6 @@ media.mojom.SpeechRecognitionBrowserObserverPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'media.mojom.SpeechRecognitionBrowserObserver';
-  }
-
-  0(is_speech_recognition_available) {
-    // Method: 0
-    // Call: 0(is_speech_recognition_available)
-  }
-
-  1(language) {
-    // Method: 1
-    // Call: 1(language)
-  }
-
-  2(mask_offensive_words) {
-    // Method: 2
-    // Call: 2(mask_offensive_words)
   }
 
 };
@@ -234,19 +153,6 @@ media.mojom.SpeechRecognitionSurfacePtr = class {
     this.interfaceName = 'media.mojom.SpeechRecognitionSurface';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1() {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1()
-      resolve({});
-    });
-  }
-
 };
 
 media.mojom.SpeechRecognitionSurfaceRequest = class {
@@ -262,16 +168,6 @@ media.mojom.SpeechRecognitionSurfaceClientPtr = class {
     this.interfaceName = 'media.mojom.SpeechRecognitionSurfaceClient';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
 };
 
 media.mojom.SpeechRecognitionSurfaceClientRequest = class {
@@ -285,26 +181,6 @@ media.mojom.SpeechRecognitionClientBrowserInterfacePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'media.mojom.SpeechRecognitionClientBrowserInterface';
-  }
-
-  0(observer) {
-    // Method: 0
-    // Call: 0(observer)
-  }
-
-  1() {
-    // Method: 1
-    // Call: 1()
-  }
-
-  bindBabelOrcaSpeechRecognitionBrowserObserver() {
-    // Method: BindBabelOrcaSpeechRecognitionBrowserObserver
-    // Call: BindBabelOrcaSpeechRecognitionBrowserObserver()
-  }
-
-  2(observer) {
-    // Method: 2
-    // Call: 2(observer)
   }
 
 };

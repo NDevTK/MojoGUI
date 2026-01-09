@@ -76,11 +76,6 @@ viz.mojom.GpuHostPtr = class {
     // Call: DisableGpuCompositing()
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   getIsolationKey(client_id, wgpu_context_token) {
     // Method: GetIsolationKey
     return new Promise((resolve) => {

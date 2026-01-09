@@ -16,16 +16,6 @@ cros.mojom.JpegAcceleratorProviderPtr = class {
     this.interfaceName = 'cros.mojom.JpegAcceleratorProvider';
   }
 
-  0(jea) {
-    // Method: 0
-    // Call: 0(jea)
-  }
-
-  1(jda) {
-    // Method: 1
-    // Call: 1(jda)
-  }
-
 };
 
 cros.mojom.JpegAcceleratorProviderRequest = class {

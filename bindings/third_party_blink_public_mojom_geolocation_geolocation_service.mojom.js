@@ -16,11 +16,6 @@ blink.mojom.GeolocationServicePtr = class {
     this.interfaceName = 'blink.mojom.GeolocationService';
   }
 
-  request(DENIED) {
-    // Method: request
-    // Call: request(DENIED)
-  }
-
   createGeolocation(receiver, user_gesture) {
     // Method: CreateGeolocation
     return new Promise((resolve) => {

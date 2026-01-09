@@ -30,19 +30,9 @@ service_manager.mojom.ServiceManagerListenerPtr = class {
     this.interfaceName = 'service_manager.mojom.ServiceManagerListener';
   }
 
-  addInstanceListener() {
-    // Method: AddInstanceListener
-    // Call: AddInstanceListener()
-  }
-
   onInit(running_services) {
     // Method: OnInit
     // Call: OnInit(running_services)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   onServiceCreated(service) {

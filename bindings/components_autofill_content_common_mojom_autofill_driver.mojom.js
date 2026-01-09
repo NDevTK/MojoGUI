@@ -16,11 +16,6 @@ autofill.mojom.AutofillDriverPtr = class {
     this.interfaceName = 'autofill.mojom.AutofillDriver';
   }
 
-  dOM(the) {
-    // Method: DOM
-    // Call: DOM(the)
-  }
-
   formsSeen(updated_forms, removed_forms) {
     // Method: FormsSeen
     // Call: FormsSeen(updated_forms, removed_forms)
@@ -41,21 +36,6 @@ autofill.mojom.AutofillDriverPtr = class {
     // Call: TextFieldValueChanged(form, field_id, timestamp)
   }
 
-  fired() {
-    // Method: Fired
-    // Call: Fired()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
-  focusNoLongerOnForm() {
-    // Method: FocusNoLongerOnForm
-    // Call: FocusNoLongerOnForm()
-  }
-
   didEndTextFieldEditing() {
     // Method: DidEndTextFieldEditing
     // Call: DidEndTextFieldEditing()
@@ -66,11 +46,6 @@ autofill.mojom.AutofillDriverPtr = class {
     // Call: TextFieldDidScroll(form, field_id)
   }
 
-  activation(blink::LocalFrame::HasTransientUserActivation) {
-    // Method: activation
-    // Call: activation(blink::LocalFrame::HasTransientUserActivation)
-  }
-
   selectControlSelectionChanged(form, field_id) {
     // Method: SelectControlSelectionChanged
     // Call: SelectControlSelectionChanged(form, field_id)
@@ -79,36 +54,6 @@ autofill.mojom.AutofillDriverPtr = class {
   selectFieldOptionsDidChange(form, field_id) {
     // Method: SelectFieldOptionsDidChange
     // Call: SelectFieldOptionsDidChange(form, field_id)
-  }
-
-  focusOnFormField() {
-    // Method: FocusOnFormField
-    // Call: FocusOnFormField()
-  }
-
-  focusOnNonFormField() {
-    // Method: FocusOnNonFormField
-    // Call: FocusOnNonFormField()
-  }
-
-  changes() {
-    // Method: changes
-    // Call: changes()
-  }
-
-  focusOnFormField() {
-    // Method: FocusOnFormField
-    // Call: FocusOnFormField()
-  }
-
-  focusOnNonFormField() {
-    // Method: FocusOnNonFormField
-    // Call: FocusOnNonFormField()
-  }
-
-  focusOnFormField() {
-    // Method: FocusOnFormField
-    // Call: FocusOnFormField()
   }
 
   focusOnFormField(form, field_id) {
@@ -141,11 +86,6 @@ autofill.mojom.AutofillDriverPtr = class {
     // Call: SuppressAutomaticRefills(fill_id)
   }
 
-  applyFieldsAction() {
-    // Method: ApplyFieldsAction
-    // Call: ApplyFieldsAction()
-  }
-
   requestRefill(fill_id) {
     // Method: RequestRefill
     // Call: RequestRefill(fill_id)
@@ -174,11 +114,6 @@ autofill.mojom.PasswordManagerDriverPtr = class {
   passwordFormsParsed(forms_data) {
     // Method: PasswordFormsParsed
     // Call: PasswordFormsParsed(forms_data)
-  }
-
-  page(display:none.) {
-    // Method: page
-    // Call: page(display:none.)
   }
 
   passwordFormsRendered(visible_forms_data) {
@@ -211,34 +146,14 @@ autofill.mojom.PasswordManagerDriverPtr = class {
     // Call: RecordSavePasswordProgress(log)
   }
 
-  user(JavaScript) {
-    // Method: user
-    // Call: user(JavaScript)
-  }
-
   userModifiedPasswordField() {
     // Method: UserModifiedPasswordField
     // Call: UserModifiedPasswordField()
   }
 
-  user(JavaScript) {
-    // Method: user
-    // Call: user(JavaScript)
-  }
-
   userModifiedNonPasswordField(renderer_id, value, autocomplete_attribute_has_username, is_likely_otp) {
     // Method: UserModifiedNonPasswordField
     // Call: UserModifiedNonPasswordField(renderer_id, value, autocomplete_attribute_has_username, is_likely_otp)
-  }
-
-  form(and) {
-    // Method: form
-    // Call: form(and)
-  }
-
-  size() {
-    // Method: size
-    // Call: size()
   }
 
   showPasswordSuggestions(request) {
@@ -249,11 +164,6 @@ autofill.mojom.PasswordManagerDriverPtr = class {
   checkSafeBrowsingReputation(form_action, frame_url) {
     // Method: CheckSafeBrowsingReputation
     // Call: CheckSafeBrowsingReputation(form_action, frame_url)
-  }
-
-  frame(from) {
-    // Method: frame
-    // Call: frame(from)
   }
 
   focusedInputChanged(focused_field_id, focused_field_type) {

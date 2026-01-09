@@ -16,16 +16,6 @@ blink.mojom.FileSystemAccessFileDelegateHostPtr = class {
     this.interfaceName = 'blink.mojom.FileSystemAccessFileDelegateHost';
   }
 
-  read(than) {
-    // Method: read
-    // Call: read(than)
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   read(offset, bytes_to_read) {
     // Method: Read
     return new Promise((resolve) => {
@@ -34,22 +24,12 @@ blink.mojom.FileSystemAccessFileDelegateHostPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   write(offset, data) {
     // Method: Write
     return new Promise((resolve) => {
       // Call: Write(offset, data)
       resolve({});
     });
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
   }
 
   getLength() {

@@ -16,16 +16,6 @@ blink.mojom.FileSystemAccessAccessHandleHostPtr = class {
     this.interfaceName = 'blink.mojom.FileSystemAccessAccessHandleHost';
   }
 
-  openAccessHandle() {
-    // Method: OpenAccessHandle
-    // Call: OpenAccessHandle()
-  }
-
-  same() {
-    // Method: same
-    // Call: same()
-  }
-
   close() {
     // Method: Close
     // Call: Close()

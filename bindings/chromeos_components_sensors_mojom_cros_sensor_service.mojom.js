@@ -17,11 +17,6 @@ chromeos.sensors.mojom.SensorHalServerPtr = class {
     this.interfaceName = 'chromeos.sensors.mojom.SensorHalServer';
   }
 
-  0(sensor_service_request) {
-    // Method: 0
-    // Call: 0(sensor_service_request)
-  }
-
 };
 
 chromeos.sensors.mojom.SensorHalServerRequest = class {
@@ -35,11 +30,6 @@ chromeos.sensors.mojom.SensorHalClientPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'chromeos.sensors.mojom.SensorHalClient';
-  }
-
-  0(sensor_service_ptr) {
-    // Method: 0
-    // Call: 0(sensor_service_ptr)
   }
 
 };

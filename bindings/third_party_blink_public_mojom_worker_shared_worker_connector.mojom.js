@@ -16,11 +16,6 @@ blink.mojom.SharedWorkerConnectorPtr = class {
     this.interfaceName = 'blink.mojom.SharedWorkerConnector';
   }
 
-  to(necessary) {
-    // Method: to
-    // Call: to(necessary)
-  }
-
   connect(info, client, creation_context_type, message_port, blob_url_token) {
     // Method: Connect
     // Call: Connect(info, client, creation_context_type, message_port, blob_url_token)

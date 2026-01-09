@@ -47,11 +47,6 @@ blink.mojom.BucketHostPtr = class {
     });
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   estimate() {
     // Method: Estimate
     return new Promise((resolve) => {
@@ -105,11 +100,6 @@ blink.mojom.BucketHostPtr = class {
       // Call: GetDirectory()
       resolve({});
     });
-  }
-
-  path(roundtrips) {
-    // Method: path
-    // Call: path(roundtrips)
   }
 
   getDirectoryForDevtools(directory_path_components) {

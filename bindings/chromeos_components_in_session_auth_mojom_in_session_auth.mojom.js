@@ -30,40 +30,6 @@ chromeos.auth.mojom.InSessionAuthPtr = class {
     this.interfaceName = 'chromeos.auth.mojom.InSessionAuth';
   }
 
-  0(reason, prompt) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(reason, prompt)
-      resolve({});
-    });
-  }
-
-  1(reason, token) {
-    // Method: 1
-    return new Promise((resolve) => {
-      // Call: 1(reason, token)
-      resolve({});
-    });
-  }
-
-  2(token) {
-    // Method: 2
-    // Call: 2(token)
-  }
-
-  usually(necessarily) {
-    // Method: usually
-    // Call: usually(necessarily)
-  }
-
-  3(rp_id, window_id) {
-    // Method: 3
-    return new Promise((resolve) => {
-      // Call: 3(rp_id, window_id)
-      resolve({});
-    });
-  }
-
 };
 
 chromeos.auth.mojom.InSessionAuthRequest = class {

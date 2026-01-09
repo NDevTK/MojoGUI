@@ -48,29 +48,9 @@ video_capture.mojom.VideoFrameHandlerPtr = class {
     // Call: OnCaptureConfigurationChanged()
   }
 
-  onFrameReadyInBuffer() {
-    // Method: OnFrameReadyInBuffer
-    // Call: OnFrameReadyInBuffer()
-  }
-
-  onFrameReadyInBuffer() {
-    // Method: OnFrameReadyInBuffer
-    // Call: OnFrameReadyInBuffer()
-  }
-
   onNewBuffer(buffer_id, buffer_handle) {
     // Method: OnNewBuffer
     // Call: OnNewBuffer(buffer_id, buffer_handle)
-  }
-
-  onFrameReadyInBuffer() {
-    // Method: OnFrameReadyInBuffer
-    // Call: OnFrameReadyInBuffer()
-  }
-
-  onFinishedConsumingBuffer() {
-    // Method: OnFinishedConsumingBuffer
-    // Call: OnFinishedConsumingBuffer()
   }
 
   onFrameAccessHandlerReady(frame_access_handler) {
@@ -78,24 +58,9 @@ video_capture.mojom.VideoFrameHandlerPtr = class {
     // Call: OnFrameAccessHandlerReady(frame_access_handler)
   }
 
-  onFinishedConsumingBuffer() {
-    // Method: OnFinishedConsumingBuffer
-    // Call: OnFinishedConsumingBuffer()
-  }
-
   onFrameReadyInBuffer(buffer) {
     // Method: OnFrameReadyInBuffer
     // Call: OnFrameReadyInBuffer(buffer)
-  }
-
-  buffer(called) {
-    // Method: buffer
-    // Call: buffer(called)
-  }
-
-  onNewBuffer() {
-    // Method: OnNewBuffer
-    // Call: OnNewBuffer()
   }
 
   onBufferRetired(buffer_id) {
@@ -113,21 +78,6 @@ video_capture.mojom.VideoFrameHandlerPtr = class {
     // Call: OnFrameDropped(reason)
   }
 
-  onFrameCaptured() {
-    // Method: OnFrameCaptured
-    // Call: OnFrameCaptured()
-  }
-
-  cropTo() {
-    // Method: cropTo
-    // Call: cropTo()
-  }
-
-  restrictTo() {
-    // Method: restrictTo
-    // Call: restrictTo()
-  }
-
   onNewCaptureVersion(capture_version) {
     // Method: OnNewCaptureVersion
     // Call: OnNewCaptureVersion(capture_version)
@@ -141,11 +91,6 @@ video_capture.mojom.VideoFrameHandlerPtr = class {
   onLog(message) {
     // Method: OnLog
     // Call: OnLog(message)
-  }
-
-  onFrameReadyInBuffer() {
-    // Method: OnFrameReadyInBuffer
-    // Call: OnFrameReadyInBuffer()
   }
 
   onStarted() {

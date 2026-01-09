@@ -67,26 +67,6 @@ content.mojom.NavigationClientPtr = class {
     this.interfaceName = 'content.mojom.NavigationClient';
   }
 
-  stack(about:blank) {
-    // Method: stack
-    // Call: stack(about:blank)
-  }
-
-  stack(about:blank) {
-    // Method: stack
-    // Call: stack(about:blank)
-  }
-
-  fetchLater() {
-    // Method: fetchLater
-    // Call: fetchLater()
-  }
-
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   commitNavigation(common_params, request_params, response_head, response_body, url_loader_client_endpoints, subresource_loader_factories, subresource_overrides, controller_service_worker_info, container_info, subresource_proxying_loader_factory, keep_alive_loader_factory, fetch_later_loader_factory, document_token, devtools_navigation_token, base_auction_nonce, permissions_policy, policy_container, code_cache_host, code_cache_host_for_background, cookie_manager_info, storage_info) {
     // Method: CommitNavigation
     return new Promise((resolve) => {

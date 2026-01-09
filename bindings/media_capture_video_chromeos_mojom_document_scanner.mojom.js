@@ -23,14 +23,6 @@ cros.mojom.CrosDocumentScannerPtr = class {
     this.interfaceName = 'cros.mojom.CrosDocumentScanner';
   }
 
-  0(nv12_image) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(nv12_image)
-      resolve({});
-    });
-  }
-
 };
 
 cros.mojom.CrosDocumentScannerRequest = class {

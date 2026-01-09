@@ -63,16 +63,6 @@ device.mojom.InputDeviceManagerPtr = class {
     this.interfaceName = 'device.mojom.InputDeviceManager';
   }
 
-  inputDeviceAdded() {
-    // Method: InputDeviceAdded
-    // Call: InputDeviceAdded()
-  }
-
-  inputDeviceRemoved() {
-    // Method: InputDeviceRemoved
-    // Call: InputDeviceRemoved()
-  }
-
   getDevicesAndSetClient(client) {
     // Method: GetDevicesAndSetClient
     return new Promise((resolve) => {

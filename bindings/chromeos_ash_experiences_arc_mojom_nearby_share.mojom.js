@@ -45,11 +45,6 @@ arc.mojom.NearbyShareSessionInstancePtr = class {
     this.interfaceName = 'arc.mojom.NearbyShareSessionInstance';
   }
 
-  0() {
-    // Method: 0
-    // Call: 0()
-  }
-
 };
 
 arc.mojom.NearbyShareSessionInstanceRequest = class {
@@ -65,14 +60,6 @@ arc.mojom.NearbyShareHostPtr = class {
     this.interfaceName = 'arc.mojom.NearbyShareHost';
   }
 
-  0(task_id, info, instance) {
-    // Method: 0
-    return new Promise((resolve) => {
-      // Call: 0(task_id, info, instance)
-      resolve({});
-    });
-  }
-
 };
 
 arc.mojom.NearbyShareHostRequest = class {
@@ -86,11 +73,6 @@ arc.mojom.NearbyShareInstancePtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'arc.mojom.NearbyShareInstance';
-  }
-
-  0(host_remote) {
-    // Method: 0
-    // Call: 0(host_remote)
   }
 
 };

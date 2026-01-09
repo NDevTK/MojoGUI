@@ -34,22 +34,9 @@ content.mojom.RendererHostPtr = class {
     // Call: RecordUserMetricsAction(action)
   }
 
-  tODO() {
-    // Method: TODO
-    // Call: TODO()
-  }
-
   setPrivateMemoryFootprint(private_memory_footprint_bytes) {
     // Method: SetPrivateMemoryFootprint
     // Call: SetPrivateMemoryFootprint(private_memory_footprint_bytes)
-  }
-
-  hasGpuProcess() {
-    // Method: HasGpuProcess
-    return new Promise((resolve) => {
-      // Call: HasGpuProcess()
-      resolve({});
-    });
   }
 
 };

@@ -45,11 +45,6 @@ storage.mojom.CacheStorageControlPtr = class {
     this.interfaceName = 'storage.mojom.CacheStorageControl';
   }
 
-  bucket(true) {
-    // Method: bucket
-    // Call: bucket(true)
-  }
-
   addReceiver(cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter, bucket_locator, owner, receiver) {
     // Method: AddReceiver
     // Call: AddReceiver(cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter, bucket_locator, owner, receiver)

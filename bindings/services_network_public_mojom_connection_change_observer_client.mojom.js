@@ -29,19 +29,9 @@ network.mojom.ConnectionChangeObserverClientPtr = class {
     this.interfaceName = 'network.mojom.ConnectionChangeObserverClient';
   }
 
-  closed(because, server) {
-    // Method: closed
-    // Call: closed(because, server)
-  }
-
   onSessionClosed() {
     // Method: OnSessionClosed
     // Call: OnSessionClosed()
-  }
-
-  network(Wifi) {
-    // Method: network
-    // Call: network(Wifi)
   }
 
   onNetworkEvent(event) {
