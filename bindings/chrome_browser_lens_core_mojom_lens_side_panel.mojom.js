@@ -79,10 +79,10 @@ lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPageHandlerFactory.CreateSidePanelPageHandler_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -530,8 +530,8 @@ lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec = {
       name: 'lens.mojom.LensSidePanelPage.SetShowErrorPage_Params',
       packedSize: 24,
       fields: [
-        { name: 'should_show_error_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'should_show_error_page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

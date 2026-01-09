@@ -113,10 +113,10 @@ lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensPageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -595,12 +595,12 @@ lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensPageHandler.IssueTextSelectionRequest_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'selection_start_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'selection_end_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_translate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'selection_end_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_translate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -612,12 +612,12 @@ lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensPageHandler.IssueTranslateSelectionRequest_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'content_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'selection_start_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'selection_end_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'selection_end_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -629,12 +629,12 @@ lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensPageHandler.IssueMathSelectionRequest_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'formula', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'selection_start_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'selection_end_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'selection_end_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1227,10 +1227,10 @@ lens.mojom.LensPage_SetTextSelection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensPage.SetTextSelection_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'selection_start_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'selection_end_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'selection_end_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

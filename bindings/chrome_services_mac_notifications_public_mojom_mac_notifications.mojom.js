@@ -468,10 +468,10 @@ mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSp
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.MacNotificationProvider.BindNotificationService_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

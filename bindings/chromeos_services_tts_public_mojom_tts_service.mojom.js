@@ -94,10 +94,10 @@ chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.TtsService.BindGoogleTtsStream_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'stream_factory', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -109,11 +109,11 @@ chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.tts.mojom.TtsService.BindPlaybackTtsStream_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'desired_audio_parameters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'desired_audio_parameters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'stream_factory', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -525,7 +525,7 @@ chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec = {
       fields: [
         { name: 'frames_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'char_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'last_buffer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'last_buffer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

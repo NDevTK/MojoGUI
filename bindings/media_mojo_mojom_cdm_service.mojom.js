@@ -70,10 +70,10 @@ media.mojom.CdmService_CreateCdmFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmService.CreateCdmFactory_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'frame_interfaces', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

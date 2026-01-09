@@ -219,10 +219,10 @@ printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfToEmfConverterFactory.CreateConverter_ResponseParams',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'converter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'page_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'page_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

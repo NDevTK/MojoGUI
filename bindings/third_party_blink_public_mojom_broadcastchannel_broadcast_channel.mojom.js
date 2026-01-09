@@ -145,11 +145,11 @@ blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BroadcastChannelProvider.ConnectToChannel_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'connection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'connection', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

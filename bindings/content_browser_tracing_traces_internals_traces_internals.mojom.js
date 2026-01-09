@@ -142,10 +142,10 @@ traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpe
   $: {
     structSpec: {
       name: 'traces_internals.mojom.TracesInternalsHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -508,11 +508,11 @@ traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetBufferUsage_ResponseParams',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'percent_full', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'data_loss', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'percent_full', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'success', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'data_loss', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

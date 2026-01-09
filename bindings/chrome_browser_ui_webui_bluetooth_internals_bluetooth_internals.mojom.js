@@ -248,7 +248,7 @@ mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'initial_toggle_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'initial_toggle_value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

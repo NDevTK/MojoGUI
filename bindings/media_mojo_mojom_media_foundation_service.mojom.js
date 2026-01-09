@@ -169,8 +169,8 @@ media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec = {
       name: 'media.mojom.MediaFoundationService.IsKeySystemSupported_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'key_system_capability', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_system_capability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -182,10 +182,10 @@ media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationService.CreateInterfaceFactory_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'frame_interfaces', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

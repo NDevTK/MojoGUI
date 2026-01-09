@@ -112,10 +112,10 @@ most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec = 
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -573,15 +573,15 @@ most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.OnMostVisitedTileNavigation_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
         { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'mouse_button', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'alt_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'ctrl_key', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'meta_key', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'shift_key', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'mouse_button', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'alt_key', packedOffset: 13, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ctrl_key', packedOffset: 13, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'meta_key', packedOffset: 13, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'shift_key', packedOffset: 13, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

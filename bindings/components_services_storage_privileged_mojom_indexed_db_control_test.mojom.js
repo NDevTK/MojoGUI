@@ -90,12 +90,12 @@ storage.mojom.MockFailureInjector_FailOperation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.MockFailureInjector.FailOperation_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
         { name: 'failure_class', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'failure_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'instance_num', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'call_num', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'call_num', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

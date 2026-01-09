@@ -451,8 +451,8 @@ ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec = {
       name: 'ash.nearby.presence.mojom.NearbyPresence.StartScan_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'scan_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scan_session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

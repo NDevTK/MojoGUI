@@ -386,10 +386,10 @@ blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec = {
       name: 'blink.mojom.MediaDevicesDispatcherHost.AddMediaDevicesListener_Params',
       packedSize: 24,
       fields: [
-        { name: 'subscribe_audio_input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'subscribe_video_input', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'subscribe_audio_output', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'subscribe_audio_input', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'subscribe_video_input', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'subscribe_audio_output', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

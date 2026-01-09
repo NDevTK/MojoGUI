@@ -129,10 +129,10 @@ blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextSuggestionBackend.ApplyTextSuggestion_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'marker_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'suggestion_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'suggestion_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

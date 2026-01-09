@@ -520,8 +520,8 @@ viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetAnimationFpsLockIn_Params',
       packedSize: 24,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'majority_damaged_pixel_min_ratio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'majority_damaged_pixel_min_ratio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'enabled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -550,8 +550,8 @@ viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.Start_Params',
       packedSize: 24,
       fields: [
-        { name: 'consumer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'buffer_format_preference', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_format_preference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'consumer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -589,10 +589,10 @@ viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.CreateOverlay_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'stacking_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

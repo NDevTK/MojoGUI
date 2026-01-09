@@ -111,11 +111,11 @@ image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'image_annotation.mojom.ImageProcessor.GetJpgImageData_ResponseParams',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'height', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

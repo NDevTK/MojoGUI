@@ -255,10 +255,10 @@ action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec
   $: {
     structSpec: {
       name: 'action_chips.mojom.ActionChipsHandlerFactory.CreateActionChipsHandler_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

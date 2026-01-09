@@ -298,11 +298,11 @@ filesystem.mojom.Directory_OpenDirectory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'filesystem.mojom.Directory.OpenDirectory_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
-        { name: 'open_flags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'open_flags', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

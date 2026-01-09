@@ -255,10 +255,10 @@ media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.WatchTimeRecorder.UpdateVideoDecodeStats_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'frames_decoded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'frames_dropped', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'frames_dropped', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -286,8 +286,8 @@ media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec = {
       name: 'media.mojom.WatchTimeRecorder.UpdateUnderflowDuration_Params',
       packedSize: 24,
       fields: [
-        { name: 'total_completed_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'total_duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_completed_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

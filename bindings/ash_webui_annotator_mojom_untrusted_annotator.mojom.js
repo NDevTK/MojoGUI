@@ -311,10 +311,10 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.Create_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'annotator', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'annotator', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

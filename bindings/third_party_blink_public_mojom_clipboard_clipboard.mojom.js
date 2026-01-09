@@ -510,12 +510,12 @@ blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadHtml_ResponseParams',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
         { name: 'markup', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'fragment_start', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'fragment_end', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'fragment_end', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

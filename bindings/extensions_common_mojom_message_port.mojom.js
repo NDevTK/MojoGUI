@@ -281,8 +281,8 @@ extensions.mojom.MessagePortHost_ClosePort_ParamsSpec = {
       name: 'extensions.mojom.MessagePortHost.ClosePort_Params',
       packedSize: 24,
       fields: [
-        { name: 'close_channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'close_channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

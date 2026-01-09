@@ -440,12 +440,12 @@ ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.NearbyConnector.Connect_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
         { name: 'bluetooth_public_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'eid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'message_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'nearby_connection_state_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'nearby_connection_state_listener', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -456,10 +456,10 @@ ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.NearbyConnector.Connect_ResponseParams',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'message_sender', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'file_payload_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'file_payload_handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -365,8 +365,8 @@ ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec = {
       name: 'ash.diagnostics.mojom.NetworkHealthProvider.ObserveNetwork_Params',
       packedSize: 24,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

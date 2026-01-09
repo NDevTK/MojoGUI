@@ -183,8 +183,8 @@ blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec = {
       name: 'blink.mojom.AIManagerCreateLanguageModelClient.OnResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'language_model_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'language_model_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

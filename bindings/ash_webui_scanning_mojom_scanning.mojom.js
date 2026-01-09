@@ -208,10 +208,10 @@ ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanJobObserver.OnPageProgress_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'page_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'progress_percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'progress_percent', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

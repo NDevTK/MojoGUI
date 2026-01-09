@@ -342,11 +342,11 @@ chromecast.mojom.WebUiClient_CreateController_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.WebUiClient.CreateController_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'web_ui', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'resources', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

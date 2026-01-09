@@ -112,10 +112,10 @@ segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -242,10 +242,10 @@ segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.PageHandler.OverwriteResult_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'segment_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'result', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -344,8 +344,8 @@ segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec = {
       name: 'segmentation_internals.mojom.Page.OnServiceStatusChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'is_initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'status_flag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'status_flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_initialized', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

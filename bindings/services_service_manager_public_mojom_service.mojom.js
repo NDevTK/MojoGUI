@@ -115,10 +115,10 @@ service_manager.mojom.Service_OnStart_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Service.OnStart_ResponseParams',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'connector_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'control_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'control_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -146,11 +146,11 @@ service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Service.CreatePackagedServiceInstance_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'metadata', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

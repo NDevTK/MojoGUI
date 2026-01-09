@@ -70,10 +70,10 @@ search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search.mojom.EmbeddedSearchConnector.Connect_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'embedded_search', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -176,7 +176,7 @@ search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'focus', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'focus', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -190,8 +190,8 @@ search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearch.DeleteMostVisitedItem_Params',
       packedSize: 24,
       fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_seq_no', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -219,8 +219,8 @@ search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearch.UndoMostVisitedDeletion_Params',
       packedSize: 24,
       fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_seq_no', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -1357,20 +1357,20 @@ content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_R
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.Params.SendStructWithOptionalNumerics_ResponseParams',
-      packedSize: 104,
+      packedSize: 72,
       fields: [
-        { name: 'bool_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'uint8_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'int8_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
-        { name: 'uint16_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'int16_value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'uint32_value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'int32_value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'uint64_value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'int64_value', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'float_value', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'double_value', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'enum_value', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uint64_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'int64_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'double_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'enum_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uint32_value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'int32_value', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'float_value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'uint16_value', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'int16_value', packedOffset: 46, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'uint8_value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'int8_value', packedOffset: 49, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'bool_value', packedOffset: 50, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2803,7 +2803,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_Param
       packedSize: 24,
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2828,10 +2828,10 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_Para
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalFloatMap_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'key', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2858,8 +2858,8 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_Param
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalEnumMap_Params',
       packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2936,20 +2936,20 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNum
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetStructWithOptionalNumerics_Params',
-      packedSize: 104,
+      packedSize: 72,
       fields: [
-        { name: 'bool_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'uint8_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'int8_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
-        { name: 'uint16_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'int16_value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'uint32_value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'int32_value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'uint64_value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'int64_value', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'float_value', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'double_value', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'enum_value', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uint64_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'int64_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'double_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'enum_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uint32_value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'int32_value', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'float_value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'uint16_value', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'int16_value', packedOffset: 46, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'uint8_value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'int8_value', packedOffset: 49, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'bool_value', packedOffset: 50, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

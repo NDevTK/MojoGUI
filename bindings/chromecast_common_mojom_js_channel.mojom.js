@@ -244,10 +244,10 @@ chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.JsChannelBindingProvider.Register_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'routing_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

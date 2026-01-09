@@ -212,10 +212,10 @@ metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics.dwa.mojom.DwaRecorderFactory.CreateDwaRecorder_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client_remote', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -310,11 +310,11 @@ media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioLogFactory.CreateAudioLog_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'component_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'audio_log_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'audio_log_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

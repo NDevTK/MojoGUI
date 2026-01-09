@@ -349,10 +349,10 @@ private_aggregation_internals.mojom.Factory_Create_ParamsSpec = {
   $: {
     structSpec: {
       name: 'private_aggregation_internals.mojom.Factory.Create_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

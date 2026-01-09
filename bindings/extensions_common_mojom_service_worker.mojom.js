@@ -94,7 +94,7 @@ extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ServiceWorker.DispatchOnConnect_Params',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
         { name: 'port_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'channel_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
@@ -102,7 +102,7 @@ extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec = {
         { name: 'tab_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'external_connection_info', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'port', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
-        { name: 'port_host', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'port_host', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -288,10 +288,10 @@ blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesisClient.OnEncounteredWordBoundary_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'char_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'char_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -303,10 +303,10 @@ blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesisClient.OnEncounteredSentenceBoundary_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'char_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'char_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -133,14 +133,14 @@ blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ReportingServiceProxy.QueueInterventionReport_Params',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'source_file', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'line_number', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'column_number', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'column_number', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -152,7 +152,7 @@ blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ReportingServiceProxy.QueueDeprecationReport_Params',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -160,7 +160,7 @@ blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec = {
         { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'source_file', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'line_number', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'column_number', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'column_number', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -172,7 +172,7 @@ blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ReportingServiceProxy.QueueCspViolationReport_Params',
-      packedSize: 112,
+      packedSize: 104,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -184,9 +184,9 @@ blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec = {
         { name: 'source_file', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'script_sample', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'disposition', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'status_code', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'line_number', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'column_number', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'line_number', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'column_number', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'status_code', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -217,7 +217,7 @@ blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSp
   $: {
     structSpec: {
       name: 'blink.mojom.ReportingServiceProxy.QueuePermissionsPolicyViolationReport_Params',
-      packedSize: 72,
+      packedSize: 64,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -226,7 +226,7 @@ blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSp
         { name: 'message', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'source_file', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'line_number', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'column_number', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'column_number', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -238,7 +238,7 @@ blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport
   $: {
     structSpec: {
       name: 'blink.mojom.ReportingServiceProxy.QueuePotentialPermissionsPolicyViolationReport_Params',
-      packedSize: 88,
+      packedSize: 80,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -249,7 +249,7 @@ blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport
         { name: 'src_attribute', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'source_file', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'line_number', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'column_number', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'column_number', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -261,7 +261,7 @@ blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec 
   $: {
     structSpec: {
       name: 'blink.mojom.ReportingServiceProxy.QueueDocumentPolicyViolationReport_Params',
-      packedSize: 72,
+      packedSize: 64,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -270,7 +270,7 @@ blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec 
         { name: 'message', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'source_file', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'line_number', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'column_number', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'column_number', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

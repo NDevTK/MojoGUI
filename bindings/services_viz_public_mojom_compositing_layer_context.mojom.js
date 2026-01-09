@@ -264,8 +264,8 @@ viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec = {
       name: 'viz.mojom.LayerContextClient.OnTilingsReadyForCleanup_Params',
       packedSize: 24,
       fields: [
-        { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'tiling_scales_to_clean_up', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tiling_scales_to_clean_up', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'layer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

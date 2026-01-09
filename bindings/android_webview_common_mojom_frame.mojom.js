@@ -199,11 +199,11 @@ android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec = {
   $: {
     structSpec: {
       name: 'android_webview.mojom.LocalMainFrame.SmoothScroll_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'target_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'target_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'duration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'target_y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -200,10 +200,10 @@ cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierService.EnableNetworkAccess_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'reconnector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'reconnector', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

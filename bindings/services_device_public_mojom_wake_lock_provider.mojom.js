@@ -97,10 +97,10 @@ device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.WakeLockProvider.GetWakeLockContextForID_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'context', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

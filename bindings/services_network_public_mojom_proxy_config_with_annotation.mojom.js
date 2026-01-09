@@ -266,8 +266,8 @@ network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = {
       name: 'network.mojom.ProxyErrorClient.OnPACScriptError_Params',
       packedSize: 24,
       fields: [
-        { name: 'line_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'line_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

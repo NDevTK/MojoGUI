@@ -244,7 +244,7 @@ network.mojom.P2PSocketManager_CreateSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.P2PSocketManager.CreateSocket_Params',
-      packedSize: 72,
+      packedSize: 64,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'local_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
@@ -253,7 +253,7 @@ network.mojom.P2PSocketManager_CreateSocket_ParamsSpec = {
         { name: 'traffic_annotation', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'devtools_token', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'client', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'socket', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'socket', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -298,11 +298,11 @@ blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetHost.CreateFrameSink_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'compositor_frame_sink_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'compositor_frame_sink_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'render_input_router_client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'compositor_frame_sink_client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'render_input_router_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -314,10 +314,10 @@ blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetHost.RegisterRenderFrameMetadataObserver_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'render_frame_metadata_observer_client_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'render_frame_metadata_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'render_frame_metadata_observer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -510,8 +510,8 @@ blink.mojom.Widget_WasShown_ParamsSpec = {
       name: 'blink.mojom.Widget.WasShown_Params',
       packedSize: 24,
       fields: [
-        { name: 'was_evicted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'record_tab_switch_time_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'record_tab_switch_time_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'was_evicted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -643,11 +643,11 @@ blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderInputRouterClient.GetWidgetInputHandler_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'from_viz', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'host', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'from_viz', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -107,10 +107,10 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHan
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.CreatePageHandler_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'document', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'document', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

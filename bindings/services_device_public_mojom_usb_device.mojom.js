@@ -483,10 +483,10 @@ device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDevice.SetInterfaceAlternateSetting_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'interface_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'alternate_setting', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'alternate_setting', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -565,11 +565,11 @@ device.mojom.UsbDevice_ControlTransferIn_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDevice.ControlTransferIn_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'timeout', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'timeout', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -624,11 +624,11 @@ device.mojom.UsbDevice_GenericTransferIn_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDevice.GenericTransferIn_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'endpoint_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'timeout', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'timeout', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'endpoint_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -654,11 +654,11 @@ device.mojom.UsbDevice_GenericTransferOut_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDevice.GenericTransferOut_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'endpoint_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'timeout', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timeout', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'endpoint_number', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -683,11 +683,11 @@ device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDevice.IsochronousTransferIn_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'endpoint_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'packet_lengths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'timeout', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'packet_lengths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'timeout', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'endpoint_number', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -713,12 +713,12 @@ device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDevice.IsochronousTransferOut_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'endpoint_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'packet_lengths', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'timeout', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'packet_lengths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'timeout', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'endpoint_number', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }

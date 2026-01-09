@@ -143,10 +143,10 @@ blink.mojom.RemoteObjectHost_GetObject_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteObjectHost.GetObject_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'object_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -429,10 +429,10 @@ blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteObjectGatewayFactory.CreateRemoteObjectGateway_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'gateway', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'gateway', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

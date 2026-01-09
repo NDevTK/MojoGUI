@@ -179,10 +179,10 @@ ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.XuCamera.GetUnitId_ResponseParams',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'unit_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'unit_id', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -239,8 +239,8 @@ ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec = {
       name: 'ash.cfm.mojom.XuCamera.GetCtrl_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }

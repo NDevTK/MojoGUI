@@ -680,11 +680,11 @@ drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsBootstrap.Init_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'drive_fs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'delegate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'delegate', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1236,8 +1236,8 @@ drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec = {
       name: 'drivefs.mojom.DriveFs.StartSearchQuery_Params',
       packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'query_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'query_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1425,11 +1425,11 @@ drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.CreateNativeHostSession_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'port', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2318,11 +2318,11 @@ drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.ConnectToExtension_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'host', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -550,8 +550,8 @@ attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParams
       name: 'attribution_internals.mojom.Handler.IsAttributionReportingEnabled_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'attribution_support', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attribution_support', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -651,10 +651,10 @@ attribution_internals.mojom.Factory_Create_ParamsSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.Factory.Create_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

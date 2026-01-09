@@ -112,10 +112,10 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsS
   $: {
     structSpec: {
       name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.CreateOcrUntrustedService_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,11 +127,11 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_Params
   $: {
     structSpec: {
       name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.CreateMahiUntrustedService_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'file_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -171,8 +171,8 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_Para
       name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.CreateMantisUntrustedService_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'dlc_uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'dlc_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

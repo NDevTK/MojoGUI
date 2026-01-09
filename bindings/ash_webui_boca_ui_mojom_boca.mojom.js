@@ -1810,10 +1810,10 @@ ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.boca.mojom.BocaPageHandlerFactory.Create_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

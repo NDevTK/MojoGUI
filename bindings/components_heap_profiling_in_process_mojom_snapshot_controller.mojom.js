@@ -79,10 +79,10 @@ heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.SnapshotController.TakeSnapshot_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'process_probability_pct', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'process_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'process_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

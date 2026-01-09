@@ -264,8 +264,8 @@ extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = {
       name: 'extensions.mojom.MimeHandlerViewContainerManager.DidLoad_Params',
       packedSize: 24,
       fields: [
-        { name: 'mime_handler_view_guest_element_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'resource_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resource_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mime_handler_view_guest_element_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

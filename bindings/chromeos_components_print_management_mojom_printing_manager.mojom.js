@@ -426,7 +426,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHis
       packedSize: 24,
       fields: [
         { name: 'expiration_period_in_days', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'is_from_policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_from_policy', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

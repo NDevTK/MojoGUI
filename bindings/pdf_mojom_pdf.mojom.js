@@ -99,10 +99,10 @@ pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.SaveDataBufferHandler.Read_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'block_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'block_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -565,12 +565,12 @@ pdf.mojom.PdfHost_SelectionChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfHost.SelectionChanged_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
         { name: 'left', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'left_height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'right', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'right_height', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'right', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'left_height', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'right_height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

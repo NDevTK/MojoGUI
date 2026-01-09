@@ -172,11 +172,11 @@ video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec 
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSourceProvider.AddSharedMemoryVirtualDevice_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'producer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'virtual_device_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'virtual_device_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,7 +206,7 @@ video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_Pa
       packedSize: 24,
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'raise_event_if_virtual_devices_already_present', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'raise_event_if_virtual_devices_already_present', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

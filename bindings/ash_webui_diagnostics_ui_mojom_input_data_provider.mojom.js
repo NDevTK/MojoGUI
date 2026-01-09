@@ -725,10 +725,10 @@ ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveKeyEvents_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -218,10 +218,10 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperS
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory.CreateWallpaperSearchHandler_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

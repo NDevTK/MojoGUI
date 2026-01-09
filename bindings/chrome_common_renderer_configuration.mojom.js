@@ -304,12 +304,12 @@ chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.RendererConfiguration.SetInitialConfiguration_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'is_incognito_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'chromeos_listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
-        { name: 'content_settings_manager', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'bound_session_request_throttled_handler', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'chromeos_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'content_settings_manager', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'bound_session_request_throttled_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'is_incognito_process', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

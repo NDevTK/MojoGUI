@@ -301,10 +301,10 @@ blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessManager.GetFileHandleFromToken_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'file_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'file_handle', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -316,10 +316,10 @@ blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessManager.GetDirectoryHandleFromToken_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'directory_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'directory_handle', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

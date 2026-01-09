@@ -362,11 +362,11 @@ viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.DisplayPrivate.SetAdaptiveRefreshRateInfo_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'has_support', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'suggested_high', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'device_scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'suggested_high', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'device_scale_factor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'has_support', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

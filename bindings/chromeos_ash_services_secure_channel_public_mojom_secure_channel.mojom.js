@@ -421,11 +421,11 @@ ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.ConnectionDelegate.OnConnection_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'message_receiver_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'nearby_connection_state_listener_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'message_receiver_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'nearby_connection_state_listener_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -667,7 +667,7 @@ ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.SecureChannel.InitiateConnectionToDevice_Params',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
         { name: 'device_to_connect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'local_device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
@@ -675,7 +675,7 @@ ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec = {
         { name: 'connection_medium', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'connection_priority', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'delegate', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'secure_channel_structured_metrics_logger', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'secure_channel_structured_metrics_logger', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

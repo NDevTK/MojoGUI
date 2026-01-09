@@ -70,10 +70,10 @@ math.mojom.MathService_Divide_ParamsSpec = {
   $: {
     structSpec: {
       name: 'math.mojom.MathService.Divide_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'dividend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'divisor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'divisor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -301,8 +301,8 @@ history.mojom.PageHandler_QueryHistory_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'begin_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'begin_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'max_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

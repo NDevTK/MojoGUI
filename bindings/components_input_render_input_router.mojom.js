@@ -159,8 +159,8 @@ input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec = {
       name: 'input.mojom.RenderInputRouterDelegate.ForceEnableZoomStateChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'force_enable_zoom', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'force_enable_zoom', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -386,8 +386,8 @@ input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_P
       name: 'input.mojom.RenderInputRouterDelegateClient.RendererInputResponsivenessChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'is_responsive', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'ack_timeout_ts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'ack_timeout_ts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'is_responsive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

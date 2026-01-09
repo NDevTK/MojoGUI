@@ -666,11 +666,11 @@ ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.LoadSpeechRecognizer_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'soda_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'soda_recognizer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'soda_recognizer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -805,9 +805,9 @@ ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.RecordSpeakerLabelConsent_Params',
       packedSize: 32,
       fields: [
-        { name: 'consent_given', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'consent_description_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'consent_confirmation_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'consent_description_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'consent_confirmation_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'consent_given', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

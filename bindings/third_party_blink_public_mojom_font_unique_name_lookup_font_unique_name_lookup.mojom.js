@@ -93,8 +93,8 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponsePar
       name: 'blink.mojom.FontUniqueNameLookup.GetUniqueNameLookupTableIfAvailable_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'sync_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'font_lookup_table', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'font_lookup_table', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'sync_available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

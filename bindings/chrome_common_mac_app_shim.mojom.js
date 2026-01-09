@@ -714,8 +714,8 @@ chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec = {
       name: 'chrome.mojom.AppShimHostBootstrap.OnShimConnected_Params',
       packedSize: 24,
       fields: [
-        { name: 'host_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'app_shim_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'app_shim_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

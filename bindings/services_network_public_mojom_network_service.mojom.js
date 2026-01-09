@@ -620,10 +620,10 @@ network.mojom.NetworkService_AttachNetLogProxy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.AttachNetLogProxy_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'proxy_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'proxy_sink', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'proxy_sink', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -651,8 +651,8 @@ network.mojom.NetworkService_CreateNetworkContext_ParamsSpec = {
       name: 'network.mojom.NetworkService.CreateNetworkContext_Params',
       packedSize: 24,
       fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -664,14 +664,14 @@ network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.ConfigureStubHostResolver_Params',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'insecure_dns_client_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'happy_eyeballs_v3_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'secure_dns_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'dns_over_https_config', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'additional_dns_types_enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'fallback_doh_nameservers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'secure_dns_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dns_over_https_config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fallback_doh_nameservers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'insecure_dns_client_enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'happy_eyeballs_v3_enabled', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'additional_dns_types_enabled', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -726,8 +726,8 @@ network.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec = {
       name: 'network.mojom.NetworkService.SetRawHeadersAccess_Params',
       packedSize: 24,
       fields: [
-        { name: 'process_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'process_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1142,15 +1142,15 @@ network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.InterceptUrlLoaderForBodyDecoding_Params',
-      packedSize: 64,
+      packedSize: 48,
       fields: [
         { name: 'content_encoding_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'source_body', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'dest_body', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'source_url_loader', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'source_url_loader_client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'dest_url_loader', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'dest_url_loader_client', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'source_url_loader_client', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'dest_url_loader', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'dest_url_loader_client', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
