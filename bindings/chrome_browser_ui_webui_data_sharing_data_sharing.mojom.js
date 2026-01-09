@@ -46,9 +46,10 @@ data_sharing.mojom.ReadGroupParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.ReadGroupParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'consistency_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'consistency_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -60,9 +61,10 @@ data_sharing.mojom.ReadGroupsResultSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.ReadGroupsResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -74,9 +76,10 @@ data_sharing.mojom.ReadGroupWithTokenParamSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.ReadGroupWithTokenParam',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'access_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'access_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -88,9 +91,10 @@ data_sharing.mojom.ReadGroupWithTokenResultSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.ReadGroupWithTokenResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'status_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -102,9 +106,10 @@ data_sharing.mojom.SharedTabSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.SharedTab',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'favicon_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'favicon_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -116,9 +121,11 @@ data_sharing.mojom.GroupPreviewSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.GroupPreview',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'shared_tabs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

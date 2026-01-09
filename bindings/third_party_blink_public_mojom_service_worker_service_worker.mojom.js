@@ -27,9 +27,12 @@ blink.mojom.ExtendableMessageEventSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ExtendableMessageEvent',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'source_info_for_service_worker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_info_for_client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'source_info_for_service_worker', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

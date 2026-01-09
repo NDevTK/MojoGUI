@@ -14,9 +14,14 @@ extensions.mojom.ExecuteCodeParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ExecuteCodeParams',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'is_web_view', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'injection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'webview_src', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'match_origin_as_fallback_behavior', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'run_at', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_web_view', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +33,19 @@ extensions.mojom.RequestParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.RequestParams',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'js_callstack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'arguments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'context_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'service_worker_version_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'js_callstack', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'request_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'worker_thread_id', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'has_callback', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'user_gesture', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,11 @@ contextual_tasks_internals.mojom.GetRelevantContextRequestSpec = {
   $: {
     structSpec: {
       name: 'contextual_tasks_internals.mojom.GetRelevantContextRequest',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'min_model_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'tab_selection_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min_model_score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,10 @@ contextual_tasks_internals.mojom.TabSpec = {
   $: {
     structSpec: {
       name: 'contextual_tasks_internals.mojom.Tab',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

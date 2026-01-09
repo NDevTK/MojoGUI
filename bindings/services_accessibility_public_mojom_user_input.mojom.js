@@ -23,9 +23,11 @@ ax.mojom.SyntheticKeyEventSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.SyntheticKeyEvent',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'flags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,9 +39,12 @@ ax.mojom.SyntheticMouseEventSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.SyntheticMouseEvent',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'touch_accessibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mouse_button', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'touch_accessibility', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }

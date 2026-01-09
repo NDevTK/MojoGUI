@@ -41,9 +41,12 @@ viz.mojom.CubicBezierTimingFunctionSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CubicBezierTimingFunction',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'y2', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'x1', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'y1', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'x2', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'y2', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -55,9 +58,10 @@ viz.mojom.StepsTimingFunctionSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.StepsTimingFunction',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'step_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'num_steps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -69,9 +73,10 @@ viz.mojom.LinearEasingPointSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.LinearEasingPoint',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'out', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -83,9 +88,10 @@ viz.mojom.AxisAngleSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.AxisAngle',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'angle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'axis', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'angle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -97,9 +103,11 @@ viz.mojom.AnimationKeyframeSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.AnimationKeyframe',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'timing_function', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timing_function', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -111,9 +119,21 @@ viz.mojom.AnimationKeyframeModelSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.AnimationKeyframeModel',
-      packedSize: 16,
+      packedSize: 104,
       fields: [
-        { name: 'time_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'element_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timing_function', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'keyframes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'scaled_duration', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'direction', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fill_mode', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'playback_rate', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'iterations', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'iteration_start', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'time_offset', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'group_id', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'target_property_type', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,9 +145,11 @@ viz.mojom.AnimationSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Animation',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'keyframe_models', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'element_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'keyframe_models', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -139,9 +161,11 @@ viz.mojom.AnimationTimelineSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.AnimationTimeline',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'removed_animations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_animations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'removed_animations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

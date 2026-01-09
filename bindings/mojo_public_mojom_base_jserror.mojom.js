@@ -14,9 +14,11 @@ mojo_base.mojom.JsErrorSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.JsError',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cause', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

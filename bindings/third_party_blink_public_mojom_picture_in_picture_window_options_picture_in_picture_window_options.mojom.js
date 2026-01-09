@@ -14,9 +14,12 @@ blink.mojom.PictureInPictureWindowOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PictureInPictureWindowOptions',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'prefer_initial_window_placement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'disallow_return_to_opener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'prefer_initial_window_placement', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

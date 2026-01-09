@@ -14,9 +14,10 @@ legion_internals.mojom.LegionResponseSpec = {
   $: {
     structSpec: {
       name: 'legion_internals.mojom.LegionResponse',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

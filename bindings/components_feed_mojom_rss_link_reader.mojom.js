@@ -14,9 +14,10 @@ feed.mojom.RssLinksSpec = {
   $: {
     structSpec: {
       name: 'feed.mojom.RssLinks',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'links', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'links', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

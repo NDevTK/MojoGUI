@@ -14,9 +14,10 @@ unzip.mojom.UnzipOptionsSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.UnzipOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'encoding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,12 @@ unzip.mojom.InfoSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.Info',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'uses_aes_encryption', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'size_is_valid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_encrypted', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'uses_aes_encryption', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

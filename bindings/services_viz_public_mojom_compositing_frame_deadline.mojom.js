@@ -14,9 +14,12 @@ viz.mojom.FrameDeadlineSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameDeadline',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'use_default_lower_bound_deadline', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_start_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_interval', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'deadline_in_frames', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'use_default_lower_bound_deadline', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

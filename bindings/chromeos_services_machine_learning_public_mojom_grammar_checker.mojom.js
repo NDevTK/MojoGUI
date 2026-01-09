@@ -21,9 +21,10 @@ chromeos.machine_learning.mojom.GrammarCheckerQuerySpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.GrammarCheckerQuery',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -35,9 +36,11 @@ chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.GrammarCorrectionFragment',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'replacement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'replacement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -49,9 +52,11 @@ chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.GrammarCheckerCandidate',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'fragments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'fragments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,8 +68,9 @@ chromeos.machine_learning.mojom.GrammarCheckerResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.GrammarCheckerResult',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'OK', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

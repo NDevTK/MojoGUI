@@ -58,9 +58,12 @@ media.mojom.RemotingSinkMetadataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.RemotingSinkMetadata',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'friendly_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'audio_capabilities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'video_capabilities', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'friendly_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

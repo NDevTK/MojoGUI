@@ -24,9 +24,12 @@ remote_cocoa.mojom.SelectFileTypeInfoSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.SelectFileTypeInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'keep_extension_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'extension_description_overrides', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'include_all_files', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'keep_extension_visible', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

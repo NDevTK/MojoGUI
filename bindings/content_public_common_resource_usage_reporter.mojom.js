@@ -14,8 +14,12 @@ content.mojom.ResourceTypeStatSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.ResourceTypeStat',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'live_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'decoded_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -27,9 +31,14 @@ content.mojom.ResourceTypeStatsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.ResourceTypeStats',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'other', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'css_style_sheets', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scripts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'xsl_style_sheets', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fonts', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'other', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -41,9 +50,12 @@ content.mojom.ResourceUsageDataSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.ResourceUsageData',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'web_cache_stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'v8_bytes_allocated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'v8_bytes_used', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'web_cache_stats', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'reports_v8_stats', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

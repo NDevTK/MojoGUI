@@ -14,9 +14,11 @@ video_capture.mojom.ReadyFrameInBufferSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.ReadyFrameInBuffer',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'frame_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'frame_feedback_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

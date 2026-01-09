@@ -14,9 +14,10 @@ network.mojom.IPEndPointSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.IPEndPoint',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
       versions: [{version: 0}]
     }

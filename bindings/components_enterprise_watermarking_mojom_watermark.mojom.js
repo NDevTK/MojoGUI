@@ -14,9 +14,11 @@ watermark.mojom.WatermarkBlockSpec = {
   $: {
     structSpec: {
       name: 'watermark.mojom.WatermarkBlock',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'serialized_skpicture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

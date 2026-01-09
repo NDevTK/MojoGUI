@@ -14,9 +14,10 @@ discards.mojom.SiteDataFeatureSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataFeature',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'use_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'observation_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'use_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,11 @@ discards.mojom.SiteDataPerformanceMeasurementSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataPerformanceMeasurement',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'avg_load_duration_us', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'avg_cpu_usage_us', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'avg_footprint_kb', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'avg_load_duration_us', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +45,10 @@ discards.mojom.SiteDataDatabaseSizeSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataDatabaseSize',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'on_disk_size_kb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'num_rows', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'on_disk_size_kb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +60,13 @@ discards.mojom.SiteDataValueSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataValue',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'load_time_estimates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'updates_favicon_in_background', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'updates_title_in_background', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uses_audio_in_background', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'load_time_estimates', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'last_loaded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,9 +78,11 @@ discards.mojom.SiteDataEntrySpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataEntry',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'is_dirty', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,11 @@ sharing.mojom.IceServerSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.IceServer',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'credential', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'username', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'credential', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,12 @@ sharing.mojom.WebRtcDependenciesSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.WebRtcDependencies',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'messenger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'socket_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'mdns_responder_factory', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'ice_config_fetcher', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'messenger', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -20,9 +20,10 @@ network.mojom.RestrictedUDPSocketParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedUDPSocketParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'connection_tracker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'socket_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'connection_tracker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

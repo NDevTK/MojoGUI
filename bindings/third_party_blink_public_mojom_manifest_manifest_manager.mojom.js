@@ -14,9 +14,10 @@ blink.mojom.RequestManifestErrorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RequestManifestError',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

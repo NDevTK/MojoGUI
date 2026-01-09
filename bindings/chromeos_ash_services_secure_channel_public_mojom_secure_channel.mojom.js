@@ -105,9 +105,11 @@ ash.secure_channel.mojom.ConnectionMetadataSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.ConnectionMetadata',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'channel_binding_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'creation_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bluetooth_connection_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'channel_binding_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

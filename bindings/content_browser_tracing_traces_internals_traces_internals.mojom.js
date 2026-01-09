@@ -44,9 +44,18 @@ traces_internals.mojom.ClientTraceReportSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.ClientTraceReport',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'has_trace_content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'creation_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scenario_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'upload_rule_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'total_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'upload_state', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'upload_time', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'skip_reason', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'upload_rule_value', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'has_trace_content', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -58,9 +67,13 @@ traces_internals.mojom.ScenarioSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.Scenario',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'current_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scenario_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'current_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_local_scenario', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_enabled', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -72,9 +85,12 @@ traces_internals.mojom.TraceCategorySpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.TraceCategory',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'tags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'tags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_group', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

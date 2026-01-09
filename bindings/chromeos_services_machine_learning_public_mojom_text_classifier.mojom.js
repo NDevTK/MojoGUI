@@ -47,9 +47,8 @@ chromeos.machine_learning.mojom.TextAnnotationRequestSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextAnnotationRequest',
-      packedSize: 16,
+      packedSize: 8,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -74,9 +73,10 @@ chromeos.machine_learning.mojom.TextLanguageSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextLanguage',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'confidence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'confidence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -88,9 +88,8 @@ chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequestSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequest',
-      packedSize: 16,
+      packedSize: 8,
       fields: [
-        { name: 'ANNOTATION_USECASE_SMART', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

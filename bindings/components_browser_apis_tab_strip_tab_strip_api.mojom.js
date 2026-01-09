@@ -14,9 +14,10 @@ tabs_api.mojom.TabsSnapshotSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.TabsSnapshot',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tab_strip', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

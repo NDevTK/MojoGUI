@@ -57,9 +57,13 @@ tab_search.mojom.ProfileDataSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.ProfileData',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'recently_closed_section_expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'windows', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tab_groups', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'recently_closed_tabs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'recently_closed_tab_groups', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'recently_closed_section_expanded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -71,9 +75,12 @@ tab_search.mojom.WindowSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.Window',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'active', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_host_window', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,9 +92,23 @@ tab_search.mojom.TabSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.Tab',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'last_active_elapsed_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'alert_states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'favicon_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'last_active_time_ticks', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_active_elapsed_text', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'index', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tab_id', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'active', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'pinned', packedOffset: 64, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'split', packedOffset: 64, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_default_favicon', packedOffset: 64, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'show_icon', packedOffset: 64, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -99,9 +120,14 @@ tab_search.mojom.RecentlyClosedTabSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.RecentlyClosedTab',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'last_active_elapsed_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_active_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_active_elapsed_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'tab_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,9 +139,11 @@ tab_search.mojom.TabGroupSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.TabGroup',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,9 +155,15 @@ tab_search.mojom.RecentlyClosedTabGroupSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.RecentlyClosedTabGroup',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'last_active_elapsed_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_active_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_active_elapsed_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'session_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tab_count', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -155,9 +189,12 @@ tab_search.mojom.TabOrganizationSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.TabOrganization',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'organization_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'first_new_tab_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -169,9 +206,13 @@ tab_search.mojom.TabOrganizationSessionSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.TabOrganizationSession',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'active_tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'organizations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'active_tab_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -183,9 +224,11 @@ tab_search.mojom.TabUpdateInfoSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.TabUpdateInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'in_active_window', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'in_host_window', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,9 +240,10 @@ tab_search.mojom.TabsRemovedInfoSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.TabsRemovedInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'recently_closed_tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tab_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'recently_closed_tabs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -211,9 +255,10 @@ tab_search.mojom.UnusedTabInfoSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.UnusedTabInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'duplicate_tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'stale_tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'duplicate_tabs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

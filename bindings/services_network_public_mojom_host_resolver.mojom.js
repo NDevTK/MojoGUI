@@ -82,9 +82,10 @@ network.mojom.DnsOverHttpsServerConfigSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DnsOverHttpsServerConfig',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'endpoints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'server_template', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'endpoints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -124,9 +125,11 @@ network.mojom.ResolveHostParametersSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ResolveHostParameters',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'ANY', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dns_query_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'initial_priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ANY', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

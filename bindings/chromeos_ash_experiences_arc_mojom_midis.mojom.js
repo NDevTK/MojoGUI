@@ -14,9 +14,14 @@ arc.mojom.MidisDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.MidisDeviceInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'manufacturer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'manufacturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'card', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'device_num', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'num_subdevices', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'flags', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +33,11 @@ arc.mojom.MidisRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.MidisRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'subdevice_num', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'card', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'device_num', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'subdevice_num', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

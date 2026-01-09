@@ -47,9 +47,17 @@ history_embeddings.mojom.SearchResultItemSpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.SearchResultItem',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'is_url_known_to_sync', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url_for_display', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'relative_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'short_date_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_url_visit_timestamp', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'source_passage', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'answer_data', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'is_url_known_to_sync', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -61,9 +69,10 @@ history_embeddings.mojom.SearchQuerySpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.SearchQuery',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'time_range_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'time_range_start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -75,9 +84,12 @@ history_embeddings.mojom.SearchResultSpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.SearchResult',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'answer_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'answer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'items', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

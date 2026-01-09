@@ -14,9 +14,11 @@ input.mojom.RenderInputRouterConfigSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.RenderInputRouterConfig',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'grouping_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rir_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'force_enable_zoom', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,14 @@ input.mojom.TouchTransferStateSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.TouchTransferState',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'down_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'down_time_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'root_widget_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'down_event', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'web_contents_y_offset_pix', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'dip_scale', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'browser_would_have_handled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

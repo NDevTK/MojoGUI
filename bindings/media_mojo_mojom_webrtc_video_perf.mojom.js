@@ -14,9 +14,12 @@ media.mojom.WebrtcPredictionFeaturesSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.WebrtcPredictionFeatures',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'video_pixels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_decode_stats', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'hardware_accelerated', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,8 +31,11 @@ media.mojom.WebrtcVideoStatsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.WebrtcVideoStats',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'frames_processed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'key_frames_processed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'p99_processing_time_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

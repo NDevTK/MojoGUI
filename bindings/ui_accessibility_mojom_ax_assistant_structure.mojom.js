@@ -28,9 +28,21 @@ ax.mojom.AssistantNodeSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AssistantNode',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'role', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'children_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'selection', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'class_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'role', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'text_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'color', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'bgcolor', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'bold', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'italic', packedOffset: 60, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'underline', packedOffset: 60, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'line_through', packedOffset: 60, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +54,11 @@ ax.mojom.AssistantExtraSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AssistantExtra',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounds_pixel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +70,10 @@ ax.mojom.AssistantStructureSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AssistantStructure',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'assistant_extra', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'assistant_tree', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'assistant_extra', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

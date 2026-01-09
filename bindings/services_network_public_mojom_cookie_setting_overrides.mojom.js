@@ -14,8 +14,9 @@ network.mojom.CookieSettingOverridesSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CookieSettingOverrides',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'overrides_bitmask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

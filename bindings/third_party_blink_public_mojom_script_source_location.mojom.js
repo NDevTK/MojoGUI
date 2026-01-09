@@ -14,9 +14,12 @@ blink.mojom.ScriptSourceLocationSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ScriptSourceLocation',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'column_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'function_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'line_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'column_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

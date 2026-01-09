@@ -26,7 +26,8 @@ blink.mojom.TouchEventConsumersSpec = {
       name: 'blink.mojom.TouchEventConsumers',
       packedSize: 16,
       fields: [
-        { name: 'has_hit_testable_scrollbar', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'has_touch_event_handlers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_hit_testable_scrollbar', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

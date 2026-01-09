@@ -29,7 +29,12 @@ blink.mojom.FindOptionsSpec = {
       name: 'blink.mojom.FindOptions',
       packedSize: 16,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'forward', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'match_case', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'new_session', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'find_match', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'force', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'run_synchronously_for_testing', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -28,9 +28,11 @@ content.mojom.FakeBluetoothChooserEventSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.FakeBluetoothChooserEvent',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'peripheral_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'peripheral_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

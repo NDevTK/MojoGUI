@@ -52,9 +52,12 @@ cros.mojom.CameraInfoSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CameraInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'conflicting_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'facing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'static_camera_characteristics', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'orientation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'device_version', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

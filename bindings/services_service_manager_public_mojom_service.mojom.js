@@ -14,9 +14,10 @@ service_manager.mojom.BindSourceInfoSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.BindSourceInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'required_capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'required_capabilities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

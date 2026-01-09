@@ -21,9 +21,13 @@ gfx.mojom.DisplayColorSpacesSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DisplayColorSpaces',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'hdr_max_luminance_relative', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'color_spaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'formats', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'primaries', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sdr_max_luminance_nits', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'hdr_max_luminance_relative', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

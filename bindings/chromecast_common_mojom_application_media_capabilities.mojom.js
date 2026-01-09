@@ -15,8 +15,10 @@ chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec = {
   $: {
     structSpec: {
       name: 'chromecast.shell.mojom.BitstreamAudioCodecsInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'codecs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'spatial_rendering', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,7 +16,8 @@ blink.mojom.UserActivationSnapshotSpec = {
       name: 'blink.mojom.UserActivationSnapshot',
       packedSize: 16,
       fields: [
-        { name: 'was_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'has_been_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'was_active', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

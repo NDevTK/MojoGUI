@@ -44,8 +44,10 @@ blink.mojom.SyncRegistrationOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SyncRegistrationOptions',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'min_interval', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -57,9 +59,11 @@ blink.mojom.BackgroundSyncRegistrationInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundSyncRegistrationInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'sync_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'sync_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

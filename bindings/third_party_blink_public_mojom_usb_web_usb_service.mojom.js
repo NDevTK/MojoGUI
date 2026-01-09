@@ -14,9 +14,10 @@ blink.mojom.WebUsbRequestDeviceOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebUsbRequestDeviceOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'exclusion_filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'exclusion_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

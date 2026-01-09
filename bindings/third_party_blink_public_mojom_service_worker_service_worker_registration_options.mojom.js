@@ -21,9 +21,11 @@ blink.mojom.ServiceWorkerRegistrationOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationOptions',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'kImports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scope', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update_via_cache', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

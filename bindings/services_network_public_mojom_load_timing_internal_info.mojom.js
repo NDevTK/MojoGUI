@@ -27,9 +27,14 @@ network.mojom.LoadTimingInternalInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.LoadTimingInternalInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'http_network_session_quic_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'create_stream_delay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connected_callback_delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'initialize_stream_delay', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'advertised_alt_svc_state', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'http_network_session_quic_enabled', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

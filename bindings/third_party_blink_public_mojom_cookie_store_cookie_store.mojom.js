@@ -14,9 +14,11 @@ blink.mojom.CookieChangeSubscriptionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CookieChangeSubscription',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'match_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

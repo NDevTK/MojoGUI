@@ -23,9 +23,10 @@ ash.secure_channel.mojom.PayloadFilesSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.PayloadFiles',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'output_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'output_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,9 +38,12 @@ ash.secure_channel.mojom.FileTransferUpdateSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.FileTransferUpdate',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'bytes_transferred', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payload_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'bytes_transferred', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

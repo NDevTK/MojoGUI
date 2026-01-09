@@ -14,9 +14,10 @@ blink.mojom.ContactIconBlobSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContactIconBlob',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,13 @@ blink.mojom.ContactInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContactInfo',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'tel', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'icon', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }

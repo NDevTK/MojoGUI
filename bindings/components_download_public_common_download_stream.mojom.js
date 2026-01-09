@@ -28,9 +28,10 @@ download.mojom.DownloadStreamHandleSpec = {
   $: {
     structSpec: {
       name: 'download.mojom.DownloadStreamHandle',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'client_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

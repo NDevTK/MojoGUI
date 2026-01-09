@@ -14,9 +14,10 @@ cast_streaming.mojom.AudioStreamInfoSpec = {
   $: {
     structSpec: {
       name: 'cast_streaming.mojom.AudioStreamInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decoder_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,10 @@ cast_streaming.mojom.VideoStreamInfoSpec = {
   $: {
     structSpec: {
       name: 'cast_streaming.mojom.VideoStreamInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decoder_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +44,10 @@ cast_streaming.mojom.AudioStreamInitializationInfoSpec = {
   $: {
     structSpec: {
       name: 'cast_streaming.mojom.AudioStreamInitializationInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'stream_initialization_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'stream_initialization_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_requester', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +59,10 @@ cast_streaming.mojom.VideoStreamInitializationInfoSpec = {
   $: {
     structSpec: {
       name: 'cast_streaming.mojom.VideoStreamInitializationInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'stream_initialization_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'stream_initialization_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_requester', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

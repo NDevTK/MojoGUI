@@ -47,9 +47,15 @@ compose.mojom.ComposeResponseSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeResponse',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'triggered_from_modifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'undo_available', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'redo_available', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'provided_by_user', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'on_device_evaluation_used', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'triggered_from_modifier', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -75,9 +81,12 @@ compose.mojom.ComposeStateSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ComposeState',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'webui_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'feedback', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'has_pending_request', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -89,9 +98,11 @@ compose.mojom.ConfigurableParamsSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.ConfigurableParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'max_character_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min_word_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'max_word_limit', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'max_character_limit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -103,9 +114,14 @@ compose.mojom.OpenMetadataSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.OpenMetadata',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'configurable_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'initial_input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'compose_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'configurable_params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fre_complete', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'msbb_state', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'text_selected', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,11 @@ ax.mojom.AXUpdatesAndEventsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXUpdatesAndEvents',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'updates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'events', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -24,9 +24,17 @@ gpu.mojom.GpuFeatureInfoSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuFeatureInfo',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'supported_buffer_formats_for_allocation_and_texturing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'enabled_gpu_driver_bug_workarounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'disabled_extensions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'disabled_webgl_extensions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'applied_gpu_blocklist_entries', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'applied_gpu_driver_bug_list_entries', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'supported_buffer_formats_for_allocation_and_texturing', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'supports_nv12_for_allocation_and_texturing', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'supports_p010_for_allocation_and_texturing', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

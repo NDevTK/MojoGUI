@@ -56,9 +56,11 @@ blink.mojom.TranslatorCreateOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TranslatorCreateOptions',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'observer_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'source_lang', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'observer_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

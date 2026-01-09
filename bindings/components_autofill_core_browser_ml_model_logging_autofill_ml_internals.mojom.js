@@ -21,9 +21,10 @@ autofill_ml_internals.mojom.SelectOptionSpec = {
   $: {
     structSpec: {
       name: 'autofill_ml_internals.mojom.SelectOption',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -35,9 +36,17 @@ autofill_ml_internals.mojom.MlFieldPredictionLogSpec = {
   $: {
     structSpec: {
       name: 'autofill_ml_internals.mojom.MlFieldPredictionLog',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'tokenized_field_representation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'placeholder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'autocomplete', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'form_control_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'select_options', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'probabilities', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'tokenized_field_representation', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -49,9 +58,16 @@ autofill_ml_internals.mojom.MlPredictionLogSpec = {
   $: {
     structSpec: {
       name: 'autofill_ml_internals.mojom.MlPredictionLog',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'optimization_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'form_signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'form_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model_output_types', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'field_predictions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'start_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'end_time', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duration', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'optimization_target', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

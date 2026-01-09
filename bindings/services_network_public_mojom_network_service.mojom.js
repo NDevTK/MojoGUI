@@ -28,9 +28,19 @@ network.mojom.HttpAuthDynamicParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpAuthDynamicParams',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'allowed_schemes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'patterns_allowed_to_use_all_schemes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'server_allowlist', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'delegate_allowlist', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'android_negotiate_account_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'delegate_by_kdc_policy', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'negotiate_disable_cname_lookup', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_negotiate_port', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'ntlm_v2_enabled', packedOffset: 40, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_gssapi_library_load', packedOffset: 40, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'basic_over_http_enabled', packedOffset: 40, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +52,10 @@ network.mojom.EnvironmentVariableSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.EnvironmentVariable',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +67,15 @@ network.mojom.NetworkServiceParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkServiceParams',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'system_dns_resolver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'initial_connection_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'initial_connection_subtype', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'initial_address_map', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'environment', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'default_observer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'system_dns_resolver', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'first_party_sets_enabled', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,9 +87,15 @@ network.mojom.SCTAuditingConfigurationSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SCTAuditingConfiguration',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'hashdance_traffic_annotation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sampling_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'log_expected_ingestion_delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'log_max_ingestion_random_delay', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'report_uri', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hashdance_lookup_uri', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'traffic_annotation', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hashdance_traffic_annotation', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

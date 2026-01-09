@@ -208,7 +208,14 @@ glic.mojom.ProfileEnablementSpec = {
       name: 'glic.mojom.ProfileEnablement',
       packedSize: 16,
       fields: [
-        { name: 'not_consented', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feature_disabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'not_regular_profile', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'not_rolled_out', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'primary_account_not_capable', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'disallowed_by_chrome_policy', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'disallowed_by_remote_admin', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'disallowed_by_remote_other', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
+        { name: 'not_consented', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,9 +227,10 @@ glic.mojom.GetContextResultWithActionResultCodeSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.GetContextResultWithActionResultCode',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'action_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'get_context_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -234,9 +242,14 @@ glic.mojom.UserProfileInfoSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.UserProfileInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'is_managed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'avatar_icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'local_profile_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'email', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'given_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_managed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,9 +261,47 @@ glic.mojom.WebClientInitialStateSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientInitialState',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'skill_previews', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'panel_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'focused_tab_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hotkey', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'chrome_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'platform', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host_capabilities', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'skill_previews', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'microphone_permission_enabled', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'location_permission_enabled', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'tab_context_permission_enabled', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'os_location_permission_enabled', packedOffset: 56, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_attach', packedOffset: 56, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'panel_is_active', packedOffset: 56, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'browser_is_open', packedOffset: 56, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
+        { name: 'instance_is_active', packedOffset: 56, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
+        { name: 'always_detached_mode', packedOffset: 56, packedBitOffset: 8, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_zero_state_suggestions', packedOffset: 56, packedBitOffset: 9, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_act_in_focused_tab', packedOffset: 56, packedBitOffset: 10, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_scroll_to', packedOffset: 56, packedBitOffset: 11, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_default_tab_context_setting_feature', packedOffset: 56, packedBitOffset: 12, type: mojo.internal.Bool, nullable: false },
+        { name: 'default_tab_context_setting_enabled', packedOffset: 56, packedBitOffset: 13, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_closed_captioning_feature', packedOffset: 56, packedBitOffset: 14, type: mojo.internal.Bool, nullable: false },
+        { name: 'closed_captioning_setting_enabled', packedOffset: 56, packedBitOffset: 15, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_maybe_refresh_user_status', packedOffset: 56, packedBitOffset: 16, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_multi_tab', packedOffset: 56, packedBitOffset: 17, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_get_context_actor', packedOffset: 56, packedBitOffset: 18, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_get_page_metadata', packedOffset: 56, packedBitOffset: 19, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_api_activation_gating', packedOffset: 56, packedBitOffset: 20, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_capture_region', packedOffset: 56, packedBitOffset: 21, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_web_actuation_setting_feature', packedOffset: 56, packedBitOffset: 22, type: mojo.internal.Bool, nullable: false },
+        { name: 'actuation_on_web_setting_enabled', packedOffset: 56, packedBitOffset: 23, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_act_on_web', packedOffset: 56, packedBitOffset: 24, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_activate_tab', packedOffset: 56, packedBitOffset: 25, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_get_tab_by_id', packedOffset: 56, packedBitOffset: 26, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_open_password_manager_settings_page', packedOffset: 56, packedBitOffset: 27, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_load_and_extract_content', packedOffset: 56, packedBitOffset: 28, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_trust_first_onboarding', packedOffset: 56, packedBitOffset: 29, type: mojo.internal.Bool, nullable: false },
+        { name: 'onboarding_completed', packedOffset: 56, packedBitOffset: 30, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_skills', packedOffset: 56, packedBitOffset: 31, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -262,8 +313,16 @@ glic.mojom.GetTabContextOptionsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.GetTabContextOptions',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'inner_text_bytes_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'max_meta_tags', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'pdf_size_limit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'annotated_page_content_mode', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'include_inner_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'include_viewport_screenshot', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'include_annotated_page_content', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'include_pdf', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -275,9 +334,10 @@ glic.mojom.GetPinCandidatesOptionsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.GetPinCandidatesOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'max_candidates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -289,9 +349,12 @@ glic.mojom.ScrollToParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ScrollToParams',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'selector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'highlight', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -303,9 +366,10 @@ glic.mojom.ScrollToTextSelectorSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ScrollToTextSelector',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'search_range_start_node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'search_range_start_node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -317,9 +381,11 @@ glic.mojom.ScrollToTextFragmentSelectorSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ScrollToTextFragmentSelector',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'search_range_start_node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'text_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'text_end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'search_range_start_node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -359,9 +425,12 @@ glic.mojom.SkillPreviewSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.SkillPreview',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'icon', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -373,9 +442,10 @@ glic.mojom.SkillSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.Skill',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'prompt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'preview', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'prompt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -415,9 +485,11 @@ glic.mojom.ZeroStateSuggestionsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ZeroStateSuggestions',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'tab_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tab_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tab_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -429,9 +501,10 @@ glic.mojom.ZeroStateSuggestionsV2Spec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ZeroStateSuggestionsV2',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_pending', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -443,9 +516,10 @@ glic.mojom.ZeroStateSuggestionsOptionsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ZeroStateSuggestionsOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'supported_tools', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supported_tools', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_first_run', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -499,9 +573,11 @@ glic.mojom.ConversationInfoSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ConversationInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'client_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'conversation_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'conversation_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'client_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -513,9 +589,14 @@ glic.mojom.PanelOpeningDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PanelOpeningData',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'conversation_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'panel_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'invocation_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'prompt_suggestion', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'skill_to_invoke', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'recently_active_conversations', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'conversation_info', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -527,9 +608,10 @@ glic.mojom.PanelStateSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PanelState',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'kind', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'window_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -555,9 +637,12 @@ glic.mojom.OpenPanelInfoSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.OpenPanelInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'can_user_resize', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'web_client_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'panelSize', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'resizeDuration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'can_user_resize', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -569,9 +654,10 @@ glic.mojom.ContextDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ContextData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -583,9 +669,13 @@ glic.mojom.AdditionalContextSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.AdditionalContext',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'parts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'frameUrl', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'parts', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tab_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -597,9 +687,13 @@ glic.mojom.TabContextSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.TabContext',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'annotated_page_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'tab_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'web_page_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'viewport_screenshot', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'pdf_document_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'annotated_page_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -625,9 +719,11 @@ glic.mojom.DocumentDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.DocumentData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'inner_text_truncated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'inner_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'inner_text_truncated', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -639,9 +735,11 @@ glic.mojom.PdfDocumentDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.PdfDocumentData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'size_limit_exceeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pdf_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'size_limit_exceeded', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -653,9 +751,20 @@ glic.mojom.TabDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.TabData',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'is_window_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'favicon', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'favicon_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'document_mime_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'tab_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'window_id', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_observable', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_media_active', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_tab_content_captured', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_active_in_window', packedOffset: 48, packedBitOffset: 3, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_window_active', packedOffset: 48, packedBitOffset: 4, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -667,9 +776,10 @@ glic.mojom.NoFocusedTabDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.NoFocusedTabData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'no_focus_reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'active_tab_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'no_focus_reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -681,9 +791,10 @@ glic.mojom.AnnotatedPageDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.AnnotatedPageData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'annotated_page_content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -722,9 +833,10 @@ glic.mojom.CaptureRegionResultSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.CaptureRegionResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -736,9 +848,13 @@ glic.mojom.ScreenshotSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.Screenshot',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'origin_annotations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'origin_annotations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'width_pixels', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'height_pixels', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

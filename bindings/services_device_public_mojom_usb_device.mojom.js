@@ -93,9 +93,16 @@ device.mojom.UsbEndpointInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbEndpointInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'extra_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'synchronization_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'usage_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extra_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'packet_size', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'endpoint_number', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'polling_interval', packedOffset: 45, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -107,9 +114,15 @@ device.mojom.UsbAlternateInterfaceInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbAlternateInterfaceInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'extra_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'endpoints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'extra_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'alternate_setting', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'class_code', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'subclass_code', packedOffset: 26, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'protocol_code', packedOffset: 27, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,9 +134,11 @@ device.mojom.UsbInterfaceInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbInterfaceInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'alternates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'alternates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'interface_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'first_interface', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,9 +150,15 @@ device.mojom.UsbConfigurationInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbConfigurationInfo',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'extra_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'configuration_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'extra_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'configuration_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'maximum_power', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'self_powered', packedOffset: 26, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'remote_wakeup', packedOffset: 26, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -149,9 +170,28 @@ device.mojom.UsbDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceInfo',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'configurations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'manufacturer_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'product_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'serial_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'webusb_landing_page', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'configurations', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bus_number', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'port_number', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'vendor_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'product_id', packedOffset: 58, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'usb_version_major', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'usb_version_minor', packedOffset: 61, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'usb_version_subminor', packedOffset: 62, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'class_code', packedOffset: 63, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'subclass_code', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'protocol_code', packedOffset: 65, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'device_version_major', packedOffset: 66, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'device_version_minor', packedOffset: 67, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'device_version_subminor', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'active_configuration', packedOffset: 69, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -163,8 +203,14 @@ device.mojom.UsbControlTransferParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbControlTransferParams',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'recipient', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kSecurityKeyAOAModel', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'index', packedOffset: 26, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'request', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -176,9 +222,11 @@ device.mojom.UsbIsochronousPacketSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbIsochronousPacket',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'transferred_length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

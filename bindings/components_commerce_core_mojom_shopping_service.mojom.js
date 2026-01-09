@@ -29,9 +29,11 @@ shopping_service.mojom.PricePointSpec = {
   $: {
     structSpec: {
       name: 'shopping_service.mojom.PricePoint',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'formatted_price', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'date', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'formatted_price', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'price', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -43,9 +45,13 @@ shopping_service.mojom.UrlInfoSpec = {
   $: {
     structSpec: {
       name: 'shopping_service.mojom.UrlInfo',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'previewText', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'favicon_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'thumbnail_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'previewText', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -71,9 +77,10 @@ shopping_service.mojom.ProductSpecificationsDescriptionTextSpec = {
   $: {
     structSpec: {
       name: 'shopping_service.mojom.ProductSpecificationsDescriptionText',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -99,9 +106,11 @@ shopping_service.mojom.ProductSpecificationsDescriptionSpec = {
   $: {
     structSpec: {
       name: 'shopping_service.mojom.ProductSpecificationsDescription',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'alt_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'alt_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,9 +122,10 @@ shopping_service.mojom.ProductSpecificationsValueSpec = {
   $: {
     structSpec: {
       name: 'shopping_service.mojom.ProductSpecificationsValue',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'summary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'specification_descriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'summary', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,9 +137,14 @@ shopping_service.mojom.ProductSpecificationsProductSpec = {
   $: {
     structSpec: {
       name: 'shopping_service.mojom.ProductSpecificationsProduct',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'buying_options_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'product_cluster_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'image_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'product_dimension_values', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'summary', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'buying_options_url', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -143,7 +158,13 @@ shopping_service.mojom.ProductSpecificationsFeatureStateSpec = {
       name: 'shopping_service.mojom.ProductSpecificationsFeatureState',
       packedSize: 16,
       fields: [
-        { name: 'is_signed_in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_syncing_tab_compare', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_load_full_page_ui', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_manage_sets', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_fetch_data', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_allowed_for_enterprise', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_quality_logging_allowed', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_signed_in', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -155,9 +176,10 @@ shopping_service.mojom.ProductSpecificationsSpec = {
   $: {
     structSpec: {
       name: 'shopping_service.mojom.ProductSpecifications',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'products', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'product_dimension_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'products', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

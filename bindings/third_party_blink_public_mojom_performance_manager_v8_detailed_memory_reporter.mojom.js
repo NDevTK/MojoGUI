@@ -21,9 +21,11 @@ blink.mojom.PerContextV8MemoryUsageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PerContextV8MemoryUsage',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'memory_used', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -35,9 +37,10 @@ blink.mojom.PerContextCanvasMemoryUsageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PerContextCanvasMemoryUsage',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'memory_used', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'memory_used', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -49,9 +52,14 @@ blink.mojom.PerIsolateV8MemoryUsageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PerIsolateV8MemoryUsage',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'canvas_contexts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'num_detached_contexts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'detached_memory_used', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shared_memory_used', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'blink_memory_used', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'contexts', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'canvas_contexts', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

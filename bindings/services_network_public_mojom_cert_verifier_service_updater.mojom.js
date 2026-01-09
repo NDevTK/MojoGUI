@@ -14,9 +14,10 @@ cert_verifier.mojom.CIDRSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CIDR',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ip', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,11 @@ cert_verifier.mojom.CertWithConstraintsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertWithConstraints',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'permitted_cidrs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'permitted_dns_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'permitted_cidrs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +45,16 @@ cert_verifier.mojom.AdditionalCertificatesSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.AdditionalCertificates',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'all_certificates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'trust_anchors', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'trust_anchors_with_enforced_constraints', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'trust_anchors_with_additional_constraints', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'trust_anchors_and_leafs', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'trust_leafs', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'distrusted_spkis', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'include_system_trust_store', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -18,9 +18,11 @@ infobar_internals.mojom.InfoBarEntrySpec = {
   $: {
     structSpec: {
       name: 'infobar_internals.mojom.InfoBarEntry',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

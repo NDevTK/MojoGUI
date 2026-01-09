@@ -80,9 +80,10 @@ ash.projector.mojom.NewScreencastPreconditionSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.NewScreencastPrecondition',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'reasons', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reasons', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,9 +95,12 @@ ash.projector.mojom.PendingScreencastSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.PendingScreencast',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'upload_failed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'created_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'upload_progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'upload_failed', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,9 +112,11 @@ ash.projector.mojom.XhrResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.XhrResponse',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'net_error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'response_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'net_error_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -122,9 +128,10 @@ ash.projector.mojom.AccountSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.Account',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_primary_user', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_primary_user', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -136,9 +143,10 @@ ash.projector.mojom.VideoInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.VideoInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'file_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duration_millis', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'file_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

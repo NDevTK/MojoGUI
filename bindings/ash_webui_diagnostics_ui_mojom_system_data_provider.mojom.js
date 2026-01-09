@@ -43,9 +43,10 @@ ash.diagnostics.mojom.VersionInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.VersionInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'full_version_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'milestone_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'full_version_string', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -57,9 +58,16 @@ ash.diagnostics.mojom.SystemInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemInfo',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'device_capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'board_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'marketing_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'cpu_model_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'version_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_capabilities', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_memory_kib', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'cpu_max_clock_speed_khz', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'cpu_threads_count', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -71,9 +79,10 @@ ash.diagnostics.mojom.BatteryInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.BatteryInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'charge_full_design_milliamp_hours', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'manufacturer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'charge_full_design_milliamp_hours', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,9 +94,13 @@ ash.diagnostics.mojom.BatteryChargeStatusSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.BatteryChargeStatus',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'power_adapter_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'power_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'battery_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'power_adapter_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'current_now_milliamps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'charge_now_milliamp_hours', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -99,9 +112,12 @@ ash.diagnostics.mojom.BatteryHealthSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.BatteryHealth',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'battery_wear_percentage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'charge_full_now_milliamp_hours', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'charge_full_design_milliamp_hours', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'cycle_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'battery_wear_percentage', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,9 +129,11 @@ ash.diagnostics.mojom.MemoryUsageSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.MemoryUsage',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'free_memory_kib', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_memory_kib', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'available_memory_kib', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'free_memory_kib', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,9 +145,13 @@ ash.diagnostics.mojom.CpuUsageSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.CpuUsage',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'scaling_current_frequency_khz', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scaling_current_frequency_khz', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'average_cpu_temp_celsius', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'percent_usage_user', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'percent_usage_system', packedOffset: 7, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'percent_usage_free', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }

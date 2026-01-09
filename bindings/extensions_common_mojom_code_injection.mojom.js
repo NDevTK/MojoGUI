@@ -20,9 +20,10 @@ extensions.mojom.JSSourceSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.JSSource',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'script_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -34,9 +35,10 @@ extensions.mojom.CSSSourceSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.CSSSource',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -48,9 +50,14 @@ extensions.mojom.JSInjectionSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.JSInjection',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'wait_for_promise', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'world', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'world_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'wants_result', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'user_gesture', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'wait_for_promise', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

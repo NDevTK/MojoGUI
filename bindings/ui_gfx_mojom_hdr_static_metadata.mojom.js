@@ -14,9 +14,12 @@ gfx.mojom.HDRStaticMetadataSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.HDRStaticMetadata',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'supported_eotf_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'max_avg', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'min', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'supported_eotf_mask', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,11 @@ password_manager.mojom.DomainInfoSpec = {
   $: {
     structSpec: {
       name: 'password_manager.mojom.DomainInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'signon_realm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'human_readable_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'signon_realm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,11 @@ password_manager.mojom.ActorLoginPermissionSpec = {
   $: {
     structSpec: {
       name: 'password_manager.mojom.ActorLoginPermission',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'domain_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'favicon_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

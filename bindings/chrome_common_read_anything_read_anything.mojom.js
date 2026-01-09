@@ -81,9 +81,10 @@ read_anything.mojom.VoicePackInfoSpec = {
   $: {
     structSpec: {
       name: 'read_anything.mojom.VoicePackInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pack_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -30,9 +30,14 @@ ash.cellular_setup.mojom.CellularMetadataSpec = {
   $: {
     structSpec: {
       name: 'ash.cellular_setup.mojom.CellularMetadata',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'mdn', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payment_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payment_post_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'carrier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'meid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'imei', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'mdn', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

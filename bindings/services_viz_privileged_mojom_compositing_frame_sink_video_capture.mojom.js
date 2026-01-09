@@ -21,9 +21,10 @@ viz.mojom.VideoCaptureTargetSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VideoCaptureTarget',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'sub_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sub_target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,10 @@ gfx.mojom.ImageSkiaRepSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.ImageSkiaRep',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'scale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

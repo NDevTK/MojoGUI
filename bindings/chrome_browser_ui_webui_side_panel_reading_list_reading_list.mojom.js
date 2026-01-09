@@ -21,9 +21,10 @@ reading_list.mojom.ReadLaterEntriesByStatusSpec = {
   $: {
     structSpec: {
       name: 'reading_list.mojom.ReadLaterEntriesByStatus',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'read_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'unread_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'read_entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -35,9 +36,14 @@ reading_list.mojom.ReadLaterEntrySpec = {
   $: {
     structSpec: {
       name: 'reading_list.mojom.ReadLaterEntry',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'display_time_since_update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'update_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'display_time_since_update', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'read', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -49,9 +55,10 @@ reading_list.mojom.WindowSpec = {
   $: {
     structSpec: {
       name: 'reading_list.mojom.Window',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'active', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

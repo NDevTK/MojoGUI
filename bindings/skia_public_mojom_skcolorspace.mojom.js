@@ -28,9 +28,15 @@ skia.mojom.SkcmsTransferFunctionSpec = {
   $: {
     structSpec: {
       name: 'skia.mojom.SkcmsTransferFunction',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'f', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'g', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'a', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'c', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'd', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'e', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'f', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +48,10 @@ skia.mojom.SkColorSpaceSpec = {
   $: {
     structSpec: {
       name: 'skia.mojom.SkColorSpace',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'to_xyzd50', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'to_linear', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'to_xyzd50', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

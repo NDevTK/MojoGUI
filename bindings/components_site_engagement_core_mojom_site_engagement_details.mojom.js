@@ -14,9 +14,12 @@ site_engagement.mojom.SiteEngagementDetailsSpec = {
   $: {
     structSpec: {
       name: 'site_engagement.mojom.SiteEngagementDetails',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'installed_bonus', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'base_score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'installed_bonus', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }

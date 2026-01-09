@@ -89,9 +89,11 @@ blink.mojom.ManifestLocalizedTextObjectSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestLocalizedTextObject',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'lang', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dir', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -117,9 +119,17 @@ blink.mojom.ManifestShortcutItemSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestShortcutItem',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'icons_localized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'short_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'icons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'name_localized', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'short_name_localized', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'description_localized', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'icons_localized', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -131,8 +141,9 @@ blink.mojom.ManifestImageResourceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestImageResource',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'ANY', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -144,8 +155,9 @@ blink.mojom.ManifestScreenshotSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestScreenshot',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -157,9 +169,10 @@ blink.mojom.ManifestFileFilterSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestFileFilter',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'accept', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'accept', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -171,9 +184,10 @@ blink.mojom.ManifestProtocolHandlerSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestProtocolHandler',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'protocol', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -185,9 +199,10 @@ blink.mojom.ManifestScopeExtensionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestScopeExtension',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'has_origin_wildcard', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'has_origin_wildcard', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -227,9 +242,11 @@ blink.mojom.ManifestRelatedApplicationSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestRelatedApplication',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'platform', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -241,9 +258,12 @@ blink.mojom.ManifestShareTargetParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestShareTargetParams',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'files', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -269,9 +289,13 @@ blink.mojom.ManifestFileHandlerSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestFileHandler',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'kSingleClient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'icons', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'accept', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'kSingleClient', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -283,9 +307,11 @@ blink.mojom.ManifestTranslationItemSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestTranslationItem',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'short_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -297,9 +323,11 @@ blink.mojom.ManifestMigrateFromSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestMigrateFrom',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'behavior', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'install_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'behavior', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -311,9 +339,10 @@ blink.mojom.ManifestMigrateToSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestMigrateTo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'install_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'install_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -325,9 +354,10 @@ blink.mojom.ManifestTabStripSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestTabStrip',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'new_tab_button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'home_tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_tab_button', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -339,9 +369,10 @@ blink.mojom.HomeTabParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HomeTabParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'scope_patterns', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'icons', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'scope_patterns', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -367,9 +398,10 @@ blink.mojom.ManifestDebugInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestDebugInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'raw_manifest', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'errors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'raw_manifest', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -381,9 +413,12 @@ blink.mojom.ManifestErrorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestError',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'column', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'line', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'column', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'critical', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -395,9 +430,10 @@ blink.mojom.DisplayOverrideItemSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DisplayOverrideItem',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'url_patterns', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url_patterns', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

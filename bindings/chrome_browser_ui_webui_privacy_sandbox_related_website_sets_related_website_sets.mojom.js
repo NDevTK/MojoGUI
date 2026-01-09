@@ -21,9 +21,10 @@ related_website_sets.mojom.MemberSpec = {
   $: {
     structSpec: {
       name: 'related_website_sets.mojom.Member',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -35,9 +36,11 @@ related_website_sets.mojom.RelatedWebsiteSetSpec = {
   $: {
     structSpec: {
       name: 'related_website_sets.mojom.RelatedWebsiteSet',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'managed_by_enterprise', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'primary_site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'member_sites', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'managed_by_enterprise', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

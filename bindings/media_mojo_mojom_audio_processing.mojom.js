@@ -14,9 +14,12 @@ media.mojom.AudioProcessingStatsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioProcessingStats',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'echo_return_loss_enhancement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'echo_return_loss', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'echo_return_loss_enhancement', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'has_echo_return_loss', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_echo_return_loss_enhancement', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +33,11 @@ media.mojom.AudioProcessingSettingsSpec = {
       name: 'media.mojom.AudioProcessingSettings',
       packedSize: 16,
       fields: [
-        { name: 'use_loopback_aec_reference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'echo_cancellation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'noise_suppression', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'automatic_gain_control', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'multi_channel_capture_processing', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_loopback_aec_reference', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +49,10 @@ media.mojom.AudioProcessingConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioProcessingConfig',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'controls_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

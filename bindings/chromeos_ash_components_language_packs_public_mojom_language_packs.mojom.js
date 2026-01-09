@@ -39,9 +39,10 @@ ash.language.mojom.LanguagePackInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.language.mojom.LanguagePackInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'pack_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -53,9 +54,10 @@ ash.language.mojom.BasePackInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.language.mojom.BasePackInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pack_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -104,7 +104,8 @@ arc.mojom.VideoFramePlaneSpec = {
       name: 'arc.mojom.VideoFramePlane',
       packedSize: 16,
       fields: [
-        { name: 'stride', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'stride', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -116,9 +117,11 @@ arc.mojom.ColorPlaneLayoutSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ColorPlaneLayout',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stride', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -130,9 +133,14 @@ arc.mojom.VideoFrameLayoutSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoFrameLayout',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'modifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'coded_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'planes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'modifier', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'buffer_addr_align', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_multi_planar', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

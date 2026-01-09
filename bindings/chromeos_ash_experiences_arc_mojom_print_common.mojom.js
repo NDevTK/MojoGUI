@@ -43,7 +43,8 @@ arc.mojom.PrintPageRangeSpec = {
       name: 'arc.mojom.PrintPageRange',
       packedSize: 16,
       fields: [
-        { name: 'end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'end', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -55,9 +56,12 @@ arc.mojom.PrintMediaSizeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintMediaSize',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'height_mils', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'width_mils', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'height_mils', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -69,9 +73,12 @@ arc.mojom.PrintResolutionSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintResolution',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'vertical_dpi', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'horizontal_dpi', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'vertical_dpi', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -83,9 +90,12 @@ arc.mojom.PrintMarginsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintMargins',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'bottom_mils', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'left_mils', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'top_mils', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'right_mils', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'bottom_mils', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -97,9 +107,13 @@ arc.mojom.PrintAttributesSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintAttributes',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'duplex_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'media_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'min_margins', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'color_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duplex_mode', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -111,9 +125,10 @@ arc.mojom.PrintDocumentRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintDocumentRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'attributes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'attributes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,9 +140,20 @@ arc.mojom.PrintJobRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintJobRequest',
-      packedSize: 16,
+      packedSize: 96,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'printer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'creation_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'pages', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'attributes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'document_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'content_type', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data_size', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'copies', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'document_page_count', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'data', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -139,9 +165,14 @@ arc.mojom.PrinterCapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrinterCapabilities',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'defaults', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'media_sizes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'resolutions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'min_margins', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color_modes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duplex_modes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'defaults', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -153,9 +184,14 @@ arc.mojom.PrinterInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrinterInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info_intent', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'capabilities', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

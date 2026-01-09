@@ -22,7 +22,7 @@ device.mojom.VirtualPressureSourceMetadataSpec = {
       name: 'device.mojom.VirtualPressureSourceMetadata',
       packedSize: 16,
       fields: [
-        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

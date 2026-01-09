@@ -21,9 +21,10 @@ new_tab_footer.mojom.ManagementNoticeSpec = {
   $: {
     structSpec: {
       name: 'new_tab_footer.mojom.ManagementNotice',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'custom_bitmap_data_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'custom_bitmap_data_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -35,9 +36,10 @@ new_tab_footer.mojom.BackgroundAttributionSpec = {
   $: {
     structSpec: {
       name: 'new_tab_footer.mojom.BackgroundAttribution',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

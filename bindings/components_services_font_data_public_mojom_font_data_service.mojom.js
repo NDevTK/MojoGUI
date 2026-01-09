@@ -21,9 +21,11 @@ font_data_service.mojom.TypefaceStyleSpec = {
   $: {
     structSpec: {
       name: 'font_data_service.mojom.TypefaceStyle',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'slant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'weight', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'width', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,7 +39,8 @@ font_data_service.mojom.CoordinateSpec = {
       name: 'font_data_service.mojom.Coordinate',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'axis', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -49,9 +52,10 @@ font_data_service.mojom.VariationPositionSpec = {
   $: {
     structSpec: {
       name: 'font_data_service.mojom.VariationPosition',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'coordinateCount', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'coordinates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'coordinateCount', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,9 +67,10 @@ font_data_service.mojom.TypefaceFileSpec = {
   $: {
     structSpec: {
       name: 'font_data_service.mojom.TypefaceFile',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -77,9 +82,11 @@ font_data_service.mojom.MatchFamilyNameResultSpec = {
   $: {
     structSpec: {
       name: 'font_data_service.mojom.MatchFamilyNameResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'variation_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'typeface_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'variation_position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'ttc_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

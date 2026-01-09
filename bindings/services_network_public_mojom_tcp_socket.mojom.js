@@ -14,8 +14,10 @@ network.mojom.TCPKeepAliveOptionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TCPKeepAliveOptions',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'delay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'enable', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -27,9 +29,12 @@ network.mojom.TCPConnectedSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TCPConnectedSocketOptions',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
         { name: 'keep_alive_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'send_buffer_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'receive_buffer_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'no_delay', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -41,9 +46,11 @@ network.mojom.TCPServerSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TCPServerSocketOptions',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
         { name: 'connection_tracker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'backlog', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'ipv6_only', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }

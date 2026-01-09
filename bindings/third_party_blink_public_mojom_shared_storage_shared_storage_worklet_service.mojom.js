@@ -16,7 +16,9 @@ blink.mojom.SharedStorageWorkletPermissionsPolicyStateSpec = {
       name: 'blink.mojom.SharedStorageWorkletPermissionsPolicyState',
       packedSize: 16,
       fields: [
-        { name: 'run_ad_auction_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'private_aggregation_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'join_ad_interest_group_allowed', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'run_ad_auction_allowed', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,10 @@ blink.mojom.SharedStorageKeyAndOrValueSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedStorageKeyAndOrValue',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -44,7 +47,8 @@ blink.mojom.PrivateAggregationOperationDetailsSpec = {
       name: 'blink.mojom.PrivateAggregationOperationDetails',
       packedSize: 16,
       fields: [
-        { name: 'filtering_id_max_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'pa_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'filtering_id_max_bytes', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

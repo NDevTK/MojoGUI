@@ -49,9 +49,12 @@ media.mojom.RangeSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.Range',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'step', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'min', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'current', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'step', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,9 +66,41 @@ media.mojom.PhotoStateSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PhotoState',
-      packedSize: 16,
+      packedSize: 256,
       fields: [
-        { name: 'current_background_segmentation_mask_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'supported_white_balance_modes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'current_white_balance_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supported_exposure_modes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'current_exposure_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supported_focus_modes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'current_focus_mode', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'points_of_interest', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'exposure_compensation', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'exposure_time', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color_temperature', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'iso', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'brightness', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'contrast', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'saturation', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sharpness', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'focus_distance', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pan', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tilt', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'zoom', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'red_eye_reduction', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'height', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'width', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fill_light_mode', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'supported_background_blur_modes', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'background_blur_mode', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supported_face_framing_modes', packedOffset: 200, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'current_face_framing_mode', packedOffset: 208, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supported_eye_gaze_correction_modes', packedOffset: 216, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'current_eye_gaze_correction_mode', packedOffset: 224, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supported_background_segmentation_mask_states', packedOffset: 232, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'supports_torch', packedOffset: 240, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'torch', packedOffset: 240, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'current_background_segmentation_mask_state', packedOffset: 240, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -77,9 +112,10 @@ media.mojom.Point2DSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.Point2D',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'y', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -91,9 +127,55 @@ media.mojom.PhotoSettingsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PhotoSettings',
-      packedSize: 16,
+      packedSize: 192,
       fields: [
-        { name: 'background_segmentation_mask_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'white_balance_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'exposure_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'focus_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'points_of_interest', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'exposure_compensation', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'exposure_time', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'color_temperature', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'iso', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'brightness', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'contrast', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'saturation', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'sharpness', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'focus_distance', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'pan', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'tilt', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'zoom', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'fill_light_mode', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'width', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'height', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'background_blur_mode', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'face_framing_mode', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'eye_gaze_correction_mode', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'has_white_balance_mode', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_exposure_mode', packedOffset: 176, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_focus_mode', packedOffset: 176, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_exposure_compensation', packedOffset: 176, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_exposure_time', packedOffset: 176, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_color_temperature', packedOffset: 176, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_iso', packedOffset: 176, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_brightness', packedOffset: 176, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_contrast', packedOffset: 176, packedBitOffset: 8, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_saturation', packedOffset: 176, packedBitOffset: 9, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_sharpness', packedOffset: 176, packedBitOffset: 10, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_focus_distance', packedOffset: 176, packedBitOffset: 11, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_pan', packedOffset: 176, packedBitOffset: 12, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_tilt', packedOffset: 176, packedBitOffset: 13, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_zoom', packedOffset: 176, packedBitOffset: 14, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_torch', packedOffset: 176, packedBitOffset: 15, type: mojo.internal.Bool, nullable: false },
+        { name: 'torch', packedOffset: 176, packedBitOffset: 16, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_fill_light_mode', packedOffset: 176, packedBitOffset: 17, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_width', packedOffset: 176, packedBitOffset: 18, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_height', packedOffset: 176, packedBitOffset: 19, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_red_eye_reduction', packedOffset: 176, packedBitOffset: 20, type: mojo.internal.Bool, nullable: false },
+        { name: 'red_eye_reduction', packedOffset: 176, packedBitOffset: 21, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_background_blur_mode', packedOffset: 176, packedBitOffset: 22, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_face_framing_mode', packedOffset: 176, packedBitOffset: 23, type: mojo.internal.Bool, nullable: false },
+        { name: 'background_segmentation_mask_state', packedOffset: 176, packedBitOffset: 24, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -105,9 +187,10 @@ media.mojom.BlobSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.Blob',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -42,9 +42,11 @@ ash.quick_start.mojom.BootstrapConfigurationsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_start.mojom.BootstrapConfigurations',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_supervised_account', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,9 +72,10 @@ ash.quick_start.mojom.UserVerificationResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_start.mojom.UserVerificationResponse',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_first_user_verification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_first_user_verification', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -98,9 +101,12 @@ ash.quick_start.mojom.WifiCredentialsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_start.mojom.WifiCredentials',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'security_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'password', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_hidden', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,9 +118,12 @@ ash.quick_start.mojom.FidoAssertionResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_start.mojom.FidoAssertionResponse',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'credential_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'auth_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'signature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

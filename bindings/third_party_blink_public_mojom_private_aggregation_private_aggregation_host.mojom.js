@@ -39,9 +39,10 @@ blink.mojom.DebugModeDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DebugModeDetails',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'debug_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,11 @@ blink.mojom.AnchorElementPointerDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementPointerData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'mouse_acceleration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mouse_velocity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'mouse_acceleration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'is_mouse_pointer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

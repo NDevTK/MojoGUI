@@ -14,9 +14,14 @@ remote_cocoa.mojom.PopupMenuSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.PopupMenu',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'item_font_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'selected_item', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'receiver', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'right_aligned', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

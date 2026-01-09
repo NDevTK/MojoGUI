@@ -23,9 +23,21 @@ blink.mojom.AnchorElementMetricsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementMetrics',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'viewport_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'viewport_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'anchor_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'ratio_area', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'ratio_distance_top_to_visible_top', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'ratio_distance_root_top', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'font_size_px', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'font_weight', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_in_iframe', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'contains_image', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_same_host', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_url_incremented_by_one', packedOffset: 40, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_text_sibling', packedOffset: 40, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,9 +49,11 @@ blink.mojom.AnchorElementClickSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementClick',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'navigation_start_to_click', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'navigation_start_to_click', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'anchor_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -51,9 +65,10 @@ blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementPointerDataOnHoverTimerFired',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'pointer_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -65,9 +80,10 @@ blink.mojom.AnchorElementEnteredViewportSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementEnteredViewport',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'navigation_start_to_entered_viewport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -79,9 +95,10 @@ blink.mojom.AnchorElementLeftViewportSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementLeftViewport',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'time_in_viewport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -93,9 +110,10 @@ blink.mojom.AnchorElementPointerOverSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementPointerOver',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'navigation_start_to_pointer_over', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -107,9 +125,10 @@ blink.mojom.AnchorElementPointerOutSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementPointerOut',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'hover_dwell_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,9 +140,11 @@ blink.mojom.AnchorElementPointerEventForMLModelSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementPointerEventForMLModel',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
         { name: 'user_interaction_event_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_mouse', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,9 +156,10 @@ blink.mojom.AnchorElementPointerDownSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementPointerDown',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'navigation_start_to_pointer_down', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -149,9 +171,11 @@ blink.mojom.AnchorElementPositionUpdateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementPositionUpdate',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'distance_from_pointer_down_ratio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'vertical_position_ratio', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'distance_from_pointer_down_ratio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
       ],
       versions: [{version: 0}]
     }

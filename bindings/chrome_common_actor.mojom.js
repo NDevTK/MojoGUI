@@ -153,8 +153,9 @@ actor.mojom.ClickActionSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.ClickAction',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kLeft', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -192,8 +193,9 @@ actor.mojom.TypeActionSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.TypeAction',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kDeleteExisting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -205,8 +207,9 @@ actor.mojom.ScrollActionSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.ScrollAction',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kLeft', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -246,9 +249,10 @@ actor.mojom.ScriptToolActionSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.ScriptToolAction',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'input_arguments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'input_arguments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -274,9 +278,12 @@ actor.mojom.ToolInvocationSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.ToolInvocation',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'observed_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'observed_target', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -288,9 +295,13 @@ actor.mojom.ActionResultSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.ActionResult',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'execution_end_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'script_tool_response', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'execution_end_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'requires_page_stabilization', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -302,9 +313,10 @@ actor.mojom.JournalDetailsSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.JournalDetails',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -316,9 +328,14 @@ actor.mojom.JournalEntrySpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.JournalEntry',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'track_uuid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'details', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -35,9 +35,17 @@ viz.mojom.FilterOperationSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FilterOperation',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'shape', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'drop_shadow_color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'matrix', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'blur_tile_mode', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shape', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'amount', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'zoom_inset', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

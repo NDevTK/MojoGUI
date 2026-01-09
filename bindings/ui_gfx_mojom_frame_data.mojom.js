@@ -14,9 +14,10 @@ gfx.mojom.FrameDataSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.FrameData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'swap_trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'seq', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'swap_trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -70,9 +70,17 @@ chromecast.media.mojom.AudioConfigSpec = {
   $: {
     structSpec: {
       name: 'chromecast.media.mojom.AudioConfig',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'encryption_scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'codec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'channel_layout', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sample_format', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extra_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'encryption_scheme', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bytes_per_channel', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'channel_number', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'samples_per_second', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

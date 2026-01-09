@@ -14,9 +14,11 @@ foo.mojom.FooDataItemSpec = {
   $: {
     structSpec: {
       name: 'foo.mojom.FooDataItem',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'imageUrl', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'imageUrl', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

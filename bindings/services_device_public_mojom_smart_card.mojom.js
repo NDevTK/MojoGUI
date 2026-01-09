@@ -90,7 +90,17 @@ device.mojom.SmartCardReaderStateFlagsSpec = {
       name: 'device.mojom.SmartCardReaderStateFlags',
       packedSize: 16,
       fields: [
-        { name: 'unpowered', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'unaware', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ignore', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'changed', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'unknown', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'unavailable', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'empty', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'present', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
+        { name: 'exclusive', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
+        { name: 'inuse', packedOffset: 0, packedBitOffset: 8, type: mojo.internal.Bool, nullable: false },
+        { name: 'mute', packedOffset: 0, packedBitOffset: 9, type: mojo.internal.Bool, nullable: false },
+        { name: 'unpowered', packedOffset: 0, packedBitOffset: 10, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -102,9 +112,11 @@ device.mojom.SmartCardReaderStateInSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardReaderStateIn',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'current_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'current_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'current_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -116,9 +128,12 @@ device.mojom.SmartCardReaderStateOutSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardReaderStateOut',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'answer_to_reset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'event_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'answer_to_reset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'event_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -132,7 +147,9 @@ device.mojom.SmartCardProtocolsSpec = {
       name: 'device.mojom.SmartCardProtocols',
       packedSize: 16,
       fields: [
-        { name: 'raw', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 't0', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 't1', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'raw', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -144,9 +161,12 @@ device.mojom.SmartCardStatusSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardStatus',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'answer_to_reset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reader_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'protocol', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'answer_to_reset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -158,9 +178,10 @@ device.mojom.SmartCardConnectSuccessSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnectSuccess',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'active_protocol', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'active_protocol', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

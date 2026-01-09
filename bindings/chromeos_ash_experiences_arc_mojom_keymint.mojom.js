@@ -173,9 +173,11 @@ arc.mojom.keymint.AttestationKeySpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.AttestationKey',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'issuer_subject_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'attest_key_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'issuer_subject_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -187,9 +189,10 @@ arc.mojom.keymint.KeyParameterSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.KeyParameter',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -201,9 +204,10 @@ arc.mojom.keymint.SharedSecretParametersSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.SharedSecretParameters',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'nonce', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'seed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'nonce', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -215,9 +219,11 @@ arc.mojom.keymint.KeyCreationResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.KeyCreationResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'certificate_chain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_characteristics', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'certificate_chain', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -243,9 +249,10 @@ arc.mojom.keymint.KeyCharacteristicsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.KeyCharacteristics',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'authorizations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'security_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'authorizations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -257,9 +264,10 @@ arc.mojom.keymint.GenerateKeyRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.GenerateKeyRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'attestation_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'key_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'attestation_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -271,9 +279,12 @@ arc.mojom.keymint.ImportKeyRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.ImportKeyRequest',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'attestation_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'key_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_format', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'attestation_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -285,9 +296,14 @@ arc.mojom.keymint.ImportWrappedKeyRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.ImportWrappedKeyRequest',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'biometric_sid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'wrapped_key_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'wrapping_key_blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'masking_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'unwrapping_params', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'password_sid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'biometric_sid', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -299,9 +315,10 @@ arc.mojom.keymint.UpgradeKeyRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.UpgradeKeyRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'upgrade_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_blob_to_upgrade', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'upgrade_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -313,9 +330,12 @@ arc.mojom.keymint.BeginRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.BeginRequest',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'key_purpose', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'auth_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -327,9 +347,11 @@ arc.mojom.keymint.BeginResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.BeginResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'op_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'op_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -341,9 +363,14 @@ arc.mojom.keymint.HardwareAuthTokenSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.HardwareAuthToken',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'mac', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'user_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'authenticator_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'authenticator_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mac', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -369,9 +396,11 @@ arc.mojom.keymint.TimeStampTokenSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.TimeStampToken',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'mac', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mac', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -383,9 +412,11 @@ arc.mojom.keymint.GetKeyCharacteristicsRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.GetKeyCharacteristicsRequest',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'app_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'app_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -397,9 +428,12 @@ arc.mojom.keymint.UpdateRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.UpdateRequest',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'timestamp_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'op_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'auth_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'timestamp_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -411,9 +445,14 @@ arc.mojom.keymint.FinishRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.FinishRequest',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'confirmation_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'op_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'auth_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'timestamp_token', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'confirmation_token', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -453,9 +492,10 @@ arc.mojom.keymint.GenerateEcdsaP256KeyPairResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.GenerateEcdsaP256KeyPairResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'handle_to_private_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'maced_public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'handle_to_private_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -467,9 +507,12 @@ arc.mojom.keymint.CertificateRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.CertificateRequest',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'keys_to_sign', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'encryption_cert_chain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'challenge', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'test_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -481,9 +524,11 @@ arc.mojom.keymint.GenerateCertificateRequestResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.GenerateCertificateRequestResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'mac_of_keys_to_sign', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'protected_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mac_of_keys_to_sign', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

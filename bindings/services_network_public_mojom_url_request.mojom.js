@@ -14,9 +14,12 @@ network.mojom.EnabledClientHintsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.EnabledClientHints',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'not_allowed_hints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'not_allowed_hints', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_outermost_main_frame', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +31,22 @@ network.mojom.TrustedUrlRequestParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustedUrlRequestParams',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'shared_dictionary_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'isolation_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'enabled_client_hints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'client_security_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'cookie_observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'trust_token_observer', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'url_loader_network_observer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'devtools_observer', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'device_bound_session_observer', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'accept_ch_frame_observer', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'shared_dictionary_observer', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'disable_secure_dns', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_user_activation', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_cookies_from_browser', packedOffset: 52, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'include_request_cookies_with_response', packedOffset: 52, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +58,12 @@ network.mojom.WebBundleTokenParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebBundleTokenParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'render_process_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'bundle_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'web_bundle_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'render_process_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +75,73 @@ network.mojom.URLRequestSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLRequest',
-      packedSize: 16,
+      packedSize: 344,
       fields: [
-        { name: 'fetch_retry_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'site_for_cookies', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request_initiator', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'navigation_redirect_chain', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'isolated_world_origin', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'referrer', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'referrer_policy', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'headers', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cors_exempt_headers', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'priority', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cors_preflight_policy', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'credentials_mode', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'redirect_mode', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fetch_integrity', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'expected_public_keys', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'destination', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request_body', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'throttling_profile_id', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'fetch_window_id', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'devtools_request_id', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'devtools_stack_id', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'original_destination', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'trusted_params', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'recursive_prefetch_token', packedOffset: 200, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'trust_token_params', packedOffset: 208, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'web_bundle_token_params', packedOffset: 216, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'devtools_accepted_stream_types', packedOffset: 224, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'net_log_create_info', packedOffset: 232, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'net_log_reference_info', packedOffset: 240, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'required_ip_address_space', packedOffset: 248, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_access_api_status', packedOffset: 256, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attribution_reporting_support', packedOffset: 264, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attribution_reporting_src_token', packedOffset: 272, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'keepalive_token', packedOffset: 280, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'socket_tag', packedOffset: 288, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'permissions_policy', packedOffset: 296, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'fetch_retry_options', packedOffset: 304, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'load_flags', packedOffset: 312, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'resource_type', packedOffset: 316, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'transition_type', packedOffset: 320, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'previews_state', packedOffset: 324, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'update_first_party_url_on_redirect', packedOffset: 328, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'priority_incremental', packedOffset: 328, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'originated_from_service_worker', packedOffset: 328, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'skip_service_worker', packedOffset: 328, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'keepalive', packedOffset: 328, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'browsing_topics', packedOffset: 328, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'ad_auction_headers', packedOffset: 328, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
+        { name: 'shared_storage_writable_eligible', packedOffset: 328, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_user_gesture', packedOffset: 328, packedBitOffset: 8, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_load_timing', packedOffset: 328, packedBitOffset: 9, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_upload_progress', packedOffset: 328, packedBitOffset: 10, type: mojo.internal.Bool, nullable: false },
+        { name: 'do_not_prompt_for_login', packedOffset: 328, packedBitOffset: 11, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_outermost_main_frame', packedOffset: 328, packedBitOffset: 12, type: mojo.internal.Bool, nullable: false },
+        { name: 'upgrade_if_insecure', packedOffset: 328, packedBitOffset: 13, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_revalidating', packedOffset: 328, packedBitOffset: 14, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_fetch_like_api', packedOffset: 328, packedBitOffset: 15, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_fetch_later_api', packedOffset: 328, packedBitOffset: 16, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_favicon', packedOffset: 328, packedBitOffset: 17, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_ad_tagged', packedOffset: 328, packedBitOffset: 18, type: mojo.internal.Bool, nullable: false },
+        { name: 'shared_dictionary_writer_enabled', packedOffset: 328, packedBitOffset: 19, type: mojo.internal.Bool, nullable: false },
+        { name: 'client_side_content_decoding_enabled', packedOffset: 328, packedBitOffset: 20, type: mojo.internal.Bool, nullable: false },
+        { name: 'allows_device_bound_session_registration', packedOffset: 328, packedBitOffset: 21, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,9 +153,12 @@ network.mojom.URLRequestBodySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLRequestBody',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'allow_http1_for_streaming_upload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'contains_sensitive_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_http1_for_streaming_upload', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -98,9 +184,12 @@ network.mojom.DataElementFileSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DataElementFile',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'expected_modification_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'expected_modification_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -126,9 +215,10 @@ network.mojom.DataElementChunkedDataPipeSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DataElementChunkedDataPipe',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'read_only_once', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'data_pipe_getter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'read_only_once', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -140,9 +230,10 @@ network.mojom.SocketTagSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SocketTag',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

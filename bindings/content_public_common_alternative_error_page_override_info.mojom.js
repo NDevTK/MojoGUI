@@ -14,9 +14,10 @@ content.mojom.AlternativeErrorPageOverrideInfoSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.AlternativeErrorPageOverrideInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'alternative_error_page_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resource_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

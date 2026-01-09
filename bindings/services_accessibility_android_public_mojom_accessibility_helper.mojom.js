@@ -299,9 +299,12 @@ ax.android.mojom.RectSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.Rect',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'bottom', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'left', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'top', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'right', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'bottom', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -313,9 +316,11 @@ ax.android.mojom.SpanEntrySpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.SpanEntry',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'span_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'end', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -327,9 +332,12 @@ ax.android.mojom.AccessibilityCollectionInfoDataSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityCollectionInfoData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
         { name: 'selection_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'row_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'column_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_hierarchical', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -341,9 +349,14 @@ ax.android.mojom.AccessibilityCollectionItemInfoDataSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityCollectionItemInfoData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'is_selected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'row_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'column_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'row_span', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'column_span', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_heading', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_selected', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -355,9 +368,12 @@ ax.android.mojom.AccessibilityRangeInfoDataSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityRangeInfoData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'current', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'range_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'max', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'current', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -369,9 +385,10 @@ ax.android.mojom.AccessibilityActionInAndroidSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityActionInAndroid',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -383,9 +400,12 @@ ax.android.mojom.AccessibilityNodeInfoDataSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityNodeInfoData',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'custom_actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'bounds_in_screen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'int_list_properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'string_list_properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'spannable_string_properties', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -397,9 +417,16 @@ ax.android.mojom.AccessibilityWindowInfoDataSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityWindowInfoData',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'int_list_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'bounds_in_screen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'window_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'boolean_properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'string_properties', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'int_properties', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'int_list_properties', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'window_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'root_node_id', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -411,9 +438,13 @@ ax.android.mojom.AccessibilityEventDataSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityEventData',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'int_list_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'node_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'string_properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'int_list_properties', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'source_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -425,9 +456,11 @@ ax.android.mojom.AccessibilityActionDataSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityActionData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'float_parameters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'custom_action_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

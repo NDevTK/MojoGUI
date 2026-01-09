@@ -21,9 +21,10 @@ on_device_translation_internals.mojom.LanguagePackInfoSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation_internals.mojom.LanguagePackInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

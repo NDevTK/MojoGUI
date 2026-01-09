@@ -14,9 +14,15 @@ blink.mojom.SerialPortInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialPortInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'connected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bluetooth_service_class_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'usb_vendor_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'usb_product_id', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'has_usb_vendor_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_usb_product_id', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'connected', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +34,13 @@ blink.mojom.SerialPortFilterSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialPortFilter',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
         { name: 'bluetooth_service_class_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'vendor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'product_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'has_vendor_id', packedOffset: 14, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_product_id', packedOffset: 14, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

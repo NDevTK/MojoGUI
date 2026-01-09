@@ -14,9 +14,11 @@ auction_worklet.mojom.ComponentAuctionModifiedBidParamsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.ComponentAuctionModifiedBidParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'bid_currency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'ad', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'bid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'bid_currency', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,10 @@ auction_worklet.mojom.ComponentAuctionReportResultParamsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.ComponentAuctionReportResultParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'modified_bid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'top_level_seller_signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'modified_bid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +45,14 @@ auction_worklet.mojom.ScoreAdDependencyLatenciesSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.ScoreAdDependencyLatencies',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'score_ad_finish_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'code_ready_latency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'direct_from_seller_signals_latency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'trusted_scoring_signals_latency', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'deps_wait_start_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'score_ad_start_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'score_ad_finish_time', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +64,11 @@ auction_worklet.mojom.SellerTimingMetricsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.SellerTimingMetrics',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'script_timed_out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'js_fetch_latency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'script_latency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'script_timed_out', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,9 +80,10 @@ auction_worklet.mojom.CreativeInfoWithoutOwnerSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.CreativeInfoWithoutOwner',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'creative_scanning_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'ad_descriptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'creative_scanning_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

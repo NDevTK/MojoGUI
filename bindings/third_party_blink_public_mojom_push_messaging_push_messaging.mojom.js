@@ -25,9 +25,10 @@ blink.mojom.PushSubscriptionOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PushSubscriptionOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'application_server_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'application_server_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'user_visible_only', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -39,9 +40,13 @@ blink.mojom.PushSubscriptionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PushSubscription',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'auth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'endpoint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'expirationTime', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'p256dh', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'auth', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

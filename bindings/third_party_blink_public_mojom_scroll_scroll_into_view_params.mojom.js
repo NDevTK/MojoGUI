@@ -25,8 +25,9 @@ blink.mojom.ScrollAlignmentSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ScrollAlignment',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kNoScroll', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -38,9 +39,11 @@ blink.mojom.FocusedEditableParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FocusedEditableParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'relative_location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'can_zoom', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -52,9 +55,16 @@ blink.mojom.ScrollIntoViewParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ScrollIntoViewParams',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'align_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'align_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'behavior', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'for_focused_editable', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'make_visible_in_visual_viewport', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_for_scroll_sequence', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'cross_origin_boundaries', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

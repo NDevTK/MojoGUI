@@ -43,9 +43,10 @@ cros.mojom.KioskVisionDetectionSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionDetection',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'appearances', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp_in_us', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'appearances', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -57,9 +58,12 @@ cros.mojom.KioskVisionTrackSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionTrack',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'appearances', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_timestamp_in_us', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'end_timestamp_in_us', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'appearances', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'person_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -71,9 +75,12 @@ cros.mojom.KioskVisionAppearanceSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionAppearance',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'timestamp_in_us', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'face', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'body', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'person_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,9 +92,13 @@ cros.mojom.KioskVisionFaceDetectionSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionFaceDetection',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'confidence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'box', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'roll', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'pan', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'tilt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -99,9 +110,10 @@ cros.mojom.KioskVisionBodyDetectionSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionBodyDetection',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'confidence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'box', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,9 +125,12 @@ cros.mojom.KioskVisionBoundingBoxSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionBoundingBox',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,10 @@ storage.mojom.IdbPartitionMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbPartitionMetadata',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'origin_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'partition_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

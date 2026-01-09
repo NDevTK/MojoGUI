@@ -24,9 +24,10 @@ blink.mojom.MediaPlayerActionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaPlayerAction',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'enable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

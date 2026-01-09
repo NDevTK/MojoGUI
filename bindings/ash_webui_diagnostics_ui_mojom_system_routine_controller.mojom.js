@@ -48,9 +48,11 @@ ash.diagnostics.mojom.PowerRoutineResultSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.PowerRoutineResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'time_elapsed_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'simple_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'percent_change', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'time_elapsed_seconds', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -62,9 +64,10 @@ ash.diagnostics.mojom.RoutineResultInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.RoutineResultInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

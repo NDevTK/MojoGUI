@@ -14,9 +14,13 @@ audio.mojom.AudioDeviceDescriptionSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.AudioDeviceDescription',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'is_communications_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'unique_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'group_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_system_default', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_communications_device', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

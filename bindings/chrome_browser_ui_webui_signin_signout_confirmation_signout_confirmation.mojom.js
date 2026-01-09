@@ -14,9 +14,10 @@ signout_confirmation.mojom.ExtensionInfoSpec = {
   $: {
     structSpec: {
       name: 'signout_confirmation.mojom.ExtensionInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'icon_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'icon_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,15 @@ signout_confirmation.mojom.SignoutConfirmationDataSpec = {
   $: {
     structSpec: {
       name: 'signout_confirmation.mojom.SignoutConfirmationData',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'has_unsynced_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dialog_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'dialog_subtitle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'accept_button_label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'cancel_button_label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'verify_button_label', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'account_extensions', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'has_unsynced_data', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

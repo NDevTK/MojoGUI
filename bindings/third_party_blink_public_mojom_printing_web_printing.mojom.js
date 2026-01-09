@@ -120,9 +120,11 @@ blink.mojom.WebPrinterInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPrinterInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'printer_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'printer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'printer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'printer_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -136,7 +138,8 @@ blink.mojom.WebPrintingRangeSpec = {
       name: 'blink.mojom.WebPrintingRange',
       packedSize: 16,
       fields: [
-        { name: 'to', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'from', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'to', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,9 +151,10 @@ blink.mojom.WebPrintingMediaSizeSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPrintingMediaSize',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'y_dimension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'x_dimension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'y_dimension', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -162,9 +166,10 @@ blink.mojom.WebPrintingMediaCollectionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPrintingMediaCollection',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'media_size_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'media_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'media_size_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -176,9 +181,30 @@ blink.mojom.WebPrinterAttributesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPrinterAttributes',
-      packedSize: 16,
+      packedSize: 184,
       fields: [
-        { name: 'printer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'copies_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'media_col_default', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'media_col_database', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'media_source_default', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'media_source_supported', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'multiple_document_handling_default', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'multiple_document_handling_supported', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'orientation_requested_default', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'orientation_requested_supported', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'printer_resolution_default', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'printer_resolution_supported', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'print_color_mode_default', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'print_color_mode_supported', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'print_quality_default', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'print_quality_supported', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'printer_state', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'printer_state_message', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'printer_state_reasons', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'sides_default', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'sides_supported', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'printer_id', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'copies_default', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,9 +230,18 @@ blink.mojom.WebPrintJobTemplateAttributesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPrintJobTemplateAttributes',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'sides', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'job_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'media_col', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'media_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'multiple_document_handling', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'orientation_requested', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'printer_resolution', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'print_color_mode', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'print_quality', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'sides', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'copies', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -218,8 +253,10 @@ blink.mojom.WebPrintJobUpdateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPrintJobUpdate',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pages_printed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -231,9 +268,12 @@ blink.mojom.WebPrintJobInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPrintJobInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'job_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'job_pages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'observer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'controller', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,7 +16,8 @@ blink.mojom.VendorAndProductSpec = {
       name: 'blink.mojom.VendorAndProduct',
       packedSize: 16,
       fields: [
-        { name: 'product', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'vendor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'product', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,10 @@ blink.mojom.HidDeviceFilterSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HidDeviceFilter',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'device_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

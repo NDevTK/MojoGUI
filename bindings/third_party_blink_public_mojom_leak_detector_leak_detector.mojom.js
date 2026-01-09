@@ -14,9 +14,19 @@ blink.mojom.LeakDetectionResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LeakDetectionResult',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'number_of_live_resource_fetchers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'number_of_live_audio_nodes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'number_of_live_documents', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'number_of_live_nodes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'number_of_live_layout_objects', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'number_of_live_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'number_of_live_context_lifecycle_state_observers', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'number_of_live_frames', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'number_of_live_v8_per_context_data', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'number_of_worker_global_scopes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'number_of_live_ua_css_resources', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'number_of_live_resource_fetchers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

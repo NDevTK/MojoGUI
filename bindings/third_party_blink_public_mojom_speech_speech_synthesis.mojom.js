@@ -22,9 +22,14 @@ blink.mojom.SpeechSynthesisUtteranceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesisUtterance',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'pitch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'voice', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'volume', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'rate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'pitch', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -36,9 +41,13 @@ blink.mojom.SpeechSynthesisVoiceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeechSynthesisVoice',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'is_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'voice_uri', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_local_service', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_default', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

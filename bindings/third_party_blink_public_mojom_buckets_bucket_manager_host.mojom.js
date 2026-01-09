@@ -21,9 +21,15 @@ blink.mojom.BucketPoliciesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BucketPolicies',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'expires', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'durability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'quota', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'expires', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'persisted', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_persisted', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_durability', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_quota', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

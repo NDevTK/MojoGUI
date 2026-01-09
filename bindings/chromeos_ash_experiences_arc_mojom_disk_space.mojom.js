@@ -14,9 +14,11 @@ arc.mojom.ApplicationsSizeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ApplicationsSize',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'total_cache_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_code_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'total_data_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'total_cache_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +44,11 @@ arc.mojom.QuotaSpacesSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.QuotaSpaces',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'curspaces_for_project_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'curspaces_for_uids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'curspaces_for_gids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'curspaces_for_project_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

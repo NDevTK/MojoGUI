@@ -78,9 +78,10 @@ crosapi.mojom.GetPublicKeySuccessResultSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.GetPublicKeySuccessResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'algorithm_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'algorithm_properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -28,9 +28,26 @@ discards.mojom.TabDiscardsInfoSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.TabDiscardsInfo',
-      packedSize: 16,
+      packedSize: 120,
       fields: [
-        { name: 'state_change_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tab_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'visibility', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'loading_state', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cannot_discard_reasons', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'can_freeze', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cannot_freeze_reasons', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'discard_reason', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'site_engagement_score', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'state_change_time', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'discard_count', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'utility_rank', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'last_active_seconds', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'id', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'can_discard', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_auto_discardable', packedOffset: 104, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_focus', packedOffset: 104, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +59,13 @@ discards.mojom.PageInfoSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.PageInfo',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'description_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'main_frame_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'opener_frame_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'embedder_frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'description_json', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +77,14 @@ discards.mojom.FrameInfoSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.FrameInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'description_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'parent_frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'process_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'description_json', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,9 +96,12 @@ discards.mojom.ProcessInfoSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.ProcessInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'description_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'private_footprint_kb', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'description_json', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -84,9 +113,15 @@ discards.mojom.WorkerInfoSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.WorkerInfo',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'description_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'process_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'client_frame_ids', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'client_worker_ids', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'child_worker_ids', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'description_json', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -98,9 +133,10 @@ discards.mojom.FavIconInfoSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.FavIconInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'icon_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'icon_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

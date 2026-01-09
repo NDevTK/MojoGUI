@@ -16,9 +16,12 @@ ash.settings.app_permission.mojom.AppSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.app_permission.mojom.App',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'permissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'permissions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

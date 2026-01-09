@@ -14,9 +14,11 @@ storage.mojom.BucketLocatorSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BucketLocator',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'is_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'storage_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_default', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

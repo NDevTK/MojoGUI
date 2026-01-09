@@ -14,9 +14,11 @@ storage.mojom.StorageUsageInfoSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.StorageUsageInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'last_modified', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_size_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'last_modified', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

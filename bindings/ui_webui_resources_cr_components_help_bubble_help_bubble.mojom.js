@@ -37,9 +37,10 @@ help_bubble.mojom.HelpBubbleButtonParamsSpec = {
   $: {
     structSpec: {
       name: 'help_bubble.mojom.HelpBubbleButtonParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_default', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -53,7 +54,8 @@ help_bubble.mojom.ProgressSpec = {
       name: 'help_bubble.mojom.Progress',
       packedSize: 16,
       fields: [
-        { name: 'total', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'current', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'total', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -65,9 +67,19 @@ help_bubble.mojom.HelpBubbleParamsSpec = {
   $: {
     structSpec: {
       name: 'help_bubble.mojom.HelpBubbleParams',
-      packedSize: 16,
+      packedSize: 96,
       fields: [
-        { name: 'timeout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'body_text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'close_button_alt_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'body_icon_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'body_icon_alt_text', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'progress', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'buttons', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'timeout', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'focus_on_show_hint', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }

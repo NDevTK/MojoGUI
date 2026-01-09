@@ -34,9 +34,10 @@ blink.mojom.SharedStorageUrlWithMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedStorageUrlWithMetadata',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'reporting_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reporting_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -48,9 +49,12 @@ blink.mojom.PrivateAggregationConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PrivateAggregationConfig',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'max_contributions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'aggregation_coordinator_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'context_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'filtering_id_max_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'max_contributions', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
       ],
       versions: [{version: 0}]
     }

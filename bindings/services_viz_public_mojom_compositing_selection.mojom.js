@@ -14,9 +14,10 @@ viz.mojom.SelectionSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Selection',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

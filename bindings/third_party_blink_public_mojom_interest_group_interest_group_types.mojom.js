@@ -39,9 +39,17 @@ blink.mojom.InterestGroupAdSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InterestGroupAd',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'creative_scanning_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'render_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'size_group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'buyer_reporting_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'buyer_and_seller_reporting_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'selectable_buyer_and_seller_reporting_ids', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'metadata', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ad_render_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'allowed_reporting_origins', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'creative_scanning_metadata', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -55,7 +63,8 @@ blink.mojom.SellerCapabilitiesSpec = {
       name: 'blink.mojom.SellerCapabilities',
       packedSize: 16,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'allows_interest_group_counts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allows_latency_stats', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -69,7 +78,9 @@ blink.mojom.AuctionServerRequestFlagsSpec = {
       name: 'blink.mojom.AuctionServerRequestFlags',
       packedSize: 16,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'omit_ads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'include_full_ads', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'omit_user_bidding_signals', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -81,9 +92,10 @@ blink.mojom.AdKeywordReplacementSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdKeywordReplacement',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'replacement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'match', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'replacement', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,8 +107,9 @@ blink.mojom.InterestGroupSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InterestGroup',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kCompatibilityMode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,9 +121,10 @@ blink.mojom.PreviousWinSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PreviousWin',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'ad_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ad_json', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -122,8 +136,13 @@ blink.mojom.ViewOrClickCountsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewOrClickCounts',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'past_hour', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'past_day', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'past_week', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'past_30_days', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'past_90_days', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,9 +154,10 @@ blink.mojom.ViewAndClickCountsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewAndClickCounts',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'click_counts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'view_counts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'click_counts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -149,9 +169,13 @@ blink.mojom.BiddingBrowserSignalsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BiddingBrowserSignals',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'view_and_click_counts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'prev_wins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'view_and_click_counts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'join_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'bid_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'for_debugging_only_in_cooldown_or_lockout', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -163,9 +187,15 @@ blink.mojom.StorageInterestGroupSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageInterestGroup',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'estimated_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interest_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bidding_browser_signals', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'joining_origin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'join_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_updated', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'next_update_after', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'estimated_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -177,9 +207,10 @@ blink.mojom.DirectFromSellerSignalsSubresourceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectFromSellerSignalsSubresource',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bundle_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -191,9 +222,12 @@ blink.mojom.DirectFromSellerSignalsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectFromSellerSignals',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'auction_signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'per_buyer_signals', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'seller_signals', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'auction_signals', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -205,9 +239,10 @@ blink.mojom.AuctionAdConfigBuyerTimeoutsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionAdConfigBuyerTimeouts',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'per_buyer_timeouts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'all_buyers_timeout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'per_buyer_timeouts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -233,9 +268,10 @@ blink.mojom.AuctionAdConfigBuyerCurrenciesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionAdConfigBuyerCurrencies',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'per_buyer_currencies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'all_buyers_currency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'per_buyer_currencies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -261,9 +297,10 @@ blink.mojom.AuctionReportBuyerDebugModeConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionReportBuyerDebugModeConfig',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'debug_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'debug_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
+        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -275,9 +312,10 @@ blink.mojom.AuctionReportBuyersConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionReportBuyersConfig',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'scale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -303,9 +341,21 @@ blink.mojom.AuctionAdConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionAdConfig',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'send_creative_scanning_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'seller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'server_response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'decision_logic_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'trusted_scoring_signals_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'auction_ad_config_non_shared_params', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'direct_from_seller_signals', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'per_buyer_experiment_group_ids', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'aggregation_coordinator_origin', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'seller_experiment_group_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
+        { name: 'all_buyer_experiment_group_id', packedOffset: 66, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
+        { name: 'expects_direct_from_seller_signals_header_ad_slot', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'expects_additional_bids', packedOffset: 68, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'send_creative_scanning_metadata', packedOffset: 68, packedBitOffset: 2, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -331,9 +381,10 @@ blink.mojom.AuctionDataConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionDataConfig',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'request_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'per_buyer_configs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'request_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -345,9 +396,10 @@ blink.mojom.AdAuctionPerSellerRequestSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionPerSellerRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'seller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

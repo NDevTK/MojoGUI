@@ -14,9 +14,14 @@ viz.mojom.FrameSinkManagerParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerParams',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
         { name: 'debug_renderer_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'restart_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'activation_deadline_in_frames', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'frame_sink_manager', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'frame_sink_manager_client', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'use_activation_deadline', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +35,7 @@ viz.mojom.GpuServiceCreationParamsSpec = {
       name: 'viz.mojom.GpuServiceCreationParams',
       packedSize: 16,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supports_overlays', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

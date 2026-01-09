@@ -21,9 +21,11 @@ service_manager.mojom.RunningServiceInfoSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.RunningServiceInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

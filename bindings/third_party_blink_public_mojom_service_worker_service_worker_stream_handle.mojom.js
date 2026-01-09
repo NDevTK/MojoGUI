@@ -14,9 +14,10 @@ blink.mojom.ServiceWorkerStreamHandleSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerStreamHandle',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'callback_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'callback_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

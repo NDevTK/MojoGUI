@@ -34,7 +34,8 @@ blink.mojom.AILanguageModelSamplingParamsSpec = {
       name: 'blink.mojom.AILanguageModelSamplingParams',
       packedSize: 16,
       fields: [
-        { name: 'temperature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'top_k', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'temperature', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -46,9 +47,10 @@ blink.mojom.AILanguageModelParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModelParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'max_sampling_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'default_sampling_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_sampling_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -60,9 +62,12 @@ blink.mojom.AILanguageModelInstanceInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModelInstanceInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'input_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'input_quota', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'input_usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'sampling_params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_types', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -74,9 +79,10 @@ blink.mojom.AILanguageModelExpectedSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModelExpected',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'languages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -88,9 +94,11 @@ blink.mojom.AILanguageModelPromptSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModelPrompt',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'role', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_prefix', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -102,9 +110,12 @@ blink.mojom.AILanguageModelCreateOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageModelCreateOptions',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'expected_outputs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'sampling_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'initial_prompts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'expected_inputs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'expected_outputs', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }

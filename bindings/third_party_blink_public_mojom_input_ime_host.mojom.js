@@ -14,9 +14,10 @@ blink.mojom.EditorBoundsInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EditorBoundsInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'handwriting_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'editor_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'handwriting_bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +43,14 @@ blink.mojom.InputCursorAnchorInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InputCursorAnchorInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'character_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'editor_bounds_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text_appearance_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'visible_line_bounds', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'insertion_marker', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'requested', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

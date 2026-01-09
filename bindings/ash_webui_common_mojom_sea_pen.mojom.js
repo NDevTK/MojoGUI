@@ -33,9 +33,10 @@ ash.personalization_app.mojom.SeaPenThumbnailSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.SeaPenThumbnail',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -47,9 +48,10 @@ ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.SeaPenUserVisibleQuery',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'template_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'template_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -61,9 +63,11 @@ ash.personalization_app.mojom.SeaPenTemplateQuerySpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.SeaPenTemplateQuery',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'user_visible_query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'user_visible_query', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -75,9 +79,11 @@ ash.personalization_app.mojom.SeaPenFeedbackMetadataSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.SeaPenFeedbackMetadata',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'generation_seed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'log_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'generation_seed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_positive', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -89,9 +95,10 @@ ash.personalization_app.mojom.RecentSeaPenImageInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.RecentSeaPenImageInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'creation_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'creation_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -103,9 +110,10 @@ ash.personalization_app.mojom.RecentSeaPenThumbnailDataSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.RecentSeaPenThumbnailData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'image_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -117,9 +125,10 @@ ash.personalization_app.mojom.TextQueryHistoryEntrySpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.TextQueryHistoryEntry',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'thumbnails', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'thumbnails', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

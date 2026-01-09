@@ -14,9 +14,10 @@ network.mojom.ProxyConfigWithAnnotationSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyConfigWithAnnotation',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'traffic_annotation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

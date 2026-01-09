@@ -14,9 +14,22 @@ viz.mojom.RootCompositorFrameSinkParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.RootCompositorFrameSinkParams',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'external_begin_frame_controller_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'widget', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'renderer_settings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'create_input_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'refresh_rate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'compositor_frame_sink', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'compositor_frame_sink_client', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'display_private', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'display_client', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'external_begin_frame_controller', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: true },
+        { name: 'external_begin_frame_controller_client', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true },
+        { name: 'gpu_compositing', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'send_swap_size_notifications', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'disable_frame_rate_limit', packedOffset: 64, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +43,8 @@ viz.mojom.CompositorDisplayLinkParamsSpec = {
       name: 'viz.mojom.CompositorDisplayLinkParams',
       packedSize: 16,
       fields: [
-        { name: 'external_begin_frame_controller_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'external_begin_frame_controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'external_begin_frame_controller_client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

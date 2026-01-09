@@ -23,9 +23,12 @@ arc.mojom.TtsUtteranceSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TtsUtterance',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'voice_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'rate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'pitch', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'utteranceId', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,9 +40,12 @@ arc.mojom.TtsVoiceSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TtsVoice',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'is_network_connection_required', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'locale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_network_connection_required', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

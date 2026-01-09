@@ -16,7 +16,8 @@ ax.mojom.AXBitsetDataSpec = {
       name: 'ax.mojom.AXBitsetData',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'set_bits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'values', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,21 @@ ax.mojom.AXNodeDataSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXNodeData',
-      packedSize: 16,
+      packedSize: 104,
       fields: [
-        { name: 'bool_attributes_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'role', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'actions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'string_attributes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'int_attributes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'float_attributes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'intlist_attributes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'stringlist_attributes', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'html_attributes', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'child_ids', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'relative_bounds', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bool_attributes_data', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'state', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

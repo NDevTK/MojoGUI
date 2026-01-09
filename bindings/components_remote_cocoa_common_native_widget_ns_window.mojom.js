@@ -45,9 +45,13 @@ remote_cocoa.mojom.CreateWindowParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.CreateWindowParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'animation_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'window_class', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'style_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'titlebar_appears_transparent', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'window_title_hidden', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'animation_enabled', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -59,9 +63,14 @@ remote_cocoa.mojom.NativeWidgetNSWindowInitParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowInitParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'is_tooltip', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'modal_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state_restoration_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_translucent', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_window_server_shadow', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'force_into_collection_cycle', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_tooltip', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -35,9 +35,10 @@ blink.mojom.ClipboardFilesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardFiles',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'file_system_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'file_system_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

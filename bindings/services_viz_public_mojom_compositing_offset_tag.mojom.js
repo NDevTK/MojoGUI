@@ -28,9 +28,10 @@ viz.mojom.OffsetTagValueSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.OffsetTagValue',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +43,12 @@ viz.mojom.OffsetTagDefinitionSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.OffsetTagDefinition',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'max_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min_offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

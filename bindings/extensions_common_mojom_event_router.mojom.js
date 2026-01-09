@@ -14,9 +14,11 @@ extensions.mojom.ServiceWorkerContextSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ServiceWorkerContext',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'thread_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scope_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'version_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'thread_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,12 @@ extensions.mojom.EventListenerSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventListener',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'listener_owner', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'service_worker_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

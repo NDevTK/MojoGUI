@@ -265,9 +265,10 @@ arc.mojom.BootProgressEventSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BootProgressEvent',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'uptimeMillis', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'uptimeMillis', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -279,9 +280,11 @@ arc.mojom.GfxMetricsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.GfxMetrics',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'frameTimePercentile95', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'framesTotal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'framesJanky', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'frameTimePercentile95', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -293,9 +296,10 @@ arc.mojom.AppKillSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppKill',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -307,9 +311,10 @@ arc.mojom.LowLatencyStylusLibPredictionTargetSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.LowLatencyStylusLibPredictionTarget',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -321,9 +326,10 @@ arc.mojom.AppCategoryDataSizeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppCategoryDataSize',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data_size_in_mb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data_size_in_mb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -335,9 +341,10 @@ arc.mojom.DataDirectorySizeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DataDirectorySize',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'size_in_mb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size_in_mb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -29,9 +29,11 @@ blink.mojom.FileSystemAccessErrorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessError',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

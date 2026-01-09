@@ -183,9 +183,14 @@ printing.mojom.PageSizeMarginsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PageSizeMargins',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'margin_left', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content_width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'content_height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'margin_top', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'margin_right', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'margin_bottom', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'margin_left', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -199,7 +204,8 @@ printing.mojom.PageRangeSpec = {
       name: 'printing.mojom.PageRange',
       packedSize: 16,
       fields: [
-        { name: 'to', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'from', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'to', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -211,8 +217,9 @@ printing.mojom.IppClientInfoSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.IppClientInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kApplication', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

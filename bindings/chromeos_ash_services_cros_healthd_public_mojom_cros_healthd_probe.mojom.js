@@ -599,8 +599,9 @@ ash.cros_healthd.mojom.OsInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.OsInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -651,8 +652,9 @@ ash.cros_healthd.mojom.PsrEventSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.PsrEvent',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -664,8 +666,9 @@ ash.cros_healthd.mojom.PsrInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.PsrInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1094,8 +1097,9 @@ ash.cros_healthd.mojom.SensorSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.Sensor',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1120,8 +1124,9 @@ ash.cros_healthd.mojom.ThermalSensorInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ThermalSensorInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

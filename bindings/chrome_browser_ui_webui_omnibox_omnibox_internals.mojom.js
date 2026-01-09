@@ -22,7 +22,8 @@ mojom.ACMatchClassificationSpec = {
       name: 'mojom.ACMatchClassification',
       packedSize: 16,
       fields: [
-        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'style', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -34,9 +35,39 @@ mojom.SignalsSpec = {
   $: {
     structSpec: {
       name: 'mojom.Signals',
-      packedSize: 16,
+      packedSize: 112,
       fields: [
-        { name: 'is_calculator_suggest', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'elapsed_time_last_visit_secs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
+        { name: 'elapsed_time_last_shortcut_visit_sec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
+        { name: 'typed_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'visit_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'shortcut_visit_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'shortest_shortcut_len', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'num_bookmarks_of_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'first_bookmark_title_match_position', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'total_bookmark_title_match_length', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'num_input_terms_matched_by_bookmark_title', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'first_url_match_position', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'total_url_match_length', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'total_host_match_length', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'total_path_match_length', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'total_query_or_ref_match_length', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'total_title_match_length', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'num_input_terms_matched_by_title', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'num_input_terms_matched_by_url', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'length_of_url', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'site_engagement', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
+        { name: 'search_suggest_relevance', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'is_host_only', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'host_match_at_word_boundary', packedOffset: 92, packedBitOffset: 1, type: mojo.internal.Bool, nullable: true },
+        { name: 'has_non_scheme_www_match', packedOffset: 92, packedBitOffset: 2, type: mojo.internal.Bool, nullable: true },
+        { name: 'allowed_to_be_default_match', packedOffset: 92, packedBitOffset: 3, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_search_suggest_entity', packedOffset: 92, packedBitOffset: 4, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_verbatim', packedOffset: 92, packedBitOffset: 5, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_navsuggest', packedOffset: 92, packedBitOffset: 6, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_search_suggest_tail', packedOffset: 92, packedBitOffset: 7, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_answer_suggest', packedOffset: 92, packedBitOffset: 8, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_calculator_suggest', packedOffset: 92, packedBitOffset: 9, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -48,9 +79,38 @@ mojom.AutocompleteMatchSpec = {
   $: {
     structSpec: {
       name: 'mojom.AutocompleteMatch',
-      packedSize: 16,
+      packedSize: 184,
       fields: [
-        { name: 'additional_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'provider_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'fill_into_edit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'inline_autocompletion', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'destination_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stripped_destination_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'icon', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'contents', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'contents_class', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'description', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description_class', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'answer', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'transition', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'aqs_type_subtypes', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'associated_keyword', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'keyword', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'scoring_signals', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'additional_info', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'relevance', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'duplicates', packedOffset: 156, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'pedal_id', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'provider_done', packedOffset: 164, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'deletable', packedOffset: 164, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'swap_contents_and_description', packedOffset: 164, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'allowed_to_be_default_match', packedOffset: 164, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_search_type', packedOffset: 164, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_tab_match', packedOffset: 164, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'starred', packedOffset: 164, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
+        { name: 'from_previous', packedOffset: 164, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -62,9 +122,10 @@ mojom.AutocompleteResultsForProviderSpec = {
   $: {
     structSpec: {
       name: 'mojom.AutocompleteResultsForProvider',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'provider_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -76,9 +137,17 @@ mojom.OmniboxResponseSpec = {
   $: {
     structSpec: {
       name: 'mojom.OmniboxResponse',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'results_by_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'input_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'combined_results', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'results_by_provider', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'cursor_position', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'time_since_omnibox_started_ms', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'done', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_typed_host', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

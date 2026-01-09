@@ -21,9 +21,17 @@ mirroring.mojom.SessionParametersSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.SessionParameters',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'enable_rtcp_reporting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'receiver_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'receiver_friendly_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'destination_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'target_playout_delay', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'is_remote_playback', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'force_letterboxing', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_rtcp_reporting', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

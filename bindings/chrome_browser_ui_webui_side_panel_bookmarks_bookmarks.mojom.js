@@ -37,9 +37,17 @@ side_panel.mojom.BookmarksTreeNodeSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksTreeNode',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'unmodifiable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'parent_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'children', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'date_added', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'date_last_used', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'index', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'unmodifiable', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,11 @@ network.mojom.PinSetSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.PinSet',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'bad_static_spki_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'static_spki_hashes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bad_static_spki_hashes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,11 @@ network.mojom.PinSetInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.PinSetInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'include_subdomains', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hostname', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'pinset_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'include_subdomains', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +46,10 @@ network.mojom.PinListSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.PinList',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'host_pins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pinsets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'host_pins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

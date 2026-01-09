@@ -14,9 +14,11 @@ network.mojom.EarlyHintsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.EarlyHints',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'ip_address_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'referrer_policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ip_address_space', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

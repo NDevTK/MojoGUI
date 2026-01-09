@@ -14,9 +14,12 @@ pdf.mojom.ThumbParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.ThumbParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'keep_aspect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size_px', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dpi', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stretch', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'keep_aspect', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

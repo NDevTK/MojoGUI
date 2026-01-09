@@ -23,9 +23,10 @@ arc.mojom.ActivityNameSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ActivityName',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'activity_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'activity_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

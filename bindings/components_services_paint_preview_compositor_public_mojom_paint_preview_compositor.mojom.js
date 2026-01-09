@@ -29,9 +29,10 @@ paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewBeginCompositeRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'recording_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'preview', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'recording_map', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -43,9 +44,10 @@ paint_preview.mojom.SubframeClipRectSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.SubframeClipRect',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'clip_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'clip_rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -57,9 +59,11 @@ paint_preview.mojom.FrameDataSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.FrameData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'subframes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scroll_extents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scroll_offsets', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subframes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -71,9 +75,10 @@ paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewBeginCompositeResponse',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'root_frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

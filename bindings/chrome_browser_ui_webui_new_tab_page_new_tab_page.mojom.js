@@ -63,9 +63,17 @@ new_tab_page.mojom.BackgroundImageSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.BackgroundImage',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'image_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url_2x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'attribution_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'repeat_x', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'repeat_y', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'position_x', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'position_y', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'image_source', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -77,9 +85,22 @@ new_tab_page.mojom.ThemeSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.Theme',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'most_visited', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'text_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'background_color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'logo_color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'background_image_collection_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'background_image', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'background_image_attribution_1', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'background_image_attribution_2', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'background_image_attribution_url', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'most_visited', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_baseline', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_gm3', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_custom_background', packedOffset: 72, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'daily_refresh_enabled', packedOffset: 72, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_dark', packedOffset: 72, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -91,9 +112,15 @@ new_tab_page.mojom.ImageDoodleSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.ImageDoodle',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'animation_impression_log_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'image_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'animation_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_impression_log_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'animation_impression_log_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'width', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'height', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -105,9 +132,12 @@ new_tab_page.mojom.AllModeImageDoodleSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.AllModeImageDoodle',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'share_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'light', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dark', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'on_click_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'share_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -119,9 +149,11 @@ new_tab_page.mojom.InteractiveDoodleSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.InteractiveDoodle',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -133,9 +165,11 @@ new_tab_page.mojom.DoodleSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.Doodle',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'interactive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,9 +181,10 @@ new_tab_page.mojom.PromoImagePartSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.PromoImagePart',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -161,9 +196,10 @@ new_tab_page.mojom.PromoLinkPartSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.PromoLinkPart',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,9 +225,11 @@ new_tab_page.mojom.PromoSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.Promo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'middle_slot_parts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'log_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'middle_slot_parts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,9 +241,10 @@ new_tab_page.mojom.ModuleIdNameSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.ModuleIdName',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

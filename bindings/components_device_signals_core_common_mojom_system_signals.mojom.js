@@ -30,9 +30,14 @@ device_signals.mojom.ExecutableMetadataSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.ExecutableMetadata',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'subject_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'public_keys_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'product_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'subject_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_running', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_os_verified', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -44,9 +49,12 @@ device_signals.mojom.FileSystemItemSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.FileSystemItem',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'executable_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'presence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sha256_hash', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'executable_metadata', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -58,9 +66,11 @@ device_signals.mojom.FileSystemItemRequestSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.FileSystemItemRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'compute_executable_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'compute_sha256', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'compute_executable_metadata', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -72,9 +82,10 @@ device_signals.mojom.AntiVirusSignalSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.AntiVirusSignal',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

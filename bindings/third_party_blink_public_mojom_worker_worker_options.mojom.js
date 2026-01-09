@@ -14,8 +14,10 @@ blink.mojom.WorkerOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WorkerOptions',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

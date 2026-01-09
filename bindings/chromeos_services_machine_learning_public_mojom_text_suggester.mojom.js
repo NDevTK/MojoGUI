@@ -69,8 +69,10 @@ chromeos.machine_learning.mojom.TextSuggesterResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextSuggesterResult',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'OK', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ERROR', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

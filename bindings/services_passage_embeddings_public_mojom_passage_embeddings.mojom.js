@@ -36,9 +36,11 @@ passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec = {
   $: {
     structSpec: {
       name: 'passage_embeddings.mojom.PassageEmbeddingsLoadModelsParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'input_window_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'embeddings_model', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sp_model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_window_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -50,9 +52,13 @@ passage_embeddings.mojom.PassageEmbedderParamsSpec = {
   $: {
     structSpec: {
       name: 'passage_embeddings.mojom.PassageEmbedderParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'allow_gpu_execution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'user_initiated_priority_num_threads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'urgent_priority_num_threads', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'passive_priority_num_threads', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'embedder_cache_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'allow_gpu_execution', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

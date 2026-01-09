@@ -59,9 +59,20 @@ auction_worklet.mojom.BidderWorkletNonSharedParamsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.BidderWorkletNonSharedParams',
-      packedSize: 16,
+      packedSize: 104,
       fields: [
-        { name: 'kanon_keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'trusted_bidding_signals_slot_size_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'priority_vector', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'execution_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'trusted_bidding_signals_keys', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'user_bidding_signals', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ads', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'ad_components', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'kanon_keys', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'max_trusted_bidding_signals_url_length', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'enable_bidding_signals_prioritization', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -73,9 +84,19 @@ auction_worklet.mojom.BidderWorkletBidSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.BidderWorkletBid',
-      packedSize: 16,
+      packedSize: 96,
       fields: [
-        { name: 'bid_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'bid_role', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ad', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'bid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'bid_currency', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'ad_cost', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'ad_descriptor', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'selected_buyer_and_seller_reporting_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ad_component_descriptors', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'aggregate_win_signals', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bid_duration', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'modeling_signals', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -101,9 +122,15 @@ auction_worklet.mojom.GenerateBidDependencyLatenciesSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.GenerateBidDependencyLatencies',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'generate_bid_finish_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'code_ready_latency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'config_promises_latency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'direct_from_seller_signals_latency', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'trusted_bidding_signals_latency', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'deps_wait_start_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'generate_bid_start_time', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'generate_bid_finish_time', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -115,9 +142,12 @@ auction_worklet.mojom.BidderTimingMetricsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.BidderTimingMetrics',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'script_timed_out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'js_fetch_latency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'wasm_fetch_latency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'script_latency', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'script_timed_out', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -129,9 +159,12 @@ auction_worklet.mojom.PrivateModelTrainingRequestDataSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.PrivateModelTrainingRequestData',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'destination', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'aggregation_coordinator_origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'destination', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payload_length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

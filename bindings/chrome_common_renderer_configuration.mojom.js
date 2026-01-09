@@ -26,9 +26,11 @@ chrome.mojom.BoundSessionThrottlerParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.BoundSessionThrottlerParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'cookie_expiry_date', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'domain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'cookie_expiry_date', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -40,9 +42,12 @@ chrome.mojom.DynamicParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.DynamicParams',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'allowed_domains_for_apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bound_session_throttler_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'allowed_domains_for_apps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'youtube_restrict', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'force_safe_search', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,7 +61,7 @@ chrome.mojom.StaticParamsSpec = {
       name: 'chrome.mojom.StaticParams',
       packedSize: 16,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_instant_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

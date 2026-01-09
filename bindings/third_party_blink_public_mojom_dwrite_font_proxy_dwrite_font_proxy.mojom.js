@@ -14,9 +14,10 @@ blink.mojom.DWriteStringPairSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteStringPair',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'second', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'first', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'second', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +31,9 @@ blink.mojom.DWriteFontStyleSpec = {
       name: 'blink.mojom.DWriteFontStyle',
       packedSize: 16,
       fields: [
-        { name: 'font_stretch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'font_weight', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'font_slant', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'font_stretch', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +45,13 @@ blink.mojom.MapCharactersResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MapCharactersResult',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'font_style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'font_style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'family_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'mapped_length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'scale', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

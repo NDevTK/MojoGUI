@@ -67,9 +67,10 @@ ash.multidevice_setup.mojom.HostDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.HostDevice',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'connectivity_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connectivity_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -31,9 +31,13 @@ device.mojom.AccessPointDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.AccessPointData',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'mac_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'radio_signal_strength', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'channel', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'signal_to_noise', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -45,9 +49,10 @@ device.mojom.NetworkLocationDiagnosticsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NetworkLocationDiagnostics',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'wifi_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'access_point_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'wifi_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -59,9 +64,13 @@ device.mojom.PositionCacheDiagnosticsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PositionCacheDiagnostics',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'last_network_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'last_hit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'last_miss', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'hit_rate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'last_network_result', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'cache_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -73,9 +82,15 @@ device.mojom.WifiPollingPolicyDiagnosticsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.WifiPollingPolicyDiagnostics',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'no_wifi_interval', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'interval_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'interval_duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'polling_interval', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'default_interval', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'no_change_interval', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'two_no_change_interval', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'no_wifi_interval', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,9 +116,11 @@ device.mojom.NetworkLocationResponseSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NetworkLocationResponse',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'accuracy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'latitude', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'longitude', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'accuracy', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
       ],
       versions: [{version: 0}]
     }

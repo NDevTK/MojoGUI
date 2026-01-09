@@ -14,9 +14,11 @@ media.mojom.MediaDrmSupportResultSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaDrmSupportResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'key_system_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'key_system_supports_video_mp4', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'key_system_supports_video_webm', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

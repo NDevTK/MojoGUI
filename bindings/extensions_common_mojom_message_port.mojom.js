@@ -37,9 +37,12 @@ extensions.mojom.PortIdSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.PortId',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'serialization_format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'serialization_format', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'port_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_opener', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -51,9 +54,11 @@ extensions.mojom.MessagingEndpointSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.MessagingEndpoint',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'native_app_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'native_app_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -65,9 +70,12 @@ extensions.mojom.TabConnectionInfoSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.TabConnectionInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'document_lifecycle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'document_lifecycle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -79,9 +87,14 @@ extensions.mojom.ExternalConnectionInfoSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ExternalConnectionInfo',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'guest_render_frame_routing_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'source_endpoint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_origin', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'guest_process_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'guest_render_frame_routing_id', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -93,9 +106,12 @@ extensions.mojom.MessageSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Message',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'from_privileged_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'format', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'user_gesture', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'from_privileged_context', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

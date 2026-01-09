@@ -14,9 +14,14 @@ media.mojom.SupportedVideoDecoderConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SupportedVideoDecoderConfig',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'require_encrypted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'profile_min', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'profile_max', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'coded_size_min', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'coded_size_max', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'allow_encrypted', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'require_encrypted', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +33,10 @@ media.mojom.CommandBufferIdSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CommandBufferId',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'channel_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'route_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

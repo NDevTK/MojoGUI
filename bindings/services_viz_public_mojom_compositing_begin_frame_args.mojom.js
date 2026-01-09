@@ -21,9 +21,10 @@ viz.mojom.BeginFrameIdSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.BeginFrameId',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'sequence_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'sequence_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -35,9 +36,19 @@ viz.mojom.BeginFrameArgsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.BeginFrameArgs',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'animate_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'deadline', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interval', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frames_throttled_since_last', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'trace_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'dispatch_time', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client_arrival_time', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'on_critical_path', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'animate_only', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -49,9 +60,12 @@ viz.mojom.BeginFrameAckSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.BeginFrameAck',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'has_damage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'sequence_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'has_damage', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,9 +77,12 @@ viz.mojom.CADisplayLinkParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CADisplayLinkParams',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'interval', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target_timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interval', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -49,9 +49,10 @@ bluetooth.mojom.AppearanceSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Appearance',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'has_value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,9 +64,10 @@ bluetooth.mojom.PowerSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Power',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'has_value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -91,9 +93,14 @@ bluetooth.mojom.ScanRecordSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.ScanRecord',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'service_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'uuids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'appearance', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tx_power', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'manufacturer_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'service_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -105,9 +112,11 @@ bluetooth.mojom.ScanResultSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.ScanResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'scan_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'scan_record', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rssi', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +130,14 @@ bluetooth.mojom.CharacteristicPropertiesSpec = {
       name: 'bluetooth.mojom.CharacteristicProperties',
       packedSize: 16,
       fields: [
-        { name: 'extended_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'broadcast', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'read', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'write_without_response', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'write', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'notify', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'indicate', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'authenticated_signed_writes', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
+        { name: 'extended_properties', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

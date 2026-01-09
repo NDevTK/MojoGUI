@@ -39,9 +39,11 @@ blink.mojom.CommonNetworkInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CommonNetworkInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'remote_endpoint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'network_accessed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'always_access_network', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -53,9 +55,10 @@ blink.mojom.RedirectInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RedirectInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'network_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin_of_new_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'network_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -67,9 +70,26 @@ blink.mojom.ResourceLoadInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ResourceLoadInfo',
-      packedSize: 16,
+      packedSize: 136,
       fields: [
-        { name: 'did_use_server_http_auth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'final_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'referrer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'original_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'method', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'request_destination', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request_priority', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mime_type', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'network_info', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'proxy_chain', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'load_timing_info', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'raw_body_bytes', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_received_bytes', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'redirect_info_chain', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'net_error', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'http_status_code', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'was_cached', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'did_use_server_http_auth', packedOffset: 120, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

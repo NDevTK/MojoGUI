@@ -23,9 +23,11 @@ ash.settings.app_parental_controls.mojom.AppSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.app_parental_controls.mojom.App',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'is_blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_blocked', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

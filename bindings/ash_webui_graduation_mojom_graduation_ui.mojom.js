@@ -28,9 +28,10 @@ ash.graduation_ui.mojom.ProfileInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.graduation_ui.mojom.ProfileInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'photo_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'photo_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

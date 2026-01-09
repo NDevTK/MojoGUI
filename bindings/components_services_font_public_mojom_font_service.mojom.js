@@ -28,9 +28,11 @@ font_service.mojom.TypefaceStyleSpec = {
   $: {
     structSpec: {
       name: 'font_service.mojom.TypefaceStyle',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'slant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'weight', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'width', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +44,11 @@ font_service.mojom.FontIdentitySpec = {
   $: {
     structSpec: {
       name: 'font_service.mojom.FontIdentity',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'filepath', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'ttc_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +60,15 @@ font_service.mojom.FontRenderStyleSpec = {
   $: {
     structSpec: {
       name: 'font_service.mojom.FontRenderStyle',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'use_subpixel_positioning', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'use_bitmaps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'use_autohint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'use_hinting', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'use_antialias', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'use_subpixel_rendering', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'use_subpixel_positioning', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hint_style', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }

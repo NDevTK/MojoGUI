@@ -14,9 +14,12 @@ content.mojom.FrameRoutingInfoSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.FrameRoutingInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'document_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'devtools_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'document_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'routing_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

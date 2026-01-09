@@ -28,9 +28,13 @@ unexportable_keys_internals.mojom.UnexportableKeyInfoSpec = {
   $: {
     structSpec: {
       name: 'unexportable_keys_internals.mojom.UnexportableKeyInfo',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'creation_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'wrapped_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'algorithm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key_tag', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'creation_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

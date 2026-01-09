@@ -15,9 +15,11 @@ chromecast.media.mojom.CodecProfileLevelSpec = {
   $: {
     structSpec: {
       name: 'chromecast.media.mojom.CodecProfileLevel',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'profile', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

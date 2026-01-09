@@ -43,9 +43,11 @@ arc.mojom.CompositionSegmentSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CompositionSegment',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'end_offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'emphasized', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -57,9 +59,14 @@ arc.mojom.KeyEventDataSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeyEventData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_repeat', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'pressed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_shift_down', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_control_down', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_alt_down', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_capslock_on', packedOffset: 4, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

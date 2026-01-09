@@ -32,9 +32,10 @@ continuous_search.mojom.SearchResultSpec = {
   $: {
     structSpec: {
       name: 'continuous_search.mojom.SearchResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'link', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -46,9 +47,10 @@ continuous_search.mojom.ResultGroupSpec = {
   $: {
     structSpec: {
       name: 'continuous_search.mojom.ResultGroup',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -60,9 +62,11 @@ continuous_search.mojom.CategoryResultsSpec = {
   $: {
     structSpec: {
       name: 'continuous_search.mojom.CategoryResults',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'document_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'category_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'groups', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

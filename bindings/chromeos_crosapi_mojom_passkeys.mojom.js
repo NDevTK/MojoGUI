@@ -35,9 +35,13 @@ crosapi.mojom.PasskeyCreationRequestSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PasskeyCreationRequest',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'user_verification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rp_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'user_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'user_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'user_display_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'user_verification', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,9 +67,13 @@ crosapi.mojom.PasskeyAssertionRequestSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PasskeyAssertionRequest',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'user_verification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rp_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'credential_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'challenge', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'client_data_hash', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'user_verification', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -79,7 +87,7 @@ crosapi.mojom.PasskeyAssertionResponseSpec = {
       name: 'crosapi.mojom.PasskeyAssertionResponse',
       packedSize: 16,
       fields: [
-        { name: 'authenticator_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

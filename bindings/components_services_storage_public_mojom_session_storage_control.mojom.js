@@ -20,9 +20,10 @@ storage.mojom.SessionStorageUsageInfoSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.SessionStorageUsageInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

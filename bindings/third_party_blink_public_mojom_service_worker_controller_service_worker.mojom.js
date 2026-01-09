@@ -14,9 +14,12 @@ blink.mojom.ServiceWorkerRouterDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'remote_cache_storage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'router_rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'initial_running_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'running_status_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'remote_cache_storage', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +31,17 @@ blink.mojom.ControllerServiceWorkerInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ControllerServiceWorkerInfo',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'used_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'fetch_handler_bypass_option', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sha256_script_checksum', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'router_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'client_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'fetch_request_window_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'object_info', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'used_features', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'remote_controller', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'need_router_evaluate', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

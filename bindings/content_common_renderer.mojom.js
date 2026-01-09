@@ -20,9 +20,16 @@ content.mojom.UpdateScrollbarThemeParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.UpdateScrollbarThemeParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'scroll_view_rubber_banding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'preferred_scroller_style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'initial_button_delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'autoscroll_button_delay', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'has_initial_button_delay', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_autoscroll_button_delay', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'jump_on_track_click', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'redraw', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'scroll_view_rubber_banding', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

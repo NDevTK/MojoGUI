@@ -14,9 +14,10 @@ os_crypt_async.mojom.KeySpec = {
   $: {
     structSpec: {
       name: 'os_crypt_async.mojom.Key',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,10 @@ os_crypt_async.mojom.EncryptorSpec = {
   $: {
     structSpec: {
       name: 'os_crypt_async.mojom.Encryptor',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'key_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'provider_for_encryption', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key_entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }

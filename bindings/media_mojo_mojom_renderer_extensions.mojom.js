@@ -14,9 +14,10 @@ media.mojom.FrameTextureInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.FrameTextureInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'texture_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,10 @@ media.mojom.FramePoolInitializationParametersSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.FramePoolInitializationParameters',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'texture_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'frame_textures', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'texture_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

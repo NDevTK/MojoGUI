@@ -14,9 +14,10 @@ printing.mojom.FlattenPdfResultSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.FlattenPdfResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'page_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'flattened_pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

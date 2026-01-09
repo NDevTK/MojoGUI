@@ -14,9 +14,14 @@ blink.mojom.DirectTCPSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectTCPSocketOptions',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'dns_query_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'remote_addr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'keep_alive_options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'dns_query_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'send_buffer_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'receive_buffer_size', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'no_delay', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +33,14 @@ blink.mojom.DirectConnectedUDPSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectConnectedUDPSocketOptions',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'multicast_loopback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'remote_addr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dns_query_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'send_buffer_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'receive_buffer_size', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'multicast_time_to_live', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
+        { name: 'multicast_loopback', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +52,15 @@ blink.mojom.DirectBoundUDPSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectBoundUDPSocketOptions',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'multicast_loopback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'send_buffer_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'receive_buffer_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'multicast_time_to_live', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
+        { name: 'ipv6_only', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'multicast_allow_address_sharing', packedOffset: 17, packedBitOffset: 1, type: mojo.internal.Bool, nullable: true },
+        { name: 'multicast_loopback', packedOffset: 17, packedBitOffset: 2, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +72,11 @@ blink.mojom.DirectTCPServerSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectTCPServerSocketOptions',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'backlog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'backlog', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'ipv6_only', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }

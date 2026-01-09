@@ -20,9 +20,10 @@ spellcheck.mojom.SpellCheckBDictLanguageSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckBDictLanguage',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -34,9 +35,13 @@ spellcheck.mojom.SpellCheckResultSpec = {
   $: {
     structSpec: {
       name: 'spellcheck.mojom.SpellCheckResult',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'should_hide_suggestion_menu', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decoration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'replacements', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'should_hide_suggestion_menu', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

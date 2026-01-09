@@ -14,9 +14,18 @@ content.mojom.MemoryConsumerTraitsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MemoryConsumerTraits',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'garbage_collects_v8_heap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supports_memory_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'in_process', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'estimated_memory_usage', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'release_memory_cost', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'recreate_memory_cost', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'information_retention', packedOffset: 5, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'memory_release_behavior', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'execution_type', packedOffset: 7, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'release_gc_references', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'garbage_collects_v8_heap', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }

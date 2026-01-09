@@ -22,9 +22,14 @@ blink.mojom.AdPropertiesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdProperties',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'bid_floor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'slot', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'lang', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'ad_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'bid_floor', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -36,9 +41,10 @@ blink.mojom.AdGeolocationSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdGeolocation',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'longitude', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'latitude', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'longitude', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -50,9 +56,10 @@ blink.mojom.AdTargetingSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdTargeting',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'geolocation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'interests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'geolocation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -64,9 +71,14 @@ blink.mojom.AdRequestConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdRequestConfig',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'fallback_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'ad_request_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ad_properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'publisher_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'targeting', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'anonymized_proxied_signals', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'fallback_source', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

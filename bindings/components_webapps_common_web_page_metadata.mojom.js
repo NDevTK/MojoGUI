@@ -21,9 +21,10 @@ webapps.mojom.WebPageIconInfoSpec = {
   $: {
     structSpec: {
       name: 'webapps.mojom.WebPageIconInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'square_size_px', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'square_size_px', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -35,8 +36,14 @@ webapps.mojom.WebPageMetadataSpec = {
   $: {
     structSpec: {
       name: 'webapps.mojom.WebPageMetadata',
-      packedSize: 8,
+      packedSize: 56,
       fields: [
+        { name: 'application_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'application_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'icons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'mobile_capable', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

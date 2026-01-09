@@ -144,9 +144,10 @@ network.mojom.DeviceBoundSessionKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionKey',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -158,9 +159,11 @@ network.mojom.DeviceBoundSessionAccessSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionAccess',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'cookies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'access_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cookies', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -172,9 +175,11 @@ network.mojom.DeviceBoundSessionScopeSpecificationSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionScopeSpecification',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'domain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -186,9 +191,11 @@ network.mojom.DeviceBoundSessionScopeSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionScope',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'specifications', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'include_site', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -200,9 +207,10 @@ network.mojom.DeviceBoundSessionCredentialSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionCredential',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'attributes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'attributes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -214,9 +222,14 @@ network.mojom.DeviceBoundSessionParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionParams',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'allowed_refresh_initiators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'fetcher_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'refresh_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'scope', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'credentials', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'allowed_refresh_initiators', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -228,9 +241,14 @@ network.mojom.DeviceBoundSessionCookieCravingDisplaySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionCookieCravingDisplay',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'same_site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'domain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'same_site', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'secure', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'http_only', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -242,9 +260,11 @@ network.mojom.DeviceBoundSessionUrlRuleDisplaySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionUrlRuleDisplay',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'path_prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rule_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host_pattern', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'path_prefix', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -256,9 +276,11 @@ network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionInclusionRulesDisplay',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'url_rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url_rules', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'include_site', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -270,9 +292,15 @@ network.mojom.DeviceBoundSessionDisplaySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionDisplay',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'allowed_refresh_initiators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'refresh_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'inclusion_rules', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cookie_cravings', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'expiry_date', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cached_challenge', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'allowed_refresh_initiators', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -284,9 +312,10 @@ network.mojom.DeviceBoundSessionCreationDetailsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionCreationDetails',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'new_session_display', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'fetch_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_session_display', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -298,9 +327,12 @@ network.mojom.DeviceBoundSessionRefreshDetailsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionRefreshDetails',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'was_fully_proactive_refresh', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'refresh_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fetch_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'new_session_display', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'was_fully_proactive_refresh', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -326,9 +358,10 @@ network.mojom.DeviceBoundSessionChallengeDetailsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionChallengeDetails',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'challenge_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'challenge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -340,9 +373,13 @@ network.mojom.DeviceBoundSessionEventSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionEvent',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'event_type_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'event_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'site', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event_type_details', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'succeeded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

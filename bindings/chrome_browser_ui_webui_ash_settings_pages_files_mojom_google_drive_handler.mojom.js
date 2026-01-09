@@ -16,9 +16,13 @@ ash.settings.google_drive.mojom.StatusSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.google_drive.mojom.Status',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'is_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'free_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'stage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'listed_files', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'is_error', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

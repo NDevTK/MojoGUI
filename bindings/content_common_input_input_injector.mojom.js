@@ -53,9 +53,14 @@ content.mojom.SyntheticSmoothDragSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticSmoothDrag',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'input_event_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gesture_source_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'distances', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'input_event_pattern', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'speed_in_pixels_s', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'vsync_offset_ms', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -67,9 +72,19 @@ content.mojom.SyntheticSmoothScrollSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticSmoothScroll',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'input_event_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gesture_source_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'anchor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'distances', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'granularity', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_event_pattern', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'speed_in_pixels_s', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'fling_velocity_x', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'fling_velocity_y', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'modifiers', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'vsync_offset_ms', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'prevent_fling', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -81,9 +96,13 @@ content.mojom.SyntheticPinchSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticPinch',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'input_event_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'anchor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_event_pattern', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'relative_pointer_speed_in_pixels_s', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'vsync_offset_ms', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,9 +114,11 @@ content.mojom.SyntheticTapSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticTap',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gesture_source_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duration_ms', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -109,9 +130,22 @@ content.mojom.SyntheticPointerActionParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticPointerActionParams',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pointer_action_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'button', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duration', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pointer_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'key_modifiers', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'width', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'height', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'rotation_angle', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'force', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'tangential_pressure', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'tilt_x', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tilt_y', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -123,9 +157,10 @@ content.mojom.SyntheticPointerActionSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticPointerAction',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gesture_source_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

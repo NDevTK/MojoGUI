@@ -16,7 +16,8 @@ network.mojom.URLLoaderClientEndpointsSpec = {
       name: 'network.mojom.URLLoaderClientEndpoints',
       packedSize: 16,
       fields: [
-        { name: 'url_loader_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'url_loader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'url_loader_client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

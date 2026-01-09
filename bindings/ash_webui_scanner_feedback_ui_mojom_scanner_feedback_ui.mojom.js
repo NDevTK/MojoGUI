@@ -15,9 +15,10 @@ ash.mojom.scanner_feedback_ui.FeedbackInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.scanner_feedback_ui.FeedbackInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'screenshot_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'action_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'screenshot_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

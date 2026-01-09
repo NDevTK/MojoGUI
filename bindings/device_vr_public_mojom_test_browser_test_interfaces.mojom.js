@@ -40,7 +40,10 @@ device_test.mojom.ColorSpec = {
       name: 'device_test.mojom.Color',
       packedSize: 16,
       fields: [
-        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'r', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'g', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'b', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'a', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -52,9 +55,11 @@ device_test.mojom.ViewDataSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.ViewData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'viewport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'eye', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'viewport', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -80,9 +85,11 @@ device_test.mojom.ControllerAxisDataSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.ControllerAxisData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'axis_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'axis_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,9 +101,17 @@ device_test.mojom.ControllerFrameDataSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.ControllerFrameData',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'is_valid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'buttons_pressed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'buttons_touched', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'supported_buttons', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'axis_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pose_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'role', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hand_data', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'packet_number', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_valid', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,9 +123,10 @@ device_test.mojom.EventDataSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.EventData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'kInvalid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interaction_profile', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -122,9 +138,10 @@ device_test.mojom.XRVisibilityMaskSpec = {
   $: {
     structSpec: {
       name: 'device_test.mojom.XRVisibilityMask',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'vertices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'indices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -15,9 +15,11 @@ ash.shortcut_customization.mojom.SearchResultSpec = {
   $: {
     structSpec: {
       name: 'ash.shortcut_customization.mojom.SearchResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'relevance_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'accelerator_layout_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'accelerator_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'relevance_score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }

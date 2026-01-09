@@ -264,9 +264,12 @@ ash.shimless_rma.mojom.StateResultSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.StateResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'can_exit', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_go_back', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -278,9 +281,10 @@ ash.shimless_rma.mojom.QrCodeSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.QrCode',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -292,9 +296,11 @@ ash.shimless_rma.mojom.ComponentSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.Component',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'identifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -306,9 +312,11 @@ ash.shimless_rma.mojom.CalibrationComponentStatusSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.CalibrationComponentStatus',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -320,9 +328,10 @@ ash.shimless_rma.mojom.Shimless3pDiagnosticsAppInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.Shimless3pDiagnosticsAppInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'permission_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'permission_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -374,9 +383,16 @@ ash.shimless_rma.mojom.UpdateDeviceInfoStatePropertySpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.UpdateDeviceInfoStateProperty',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'hide_google_sku', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'customized_serial_number_naming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'serial_number_modifiable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'region_modifiable', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'sku_modifiable', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'custom_label_modifiable', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'dram_part_number_modifiable', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'feature_level_modifiable', packedOffset: 8, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'hide_google_sku', packedOffset: 8, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

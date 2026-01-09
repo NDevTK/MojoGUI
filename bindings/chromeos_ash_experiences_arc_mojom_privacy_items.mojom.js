@@ -14,9 +14,10 @@ arc.mojom.PrivacyApplicationSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrivacyApplication',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'uid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,10 @@ arc.mojom.PrivacyItemSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrivacyItem',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'privacy_application', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'permission_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'privacy_application', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

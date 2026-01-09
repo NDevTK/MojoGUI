@@ -14,9 +14,16 @@ device.mojom.XRRuntimeSessionOptionsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRuntimeSessionOptions',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'required_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'optional_features', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tracked_images', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'depth_options', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'trace_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'render_process_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'render_frame_id', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +35,12 @@ device.mojom.XRRuntimeSessionResultSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRuntimeSessionResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'overlay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'controller', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'overlay', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +52,11 @@ device.mojom.XRDeviceDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRDeviceData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'is_ar_blend_mode_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'supported_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'luid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'is_ar_blend_mode_supported', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -55,9 +55,13 @@ on_device_model.mojom.ModelAssetsSpec = {
   $: {
     structSpec: {
       name: 'on_device_model.mojom.ModelAssets',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'adapter_cache', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'weights', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sp_model_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'cache', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'encoder_cache', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'adapter_cache', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -69,9 +73,13 @@ on_device_model.mojom.LoadModelParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_model.mojom.LoadModelParams',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'kHighestQuality', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'backend_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'assets', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'adaptation_ranks', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'performance_hint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_tokens', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -83,9 +91,10 @@ on_device_model.mojom.TextSafetyModelAssetsSpec = {
   $: {
     structSpec: {
       name: 'on_device_model.mojom.TextSafetyModelAssets',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'sp_model', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sp_model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,9 +134,10 @@ on_device_model.mojom.TextSafetyModelParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_model.mojom.TextSafetyModelParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'language_assets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'safety_assets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'language_assets', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,12 @@ webxr.mojom.DeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.DeviceInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'gpu_gl_renderer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'operating_system_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'operating_system_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'gpu_gl_vendor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'gpu_gl_renderer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +31,10 @@ webxr.mojom.SessionRequestedRecordSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.SessionRequestedRecord',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'requested_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'requested_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +46,13 @@ webxr.mojom.SessionRejectedRecordSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.SessionRejectedRecord',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'rejected_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'failure_reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rejected_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'failure_reason_description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'rejected_features', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +64,11 @@ webxr.mojom.SessionStartedRecordSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.SessionStartedRecord',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'started_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'started_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,9 +80,10 @@ webxr.mojom.SessionStoppedRecordSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.SessionStoppedRecord',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'stopped_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'stopped_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -84,9 +95,11 @@ webxr.mojom.RuntimeInfoSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.RuntimeInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'is_ar_blend_mode_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supported_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_ar_blend_mode_supported', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

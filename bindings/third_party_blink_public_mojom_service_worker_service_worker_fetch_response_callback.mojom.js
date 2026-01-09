@@ -14,9 +14,10 @@ blink.mojom.ServiceWorkerFetchEventTimingSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerFetchEventTiming',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'respond_with_settled_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dispatch_event_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'respond_with_settled_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

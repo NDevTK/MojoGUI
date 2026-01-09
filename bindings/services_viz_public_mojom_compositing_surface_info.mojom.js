@@ -14,9 +14,11 @@ viz.mojom.SurfaceInfoSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.SurfaceInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'size_in_pixels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'surface_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size_in_pixels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

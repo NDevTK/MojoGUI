@@ -14,9 +14,11 @@ viz.mojom.BitmapInSharedMemorySpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.BitmapInSharedMemory',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'pixels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'image_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'row_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'pixels', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

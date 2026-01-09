@@ -20,9 +20,11 @@ storage.mojom.ServiceWorkerLiveVersionInfoSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerLiveVersionInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'reference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'purgeable_resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'reference', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -34,9 +36,11 @@ storage.mojom.ServiceWorkerFindRegistrationResultSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerFindRegistrationResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'version_reference', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -48,9 +52,11 @@ storage.mojom.ServiceWorkerUserDataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerUserData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

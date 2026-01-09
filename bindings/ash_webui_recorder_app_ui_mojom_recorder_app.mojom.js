@@ -25,9 +25,10 @@ ash.recorder_app.mojom.ModelStateSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.ModelState',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -39,9 +40,11 @@ ash.recorder_app.mojom.ModelInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.ModelInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'is_large_model', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_token_limit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_large_model', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -55,7 +58,8 @@ ash.recorder_app.mojom.MicrophoneInfoSpec = {
       name: 'ash.recorder_app.mojom.MicrophoneInfo',
       packedSize: 16,
       fields: [
-        { name: 'is_internal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_internal', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -67,9 +71,12 @@ ash.recorder_app.mojom.LangPackInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.LangPackInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'is_speaker_label_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'language_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_gen_ai_supported', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_speaker_label_supported', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

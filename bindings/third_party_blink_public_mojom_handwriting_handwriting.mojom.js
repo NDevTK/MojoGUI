@@ -33,9 +33,10 @@ handwriting.mojom.HandwritingPointSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingPoint',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 't', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 't', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -61,9 +62,11 @@ handwriting.mojom.HandwritingDrawingSegmentSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingDrawingSegment',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'end_point_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stroke_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'begin_point_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'end_point_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -75,9 +78,12 @@ handwriting.mojom.HandwritingSegmentSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingSegment',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'drawing_segments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'grapheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'drawing_segments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'begin_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'end_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -89,9 +95,10 @@ handwriting.mojom.HandwritingPredictionSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingPrediction',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'segmentation_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'segmentation_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -103,9 +110,12 @@ handwriting.mojom.HandwritingHintsSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingHints',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'alternatives', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'recognition_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'input_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'text_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'alternatives', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -117,9 +127,12 @@ handwriting.mojom.HandwritingHintsQueryResultSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingHintsQueryResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'alternatives', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'recognition_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'input_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'text_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'alternatives', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -131,9 +144,11 @@ handwriting.mojom.QueryHandwritingRecognizerResultSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.QueryHandwritingRecognizerResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'hints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text_alternatives', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'text_segmentation', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

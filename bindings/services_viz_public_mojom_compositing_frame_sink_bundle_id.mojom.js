@@ -16,7 +16,8 @@ viz.mojom.FrameSinkBundleIdSpec = {
       name: 'viz.mojom.FrameSinkBundleId',
       packedSize: 16,
       fields: [
-        { name: 'bundle_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'bundle_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

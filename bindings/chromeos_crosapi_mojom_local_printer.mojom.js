@@ -103,9 +103,8 @@ crosapi.mojom.LocalDestinationInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.LocalDestinationInfo',
-      packedSize: 16,
+      packedSize: 8,
       fields: [
-        { name: 'managed_print_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -130,10 +129,9 @@ crosapi.mojom.StatusReasonSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.StatusReason',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'kUnknownReason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'kExpiredCertificate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -316,8 +314,9 @@ crosapi.mojom.PoliciesSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Policies',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -329,9 +328,10 @@ crosapi.mojom.PrintJobUpdateSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PrintJobUpdate',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'pages_printed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pages_printed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

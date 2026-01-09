@@ -68,9 +68,14 @@ arc.mojom.RunningAppProcessInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.RunningAppProcessInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'last_activity_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'process_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'process_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'packages', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'last_activity_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'pid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_focused', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -82,8 +87,11 @@ arc.mojom.ArcMemoryDumpSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcMemoryDump',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'resident_set_kb', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'private_footprint_kb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,9 +103,15 @@ arc.mojom.LowMemoryKillCountsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.LowMemoryKillCounts',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'pressure_cached', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'guest_oom', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'lmkd_foreground', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'lmkd_perceptible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'lmkd_cached', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'pressure_foreground', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'pressure_perceptible', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'pressure_cached', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

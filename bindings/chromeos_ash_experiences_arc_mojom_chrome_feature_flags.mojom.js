@@ -22,7 +22,8 @@ arc.mojom.FeatureFlagsSpec = {
       name: 'arc.mojom.FeatureFlags',
       packedSize: 16,
       fields: [
-        { name: 'extend_intent_anr_timeout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'deprecated_qs_revamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'jelly_colors', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

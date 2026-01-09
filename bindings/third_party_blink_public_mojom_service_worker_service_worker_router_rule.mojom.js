@@ -34,9 +34,13 @@ blink.mojom.ServiceWorkerRouterRequestConditionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterRequestCondition',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'destination', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'destination', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'has_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_destination', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -76,9 +80,13 @@ blink.mojom.ServiceWorkerRouterConditionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterCondition',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'not_condition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'running_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'or_condition', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'not_condition', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -157,9 +165,10 @@ blink.mojom.ServiceWorkerRouterRuleSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterRule',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'condition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

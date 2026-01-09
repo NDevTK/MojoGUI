@@ -121,8 +121,11 @@ remoting.mojom.AudioPacketSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.AudioPacket',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'kInvalid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,9 +137,10 @@ remoting.mojom.ClipboardEventSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.ClipboardEvent',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,9 +152,13 @@ remoting.mojom.KeyEventSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.KeyEvent',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'num_lock_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'caps_lock_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'num_lock_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'usb_keycode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'lock_states', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'pressed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -162,9 +170,18 @@ remoting.mojom.MouseEventSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.MouseEvent',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'delta_y', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'button', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'button_down', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'wheel_delta_x', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'wheel_delta_y', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'wheel_ticks_x', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'wheel_ticks_y', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'delta_x', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'delta_y', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -190,9 +207,13 @@ remoting.mojom.TouchEventPointSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.TouchEventPoint',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'pressure', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'radius', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'angle', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'pressure', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,9 +225,10 @@ remoting.mojom.TouchEventSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.TouchEvent',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'touch_points', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'touch_points', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -218,9 +240,11 @@ remoting.mojom.FractionalCoordinateSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.FractionalCoordinate',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'screen_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'screen_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -232,9 +256,14 @@ remoting.mojom.DesktopEnvironmentOptionsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopEnvironmentOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'desktop_capture_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'enable_curtaining', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_user_interface', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_notifications', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'terminate_upon_input', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_remote_webauthn', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -246,9 +275,10 @@ remoting.mojom.ScreenResolutionSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.ScreenResolution',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'dpi', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dimensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dpi', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,8 +290,9 @@ remoting.mojom.FileTransferErrorSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.FileTransferError',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -273,9 +304,11 @@ remoting.mojom.BeginFileReadSuccessSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.BeginFileReadSuccess',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'filename', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'file_reader', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -303,7 +336,8 @@ remoting.mojom.CreateVideoCapturerResultSpec = {
       name: 'remoting.mojom.CreateVideoCapturerResult',
       packedSize: 16,
       fields: [
-        { name: 'video_capturer_event_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'video_capturer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'video_capturer_event_handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -315,9 +349,14 @@ remoting.mojom.VideoTrackLayoutSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.VideoTrackLayout',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'screen_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'media_stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dpi', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -329,9 +368,11 @@ remoting.mojom.VideoLayoutSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.VideoLayout',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'primary_screen_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tracks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'primary_screen_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'supports_full_desktop_capture', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -343,9 +384,11 @@ remoting.mojom.SourceLocationSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SourceLocation',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'line_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'function_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'line_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

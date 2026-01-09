@@ -14,8 +14,12 @@ device.mojom.BatteryStatusSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.BatteryStatus',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'charging_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'discharging_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'level', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'charging', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

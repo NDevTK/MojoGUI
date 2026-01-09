@@ -82,8 +82,9 @@ crosapi.mojom.TelemetryAudioJackEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryAudioJackEventInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,8 +96,9 @@ crosapi.mojom.TelemetryLidEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryLidEventInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,8 +110,9 @@ crosapi.mojom.TelemetryUsbEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryUsbEventInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,8 +124,9 @@ crosapi.mojom.TelemetryExternalDisplayEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryExternalDisplayEventInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,8 +138,9 @@ crosapi.mojom.TelemetrySdCardEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetrySdCardEventInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,8 +152,9 @@ crosapi.mojom.TelemetryPowerEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryPowerEventInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -160,8 +166,9 @@ crosapi.mojom.TelemetryStylusGarageEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryStylusGarageEventInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -173,8 +180,9 @@ crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryTouchpadButtonEventInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

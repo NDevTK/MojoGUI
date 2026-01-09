@@ -26,9 +26,10 @@ ash.cfm.mojom.MenuInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.MenuInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -54,9 +55,17 @@ ash.cfm.mojom.ControlMappingSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.ControlMapping',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'menu_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'menu_entries', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'v4l2_type', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'data_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'selector', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'size', packedOffset: 37, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'offset', packedOffset: 38, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,7 +79,8 @@ ash.cfm.mojom.ControlQuerySpec = {
       name: 'ash.cfm.mojom.ControlQuery',
       packedSize: 16,
       fields: [
-        { name: 'selector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'unit_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'selector', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }

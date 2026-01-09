@@ -15,9 +15,12 @@ metrics.dwa.mojom.DwaEntrySpec = {
   $: {
     structSpec: {
       name: 'metrics.dwa.mojom.DwaEntry',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_hash', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'content_hash', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'studies_of_interest', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'metrics', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -20,9 +20,12 @@ mojom.ProcessCountInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.ProcessCountInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'renderer_process_count_for_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'renderer_process_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'renderer_process_count_total', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'live_renderer_processes_count_total', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'renderer_process_count_for_limit', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -34,9 +37,20 @@ mojom.SiteInstanceInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.SiteInstanceInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'storage_partition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'site_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'process_lock_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'storage_partition', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'site_instance_group_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'browsing_instance_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'locked', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'requires_origin_keyed_process', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_sandbox_for_iframes', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_guest', packedOffset: 36, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_pdf', packedOffset: 36, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'are_javascript_optimizers_enabled', packedOffset: 36, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -48,9 +62,15 @@ mojom.FrameInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.FrameInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'kActive', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'site_instance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_committed_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'subframes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'kActive', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'routing_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'agent_scheduling_group_id', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'process_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -62,9 +82,12 @@ mojom.WebContentsInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.WebContentsInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'prerender_root_frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'root_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bfcached_root_frames', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'prerender_root_frames', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -76,9 +99,10 @@ mojom.IsolatedOriginInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.IsolatedOriginInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

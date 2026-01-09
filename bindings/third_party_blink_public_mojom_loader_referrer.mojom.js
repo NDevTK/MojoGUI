@@ -14,8 +14,10 @@ blink.mojom.ReferrerSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Referrer',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

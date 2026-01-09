@@ -28,9 +28,13 @@ media.mojom.DisplayMediaInformationSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DisplayMediaInformation',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'initial_zoom_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'display_surface', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cursor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'capture_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'initial_zoom_level', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'logical_surface', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

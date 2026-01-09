@@ -14,9 +14,12 @@ chromeos_camera.mojom.DmaBufPlaneSpec = {
   $: {
     structSpec: {
       name: 'chromeos_camera.mojom.DmaBufPlane',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fd_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
+        { name: 'stride', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +31,12 @@ chromeos_camera.mojom.DmaBufVideoFrameSpec = {
   $: {
     structSpec: {
       name: 'chromeos_camera.mojom.DmaBufVideoFrame',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'modifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'planes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'coded_width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'coded_height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

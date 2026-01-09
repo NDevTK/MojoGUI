@@ -107,9 +107,12 @@ ash.personalization_app.mojom.WallpaperCollectionSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperCollection',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'previews', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description_content', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'previews', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,9 +124,14 @@ ash.personalization_app.mojom.GooglePhotosAlbumSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.GooglePhotosAlbum',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'is_shared', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'preview', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'photo_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_shared', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,9 +143,10 @@ ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponse',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'resume_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'albums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'resume_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -149,9 +158,13 @@ ash.personalization_app.mojom.WallpaperImageSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperImage',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attribution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'asset_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'unit_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -163,9 +176,14 @@ ash.personalization_app.mojom.GooglePhotosPhotoSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.GooglePhotosPhoto',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'dedup_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'date', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'location', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -177,9 +195,10 @@ ash.personalization_app.mojom.FetchGooglePhotosPhotosResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.FetchGooglePhotosPhotosResponse',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'resume_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'photos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'resume_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -191,9 +210,10 @@ ash.personalization_app.mojom.CurrentAttributionSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.CurrentAttribution',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'attribution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -205,9 +225,14 @@ ash.personalization_app.mojom.CurrentWallpaperSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.CurrentWallpaper',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'action_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description_title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description_content', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'action_url', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -219,9 +244,12 @@ ash.personalization_app.mojom.SampleColorSchemeSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.SampleColorScheme',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'tertiary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'primary', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'secondary', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tertiary', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -233,9 +261,10 @@ ash.personalization_app.mojom.UserInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -247,9 +276,10 @@ ash.personalization_app.mojom.DeprecatedSourceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.DeprecatedSourceInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'website', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'author', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'website', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -261,9 +291,12 @@ ash.personalization_app.mojom.DefaultUserImageSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.DefaultUserImage',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'source_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -301,9 +334,15 @@ ash.personalization_app.mojom.AmbientModeAlbumSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientModeAlbum',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'topic_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'number_of_photos', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'checked', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

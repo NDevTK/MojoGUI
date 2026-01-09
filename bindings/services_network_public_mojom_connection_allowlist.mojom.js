@@ -23,9 +23,11 @@ network.mojom.ConnectionAllowlistSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ConnectionAllowlist',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'issues', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'allowlist', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'issues', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,9 +39,10 @@ network.mojom.ConnectionAllowlistsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ConnectionAllowlists',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'report_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'enforced', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'report_only', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

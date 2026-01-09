@@ -21,9 +21,10 @@ shape_detection.mojom.LandmarkSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.Landmark',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'locations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -35,9 +36,10 @@ shape_detection.mojom.FaceDetectionResultSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.FaceDetectionResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'landmarks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounding_box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'landmarks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -49,9 +51,10 @@ shape_detection.mojom.FaceDetectorOptionsSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.FaceDetectorOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'fast_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_detected_faces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'fast_mode', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

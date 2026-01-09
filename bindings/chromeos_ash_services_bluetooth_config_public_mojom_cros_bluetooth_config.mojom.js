@@ -78,9 +78,12 @@ ash.bluetooth_config.mojom.DeviceBatteryInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.bluetooth_config.mojom.DeviceBatteryInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'case_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'default_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'left_bud_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'right_bud_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'case_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -92,9 +95,11 @@ ash.bluetooth_config.mojom.TrueWirelessImageInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.bluetooth_config.mojom.TrueWirelessImageInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'case_image_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'left_bud_image_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'right_bud_image_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'case_image_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -106,9 +111,10 @@ ash.bluetooth_config.mojom.DeviceImageInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.bluetooth_config.mojom.DeviceImageInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'true_wireless_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'default_image_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'true_wireless_images', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -120,9 +126,17 @@ ash.bluetooth_config.mojom.BluetoothDevicePropertiesSpec = {
   $: {
     structSpec: {
       name: 'ash.bluetooth_config.mojom.BluetoothDeviceProperties',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'is_blocked_by_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'public_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_capability', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'battery_info', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'image_info', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'connection_state', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_blocked_by_policy', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,9 +148,10 @@ ash.bluetooth_config.mojom.PairedBluetoothDevicePropertiesSpec = {
   $: {
     structSpec: {
       name: 'ash.bluetooth_config.mojom.PairedBluetoothDeviceProperties',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'nickname', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'device_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'nickname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -148,9 +163,11 @@ ash.bluetooth_config.mojom.BluetoothSystemPropertiesSpec = {
   $: {
     structSpec: {
       name: 'ash.bluetooth_config.mojom.BluetoothSystemProperties',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'paired_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'system_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'modification_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'paired_devices', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,11 @@ blink.mojom.ServiceWorkerInstalledScriptsInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerInstalledScriptsInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'installed_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'installed_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'manager_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'manager_host_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,15 @@ blink.mojom.ServiceWorkerScriptInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerScriptInfo',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'meta_data_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'encoding', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'body', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'body_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'meta_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'meta_data_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

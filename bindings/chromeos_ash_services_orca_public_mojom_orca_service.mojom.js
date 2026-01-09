@@ -129,8 +129,9 @@ ash.orca.mojom.TriggerContextSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.TriggerContext',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'freeform_selected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -24,9 +24,12 @@ sensor.mojom.NonLidAngleUpdateInfoSpec = {
   $: {
     structSpec: {
       name: 'sensor.mojom.NonLidAngleUpdateInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'z', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sensor_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'z', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -38,9 +41,10 @@ sensor.mojom.LidAngleUpdateInfoSpec = {
   $: {
     structSpec: {
       name: 'sensor.mojom.LidAngleUpdateInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sensor_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

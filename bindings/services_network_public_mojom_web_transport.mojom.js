@@ -14,9 +14,12 @@ network.mojom.WebTransportErrorSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportError',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'quic_error', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'safe_to_report_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +31,10 @@ network.mojom.WebTransportCertificateFingerprintSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportCertificateFingerprint',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'fingerprint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'fingerprint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +46,10 @@ network.mojom.WebTransportCloseInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportCloseInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +61,15 @@ network.mojom.WebTransportStatsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportStats',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'datagrams_lost_outgoing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'smoothed_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rtt_variation', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'estimated_send_rate_bps', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'datagrams_expired_outgoing', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'datagrams_lost_outgoing', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

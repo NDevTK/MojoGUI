@@ -14,9 +14,10 @@ userspace_swap.mojom.MemoryRegionSpec = {
   $: {
     structSpec: {
       name: 'userspace_swap.mojom.MemoryRegion',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

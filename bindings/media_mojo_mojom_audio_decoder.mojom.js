@@ -14,9 +14,10 @@ media.mojom.SupportedAudioDecoderConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SupportedAudioDecoderConfig',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

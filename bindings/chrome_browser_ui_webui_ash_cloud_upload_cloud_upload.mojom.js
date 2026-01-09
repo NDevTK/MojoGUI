@@ -44,9 +44,12 @@ ash.cloud_upload.mojom.DialogTaskSpec = {
   $: {
     structSpec: {
       name: 'ash.cloud_upload.mojom.DialogTask',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'icon_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'icon_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'position', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,9 +116,11 @@ ash.cloud_upload.mojom.FileHandlerDialogArgsSpec = {
   $: {
     structSpec: {
       name: 'ash.cloud_upload.mojom.FileHandlerDialogArgs',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'show_microsoft_office_task', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'local_tasks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'show_google_workspace_task', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'show_microsoft_office_task', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,9 +132,10 @@ ash.cloud_upload.mojom.DialogArgsSpec = {
   $: {
     structSpec: {
       name: 'ash.cloud_upload.mojom.DialogArgs',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'dialog_specific_args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'file_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'dialog_specific_args', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

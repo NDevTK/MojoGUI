@@ -15,9 +15,10 @@ ash.color_internals.mojom.WallpaperCalculatedColorsSpec = {
   $: {
     structSpec: {
       name: 'ash.color_internals.mojom.WallpaperCalculatedColors',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'celebi_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'k_mean_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'celebi_color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

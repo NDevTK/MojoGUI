@@ -52,9 +52,14 @@ side_panel.customize_chrome.mojom.ActionSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.Action',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'icon_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'category', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'icon_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pinned', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_enterprise_controlled_pinned_state', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -66,9 +71,10 @@ side_panel.customize_chrome.mojom.CategorySpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.Category',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

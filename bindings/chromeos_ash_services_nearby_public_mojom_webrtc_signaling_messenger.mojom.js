@@ -20,9 +20,10 @@ sharing.mojom.LocationHintSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.LocationHint',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'format', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

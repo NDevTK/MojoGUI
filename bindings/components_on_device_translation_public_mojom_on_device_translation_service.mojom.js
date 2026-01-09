@@ -24,9 +24,10 @@ on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.OnDeviceTranslationLanguagePackage',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'language2', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'language1', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'language2', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -38,9 +39,10 @@ on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.OnDeviceTranslationServiceConfig',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'file_operation_proxy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'packages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'file_operation_proxy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

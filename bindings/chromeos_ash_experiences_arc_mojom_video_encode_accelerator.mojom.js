@@ -37,9 +37,12 @@ arc.mojom.VideoEncodeProfileSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoEncodeProfile',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'max_framerate_denominator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_framerate_numerator', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'max_framerate_denominator', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -67,7 +70,8 @@ arc.mojom.VariableBitrateSpec = {
       name: 'arc.mojom.VariableBitrate',
       packedSize: 16,
       fields: [
-        { name: 'peak', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'peak', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -79,9 +83,16 @@ arc.mojom.VideoEncodeAcceleratorConfigSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoEncodeAcceleratorConfig',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'bitrate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'input_format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_visible_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'output_profile', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'initial_bitrate_deprecated', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'initial_framerate', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'h264_output_level', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'has_initial_framerate_deprecated', packedOffset: 33, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_h264_output_level', packedOffset: 33, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

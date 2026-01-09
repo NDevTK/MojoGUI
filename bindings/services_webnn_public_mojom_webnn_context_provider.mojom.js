@@ -35,9 +35,13 @@ webnn.mojom.CreateContextSuccessSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.CreateContextSuccess',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'read_tensor_consumer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'context_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'context_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'write_tensor_producer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'read_tensor_consumer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'context_remote', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

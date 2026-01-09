@@ -14,9 +14,11 @@ commerce.mojom.EligibilityDetailSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.EligibilityDetail',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'expected_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'expected_value', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,11 @@ commerce.mojom.ShoppingEligibilityDetailsSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.ShoppingEligibilityDetails',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'country', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'locale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +46,10 @@ commerce.mojom.SubscriptionSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.Subscription',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'product_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cluster_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'product_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +61,13 @@ commerce.mojom.ProductSpecificationsSetSpec = {
   $: {
     structSpec: {
       name: 'commerce.mojom.ProductSpecificationsSet',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'url_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'creation_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'update_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url_infos', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

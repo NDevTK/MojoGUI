@@ -14,9 +14,13 @@ blink.mojom.DispatchFetchEventParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DispatchFetchEventParams',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'race_network_request_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'resulting_client_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'preload_url_loader_client_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'race_network_request_loader_factory', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

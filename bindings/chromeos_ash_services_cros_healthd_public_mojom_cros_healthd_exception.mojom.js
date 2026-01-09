@@ -22,8 +22,9 @@ ash.cros_healthd.mojom.ExceptionSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.Exception',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -15,9 +15,10 @@ ash.extended_updates.mojom.AppSpec = {
   $: {
     structSpec: {
       name: 'ash.extended_updates.mojom.App',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

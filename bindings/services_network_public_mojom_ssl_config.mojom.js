@@ -26,9 +26,21 @@ network.mojom.SSLConfigSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SSLConfig',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'mtc_trust_anchor_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'version_min', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'version_max', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'disabled_cipher_suites', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'client_cert_pooling_policy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'named_groups_preset', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'trust_anchor_ids', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'mtc_trust_anchor_ids', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'rev_checking_enabled', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'rev_checking_required_local_anchors', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'sha1_local_anchors_enabled', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'tls13_cipher_prefer_aes_256', packedOffset: 56, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'post_quantum_key_agreement_enabled', packedOffset: 56, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'ech_enabled', packedOffset: 56, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

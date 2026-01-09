@@ -14,9 +14,10 @@ media.mojom.SpeechRecognitionHypothesisSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionHypothesis',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'confidence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'confidence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,10 @@ media.mojom.WebSpeechRecognitionResultSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.WebSpeechRecognitionResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_provisional', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'hypotheses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_provisional', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

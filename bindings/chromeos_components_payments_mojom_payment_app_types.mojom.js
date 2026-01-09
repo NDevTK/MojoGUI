@@ -15,9 +15,10 @@ chromeos.payments.mojom.IsPaymentImplementedValidResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.payments.mojom.IsPaymentImplementedValidResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'service_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'activity_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'service_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -29,9 +30,16 @@ chromeos.payments.mojom.PaymentParametersSpec = {
   $: {
     structSpec: {
       name: 'chromeos.payments.mojom.PaymentParameters',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'twa_instance_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'activity_or_service_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'stringified_method_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'top_level_origin', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'payment_request_origin', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'payment_request_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'request_token', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'twa_instance_identifier', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -43,9 +51,10 @@ chromeos.payments.mojom.InvokePaymentAppValidResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.payments.mojom.InvokePaymentAppValidResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'stringified_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stringified_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_activity_result_ok', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

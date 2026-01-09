@@ -28,9 +28,10 @@ policy.local_user_files.mojom.TimeUnitAndValueSpec = {
   $: {
     structSpec: {
       name: 'policy.local_user_files.mojom.TimeUnitAndValue',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'unit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

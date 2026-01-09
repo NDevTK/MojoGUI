@@ -21,7 +21,8 @@ blink.mojom.ServiceWorkerContainerInfoForClientSpec = {
       name: 'blink.mojom.ServiceWorkerContainerInfoForClient',
       packedSize: 16,
       fields: [
-        { name: 'client_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'client_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

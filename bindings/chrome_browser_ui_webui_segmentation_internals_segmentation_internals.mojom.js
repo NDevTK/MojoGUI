@@ -14,9 +14,10 @@ segmentation_internals.mojom.ServiceStatusSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.ServiceStatus',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'intialization_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'intialization_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_initialized', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,14 @@ segmentation_internals.mojom.SegmentInfoSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.SegmentInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'prediction_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'segment_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'segment_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'prediction_result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'prediction_timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'segment_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'can_execute_segment', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +48,11 @@ segmentation_internals.mojom.ClientInfoSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.ClientInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'segment_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'segmentation_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'selected_segment', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'segment_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

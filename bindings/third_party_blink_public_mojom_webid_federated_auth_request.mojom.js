@@ -70,9 +70,12 @@ blink.mojom.IdentityProviderConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IdentityProviderConfig',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'config_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'from_idp_registration_api', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -84,9 +87,15 @@ blink.mojom.IdentityProviderRequestOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IdentityProviderRequestOptions',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'nonce', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'login_hint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'domain_hint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'fields', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'params_json', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'format', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -98,9 +107,10 @@ blink.mojom.IdentityCredentialDisconnectOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IdentityCredentialDisconnectOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'account_hint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'account_hint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,9 +122,12 @@ blink.mojom.IdentityUserInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IdentityUserInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'picture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'given_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'picture', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -126,9 +139,13 @@ blink.mojom.LoginStatusAccountSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LoginStatusAccount',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'picture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'given_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'picture', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -140,9 +157,10 @@ blink.mojom.LoginStatusOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LoginStatusOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'expiration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'accounts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'expiration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -154,9 +172,11 @@ blink.mojom.IdentityProviderGetParametersSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IdentityProviderGetParameters',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'providers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -168,9 +188,10 @@ blink.mojom.TokenErrorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TokenError',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,13 @@ cert_verifier.mojom.RequestParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.RequestParams',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'sct_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hostname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'ocsp_response', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sct_list', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +34,9 @@ cert_verifier.mojom.CertVerifierConfigSpec = {
       name: 'cert_verifier.mojom.CertVerifierConfig',
       packedSize: 16,
       fields: [
-        { name: 'enable_sha1_local_anchors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'enable_rev_checking', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'require_rev_checking_local_anchors', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_sha1_local_anchors', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

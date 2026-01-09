@@ -16,7 +16,9 @@ blink.mojom.AllowedDragOperationsSpec = {
       name: 'blink.mojom.AllowedDragOperations',
       packedSize: 16,
       fields: [
-        { name: 'allow_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'allow_copy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_link', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_move', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,12 @@ blink.mojom.DragItemStringSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DragItemString',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'base_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'string_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'string_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'base_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +47,13 @@ blink.mojom.DragItemBinarySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DragItemBinary',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'content_disposition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filename_extension', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content_disposition', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_image_accessible', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +65,12 @@ blink.mojom.DragItemFileSystemFileSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DragItemFileSystemFile',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'serialized_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'file_system_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'serialized_blob', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -70,8 +82,11 @@ blink.mojom.DragDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DragData',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'file_system_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'force_default_action', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -83,9 +98,10 @@ blink.mojom.DragEventSourceInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DragEventSourceInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

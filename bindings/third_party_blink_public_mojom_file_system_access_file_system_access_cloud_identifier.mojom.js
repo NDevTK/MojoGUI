@@ -14,9 +14,10 @@ blink.mojom.FileSystemAccessCloudIdentifierSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessCloudIdentifier',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'provider_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

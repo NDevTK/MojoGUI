@@ -28,8 +28,10 @@ blink.mojom.ServiceWorkerClientQueryOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerClientQueryOptions',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'client_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'include_uncontrolled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -41,9 +43,17 @@ blink.mojom.ServiceWorkerClientInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerClientInfo',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'creation_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client_uuid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'client_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'lifecycle_state', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_focus_time', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'creation_time', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_hidden', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_focused', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

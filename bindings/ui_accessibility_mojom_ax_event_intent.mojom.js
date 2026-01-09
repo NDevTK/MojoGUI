@@ -14,9 +14,12 @@ ax.mojom.EventIntentSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.EventIntent',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'move_direction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'command', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_event_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text_boundary', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'move_direction', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

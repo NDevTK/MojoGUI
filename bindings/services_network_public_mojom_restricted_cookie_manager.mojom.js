@@ -26,9 +26,10 @@ network.mojom.CookieManagerGetOptionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CookieManagerGetOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'match_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'match_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -40,9 +41,11 @@ network.mojom.CookiesResponseSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CookiesResponse',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'cookies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'version_buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'cookies', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

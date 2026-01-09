@@ -14,9 +14,10 @@ network.mojom.SharedDictionaryIsolationKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedDictionaryIsolationKey',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'top_frame_site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'top_frame_site', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -27,9 +27,12 @@ mojom.UpdateInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.UpdateInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'update_manifest_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update_channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'pinned_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'allow_downgrades', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -41,9 +44,14 @@ mojom.IwaDevModeAppInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.IwaDevModeAppInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'update_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'web_bundle_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'location', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'installed_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'update_info', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -55,9 +63,10 @@ mojom.VersionEntrySpec = {
   $: {
     structSpec: {
       name: 'mojom.VersionEntry',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'web_bundle_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'web_bundle_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -83,9 +92,10 @@ mojom.InstallFromBundleUrlParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.InstallFromBundleUrlParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'update_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'web_bundle_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

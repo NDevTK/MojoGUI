@@ -14,9 +14,10 @@ media.mojom.SpeechRecognitionGrammarSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionGrammar',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'weight', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'weight', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }

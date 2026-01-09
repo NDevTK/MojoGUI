@@ -137,9 +137,10 @@ arc.mojom.ArcAccountInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcAccountInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'gaia_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'gaia_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

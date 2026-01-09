@@ -15,9 +15,10 @@ ash.ime.mojom.StatusSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.Status',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

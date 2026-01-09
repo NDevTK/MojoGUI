@@ -143,9 +143,18 @@ blink.mojom.MediaStreamDeviceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDevice',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'display_media_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'display_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'video_facing', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'group_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'matched_output_device_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'input', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'display_media_info', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -157,9 +166,10 @@ blink.mojom.TrackControlsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TrackControls',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'device_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -171,9 +181,22 @@ blink.mojom.StreamControlsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StreamControls',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'exclude_monitor_type_surfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'video', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'window_audio_preference', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'preferred_display_surface', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hotword_enabled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'disable_local_echo', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'suppress_local_audio_playback', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'restrict_own_audio', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'exclude_system_audio', packedOffset: 32, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'exclude_self_browser_surface', packedOffset: 32, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'request_pan_tilt_zoom_permission', packedOffset: 32, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
+        { name: 'request_all_screens', packedOffset: 32, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
+        { name: 'dynamic_surface_switching_requested', packedOffset: 32, packedBitOffset: 8, type: mojo.internal.Bool, nullable: false },
+        { name: 'exclude_monitor_type_surfaces', packedOffset: 32, packedBitOffset: 9, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -185,9 +208,11 @@ blink.mojom.GetOpenDeviceResponseSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.GetOpenDeviceResponse',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'pan_tilt_zoom_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pan_tilt_zoom_allowed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -199,9 +224,12 @@ blink.mojom.CapturedWheelActionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CapturedWheelAction',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'wheel_delta_y', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'relative_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'relative_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'wheel_delta_x', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'wheel_delta_y', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -213,9 +241,10 @@ blink.mojom.StreamDevicesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StreamDevices',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'video_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'audio_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'video_device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

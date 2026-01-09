@@ -85,9 +85,17 @@ network.mojom.TrustTokenParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustTokenParams',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'possibly_unsafe_additional_signing_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'refresh_policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'custom_key_commitment', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'custom_issuer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'sign_request_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'issuers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'additional_signed_headers', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'possibly_unsafe_additional_signing_data', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'include_timestamp_header', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -99,9 +107,10 @@ network.mojom.HasTrustTokensResultSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HasTrustTokensResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'has_trust_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'has_trust_tokens', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,9 +122,10 @@ network.mojom.HasRedemptionRecordResultSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HasRedemptionRecordResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'has_redemption_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'has_redemption_record', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,9 +137,10 @@ network.mojom.TrustTokenVerificationKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustTokenVerificationKey',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'expiry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'expiry', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -141,9 +152,13 @@ network.mojom.TrustTokenKeyCommitmentResultSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustTokenKeyCommitmentResult',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'kAndroid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'protocol_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'kAndroid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'batch_size', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -155,9 +170,10 @@ network.mojom.FulfillTrustTokenIssuanceRequestSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FulfillTrustTokenIssuanceRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'issuer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -183,8 +199,13 @@ network.mojom.TrustTokenOperationResultSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustTokenOperationResult',
-      packedSize: 8,
+      packedSize: 48,
       fields: [
+        { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'issuer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'top_level_origin', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'issued_token_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,9 +217,10 @@ network.mojom.StoredTrustTokensForIssuerSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.StoredTrustTokensForIssuer',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'issuer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -210,9 +232,10 @@ network.mojom.ToplevelRedemptionRecordSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ToplevelRedemptionRecord',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'last_redemption', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'toplevel_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_redemption', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

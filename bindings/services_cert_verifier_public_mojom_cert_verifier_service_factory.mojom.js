@@ -21,9 +21,11 @@ cert_verifier.mojom.CertVerifierCreationParamsSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierCreationParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'ct_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'initial_additional_certificates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'ct_policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'wait_for_update', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -35,9 +37,10 @@ cert_verifier.mojom.ChromeRootCertInfoSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.ChromeRootCertInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'cert', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sha256hash_hex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'cert', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -49,9 +52,11 @@ cert_verifier.mojom.ChromeRootMerkleTreeCertInfoSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.ChromeRootMerkleTreeCertInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'last_landmark_id_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'log_id_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'min_landmark_id_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_landmark_id_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,9 +68,12 @@ cert_verifier.mojom.ChromeRootStoreInfoSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.ChromeRootStoreInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'root_mtc_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'root_cert_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'mtc_metadata_update_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'root_mtc_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -77,9 +85,10 @@ cert_verifier.mojom.PlatformCertInfoSpec = {
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.PlatformCertInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'trust_setting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'cert', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'trust_setting', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -361,8 +361,9 @@ ash.ime.mojom.JapaneseSettingsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.JapaneseSettings',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnspecified', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

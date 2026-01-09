@@ -14,9 +14,11 @@ storage.mojom.BucketClientInfoSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BucketClientInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'document_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'context_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'document_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'process_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

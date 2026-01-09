@@ -35,8 +35,9 @@ password_manager.mojom.CSVPasswordSpec = {
   $: {
     structSpec: {
       name: 'password_manager.mojom.CSVPassword',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kOK', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

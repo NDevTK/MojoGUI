@@ -56,9 +56,10 @@ tabs_api.mojom.OnCollectionCreatedEventSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.OnCollectionCreatedEvent',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'collection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'collection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,9 +71,11 @@ tabs_api.mojom.OnNodeMovedEventSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.OnNodeMovedEvent',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'to', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'from', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'to', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

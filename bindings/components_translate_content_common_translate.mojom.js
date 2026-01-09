@@ -30,9 +30,20 @@ translate.mojom.LanguageDetectionDetailsSpec = {
   $: {
     structSpec: {
       name: 'translate.mojom.LanguageDetectionDetails',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'detection_model_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'adopted_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content_language', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'model_detected_language', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'html_root_language', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'contents', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'detection_model_version', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'model_reliability_score', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'has_notranslate', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_run_lang_detection', packedOffset: 68, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_model_reliable', packedOffset: 68, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,10 @@ network.mojom.ObliviousHttpRequestBodySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpRequestBody',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,11 @@ network.mojom.ObliviousHttpResponseSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpResponse',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'response_body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response_body', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +45,11 @@ network.mojom.ObliviousHttpPaddingParametersSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpPaddingParameters',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'pad_to_next_power_of_two', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'exponential_mean', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'add_exponential_pad', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'pad_to_next_power_of_two', packedOffset: 2, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +61,17 @@ network.mojom.ObliviousHttpRequestSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpRequest',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'padding_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'relay_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timeout_duration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'key_config', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'resource_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'method', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'request_body', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'trust_token_params', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'padding_params', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

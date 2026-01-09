@@ -14,9 +14,11 @@ cc.mojom.BrowserControlsOffsetTagsSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.BrowserControlsOffsetTags',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'bottom_controls_offset_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'top_controls_offset_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content_offset_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bottom_controls_offset_tag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

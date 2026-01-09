@@ -22,9 +22,12 @@ history.mojom.QueryStateSpec = {
   $: {
     structSpec: {
       name: 'history.mojom.QueryState',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'after', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'search_term', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'after', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'incremental', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'querying', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -36,9 +39,10 @@ history.mojom.HistoryQuerySpec = {
   $: {
     structSpec: {
       name: 'history.mojom.HistoryQuery',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'finished', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'term', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'finished', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -50,9 +54,11 @@ history.mojom.DebugInfoSpec = {
   $: {
     structSpec: {
       name: 'history.mojom.DebugInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'typed_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'visit_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'typed_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_url_in_local_database', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -64,9 +70,29 @@ history.mojom.HistoryEntrySpec = {
   $: {
     structSpec: {
       name: 'history.mojom.HistoryEntry',
-      packedSize: 16,
+      packedSize: 144,
       fields: [
-        { name: 'debug', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'domain', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'fallback_favicon_text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'all_timestamps', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'date_short', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_type', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'date_time_of_day', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'date_relative_day', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'readableTimestamp', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'snippet', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'host_filtering_behavior', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_icon_url_for_uma', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'debug', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'selected', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'starred', packedOffset: 128, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'blocked_visit', packedOffset: 128, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_url_in_remote_user_data', packedOffset: 128, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_actor_visit', packedOffset: 128, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -78,9 +104,10 @@ history.mojom.QueryResultSpec = {
   $: {
     structSpec: {
       name: 'history.mojom.QueryResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -92,9 +119,10 @@ history.mojom.RemovalItemSpec = {
   $: {
     structSpec: {
       name: 'history.mojom.RemovalItem',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'timestamps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'timestamps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -106,9 +134,11 @@ history.mojom.AccountInfoSpec = {
   $: {
     structSpec: {
       name: 'history.mojom.AccountInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'account_image_src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'email', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

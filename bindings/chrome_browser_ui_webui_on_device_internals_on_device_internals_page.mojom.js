@@ -14,9 +14,15 @@ on_device_internals.mojom.PageDataSpec = {
   $: {
     structSpec: {
       name: 'on_device_internals.mojom.PageData',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'min_vram_mb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'base_model', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supp_models', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'feature_adaptations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'performance_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min_vram_mb', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'model_crash_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'max_model_crash_count', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +34,11 @@ on_device_internals.mojom.BaseModelStateSpec = {
   $: {
     structSpec: {
       name: 'on_device_internals.mojom.BaseModelState',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'registration_criteria', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +50,14 @@ on_device_internals.mojom.BaseModelInfoSpec = {
   $: {
     structSpec: {
       name: 'on_device_internals.mojom.BaseModelInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'backend_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'component_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'file_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'backend_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +69,10 @@ on_device_internals.mojom.SupplementaryModelInfoSpec = {
   $: {
     structSpec: {
       name: 'on_device_internals.mojom.SupplementaryModelInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_ready', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supp_model_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_ready', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,9 +84,12 @@ on_device_internals.mojom.FeatureAdaptationInfoSpec = {
   $: {
     structSpec: {
       name: 'on_device_internals.mojom.FeatureAdaptationInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'is_recently_used', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'feature_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_recently_used', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

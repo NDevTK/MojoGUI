@@ -15,9 +15,14 @@ chromeos.connectivity.mojom.PasspointSubscriptionSpec = {
   $: {
     structSpec: {
       name: 'chromeos.connectivity.mojom.PasspointSubscription',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'expiration_epoch_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'domains', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'friendly_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'provisioning_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'trusted_ca', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'expiration_epoch_ms', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }

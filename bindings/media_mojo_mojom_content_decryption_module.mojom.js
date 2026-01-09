@@ -26,9 +26,12 @@ media.mojom.CdmConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmConfig',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'use_hw_secure_codecs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'allow_distinctive_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_persistent_state', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_hw_secure_codecs', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -40,9 +43,13 @@ media.mojom.CdmPromiseResultSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmPromiseResult',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'Exception', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'exception', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'system_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'success', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -54,9 +61,11 @@ media.mojom.CdmKeyInformationSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmKeyInformation',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'system_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'system_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -68,9 +77,11 @@ media.mojom.CdmContextSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmContext',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'requires_media_foundation_renderer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'cdm_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'requires_media_foundation_renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decryptor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

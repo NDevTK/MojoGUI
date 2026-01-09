@@ -14,9 +14,11 @@ blink.mojom.WebPageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPage',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'entities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'entities', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

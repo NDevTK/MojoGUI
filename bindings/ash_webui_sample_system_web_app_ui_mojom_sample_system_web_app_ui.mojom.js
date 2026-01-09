@@ -15,9 +15,10 @@ ash.mojom.sample_swa.PreferencesSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.sample_swa.Preferences',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'foreground', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'background', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'foreground', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

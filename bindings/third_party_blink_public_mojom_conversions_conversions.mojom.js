@@ -14,9 +14,10 @@ blink.mojom.ImpressionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Impression',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_empty_attribution_src_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_empty_attribution_src_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

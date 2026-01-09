@@ -96,9 +96,12 @@ nearby.connections.mojom.ConnectionInfoSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.ConnectionInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'is_incoming_connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'authentication_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'raw_authentication_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'endpoint_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_incoming_connection', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -110,9 +113,10 @@ nearby.connections.mojom.DiscoveredEndpointInfoSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.DiscoveredEndpointInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'endpoint_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'service_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -126,7 +130,11 @@ nearby.connections.mojom.MediumSelectionSpec = {
       name: 'nearby.connections.mojom.MediumSelection',
       packedSize: 16,
       fields: [
-        { name: 'wifi_direct', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bluetooth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ble', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'web_rtc', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'wifi_lan', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'wifi_direct', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -138,9 +146,15 @@ nearby.connections.mojom.AdvertisingOptionsSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.AdvertisingOptions',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'fast_advertisement_service_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'strategy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'allowed_mediums', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fast_advertisement_service_uuid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'auto_upgrade_bandwidth', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enforce_topology_constraints', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_bluetooth_listening', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_webrtc_listening', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -152,9 +166,12 @@ nearby.connections.mojom.DiscoveryOptionsSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.DiscoveryOptions',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'strategy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'allowed_mediums', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fast_advertisement_service_uuid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'is_out_of_band_connection', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -166,9 +183,12 @@ nearby.connections.mojom.ConnectionOptionsSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.ConnectionOptions',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'keep_alive_timeout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'allowed_mediums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_bluetooth_mac_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'keep_alive_interval', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'keep_alive_timeout', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -208,9 +228,10 @@ nearby.connections.mojom.PayloadSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.Payload',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'content', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,9 +243,12 @@ nearby.connections.mojom.PayloadTransferUpdateSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.PayloadTransferUpdate',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'bytes_transferred', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payload_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'bytes_transferred', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -236,9 +260,12 @@ nearby.connections.mojom.InitialConnectionInfoV3Spec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.InitialConnectionInfoV3',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'authentication_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'authentication_digits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'raw_authentication_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'authentication_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_incoming_connection', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -250,9 +277,10 @@ nearby.connections.mojom.BandwidthInfoSpec = {
   $: {
     structSpec: {
       name: 'nearby.connections.mojom.BandwidthInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'medium', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'quality', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'medium', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,10 @@ storage.mojom.StoragePolicyUpdateSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.StoragePolicyUpdate',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'purge_on_shutdown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'purge_on_shutdown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

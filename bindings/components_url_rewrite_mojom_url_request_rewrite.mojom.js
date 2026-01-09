@@ -34,9 +34,11 @@ url_rewrite.mojom.UrlRequestRuleSpec = {
   $: {
     structSpec: {
       name: 'url_rewrite.mojom.UrlRequestRule',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'hosts_filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'schemes_filter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'actions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -62,9 +64,10 @@ url_rewrite.mojom.UrlHeaderSpec = {
   $: {
     structSpec: {
       name: 'url_rewrite.mojom.UrlHeader',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -76,9 +79,10 @@ url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec = {
   $: {
     structSpec: {
       name: 'url_rewrite.mojom.UrlRequestRewriteRemoveHeader',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'header_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'query_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'header_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -90,9 +94,10 @@ url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec = {
   $: {
     structSpec: {
       name: 'url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPattern',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'substitution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'substitution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,9 +109,10 @@ url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec = {
   $: {
     structSpec: {
       name: 'url_rewrite.mojom.UrlRequestRewriteReplaceUrl',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'new_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url_ends_with', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'new_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

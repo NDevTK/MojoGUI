@@ -20,9 +20,12 @@ blink.mojom.PrerenderAttributesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PrerenderAttributes',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'view_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'trigger_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'referrer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'view_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

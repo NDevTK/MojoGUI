@@ -14,9 +14,10 @@ IPC.mojom.MessageSpec = {
   $: {
     structSpec: {
       name: 'IPC.mojom.Message',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'handles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'handles', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }

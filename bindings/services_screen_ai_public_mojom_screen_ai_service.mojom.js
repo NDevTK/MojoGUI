@@ -54,9 +54,16 @@ screen_ai.mojom.LineBoxSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.LineBox',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'confidence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'words', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'text_line', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'language', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'bounding_box', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'block_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'paragraph_id', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'bounding_box_angle', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'confidence', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -68,9 +75,16 @@ screen_ai.mojom.WordBoxSpec = {
   $: {
     structSpec: {
       name: 'screen_ai.mojom.WordBox',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'confidence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'bounding_box', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'direction', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'whitespace_bounding_box', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounding_box_angle', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'whitespace_bounding_box_angle', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'confidence', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

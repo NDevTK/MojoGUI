@@ -37,9 +37,11 @@ blink.mojom.NativeFileInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NativeFileInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'base_subdirs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'base_subdirs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -51,8 +53,11 @@ blink.mojom.FileSystemFileInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemFileInfo',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'modification_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -64,9 +69,10 @@ blink.mojom.FileChooserResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileChooserResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'base_directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'base_directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

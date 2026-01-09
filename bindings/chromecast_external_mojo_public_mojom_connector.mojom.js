@@ -15,9 +15,11 @@ chromecast.external_mojo.mojom.ExternalServiceInfoSpec = {
   $: {
     structSpec: {
       name: 'chromecast.external_mojo.mojom.ExternalServiceInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'disconnect_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'connect_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'disconnect_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -29,9 +31,10 @@ chromecast.external_mojo.mojom.ServiceInstanceInfoSpec = {
   $: {
     structSpec: {
       name: 'chromecast.external_mojo.mojom.ServiceInstanceInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'service_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'service_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

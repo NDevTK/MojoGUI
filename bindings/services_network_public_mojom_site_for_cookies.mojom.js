@@ -14,9 +14,10 @@ network.mojom.SiteForCookiesSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SiteForCookies',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'schemefully_same', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'schemefully_same', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

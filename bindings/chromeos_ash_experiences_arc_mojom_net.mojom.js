@@ -131,9 +131,11 @@ arc.mojom.VisibleNetworkDetailsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VisibleNetworkDetails',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'bssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'frequency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'signal_strength', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -145,9 +147,10 @@ arc.mojom.ConfiguredNetworkDetailsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ConfiguredNetworkDetails',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'bssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'passphrase', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'autoconnect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -198,9 +201,13 @@ arc.mojom.IPConfigurationSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IPConfiguration',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gateway', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'ip_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name_servers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'routing_prefix', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -212,9 +219,14 @@ arc.mojom.WiFiSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WiFi',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'rssi', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'bssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'hex_ssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'security', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frequency', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'signal_strength', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'hidden_ssid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -226,9 +238,14 @@ arc.mojom.NetworkConfigurationSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NetworkConfiguration',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'link_speed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'connection_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'deprecated_ip_configs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'deprecated_mac_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'wifi', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -305,9 +322,10 @@ arc.mojom.GetNetworksResponseTypeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.GetNetworksResponseType',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'networks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -332,9 +350,11 @@ arc.mojom.ArcDnsResolutionTestResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcDnsResolutionTestResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'response_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_successful', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -346,9 +366,12 @@ arc.mojom.ArcHttpTestResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcHttpTestResult',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response_header_fields', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'duration_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'status_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_successful', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -360,9 +383,10 @@ arc.mojom.ArcPingTestResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcPingTestResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'is_successful', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -387,9 +411,10 @@ arc.mojom.PasspointApprovalRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PasspointApprovalRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'subscription_expiration_time_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'app_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

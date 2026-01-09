@@ -21,9 +21,13 @@ blink.mojom.PageLifecycleStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PageLifecycleState',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'eviction_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pagehide_dispatch', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_frozen', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_in_back_forward_cache', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'eviction_enabled', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -35,9 +39,12 @@ blink.mojom.PageRestoreParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PageRestoreParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'view_transition_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'navigation_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'view_transition_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'pending_history_list_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'current_history_list_length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -49,9 +56,11 @@ blink.mojom.ColorProviderColorMapsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ColorProviderColorMaps',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'forced_colors_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'light_colors_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'dark_colors_map', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'forced_colors_map', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,9 +72,11 @@ blink.mojom.PrerenderPageActivationParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PrerenderPageActivationParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'view_transition_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'was_user_activated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'activation_start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'view_transition_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

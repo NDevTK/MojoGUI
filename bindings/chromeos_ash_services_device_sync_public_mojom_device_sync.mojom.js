@@ -71,9 +71,10 @@ ash.device_sync.mojom.FindEligibleDevicesResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.device_sync.mojom.FindEligibleDevicesResponse',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'ineligible_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'eligible_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'ineligible_devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,9 +86,12 @@ ash.device_sync.mojom.DeviceActivityStatusSpec = {
   $: {
     structSpec: {
       name: 'ash.device_sync.mojom.DeviceActivityStatus',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'last_update_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_activity_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connectivity_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_update_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -99,9 +103,16 @@ ash.device_sync.mojom.DebugInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.device_sync.mojom.DebugInfo',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'is_sync_in_progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_enrollment_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time_to_next_enrollment_attempt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_sync_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time_to_next_sync_attempt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_recovering_from_enrollment_failure', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_enrollment_in_progress', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_recovering_from_sync_failure', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_sync_in_progress', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

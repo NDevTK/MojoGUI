@@ -14,9 +14,10 @@ gpu.mojom.VideoMemoryProcessStatsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VideoMemoryProcessStats',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'has_duplicates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'video_memory_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'has_duplicates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,10 @@ gpu.mojom.VideoMemoryUsageStatsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VideoMemoryUsageStats',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'bytes_allocated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'process_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'bytes_allocated', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

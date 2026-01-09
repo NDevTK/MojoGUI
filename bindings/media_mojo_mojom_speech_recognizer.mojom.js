@@ -22,9 +22,21 @@ media.mojom.StartSpeechRecognitionRequestParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.StartSpeechRecognitionRequestParams',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'sample_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'grammars', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'recognition_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'session_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'max_hypotheses', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'audio_forwarder', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'channel_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'sample_rate', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'continuous', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'interim_results', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'on_device', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_cloud_fallback', packedOffset: 48, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

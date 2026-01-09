@@ -38,9 +38,12 @@ viz.mojom.MultiplanarFormatSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.MultiplanarFormat',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'prefers_external_sampler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'plane_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subsampling', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'channel_format', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'prefers_external_sampler', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

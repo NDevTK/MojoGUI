@@ -234,9 +234,17 @@ drivefs.mojom.DriveFsConfigurationSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsConfiguration',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'user_email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'access_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'enable_metrics', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'lost_and_found_directory_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'enable_experimental_mirroring', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'enable_verbose_logging', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cse_support', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fetch_modifying_user_metadata', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fetch_sharing_user_metadata', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,9 +256,10 @@ drivefs.mojom.AccessTokenSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.AccessToken',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'expiry_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'expiry_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -318,9 +327,10 @@ drivefs.mojom.ShortcutDetailsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.ShortcutDetails',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target_stable_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'kUnknown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -332,8 +342,11 @@ drivefs.mojom.ImageMetadataSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.ImageMetadata',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'width', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'rotation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -347,7 +360,11 @@ drivefs.mojom.CapabilitiesSpec = {
       name: 'drivefs.mojom.Capabilities',
       packedSize: 16,
       fields: [
-        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'can_share', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_copy', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_delete', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_rename', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_add_children', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -361,7 +378,9 @@ drivefs.mojom.FolderFeatureSpec = {
       name: 'drivefs.mojom.FolderFeature',
       packedSize: 16,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_machine_root', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_arbitrary_sync_folder', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_external_media', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -387,9 +406,10 @@ drivefs.mojom.SharedDriveQuotaSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.SharedDriveQuota',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'individual_quota_bytes_total', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'quota_bytes_used_in_drive', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'individual_quota_bytes_total', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -415,9 +435,11 @@ drivefs.mojom.ProgressEventSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.ProgressEvent',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'stable_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -443,9 +465,10 @@ drivefs.mojom.FileChangeSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.FileChange',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'kCreate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kCreate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -457,8 +480,9 @@ drivefs.mojom.QueryParametersSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.QueryParameters',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kLocalOnly', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -470,9 +494,10 @@ drivefs.mojom.QueryItemSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.QueryItem',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -484,9 +509,10 @@ drivefs.mojom.FetchChangeLogOptionsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.FetchChangeLogOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'team_drive_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'change_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'team_drive_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -498,9 +524,13 @@ drivefs.mojom.PooledQuotaUsageSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.PooledQuotaUsage',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'organization_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'user_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'used_user_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'total_user_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'organization_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'organization_limit_exceeded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -512,9 +542,10 @@ drivefs.mojom.QuotaUsageSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.QuotaUsage',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'total_cloud_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'free_cloud_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'total_cloud_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -526,9 +557,10 @@ drivefs.mojom.HttpHeaderSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.HttpHeader',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -540,9 +572,12 @@ drivefs.mojom.HttpRequestSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.HttpRequest',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'request_body_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'request_body_bytes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -554,9 +589,10 @@ drivefs.mojom.HttpResponseSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.HttpResponse',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'response_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -568,9 +604,10 @@ drivefs.mojom.HttpCompletionStatusSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.HttpCompletionStatus',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'response_body_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response_body_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -584,7 +621,8 @@ drivefs.mojom.DocsOfflineStatsSpec = {
       name: 'drivefs.mojom.DocsOfflineStats',
       packedSize: 16,
       fields: [
-        { name: 'available_offline', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'available_offline', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

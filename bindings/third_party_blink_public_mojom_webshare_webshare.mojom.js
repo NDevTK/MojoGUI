@@ -14,9 +14,10 @@ blink.mojom.SharedFileSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedFile',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

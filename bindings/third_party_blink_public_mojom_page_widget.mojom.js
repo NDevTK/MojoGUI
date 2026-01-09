@@ -20,9 +20,10 @@ blink.mojom.ProximateCharacterRangeBoundsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ProximateCharacterRangeBounds',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'widget_bounds_in_dips', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'widget_bounds_in_dips', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -34,9 +35,11 @@ blink.mojom.StylusWritingFocusResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StylusWritingFocusResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'proximate_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'focused_edit_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'caret_bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'proximate_bounds', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -132,13 +135,13 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       []);
   }
 
-  onStartStylusWriting(focus_widget_rect_in_dips) {
+  onStartStylusWriting() {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
       blink.mojom.FrameWidget_OnStartStylusWriting_ParamsSpec,
       blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec,
-      [focus_widget_rect_in_dips]);
+      []);
   }
 
   passImeRenderWidgetHost(remote) {
@@ -399,9 +402,8 @@ blink.mojom.FrameWidget_OnStartStylusWriting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FrameWidget.OnStartStylusWriting_Params',
-      packedSize: 16,
+      packedSize: 8,
       fields: [
-        { name: 'focus_widget_rect_in_dips', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

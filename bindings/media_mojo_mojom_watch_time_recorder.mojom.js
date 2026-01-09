@@ -14,9 +14,17 @@ media.mojom.PlaybackPropertiesSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PlaybackProperties',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'demuxer_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'media_stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'renderer_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'demuxer_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'has_audio', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_video', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_background', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_muted', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_eme', packedOffset: 24, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_embedded_media_experience', packedOffset: 24, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +36,17 @@ media.mojom.SecondaryPlaybackPropertiesSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SecondaryPlaybackProperties',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'natural_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_codec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'video_codec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_codec_profile', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'video_codec_profile', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_decoder', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'video_decoder', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_encryption_scheme', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'video_encryption_scheme', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'natural_size', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

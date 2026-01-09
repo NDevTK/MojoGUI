@@ -34,9 +34,10 @@ mojo_base.mojom.ErrorSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.Error',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

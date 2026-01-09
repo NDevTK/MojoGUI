@@ -28,9 +28,10 @@ blink.mojom.MediaSessionSeekToDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaSessionSeekToDetails',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'fast_seek', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fast_seek', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +57,13 @@ blink.mojom.SpecMediaMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpecMediaMetadata',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'chapterInfo', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'artist', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'album', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'artwork', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'chapterInfo', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -43,9 +43,11 @@ performance_manager.mojom.WebMemoryBreakdownEntrySpec = {
   $: {
     structSpec: {
       name: 'performance_manager.mojom.WebMemoryBreakdownEntry',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'attribution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'memory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'canvas_memory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'attribution', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -15,9 +15,10 @@ chromecast.shell.mojom.FeatureSpec = {
   $: {
     structSpec: {
       name: 'chromecast.shell.mojom.Feature',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

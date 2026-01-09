@@ -30,9 +30,10 @@ storage.mojom.IdbOriginMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbOriginMetadata',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'storage_keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -44,9 +45,11 @@ storage.mojom.IdbStorageKeyMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbStorageKeyMetadata',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'buckets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'top_level_site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'serialized_storage_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'buckets', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -58,9 +61,17 @@ storage.mojom.IdbBucketMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbBucketMetadata',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'delta_recording_start_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'last_modified', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'paths', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'connection_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'databases', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'clients', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'delta_recording_start_ms', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -72,9 +83,13 @@ storage.mojom.IdbDatabaseMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbDatabaseMetadata',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'transactions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connection_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'active_open_delete', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'pending_open_delete', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'transactions', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -86,9 +101,19 @@ storage.mojom.IdbTransactionMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbTransactionMetadata',
-      packedSize: 16,
+      packedSize: 96,
       fields: [
-        { name: 'state_history', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'client_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'age', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'runtime', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'tasks_scheduled', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'tasks_completed', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'scope', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'state_history', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'connection_id', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -100,9 +125,10 @@ storage.mojom.IdbTransactionMetadataStateHistorySpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbTransactionMetadataStateHistory',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }

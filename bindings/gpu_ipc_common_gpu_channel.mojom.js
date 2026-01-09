@@ -39,7 +39,7 @@ gpu.mojom.RasterCreationAttribsSpec = {
       name: 'gpu.mojom.RasterCreationAttribs',
       packedSize: 16,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'lose_context_when_out_of_memory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -51,9 +51,12 @@ gpu.mojom.GLESCreationAttribsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GLESCreationAttribs',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'kOpenGLES2', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gpu_preference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'context_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fail_if_major_perf_caveat', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'lose_context_when_out_of_memory', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -78,9 +81,13 @@ gpu.mojom.CreateCommandBufferParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CreateCommandBufferParams',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream_priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attribs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'active_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'stream_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -92,9 +99,15 @@ gpu.mojom.CommandBufferStateSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CommandBufferState',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'set_get_buffer_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'release_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'context_lost_reason', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'get_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'token', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'generation', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'set_get_buffer_count', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -106,9 +119,11 @@ gpu.mojom.DeferredRequestSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.DeferredRequest',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'release_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sync_token_fences', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'release_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -120,9 +135,10 @@ gpu.mojom.DeferredCommandBufferRequestSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.DeferredCommandBufferRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'routing_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,9 +150,11 @@ gpu.mojom.AsyncFlushParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.AsyncFlushParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'sync_token_fences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sync_token_fences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'put_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'flush_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,9 +166,10 @@ gpu.mojom.SharedImageInfoSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.SharedImageInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'debug_label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'meta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'debug_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -162,9 +181,11 @@ gpu.mojom.CreateSharedImageParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CreateSharedImageParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'pool_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'si_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pool_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -176,9 +197,13 @@ gpu.mojom.CreateSharedImageWithDataParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CreateSharedImageWithDataParams',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'done_with_shm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'si_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pixel_data_offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'pixel_data_size', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'done_with_shm', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -190,9 +215,12 @@ gpu.mojom.CreateSharedImageWithBufferParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CreateSharedImageWithBufferParams',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'pool_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'si_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pool_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -204,9 +232,10 @@ gpu.mojom.UpdateSharedImageParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.UpdateSharedImageParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'in_fence_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'in_fence_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -246,9 +275,11 @@ gpu.mojom.RegisterDxgiFenceParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.RegisterDxgiFenceParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'fence_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dxgi_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fence_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,9 +291,11 @@ gpu.mojom.UpdateDxgiFenceParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.UpdateDxgiFenceParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'fence_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dxgi_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fence_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -274,9 +307,10 @@ gpu.mojom.UnregisterDxgiFenceParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.UnregisterDxgiFenceParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'dxgi_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dxgi_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -288,9 +322,10 @@ gpu.mojom.CreateSharedImagePoolParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CreateSharedImagePoolParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'client_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pool_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

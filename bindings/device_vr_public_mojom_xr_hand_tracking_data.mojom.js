@@ -43,9 +43,11 @@ device.mojom.XRHandJointDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRHandJointData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'radius', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'joint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mojo_from_joint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'radius', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

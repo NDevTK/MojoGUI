@@ -40,9 +40,12 @@ history_clusters.mojom.QueryResultSpec = {
   $: {
     structSpec: {
       name: 'history_clusters.mojom.QueryResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'is_continuation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'clusters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'can_load_more', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_continuation', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

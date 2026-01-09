@@ -58,9 +58,8 @@ blink.mojom.HttpBodySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HttpBody',
-      packedSize: 16,
+      packedSize: 8,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

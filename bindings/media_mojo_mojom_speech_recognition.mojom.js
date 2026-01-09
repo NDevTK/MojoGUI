@@ -46,9 +46,10 @@ media.mojom.HypothesisPartsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.HypothesisParts',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'hypothesis_part_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'hypothesis_part_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -60,9 +61,10 @@ media.mojom.MediaTimestampRangeSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaTimestampRange',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -74,9 +76,12 @@ media.mojom.TimingInformationSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.TimingInformation',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'originating_media_timestamps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'audio_start_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_end_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hypothesis_parts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'originating_media_timestamps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -88,9 +93,11 @@ media.mojom.SpeechRecognitionResultSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'timing_information', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'transcription', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'timing_information', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'is_final', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -102,9 +109,11 @@ media.mojom.LanguageIdentificationEventSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.LanguageIdentificationEvent',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'asr_switch_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'confidence_level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'asr_switch_result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -116,9 +125,18 @@ media.mojom.SpeechRecognitionOptionsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionOptions',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'recognition_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'recognition_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_server_based', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'recognizer_client_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'skip_continuously_empty_audio', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'experiment_recognizer_routing_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'channel_count', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sample_rate', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'recognition_context', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'enable_formatting', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

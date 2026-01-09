@@ -14,9 +14,10 @@ viz.mojom.TileResourceSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TileResource',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_checkered', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resource', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_checkered', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,12 @@ viz.mojom.TileSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Tile',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
         { name: 'contents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'column_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'row_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'update_damage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +46,16 @@ viz.mojom.TilingSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Tiling',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'is_deleted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'raster_translation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'raster_scale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tile_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tiling_rect', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tiles', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'scale_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'is_deleted', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

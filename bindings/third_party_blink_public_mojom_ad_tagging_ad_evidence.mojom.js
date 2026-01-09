@@ -28,9 +28,13 @@ blink.mojom.FrameAdEvidenceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FrameAdEvidence',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'kNotCreatedByAdScript', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'latest_filter_list_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'most_restrictive_filter_list_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'created_by_ad_script', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_complete', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'parent_is_ad', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -21,9 +21,10 @@ page_load_metrics.mojom.DocumentTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.DocumentTiming',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'load_event_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'dom_content_loaded_event_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'load_event_start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -35,9 +36,11 @@ page_load_metrics.mojom.LcpResourceLoadTimingsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.LcpResourceLoadTimings',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'load_end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'discovery_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'load_start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'load_end', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -49,9 +52,17 @@ page_load_metrics.mojom.LargestContentfulPaintTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.LargestContentfulPaintTiming',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'image_request_priority_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'largest_image_paint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'largest_image_paint_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'largest_text_paint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'largest_text_paint_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'resource_load_timings', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'image_bpp', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'image_request_priority_value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_request_priority_valid', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,9 +74,16 @@ page_load_metrics.mojom.PaintTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.PaintTiming',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'first_input_or_scroll_notified_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_paint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_image_paint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_contentful_paint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_meaningful_paint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'largest_contentful_paint', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'experimental_largest_contentful_paint', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'first_eligible_to_paint', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_input_or_scroll_notified_timestamp', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -77,9 +95,10 @@ page_load_metrics.mojom.MonotonicPaintTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.MonotonicPaintTiming',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'first_contentful_paint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_paint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_contentful_paint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -91,9 +110,14 @@ page_load_metrics.mojom.ParseTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.ParseTiming',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'parse_blocked_on_script_execution_from_document_write_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'parse_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'parse_stop', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'parse_blocked_on_script_load_duration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'parse_blocked_on_script_load_from_document_write_duration', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'parse_blocked_on_script_execution_duration', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'parse_blocked_on_script_execution_from_document_write_duration', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -105,9 +129,12 @@ page_load_metrics.mojom.InteractiveTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.InteractiveTiming',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'first_scroll_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_input_delay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_input_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_scroll_delay', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_scroll_timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -119,9 +146,10 @@ page_load_metrics.mojom.CustomUserTimingMarkSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.CustomUserTimingMark',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mark_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -133,9 +161,10 @@ page_load_metrics.mojom.DomainLookupTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.DomainLookupTiming',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'domain_lookup_end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'domain_lookup_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'domain_lookup_end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -147,9 +176,24 @@ page_load_metrics.mojom.PageLoadTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.PageLoadTiming',
-      packedSize: 16,
+      packedSize: 136,
       fields: [
-        { name: 'monotonic_paint_timing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'navigation_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connect_start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'connect_end', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'response_start', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'document_timing', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interactive_timing', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'paint_timing', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'parse_timing', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'domain_lookup_timing', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'back_forward_cache_timings', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'activation_start', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'input_to_navigation_start', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'user_timing_mark_fully_loaded', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'user_timing_mark_fully_visible', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'user_timing_mark_interactive', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'monotonic_paint_timing', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -161,9 +205,13 @@ page_load_metrics.mojom.FrameMetadataSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.FrameMetadata',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'framework_detection_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'main_frame_intersection_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'main_frame_viewport_rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'main_frame_ad_rects', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'framework_detection_result', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'behavior_flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,9 +223,11 @@ page_load_metrics.mojom.SubresourceLoadMetricsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.SubresourceLoadMetrics',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'service_worker_subresource_load_metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'number_of_subresources_loaded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'number_of_subresource_loads_handled_by_service_worker', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,9 +239,45 @@ page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetrics',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'total_cache_lookup_time_for_subresources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_router_evaluation_time_for_subresources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_cache_lookup_time_for_subresources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'matched_cache_router_source_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'matched_fetch_event_router_source_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'matched_network_router_source_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'matched_race_network_and_fetch_router_source_count', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'matched_race_network_and_cache_router_source_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'image_handled', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'image_fallback', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'css_handled', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'css_fallback', packedOffset: 36, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'script_handled', packedOffset: 36, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'script_fallback', packedOffset: 36, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'font_handled', packedOffset: 36, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
+        { name: 'font_fallback', packedOffset: 36, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
+        { name: 'raw_handled', packedOffset: 36, packedBitOffset: 8, type: mojo.internal.Bool, nullable: false },
+        { name: 'raw_fallback', packedOffset: 36, packedBitOffset: 9, type: mojo.internal.Bool, nullable: false },
+        { name: 'svg_handled', packedOffset: 36, packedBitOffset: 10, type: mojo.internal.Bool, nullable: false },
+        { name: 'svg_fallback', packedOffset: 36, packedBitOffset: 11, type: mojo.internal.Bool, nullable: false },
+        { name: 'xsl_handled', packedOffset: 36, packedBitOffset: 12, type: mojo.internal.Bool, nullable: false },
+        { name: 'xsl_fallback', packedOffset: 36, packedBitOffset: 13, type: mojo.internal.Bool, nullable: false },
+        { name: 'link_prefetch_handled', packedOffset: 36, packedBitOffset: 14, type: mojo.internal.Bool, nullable: false },
+        { name: 'link_prefetch_fallback', packedOffset: 36, packedBitOffset: 15, type: mojo.internal.Bool, nullable: false },
+        { name: 'text_track_handled', packedOffset: 36, packedBitOffset: 16, type: mojo.internal.Bool, nullable: false },
+        { name: 'text_track_fallback', packedOffset: 36, packedBitOffset: 17, type: mojo.internal.Bool, nullable: false },
+        { name: 'audio_handled', packedOffset: 36, packedBitOffset: 18, type: mojo.internal.Bool, nullable: false },
+        { name: 'audio_fallback', packedOffset: 36, packedBitOffset: 19, type: mojo.internal.Bool, nullable: false },
+        { name: 'video_handled', packedOffset: 36, packedBitOffset: 20, type: mojo.internal.Bool, nullable: false },
+        { name: 'video_fallback', packedOffset: 36, packedBitOffset: 21, type: mojo.internal.Bool, nullable: false },
+        { name: 'manifest_handled', packedOffset: 36, packedBitOffset: 22, type: mojo.internal.Bool, nullable: false },
+        { name: 'manifest_fallback', packedOffset: 36, packedBitOffset: 23, type: mojo.internal.Bool, nullable: false },
+        { name: 'speculation_rules_handled', packedOffset: 36, packedBitOffset: 24, type: mojo.internal.Bool, nullable: false },
+        { name: 'speculation_rules_fallback', packedOffset: 36, packedBitOffset: 25, type: mojo.internal.Bool, nullable: false },
+        { name: 'mock_handled', packedOffset: 36, packedBitOffset: 26, type: mojo.internal.Bool, nullable: false },
+        { name: 'mock_fallback', packedOffset: 36, packedBitOffset: 27, type: mojo.internal.Bool, nullable: false },
+        { name: 'dictionary_handled', packedOffset: 36, packedBitOffset: 28, type: mojo.internal.Bool, nullable: false },
+        { name: 'dictionary_fallback', packedOffset: 36, packedBitOffset: 29, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,9 +289,21 @@ page_load_metrics.mojom.ResourceDataUpdateSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.ResourceDataUpdate',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'proxy_used', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'delta_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'received_data_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'encoded_body_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decoded_body_length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cache_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mime_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'request_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_complete', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'reported_as_ad_resource', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_main_frame_resource', packedOffset: 52, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_primary_frame_resource', packedOffset: 52, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_secure_scheme', packedOffset: 52, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'proxy_used', packedOffset: 52, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -217,9 +315,10 @@ page_load_metrics.mojom.LayoutShiftSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.LayoutShift',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'layout_shift_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'layout_shift_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'layout_shift_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -231,9 +330,11 @@ page_load_metrics.mojom.FrameRenderDataUpdateSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.FrameRenderDataUpdate',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'new_layout_shifts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_layout_shifts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'layout_shift_delta', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'layout_shift_delta_before_input_or_scroll', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -273,9 +374,11 @@ page_load_metrics.mojom.UserInteractionLatencySpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.UserInteractionLatency',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'interaction_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interaction_latency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interaction_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'interaction_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -287,9 +390,11 @@ page_load_metrics.mojom.BackForwardCacheTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.BackForwardCacheTiming',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'first_input_delay_after_back_forward_cache_restore', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_paint_after_back_forward_cache_restore', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request_animation_frames_after_back_forward_cache_restore', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'first_input_delay_after_back_forward_cache_restore', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -301,9 +406,13 @@ page_load_metrics.mojom.SoftNavigationMetricsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.SoftNavigationMetrics',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'largest_contentful_paint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'same_document_metrics_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'largest_contentful_paint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'navigation_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

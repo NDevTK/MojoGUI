@@ -69,9 +69,19 @@ device.mojom.SerialPortInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPortInfo',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bluetooth_service_class_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'display_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'serial_number', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'vendor_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'product_id', packedOffset: 50, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'has_vendor_id', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_product_id', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'connected', packedOffset: 52, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -83,9 +93,14 @@ device.mojom.SerialConnectionOptionsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialConnectionOptions',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data_bits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'parity_bit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stop_bits', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bitrate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'cts_flow_control', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_cts_flow_control', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -97,9 +112,13 @@ device.mojom.SerialConnectionInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialConnectionInfo',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'cts_flow_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data_bits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'parity_bit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stop_bits', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bitrate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'cts_flow_control', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,7 +132,12 @@ device.mojom.SerialHostControlSignalsSpec = {
       name: 'device.mojom.SerialHostControlSignals',
       packedSize: 16,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dtr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_dtr', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'rts', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_rts', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'brk', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_brk', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,7 +151,10 @@ device.mojom.SerialPortControlSignalsSpec = {
       name: 'device.mojom.SerialPortControlSignals',
       packedSize: 16,
       fields: [
-        { name: 'dsr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dcd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'cts', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'ri', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'dsr', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

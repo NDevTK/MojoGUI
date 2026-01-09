@@ -14,9 +14,10 @@ blink.mojom.FileSystemAccessEntrySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessEntry',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'entry_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

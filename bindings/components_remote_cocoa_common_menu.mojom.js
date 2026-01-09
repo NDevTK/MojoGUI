@@ -14,9 +14,17 @@ remote_cocoa.mojom.MenuItemCommonFieldsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.MenuItemCommonFields',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'command_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'may_have_mnemonics', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_checked', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_enabled', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_visible', packedOffset: 20, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_alerted', packedOffset: 20, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_new_feature', packedOffset: 20, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +36,10 @@ remote_cocoa.mojom.SubmenuMenuItemSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.SubmenuMenuItem',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'children', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'common', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'children', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +51,16 @@ remote_cocoa.mojom.MenuControllerParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.MenuControllerParams',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'iph_dot_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'badge_font', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'badge_color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'badge_text_color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'iph_dot_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'badge_horizontal_margin', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'badge_internal_padding', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'badge_min_height', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'badge_radius', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +72,12 @@ remote_cocoa.mojom.ContextMenuSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.ContextMenu',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'anchor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target_view_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

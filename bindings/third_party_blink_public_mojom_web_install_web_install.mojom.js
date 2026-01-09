@@ -21,9 +21,10 @@ blink.mojom.InstallOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InstallOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'manifest_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'install_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'manifest_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

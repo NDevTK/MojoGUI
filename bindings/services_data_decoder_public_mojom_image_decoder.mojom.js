@@ -20,9 +20,10 @@ data_decoder.mojom.AnimationFrameSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.AnimationFrame',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

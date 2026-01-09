@@ -31,9 +31,10 @@ emoji_picker.mojom.EmojiVariantSpec = {
   $: {
     structSpec: {
       name: 'emoji_picker.mojom.EmojiVariant',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'variant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'base', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'variant', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -45,9 +46,10 @@ emoji_picker.mojom.HistoryItemSpec = {
   $: {
     structSpec: {
       name: 'emoji_picker.mojom.HistoryItem',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'emoji', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

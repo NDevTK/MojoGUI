@@ -14,9 +14,10 @@ network.mojom.AddressListSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AddressList',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'dns_aliases', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'addresses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'dns_aliases', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -25,9 +25,12 @@ arc.mojom.BitstreamBufferSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BitstreamBuffer',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'bytes_used', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bitstream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'handle_fd', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'bytes_used', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -39,9 +42,11 @@ arc.mojom.PictureSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.Picture',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'crop_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'picture_buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'bitstream_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -53,9 +58,10 @@ arc.mojom.PictureBufferFormatSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PictureBufferFormat',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'coded_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min_num_buffers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -67,9 +73,10 @@ arc.mojom.VideoDecodeAcceleratorConfigSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeAcceleratorConfig',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'secure_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'secure_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

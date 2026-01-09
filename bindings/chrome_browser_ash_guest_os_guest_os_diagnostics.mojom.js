@@ -21,9 +21,10 @@ guest_os.mojom.DiagnosticMessageSpec = {
   $: {
     structSpec: {
       name: 'guest_os.mojom.DiagnosticMessage',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'learn_more_link', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'learn_more_link', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -49,9 +50,10 @@ guest_os.mojom.DiagnosticsSpec = {
   $: {
     structSpec: {
       name: 'guest_os.mojom.Diagnostics',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'top_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'top_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

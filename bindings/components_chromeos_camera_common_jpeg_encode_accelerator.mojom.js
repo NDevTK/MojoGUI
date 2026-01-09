@@ -73,13 +73,13 @@ chromeos_camera.mojom.JpegEncodeAcceleratorRemoteCallHandler = class {
       [task_id, input_fd, input_buffer_size, coded_size_width, coded_size_height, exif_fd, exif_buffer_size, output_fd, output_buffer_size]);
   }
 
-  encodeWithDmaBuf(task_id, input_format, input_planes, output_planes, exif_handle, exif_buffer_size, coded_size_width, coded_size_height, quality, has_input_modifier, input_modifier) {
+  encodeWithDmaBuf(task_id, input_format, input_planes, output_planes, exif_handle, exif_buffer_size, coded_size_width, coded_size_height, quality) {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
       chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec,
       chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec,
-      [task_id, input_format, input_planes, output_planes, exif_handle, exif_buffer_size, coded_size_width, coded_size_height, quality, has_input_modifier, input_modifier]);
+      [task_id, input_format, input_planes, output_planes, exif_handle, exif_buffer_size, coded_size_width, coded_size_height, quality]);
   }
 
 };
@@ -162,19 +162,17 @@ chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos_camera.mojom.JpegEncodeAccelerator.EncodeWithDmaBuf_Params',
-      packedSize: 72,
+      packedSize: 56,
       fields: [
         { name: 'input_planes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'output_planes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'has_input_modifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'input_modifier', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'task_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'input_format', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'exif_handle', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
-        { name: 'exif_buffer_size', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'coded_size_width', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'coded_size_height', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'quality', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'input_format', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'exif_handle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
+        { name: 'exif_buffer_size', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'coded_size_width', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'coded_size_height', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'quality', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

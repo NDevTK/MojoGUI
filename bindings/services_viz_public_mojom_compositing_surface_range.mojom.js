@@ -14,9 +14,10 @@ viz.mojom.SurfaceRangeSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.SurfaceRange',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

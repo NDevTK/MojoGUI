@@ -52,9 +52,10 @@ auction_worklet.mojom.BucketOffsetSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.BucketOffset',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_negative', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_negative', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -66,9 +67,11 @@ auction_worklet.mojom.SignalBucketSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.SignalBucket',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'base_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -80,8 +83,11 @@ auction_worklet.mojom.SignalValueSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.SignalValue',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'base_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -93,9 +99,12 @@ auction_worklet.mojom.AggregatableReportForEventContributionSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.AggregatableReportForEventContribution',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filtering_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
+        { name: 'event_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -107,9 +116,10 @@ auction_worklet.mojom.PrivateAggregationRequestSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.PrivateAggregationRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'debug_mode_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'contribution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'debug_mode_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,9 +131,11 @@ auction_worklet.mojom.FinalizedPrivateAggregationRequestSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.FinalizedPrivateAggregationRequest',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'error_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'contribution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'debug_mode_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error_event', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -46,9 +46,12 @@ nearby_share.mojom.ContactRecordSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ContactRecord',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'identifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'person_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'image_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'identifiers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

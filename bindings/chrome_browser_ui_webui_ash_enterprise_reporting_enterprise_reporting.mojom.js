@@ -28,9 +28,12 @@ enterprise_reporting.mojom.ErpHistoryEventSpec = {
   $: {
     structSpec: {
       name: 'enterprise_reporting.mojom.ErpHistoryEvent',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'call', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'parameters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +45,10 @@ enterprise_reporting.mojom.ErpHistoryEventParameterSpec = {
   $: {
     structSpec: {
       name: 'enterprise_reporting.mojom.ErpHistoryEventParameter',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

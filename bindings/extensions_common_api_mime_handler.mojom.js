@@ -14,9 +14,14 @@ extensions.mime_handler.StreamInfoSpec = {
   $: {
     structSpec: {
       name: 'extensions.mime_handler.StreamInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'embedded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'original_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'stream_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'response_headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'tab_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'embedded', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +33,10 @@ extensions.mime_handler.PdfPluginAttributesSpec = {
   $: {
     structSpec: {
       name: 'extensions.mime_handler.PdfPluginAttributes',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'allow_javascript', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'background_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'allow_javascript', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

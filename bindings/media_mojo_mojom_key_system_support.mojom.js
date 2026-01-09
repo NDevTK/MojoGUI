@@ -31,9 +31,10 @@ media.mojom.VideoCodecInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCodecInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'supported_profiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'supports_clear_lead', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -45,9 +46,13 @@ media.mojom.CdmCapabilitySpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmCapability',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'audio_codecs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'video_codecs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'encryption_schemes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'session_types', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -59,9 +64,12 @@ media.mojom.KeySystemCapabilitySpec = {
   $: {
     structSpec: {
       name: 'media.mojom.KeySystemCapability',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'hw_secure_capability_query_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'sw_secure_capability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'hw_secure_capability', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'sw_secure_capability_query_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'hw_secure_capability_query_status', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

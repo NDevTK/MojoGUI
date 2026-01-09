@@ -22,9 +22,15 @@ remote_cocoa.mojom.ValidateUserInterfaceItemResultSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.ValidateUserInterfaceItemResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'new_toggle_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'new_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'enable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'disable_if_has_no_key_equivalent', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'set_hidden_state', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'new_hidden_state', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'set_toggle_state', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'new_toggle_state', packedOffset: 8, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

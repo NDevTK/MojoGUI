@@ -14,9 +14,12 @@ js_injection.mojom.JsObjectSpec = {
   $: {
     structSpec: {
       name: 'js_injection.mojom.JsObject',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'origin_matcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'js_object_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin_matcher', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'js_to_browser_messaging', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'browser_to_js_factory', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +31,13 @@ js_injection.mojom.JavaScriptExecutableSpec = {
   $: {
     structSpec: {
       name: 'js_injection.mojom.JavaScriptExecutable',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'js_world', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin_matcher', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'injection_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'script_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'js_world', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,8 +49,11 @@ js_injection.mojom.JsWebMessageArrayBufferValueSpec = {
   $: {
     structSpec: {
       name: 'js_injection.mojom.JsWebMessageArrayBufferValue',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'array_buffer_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_byte_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'is_resizable_by_user_javascript', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

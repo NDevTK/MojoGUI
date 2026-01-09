@@ -73,9 +73,12 @@ memory_instrumentation.mojom.RequestArgsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.RequestArgs',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'determinism', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dump_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'dump_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'level_of_detail', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'determinism', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -87,9 +90,12 @@ memory_instrumentation.mojom.RawAllocatorDumpEdgeSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.RawAllocatorDumpEdge',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'overridable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'target_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'importance', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'overridable', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,9 +107,11 @@ memory_instrumentation.mojom.RawAllocatorDumpEntrySpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.RawAllocatorDumpEntry',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'units', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -115,9 +123,13 @@ memory_instrumentation.mojom.RawAllocatorDumpSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.RawAllocatorDump',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'absolute_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'level_of_detail', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'entries', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'weak', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -129,9 +141,11 @@ memory_instrumentation.mojom.RawProcessMemoryDumpSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.RawProcessMemoryDump',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'allocator_dumps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'level_of_detail', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'allocator_dump_edges', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'allocator_dumps', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -143,9 +157,26 @@ memory_instrumentation.mojom.VmRegionSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.VmRegion',
-      packedSize: 16,
+      packedSize: 152,
       fields: [
-        { name: 'byte_stats_proportional_resident', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kProtectionFlagsRead', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kProtectionFlagsWrite', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kProtectionFlagsExec', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kProtectionFlagsMayshare', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_address', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'size_in_bytes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'module_timestamp', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'module_debugid', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'module_debug_path', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'mapped_file', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'byte_stats_private_dirty_resident', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'byte_stats_private_clean_resident', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'byte_stats_shared_dirty_resident', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'byte_stats_shared_clean_resident', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'byte_stats_swapped', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'byte_locked', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'byte_stats_proportional_resident', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'protection_flags', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -157,8 +188,14 @@ memory_instrumentation.mojom.PlatformPrivateFootprintSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.PlatformPrivateFootprint',
-      packedSize: 8,
+      packedSize: 56,
       fields: [
+        { name: 'phys_footprint_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'internal_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'compressed_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'rss_anon_bytes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'vm_swap_bytes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'private_bytes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -170,8 +207,17 @@ memory_instrumentation.mojom.RawOSMemDumpSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.RawOSMemDump',
-      packedSize: 8,
+      packedSize: 72,
       fields: [
+        { name: 'platform_private_footprint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'memory_maps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'native_library_pages_bitmap', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'mappings_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pss_kb', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'swap_pss_kb', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resident_set_kb', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'peak_resident_set_kb', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_peak_rss_resettable', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -183,8 +229,17 @@ memory_instrumentation.mojom.OSMemDumpSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.OSMemDump',
-      packedSize: 8,
+      packedSize: 64,
       fields: [
+        { name: 'private_footprint_swap_kb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mappings_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pss_kb', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'swap_pss_kb', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resident_set_kb', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'peak_resident_set_kb', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'private_footprint_kb', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'shared_footprint_kb', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_peak_rss_resettable', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,9 +251,10 @@ memory_instrumentation.mojom.AllocatorMemDumpSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.AllocatorMemDump',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'children', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'numeric_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'children', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -210,9 +266,13 @@ memory_instrumentation.mojom.ProcessMemoryDumpSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.ProcessMemoryDump',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'process_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'os_dump', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'chrome_allocator_dumps', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'pid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'service_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -224,8 +284,11 @@ memory_instrumentation.mojom.AggregatedMetricsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.AggregatedMetrics',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'native_library_resident_kb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'native_library_resident_not_ordered_kb', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'native_library_not_resident_ordered_kb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -237,9 +300,11 @@ memory_instrumentation.mojom.GlobalMemoryDumpSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.GlobalMemoryDump',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'aggregated_metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'process_dumps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'aggregated_metrics', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -251,9 +316,10 @@ memory_instrumentation.mojom.HeapProfileResultSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.HeapProfileResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'json', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

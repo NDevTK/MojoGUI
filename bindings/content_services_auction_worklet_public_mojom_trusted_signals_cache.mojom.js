@@ -21,9 +21,10 @@ auction_worklet.mojom.TrustedSignalsCacheKeySpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.TrustedSignalsCacheKey',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'partition_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'compression_group_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'partition_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

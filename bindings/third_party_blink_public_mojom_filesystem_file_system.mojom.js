@@ -22,9 +22,11 @@ blink.mojom.FileSystemInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'kTemporary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'root_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mount_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

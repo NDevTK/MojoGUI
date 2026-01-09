@@ -22,9 +22,12 @@ network.mojom.P2PReceivedPacketSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.P2PReceivedPacket',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'ecn', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'socket_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ecn', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -36,9 +39,10 @@ network.mojom.P2PSendPacketSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.P2PSendPacket',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'packet_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'packet_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

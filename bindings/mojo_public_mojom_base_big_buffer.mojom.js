@@ -14,9 +14,10 @@ mojo_base.mojom.BigBufferSharedMemoryRegionSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.BigBufferSharedMemoryRegion',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

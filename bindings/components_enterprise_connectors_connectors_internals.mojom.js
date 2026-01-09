@@ -59,9 +59,13 @@ connectors_internals.mojom.LoadedKeyInfoSpec = {
   $: {
     structSpec: {
       name: 'connectors_internals.mojom.LoadedKeyInfo',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'has_ssl_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'trust_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'encoded_spki_hash', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key_upload_status', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'has_ssl_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -73,9 +77,11 @@ connectors_internals.mojom.KeyInfoSpec = {
   $: {
     structSpec: {
       name: 'connectors_internals.mojom.KeyInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'permanent_failure', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'is_key_manager_initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'loaded_key_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'permanent_failure', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -89,7 +95,8 @@ connectors_internals.mojom.ConsentMetadataSpec = {
       name: 'connectors_internals.mojom.ConsentMetadata',
       packedSize: 16,
       fields: [
-        { name: 'consent_received', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'can_collect_signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'consent_received', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,9 +108,13 @@ connectors_internals.mojom.DeviceTrustStateSpec = {
   $: {
     structSpec: {
       name: 'connectors_internals.mojom.DeviceTrustState',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'consent_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'policy_enabled_levels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'signals_json', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'consent_metadata', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'is_enabled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -115,9 +126,14 @@ connectors_internals.mojom.CertificateMetadataSpec = {
   $: {
     structSpec: {
       name: 'connectors_internals.mojom.CertificateMetadata',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'issuer_display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'fingerprint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'creation_date_string', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'expiration_date_string', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'subject_display_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'issuer_display_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -129,9 +145,11 @@ connectors_internals.mojom.ClientIdentitySpec = {
   $: {
     structSpec: {
       name: 'connectors_internals.mojom.ClientIdentity',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'certificate_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'identity_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'loaded_key_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'certificate_metadata', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -143,9 +161,11 @@ connectors_internals.mojom.ClientCertificateStateSpec = {
   $: {
     structSpec: {
       name: 'connectors_internals.mojom.ClientCertificateState',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'managed_browser_identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'policy_enabled_levels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'managed_profile_identity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'managed_browser_identity', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -157,9 +177,15 @@ connectors_internals.mojom.SignalsReportingStateSpec = {
   $: {
     structSpec: {
       name: 'connectors_internals.mojom.SignalsReportingState',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'can_collect_all_fields', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'last_upload_attempt_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_upload_success_timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_signals_upload_config', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'status_report_enabled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'signals_report_enabled', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_collect_all_fields', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

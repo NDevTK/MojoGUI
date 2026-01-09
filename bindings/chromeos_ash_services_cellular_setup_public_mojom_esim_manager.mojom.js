@@ -46,9 +46,10 @@ ash.cellular_setup.mojom.EuiccPropertiesSpec = {
   $: {
     structSpec: {
       name: 'ash.cellular_setup.mojom.EuiccProperties',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'eid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_active', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -60,9 +61,15 @@ ash.cellular_setup.mojom.ESimProfilePropertiesSpec = {
   $: {
     structSpec: {
       name: 'ash.cellular_setup.mojom.ESimProfileProperties',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'activation_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'eid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'iccid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'nickname', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'service_provider', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'activation_code', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -74,9 +81,10 @@ ash.cellular_setup.mojom.QRCodeSpec = {
   $: {
     structSpec: {
       name: 'ash.cellular_setup.mojom.QRCode',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,10 @@ new_tab_page.mojom.AccessTokenSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.AccessToken',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'expiration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'expiration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

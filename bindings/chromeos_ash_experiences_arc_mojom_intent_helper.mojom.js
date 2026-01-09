@@ -105,9 +105,10 @@ arc.mojom.PatternMatcherSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PatternMatcher',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -119,9 +120,10 @@ arc.mojom.AuthorityEntrySpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthorityEntry',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -133,9 +135,11 @@ arc.mojom.UriComponentsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UriComponents',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'authority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,9 +151,12 @@ arc.mojom.IntentInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'uri_components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'categories', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -161,9 +168,11 @@ arc.mojom.IntentFilterSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentFilter',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'activity_label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'categories', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data_schemes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,9 +184,11 @@ arc.mojom.IntentHandlerInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHandlerInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'fallback_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'activity_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,9 +200,12 @@ arc.mojom.ActivityIconSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ActivityIcon',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'icon_png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'activity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,9 +217,10 @@ arc.mojom.UrlWithMimeTypeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UrlWithMimeType',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -217,9 +232,12 @@ arc.mojom.TextSelectionActionSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TextSelectionAction',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'bitmap_icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'action_intent', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -231,9 +249,12 @@ arc.mojom.LaunchFileInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.LaunchFileInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'content_uri', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'removed_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -245,9 +266,14 @@ arc.mojom.LaunchIntentSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.LaunchIntent',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'extra_subject', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'extra_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'files', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -259,9 +285,10 @@ arc.mojom.SupportedLinksPackageSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.SupportedLinksPackage',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'deprecated_filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'deprecated_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -275,7 +302,10 @@ arc.mojom.CaptionColorSpec = {
       name: 'arc.mojom.CaptionColor',
       packedSize: 16,
       fields: [
-        { name: 'blue', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'alpha', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'red', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'green', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'blue', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -287,9 +317,13 @@ arc.mojom.CaptionStyleSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CaptionStyle',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'text_shadow_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'user_locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'text_color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'text_shadow_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'font_scale', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -303,7 +337,12 @@ arc.mojom.AccessibilityFeaturesSpec = {
       name: 'arc.mojom.AccessibilityFeatures',
       packedSize: 16,
       fields: [
-        { name: 'switch_access_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'docked_magnifier_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'focus_highlight_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'screen_magnifier_enabled', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'select_to_speak_enabled', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'spoken_feedback_enabled', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'switch_access_enabled', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,7 +16,11 @@ network.mojom.IfAddrMsgSpec = {
       name: 'network.mojom.IfAddrMsg',
       packedSize: 16,
       fields: [
-        { name: 'ifa_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ifa_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'ifa_family', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'ifa_prefixlen', packedOffset: 5, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'ifa_flags', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'ifa_scope', packedOffset: 7, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +60,10 @@ network.mojom.InitialAddressMapSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.InitialAddressMap',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'online_links', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'address_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'online_links', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,9 +75,10 @@ network.mojom.NetworkInterfaceChangeParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkInterfaceChangeParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'online_links', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'address_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'online_links', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

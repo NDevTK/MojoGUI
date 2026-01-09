@@ -15,9 +15,10 @@ arc.keymint.mojom.ChapsKeyDataSpec = {
   $: {
     structSpec: {
       name: 'arc.keymint.mojom.ChapsKeyData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'slot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -29,9 +30,10 @@ arc.keymint.mojom.ChromeOsKeySpec = {
   $: {
     structSpec: {
       name: 'arc.keymint.mojom.ChromeOsKey',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'key_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'base64_subject_public_key_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

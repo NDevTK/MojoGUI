@@ -14,9 +14,12 @@ viz.mojom.TreesInVizTimingSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TreesInVizTiming',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'submit_compositor_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_update_display_tree', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_prepare_to_draw', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_draw_layers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'submit_compositor_frame', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

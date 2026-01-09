@@ -30,9 +30,10 @@ blink.mojom.GetKeyboardLayoutMapResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.GetKeyboardLayoutMapResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'layout_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'layout_map', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

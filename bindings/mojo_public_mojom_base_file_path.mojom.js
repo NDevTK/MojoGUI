@@ -14,9 +14,10 @@ mojo_base.mojom.FilePathSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.FilePath',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,10 @@ mojo_base.mojom.RelativeFilePathSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.RelativeFilePath',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

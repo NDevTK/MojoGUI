@@ -35,9 +35,10 @@ blink.mojom.AdDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdDescriptor',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

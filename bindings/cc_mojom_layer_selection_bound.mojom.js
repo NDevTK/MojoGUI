@@ -14,9 +14,13 @@ cc.mojom.LayerSelectionBoundSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.LayerSelectionBound',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'hidden', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'edge_start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'edge_end', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'layer_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'hidden', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +32,10 @@ cc.mojom.LayerSelectionSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.LayerSelection',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

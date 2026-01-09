@@ -85,9 +85,10 @@ blink.mojom.SavableSubframeSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SavableSubframe',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'subframe_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'original_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subframe_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -99,9 +100,11 @@ blink.mojom.GetSavableResourceLinksReplySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.GetSavableResourceLinksReply',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'subframes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'resources_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'referrer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subframes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,9 +116,14 @@ blink.mojom.FindInPageResultAXParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FindInPageResultAXParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'end_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'match_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'start_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'start_offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'end_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'end_offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,9 +135,17 @@ blink.mojom.DownloadURLParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DownloadURLParams',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'referrer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'initiator_origin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'suggested_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'cross_origin_redirects', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'blob_url_token', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'data_url_blob', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'is_context_menu_save', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_user_gesture', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -141,9 +157,16 @@ blink.mojom.IframeAttributesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IframeAttributes',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'parsed_csp_attribute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'src', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'credentialless', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'browsing_topics', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'ad_auction_headers', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'shared_storage_writable_opted_in', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -155,9 +178,11 @@ blink.mojom.LegacyTechEventCodeLocationSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LegacyTechEventCodeLocation',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'column', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filename', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'line', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'column', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

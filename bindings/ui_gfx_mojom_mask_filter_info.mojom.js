@@ -14,9 +14,11 @@ gfx.mojom.MaskFilterInfoSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.MaskFilterInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'clip_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'rounded_corner_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gradient_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'clip_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
     }

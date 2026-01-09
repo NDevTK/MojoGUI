@@ -20,9 +20,10 @@ media.mojom.SpeechRecognitionErrorSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionError',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

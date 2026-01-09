@@ -14,9 +14,14 @@ media.mojom.MediaEngagementScoreDetailsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaEngagementScoreDetails',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'is_high', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'last_media_playback_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'visits', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'media_playbacks', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_high', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +33,20 @@ media.mojom.MediaEngagementConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaEngagementConfig',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'preload_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'high_score_lower_threshold', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'high_score_upper_threshold', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'autoplay_policy', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'preload_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'score_min_visits', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'feature_record_data', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'feature_bypass_autoplay', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'feature_preload_data', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'feature_https_only', packedOffset: 36, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'feature_autoplay_disable_settings', packedOffset: 36, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'pref_disable_unified_autoplay', packedOffset: 36, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_custom_autoplay_policy', packedOffset: 36, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

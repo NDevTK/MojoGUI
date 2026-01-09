@@ -28,9 +28,20 @@ app_home.mojom.AppInfoSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.AppInfo',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'store_page_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'app_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'start_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'icon_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'run_on_os_login_mode', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'store_page_url', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'may_show_run_on_os_login_mode', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'may_toggle_run_on_os_login_mode', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_locally_installed', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'open_in_window', packedOffset: 56, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'may_uninstall', packedOffset: 56, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +53,13 @@ app_home.mojom.ClickEventSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.ClickEvent',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'shift_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'alt_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ctrl_key', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'meta_key', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'shift_key', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

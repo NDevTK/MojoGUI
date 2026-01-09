@@ -14,9 +14,10 @@ blink.mojom.BlockingDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BlockingDetails',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

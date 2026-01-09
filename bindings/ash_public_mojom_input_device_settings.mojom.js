@@ -122,9 +122,14 @@ ash.mojom.SixPackKeyInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.SixPackKeyInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'kSearch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'home', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_up', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_down', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'del', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'insert', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'end', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -136,9 +141,10 @@ ash.mojom.InputDeviceSettingsPolicySpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.InputDeviceSettingsPolicy',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policy_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -150,9 +156,10 @@ ash.mojom.InputDeviceSettingsFkeyPolicySpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.InputDeviceSettingsFkeyPolicy',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policy_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -164,9 +171,10 @@ ash.mojom.InputDeviceSettingsSixPackKeyPolicySpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.InputDeviceSettingsSixPackKeyPolicy',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policy_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -178,9 +186,16 @@ ash.mojom.KeyboardPoliciesSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.KeyboardPolicies',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'insert_key_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'top_row_are_fkeys_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'enable_meta_fkey_rewrites_policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'f11_key_policy', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'f12_key_policy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'home_and_end_keys_policy', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'page_up_and_page_down_keys_policy', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'delete_key_policy', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'insert_key_policy', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -206,9 +221,10 @@ ash.mojom.BatteryInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.BatteryInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'charge_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'battery_percentage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,9 +236,13 @@ ash.mojom.CompanionAppInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.CompanionAppInfo',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'package_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'app_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'action_link', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'icon_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'state', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -234,9 +254,18 @@ ash.mojom.KeyboardSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.Keyboard',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'meta_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'modifier_keys', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'top_row_action_keys', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'settings', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'battery_info', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'app_info', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_external', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,9 +277,14 @@ ash.mojom.KeyboardSettingsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.KeyboardSettings',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'f12', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'modifier_remappings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'six_pack_key_remappings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'f11', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'f12', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'top_row_are_fkeys', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'suppress_meta_fkey_rewrites', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -262,9 +296,17 @@ ash.mojom.MouseSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.Mouse',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'customization_restriction', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mouse_button_config', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'settings', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'battery_info', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'app_info', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_external', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -276,9 +318,15 @@ ash.mojom.MouseSettingsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.MouseSettings',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'button_remappings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'button_remappings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'sensitivity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'scroll_sensitivity', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'swap_right', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'reverse_scrolling', packedOffset: 10, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'acceleration_enabled', packedOffset: 10, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'scroll_acceleration', packedOffset: 10, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -290,9 +338,16 @@ ash.mojom.TouchpadSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.Touchpad',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'settings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'battery_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'app_info', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_external', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_haptic', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -304,9 +359,19 @@ ash.mojom.TouchpadSettingsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.TouchpadSettings',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
         { name: 'simulate_right_click', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sensitivity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'scroll_sensitivity', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'haptic_sensitivity', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'reverse_scrolling', packedOffset: 11, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'acceleration_enabled', packedOffset: 11, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'tap_to_click_enabled', packedOffset: 11, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'three_finger_click_enabled', packedOffset: 11, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'tap_dragging_enabled', packedOffset: 11, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'scroll_acceleration', packedOffset: 11, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'haptic_enabled', packedOffset: 11, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -318,9 +383,13 @@ ash.mojom.PointingStickSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.PointingStick',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'settings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_external', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -332,9 +401,11 @@ ash.mojom.PointingStickSettingsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.PointingStickSettings',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'acceleration_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sensitivity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'swap_right', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'acceleration_enabled', packedOffset: 1, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -359,9 +430,16 @@ ash.mojom.GraphicsTabletSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.GraphicsTablet',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'customization_restriction', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'graphics_tablet_button_config', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'settings', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'battery_info', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'app_info', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -373,9 +451,10 @@ ash.mojom.GraphicsTabletSettingsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.GraphicsTabletSettings',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'pen_button_remappings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tablet_button_remappings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pen_button_remappings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -387,9 +466,11 @@ ash.mojom.ButtonRemappingSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.ButtonRemapping',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'remapping_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'button', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remapping_action', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -401,9 +482,13 @@ ash.mojom.KeyEventSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.KeyEvent',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'key_display', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'vkey', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_display', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'dom_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'dom_key', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'modifiers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

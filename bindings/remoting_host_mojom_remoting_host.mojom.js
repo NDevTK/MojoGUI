@@ -22,9 +22,11 @@ remoting.mojom.TransportRouteSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.TransportRoute',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'local_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'local_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

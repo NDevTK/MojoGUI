@@ -14,9 +14,21 @@ theme_color_picker.mojom.ThemeSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.Theme',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'follow_device_theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'background_image_main_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'seed_color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'foreground_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'color_picker_icon_color', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'browser_color_variant', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'seed_color_hue', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'has_background_image', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_third_party_theme', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_dark_mode', packedOffset: 52, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'colors_managed_by_policy', packedOffset: 52, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_grey_baseline', packedOffset: 52, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'follow_device_theme', packedOffset: 52, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +40,14 @@ theme_color_picker.mojom.ChromeColorSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.ChromeColor',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'variant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'seed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'background', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'foreground', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'base', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'variant', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

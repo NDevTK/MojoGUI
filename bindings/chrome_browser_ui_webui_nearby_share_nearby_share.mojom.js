@@ -67,9 +67,11 @@ nearby_share.mojom.PayloadPreviewSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.PayloadPreview',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'share_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'share_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -81,9 +83,14 @@ nearby_share.mojom.ShareTargetSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.ShareTarget',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'for_self_share', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'payload_preview', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'for_self_share', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,9 +102,13 @@ nearby_share.mojom.TransferMetadataSpec = {
   $: {
     structSpec: {
       name: 'nearby_share.mojom.TransferMetadata',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'is_final_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'is_original', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_final_status', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

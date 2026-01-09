@@ -14,9 +14,12 @@ blink.mojom.ServiceWorkerProviderInfoForStartWorkerSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerProviderInfoForStartWorker',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'browser_interface_broker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'script_loader_factory_remote', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'cache_storage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'browser_interface_broker', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

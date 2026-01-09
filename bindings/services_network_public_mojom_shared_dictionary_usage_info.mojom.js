@@ -14,9 +14,10 @@ network.mojom.SharedDictionaryUsageInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedDictionaryUsageInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'total_size_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'isolation_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_size_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

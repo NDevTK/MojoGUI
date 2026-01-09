@@ -70,9 +70,11 @@ ash.os_feedback_ui.mojom.HelpContentSpec = {
   $: {
     structSpec: {
       name: 'ash.os_feedback_ui.mojom.HelpContent',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -84,9 +86,10 @@ ash.os_feedback_ui.mojom.SearchRequestSpec = {
   $: {
     structSpec: {
       name: 'ash.os_feedback_ui.mojom.SearchRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'max_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -98,9 +101,10 @@ ash.os_feedback_ui.mojom.SearchResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.os_feedback_ui.mojom.SearchResponse',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'total_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'total_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,9 +116,19 @@ ash.os_feedback_ui.mojom.FeedbackContextSpec = {
   $: {
     structSpec: {
       name: 'ash.os_feedback_ui.mojom.FeedbackContext',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'autofill_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'extra_diagnostics', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'category_tag', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'trace_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'wifi_debug_logs_allowed', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_linked_cross_device_phone', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_internal_account', packedOffset: 44, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'settings_search_do_not_record_metrics', packedOffset: 44, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'from_autofill', packedOffset: 44, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -126,9 +140,10 @@ ash.os_feedback_ui.mojom.AttachedFileSpec = {
   $: {
     structSpec: {
       name: 'ash.os_feedback_ui.mojom.AttachedFile',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -140,9 +155,17 @@ ash.os_feedback_ui.mojom.ReportSpec = {
   $: {
     structSpec: {
       name: 'ash.os_feedback_ui.mojom.Report',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'include_autofill_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'feedback_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attached_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'include_system_logs_and_histograms', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'include_screenshot', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'contact_user_consent_granted', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'send_bluetooth_logs', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'send_wifi_debug_logs', packedOffset: 24, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'include_autofill_metadata', packedOffset: 24, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

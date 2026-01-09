@@ -14,9 +14,10 @@ privacy_sandbox_internals.mojom.PrivacySandboxInternalsPrefSpec = {
   $: {
     structSpec: {
       name: 'privacy_sandbox_internals.mojom.PrivacySandboxInternalsPref',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

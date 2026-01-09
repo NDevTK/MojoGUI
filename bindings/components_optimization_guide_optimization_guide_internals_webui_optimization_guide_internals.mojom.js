@@ -14,9 +14,11 @@ optimization_guide_internals.mojom.DownloadedModelInfoSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide_internals.mojom.DownloadedModelInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'optimization_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'file_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +44,11 @@ optimization_guide_internals.mojom.MqlsLogSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide_internals.mojom.MqlsLog',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'proto', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

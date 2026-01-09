@@ -30,9 +30,10 @@ tab_strip_internals.mojom.ContainerSpec = {
   $: {
     structSpec: {
       name: 'tab_strip_internals.mojom.Container',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'tab_restore', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tabstrip_tree', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tab_restore', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -58,9 +59,11 @@ tab_strip_internals.mojom.WindowNodeSpec = {
   $: {
     structSpec: {
       name: 'tab_strip_internals.mojom.WindowNode',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'selection_model', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tabstrip_model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'selection_model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -100,9 +103,10 @@ tab_strip_internals.mojom.NodeSpec = {
   $: {
     structSpec: {
       name: 'tab_strip_internals.mojom.Node',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'children', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'children', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -114,9 +118,17 @@ tab_strip_internals.mojom.TabSpec = {
   $: {
     structSpec: {
       name: 'tab_strip_internals.mojom.Tab',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'alert_states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'alert_states', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'active', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'selected', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'pinned', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'split', packedOffset: 32, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -170,9 +182,10 @@ tab_strip_internals.mojom.GroupCollectionSpec = {
   $: {
     structSpec: {
       name: 'tab_strip_internals.mojom.GroupCollection',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'visualData', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'visualData', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -184,9 +197,11 @@ tab_strip_internals.mojom.TabGroupVisualDataSpec = {
   $: {
     structSpec: {
       name: 'tab_strip_internals.mojom.TabGroupVisualData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'is_collapsed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_collapsed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -198,9 +213,10 @@ tab_strip_internals.mojom.SplitCollectionSpec = {
   $: {
     structSpec: {
       name: 'tab_strip_internals.mojom.SplitCollection',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'visualData', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'visualData', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -226,9 +242,11 @@ tab_strip_internals.mojom.SelectionModelSpec = {
   $: {
     structSpec: {
       name: 'tab_strip_internals.mojom.SelectionModel',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'selected_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'selected_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'active_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'anchor_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -254,9 +272,10 @@ tab_strip_internals.mojom.TabRestoreEntryBaseSpec = {
   $: {
     structSpec: {
       name: 'tab_strip_internals.mojom.TabRestoreEntryBase',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'original_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -268,9 +287,17 @@ tab_strip_internals.mojom.TabRestoreTabSpec = {
   $: {
     structSpec: {
       name: 'tab_strip_internals.mojom.TabRestoreTab',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'restore_entry', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'group_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'group_visual_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'title', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'browser_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tabstrip_index', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'pinned', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -282,9 +309,14 @@ tab_strip_internals.mojom.TabRestoreGroupSpec = {
   $: {
     structSpec: {
       name: 'tab_strip_internals.mojom.TabRestoreGroup',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'restore_entry', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'group_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'visual_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tabs', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'browser_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -296,9 +328,12 @@ tab_strip_internals.mojom.TabRestoreWindowSpec = {
   $: {
     structSpec: {
       name: 'tab_strip_internals.mojom.TabRestoreWindow',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'restore_entry', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tabs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'selected_tab_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

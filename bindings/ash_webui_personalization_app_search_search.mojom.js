@@ -36,9 +36,12 @@ ash.personalization_app.mojom.SearchResultSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.SearchResult',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'relevance_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'search_concept_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'relative_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'relevance_score', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }

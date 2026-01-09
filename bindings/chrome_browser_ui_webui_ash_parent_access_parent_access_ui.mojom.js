@@ -71,9 +71,11 @@ parent_access_ui.mojom.WebApprovalsParamsSpec = {
   $: {
     structSpec: {
       name: 'parent_access_ui.mojom.WebApprovalsParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'favicon_png_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'child_display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'favicon_png_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,9 +87,12 @@ parent_access_ui.mojom.ExtensionApprovalsParamsSpec = {
   $: {
     structSpec: {
       name: 'parent_access_ui.mojom.ExtensionApprovalsParams',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'permissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'icon_png_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'child_display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'permissions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -99,9 +104,10 @@ parent_access_ui.mojom.ExtensionPermissionSpec = {
   $: {
     structSpec: {
       name: 'parent_access_ui.mojom.ExtensionPermission',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

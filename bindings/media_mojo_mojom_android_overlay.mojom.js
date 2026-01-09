@@ -14,9 +14,12 @@ media.mojom.AndroidOverlayConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AndroidOverlayConfig',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'power_efficient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'routing_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'secure', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'power_efficient', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

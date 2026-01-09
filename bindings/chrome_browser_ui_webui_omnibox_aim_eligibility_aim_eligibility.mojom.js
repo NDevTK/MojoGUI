@@ -14,9 +14,17 @@ aim_eligibility.mojom.EligibilityStateSpec = {
   $: {
     structSpec: {
       name: 'aim_eligibility.mojom.EligibilityState',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'last_updated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'server_response_base64_encoded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'server_response_base64_url_encoded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'server_response_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_updated', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_eligible', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_eligible_by_policy', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_eligible_by_dse', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_eligible_by_server', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_server_eligibility_enabled', packedOffset: 32, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

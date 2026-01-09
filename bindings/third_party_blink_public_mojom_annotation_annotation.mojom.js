@@ -29,9 +29,12 @@ blink.mojom.SelectorCreationResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SelectorCreationResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'selected_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'serialized_selector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'selected_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'agent_remote', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,12 @@ batch_upload.mojom.DataItemSpec = {
   $: {
     structSpec: {
       name: 'batch_upload.mojom.DataItem',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'subtitle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'icon_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'subtitle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +31,11 @@ batch_upload.mojom.DataContainerSpec = {
   $: {
     structSpec: {
       name: 'batch_upload.mojom.DataContainer',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'is_theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'section_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'data_items', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_theme', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +47,10 @@ batch_upload.mojom.BatchUploadAccountInfoSpec = {
   $: {
     structSpec: {
       name: 'batch_upload.mojom.BatchUploadAccountInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data_picture_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'data_picture_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +62,11 @@ batch_upload.mojom.BatchUploadDataSpec = {
   $: {
     structSpec: {
       name: 'batch_upload.mojom.BatchUploadData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'data_containers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dialog_subtitle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'data_containers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -21,9 +21,11 @@ network.mojom.DocumentIsolationPolicySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DocumentIsolationPolicy',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'report_only_reporting_endpoint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'report_only_reporting_endpoint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

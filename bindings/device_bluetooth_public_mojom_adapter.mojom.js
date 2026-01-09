@@ -41,9 +41,11 @@ bluetooth.mojom.ConnectToServiceResultSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.ConnectToServiceResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'send_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'receive_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'send_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'socket', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -55,9 +57,12 @@ bluetooth.mojom.AcceptConnectionResultSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.AcceptConnectionResult',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'send_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'receive_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'send_stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'socket', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -69,9 +74,18 @@ bluetooth.mojom.AdapterInfoSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.AdapterInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'discovering', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'system_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'floss', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'extended_advertisement_support', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'initialized', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'present', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'powered', packedOffset: 24, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'discoverable', packedOffset: 24, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'discovering', packedOffset: 24, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

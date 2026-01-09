@@ -20,9 +20,10 @@ ax.mojom.SpeechRecognitionResultEventSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.SpeechRecognitionResultEvent',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_final', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'transcript', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_final', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -48,9 +49,11 @@ ax.mojom.StartOptionsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.StartOptions',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'interim_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'locale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'interim_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -76,9 +79,10 @@ ax.mojom.SpeechRecognitionStartInfoSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.SpeechRecognitionStartInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'observer_or_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'observer_or_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

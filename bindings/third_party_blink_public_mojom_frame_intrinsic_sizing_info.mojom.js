@@ -14,9 +14,12 @@ blink.mojom.IntrinsicSizingInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IntrinsicSizingInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'has_height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'aspect_ratio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'has_width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_height', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

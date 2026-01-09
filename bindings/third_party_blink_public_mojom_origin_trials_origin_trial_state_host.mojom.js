@@ -14,9 +14,10 @@ blink.mojom.OriginTrialFeatureStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OriginTrialFeatureState',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

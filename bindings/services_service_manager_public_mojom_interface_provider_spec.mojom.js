@@ -42,9 +42,10 @@ service_manager.mojom.InterfaceProviderSpecSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.InterfaceProviderSpec',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'needs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'provides', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'needs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

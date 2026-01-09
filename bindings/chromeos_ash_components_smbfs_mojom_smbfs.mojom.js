@@ -42,9 +42,11 @@ smbfs.mojom.PasswordSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.Password',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kMaxLength', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
+        { name: 'length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,8 +58,9 @@ smbfs.mojom.KerberosConfigSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.KerberosConfig',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kActiveDirectory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -69,9 +72,11 @@ smbfs.mojom.CredentialStorageOptionsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.CredentialStorageOptions',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'salt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kMinSaltLength', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'account_hash', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'salt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -83,9 +88,16 @@ smbfs.mojom.MountOptionsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.MountOptions',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'credential_storage_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'share_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'resolved_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'workgroup', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'password', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'kerberos_config', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'allow_ntlm', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'skip_connect', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -97,9 +109,11 @@ smbfs.mojom.CredentialsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.Credentials',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'workgroup', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'password', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

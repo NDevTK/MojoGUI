@@ -36,7 +36,9 @@ ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec = {
       name: 'ash.wifi_direct.mojom.WifiP2PCapabilities',
       packedSize: 16,
       fields: [
-        { name: 'is_p2p_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_owner_ready', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_client_ready', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_p2p_supported', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -48,9 +50,10 @@ ash.wifi_direct.mojom.WifiCredentialsSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiCredentials',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'passphrase', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'passphrase', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -62,9 +65,11 @@ ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec = {
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiDirectConnectionProperties',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'ipv4_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ipv4_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'frequency', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -105,9 +105,19 @@ gpu.mojom.GpuDeviceSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuDevice',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'gpu_preference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sub_sys_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'revision', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'vendor_string', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_string', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'driver_vendor', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'driver_version', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'luid', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gpu_preference', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'vendor_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'device_id', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'active', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -119,9 +129,12 @@ gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VideoDecodeAcceleratorSupportedProfile',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'encrypted_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min_resolution', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'encrypted_only', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -133,9 +146,10 @@ gpu.mojom.VideoDecodeAcceleratorCapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VideoDecodeAcceleratorCapabilities',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'supported_profiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,9 +161,13 @@ gpu.mojom.VideoEncodeAcceleratorSupportedProfileSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VideoEncodeAcceleratorSupportedProfile',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'max_framerate_denominator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min_resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_resolution', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_framerate_numerator', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'max_framerate_denominator', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -161,9 +179,12 @@ gpu.mojom.ImageDecodeAcceleratorSupportedProfileSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.ImageDecodeAcceleratorSupportedProfile',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'subsamplings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min_encoded_dimensions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_encoded_dimensions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subsamplings', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,9 +196,15 @@ gpu.mojom.OverlayInfoSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.OverlayInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'p010_overlay_support', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'yuy2_overlay_support', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'nv12_overlay_support', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bgra8_overlay_support', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rgb10a2_overlay_support', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'p010_overlay_support', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'direct_composition', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'supports_overlays', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,9 +216,47 @@ gpu.mojom.GpuInfoSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuInfo',
-      packedSize: 16,
+      packedSize: 256,
       fields: [
-        { name: 'vulkan_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'initialization_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gpu', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'secondary_gpus', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'npus', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pixel_shader_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'vertex_shader_version', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'max_msaa_samples', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'machine_model_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'machine_model_version', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'display_type', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'skia_backend_type', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gl_version', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'gl_vendor', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'gl_renderer', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'gl_extensions', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'gl_ws_vendor', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'gl_ws_version', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'gl_ws_extensions', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'gl_implementation_parts', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'direct_rendering_version', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'directml_feature_level', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'd3d12_feature_level', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'vulkan_version', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'overlay_info', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shared_image_d3d', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'video_decode_accelerator_supported_profiles', packedOffset: 200, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'video_encode_accelerator_supported_profiles', packedOffset: 208, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'hardware_supports_vulkan', packedOffset: 216, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'vulkan_info', packedOffset: 224, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'gl_reset_notification_strategy', packedOffset: 232, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'visibility_callback_call_count', packedOffset: 236, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'optimus', packedOffset: 240, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'amd_switchable', packedOffset: 240, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'sandboxed', packedOffset: 240, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'in_process_gpu', packedOffset: 240, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'passthrough_cmd_decoder', packedOffset: 240, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_support_threaded_texture_mailbox', packedOffset: 240, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'jpeg_decode_accelerator_supported', packedOffset: 240, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
+        { name: 'subpixel_font_rendering', packedOffset: 240, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

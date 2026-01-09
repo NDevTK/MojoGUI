@@ -29,9 +29,10 @@ media_session.mojom.AudioFocusRequestStateSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusRequestState',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'session_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_focus_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

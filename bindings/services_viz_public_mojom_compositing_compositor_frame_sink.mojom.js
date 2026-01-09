@@ -14,9 +14,23 @@ viz.mojom.LayerContextSettingsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.LayerContextSettings',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'enable_fluent_overlay_scrollbar', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scrollbar_animator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scrollbar_fade_delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scrollbar_fade_duration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scrollbar_thinning_duration', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'minimum_occlusion_tracking_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'damaged_frame_limit', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'idle_thickness_scale', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'top_controls_show_threshold', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'top_controls_hide_threshold', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'draw_mode_is_gpu', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_early_damage_check', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_edge_anti_aliasing', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_backface_visibility_interop', packedOffset: 56, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_fluent_scrollbar', packedOffset: 56, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_fluent_overlay_scrollbar', packedOffset: 56, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +44,9 @@ viz.mojom.CompositorFrameSinkParamsSpec = {
       name: 'viz.mojom.CompositorFrameSinkParams',
       packedSize: 16,
       fields: [
-        { name: 'no_compositor_frame_acks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'wants_animate_only_begin_frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'auto_needs_begin_frame', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'no_compositor_frame_acks', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

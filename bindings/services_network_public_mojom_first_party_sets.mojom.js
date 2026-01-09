@@ -21,9 +21,10 @@ network.mojom.FirstPartySetEntrySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FirstPartySetEntry',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'site_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'primary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'site_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -35,9 +36,10 @@ network.mojom.FirstPartySetMetadataSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FirstPartySetMetadata',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'top_frame_entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'frame_entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'top_frame_entry', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -63,9 +65,10 @@ network.mojom.FirstPartySetsContextConfigSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FirstPartySetsContextConfig',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'aliases', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'customizations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'aliases', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -77,8 +80,10 @@ network.mojom.FirstPartySetsCacheFilterSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FirstPartySetsCacheFilter',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'browser_run_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -90,9 +95,12 @@ network.mojom.GlobalFirstPartySetsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.GlobalFirstPartySets',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'manual_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'public_sets_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sets', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'aliases', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'manual_config', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

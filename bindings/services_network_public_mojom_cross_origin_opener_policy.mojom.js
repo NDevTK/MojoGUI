@@ -33,9 +33,12 @@ network.mojom.CrossOriginOpenerPolicyReporterParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CrossOriginOpenerPolicyReporterParams',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'reported_window_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'report_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reported_window_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'reporter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'endpoint_defined', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -47,8 +50,10 @@ network.mojom.CrossOriginOpenerPolicySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CrossOriginOpenerPolicy',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'reporting_endpoint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'report_only_reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

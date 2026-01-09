@@ -81,7 +81,8 @@ blink.mojom.ClipboardPermissionDescriptorSpec = {
       name: 'blink.mojom.ClipboardPermissionDescriptor',
       packedSize: 16,
       fields: [
-        { name: 'will_be_sanitized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'has_user_gesture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'will_be_sanitized', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,9 +136,10 @@ blink.mojom.PermissionDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionDescriptor',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'extension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -163,9 +165,10 @@ blink.mojom.EmbeddedPermissionRequestDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EmbeddedPermissionRequestDescriptor',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'geolocation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'element_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'geolocation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

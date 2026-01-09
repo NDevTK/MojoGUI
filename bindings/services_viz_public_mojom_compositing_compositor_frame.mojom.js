@@ -14,9 +14,11 @@ viz.mojom.CompositorFrameSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrame',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'passes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'passes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

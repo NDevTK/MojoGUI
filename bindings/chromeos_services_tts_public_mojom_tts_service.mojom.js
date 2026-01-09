@@ -17,7 +17,8 @@ chromeos.tts.mojom.AudioParametersSpec = {
       name: 'chromeos.tts.mojom.AudioParameters',
       packedSize: 16,
       fields: [
-        { name: 'buffer_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sample_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'buffer_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

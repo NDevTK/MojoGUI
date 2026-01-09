@@ -37,9 +37,11 @@ chromeos.machine_learning.mojom.InkPointSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.InkPoint',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 't', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -67,7 +69,8 @@ chromeos.machine_learning.mojom.WritingGuideSpec = {
       name: 'chromeos.machine_learning.mojom.WritingGuide',
       packedSize: 16,
       fields: [
-        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'height', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -79,9 +82,10 @@ chromeos.machine_learning.mojom.RecognitionContextSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.RecognitionContext',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'pre_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'writing_guide', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'pre_context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -93,9 +97,12 @@ chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognitionQuery',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'return_segmentation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'ink', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'max_num_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'return_segmentation', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -107,9 +114,12 @@ chromeos.machine_learning.mojom.HandwritingRecognizerInkRangeSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerInkRange',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'end_point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_stroke', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'end_stroke', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'start_point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'end_point', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,9 +131,10 @@ chromeos.machine_learning.mojom.HandwritingRecognizerSegmentSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerSegment',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'ink_ranges', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sublabel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'ink_ranges', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -149,9 +160,11 @@ chromeos.machine_learning.mojom.HandwritingRecognizerCandidateSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerCandidate',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'segmentation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'segmentation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -163,8 +176,9 @@ chromeos.machine_learning.mojom.HandwritingRecognizerResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerResult',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'OK', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -178,7 +192,7 @@ chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec = {
       name: 'chromeos.machine_learning.mojom.HandwritingRecognizerSpec',
       packedSize: 16,
       fields: [
-        { name: 'library_dlc_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

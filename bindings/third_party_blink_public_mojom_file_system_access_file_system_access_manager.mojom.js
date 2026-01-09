@@ -24,9 +24,11 @@ blink.mojom.ChooseFileSystemEntryAcceptsOptionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ChooseFileSystemEntryAcceptsOption',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mime_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'extensions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -38,9 +40,10 @@ blink.mojom.AcceptsTypesInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AcceptsTypesInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'include_accepts_all', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'accepts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'include_accepts_all', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -52,9 +55,10 @@ blink.mojom.OpenFilePickerOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OpenFilePickerOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'can_select_multiple_files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'accepts_types_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'can_select_multiple_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -66,9 +70,10 @@ blink.mojom.SaveFilePickerOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SaveFilePickerOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'suggested_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'accepts_types_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'suggested_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,9 +99,11 @@ blink.mojom.FilePickerOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FilePickerOptions',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'start_in_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type_specific_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'starting_directory_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'start_in_options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,10 @@ mojo_base.mojom.FileSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.File',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'async', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'async', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,10 @@ mojo_base.mojom.ReadOnlyFileSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.ReadOnlyFile',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'async', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'async', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

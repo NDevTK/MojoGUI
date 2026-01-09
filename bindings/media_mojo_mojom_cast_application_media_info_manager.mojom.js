@@ -14,9 +14,11 @@ media.mojom.CastApplicationMediaInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CastApplicationMediaInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_audio_only_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'application_session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'mixer_audio_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_audio_only_session', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

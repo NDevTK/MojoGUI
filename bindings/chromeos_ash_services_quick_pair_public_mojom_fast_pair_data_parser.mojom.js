@@ -40,9 +40,14 @@ ash.quick_pair.mojom.DecryptedResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.DecryptedResponse',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'secondary_address_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'message_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'address_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'salt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'secondary_address_bytes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
+        { name: 'num_addresses', packedOffset: 33, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -54,9 +59,11 @@ ash.quick_pair.mojom.DecryptedPasskeySpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.DecryptedPasskey',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'salt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'salt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'passkey', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -68,9 +75,10 @@ ash.quick_pair.mojom.BatteryInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.BatteryInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'percentage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'percentage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'is_charging', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -82,9 +90,12 @@ ash.quick_pair.mojom.BatteryNotificationSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.BatteryNotification',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'case_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'left_bud_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'right_bud_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'case_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'show_ui', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -96,9 +107,11 @@ ash.quick_pair.mojom.BatteryUpdateSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.BatteryUpdate',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'case_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'left_bud_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'right_bud_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'case_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,7 +125,8 @@ ash.quick_pair.mojom.RingDeviceSpec = {
       name: 'ash.quick_pair.mojom.RingDevice',
       packedSize: 16,
       fields: [
-        { name: 'timeout_in_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ring_device_byte', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'timeout_in_seconds', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -124,9 +138,11 @@ ash.quick_pair.mojom.AcknowledgementMessageSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.AcknowledgementMessage',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'action_message_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'acknowledgement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action_message_group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action_message_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -138,9 +154,12 @@ ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.NotDiscoverableAdvertisement',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'battery_notification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'account_key_filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'salt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'battery_notification', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'show_ui', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

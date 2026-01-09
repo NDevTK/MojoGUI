@@ -14,9 +14,10 @@ ax.mojom.AXLocationChangeSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXLocationChange',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'new_location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,11 @@ ax.mojom.AXScrollChangeSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXScrollChange',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'scroll_y', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'scroll_x', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'scroll_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +45,10 @@ ax.mojom.AXLocationAndScrollUpdatesSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXLocationAndScrollUpdates',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'scroll_changes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'location_changes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'scroll_changes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

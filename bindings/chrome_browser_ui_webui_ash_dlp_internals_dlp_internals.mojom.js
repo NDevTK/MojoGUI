@@ -82,9 +82,10 @@ dlp_internals.mojom.DataTransferEndpointSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.DataTransferEndpoint',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -96,9 +97,11 @@ dlp_internals.mojom.ContentRestrictionInfoSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.ContentRestrictionInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'restriction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -110,9 +113,10 @@ dlp_internals.mojom.RenderFrameHostInfoSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.RenderFrameHostInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'restrictions_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_committed_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'restrictions_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -124,9 +128,11 @@ dlp_internals.mojom.WebContentsInfoSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.WebContentsInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'frames_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_committed_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'restrictions_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'frames_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -138,8 +144,9 @@ dlp_internals.mojom.EventDestinationSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.EventDestination',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUndefinedComponent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -151,8 +158,9 @@ dlp_internals.mojom.DlpEventSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.DlpEvent',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUndefinedRestriction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -164,9 +172,12 @@ dlp_internals.mojom.FileDatabaseEntrySpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.FileDatabaseEntry',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'referrer_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'inode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
+        { name: 'crtime', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
+        { name: 'source_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'referrer_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

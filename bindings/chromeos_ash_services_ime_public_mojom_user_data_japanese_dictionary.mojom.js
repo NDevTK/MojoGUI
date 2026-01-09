@@ -64,9 +64,12 @@ ash.ime.mojom.JapaneseDictionaryEntrySpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.JapaneseDictionaryEntry',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'comment', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'pos', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'comment', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -78,9 +81,11 @@ ash.ime.mojom.JapaneseDictionarySpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.JapaneseDictionary',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'entries', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

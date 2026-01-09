@@ -20,9 +20,11 @@ signin.mojom.AccountIdSpec = {
   $: {
     structSpec: {
       name: 'signin.mojom.AccountId',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'user_email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'account_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'user_email', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

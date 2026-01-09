@@ -33,9 +33,15 @@ network.mojom.ServiceWorkerRouterInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ServiceWorkerRouterInfo',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'evaluation_worker_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'matched_source_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'actual_source_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'route_rule_num', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'router_evaluation_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cache_lookup_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'evaluation_worker_status', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'rule_id_matched', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
       versions: [{version: 0}]
     }

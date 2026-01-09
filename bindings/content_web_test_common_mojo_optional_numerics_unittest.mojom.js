@@ -21,9 +21,20 @@ content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec = {
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.OptionalNumericsStruct',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'optional_enum', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'optional_uint64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
+        { name: 'optional_int64', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
+        { name: 'optional_double', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'optional_enum', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'optional_uint32', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'optional_int32', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'optional_float', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
+        { name: 'optional_uint16', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
+        { name: 'optional_int16', packedOffset: 46, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
+        { name: 'optional_uint8', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
+        { name: 'optional_int8', packedOffset: 49, packedBitOffset: 0, type: mojo.internal.Int8, nullable: true },
+        { name: 'optional_bool', packedOffset: 50, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -48,9 +59,8 @@ content.optional_numerics_unittest.mojom.VersionedStructV2Spec = {
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.VersionedStructV2',
-      packedSize: 16,
+      packedSize: 8,
       fields: [
-        { name: 'enum_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

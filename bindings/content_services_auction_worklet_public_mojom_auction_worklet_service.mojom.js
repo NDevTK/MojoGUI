@@ -14,9 +14,10 @@ auction_worklet.mojom.BrowserSignalsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.BrowserSignals',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'seller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'top_frame_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'seller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +31,8 @@ auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec = {
       name: 'auction_worklet.mojom.AuctionWorkletPermissionsPolicyState',
       packedSize: 16,
       fields: [
-        { name: 'shared_storage_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'private_aggregation_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'shared_storage_allowed', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +44,10 @@ auction_worklet.mojom.TrustedSignalsPublicKeySpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.TrustedSignalsPublicKey',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }

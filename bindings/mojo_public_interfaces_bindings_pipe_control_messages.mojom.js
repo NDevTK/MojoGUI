@@ -28,9 +28,10 @@ mojo.pipe_control.DisconnectReasonSpec = {
   $: {
     structSpec: {
       name: 'mojo.pipe_control.DisconnectReason',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'custom_reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +43,10 @@ mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec = {
   $: {
     structSpec: {
       name: 'mojo.pipe_control.PeerAssociatedEndpointClosedEvent',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'disconnect_reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

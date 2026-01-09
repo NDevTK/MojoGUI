@@ -21,9 +21,15 @@ content.mojom.WebTestRunTestConfigurationSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.WebTestRunTestConfiguration',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'protocol_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'current_working_directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'temp_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'test_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'expected_pixel_hash', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'allow_external_pages', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'wpt_print_mode', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'protocol_mode', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -35,9 +41,13 @@ content.mojom.WebTestRendererDumpResultSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.WebTestRendererDumpResult',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'selection_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'audio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'layout', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'pixels', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'actual_pixel_hash', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'selection_rect', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,9 +73,10 @@ content.mojom.WorkItemLoadSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.WorkItemLoad',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

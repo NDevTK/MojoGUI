@@ -19,9 +19,10 @@ blink.mojom.InnerTextFrameSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InnerTextFrame',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'segments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'segments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -33,9 +34,13 @@ blink.mojom.InnerTextParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InnerTextParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'min_words_per_passage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'max_words_per_aggregate_passage', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'max_passages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'min_words_per_passage', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'greedily_aggregate_sibling_nodes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }

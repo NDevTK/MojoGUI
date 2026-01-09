@@ -20,9 +20,10 @@ blink.mojom.IdleStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IdleState',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'screen_locked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'idle_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'screen_locked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

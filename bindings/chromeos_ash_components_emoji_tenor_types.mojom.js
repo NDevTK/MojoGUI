@@ -21,9 +21,11 @@ tenor.mojom.GifUrlsSpec = {
   $: {
     structSpec: {
       name: 'tenor.mojom.GifUrls',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'preview_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'full', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'preview', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'preview_image', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -35,9 +37,13 @@ tenor.mojom.GifResponseSpec = {
   $: {
     structSpec: {
       name: 'tenor.mojom.GifResponse',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'full_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'content_description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'preview_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'full_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -49,9 +55,10 @@ tenor.mojom.PaginatedGifResponsesSpec = {
   $: {
     structSpec: {
       name: 'tenor.mojom.PaginatedGifResponses',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'next', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

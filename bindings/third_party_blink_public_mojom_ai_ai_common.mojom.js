@@ -38,7 +38,8 @@ blink.mojom.QuotaErrorInfoSpec = {
       name: 'blink.mojom.QuotaErrorInfo',
       packedSize: 16,
       fields: [
-        { name: 'quota', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'quota', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

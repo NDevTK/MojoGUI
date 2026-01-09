@@ -14,9 +14,24 @@ tab_strip.mojom.TabSpec = {
   $: {
     structSpec: {
       name: 'tab_strip.mojom.Tab',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'alert_states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'favicon_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'active_favicon_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'group_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'network_state', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'index', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'active', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'blocked', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'crashed', packedOffset: 64, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_default_favicon', packedOffset: 64, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'pinned', packedOffset: 64, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'should_hide_throbber', packedOffset: 64, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'show_icon', packedOffset: 64, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +43,11 @@ tab_strip.mojom.TabGroupVisualDataSpec = {
   $: {
     structSpec: {
       name: 'tab_strip.mojom.TabGroupVisualData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'text_color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

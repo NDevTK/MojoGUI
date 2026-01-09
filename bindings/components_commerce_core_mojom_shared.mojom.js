@@ -15,9 +15,18 @@ commerce.shared.mojom.ProductInfoSpec = {
   $: {
     structSpec: {
       name: 'commerce.shared.mojom.ProductInfo',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'price_summary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'cluster_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'domain', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'image_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'product_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'current_price', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'previous_price', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'cluster_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'category_labels', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'price_summary', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -29,9 +38,10 @@ commerce.shared.mojom.BookmarkProductInfoSpec = {
   $: {
     structSpec: {
       name: 'commerce.shared.mojom.BookmarkProductInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bookmark_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -43,9 +53,11 @@ commerce.shared.mojom.ProductSpecificationsSetSpec = {
   $: {
     structSpec: {
       name: 'commerce.shared.mojom.ProductSpecificationsSet',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'urls', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

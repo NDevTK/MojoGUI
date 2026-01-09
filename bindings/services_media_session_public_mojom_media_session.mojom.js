@@ -89,9 +89,11 @@ media_session.mojom.MediaImageSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaImage',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'sizes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sizes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -103,9 +105,11 @@ media_session.mojom.ChapterInformationSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.ChapterInformation',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'artwork', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'startTime', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'artwork', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -117,9 +121,12 @@ media_session.mojom.MediaMetadataSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaMetadata',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'chapters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'artist', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'album', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -131,9 +138,11 @@ media_session.mojom.MediaImageBitmapSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaImageBitmap',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'color_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pixel_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -145,9 +154,12 @@ media_session.mojom.MediaPositionSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaPosition',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'end_of_media', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'playback_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_updated_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -186,9 +198,11 @@ media_session.mojom.MediaSessionDebugInfoSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSessionDebugInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'owner', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

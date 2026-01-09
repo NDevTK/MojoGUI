@@ -16,7 +16,8 @@ tracing.mojom.ClientInfoSpec = {
       name: 'tracing.mojom.ClientInfo',
       packedSize: 16,
       fields: [
-        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'process', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

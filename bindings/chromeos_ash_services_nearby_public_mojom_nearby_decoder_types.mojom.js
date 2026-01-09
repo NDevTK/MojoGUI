@@ -58,9 +58,12 @@ sharing.mojom.AdvertisementSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.Advertisement',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'salt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'encrypted_metadata_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'device_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -72,9 +75,12 @@ sharing.mojom.IntroductionFrameSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.IntroductionFrame',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'wifi_credentials_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'file_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'text_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'required_package', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'wifi_credentials_metadata', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -86,8 +92,9 @@ sharing.mojom.FileMetadataSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.FileMetadata',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -99,8 +106,9 @@ sharing.mojom.TextMetadataSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.TextMetadata',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,8 +120,9 @@ sharing.mojom.WifiCredentialsMetadataSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.WifiCredentialsMetadata',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnknownSecurityType', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,8 +134,9 @@ sharing.mojom.ConnectionResponseFrameSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.ConnectionResponseFrame',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -138,9 +148,11 @@ sharing.mojom.PairedKeyEncryptionFrameSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.PairedKeyEncryptionFrame',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'optional_signed_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'signed_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'secret_id_hash', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'optional_signed_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -152,8 +164,9 @@ sharing.mojom.PairedKeyResultFrameSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.PairedKeyResultFrame',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -179,9 +192,15 @@ sharing.mojom.PublicCertificateSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.PublicCertificate',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'metadata_encryption_key_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'secret_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'authenticity_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'public_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'start_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'end_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'encrypted_metadata_bytes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'metadata_encryption_key_tag', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

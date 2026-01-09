@@ -14,9 +14,10 @@ media.mojom.ReadWriteAudioDataPipeSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ReadWriteAudioDataPipe',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shared_memory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'socket', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

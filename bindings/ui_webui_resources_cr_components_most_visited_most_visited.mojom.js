@@ -14,9 +14,16 @@ most_visited.mojom.MostVisitedTileSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedTile',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'title_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title_direction', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_query_tile', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_user_edit', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_user_delete', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +35,11 @@ most_visited.mojom.MostVisitedThemeSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedTheme',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_dark', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'background_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'use_white_tile_icon', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_dark', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +51,12 @@ most_visited.mojom.MostVisitedInfoSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'tiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'custom_links_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enterprise_shortcuts_enabled', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

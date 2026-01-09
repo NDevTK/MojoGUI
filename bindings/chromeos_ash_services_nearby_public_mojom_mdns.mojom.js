@@ -14,9 +14,13 @@ sharing.mojom.NsdServiceInfoSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.NsdServiceInfo',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'service_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'txt_records', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'ip_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'port', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
       ],
       versions: [{version: 0}]
     }

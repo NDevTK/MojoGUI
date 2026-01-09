@@ -87,9 +87,10 @@ arc.mojom.InstallationResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.InstallationResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_launchable_app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,9 +102,10 @@ arc.mojom.AppStorageSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppStorage',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data_size_in_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'app_size_in_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'data_size_in_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -115,9 +117,11 @@ arc.mojom.AppInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'app_category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'activity', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -129,9 +133,12 @@ arc.mojom.WebAppInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WebAppInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'certificate_sha256_fingerprint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'start_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'scope_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'theme_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -143,9 +150,11 @@ arc.mojom.WindowLayoutSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WindowLayout',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'resizable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -157,9 +166,10 @@ arc.mojom.PackageLocaleInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PackageLocaleInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'selected_locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'supported_locales', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'selected_locale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -171,9 +181,13 @@ arc.mojom.ArcPackageInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcPackageInfo',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'game_controls_opt_out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_backup_android_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'last_backup_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'package_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'sync', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -185,9 +199,12 @@ arc.mojom.ShortcutInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ShortcutInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'intent_uri', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'icon_resource_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'intent_uri', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -199,9 +216,12 @@ arc.mojom.RawIconPngDataSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.RawIconPngData',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'background_icon_png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'icon_png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'foreground_icon_png_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'background_icon_png_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'is_adaptive_icon', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -213,9 +233,12 @@ arc.mojom.WindowInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WindowInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'window_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'state', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -227,9 +250,17 @@ arc.mojom.AppDiscoveryResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppDiscoveryResult',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'launch_intent_uri', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'install_intent_uri', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'publisher_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'formatted_price', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'icon_png_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'review_score', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'is_instant_app', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_recent', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -241,9 +272,11 @@ arc.mojom.AppShortcutItemSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppShortcutItem',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'shortcut_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'short_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'icon_png', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

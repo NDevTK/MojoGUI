@@ -37,9 +37,12 @@ optimization_guide.mojom.ModelSolutionConfigSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide.mojom.ModelSolutionConfig',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'max_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feature_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text_safety_config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model_versions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_tokens', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -51,9 +54,10 @@ optimization_guide.mojom.ModelSubscriptionOptionsSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide.mojom.ModelSubscriptionOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'mark_used', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mark_used', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

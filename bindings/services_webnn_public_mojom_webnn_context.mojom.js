@@ -14,9 +14,10 @@ webnn.mojom.CreateTensorSuccessSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.CreateTensorSuccess',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'tensor_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'tensor_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tensor_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

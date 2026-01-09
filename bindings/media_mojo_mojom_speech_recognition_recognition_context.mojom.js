@@ -14,9 +14,10 @@ media.mojom.SpeechRecognitionPhraseSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionPhrase',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'boost', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'phrase', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'boost', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

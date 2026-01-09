@@ -14,9 +14,11 @@ gfx.mojom.DelegatedInkPointSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DelegatedInkPoint',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'pointer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pointer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

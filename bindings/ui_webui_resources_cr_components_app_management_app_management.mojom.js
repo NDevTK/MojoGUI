@@ -88,9 +88,12 @@ app_management.mojom.PermissionSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.Permission',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'permission_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_managed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -102,9 +105,10 @@ app_management.mojom.RunOnOsLoginSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.RunOnOsLogin',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_managed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'login_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_managed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -116,9 +120,11 @@ app_management.mojom.LocaleSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.Locale',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'native_display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'locale_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'native_display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -130,9 +136,39 @@ app_management.mojom.AppSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.App',
-      packedSize: 16,
+      packedSize: 176,
       fields: [
-        { name: 'disable_user_choice_navigation_capturing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'size', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'permissions', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'install_reason', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'install_source', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'window_mode', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supported_links', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'run_on_os_login', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'file_handling_state', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'app_size', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data_size', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'publisher_id', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'formatted_origin', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'scope_extensions', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'supported_locales', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'selected_locale', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'is_pinned', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_policy_pinned', packedOffset: 160, packedBitOffset: 1, type: mojo.internal.Bool, nullable: true },
+        { name: 'hide_more_settings', packedOffset: 160, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'hide_pin_to_shelf', packedOffset: 160, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_preferred_app', packedOffset: 160, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'hide_window_mode', packedOffset: 160, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'resize_locked', packedOffset: 160, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
+        { name: 'hide_resize_locked', packedOffset: 160, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
+        { name: 'show_system_notifications_settings_link', packedOffset: 160, packedBitOffset: 8, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_uninstall', packedOffset: 160, packedBitOffset: 9, type: mojo.internal.Bool, nullable: false },
+        { name: 'disable_user_choice_navigation_capturing', packedOffset: 160, packedBitOffset: 10, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -144,9 +180,10 @@ app_management.mojom.ExtensionAppPermissionMessageSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.ExtensionAppPermissionMessage',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'submessages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'submessages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -158,9 +195,13 @@ app_management.mojom.FileHandlingStateSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.FileHandlingState',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'learn_more_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'user_visible_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'user_visible_types_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'learn_more_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_managed', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,11 @@ viz.mojom.ViewTransitionElementResourceIdSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ViewTransitionElementResourceId',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'for_scope_snapshot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'transition_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'local_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'for_scope_snapshot', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

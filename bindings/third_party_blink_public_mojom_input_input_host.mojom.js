@@ -28,9 +28,13 @@ blink.mojom.TextSuggestionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextSuggestion',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'suffix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'suggestion', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'suffix', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'marker_tag', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'suggestion_index', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -48,9 +48,12 @@ ash.help_app.mojom.DeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.help_app.mojom.DeviceInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'is_steam_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'board', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'user_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_steam_allowed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

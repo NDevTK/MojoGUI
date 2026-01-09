@@ -14,9 +14,11 @@ auction_worklet.mojom.RealTimeReportingContributionSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.RealTimeReportingContribution',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'latency_threshold', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'priority_weight', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'bucket', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'latency_threshold', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
     }

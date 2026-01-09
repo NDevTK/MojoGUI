@@ -14,9 +14,11 @@ mojom.app_service_internals.AppInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.app_service_internals.AppInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'debug_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,11 @@ mojom.app_service_internals.PreferredAppInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.app_service_internals.PreferredAppInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'preferred_filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'preferred_filters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +46,10 @@ mojom.app_service_internals.PromiseAppInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.app_service_internals.PromiseAppInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'package_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'debug_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +61,10 @@ mojom.app_service_internals.AppCapabilityInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.app_service_internals.AppCapabilityInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'debug_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,9 +76,12 @@ mojom.app_service_internals.DebugInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.app_service_internals.DebugInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'app_capability_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'app_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'preferred_app_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'promise_app_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'app_capability_list', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

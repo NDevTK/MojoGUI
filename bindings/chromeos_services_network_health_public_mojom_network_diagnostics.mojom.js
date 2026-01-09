@@ -166,9 +166,10 @@ chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetailsSpec = 
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetails',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'resolution_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'resolution_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -180,9 +181,12 @@ chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfo
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'timestamp_end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'hostname', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp_start', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'timestamp_end', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -194,9 +198,11 @@ chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorSpec
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionError',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'connection_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'problem_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'proxy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'connection_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -208,9 +214,11 @@ chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionErro
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionError',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'connection_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'problem_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'proxy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'connection_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,9 +230,11 @@ chromeos.network_diagnostics.mojom.GoogleServicesConnectivityNoValidProxyErrorSp
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityNoValidProxyError',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'error_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'hostname', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'proxy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -250,9 +260,11 @@ chromeos.network_diagnostics.mojom.RoutineResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.network_diagnostics.mojom.RoutineResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'problems', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

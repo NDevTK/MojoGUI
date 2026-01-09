@@ -14,9 +14,11 @@ blink.mojom.MessagePortDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MessagePortDescriptor',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'sequence_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pipe_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sequence_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

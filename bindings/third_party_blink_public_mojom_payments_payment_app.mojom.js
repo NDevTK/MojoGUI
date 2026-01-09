@@ -72,9 +72,11 @@ payments.mojom.PaymentInstrumentSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentInstrument',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'icons', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'method', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -86,9 +88,12 @@ payments.mojom.CanMakePaymentEventDataSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.CanMakePaymentEventData',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'modifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'top_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payment_request_origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'method_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'modifiers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -100,9 +105,18 @@ payments.mojom.PaymentRequestEventDataSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentRequestEventData',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'payment_handler_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'top_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payment_request_origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payment_request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'method_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'total', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'modifiers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'instrument_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'payment_options', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'shipping_options', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'payment_handler_host', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -114,9 +128,10 @@ payments.mojom.CanMakePaymentResponseSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.CanMakePaymentResponse',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'can_make_payment', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'can_make_payment', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -128,9 +143,16 @@ payments.mojom.PaymentHandlerResponseSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentHandlerResponse',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'shipping_option', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'stringified_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'response_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payer_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'payer_email', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'payer_phone', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'shipping_address', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'shipping_option', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

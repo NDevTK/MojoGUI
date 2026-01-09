@@ -52,9 +52,16 @@ ash.firmware_update.mojom.FirmwareUpdateSpec = {
   $: {
     structSpec: {
       name: 'ash.firmware_update.mojom.FirmwareUpdate',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'checksum', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'priority', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filepath', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'checksum', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'needs_reboot', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -66,9 +73,10 @@ ash.firmware_update.mojom.InstallationProgressSpec = {
   $: {
     structSpec: {
       name: 'ash.firmware_update.mojom.InstallationProgress',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'percentage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -80,9 +88,10 @@ ash.firmware_update.mojom.DeviceRequestSpec = {
   $: {
     structSpec: {
       name: 'ash.firmware_update.mojom.DeviceRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'kind', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kind', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

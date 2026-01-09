@@ -56,9 +56,11 @@ network.mojom.SharedStorageSetMethodSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedStorageSetMethod',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'ignore_if_present', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ignore_if_present', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,9 +72,10 @@ network.mojom.SharedStorageAppendMethodSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedStorageAppendMethod',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -111,9 +114,10 @@ network.mojom.SharedStorageModifierMethodWithOptionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedStorageModifierMethodWithOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'with_lock', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'with_lock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

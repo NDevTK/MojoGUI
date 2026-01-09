@@ -36,9 +36,24 @@ display.mojom.DisplaySpec = {
   $: {
     structSpec: {
       name: 'display.mojom.Display',
-      packedSize: 16,
+      packedSize: 120,
       fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size_in_pixels', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'native_origin', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'work_area', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rotation', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'touch_support', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'accelerometer_support', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'maximum_cursor_size', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color_spaces', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'label', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_scale_factor', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'color_depth', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'depth_per_component', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'display_frequency', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'is_monochrome', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -92,9 +92,12 @@ blink.mojom.WebBluetoothLeScanFilterSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothLeScanFilter',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'manufacturer_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'services', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name_prefix', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'manufacturer_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -122,7 +125,8 @@ blink.mojom.WebBluetoothDataFilterSpec = {
       name: 'blink.mojom.WebBluetoothDataFilter',
       packedSize: 16,
       fields: [
-        { name: 'mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'mask', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,9 +138,13 @@ blink.mojom.WebBluetoothRequestDeviceOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothRequestDeviceOptions',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'accept_all_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'exclusion_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_services', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'optional_manufacturer_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'accept_all_devices', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,9 +156,11 @@ blink.mojom.WebBluetoothRequestLEScanOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothRequestLEScanOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'accept_all_advertisements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'keep_repeated_devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'accept_all_advertisements', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -176,9 +186,10 @@ blink.mojom.WebBluetoothDeviceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothDevice',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -190,9 +201,10 @@ blink.mojom.WebBluetoothRemoteGATTServiceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothRemoteGATTService',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,9 +216,11 @@ blink.mojom.WebBluetoothRemoteGATTCharacteristicSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothRemoteGATTCharacteristic',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -218,9 +232,19 @@ blink.mojom.WebBluetoothAdvertisingEventSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothAdvertisingEvent',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'service_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'uuids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'manufacturer_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'service_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'appearance', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'tx_power', packedOffset: 42, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'rssi', packedOffset: 43, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'appearance_is_set', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'tx_power_is_set', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'rssi_is_set', packedOffset: 44, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -232,9 +256,10 @@ blink.mojom.WebBluetoothRemoteGATTDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothRemoteGATTDescriptor',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

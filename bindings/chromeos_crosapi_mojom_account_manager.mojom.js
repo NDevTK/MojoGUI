@@ -82,8 +82,9 @@ crosapi.mojom.GoogleServiceAuthErrorSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.GoogleServiceAuthError',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kNone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,8 +109,10 @@ crosapi.mojom.AccountUpsertionResultSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.AccountUpsertionResult',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'kSuccess', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnexpectedResponse', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

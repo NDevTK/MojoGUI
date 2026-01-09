@@ -28,9 +28,12 @@ remote_cocoa.mojom.DraggingInfoSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.DraggingInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'operation_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'location_in_view', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'location_in_screen', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'operation_mask', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

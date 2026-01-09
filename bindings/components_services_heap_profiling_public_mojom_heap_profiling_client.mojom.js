@@ -26,9 +26,10 @@ heap_profiling.mojom.ProfilingParamsSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.ProfilingParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'sampling_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stack_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sampling_rate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -40,9 +41,13 @@ heap_profiling.mojom.HeapProfileSampleSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.HeapProfileSample',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'stack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'allocator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'total', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'context_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'stack', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -54,9 +59,10 @@ heap_profiling.mojom.HeapProfileSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.HeapProfile',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'strings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'samples', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'strings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }

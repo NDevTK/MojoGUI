@@ -14,9 +14,12 @@ blink.mojom.AcceleratedStaticBitmapImageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AcceleratedStaticBitmapImage',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'release_callback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shared_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sync_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'alpha_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'release_callback', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -14,9 +14,10 @@ lens.mojom.OverlayObjectSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.OverlayObject',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'geometry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'geometry', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

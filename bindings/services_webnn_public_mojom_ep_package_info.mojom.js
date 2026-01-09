@@ -16,7 +16,10 @@ webnn.mojom.PackageVersionSpec = {
       name: 'webnn.mojom.PackageVersion',
       packedSize: 16,
       fields: [
-        { name: 'major', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'revision', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'build', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'minor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'major', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +31,11 @@ webnn.mojom.EpPackageInfoSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.EpPackageInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'library_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

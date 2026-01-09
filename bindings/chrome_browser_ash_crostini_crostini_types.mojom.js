@@ -46,9 +46,11 @@ crostini.mojom.DiskSliderTickSpec = {
   $: {
     structSpec: {
       name: 'crostini.mojom.DiskSliderTick',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'aria_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'aria_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

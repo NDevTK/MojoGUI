@@ -131,9 +131,11 @@ device.mojom.XRDepthConfigSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRDepthConfig',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'depth_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'depth_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'depth_data_format', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'depth_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -145,9 +147,13 @@ device.mojom.XRSessionDeviceConfigSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRSessionDeviceConfig',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'depth_configuration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'views', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'depth_configuration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'default_framebuffer_scale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'supports_viewport_scaling', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_anti_aliasing', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -159,9 +165,17 @@ device.mojom.XRSessionSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRSession',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'submit_frame_sink', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'enabled_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'device_config', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'enviroment_blend_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interaction_mode', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'wants_fullscreen', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data_provider', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'layer_manager', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'client_receiver', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -173,9 +187,11 @@ device.mojom.XRPresentationConnectionSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPresentationConnection',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'transport_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'transport_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -187,9 +203,12 @@ device.mojom.XRInputSourceDescriptionSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRInputSourceDescription',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'profiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'target_ray_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'handedness', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_from_pointer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'profiles', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -201,9 +220,20 @@ device.mojom.XRInputSourceStateSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRInputSourceState',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'hand_tracking_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'mojo_from_input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'gamepad', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'overlay_pointer_position', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'hand_tracking_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'source_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'emulated_position', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_auxiliary', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'primary_input_pressed', packedOffset: 44, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'primary_input_clicked', packedOffset: 44, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'primary_squeeze_pressed', packedOffset: 44, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'primary_squeeze_clicked', packedOffset: 44, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -215,9 +245,12 @@ device.mojom.VRFieldOfViewSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRFieldOfView',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'right_degrees', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'up_degrees', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'down_degrees', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'left_degrees', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'right_degrees', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -229,9 +262,11 @@ device.mojom.VRPoseSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRPose',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'emulated_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'orientation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'emulated_position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -243,9 +278,10 @@ device.mojom.PoseSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Pose',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'orientation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -313,9 +349,10 @@ device.mojom.XRRaySpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRay',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'direction', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -327,9 +364,10 @@ device.mojom.XRHitResultSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRHitResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'mojo_from_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'plane_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -341,9 +379,10 @@ device.mojom.XRViewGeometrySpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRViewGeometry',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'mojo_from_view', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'field_of_view', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mojo_from_view', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -355,9 +394,10 @@ device.mojom.XRVisibilityMaskSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRVisibilityMask',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'unvalidated_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'vertices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'unvalidated_indices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -369,9 +409,15 @@ device.mojom.XRViewSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRView',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'visibility_mask_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'eye', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'geometry', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'viewport', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'depth_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'visibility_mask', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'visibility_mask_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_first_person_observer', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -383,9 +429,10 @@ device.mojom.VRStageParametersSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRStageParameters',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'mojo_from_stage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -397,9 +444,12 @@ device.mojom.XRPresentationTransportOptionsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPresentationTransportOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'wait_for_gpu_fence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'transport_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'wait_for_transfer_notification', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'wait_for_render_notification', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'wait_for_gpu_fence', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -411,9 +461,10 @@ device.mojom.XRInputSourceSpaceInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRInputSourceSpaceInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'input_source_space_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_source_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -425,9 +476,10 @@ device.mojom.XRHandJointSpaceInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRHandJointSpaceInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'joint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'handedness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'joint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -441,7 +493,8 @@ device.mojom.XRPlanePointDataSpec = {
       name: 'device.mojom.XRPlanePointData',
       packedSize: 16,
       fields: [
-        { name: 'z', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'z', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -453,9 +506,13 @@ device.mojom.XRPlaneDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPlaneData',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'polygon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'orientation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mojo_from_plane', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'semantic_label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'polygon', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -467,9 +524,10 @@ device.mojom.XRPlaneDetectionDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPlaneDetectionData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'updated_planes_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'all_planes_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'updated_planes_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -481,9 +539,10 @@ device.mojom.XRAnchorDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRAnchorData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'mojo_from_anchor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mojo_from_anchor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -495,9 +554,10 @@ device.mojom.XRAnchorsDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRAnchorsData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'updated_anchors_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'all_anchors_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'updated_anchors_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -509,9 +569,10 @@ device.mojom.XRHitTestSubscriptionResultDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRHitTestSubscriptionResultData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'hit_test_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subscription_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hit_test_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -523,9 +584,10 @@ device.mojom.XRHitTestTransientInputSubscriptionResultDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRHitTestTransientInputSubscriptionResultData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'input_source_id_to_hit_test_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subscription_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_source_id_to_hit_test_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -537,9 +599,10 @@ device.mojom.XRHitTestSubscriptionResultsDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRHitTestSubscriptionResultsData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'transient_input_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'transient_input_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -551,9 +614,11 @@ device.mojom.RgbTupleF32Spec = {
   $: {
     structSpec: {
       name: 'device.mojom.RgbTupleF32',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'blue', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'red', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'green', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'blue', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -579,9 +644,16 @@ device.mojom.XRCubeMapSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRCubeMap',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'negative_z', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kNumComponentsPerPixel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'positive_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'negative_x', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'positive_y', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'negative_y', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'positive_z', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'negative_z', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'width_and_height', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -593,9 +665,11 @@ device.mojom.XRLightProbeSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLightProbe',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'main_light_intensity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'spherical_harmonics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'main_light_direction', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'main_light_intensity', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -621,9 +695,10 @@ device.mojom.XRLightEstimationDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLightEstimationData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'reflection_probe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'light_probe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'reflection_probe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -648,9 +723,13 @@ device.mojom.XRDepthDataUpdatedSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRDepthDataUpdated',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'view_geometry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'pixel_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'norm_texture_from_norm_view', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'view_geometry', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'raw_value_to_meters', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -662,9 +741,12 @@ device.mojom.XRTrackedImageDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRTrackedImageData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'width_in_meters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mojo_from_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'width_in_meters', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'actively_tracked', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -676,9 +758,10 @@ device.mojom.XRTrackedImagesDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRTrackedImagesData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'image_trackable_scores', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'images_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'image_trackable_scores', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -717,9 +800,11 @@ device.mojom.XRQuadLayerDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRQuadLayerData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'native_origin_from_layer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -731,9 +816,12 @@ device.mojom.XRCylinderLayerDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRCylinderLayerData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'aspect_ratio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'native_origin_from_layer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'radius', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'central_angle', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'aspect_ratio', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -745,9 +833,13 @@ device.mojom.XREquirectLayerDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XREquirectLayerData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'lower_vertical_angle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'native_origin_from_layer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'radius', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'central_horizontal_angle', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'upper_vertical_angle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'lower_vertical_angle', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -773,9 +865,13 @@ device.mojom.XRLayerReadOnlyDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLayerReadOnlyData',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'is_static', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'layout', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'texture_width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'texture_height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_static', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -787,9 +883,12 @@ device.mojom.XRLayerMutableDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLayerMutableData',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'layer_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'native_origin_information', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'layer_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'opacity', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'blend_texture_source_alpha', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -801,9 +900,10 @@ device.mojom.XRCompositionLayerDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRCompositionLayerData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'mutable_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'read_only_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mutable_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -815,9 +915,11 @@ device.mojom.XRLayerFrameDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLayerFrameData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'buffer_sync_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_shared_image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_sync_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -829,9 +931,11 @@ device.mojom.XRRenderInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRenderInfo',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'views', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'mojo_from_viewer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'views', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'frame_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -843,9 +947,27 @@ device.mojom.XRFrameDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRFrameData',
-      packedSize: 16,
+      packedSize: 152,
       fields: [
-        { name: 'tracked_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'render_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time_delta', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_shared_image', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'buffer_sync_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'camera_image_buffer_shared_image', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'camera_image_buffer_sync_token', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'camera_image_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'mojo_from_floor', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'input_state', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'stage_parameters', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'detected_planes_data', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'anchors_data', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'composition_layers_data', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'light_estimation_data', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'hit_test_subscription_results', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'tracked_images', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'stage_parameters_id', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'rendering_time_ratio', packedOffset: 132, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'mojo_space_reset', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -857,9 +979,12 @@ device.mojom.RequestSessionSuccessSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.RequestSessionSuccess',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'xr_internals_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'metrics_recorder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'xr_internals_listener', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -871,9 +996,11 @@ device.mojom.XRFrameDataRequestOptionsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRFrameDataRequestOptions',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'stage_parameters_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stage_parameters_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'include_lighting_estimation_data', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'depth_active', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

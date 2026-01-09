@@ -27,9 +27,12 @@ network.mojom.NonEmptyNetworkIsolationKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NonEmptyNetworkIsolationKey',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'network_isolation_partition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'top_frame_site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_site', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'nonce', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'network_isolation_partition', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -64,9 +64,11 @@ ash.nearby.presence.mojom.ScanRequestSpec = {
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.ScanRequest',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'scan_filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'account_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'identity_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'scan_filters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -78,9 +80,10 @@ ash.nearby.presence.mojom.PrivateKeySpec = {
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.PrivateKey',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'certificate_alias', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -106,9 +109,12 @@ ash.nearby.presence.mojom.MetadataSpec = {
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.Metadata',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'bluetooth_mac_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'device_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -120,9 +126,25 @@ ash.nearby.presence.mojom.SharedCredentialSpec = {
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.SharedCredential',
-      packedSize: 16,
+      packedSize: 144,
       fields: [
-        { name: 'identity_token_signed_adv_hmac_key_v1', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_seed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'start_time_millis', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'end_time_millis', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'encrypted_metadata_bytes_v0', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'metadata_encryption_key_tag_v0', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'connection_signature_verification_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'advertisement_signature_verification_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'identity_type', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'version', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'credential_type', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'encrypted_metadata_bytes_v1', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'identity_token_short_salt_adv_hmac_key_v1', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'id', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'dusi', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'signature_version', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'identity_token_extended_salt_adv_hmac_key_v1', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'identity_token_signed_adv_hmac_key_v1', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,9 +156,13 @@ ash.nearby.presence.mojom.PresenceDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.PresenceDevice',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'decrypt_shared_credential', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'actions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'stable_device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'metadata', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decrypt_shared_credential', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -148,9 +174,20 @@ ash.nearby.presence.mojom.LocalCredentialSpec = {
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.LocalCredential',
-      packedSize: 16,
+      packedSize: 104,
       fields: [
-        { name: 'signature_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'secret_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_seed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'start_time_millis', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'end_time_millis', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'metadata_encryption_key_v0', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'advertisement_signing_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connection_signing_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'identity_type', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'consumed_salts', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'identity_token_v1', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'id', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'signature_version', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

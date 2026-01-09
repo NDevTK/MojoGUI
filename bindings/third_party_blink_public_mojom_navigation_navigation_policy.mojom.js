@@ -16,7 +16,13 @@ blink.mojom.NavigationDownloadTypesSpec = {
       name: 'blink.mojom.NavigationDownloadTypes',
       packedSize: 16,
       fields: [
-        { name: 'no_gesture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'view_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'interstitial', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'opener_cross_origin', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'ad_frame_no_gesture', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'ad_frame', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'sandbox', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'no_gesture', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +34,10 @@ blink.mojom.NavigationDownloadPolicySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NavigationDownloadPolicy',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'disallowed_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'observed_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'disallowed_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

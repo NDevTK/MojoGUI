@@ -14,9 +14,10 @@ mojo_base.mojom.TokenSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.Token',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'low', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'high', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'low', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

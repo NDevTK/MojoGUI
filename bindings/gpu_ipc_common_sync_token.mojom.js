@@ -25,9 +25,12 @@ gpu.mojom.SyncTokenSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.SyncToken',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'release_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'command_buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'release_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'verified_flush', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

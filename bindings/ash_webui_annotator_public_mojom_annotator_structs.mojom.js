@@ -15,9 +15,11 @@ ash.annotator.mojom.AnnotatorToolSpec = {
   $: {
     structSpec: {
       name: 'ash.annotator.mojom.AnnotatorTool',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tool', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

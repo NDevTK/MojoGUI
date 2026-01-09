@@ -169,9 +169,12 @@ ash.boca.mojom.TabInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.boca.mojom.TabInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'favicon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'favicon', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -183,9 +186,12 @@ ash.boca.mojom.IdentitySpec = {
   $: {
     structSpec: {
       name: 'ash.boca.mojom.Identity',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'photo_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'email', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'photo_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -197,9 +203,11 @@ ash.boca.mojom.CourseSpec = {
   $: {
     structSpec: {
       name: 'ash.boca.mojom.Course',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'section', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'section', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -211,9 +219,10 @@ ash.boca.mojom.MaterialSpec = {
   $: {
     structSpec: {
       name: 'ash.boca.mojom.Material',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -225,9 +234,13 @@ ash.boca.mojom.AssignmentSpec = {
   $: {
     structSpec: {
       name: 'ash.boca.mojom.Assignment',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_update_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'materials', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -239,9 +252,10 @@ ash.boca.mojom.WindowSpec = {
   $: {
     structSpec: {
       name: 'ash.boca.mojom.Window',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'tab_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -253,9 +267,12 @@ ash.boca.mojom.NetworkInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.boca.mojom.NetworkInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'signal_strength', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'signal_strength', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -267,9 +284,16 @@ ash.boca.mojom.ConfigSpec = {
   $: {
     structSpec: {
       name: 'ash.boca.mojom.Config',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'access_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'session_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_start_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'teacher', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'students', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'students_join_via_code', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'on_task_config', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'caption_config', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'access_code', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -283,7 +307,9 @@ ash.boca.mojom.CaptionConfigSpec = {
       name: 'ash.boca.mojom.CaptionConfig',
       packedSize: 16,
       fields: [
-        { name: 'session_translation_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_caption_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'local_caption_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'session_translation_enabled', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -295,9 +321,10 @@ ash.boca.mojom.ControlledTabSpec = {
   $: {
     structSpec: {
       name: 'ash.boca.mojom.ControlledTab',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'navigation_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'navigation_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -309,9 +336,11 @@ ash.boca.mojom.OnTaskConfigSpec = {
   $: {
     structSpec: {
       name: 'ash.boca.mojom.OnTaskConfig',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_locked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_paused', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -323,9 +352,10 @@ ash.boca.mojom.SessionSpec = {
   $: {
     structSpec: {
       name: 'ash.boca.mojom.Session',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'activities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'activities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -337,9 +367,15 @@ ash.boca.mojom.StudentActivitySpec = {
   $: {
     structSpec: {
       name: 'ash.boca.mojom.StudentActivity',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'view_screen_session_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'student_status_detail', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'active_tab', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'join_method', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'view_screen_session_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_active', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_caption_enabled', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_hand_raised', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -351,9 +387,10 @@ ash.boca.mojom.IdentifiedActivitySpec = {
   $: {
     structSpec: {
       name: 'ash.boca.mojom.IdentifiedActivity',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'activity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

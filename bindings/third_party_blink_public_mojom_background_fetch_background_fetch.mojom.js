@@ -46,9 +46,10 @@ blink.mojom.BackgroundFetchSettledFetchSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchSettledFetch',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -60,9 +61,11 @@ blink.mojom.BackgroundFetchOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchOptions',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'icons', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'download_total', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -74,8 +77,14 @@ blink.mojom.BackgroundFetchRegistrationDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchRegistrationData',
-      packedSize: 8,
+      packedSize: 56,
       fields: [
+        { name: 'developer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'upload_total', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'uploaded', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'download_total', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'downloaded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'result', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -87,9 +96,10 @@ blink.mojom.BackgroundFetchRegistrationSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchRegistration',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'registration_interface', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'registration_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'registration_interface', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,8 +111,9 @@ blink.mojom.BackgroundFetchUkmDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchUkmData',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'ideal_to_chosen_icon_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -38,8 +38,17 @@ device.mojom.SensorInitParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorInitParams',
-      packedSize: 8,
+      packedSize: 72,
       fields: [
+        { name: 'memory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'default_configuration', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'maximum_frequency', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'minimum_frequency', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'kReadBufferSizeForTests', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sensor', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client_receiver', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -51,9 +60,12 @@ device.mojom.VirtualSensorMetadataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VirtualSensorMetadata',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'reporting_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'maximum_frequency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'minimum_frequency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'reporting_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'available', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

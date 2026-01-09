@@ -23,9 +23,12 @@ bookmark_bar.mojom.BookmarkDataSpec = {
   $: {
     structSpec: {
       name: 'bookmark_bar.mojom.BookmarkData',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'page_url_for_favicon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_url_for_favicon', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

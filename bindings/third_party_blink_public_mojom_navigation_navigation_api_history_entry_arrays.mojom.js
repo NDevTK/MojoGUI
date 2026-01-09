@@ -14,9 +14,14 @@ blink.mojom.NavigationApiHistoryEntrySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NavigationApiHistoryEntry',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'item_sequence_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'document_sequence_number', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'state', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +33,11 @@ blink.mojom.NavigationApiHistoryEntryArraysSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NavigationApiHistoryEntryArrays',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'previous_entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'back_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'forward_entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'previous_entry', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

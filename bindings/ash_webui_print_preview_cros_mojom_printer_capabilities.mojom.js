@@ -39,9 +39,12 @@ ash.printing.print_preview.mojom.ColorOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.ColorOption',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'is_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'vendor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'custom_display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_default', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -53,9 +56,10 @@ ash.printing.print_preview.mojom.ColorCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.ColorCapability',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'reset_to_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'reset_to_default', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -83,7 +87,8 @@ ash.printing.print_preview.mojom.CopiesCapabilitySpec = {
       name: 'ash.printing.print_preview.mojom.CopiesCapability',
       packedSize: 16,
       fields: [
-        { name: 'max', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'max', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,9 +100,10 @@ ash.printing.print_preview.mojom.DuplexOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.DuplexOption',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'is_default', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -123,9 +129,10 @@ ash.printing.print_preview.mojom.PageOrientationOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.PageOrientationOption',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'option', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_default', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -137,9 +144,10 @@ ash.printing.print_preview.mojom.PageOrientationCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.PageOrientationCapability',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'reset_to_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'reset_to_default', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -151,9 +159,10 @@ ash.printing.print_preview.mojom.LocalizedStringSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.LocalizedString',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -165,9 +174,20 @@ ash.printing.print_preview.mojom.MediaSizeOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.MediaSizeOption',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'is_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'vendor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'custom_display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'custom_display_name_localized', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'height_microns', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'width_microns', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'imageable_area_left_microns', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'imageable_area_bottom_microns', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'imageable_area_right_microns', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'imageable_area_top_microns', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'has_borderless_variant', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_default', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -179,9 +199,10 @@ ash.printing.print_preview.mojom.MediaSizeCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.MediaSizeCapability',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'reset_to_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'reset_to_default', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -193,9 +214,13 @@ ash.printing.print_preview.mojom.MediaTypeOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.MediaTypeOption',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'is_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'vendor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'custom_display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'custom_display_name_localized', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_default', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -207,9 +232,10 @@ ash.printing.print_preview.mojom.MediaTypeCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.MediaTypeCapability',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'reset_to_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'reset_to_default', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -221,9 +247,12 @@ ash.printing.print_preview.mojom.DpiOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.DpiOption',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'is_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'vendor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'horizontal_dpi', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'vertical_dpi', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_default', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -235,9 +264,10 @@ ash.printing.print_preview.mojom.DpiCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.DpiCapability',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'reset_to_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'reset_to_default', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -263,9 +293,18 @@ ash.printing.print_preview.mojom.CapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.Capabilities',
-      packedSize: 16,
+      packedSize: 88,
       fields: [
-        { name: 'pin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'destination_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'collate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'copies', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'duplex', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'page_orientation', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'media_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'media_type', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'dpi', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'pin', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

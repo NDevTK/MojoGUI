@@ -14,9 +14,10 @@ blink.mojom.ColorSuggestionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ColorSuggestion',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

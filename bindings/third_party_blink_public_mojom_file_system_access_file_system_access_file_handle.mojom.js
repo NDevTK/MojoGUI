@@ -27,9 +27,11 @@ blink.mojom.FileSystemAccessRegularFileSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessRegularFile',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'file_modification_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'os_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'file_modification_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

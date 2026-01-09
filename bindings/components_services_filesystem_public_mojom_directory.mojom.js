@@ -14,9 +14,10 @@ filesystem.mojom.FileOpenDetailsSpec = {
   $: {
     structSpec: {
       name: 'filesystem.mojom.FileOpenDetails',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'open_flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'open_flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,11 @@ filesystem.mojom.FileOpenResultSpec = {
   $: {
     structSpec: {
       name: 'filesystem.mojom.FileOpenResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

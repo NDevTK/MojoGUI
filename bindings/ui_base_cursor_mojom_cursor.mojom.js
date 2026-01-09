@@ -14,9 +14,12 @@ ui.mojom.CursorSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.Cursor',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'image_scale_factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hotspot', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bitmap', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'image_scale_factor', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

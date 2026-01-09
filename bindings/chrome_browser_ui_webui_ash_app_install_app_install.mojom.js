@@ -15,9 +15,10 @@ ash.app_install.mojom.AppInfoArgsSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.AppInfoArgs',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'actions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -29,9 +30,14 @@ ash.app_install.mojom.AppInfoDataSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.AppInfoData',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'is_already_installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'icon_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'screenshots', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_already_installed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -43,9 +49,10 @@ ash.app_install.mojom.ScreenshotSpec = {
   $: {
     structSpec: {
       name: 'ash.app_install.mojom.Screenshot',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

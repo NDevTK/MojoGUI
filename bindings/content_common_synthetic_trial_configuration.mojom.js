@@ -14,9 +14,10 @@ content.mojom.SyntheticTrialGroupSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticTrialGroup',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'group_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

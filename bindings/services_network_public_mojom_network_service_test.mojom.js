@@ -23,9 +23,13 @@ network.mojom.RuleSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.Rule',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'dns_aliases', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resolver_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host_pattern', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'replacement', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'dns_aliases', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'host_resolver_flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,9 +41,11 @@ network.mojom.SimpleCacheOpenEntryResultSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SimpleCacheOpenEntryResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'entry', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

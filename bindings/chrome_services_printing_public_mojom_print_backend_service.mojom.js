@@ -14,9 +14,10 @@ printing.mojom.PrinterCapsAndInfoSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrinterCapsAndInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'printer_caps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'printer_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'printer_caps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -208,13 +209,13 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
-  init(locale, remote) {
+  init(locale) {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
       printing.mojom.PrintBackendService_Init_ParamsSpec,
       null,
-      [locale, remote]);
+      [locale]);
   }
 
   poke() {
@@ -271,13 +272,13 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       [printer_name, media]);
   }
 
-  establishPrintingContext(context_id, parent_window_id) {
+  establishPrintingContext(context_id) {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
       printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec,
       null,
-      [context_id, parent_window_id]);
+      [context_id]);
   }
 
   useDefaultSettings(context_id) {
@@ -307,13 +308,13 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       [context_id, job_settings]);
   }
 
-  startPrinting(context_id, document_cookie, document_name, settings) {
+  startPrinting(context_id, document_cookie, document_name) {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
       printing.mojom.PrintBackendService_StartPrinting_ParamsSpec,
       printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec,
-      [context_id, document_cookie, document_name, settings]);
+      [context_id, document_cookie, document_name]);
   }
 
   renderPrintedPage(document_cookie, page_index, page_data_type, serialized_page, page_size, page_content_rect, shrink_factor) {
@@ -369,10 +370,9 @@ printing.mojom.PrintBackendService_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.Init_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -479,10 +479,9 @@ printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.EstablishPrintingContext_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'parent_window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'context_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -540,12 +539,11 @@ printing.mojom.PrintBackendService_StartPrinting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.StartPrinting_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'document_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'context_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'document_cookie', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'context_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'document_cookie', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

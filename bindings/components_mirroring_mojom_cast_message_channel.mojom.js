@@ -14,9 +14,10 @@ mirroring.mojom.CastMessageSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.CastMessage',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'json_format_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message_namespace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'json_format_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

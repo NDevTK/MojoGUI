@@ -38,9 +38,10 @@ mac_notifications.mojom.ProfileIdentifierSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.ProfileIdentifier',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'incognito', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'incognito', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -52,9 +53,10 @@ mac_notifications.mojom.NotificationIdentifierSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.NotificationIdentifier',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -66,9 +68,12 @@ mac_notifications.mojom.NotificationMetadataSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.NotificationMetadata',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'user_data_dir', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'user_data_dir', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -80,9 +85,12 @@ mac_notifications.mojom.NotificationActionInfoSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.NotificationActionInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'reply', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'meta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'operation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reply', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'button_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,9 +102,10 @@ mac_notifications.mojom.NotificationActionButtonSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.NotificationActionButton',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'placeholder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'placeholder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -108,9 +117,16 @@ mac_notifications.mojom.NotificationSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.Notification',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'meta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subtitle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'body', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buttons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'icon', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'renotify', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'show_settings_button', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

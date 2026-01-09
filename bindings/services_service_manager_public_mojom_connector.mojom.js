@@ -27,9 +27,12 @@ service_manager.mojom.IdentitySpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Identity',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'globally_unique_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'instance_group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'instance_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'globally_unique_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

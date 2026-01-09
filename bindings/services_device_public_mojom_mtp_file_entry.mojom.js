@@ -31,8 +31,9 @@ device.mojom.MtpFileEntrySpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpFileEntry',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'FILE_TYPE_FOLDER', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

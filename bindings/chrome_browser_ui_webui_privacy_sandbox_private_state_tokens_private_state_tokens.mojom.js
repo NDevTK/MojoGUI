@@ -14,9 +14,10 @@ private_state_tokens.mojom.IssuerTokenCountSpec = {
   $: {
     structSpec: {
       name: 'private_state_tokens.mojom.IssuerTokenCount',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'issuer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

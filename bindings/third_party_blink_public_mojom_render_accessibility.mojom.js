@@ -14,9 +14,12 @@ blink.mojom.HitTestResponseSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HitTestResponse',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'hit_node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stitched_child_tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hit_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hit_frame_transformed_point', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hit_node_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

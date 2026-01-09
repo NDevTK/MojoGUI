@@ -35,9 +35,10 @@ tabs_api.mojom.PositionSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.Position',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'parent_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

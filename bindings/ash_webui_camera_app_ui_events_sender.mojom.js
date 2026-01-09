@@ -256,9 +256,13 @@ ash.camera_app.mojom.VideoDetailsSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.VideoDetails',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
         { name: 'record_type_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'duration', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_muted', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ever_paused', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -270,9 +274,23 @@ ash.camera_app.mojom.CaptureEventParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.CaptureEventParams',
-      packedSize: 16,
+      packedSize: 104,
       fields: [
-        { name: 'zoom_ratio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'facing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'grid_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timer_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shutter_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'android_intent_result_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resolution_level', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'aspect_ratio_set', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'capture_details', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'zoom_ratio', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'resolution_width', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'resolution_height', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_mirrored', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_window_maximized', packedOffset: 88, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_window_portrait', packedOffset: 88, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -284,9 +302,12 @@ ash.camera_app.mojom.AndroidIntentEventParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.AndroidIntentEventParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'is_secure', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'should_handle_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'should_downscale', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_secure', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -300,7 +321,9 @@ ash.camera_app.mojom.OpenPTZPanelEventParamsSpec = {
       name: 'ash.camera_app.mojom.OpenPTZPanelEventParams',
       packedSize: 16,
       fields: [
-        { name: 'support_zoom', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'support_pan', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'support_tilt', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'support_zoom', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -326,9 +349,12 @@ ash.camera_app.mojom.DocScanResultEventParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.DocScanResultEventParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'page_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fix_types_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'fix_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'page_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -395,9 +421,10 @@ ash.camera_app.mojom.BarcodeDetectedEventParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.BarcodeDetectedEventParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'wifi_security_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'wifi_security_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -409,9 +436,15 @@ ash.camera_app.mojom.PerfEventParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.PerfEventParams',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'pressure', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'facing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pressure', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duration', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'resolution_width', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'resolution_height', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'page_count', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -423,9 +456,10 @@ ash.camera_app.mojom.MemoryUsageEventParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.MemoryUsageEventParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'behaviors_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -437,9 +471,12 @@ ash.camera_app.mojom.OcrEventParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.OcrEventParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'word_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'line_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'word_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_primary_language', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

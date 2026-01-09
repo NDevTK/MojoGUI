@@ -20,9 +20,13 @@ viz.mojom.BlitRequestSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.BlitRequest',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'populates_gpu_memory_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'destination_region_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'letterboxing_behavior', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shared_image', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sync_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'populates_gpu_memory_buffer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

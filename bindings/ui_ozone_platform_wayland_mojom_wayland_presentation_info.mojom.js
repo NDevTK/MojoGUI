@@ -14,9 +14,10 @@ wl.mojom.WaylandPresentationInfoSpec = {
   $: {
     structSpec: {
       name: 'wl.mojom.WaylandPresentationInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

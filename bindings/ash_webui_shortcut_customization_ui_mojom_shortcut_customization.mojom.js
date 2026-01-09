@@ -54,9 +54,10 @@ ash.shortcut_customization.mojom.AcceleratorResultDataSpec = {
   $: {
     structSpec: {
       name: 'ash.shortcut_customization.mojom.AcceleratorResultData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'shortcut_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -68,9 +69,11 @@ ash.shortcut_customization.mojom.SimpleAcceleratorSpec = {
   $: {
     structSpec: {
       name: 'ash.shortcut_customization.mojom.SimpleAccelerator',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'key_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'modifiers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

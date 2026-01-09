@@ -58,7 +58,8 @@ storage.mojom.PathAccessInfoSpec = {
       name: 'storage.mojom.PathAccessInfo',
       packedSize: 16,
       fields: [
-        { name: 'can_write', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'can_read', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_write', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

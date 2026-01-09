@@ -14,9 +14,12 @@ blink.mojom.SyncCompositorDemandDrawHwParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SyncCompositorDemandDrawHwParams',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'need_new_local_surface_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'viewport_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'viewport_rect_for_tile_priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'transform_for_tile_priority', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'need_new_local_surface_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +31,11 @@ blink.mojom.SyncCompositorDemandDrawSwParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SyncCompositorDemandDrawSwParams',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'transform', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'clip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'transform', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,8 +47,18 @@ blink.mojom.SyncCompositorCommonRendererParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SyncCompositorCommonRendererParams',
-      packedSize: 8,
+      packedSize: 64,
       fields: [
+        { name: 'total_scroll_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_scroll_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scrollable_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'page_scale_factor', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'min_page_scale_factor', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'max_page_scale_factor', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'need_invalidate_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'did_activate_pending_tree_count', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'invalidate_needs_draw', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

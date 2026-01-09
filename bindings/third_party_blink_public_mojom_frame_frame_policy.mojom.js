@@ -14,9 +14,12 @@ blink.mojom.FramePolicySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FramePolicy',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'deferred_fetch_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sandbox_flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'container_policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'required_document_policy', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'deferred_fetch_policy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

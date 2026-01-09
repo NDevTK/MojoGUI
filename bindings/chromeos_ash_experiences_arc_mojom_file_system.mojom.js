@@ -36,9 +36,13 @@ arc.mojom.DocumentSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.Document',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'supports_thumbnail', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'document_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'last_modified', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -50,9 +54,14 @@ arc.mojom.RootSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.Root',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'mime_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'root_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'document_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'summary', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'icon', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -64,9 +73,10 @@ arc.mojom.ContentUrlWithMimeTypeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ContentUrlWithMimeType',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -78,9 +88,11 @@ arc.mojom.OpenUrlsRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OpenUrlsRequest',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'extras', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'activity_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'urls', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -92,9 +104,17 @@ arc.mojom.SelectFilesRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.SelectFilesRequest',
-      packedSize: 16,
+      packedSize: 72,
       fields: [
-        { name: 'search_query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mime_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'default_file_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'initial_content_uri', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'initial_document_path', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'search_query', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'task_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'openable_only', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_multiple', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -106,9 +126,10 @@ arc.mojom.DocumentPathSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DocumentPath',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'root_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -120,9 +141,10 @@ arc.mojom.SelectFilesResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.SelectFilesResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'picker_activity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'picker_activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -134,9 +156,11 @@ arc.mojom.FileSelectorEventSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.FileSelectorEvent',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'creator_task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'click_target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'creator_task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -176,9 +200,11 @@ arc.mojom.FileSelectorElementsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.FileSelectorElements',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'search_query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'directory_elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'file_elements', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'search_query', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -190,9 +216,10 @@ arc.mojom.RootSizeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.RootSize',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'capacity_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'available_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'capacity_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,9 +231,10 @@ arc.mojom.FileSessionSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.FileSession',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -218,9 +246,11 @@ arc.mojom.MediaStoreDownloadMetadataSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.MediaStoreDownloadMetadata',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'relative_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'owner_package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'relative_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

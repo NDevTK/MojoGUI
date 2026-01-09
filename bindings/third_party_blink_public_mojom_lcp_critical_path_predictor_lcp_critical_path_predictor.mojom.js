@@ -14,9 +14,11 @@ blink.mojom.LcpElementSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LcpElement',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'predicted_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'predicted_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'is_image', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,15 @@ blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LCPCriticalPathPredictorNavigationTimeHint',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'for_testing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'lcp_element_locators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'lcp_element_locators_all', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'lcp_influencer_scripts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'fetched_fonts', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'preconnect_origins', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'unused_preloads', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'for_testing', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

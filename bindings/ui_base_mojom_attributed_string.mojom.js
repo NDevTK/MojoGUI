@@ -14,9 +14,11 @@ ui.mojom.FontAttributeSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.FontAttribute',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'effective_range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'font_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'effective_range', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'font_point_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,10 @@ ui.mojom.AttributedStringSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.AttributedString',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'attributes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attributes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

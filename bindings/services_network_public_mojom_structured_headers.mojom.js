@@ -14,9 +14,10 @@ network.mojom.StructuredHeadersParameterSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.StructuredHeadersParameter',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'item', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,10 @@ network.mojom.StructuredHeadersParameterizedItemSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.StructuredHeadersParameterizedItem',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'parameters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'parameters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +44,11 @@ network.mojom.StructuredHeadersParameterizedMemberSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.StructuredHeadersParameterizedMember',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'parameters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'member', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'parameters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'member_is_inner_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +60,10 @@ network.mojom.StructuredHeadersDictionaryMemberSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.StructuredHeadersDictionaryMember',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

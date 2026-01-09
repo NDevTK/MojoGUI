@@ -14,9 +14,11 @@ blink.mojom.TextAutosizerPageInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextAutosizerPageInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'device_scale_adjustment', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'main_frame_width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'main_frame_layout_width', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'device_scale_adjustment', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

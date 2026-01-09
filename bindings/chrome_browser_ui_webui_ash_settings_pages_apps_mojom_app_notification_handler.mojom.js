@@ -30,9 +30,12 @@ ash.settings.app_notification.mojom.AppSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.app_notification.mojom.App',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'notification_permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'readiness', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'notification_permission', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

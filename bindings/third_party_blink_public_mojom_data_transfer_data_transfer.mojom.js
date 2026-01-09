@@ -14,9 +14,11 @@ blink.mojom.DataTransferFileSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DataTransferFile',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'file_system_access_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_system_access_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

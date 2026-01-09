@@ -14,9 +14,10 @@ chrome.mojom.ObfuscatedFileUtilHeaderDataSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ObfuscatedFileUtilHeaderData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'nonce_prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'derived_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'nonce_prefix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

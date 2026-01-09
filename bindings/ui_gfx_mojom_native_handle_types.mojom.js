@@ -14,9 +14,12 @@ gfx.mojom.NativePixmapPlaneSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.NativePixmapPlane',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'buffer_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stride', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +31,14 @@ gfx.mojom.NativePixmapHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.NativePixmapHandle',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'ram_coherency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'planes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'modifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supports_zero_copy_webgpu_import', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_collection_handle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_index', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ram_coherency', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +50,10 @@ gfx.mojom.AHardwareBufferHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.AHardwareBufferHandle',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'tracking_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tracking_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,9 +79,11 @@ gfx.mojom.DXGIHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DXGIHandle',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'shared_memory_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shared_memory_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -84,9 +95,12 @@ gfx.mojom.IOSurfaceHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.IOSurfaceHandle',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'plane_offsets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mach_send_right', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shared_memory_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'plane_strides', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'plane_offsets', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

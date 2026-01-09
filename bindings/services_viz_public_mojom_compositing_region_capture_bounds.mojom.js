@@ -14,9 +14,10 @@ viz.mojom.CropIdBoundsPairSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CropIdBoundsPair',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'crop_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

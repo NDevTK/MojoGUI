@@ -23,8 +23,11 @@ ash.local_search_service.mojom.ContentSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Content',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'content', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'weight', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -36,9 +39,11 @@ ash.local_search_service.mojom.DataSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Data',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'contents', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'locale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -50,8 +55,11 @@ ash.local_search_service.mojom.SearchParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.SearchParams',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'relevance_threshold', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'prefix_threshold', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'fuzzy_threshold', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,9 +71,11 @@ ash.local_search_service.mojom.PositionSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Position',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -77,9 +87,11 @@ ash.local_search_service.mojom.ResultSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.Result',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'positions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'positions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

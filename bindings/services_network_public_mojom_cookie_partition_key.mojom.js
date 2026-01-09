@@ -20,8 +20,12 @@ network.mojom.CookiePartitionKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CookiePartitionKey',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'nonce', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'ancestor_chain_bit', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'from_script', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -33,9 +37,10 @@ network.mojom.CookiePartitionKeyCollectionSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CookiePartitionKeyCollection',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'contains_all_partitions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

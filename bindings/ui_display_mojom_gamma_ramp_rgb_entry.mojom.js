@@ -16,7 +16,9 @@ display.mojom.GammaRampRGBEntrySpec = {
       name: 'display.mojom.GammaRampRGBEntry',
       packedSize: 16,
       fields: [
-        { name: 'b', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'r', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'g', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'b', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
       versions: [{version: 0}]
     }

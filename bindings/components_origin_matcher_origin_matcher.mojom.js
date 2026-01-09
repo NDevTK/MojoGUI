@@ -14,9 +14,11 @@ origin_matcher.mojom.SubdomainMatchingRuleSpec = {
   $: {
     structSpec: {
       name: 'origin_matcher.mojom.SubdomainMatchingRule',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'optional_port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'optional_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'optional_port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

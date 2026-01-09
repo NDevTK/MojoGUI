@@ -14,9 +14,11 @@ ukm.mojom.UkmEntrySpec = {
   $: {
     structSpec: {
       name: 'ukm.mojom.UkmEntry',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'event_hash', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'metrics', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +30,10 @@ ukm.mojom.UkmRecorderParametersSpec = {
   $: {
     structSpec: {
       name: 'ukm.mojom.UkmRecorderParameters',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'event_hash_bypass_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_hash_bypass_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

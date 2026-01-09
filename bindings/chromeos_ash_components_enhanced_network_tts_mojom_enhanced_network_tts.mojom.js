@@ -24,9 +24,12 @@ ash.enhanced_network_tts.mojom.TtsRequestSpec = {
   $: {
     structSpec: {
       name: 'ash.enhanced_network_tts.mojom.TtsRequest',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'lang', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'voice', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -38,9 +41,12 @@ ash.enhanced_network_tts.mojom.TimingInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.enhanced_network_tts.mojom.TimingInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'time_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'duration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'text_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -52,9 +58,11 @@ ash.enhanced_network_tts.mojom.TtsDataSpec = {
   $: {
     structSpec: {
       name: 'ash.enhanced_network_tts.mojom.TtsData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'last_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'audio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'time_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'last_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

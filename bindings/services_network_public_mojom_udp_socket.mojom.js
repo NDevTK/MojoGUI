@@ -14,9 +14,17 @@ network.mojom.UDPSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UDPSocketOptions',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'ipv6_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'multicast_interface', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'multicast_time_to_live', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'send_buffer_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'receive_buffer_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'allow_address_reuse', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_broadcast', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_address_sharing_for_multicast', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'multicast_loopback_mode', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'ipv6_only', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }

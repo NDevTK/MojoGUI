@@ -28,9 +28,11 @@ display.mojom.ColorCalibrationSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.ColorCalibration',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'linear_to_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'srgb_to_linear', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'srgb_to_device_matrix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'linear_to_device', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -19,9 +19,12 @@ arc.mojom.ErrorDetailsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ErrorDetails',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'buttonLabels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buttonLabels', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }

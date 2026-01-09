@@ -14,9 +14,10 @@ extensions.mojom.URLPatternSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.URLPattern',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'valid_schemes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

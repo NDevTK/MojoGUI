@@ -112,8 +112,9 @@ ash.cros_healthd.mojom.UsbEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.UsbEventInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,8 +126,9 @@ ash.cros_healthd.mojom.ThunderboltEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ThunderboltEventInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -138,8 +140,9 @@ ash.cros_healthd.mojom.LidEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.LidEventInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -151,8 +154,9 @@ ash.cros_healthd.mojom.BluetoothEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothEventInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -164,8 +168,9 @@ ash.cros_healthd.mojom.PowerEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.PowerEventInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -177,8 +182,9 @@ ash.cros_healthd.mojom.AudioEventInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.AudioEventInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -378,7 +384,7 @@ ash.cros_healthd.mojom.CrashEventInfoSpec = {
       name: 'ash.cros_healthd.mojom.CrashEventInfo',
       packedSize: 16,
       fields: [
-        { name: 'kChrome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

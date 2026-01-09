@@ -237,8 +237,9 @@ ash.cros_healthd.mojom.VolumeButtonRoutineArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.VolumeButtonRoutineArgument',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -471,8 +472,9 @@ ash.cros_healthd.mojom.NetworkBandwidthRoutineRunningInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.NetworkBandwidthRoutineRunningInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -484,8 +486,9 @@ ash.cros_healthd.mojom.RoutineStateWaitingSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.RoutineStateWaiting',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -510,8 +513,9 @@ ash.cros_healthd.mojom.CheckLedLitUpStateReplySpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CheckLedLitUpStateReply',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -562,8 +566,9 @@ ash.cros_healthd.mojom.CheckKeyboardBacklightStateReplySpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CheckKeyboardBacklightStateReply',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -718,8 +723,9 @@ ash.cros_healthd.mojom.BluetoothPairingPeripheralInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothPairingPeripheralInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -796,8 +802,9 @@ ash.cros_healthd.mojom.SensitiveSensorInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.SensitiveSensorInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -835,8 +842,9 @@ ash.cros_healthd.mojom.CameraFrameAnalysisRoutineDetailSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CameraFrameAnalysisRoutineDetail',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

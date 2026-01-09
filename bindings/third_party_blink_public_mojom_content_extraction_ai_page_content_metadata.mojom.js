@@ -14,9 +14,10 @@ blink.mojom.MetaTagSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MetaTag',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'content', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,10 @@ blink.mojom.FrameMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FrameMetadata',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'meta_tags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'meta_tags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

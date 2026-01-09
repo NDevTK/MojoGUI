@@ -14,9 +14,12 @@ blink.mojom.AIProofreaderCreateOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIProofreaderCreateOptions',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'expected_input_languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'correction_explanation_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'expected_input_languages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'include_correction_types', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'include_correction_explanations', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

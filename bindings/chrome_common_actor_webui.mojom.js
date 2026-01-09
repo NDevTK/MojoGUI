@@ -50,9 +50,13 @@ actor.webui.mojom.CredentialSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.Credential',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'display_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source_site_or_app', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'request_origin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_origin', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -64,9 +68,12 @@ actor.webui.mojom.SelectCredentialDialogRequestSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.SelectCredentialDialogRequest',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'icons', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'icons', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'show_dialog', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -78,9 +85,12 @@ actor.webui.mojom.SelectCredentialDialogResponseSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.SelectCredentialDialogResponse',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'selected_credential_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error_reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'permission_duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'selected_credential_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -92,9 +102,12 @@ actor.webui.mojom.AutofillSuggestionSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.AutofillSuggestion',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'icon', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -106,9 +119,10 @@ actor.webui.mojom.FormFillingRequestSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.FormFillingRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'requested_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'suggestions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -120,9 +134,10 @@ actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.SelectAutofillSuggestionsDialogRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'form_filling_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'form_filling_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,9 +163,10 @@ actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.SelectAutofillSuggestionsDialogResponse',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -162,9 +178,10 @@ actor.webui.mojom.UserConfirmationDialogPayloadSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.UserConfirmationDialogPayload',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'for_blocklisted_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'navigation_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'for_blocklisted_origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,9 +221,10 @@ actor.webui.mojom.NavigationConfirmationRequestSpec = {
   $: {
     structSpec: {
       name: 'actor.webui.mojom.NavigationConfirmationRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'navigation_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

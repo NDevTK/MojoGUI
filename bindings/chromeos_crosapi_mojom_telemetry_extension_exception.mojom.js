@@ -21,8 +21,9 @@ crosapi.mojom.TelemetryExtensionExceptionSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryExtensionException',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

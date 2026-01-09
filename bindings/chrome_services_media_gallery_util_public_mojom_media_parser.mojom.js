@@ -14,9 +14,10 @@ chrome.mojom.ExtractVideoFrameResultSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ExtractVideoFrameResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +29,10 @@ chrome.mojom.MediaStreamInfoSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaStreamInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'additional_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'additional_properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +44,23 @@ chrome.mojom.MediaMetadataSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaMetadata',
-      packedSize: 16,
+      packedSize: 112,
       fields: [
-        { name: 'raw_tags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'album', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'artist', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'comment', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'copyright', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'genre', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'language', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'raw_tags', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'height', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'width', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'rotation', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'disc', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'track', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +72,10 @@ chrome.mojom.AttachedImageSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AttachedImage',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

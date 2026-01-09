@@ -67,9 +67,15 @@ ash.camera_app.mojom.WifiConfigSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.WifiConfig',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'eap_anonymous_identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'security', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'password', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'eap_method', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'eap_phase2_method', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'eap_identity', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'eap_anonymous_identity', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -81,9 +87,10 @@ ash.camera_app.mojom.CloudUploadSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.CloudUpload',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'thumbnail', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'thumbnail', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

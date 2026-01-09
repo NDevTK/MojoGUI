@@ -16,7 +16,7 @@ network.mojom.ProxyResolvingSocketOptionsSpec = {
       name: 'network.mojom.ProxyResolvingSocketOptions',
       packedSize: 16,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'use_tls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

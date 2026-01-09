@@ -36,9 +36,10 @@ attribution_internals.mojom.WebUIReportEventLevelDataSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUIReportEventLevelData',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'attributed_truthfully', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'attributed_truthfully', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -50,9 +51,11 @@ attribution_internals.mojom.AggregatableHistogramContributionSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.AggregatableHistogramContribution',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'filtering_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'filtering_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -64,9 +67,11 @@ attribution_internals.mojom.WebUIReportAggregatableAttributionDataSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUIReportAggregatableAttributionData',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'is_null_report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'contributions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'aggregation_coordinator', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_null_report', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -91,9 +96,15 @@ attribution_internals.mojom.WebUIReportSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUIReport',
-      packedSize: 16,
+      packedSize: 64,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'report_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'trigger_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'report_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'report_body', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'status', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -105,9 +116,12 @@ attribution_internals.mojom.WebUIDebugReportSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUIDebugReport',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'body', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -119,9 +133,13 @@ attribution_internals.mojom.WebUIAggregatableDebugReportSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUIAggregatableDebugReport',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'send_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'body', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'process_result', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'send_result', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -133,9 +151,35 @@ attribution_internals.mojom.WebUISourceSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUISource',
-      packedSize: 16,
+      packedSize: 216,
       fields: [
-        { name: 'kAttributable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'source_event_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'source_origin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'destinations', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reporting_origin', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_time', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'expiry_time', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'event_report_windows', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'trigger_data', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'aggregatable_report_window_time', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'source_type', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'priority', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'debug_key', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
+        { name: 'dedup_keys', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'filter_data', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'aggregation_keys', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'aggregatable_dedup_keys', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'trigger_data_matching', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_level_epsilon', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'aggregatable_debug_key_piece', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'attribution_scopes_data_json', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'aggregatable_named_budgets', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'kAttributable', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_event_level_reports', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'remaining_aggregatable_attribution_budget', packedOffset: 188, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'remaining_aggregatable_debug_budget', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'cookie_based_debug_allowed', packedOffset: 196, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,9 +191,13 @@ attribution_internals.mojom.WebUIRegistrationSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUIRegistration',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'cleared_debug_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'context_origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reporting_origin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'registration_json', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'cleared_debug_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -161,9 +209,11 @@ attribution_internals.mojom.WebUITriggerSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUITrigger',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'aggregatable_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_level_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'aggregatable_result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,9 +225,11 @@ attribution_internals.mojom.WebUISourceRegistrationSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUISourceRegistration',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,9 +241,15 @@ attribution_internals.mojom.WebUIOsRegistrationSpec = {
   $: {
     structSpec: {
       name: 'attribution_internals.mojom.WebUIOsRegistration',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'registration_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'top_level_origin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_debug_key_allowed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'debug_reporting', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

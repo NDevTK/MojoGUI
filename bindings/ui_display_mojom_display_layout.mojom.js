@@ -28,9 +28,13 @@ display.mojom.DisplayPlacementSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.DisplayPlacement',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'offset_reference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'parent_display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'offset_reference', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'offset', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +46,11 @@ display.mojom.DisplayLayoutSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.DisplayLayout',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'placement_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'primary_display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'placement_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'default_unified', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

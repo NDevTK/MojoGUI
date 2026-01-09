@@ -14,9 +14,11 @@ watermark.mojom.WatermarkStyleSpec = {
   $: {
     structSpec: {
       name: 'watermark.mojom.WatermarkStyle',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'font_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fill_opacity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'outline_opacity', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'font_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

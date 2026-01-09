@@ -28,9 +28,10 @@ lens.mojom.TextSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.Text',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'content_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'text_layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'content_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +57,13 @@ lens.mojom.WordSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.Word',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'formula_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'plain_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'text_separator', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'geometry', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'writing_direction', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'formula_metadata', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -70,9 +75,10 @@ lens.mojom.LineSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.Line',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'geometry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'words', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'geometry', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -84,9 +90,13 @@ lens.mojom.BackgroundImageDataSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.BackgroundImageData',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'text_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'background_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text_mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'vertical_padding', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'horizontal_padding', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -98,9 +108,14 @@ lens.mojom.TranslatedLineSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.TranslatedLine',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'geometry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'words', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'translation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'text_color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'background_primary_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'background_image_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'geometry', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -112,9 +127,13 @@ lens.mojom.TranslatedParagraphSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.TranslatedParagraph',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'content_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'lines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'resized_bitmap_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'alignment', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'writing_direction', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'content_language', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -126,9 +145,13 @@ lens.mojom.ParagraphSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.Paragraph',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'content_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'lines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'translation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'geometry', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'writing_direction', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'content_language', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

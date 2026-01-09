@@ -14,9 +14,10 @@ legion.mojom.HandshakeMessageSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.HandshakeMessage',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'ciphertext', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'ephemeral_public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'ciphertext', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

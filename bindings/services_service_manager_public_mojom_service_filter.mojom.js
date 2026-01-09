@@ -14,9 +14,12 @@ service_manager.mojom.ServiceFilterSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.ServiceFilter',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'globally_unique_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'instance_group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'instance_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'globally_unique_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

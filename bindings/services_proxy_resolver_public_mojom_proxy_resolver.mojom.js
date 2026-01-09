@@ -51,9 +51,10 @@ proxy_resolver.mojom.SystemProxyResolutionStatusSpec = {
   $: {
     structSpec: {
       name: 'proxy_resolver.mojom.SystemProxyResolutionStatus',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'win_http_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'os_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_success', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

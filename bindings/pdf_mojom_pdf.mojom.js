@@ -31,7 +31,8 @@ pdf.mojom.SaveDataBufferHandlerGetResultSpec = {
       name: 'pdf.mojom.SaveDataBufferHandlerGetResult',
       packedSize: 16,
       fields: [
-        { name: 'total_file_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'total_file_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -24,9 +24,14 @@ network.mojom.AuthChallengeInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AuthChallengeInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'challenger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scheme', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'realm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'challenge', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'path', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_proxy', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -40,7 +45,8 @@ network.mojom.HttpVersionSpec = {
       name: 'network.mojom.HttpVersion',
       packedSize: 16,
       fields: [
-        { name: 'minor_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'major_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'minor_value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -52,9 +58,10 @@ network.mojom.HostPortPairSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HostPortPair',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -66,9 +73,10 @@ network.mojom.ProxyServerSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyServer',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'host_and_port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host_and_port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -80,9 +88,10 @@ network.mojom.ProxyChainSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyChain',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'ip_protection_chain_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'proxy_servers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'ip_protection_chain_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,9 +103,10 @@ network.mojom.ResolveErrorInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ResolveErrorInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_secure_network_error', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,9 +118,12 @@ network.mojom.SSLCertRequestInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SSLCertRequestInfo',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'signature_algorithms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host_and_port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cert_authorities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'signature_algorithms', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_proxy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -122,9 +135,11 @@ network.mojom.NetLogSourceSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetLogSource',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
         { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'source_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -36,9 +36,10 @@ side_panel.customize_chrome.mojom.KeyLabelSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.KeyLabel',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -50,9 +51,10 @@ side_panel.customize_chrome.mojom.GroupSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.Group',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'descriptor_as', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'descriptor_as', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -64,9 +66,11 @@ side_panel.customize_chrome.mojom.DescriptorBSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.DescriptorB',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'image_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'image_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -78,9 +82,11 @@ side_panel.customize_chrome.mojom.DescriptorsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.Descriptors',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'descriptor_c', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'descriptor_b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'descriptor_c', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -92,9 +98,12 @@ side_panel.customize_chrome.mojom.InspirationSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.Inspiration',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'thumbnail_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'background_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'thumbnail_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -106,9 +115,12 @@ side_panel.customize_chrome.mojom.InspirationDescriptorsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.InspirationDescriptors',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'subject', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'mood', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -120,9 +132,10 @@ side_panel.customize_chrome.mojom.InspirationGroupSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.InspirationGroup',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'inspirations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'descriptors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'inspirations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,9 +147,11 @@ side_panel.customize_chrome.mojom.WallpaperSearchResultSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchResult',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'descriptors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'descriptors', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -148,9 +163,12 @@ side_panel.customize_chrome.mojom.ResultDescriptorsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.ResultDescriptors',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'subject', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'mood', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

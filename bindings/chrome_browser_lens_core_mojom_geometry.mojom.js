@@ -21,8 +21,11 @@ lens.mojom.CenterRotatedBoxSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.CenterRotatedBox',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnspecified', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rotation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -34,9 +37,10 @@ lens.mojom.GeometrySpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.Geometry',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'segmentation_polygon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounding_box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'segmentation_polygon', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

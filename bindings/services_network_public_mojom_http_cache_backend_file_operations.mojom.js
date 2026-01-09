@@ -30,9 +30,12 @@ network.mojom.FileEnumerationEntrySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FileEnumerationEntry',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'last_modified', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'last_accessed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_modified', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

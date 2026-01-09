@@ -60,9 +60,11 @@ ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec = {
   $: {
     structSpec: {
       name: 'ash.audio_config.mojom.VoiceIsolationUIAppearance',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'show_effect_fallback_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'toggle_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'effect_mode_options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'show_effect_fallback_message', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -74,9 +76,17 @@ ash.audio_config.mojom.AudioDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.audio_config.mojom.AudioDevice',
-      packedSize: 16,
+      packedSize: 80,
       fields: [
-        { name: 'spatial_audio_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'noise_cancellation_state', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'style_transfer_state', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'force_respect_ui_gains_state', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hfp_mic_sr_state', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'spatial_audio_state', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_active', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -88,9 +98,15 @@ ash.audio_config.mojom.AudioSystemPropertiesSpec = {
   $: {
     structSpec: {
       name: 'ash.audio_config.mojom.AudioSystemProperties',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'voice_isolation_ui_appearance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'output_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'output_mute_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_devices', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'input_mute_state', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'voice_isolation_ui_appearance', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'output_volume_percent', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'input_gain_percent', packedOffset: 41, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,7 +16,10 @@ webnn.mojom.TensorUsageSpec = {
       name: 'webnn.mojom.TensorUsage',
       packedSize: 16,
       fields: [
-        { name: 'graph_constant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'web_gpu_interop', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'read', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'write', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'graph_constant', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -28,9 +31,10 @@ webnn.mojom.TensorInfoSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.TensorInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'descriptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

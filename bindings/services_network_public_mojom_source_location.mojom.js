@@ -14,8 +14,11 @@ network.mojom.SourceLocationSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SourceLocation',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'line', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'column', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

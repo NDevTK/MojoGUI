@@ -37,9 +37,14 @@ gpu.mojom.DevicePerfInfoSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.DevicePerfInfo',
-      packedSize: 16,
+      packedSize: 48,
       fields: [
-        { name: 'has_discrete_gpu', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'system_commit_limit_mb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'd3d11_feature_level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'has_discrete_gpu', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_physical_memory_mb', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'total_disk_space_mb', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'hardware_concurrency', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

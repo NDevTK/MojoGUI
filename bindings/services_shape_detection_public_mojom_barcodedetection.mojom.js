@@ -32,9 +32,12 @@ shape_detection.mojom.BarcodeDetectionResultSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.BarcodeDetectionResult',
-      packedSize: 16,
+      packedSize: 40,
       fields: [
-        { name: 'corner_points', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'raw_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'bounding_box', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'format', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'corner_points', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

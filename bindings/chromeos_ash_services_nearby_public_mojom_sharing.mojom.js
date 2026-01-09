@@ -14,9 +14,12 @@ sharing.mojom.WifiLanDependenciesSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.WifiLanDependencies',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'mdns_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'cros_network_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'firewall_hole_factory', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'tcp_socket_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'mdns_manager', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +33,8 @@ sharing.mojom.WifiDirectDependenciesSpec = {
       name: 'sharing.mojom.WifiDirectDependencies',
       packedSize: 16,
       fields: [
-        { name: 'firewall_hole_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'wifi_direct_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'firewall_hole_factory', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,8 +46,13 @@ sharing.mojom.NearbyDependenciesSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.NearbyDependencies',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'webrtc_dependencies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'wifilan_dependencies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'wifidirect_dependencies', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'bluetooth_adapter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'nearby_presence_credential_storage', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

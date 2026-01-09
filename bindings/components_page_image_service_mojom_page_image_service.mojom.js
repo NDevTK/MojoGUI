@@ -27,7 +27,8 @@ page_image_service.mojom.OptionsSpec = {
       name: 'page_image_service.mojom.Options',
       packedSize: 16,
       fields: [
-        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'suggest_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'optimization_guide_images', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

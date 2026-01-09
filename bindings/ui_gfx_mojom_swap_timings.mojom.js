@@ -14,9 +14,10 @@ gfx.mojom.SwapTimingsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.SwapTimings',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'swap_end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'swap_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'swap_end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
