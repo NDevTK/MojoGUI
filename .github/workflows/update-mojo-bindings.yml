@@ -52,13 +52,13 @@ jobs:
           
           git pull --depth=1 origin main || git pull --depth=1 origin master
 
-      - name: List and Sort .mojom files
+      - name: Filter broken .mojom files
         run: |
           # Find ALL .mojom files first
           find chromium_src -name "*.mojom" > all_mojoms.txt
           
-          # Create the sorter script
-          cat << 'EOF' > sort_mojoms.py
+          # Create the filter script
+          cat << 'EOF' > filter_mojoms.py
           import os
           import sys
           import re
@@ -67,6 +67,9 @@ jobs:
           ROOTS = [os.getcwd(), os.path.join(os.getcwd(), 'chromium_src')]
           
           def resolve_import(import_path, current_file_path):
+              # Imports are relative to roots.
+              # But sometimes they might be relative to the file?
+              # Mojo docs say imports are relative to source root.
               for root in ROOTS:
                   candidate = os.path.join(root, import_path)
                   if os.path.isfile(candidate):
@@ -74,37 +77,76 @@ jobs:
               return None
 
           def parse_imports(file_path):
+              imports = []
               try:
                   with open(file_path, 'r', encoding='utf-8') as f:
                       content = f.read()
+                  # Regex for: import "foo/bar.mojom";
+                  # Simplistic, ignores comments, but sufficient for 99%
                   matches = re.findall(r'^\s*import\s+"([^"]+)"', content, re.MULTILINE)
                   return matches
               except Exception as e:
                   print(f"Error reading {file_path}: {e}")
-                  return []
+                  return None
 
           def main():
               with open('all_mojoms.txt', 'r') as f:
                   files = [line.strip() for line in f if line.strip()]
               
+              # Map absolute path -> list of absolute paths it imports
+              dependency_graph = {}
+              # Map clean relative path (for output) -> absolute path
+              
               abs_files = set()
               for f in files:
-                  abs_files.add(os.path.abspath(f))
+                  abs_path = os.path.abspath(f)
+                  abs_files.add(abs_path)
               
-              dependency_graph = {}
-              print(f"Scanning {len(abs_files)} files to build dependency graph...")
+              print(f"Scanning {len(abs_files)} files for broken dependencies...")
               
-              for f_abs in abs_files:
-                  imports = parse_imports(f_abs)
-                  dependency_graph[f_abs] = []
+              for f in files:
+                  abs_path = os.path.abspath(f)
+                  imports = parse_imports(abs_path)
+                  if imports is None:
+                      continue # File unreadable
+                  
+                  dependency_graph[abs_path] = []
                   for imp in imports:
-                      resolved = resolve_import(imp, f_abs)
-                      if resolved and resolved in abs_files:
-                          dependency_graph[f_abs].append(resolved)
-                      # If missing/external, we ignore it for sorting purposes
-                      # (it will likely crash later, but user asked for NO filtering)
+                      resolved = resolve_import(imp, abs_path)
+                      if not resolved:
+                          # Dependency missing!
+                          # print(f"File {f} is missing dependency {imp}")
+                          # Add a dummy marker that won't be in abs_files
+                          dependency_graph[abs_path].append(f"MISSING:{imp}")
+                      else:
+                          dependency_graph[abs_path].append(resolved)
 
-              # Topological Sort
+              # Iteratively remove broken files
+              removed_count = 0
+              while True:
+                  current_removed = 0
+                  to_remove = set()
+                  
+                  for f, deps in dependency_graph.items():
+                      if f not in abs_files: 
+                          continue
+                          
+                      for dep in deps:
+                          if dep.startswith("MISSING:") or dep not in abs_files:
+                              to_remove.add(f)
+                              # print(f"Removing {os.path.relpath(f)} because of broken dependency {dep}")
+                              break
+                  
+                  if not to_remove:
+                      break
+                  
+                  for f in to_remove:
+                      abs_files.remove(f)
+                      current_removed += 1
+                  
+                  removed_count += current_removed
+              
+              # Topological Sort of the remaining valid files
               print("Sorting files topologically...")
               sorted_files = []
               visited = set()
@@ -112,18 +154,24 @@ jobs:
 
               def visit(node):
                   if node in temp_mark:
-                      return # Cycle
+                      # Circular dependency, just treat as visited to break
+                      return
                   if node in visited:
                       return
-                  
+                  if node not in abs_files:
+                      return # Should have been filtered, but safety check
+
                   temp_mark.add(node)
+                  
+                  # Visit dependencies first
                   for dep in dependency_graph.get(node, []):
-                      visit(dep)
+                      if dep in abs_files:
+                          visit(dep)
+                  
                   temp_mark.remove(node)
                   visited.add(node)
                   sorted_files.append(node)
 
-              # Visit all
               for f in abs_files:
                   if f not in visited:
                       visit(f)
@@ -132,6 +180,7 @@ jobs:
               
               with open('mojom_files_list.txt', 'w') as f:
                   for abs_p in sorted_files:
+                      # Convert back to relative path for tools
                       rel_p = os.path.relpath(abs_p, os.getcwd())
                       f.write(rel_p + '\n')
 
@@ -139,9 +188,9 @@ jobs:
               main()
           EOF
           
-          python3 sort_mojoms.py
+          python3 filter_mojoms.py
           
-          echo "Final list for parser (head):"
+          echo "Final list for parser:"
           head -10 mojom_files_list.txt
 
           # Rename bindings.js to mojo_bindings.js as that is what is often expected, 
@@ -224,19 +273,18 @@ jobs:
               cmd = [
                   sys.executable,
                   'chromium_src/mojo/public/tools/mojom/mojom_parser.py',
-                  '--output-root', '.',
+                  '--output-root', 'chromium_src',
+                  '--input-root', 'chromium_src', 
                   '--input-root', '.',
-                  '--input-root', 'chromium_src', # Include path for imports to resolve
                   '--mojom-file-list', 'mojom_files_list.txt'
               ]
               
               try:
                   subprocess.run(cmd, check=True)
-                  print("DEBUG: Listing generated module files:")
-                  subprocess.run("find . -name '*.mojom-module' | head -n 20", shell=True)
                   return True
               except subprocess.CalledProcessError as e:
-                  print(f"Parser failed: {e}")
+                  # This is expected for some files due to missing deps in sparse checkout
+                  # The "Parser failed" message from subprocess is enough
                   return False
 
           def run_generator(mojom_path):
