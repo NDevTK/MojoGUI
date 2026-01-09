@@ -264,12 +264,13 @@
 
         // Add click handlers
         elements.interfaceList.querySelectorAll('.interface-item').forEach(item => {
-            item.addEventListener('click', () => selectInterface(item.dataset.name));
+            item.addEventListener('click', () => selectInterface(item.dataset.name, item.dataset.module));
         });
     }
 
-    async function selectInterface(name) {
-        const iface = state.interfaces.find(i => i.name === name);
+    async function selectInterface(name, module) {
+        // Find interface by both name and module to ensure uniqueness
+        const iface = state.interfaces.find(i => i.name === name && i.module === module);
         if (!iface) return;
 
         state.selectedInterface = iface;
@@ -278,7 +279,9 @@
 
         // Update UI
         elements.interfaceList.querySelectorAll('.interface-item').forEach(item => {
-            item.classList.toggle('active', item.dataset.name === name);
+            const isActive = item.dataset.name === name && item.dataset.module === module;
+            item.classList.toggle('active', isActive);
+            if (isActive) item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
 
         elements.selectedInterfaceName.textContent = iface.name;

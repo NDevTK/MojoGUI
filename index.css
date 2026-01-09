@@ -71,7 +71,7 @@
     /* Layout */
     --header-height: 64px;
     --sidebar-width: 320px;
-    --code-panel-width: 420px;
+    --code-panel-width: 500px;
 }
 
 /* Reset & Base */
@@ -632,7 +632,8 @@ body::before {
 /* Results Section */
 .results-section {
     border-top: 1px solid var(--border-subtle);
-    max-height: 200px;
+    flex: 1;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
 }
@@ -966,7 +967,7 @@ body::before {
     color: var(--text-primary);
     white-space: pre-wrap;
     word-break: break-all;
-    max-height: 300px;
+    max-height: 500px;
     overflow-y: auto;
 }
 
