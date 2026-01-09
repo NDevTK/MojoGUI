@@ -314,7 +314,7 @@ jobs:
                   '--use_bundled_pylibs',
                   'generate',
                   '-g', 'javascript',
-                  '--output_dir', '.',
+                  '--output_dir', 'chromium_src', 
                   '--depth', '.', 
                   '--bytecode_path', 'bindings', 
                   mojom_path 
