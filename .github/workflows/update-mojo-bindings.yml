@@ -133,6 +133,7 @@ jobs:
                   '-g', 'javascript',
                   '--output_dir', '.',  # Output relative to current dir, mapping source struct
                   '--depth', '.',       # Root for relative paths
+                  '--bytecode_path', 'bindings', # Required for caching/intermediate files
                   mojom_path
               ]
               try:
