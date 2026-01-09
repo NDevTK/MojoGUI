@@ -266,7 +266,7 @@
         });
     }
 
-    function selectInterface(name) {
+    async function selectInterface(name) {
         const iface = state.interfaces.find(i => i.name === name);
         if (!iface) return;
 
@@ -281,6 +281,19 @@
 
         elements.selectedInterfaceName.textContent = iface.name;
         elements.selectedModule.textContent = iface.module;
+
+        // Auto-load the binding file
+        if (iface.file && typeof MojoBindings !== 'undefined') {
+            try {
+                elements.selectedModule.textContent = iface.module + ' (loading...)';
+                await MojoBindings.loadBinding(iface.file);
+                elements.selectedModule.textContent = iface.module + ' ✓';
+                showToast(`Loaded binding: ${iface.file}`, 'success');
+            } catch (error) {
+                console.warn('Failed to load binding file:', iface.file, error);
+                elements.selectedModule.textContent = iface.module + ' (file not found)';
+            }
+        }
 
         renderMethods(iface);
         renderParamsForm(null);
@@ -634,13 +647,49 @@
         elements.executionResults.className = 'results-block';
 
         try {
-            // Create a sandboxed execution context
-            const AsyncFunction = Object.getPrototypeOf(async function () { }).constructor;
-            const fn = new AsyncFunction(code);
-            const result = await fn();
+            // Use script injection approach that works with Trusted Types
+            // Wrap code in an async IIFE that stores result in window
+            const wrappedCode = `
+                (async () => {
+                    try {
+                        ${code}
+                        window.__mojoExecuteResult = { success: true, result: typeof result !== 'undefined' ? result : 'completed' };
+                    } catch (error) {
+                        window.__mojoExecuteResult = { success: false, error: error.message, stack: error.stack };
+                    }
+                    window.dispatchEvent(new Event('mojoExecuteComplete'));
+                })();
+            `;
 
-            elements.executionResults.textContent = 'Success:\n' + JSON.stringify(result, null, 2);
-            elements.executionResults.classList.add('success');
+            // Create promise to wait for execution
+            const resultPromise = new Promise((resolve) => {
+                window.addEventListener('mojoExecuteComplete', function handler() {
+                    window.removeEventListener('mojoExecuteComplete', handler);
+                    resolve(window.__mojoExecuteResult);
+                    delete window.__mojoExecuteResult;
+                });
+            });
+
+            // Create script element with trusted script
+            const script = document.createElement('script');
+            if (trustedPolicy) {
+                script.textContent = trustedPolicy.createScript(wrappedCode);
+            } else {
+                script.textContent = wrappedCode;
+            }
+            document.head.appendChild(script);
+            document.head.removeChild(script);
+
+            // Wait for result
+            const result = await resultPromise;
+
+            if (result.success) {
+                elements.executionResults.textContent = 'Success:\n' + JSON.stringify(result.result, null, 2);
+                elements.executionResults.classList.add('success');
+            } else {
+                elements.executionResults.textContent = 'Error:\n' + result.error + '\n\nStack:\n' + result.stack;
+                elements.executionResults.classList.add('error');
+            }
         } catch (error) {
             elements.executionResults.textContent = 'Error:\n' + error.message + '\n\nStack:\n' + error.stack;
             elements.executionResults.classList.add('error');
