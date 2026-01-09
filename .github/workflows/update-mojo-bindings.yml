@@ -52,125 +52,10 @@ jobs:
           
           git pull --depth=1 origin main || git pull --depth=1 origin master
 
-      - name: Filter broken .mojom files
+      - name: Find and list .mojom files
         run: |
-          # Find ALL .mojom files first
-          find chromium_src -name "*.mojom" > all_mojoms.txt
-          
-          # Create the filter script
-          cat << 'EOF' > filter_mojoms.py
-          import os
-          import sys
-          import re
-          
-          # Configuration
-          ROOTS = [os.getcwd(), os.path.join(os.getcwd(), 'chromium_src')]
-          
-          def resolve_import(import_path, current_file_path):
-              # Imports are relative to roots.
-              # But sometimes they might be relative to the file?
-              # Mojo docs say imports are relative to source root.
-              for root in ROOTS:
-                  candidate = os.path.join(root, import_path)
-                  if os.path.isfile(candidate):
-                      return candidate
-              return None
-
-          def parse_imports(file_path):
-              imports = []
-              try:
-                  with open(file_path, 'r', encoding='utf-8') as f:
-                      content = f.read()
-                  # Regex for: import "foo/bar.mojom";
-                  # Simplistic, ignores comments, but sufficient for 99%
-                  matches = re.findall(r'^\s*import\s+"([^"]+)"', content, re.MULTILINE)
-                  return matches
-              except Exception as e:
-                  print(f"Error reading {file_path}: {e}")
-                  return None
-
-          def main():
-              with open('all_mojoms.txt', 'r') as f:
-                  files = [line.strip() for line in f if line.strip()]
-              
-              # Map absolute path -> list of absolute paths it imports
-              dependency_graph = {}
-              # Map clean relative path (for output) -> absolute path
-              
-              abs_files = set()
-              for f in files:
-                  abs_path = os.path.abspath(f)
-                  abs_files.add(abs_path)
-              
-              print(f"Scanning {len(abs_files)} files for broken dependencies...")
-              
-              for f in files:
-                  abs_path = os.path.abspath(f)
-                  imports = parse_imports(abs_path)
-                  if imports is None:
-                      continue # File unreadable
-                  
-                  dependency_graph[abs_path] = []
-                  for imp in imports:
-                      resolved = resolve_import(imp, abs_path)
-                      if not resolved:
-                          # Dependency missing!
-                          # print(f"File {f} is missing dependency {imp}")
-                          # Add a dummy marker that won't be in abs_files
-                          dependency_graph[abs_path].append(f"MISSING:{imp}")
-                      else:
-                          dependency_graph[abs_path].append(resolved)
-
-              # Iteratively remove broken files
-              removed_count = 0
-              while True:
-                  current_removed = 0
-                  to_remove = set()
-                  
-                  for f, deps in dependency_graph.items():
-                      if f not in abs_files: 
-                          continue
-                          
-                      for dep in deps:
-                          if dep.startswith("MISSING:") or dep not in abs_files:
-                              to_remove.add(f)
-                              # print(f"Removing {os.path.relpath(f)} because of broken dependency {dep}")
-                              break
-                  
-                  if not to_remove:
-                      break
-                  
-                  for f in to_remove:
-                      abs_files.remove(f)
-                      current_removed += 1
-                  
-                  removed_count += current_removed
-              
-              print(f"Removed {removed_count} files with broken dependency chains.")
-              print(f"Remaining valid files: {len(abs_files)}")
-              
-              with open('mojom_files_list.txt', 'w') as f:
-                  for abs_p in abs_files:
-                      # Convert back to relative path for tools
-                      rel_p = os.path.relpath(abs_p, os.getcwd())
-                      f.write(rel_p + '\n')
-
-          if __name__ == '__main__':
-              main()
-          EOF
-          
-          python3 filter_mojoms.py
-          
-          echo "Final list for parser:"
-          head -10 mojom_files_list.txt
-
-          # Rename bindings.js to mojo_bindings.js as that is what is often expected, 
-          # but keep original if needed by other files?
-          # Actually, let's just copy it to mojo_bindings.js so we have the standard name
-          cp chromium_src/mojo/public/js/bindings.js bindings/mojo_bindings.js
-          
-          echo "Core bindings copied."
-          ls -la bindings/
+          find chromium_src -name "*.mojom" > mojom_files_list.txt
+          echo "Found $(wc -l < mojom_files_list.txt) .mojom files"
 
       - name: Generate Mojo JS bindings
         run: |
@@ -201,21 +86,15 @@ jobs:
                   module = module_match.group(1) if module_match else 'unknown'
                   
                   interfaces = []
-                  # Regex to find interfaces
-                  # This is simplified and might miss some complex cases
                   interface_blocks = re.finditer(r'interface\s+(\w+)\s*{(.*?)}', content, re.DOTALL)
                   
                   for match in interface_blocks:
                       interface_name = match.group(1)
                       body = match.group(2)
-                      
                       methods = []
-                      # Find methods: name(args) => ...
-                      # Very basic regex, assumes standard formatting
                       method_matches = re.finditer(r'(\w+)\s*\(', body)
                       for m in method_matches:
                           methods.append({'name': m.group(1)})
-                          
                       interfaces.append({
                           'name': interface_name,
                           'methods': methods
@@ -230,34 +109,85 @@ jobs:
                   return None
 
           def run_parser(mojom_files):
-              """Run the mojom parser to generate -module files."""
-              print("Running mojom parser...")
-              # Create filelist for parser
-              # We need to make sure we pass relative paths that make sense with the roots
-              # But simple invocation often works best:
+              """Run the mojom parser with reactive retry logic."""
+              print(f"Running mojom parser on {len(mojom_files)} files...")
               
-              # We use a temporary file for the list of files to parse
-              with open('mojom_files_list.txt', 'w') as f:
-                  for p in mojom_files:
-                      f.write(f"{p}\n")
+              current_files = mojom_files[:]
+              max_retries = 50 # Generous limit to chew through broken chains
+              attempt = 0
               
-              cmd = [
-                  sys.executable,
-                  'chromium_src/mojo/public/tools/mojom/mojom_parser.py',
-                  '--output-root', '.',
-                  '--input-root', '.',
-                  '--input-root', 'chromium_src', # Include path for imports to resolve
-                  '--mojom-file-list', 'mojom_files_list.txt'
-              ]
+              while attempt < max_retries:
+                  attempt += 1
+                  print(f"\n--- Parser Attempt {attempt} ({len(current_files)} files) ---")
+                  
+                  # Write current list
+                  with open('mojom_files_list.txt', 'w') as f:
+                      for p in current_files:
+                          f.write(f"{p}\n")
+                  
+                  cmd = [
+                      sys.executable,
+                      'chromium_src/mojo/public/tools/mojom/mojom_parser.py',
+                      '--output-root', '.',
+                      '--input-root', '.',
+                      '--input-root', 'chromium_src', 
+                      '--mojom-file-list', 'mojom_files_list.txt'
+                  ]
+                  
+                  try:
+                      # Capture stderr to analyze failures
+                      result = subprocess.run(cmd, check=True, capture_output=True, text=True)
+                      print("Parser succeeded!")
+                      # print(result.stdout)
+                      return True
+                  except subprocess.CalledProcessError as e:
+                      stderr = e.stderr
+                      print(f"Parser failed with exit code {e.returncode}")
+                      # print(stderr) # Too verbose to print all?
+                      
+                      # ANALYZE FAILURE
+                      # Pattern 1: ValueError: "..." imported by <FILE> does not exist
+                      match_import = re.search(r'ValueError: ".*?", imported by (.*?), does not exist', stderr)
+                      
+                      # Pattern 2: Exception: Unknown spec: ... Check for missing imports in <FILE>
+                      match_spec = re.search(r'Check for missing imports in (.*?)$', stderr, re.MULTILINE)
+                      
+                      culprit = None
+                      if match_import:
+                          culprit = match_import.group(1).strip()
+                          print(f"Detected broken import in: {culprit}")
+                      elif match_spec:
+                          culprit = match_spec.group(1).strip()
+                          print(f"Detected missing dependency in: {culprit}")
+                      
+                      if culprit:
+                          # Normalize path if needed (though parser usually outputs relative or abs depending on input)
+                          # We expect culprit to roughly match an entry in current_files
+                          
+                          # Try to find exact match or relpath match
+                          found_index = -1
+                          for i, f in enumerate(current_files):
+                              # Check exact, abs, or rel match
+                              if f == culprit or os.path.abspath(f) == os.path.abspath(culprit):
+                                  found_index = i
+                                  break
+                          
+                          if found_index != -1:
+                              removed = current_files.pop(found_index)
+                              print(f"Removed broken file: {removed}")
+                              print("Retrying...")
+                              continue
+                          else:
+                              print(f"Could not find culprit '{culprit}' in current tracking list. Aborting.")
+                              print(stderr)
+                              return False
+                      else:
+                          print("Could not identify a specific file to blame from stderr. Aborting.")
+                          print(stderr)
+                          return False
               
-              try:
-                  subprocess.run(cmd, check=True)
-                  print("DEBUG: Listing generated module files:")
-                  subprocess.run("find . -name '*.mojom-module' | head -n 20", shell=True)
-                  return True
-              except subprocess.CalledProcessError as e:
-                  print(f"Parser failed: {e}")
-                  return False
+              print("Max retries exceeded.")
+              return False
 
           def run_generator(mojom_path):
               """Run the official mojom bindings generator."""
