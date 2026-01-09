@@ -16,10 +16,10 @@ viz.mojom.FrameCountingPerSinkDataSpec = {
       name: 'viz.mojom.FrameCountingPerSinkData',
       packedSize: 40,
       fields: [
-        { name: 'debug_label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'presented_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_root', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'debug_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'start_bucket', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'is_root', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'presented_frames', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -20,12 +20,12 @@ ui.mojom.AcceleratorSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.Accelerator',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'key_state', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.AcceleratorKeyStateSpec, nullable: false },
-        { name: 'time_stamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'key_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'modifiers', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'key_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'key_state', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.AcceleratorKeyStateSpec, nullable: false },
+        { name: 'modifiers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'time_stamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

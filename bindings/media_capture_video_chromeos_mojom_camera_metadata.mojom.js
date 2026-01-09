@@ -25,13 +25,13 @@ cros.mojom.CameraMetadataEntrySpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CameraMetadataEntry',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraMetadataTagSpec, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.EntryTypeSpec, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'count', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.CameraMetadataTagSpec, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.EntryTypeSpec, nullable: false },
+        { name: 'count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -45,12 +45,12 @@ cros.mojom.CameraMetadataSpec = {
       name: 'cros.mojom.CameraMetadata',
       packedSize: 40,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'entry_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'entry_capacity', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'data_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'data_capacity', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'entry_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'entry_capacity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'data_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'data_capacity', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'entries', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }

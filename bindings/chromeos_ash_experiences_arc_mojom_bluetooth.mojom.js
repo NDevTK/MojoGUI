@@ -178,8 +178,8 @@ arc.mojom.BluetoothServiceRecordSpec = {
       packedSize: 32,
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothUUIDSpec, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'channel', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -194,14 +194,14 @@ arc.mojom.BluetoothLocalLEFeaturesSpec = {
       packedSize: 32,
       fields: [
         { name: 'version_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'scan_result_storage_size', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'total_trackable_advertisers', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'local_privacy_enabled', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'max_adv_instance', packedOffset: 7, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'rpa_offload_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'max_irk_list_size', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'max_adv_filter_supported', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'activity_energy_info_supported', packedOffset: 11, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'local_privacy_enabled', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'max_adv_instance', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'rpa_offload_supported', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'max_irk_list_size', packedOffset: 5, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'max_adv_filter_supported', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'activity_energy_info_supported', packedOffset: 7, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'scan_result_storage_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'total_trackable_advertisers', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
         { name: 'extended_scan_support', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'debug_logging_supported', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -278,8 +278,8 @@ arc.mojom.BluetoothServiceDataSpec = {
       name: 'arc.mojom.BluetoothServiceData',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'uuid_16bit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'uuid_16bit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -294,8 +294,8 @@ arc.mojom.BluetoothAdvertisementSpec = {
       packedSize: 32,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothAdvertisementTypeSpec, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'include_tx_power', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'include_tx_power', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -307,15 +307,15 @@ arc.mojom.BluetoothGattDBElementSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothGattDBElement',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothUUIDSpec, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothGattDBAttributeTypeSpec, nullable: false },
-        { name: 'attribute_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'start_handle', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'end_handle', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'deprecated_id', packedOffset: 22, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'properties', packedOffset: 23, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'deprecated_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothUUIDSpec, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.BluetoothGattDBAttributeTypeSpec, nullable: false },
+        { name: 'attribute_handle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'start_handle', packedOffset: 26, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'end_handle', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'properties', packedOffset: 30, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -330,8 +330,8 @@ arc.mojom.BluetoothSdpAttributeSpec = {
       packedSize: 32,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothSdpAttributeTypeSpec, nullable: false },
-        { name: 'sequence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'type_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'type_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'sequence', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -372,11 +372,11 @@ arc.mojom.BluetoothRfcommConnectionSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothRfcommConnection',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'addr', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false },
-        { name: 'sock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
-        { name: 'channel', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'sock', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
+        { name: 'addr', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false },
+        { name: 'channel', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -405,11 +405,11 @@ arc.mojom.BluetoothSocketConnectionSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothSocketConnection',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'addr', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false },
-        { name: 'sock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
-        { name: 'port', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'sock', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
+        { name: 'addr', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false },
+        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

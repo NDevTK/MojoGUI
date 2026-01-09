@@ -23,16 +23,16 @@ content_settings.mojom.PatternPartsSpec = {
   $: {
     structSpec: {
       name: 'content_settings.mojom.PatternParts',
-      packedSize: 48,
+      packedSize: 72,
       fields: [
         { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'path', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_scheme_wildcard', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_domain_wildcard', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_port_wildcard', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_path_wildcard', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_scheme_wildcard', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'has_domain_wildcard', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'port', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_port_wildcard', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'path', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_path_wildcard', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -69,8 +69,8 @@ content_settings.mojom.RuleMetaDataSpec = {
         { name: 'lifetime', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'tpcd_metadata_rule_source', packedOffset: 48, packedBitOffset: 0, type: content_settings.mojom.TpcdMetadataRuleSourceSpec, nullable: false },
         { name: 'tpcd_metadata_cohort', packedOffset: 56, packedBitOffset: 0, type: content_settings.mojom.TpcdMetadataCohortSpec, nullable: false },
-        { name: 'rule_options', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
-        { name: 'decided_by_related_website_sets', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'decided_by_related_website_sets', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'rule_options', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

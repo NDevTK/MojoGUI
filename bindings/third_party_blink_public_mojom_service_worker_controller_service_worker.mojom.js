@@ -35,13 +35,13 @@ blink.mojom.ControllerServiceWorkerInfoSpec = {
       fields: [
         { name: 'fetch_handler_bypass_option', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec, nullable: false },
         { name: 'sha256_script_checksum', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'router_data', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterDataSpec, nullable: true },
-        { name: 'client_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'fetch_request_window_id', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
-        { name: 'object_info', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: true },
-        { name: 'used_features', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'remote_controller', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'need_router_evaluate', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'need_router_evaluate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'router_data', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterDataSpec, nullable: true },
+        { name: 'remote_controller', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'client_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'fetch_request_window_id', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'object_info', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: true },
+        { name: 'used_features', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -146,13 +146,13 @@ blink.mojom.ControllerServiceWorker_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ControllerServiceWorker.Clone_Params',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
-        { name: 'cross_origin_embedder_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false },
-        { name: 'document_isolation_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false },
-        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'coep_reporter', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'dip_reporter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'cross_origin_embedder_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false },
+        { name: 'coep_reporter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'document_isolation_policy', packedOffset: 24, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false },
+        { name: 'dip_reporter', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

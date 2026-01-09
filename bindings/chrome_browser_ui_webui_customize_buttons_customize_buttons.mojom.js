@@ -198,9 +198,9 @@ customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisib
       name: 'customize_buttons.mojom.CustomizeButtonsHandler.SetCustomizeChromeSidePanelVisible_Params',
       packedSize: 32,
       fields: [
-        { name: 'section', packedOffset: 0, packedBitOffset: 0, type: side_panel.mojom.CustomizeChromeSectionSpec, nullable: false },
-        { name: 'trigger', packedOffset: 8, packedBitOffset: 0, type: customize_buttons.mojom.SidePanelOpenTriggerSpec, nullable: false },
-        { name: 'visible', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'section', packedOffset: 8, packedBitOffset: 0, type: side_panel.mojom.CustomizeChromeSectionSpec, nullable: false },
+        { name: 'trigger', packedOffset: 16, packedBitOffset: 0, type: customize_buttons.mojom.SidePanelOpenTriggerSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

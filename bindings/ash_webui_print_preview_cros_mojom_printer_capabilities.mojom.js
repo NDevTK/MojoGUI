@@ -174,20 +174,20 @@ ash.printing.print_preview.mojom.MediaSizeOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.MediaSizeOption',
-      packedSize: 72,
+      packedSize: 80,
       fields: [
         { name: 'vendor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'custom_display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'custom_display_name_localized', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'height_microns', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'width_microns', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'imageable_area_left_microns', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
-        { name: 'imageable_area_bottom_microns', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
-        { name: 'imageable_area_right_microns', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
-        { name: 'imageable_area_top_microns', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
-        { name: 'has_borderless_variant', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
-        { name: 'is_default', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: true },
+        { name: 'height_microns', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'width_microns', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'imageable_area_left_microns', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'imageable_area_bottom_microns', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'imageable_area_right_microns', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'imageable_area_top_microns', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'has_borderless_variant', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'custom_display_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'custom_display_name_localized', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_default', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }

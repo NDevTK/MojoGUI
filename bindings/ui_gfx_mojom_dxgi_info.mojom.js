@@ -17,11 +17,11 @@ gfx.mojom.DXGIOutputDescSpec = {
       packedSize: 48,
       fields: [
         { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.WStringSpec, nullable: false },
-        { name: 'primaries', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpacePrimariesSpec, nullable: false },
-        { name: 'min_luminance', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'max_luminance', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'max_full_frame_luminance', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'hdr_enabled', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'hdr_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'primaries', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpacePrimariesSpec, nullable: false },
+        { name: 'min_luminance', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'max_luminance', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'max_full_frame_luminance', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

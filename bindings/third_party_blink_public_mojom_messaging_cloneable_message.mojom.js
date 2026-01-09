@@ -14,7 +14,7 @@ blink.mojom.CloneableMessageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CloneableMessage',
-      packedSize: 80,
+      packedSize: 88,
       fields: [
         { name: 'encoded_message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
         { name: 'blobs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
@@ -22,10 +22,10 @@ blink.mojom.CloneableMessageSpec = {
         { name: 'stack_trace_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'stack_trace_debugger_id_first', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'stack_trace_debugger_id_second', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'sender_agent_cluster_id', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'file_system_access_tokens', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'stack_trace_should_pause', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'locked_to_sender_agent_cluster', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'stack_trace_should_pause', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'sender_agent_cluster_id', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'locked_to_sender_agent_cluster', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'file_system_access_tokens', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

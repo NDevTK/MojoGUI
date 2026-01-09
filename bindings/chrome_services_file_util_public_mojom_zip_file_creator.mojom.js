@@ -170,12 +170,12 @@ chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ZipFileCreator.CreateZipFile_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'relative_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'zip_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
-        { name: 'src_dir', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'listener', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'src_dir', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'relative_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'zip_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
+        { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -334,8 +334,8 @@ emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'emoji', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'search_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'is_variant', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_variant', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'search_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
       ],
       versions: [{version: 0}]
     }

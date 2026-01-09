@@ -128,10 +128,10 @@ ash.personalization_app.mojom.GooglePhotosAlbumSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'preview', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'photo_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_shared', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'photo_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'preview', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'is_shared', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -293,10 +293,10 @@ ash.personalization_app.mojom.DefaultUserImageSpec = {
       name: 'ash.personalization_app.mojom.DefaultUserImage',
       packedSize: 40,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'source_info', packedOffset: 16, packedBitOffset: 0, type: ash.personalization_app.mojom.DeprecatedSourceInfoSpec, nullable: true },
-        { name: 'index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'source_info', packedOffset: 24, packedBitOffset: 0, type: ash.personalization_app.mojom.DeprecatedSourceInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -337,12 +337,12 @@ ash.personalization_app.mojom.AmbientModeAlbumSpec = {
       packedSize: 64,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'topic_source', packedOffset: 24, packedBitOffset: 0, type: ash.personalization_app.mojom.TopicSourceSpec, nullable: false },
-        { name: 'url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'number_of_photos', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'checked', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'checked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'number_of_photos', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'topic_source', packedOffset: 40, packedBitOffset: 0, type: ash.personalization_app.mojom.TopicSourceSpec, nullable: false },
+        { name: 'url', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3395,8 +3395,8 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_Pa
       name: 'ash.personalization_app.mojom.KeyboardBacklightProvider.SetBacklightZoneColor_Params',
       packedSize: 24,
       fields: [
-        { name: 'backlight_color', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.BacklightColorSpec, nullable: false },
-        { name: 'zone', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'zone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'backlight_color', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.BacklightColorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

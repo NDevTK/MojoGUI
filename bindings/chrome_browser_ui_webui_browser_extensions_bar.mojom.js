@@ -19,8 +19,8 @@ extensions_bar.mojom.ExtensionActionInfoSpec = {
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'accessible_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'tooltip', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data_url_for_icon', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'is_visible', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_visible', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'data_url_for_icon', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

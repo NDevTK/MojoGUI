@@ -71,11 +71,11 @@ arc.mojom.RunningAppProcessInfoSpec = {
       packedSize: 56,
       fields: [
         { name: 'process_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'process_state', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ProcessStateSpec, nullable: false },
-        { name: 'packages', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'last_activity_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'pid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'is_focused', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'process_state', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ProcessStateSpec, nullable: false },
+        { name: 'packages', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'is_focused', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'last_activity_time', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }

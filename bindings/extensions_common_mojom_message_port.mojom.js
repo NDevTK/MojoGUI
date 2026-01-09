@@ -40,9 +40,9 @@ extensions.mojom.PortIdSpec = {
       packedSize: 40,
       fields: [
         { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'serialization_format', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.SerializationFormatSpec, nullable: false },
-        { name: 'port_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_opener', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'port_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_opener', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'serialization_format', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.SerializationFormatSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -73,9 +73,9 @@ extensions.mojom.TabConnectionInfoSpec = {
       packedSize: 40,
       fields: [
         { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
-        { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'document_lifecycle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'frame_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'document_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'document_lifecycle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -297,8 +297,8 @@ extensions.mojom.MessagePortHost_ClosePort_ParamsSpec = {
       name: 'extensions.mojom.MessagePortHost.ClosePort_Params',
       packedSize: 24,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'close_channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'close_channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

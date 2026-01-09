@@ -23,9 +23,9 @@ network.mojom.CookiePartitionKeySpec = {
       packedSize: 40,
       fields: [
         { name: 'site', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false },
-        { name: 'nonce', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
-        { name: 'ancestor_chain_bit', packedOffset: 16, packedBitOffset: 0, type: network.mojom.AncestorChainBitSpec, nullable: false },
-        { name: 'from_script', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'from_script', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'nonce', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'ancestor_chain_bit', packedOffset: 24, packedBitOffset: 0, type: network.mojom.AncestorChainBitSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -39,8 +39,8 @@ network.mojom.CookiePartitionKeyCollectionSpec = {
       name: 'network.mojom.CookiePartitionKeyCollection',
       packedSize: 24,
       fields: [
-        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'contains_all_partitions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'contains_all_partitions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

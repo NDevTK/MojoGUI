@@ -27,8 +27,8 @@ blink.mojom.PushSubscriptionOptionsSpec = {
       name: 'blink.mojom.PushSubscriptionOptions',
       packedSize: 24,
       fields: [
-        { name: 'application_server_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'user_visible_only', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'user_visible_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'application_server_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -178,8 +178,8 @@ blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'error_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PushErrorTypeSpec, nullable: false },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'did_unsubscribe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'did_unsubscribe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

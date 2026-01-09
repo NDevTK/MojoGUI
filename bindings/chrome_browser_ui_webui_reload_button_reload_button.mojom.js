@@ -173,8 +173,8 @@ reload_button.mojom.PageHandler_Reload_ParamsSpec = {
       name: 'reload_button.mojom.PageHandler.Reload_Params',
       packedSize: 24,
       fields: [
-        { name: 'flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'ignore_cache', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ignore_cache', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

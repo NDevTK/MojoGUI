@@ -111,9 +111,9 @@ media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
       name: 'media.mojom.OutputProtection.QueryStatus_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'link_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'protection_mask', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'link_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'protection_mask', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

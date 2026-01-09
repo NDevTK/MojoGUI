@@ -138,9 +138,9 @@ ash.mojom.AcceleratorInfoSpec = {
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorTypeSpec, nullable: false },
         { name: 'state', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorStateSpec, nullable: false },
-        { name: 'layout_properties', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.LayoutStylePropertiesSpec, nullable: false },
-        { name: 'locked', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'accelerator_locked', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'locked', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'accelerator_locked', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'layout_properties', packedOffset: 24, packedBitOffset: 0, type: ash.mojom.LayoutStylePropertiesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

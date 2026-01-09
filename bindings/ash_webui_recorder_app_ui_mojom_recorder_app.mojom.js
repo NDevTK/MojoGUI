@@ -812,9 +812,9 @@ ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.RecordSpeakerLabelConsent_Params',
       packedSize: 32,
       fields: [
-        { name: 'consent_description_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'consent_confirmation_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'consent_given', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'consent_given', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'consent_description_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'consent_confirmation_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

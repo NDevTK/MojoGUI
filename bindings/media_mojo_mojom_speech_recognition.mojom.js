@@ -96,8 +96,8 @@ media.mojom.SpeechRecognitionResultSpec = {
       packedSize: 32,
       fields: [
         { name: 'transcription', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'timing_information', packedOffset: 8, packedBitOffset: 0, type: media.mojom.TimingInformationSpec, nullable: true },
-        { name: 'is_final', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_final', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'timing_information', packedOffset: 16, packedBitOffset: 0, type: media.mojom.TimingInformationSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -128,15 +128,15 @@ media.mojom.SpeechRecognitionOptionsSpec = {
       packedSize: 88,
       fields: [
         { name: 'recognition_mode', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SpeechRecognitionModeSpec, nullable: false },
-        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_server_based', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'recognizer_client_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'skip_continuously_empty_audio', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'experiment_recognizer_routing_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'channel_count', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'sample_rate', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'recognition_context', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'enable_formatting', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_formatting', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'language', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_server_based', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'recognizer_client_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'skip_continuously_empty_audio', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'experiment_recognizer_routing_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'channel_count', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sample_rate', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'recognition_context', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

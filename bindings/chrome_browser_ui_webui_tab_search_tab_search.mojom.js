@@ -77,10 +77,10 @@ tab_search.mojom.WindowSpec = {
       name: 'tab_search.mojom.Window',
       packedSize: 32,
       fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_host_window', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'active', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_host_window', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'tabs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -92,23 +92,23 @@ tab_search.mojom.TabSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.Tab',
-      packedSize: 80,
+      packedSize: 96,
       fields: [
-        { name: 'alert_states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'favicon_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'last_active_time_ticks', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'last_active_elapsed_text', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'index', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'tab_id', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'active', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'visible', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'pinned', packedOffset: 64, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'split', packedOffset: 64, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_default_favicon', packedOffset: 64, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'show_icon', packedOffset: 64, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'alert_states', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tab_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'group_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true },
+        { name: 'pinned', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'split', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'title', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'favicon_url', packedOffset: 56, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'is_default_favicon', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'show_icon', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'last_active_time_ticks', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'last_active_elapsed_text', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -122,12 +122,12 @@ tab_search.mojom.RecentlyClosedTabSpec = {
       name: 'tab_search.mojom.RecentlyClosedTab',
       packedSize: 56,
       fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'last_active_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'last_active_elapsed_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'tab_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'last_active_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'last_active_elapsed_text', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -155,15 +155,15 @@ tab_search.mojom.RecentlyClosedTabGroupSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.RecentlyClosedTabGroup',
-      packedSize: 56,
+      packedSize: 64,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
-        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: tab_groups.mojom.ColorSpec, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_active_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'last_active_elapsed_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'session_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'tab_count', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
+        { name: 'color', packedOffset: 16, packedBitOffset: 0, type: tab_groups.mojom.ColorSpec, nullable: false },
+        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'tab_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'last_active_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'last_active_elapsed_text', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,12 +189,12 @@ tab_search.mojom.TabOrganizationSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.TabOrganization',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'organization_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'first_new_tab_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'organization_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tabs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'first_new_tab_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,13 +206,13 @@ tab_search.mojom.TabOrganizationSessionSpec = {
   $: {
     structSpec: {
       name: 'tab_search.mojom.TabOrganizationSession',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationStateSpec, nullable: false },
-        { name: 'organizations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationErrorSpec, nullable: false },
-        { name: 'session_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'active_tab_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationStateSpec, nullable: false },
+        { name: 'organizations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'error', packedOffset: 24, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationErrorSpec, nullable: false },
+        { name: 'active_tab_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -226,9 +226,9 @@ tab_search.mojom.TabUpdateInfoSpec = {
       name: 'tab_search.mojom.TabUpdateInfo',
       packedSize: 24,
       fields: [
-        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabSpec, nullable: false },
-        { name: 'in_active_window', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'in_host_window', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'in_active_window', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'in_host_window', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'tab', packedOffset: 8, packedBitOffset: 0, type: tab_search.mojom.TabSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -734,9 +734,9 @@ tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec = {
       name: 'tab_search.mojom.PageHandler.AcceptTabOrganization_Params',
       packedSize: 24,
       fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'organization_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'organization_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tabs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -765,9 +765,9 @@ tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec = {
       name: 'tab_search.mojom.PageHandler.RenameTabOrganization_Params',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'organization_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'organization_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1032,9 +1032,9 @@ tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec = {
       name: 'tab_search.mojom.PageHandler.RemoveTabFromOrganization_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabSpec, nullable: false },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'organization_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'organization_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tab', packedOffset: 8, packedBitOffset: 0, type: tab_search.mojom.TabSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1198,8 +1198,8 @@ tab_search.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
       name: 'tab_search.mojom.PageHandler.SetUserFeedback_Params',
       packedSize: 24,
       fields: [
-        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.UserFeedbackSpec, nullable: false },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'feedback', packedOffset: 8, packedBitOffset: 0, type: tab_search.mojom.UserFeedbackSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

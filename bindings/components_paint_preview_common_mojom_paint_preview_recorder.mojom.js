@@ -25,17 +25,17 @@ paint_preview.mojom.PaintPreviewCaptureParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCaptureParams',
-      packedSize: 64,
+      packedSize: 72,
       fields: [
         { name: 'persistence', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.RecordingPersistenceSpec, nullable: false },
         { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
         { name: 'geometry_metadata_params', packedOffset: 16, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataParamsSpec, nullable: false },
-        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
-        { name: 'max_capture_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'max_decoded_image_size_bytes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'is_main_frame', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'capture_links', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'skip_accelerated_content', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_main_frame', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'capture_links', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'file', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
+        { name: 'max_capture_size', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'max_decoded_image_size_bytes', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'skip_accelerated_content', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

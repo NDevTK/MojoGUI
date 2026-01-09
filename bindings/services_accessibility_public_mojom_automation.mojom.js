@@ -164,8 +164,8 @@ ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXRelativeBoundsSpec, nullable: false },
-        { name: 'node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'bounds', packedOffset: 16, packedBitOffset: 0, type: ax.mojom.AXRelativeBoundsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

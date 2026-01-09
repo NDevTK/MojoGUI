@@ -14,19 +14,19 @@ device.mojom.UsbDeviceFilterSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceFilter',
-      packedSize: 32,
+      packedSize: 64,
       fields: [
-        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'has_vendor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'vendor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'product_id', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'class_code', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'subclass_code', packedOffset: 13, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'protocol_code', packedOffset: 14, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'has_vendor_id', packedOffset: 15, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_product_id', packedOffset: 15, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_class_code', packedOffset: 15, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_subclass_code', packedOffset: 15, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_protocol_code', packedOffset: 15, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_product_id', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'product_id', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'has_class_code', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'class_code', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'has_subclass_code', packedOffset: 29, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'subclass_code', packedOffset: 37, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'has_protocol_code', packedOffset: 38, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'protocol_code', packedOffset: 46, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'serial_number', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
       ],
       versions: [{version: 0}]
     }

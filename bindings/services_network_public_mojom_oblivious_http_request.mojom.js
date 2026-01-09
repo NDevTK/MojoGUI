@@ -31,9 +31,9 @@ network.mojom.ObliviousHttpResponseSpec = {
       name: 'network.mojom.ObliviousHttpResponse',
       packedSize: 32,
       fields: [
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false },
-        { name: 'response_body', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
-        { name: 'response_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'response_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false },
+        { name: 'response_body', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -45,11 +45,11 @@ network.mojom.ObliviousHttpPaddingParametersSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpPaddingParameters',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'exponential_mean', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'add_exponential_pad', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'pad_to_next_power_of_two', packedOffset: 2, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'add_exponential_pad', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'exponential_mean', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'pad_to_next_power_of_two', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

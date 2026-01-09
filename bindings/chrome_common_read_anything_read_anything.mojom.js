@@ -1343,14 +1343,14 @@ read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec = {
         { name: 'letter_spacing', packedOffset: 8, packedBitOffset: 0, type: read_anything.mojom.LetterSpacingSpec, nullable: false },
         { name: 'font', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'font_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'color', packedOffset: 32, packedBitOffset: 0, type: read_anything.mojom.ColorsSpec, nullable: false },
-        { name: 'speech_rate', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'voices', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
-        { name: 'languages_enabled_in_pref', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
-        { name: 'granularity', packedOffset: 64, packedBitOffset: 0, type: read_anything.mojom.HighlightGranularitySpec, nullable: false },
-        { name: 'line_focus', packedOffset: 72, packedBitOffset: 0, type: read_anything.mojom.LineFocusSpec, nullable: false },
-        { name: 'links_enabled', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'images_enabled', packedOffset: 80, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'links_enabled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'images_enabled', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'color', packedOffset: 40, packedBitOffset: 0, type: read_anything.mojom.ColorsSpec, nullable: false },
+        { name: 'speech_rate', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'voices', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'languages_enabled_in_pref', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
+        { name: 'granularity', packedOffset: 72, packedBitOffset: 0, type: read_anything.mojom.HighlightGranularitySpec, nullable: false },
+        { name: 'line_focus', packedOffset: 80, packedBitOffset: 0, type: read_anything.mojom.LineFocusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1419,8 +1419,8 @@ read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
-        { name: 'image', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
-        { name: 'node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'image', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }

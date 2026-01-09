@@ -560,8 +560,8 @@ blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec = {
       name: 'blink.mojom.AdAuctionService.RunAdAuction_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FencedFrameConfigSpec, nullable: true },
-        { name: 'aborted_by_script', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'aborted_by_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FencedFrameConfigSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

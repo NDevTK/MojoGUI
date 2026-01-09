@@ -83,13 +83,13 @@ chrome.mojom.AntiVirusProductSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AntiVirusProduct',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
         { name: 'product_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'product_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: chrome.mojom.AntiVirusProductStateSpec, nullable: false },
-        { name: 'product_name_hash', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'product_version_hash', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'product_name_hash', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'product_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'product_version_hash', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'state', packedOffset: 32, packedBitOffset: 0, type: chrome.mojom.AntiVirusProductStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -103,10 +103,10 @@ chrome.mojom.TpmIdentifierSpec = {
       name: 'chrome.mojom.TpmIdentifier',
       packedSize: 40,
       fields: [
-        { name: 'manufacturer_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'manufacturer_version_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'tpm_specific_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'manufacturer_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'manufacturer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'manufacturer_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'manufacturer_version_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tpm_specific_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -132,17 +132,17 @@ chrome.mojom.ShortcutPropertiesSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ShortcutProperties',
-      packedSize: 72,
+      packedSize: 80,
       fields: [
         { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'working_dir', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'arguments', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.WStringSpec, nullable: false },
         { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.WStringSpec, nullable: false },
         { name: 'icon', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'app_id', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.WStringSpec, nullable: false },
-        { name: 'toast_activator_clsid', packedOffset: 48, packedBitOffset: 0, type: chrome.mojom.ClsIdSpec, nullable: false },
-        { name: 'icon_index', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'options', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'icon_index', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'app_id', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.WStringSpec, nullable: false },
+        { name: 'toast_activator_clsid', packedOffset: 56, packedBitOffset: 0, type: chrome.mojom.ClsIdSpec, nullable: false },
+        { name: 'options', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -334,15 +334,15 @@ chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.CallExecuteSelectFile_Params',
-      packedSize: 56,
+      packedSize: 64,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SelectFileDialogTypeSpec, nullable: false },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'default_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'default_extension', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'owner', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'file_type_index', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'owner', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'default_path', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'filter', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'file_type_index', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'default_extension', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }

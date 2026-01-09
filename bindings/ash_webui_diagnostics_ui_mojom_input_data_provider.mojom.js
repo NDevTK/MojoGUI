@@ -27,13 +27,13 @@ ash.diagnostics.mojom.KeyEventSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.KeyEvent',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.KeyEventTypeSpec, nullable: false },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'key_code', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'scan_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'top_row_position', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.KeyEventTypeSpec, nullable: false },
+        { name: 'key_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'scan_code', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'top_row_position', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -47,11 +47,11 @@ ash.diagnostics.mojom.TouchDeviceInfoSpec = {
       name: 'ash.diagnostics.mojom.TouchDeviceInfo',
       packedSize: 48,
       fields: [
-        { name: 'connection_type', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.ConnectionTypeSpec, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.TouchDeviceTypeSpec, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'testable', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'connection_type', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.ConnectionTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: ash.diagnostics.mojom.TouchDeviceTypeSpec, nullable: false },
+        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'testable', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

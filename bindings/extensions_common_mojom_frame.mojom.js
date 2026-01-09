@@ -40,12 +40,12 @@ extensions.mojom.RequestParamsSpec = {
         { name: 'extension_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'source_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'context_type', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.ContextTypeSpec, nullable: false },
-        { name: 'service_worker_version_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'js_callstack', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'request_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'worker_thread_id', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'has_callback', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'user_gesture', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'request_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'has_callback', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'user_gesture', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'worker_thread_id', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'service_worker_version_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'js_callstack', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -312,10 +312,10 @@ extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec = {
       name: 'extensions.mojom.LocalFrame.ExecuteDeclarativeScript_Params',
       packedSize: 40,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
-        { name: 'script_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'tab_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'extension_id', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
+        { name: 'script_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -614,10 +614,10 @@ extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec = {
       name: 'extensions.mojom.LocalFrameHost.Request_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'response_wrapper', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'extra_data', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.ExtraResponseDataSpec, nullable: true },
-        { name: 'success', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'response_wrapper', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'extra_data', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.ExtraResponseDataSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -766,12 +766,12 @@ extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec = {
       name: 'extensions.mojom.LocalFrameHost.OpenChannelToTab_Params',
       packedSize: 56,
       fields: [
-        { name: 'document_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'channel_type', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ChannelTypeSpec, nullable: false },
-        { name: 'channel_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'port_id', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.PortIdSpec, nullable: false },
-        { name: 'tab_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'frame_id', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'frame_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'channel_type', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.ChannelTypeSpec, nullable: false },
+        { name: 'channel_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'port_id', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.PortIdSpec, nullable: false },
         { name: 'port', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
         { name: 'port_host', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],

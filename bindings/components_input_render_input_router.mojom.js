@@ -16,9 +16,9 @@ input.mojom.RenderInputRouterConfigSpec = {
       name: 'input.mojom.RenderInputRouterConfig',
       packedSize: 32,
       fields: [
-        { name: 'grouping_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'rir_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'force_enable_zoom', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'rir_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'grouping_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'force_enable_zoom', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -34,10 +34,10 @@ input.mojom.TouchTransferStateSpec = {
       fields: [
         { name: 'down_time_ms', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
         { name: 'root_widget_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'down_event', packedOffset: 16, packedBitOffset: 0, type: [EnableIf=is_android] ui.mojom.CachedMotionEventAndroidSpec, nullable: true },
-        { name: 'web_contents_y_offset_pix', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'dip_scale', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'browser_would_have_handled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'web_contents_y_offset_pix', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'dip_scale', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'browser_would_have_handled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'down_event', packedOffset: 32, packedBitOffset: 0, type: [EnableIf=is_android] ui.mojom.CachedMotionEventAndroidSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -166,8 +166,8 @@ input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec = {
       name: 'input.mojom.RenderInputRouterDelegate.ForceEnableZoomStateChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'force_enable_zoom', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'force_enable_zoom', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -393,8 +393,8 @@ input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_P
       name: 'input.mojom.RenderInputRouterDelegateClient.RendererInputResponsivenessChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'ack_timeout_ts', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true },
-        { name: 'is_responsive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_responsive', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ack_timeout_ts', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

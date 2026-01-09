@@ -28,26 +28,26 @@ discards.mojom.TabDiscardsInfoSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.TabDiscardsInfo',
-      packedSize: 120,
+      packedSize: 144,
       fields: [
         { name: 'tab_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'visibility', packedOffset: 16, packedBitOffset: 0, type: discards.mojom.LifecycleUnitVisibilitySpec, nullable: false },
         { name: 'loading_state', packedOffset: 24, packedBitOffset: 0, type: mojom.LifecycleUnitLoadingStateSpec, nullable: false },
         { name: 'state', packedOffset: 32, packedBitOffset: 0, type: mojom.LifecycleUnitStateSpec, nullable: false },
-        { name: 'cannot_discard_reasons', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'can_freeze', packedOffset: 48, packedBitOffset: 0, type: discards.mojom.CanFreezeSpec, nullable: false },
-        { name: 'cannot_freeze_reasons', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'discard_reason', packedOffset: 64, packedBitOffset: 0, type: mojom.LifecycleUnitDiscardReasonSpec, nullable: false },
-        { name: 'site_engagement_score', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'state_change_time', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'discard_count', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'utility_rank', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'last_active_seconds', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'id', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'can_discard', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_auto_discardable', packedOffset: 104, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_focus', packedOffset: 104, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_discard', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'cannot_discard_reasons', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'can_freeze', packedOffset: 56, packedBitOffset: 0, type: discards.mojom.CanFreezeSpec, nullable: false },
+        { name: 'cannot_freeze_reasons', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'discard_count', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'discard_reason', packedOffset: 80, packedBitOffset: 0, type: mojom.LifecycleUnitDiscardReasonSpec, nullable: false },
+        { name: 'utility_rank', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'last_active_seconds', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'id', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_auto_discardable', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'site_engagement_score', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'has_focus', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'state_change_time', packedOffset: 128, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -310,8 +310,8 @@ discards.mojom.DetailsProvider_DiscardById_ParamsSpec = {
       name: 'discards.mojom.DetailsProvider.DiscardById_Params',
       packedSize: 24,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojom.LifecycleUnitDiscardReasonSpec, nullable: false },
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojom.LifecycleUnitDiscardReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

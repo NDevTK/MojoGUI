@@ -205,9 +205,9 @@ android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec = {
       name: 'android_webview.mojom.LocalMainFrame.SmoothScroll_Params',
       packedSize: 24,
       fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'target_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'target_y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'target_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'target_y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

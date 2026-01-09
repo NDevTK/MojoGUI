@@ -28,8 +28,8 @@ ash.cfm.mojom.MenuInfoSpec = {
       name: 'ash.cfm.mojom.MenuInfo',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -55,17 +55,17 @@ ash.cfm.mojom.ControlMappingSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.ControlMapping',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'menu_entries', packedOffset: 16, packedBitOffset: 0, type: ash.cfm.mojom.MenuEntriesSpec, nullable: true },
-        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'guid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'selector', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'size', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'offset', packedOffset: 26, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
         { name: 'v4l2_type', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'data_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'selector', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'size', packedOffset: 37, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'offset', packedOffset: 38, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'menu_entries', packedOffset: 40, packedBitOffset: 0, type: ash.cfm.mojom.MenuEntriesSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -249,8 +249,8 @@ ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec = {
       name: 'ash.cfm.mojom.XuCamera.GetCtrl_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

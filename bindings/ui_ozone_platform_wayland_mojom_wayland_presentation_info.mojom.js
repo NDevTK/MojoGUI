@@ -16,8 +16,8 @@ wl.mojom.WaylandPresentationInfoSpec = {
       name: 'wl.mojom.WaylandPresentationInfo',
       packedSize: 24,
       fields: [
-        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PresentationFeedbackSpec, nullable: false },
-        { name: 'frame_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'feedback', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PresentationFeedbackSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

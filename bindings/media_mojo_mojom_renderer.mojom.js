@@ -126,8 +126,8 @@ media.mojom.Renderer_Initialize_ParamsSpec = {
       name: 'media.mojom.Renderer.Initialize_Params',
       packedSize: 24,
       fields: [
-        { name: 'streams', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'streams', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }

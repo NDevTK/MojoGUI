@@ -89,18 +89,18 @@ new_tab_page.mojom.ThemeSpec = {
       fields: [
         { name: 'text_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
         { name: 'background_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
-        { name: 'logo_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true },
-        { name: 'background_image_collection_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'background_image', packedOffset: 32, packedBitOffset: 0, type: new_tab_page.mojom.BackgroundImageSpec, nullable: true },
-        { name: 'background_image_attribution_1', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'background_image_attribution_2', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'background_image_attribution_url', packedOffset: 56, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'most_visited', packedOffset: 64, packedBitOffset: 0, type: most_visited.mojom.MostVisitedThemeSpec, nullable: false },
-        { name: 'is_baseline', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_gm3', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_custom_background', packedOffset: 72, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'daily_refresh_enabled', packedOffset: 72, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_dark', packedOffset: 72, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_baseline', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_gm3', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_custom_background', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'daily_refresh_enabled', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_dark', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'logo_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true },
+        { name: 'background_image_collection_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'background_image', packedOffset: 40, packedBitOffset: 0, type: new_tab_page.mojom.BackgroundImageSpec, nullable: true },
+        { name: 'background_image_attribution_1', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'background_image_attribution_2', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'background_image_attribution_url', packedOffset: 64, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'most_visited', packedOffset: 72, packedBitOffset: 0, type: most_visited.mojom.MostVisitedThemeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -116,11 +116,11 @@ new_tab_page.mojom.ImageDoodleSpec = {
       fields: [
         { name: 'image_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'animation_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
-        { name: 'image_impression_log_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'animation_impression_log_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'width', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'height', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'background_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'image_impression_log_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'animation_impression_log_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1317,8 +1317,8 @@ new_tab_page.mojom.Page_SetDisabledModules_ParamsSpec = {
       name: 'new_tab_page.mojom.Page.SetDisabledModules_Params',
       packedSize: 24,
       fields: [
-        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'all', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'all', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

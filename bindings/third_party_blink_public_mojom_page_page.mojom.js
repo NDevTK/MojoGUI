@@ -21,13 +21,13 @@ blink.mojom.PageLifecycleStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PageLifecycleState',
-      packedSize: 32,
+      packedSize: 48,
       fields: [
-        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PageVisibilityStateSpec, nullable: false },
-        { name: 'pagehide_dispatch', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PagehideDispatchSpec, nullable: false },
-        { name: 'is_frozen', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_in_back_forward_cache', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'eviction_enabled', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_frozen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visibility', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PageVisibilityStateSpec, nullable: false },
+        { name: 'is_in_back_forward_cache', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'pagehide_dispatch', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PagehideDispatchSpec, nullable: false },
+        { name: 'eviction_enabled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -42,9 +42,9 @@ blink.mojom.PageRestoreParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'navigation_start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'view_transition_state', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ViewTransitionStateSpec, nullable: true },
-        { name: 'pending_history_list_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'current_history_list_length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'pending_history_list_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'current_history_list_length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'view_transition_state', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ViewTransitionStateSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -348,11 +348,11 @@ blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec = {
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false },
         { name: 'opener_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FrameTokenSpec, nullable: true },
         { name: 'replication_state', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FrameReplicationStateSpec, nullable: false },
-        { name: 'devtools_frame_token', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'navigation_metrics_token', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
-        { name: 'remote_frame_interfaces', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.RemoteFrameInterfacesFromBrowserSpec, nullable: false },
-        { name: 'remote_main_frame_interfaces', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.RemoteMainFrameInterfacesSpec, nullable: false },
-        { name: 'is_loading', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_loading', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'devtools_frame_token', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'navigation_metrics_token', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'remote_frame_interfaces', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.RemoteFrameInterfacesFromBrowserSpec, nullable: false },
+        { name: 'remote_main_frame_interfaces', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.RemoteMainFrameInterfacesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -47,11 +47,11 @@ blink.mojom.MapCharactersResultSpec = {
       name: 'blink.mojom.MapCharactersResult',
       packedSize: 40,
       fields: [
-        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'font_style', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DWriteFontStyleSpec, nullable: false },
-        { name: 'family_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'mapped_length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'scale', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'family_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'family_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'mapped_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'scale', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'font_style', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.DWriteFontStyleSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -304,8 +304,8 @@ blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec = {
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'font_style', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DWriteFontStyleSpec, nullable: false },
         { name: 'locale_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'base_family_name', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'reading_direction', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'reading_direction', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'base_family_name', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -190,8 +190,8 @@ search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearch.DeleteMostVisitedItem_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'page_seq_no', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -219,8 +219,8 @@ search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearch.UndoMostVisitedDeletion_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'page_seq_no', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

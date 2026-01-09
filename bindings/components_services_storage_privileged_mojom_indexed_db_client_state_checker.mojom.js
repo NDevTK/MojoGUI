@@ -87,11 +87,11 @@ storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBClientStateChecker.DisallowInactiveClient_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.DisallowInactiveClientReasonSpec, nullable: false },
-        { name: 'connection_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'keep_active', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'connection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.DisallowInactiveClientReasonSpec, nullable: false },
+        { name: 'keep_active', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
       versions: [{version: 0}]
     }

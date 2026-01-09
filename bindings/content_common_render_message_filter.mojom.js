@@ -16,10 +16,10 @@ content.mojom.FrameRoutingInfoSpec = {
       name: 'content.mojom.FrameRoutingInfo',
       packedSize: 40,
       fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
-        { name: 'devtools_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'document_token', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false },
-        { name: 'routing_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'routing_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
+        { name: 'devtools_frame_token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'document_token', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

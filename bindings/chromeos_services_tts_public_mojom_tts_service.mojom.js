@@ -112,9 +112,9 @@ chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = {
       name: 'chromeos.tts.mojom.TtsService.BindPlaybackTtsStream_Params',
       packedSize: 24,
       fields: [
-        { name: 'desired_audio_parameters', packedOffset: 0, packedBitOffset: 0, type: chromeos.tts.mojom.AudioParametersSpec, nullable: true },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'stream_factory', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'stream_factory', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'desired_audio_parameters', packedOffset: 8, packedBitOffset: 0, type: chromeos.tts.mojom.AudioParametersSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

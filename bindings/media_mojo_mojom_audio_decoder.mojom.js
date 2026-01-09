@@ -188,8 +188,8 @@ media.mojom.AudioDecoder_Initialize_ResponseParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderStatusSpec, nullable: false },
-        { name: 'decoder_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioDecoderTypeSpec, nullable: false },
-        { name: 'needs_bitstream_conversion', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'needs_bitstream_conversion', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'decoder_type', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AudioDecoderTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

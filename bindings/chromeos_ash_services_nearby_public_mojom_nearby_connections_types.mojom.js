@@ -150,11 +150,11 @@ nearby.connections.mojom.AdvertisingOptionsSpec = {
       fields: [
         { name: 'strategy', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StrategySpec, nullable: false },
         { name: 'allowed_mediums', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.MediumSelectionSpec, nullable: false },
-        { name: 'fast_advertisement_service_uuid', packedOffset: 16, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true },
-        { name: 'auto_upgrade_bandwidth', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'enforce_topology_constraints', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_bluetooth_listening', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_webrtc_listening', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'auto_upgrade_bandwidth', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enforce_topology_constraints', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_bluetooth_listening', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_webrtc_listening', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'fast_advertisement_service_uuid', packedOffset: 24, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -264,8 +264,8 @@ nearby.connections.mojom.InitialConnectionInfoV3Spec = {
       fields: [
         { name: 'authentication_digits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'raw_authentication_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'authentication_status', packedOffset: 16, packedBitOffset: 0, type: nearby.connections.mojom.AuthenticationStatusSpec, nullable: false },
-        { name: 'is_incoming_connection', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_incoming_connection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'authentication_status', packedOffset: 24, packedBitOffset: 0, type: nearby.connections.mojom.AuthenticationStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

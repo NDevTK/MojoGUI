@@ -308,8 +308,8 @@ ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.PageHandler.EditInPhotos_Params',
       packedSize: 24,
       fields: [
-        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

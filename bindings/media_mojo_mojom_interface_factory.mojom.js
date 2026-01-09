@@ -329,9 +329,9 @@ media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec = {
       name: 'media.mojom.InterfaceFactory.CreateCdm_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'cdm_context', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmContextSpec, nullable: true },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CreateCdmStatusSpec, nullable: false },
-        { name: 'cdm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'cdm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'cdm_context', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmContextSpec, nullable: true },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: media.mojom.CreateCdmStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

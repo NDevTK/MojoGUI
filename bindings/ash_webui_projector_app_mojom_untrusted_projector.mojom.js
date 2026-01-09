@@ -352,10 +352,10 @@ ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'method', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.RequestTypeSpec, nullable: false },
         { name: 'request_body', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
-        { name: 'account_email', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'use_credentials', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'use_api_key', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_credentials', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_api_key', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'headers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'account_email', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

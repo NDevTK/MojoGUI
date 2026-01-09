@@ -635,8 +635,8 @@ cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.AddResultMetadataObserver_Params',
       packedSize: 24,
       fields: [
-        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.StreamTypeSpec, nullable: false },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'stream_type', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.StreamTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1147,8 +1147,8 @@ cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'effect', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.EffectSpec, nullable: false },
-        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: true },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

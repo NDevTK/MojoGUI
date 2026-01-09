@@ -529,8 +529,8 @@ drivefs.mojom.PooledQuotaUsageSpec = {
         { name: 'user_type', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.UserTypeSpec, nullable: false },
         { name: 'used_user_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'total_user_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'organization_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'organization_limit_exceeded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'organization_limit_exceeded', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'organization_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -591,8 +591,8 @@ drivefs.mojom.HttpResponseSpec = {
       name: 'drivefs.mojom.HttpResponse',
       packedSize: 24,
       fields: [
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'response_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'response_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1274,8 +1274,8 @@ drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec = {
       name: 'drivefs.mojom.DriveFs.StartSearchQuery_Params',
       packedSize: 24,
       fields: [
-        { name: 'query_params', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.QueryParametersSpec, nullable: false },
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'query_params', packedOffset: 8, packedBitOffset: 0, type: drivefs.mojom.QueryParametersSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

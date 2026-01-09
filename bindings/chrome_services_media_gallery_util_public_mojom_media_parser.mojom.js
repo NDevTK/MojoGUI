@@ -44,23 +44,23 @@ chrome.mojom.MediaMetadataSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaMetadata',
-      packedSize: 112,
+      packedSize: 120,
       fields: [
         { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'album', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'artist', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'comment', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'copyright', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'genre', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'language', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'raw_tags', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'height', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'width', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'rotation', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'disc', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'width', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'duration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'rotation', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'album', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'artist', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'comment', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'copyright', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'disc', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'genre', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'language', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'track', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'raw_tags', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -174,8 +174,8 @@ chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec = {
       fields: [
         { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'total_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'media_data_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'get_attached_images', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'get_attached_images', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'media_data_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -188,9 +188,9 @@ chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec = {
       name: 'chrome.mojom.MediaParser.ParseMediaMetadata_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.MediaMetadataSpec, nullable: false },
-        { name: 'attached_images', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'parse_success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'parse_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.MediaMetadataSpec, nullable: false },
+        { name: 'attached_images', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

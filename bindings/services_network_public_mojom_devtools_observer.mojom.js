@@ -14,16 +14,16 @@ network.mojom.URLRequestDevToolsInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLRequestDevToolsInfo',
-      packedSize: 64,
+      packedSize: 72,
       fields: [
         { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false },
         { name: 'referrer_policy', packedOffset: 24, packedBitOffset: 0, type: network.mojom.URLRequestReferrerPolicySpec, nullable: false },
         { name: 'trust_token_params', packedOffset: 32, packedBitOffset: 0, type: network.mojom.TrustTokenParamsSpec, nullable: true },
-        { name: 'resource_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'has_user_gesture', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_ad_related', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_user_gesture', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'resource_type', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_ad_related', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -35,26 +35,26 @@ network.mojom.URLResponseHeadDevToolsInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLResponseHeadDevToolsInfo',
-      packedSize: 128,
+      packedSize: 144,
       fields: [
         { name: 'response_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
         { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false },
         { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'charset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'load_timing', packedOffset: 32, packedBitOffset: 0, type: network.mojom.LoadTimingInfoSpec, nullable: false },
-        { name: 'encoded_data_length', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'cache_storage_cache_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'alpn_negotiated_protocol', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'alternate_protocol_usage', packedOffset: 64, packedBitOffset: 0, type: network.mojom.AlternateProtocolUsageSpec, nullable: false },
-        { name: 'service_worker_response_source', packedOffset: 72, packedBitOffset: 0, type: network.mojom.FetchResponseSourceSpec, nullable: false },
-        { name: 'service_worker_router_info', packedOffset: 80, packedBitOffset: 0, type: network.mojom.ServiceWorkerRouterInfoSpec, nullable: true },
-        { name: 'ssl_info', packedOffset: 88, packedBitOffset: 0, type: network.mojom.SSLInfoSpec, nullable: true },
-        { name: 'remote_endpoint', packedOffset: 96, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
-        { name: 'cert_status', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'was_in_prefetch_cache', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'was_fetched_via_service_worker', packedOffset: 108, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'was_fetched_via_spdy', packedOffset: 108, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'emitted_extra_info', packedOffset: 108, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'cert_status', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'encoded_data_length', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'was_in_prefetch_cache', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'was_fetched_via_service_worker', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'cache_storage_cache_name', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'alpn_negotiated_protocol', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'alternate_protocol_usage', packedOffset: 80, packedBitOffset: 0, type: network.mojom.AlternateProtocolUsageSpec, nullable: false },
+        { name: 'was_fetched_via_spdy', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'service_worker_response_source', packedOffset: 96, packedBitOffset: 0, type: network.mojom.FetchResponseSourceSpec, nullable: false },
+        { name: 'service_worker_router_info', packedOffset: 104, packedBitOffset: 0, type: network.mojom.ServiceWorkerRouterInfoSpec, nullable: true },
+        { name: 'ssl_info', packedOffset: 112, packedBitOffset: 0, type: network.mojom.SSLInfoSpec, nullable: true },
+        { name: 'remote_endpoint', packedOffset: 120, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
+        { name: 'emitted_extra_info', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -280,8 +280,8 @@ network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec = {
         { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'raw_response_headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'resource_address_space', packedOffset: 32, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
-        { name: 'cookie_partition_key', packedOffset: 40, packedBitOffset: 0, type: network.mojom.CookiePartitionKeySpec, nullable: true },
-        { name: 'http_status_code', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'http_status_code', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'cookie_partition_key', packedOffset: 48, packedBitOffset: 0, type: network.mojom.CookiePartitionKeySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -312,9 +312,9 @@ network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec = {
       fields: [
         { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'resource_address_space', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
-        { name: 'client_security_state', packedOffset: 24, packedBitOffset: 0, type: network.mojom.ClientSecurityStateSpec, nullable: false },
-        { name: 'is_warning', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_warning', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'resource_address_space', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
+        { name: 'client_security_state', packedOffset: 32, packedBitOffset: 0, type: network.mojom.ClientSecurityStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

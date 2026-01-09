@@ -713,9 +713,9 @@ media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec = {
       name: 'media.mojom.MediaPlayerObserver.OnMediaMetadataChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaContentTypeSpec, nullable: false },
-        { name: 'has_audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_video', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_audio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_video', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'content_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.MediaContentTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -59,14 +59,14 @@ arc.mojom.KeyEventDataSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeyEventData',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'key_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'pressed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_shift_down', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_control_down', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_alt_down', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_capslock_on', packedOffset: 4, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'pressed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'key_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_shift_down', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_control_down', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_alt_down', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_capslock_on', packedOffset: 12, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

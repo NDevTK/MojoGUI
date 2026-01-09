@@ -109,8 +109,8 @@ tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec =
       packedSize: 32,
       fields: [
         { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.BackgroundTracingRuleSpec, nullable: false },
-        { name: 'flow_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'histogram_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'histogram_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'flow_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

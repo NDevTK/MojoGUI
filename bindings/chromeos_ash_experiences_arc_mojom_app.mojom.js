@@ -153,8 +153,8 @@ arc.mojom.WindowLayoutSpec = {
       packedSize: 32,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WindowSizeTypeSpec, nullable: false },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: true },
-        { name: 'resizable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'resizable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'bounds', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -184,10 +184,10 @@ arc.mojom.ArcPackageInfoSpec = {
       packedSize: 48,
       fields: [
         { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_backup_android_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'last_backup_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'package_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'sync', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'package_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'last_backup_android_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'last_backup_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'sync', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -218,10 +218,10 @@ arc.mojom.RawIconPngDataSpec = {
       name: 'arc.mojom.RawIconPngData',
       packedSize: 40,
       fields: [
-        { name: 'icon_png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'foreground_icon_png_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'background_icon_png_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'is_adaptive_icon', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_adaptive_icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'icon_png_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'foreground_icon_png_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'background_icon_png_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -235,10 +235,10 @@ arc.mojom.WindowInfoSpec = {
       name: 'arc.mojom.WindowInfo',
       packedSize: 32,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: true },
-        { name: 'window_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'state', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'state', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'bounds', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -255,12 +255,12 @@ arc.mojom.AppDiscoveryResultSpec = {
         { name: 'launch_intent_uri', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'install_intent_uri', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'publisher_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'formatted_price', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'icon_png_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_instant_app', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_recent', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'publisher_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'formatted_price', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'review_score', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'is_instant_app', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_recent', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'icon_png_data', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

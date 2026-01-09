@@ -132,8 +132,8 @@ device.mojom.SmartCardReaderStateOutSpec = {
       fields: [
         { name: 'reader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'event_state', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SmartCardReaderStateFlagsSpec, nullable: false },
-        { name: 'answer_to_reset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'event_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'event_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'answer_to_reset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -180,8 +180,8 @@ device.mojom.SmartCardConnectSuccessSpec = {
       name: 'device.mojom.SmartCardConnectSuccess',
       packedSize: 24,
       fields: [
-        { name: 'active_protocol', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardProtocolSpec, nullable: false },
-        { name: 'connection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'active_protocol', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SmartCardProtocolSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -448,8 +448,8 @@ device.mojom.SmartCardConnection_Control_ParamsSpec = {
       name: 'device.mojom.SmartCardConnection.Control_Params',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'control_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'control_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -503,8 +503,8 @@ device.mojom.SmartCardConnection_SetAttrib_ParamsSpec = {
       name: 'device.mojom.SmartCardConnection.SetAttrib_Params',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

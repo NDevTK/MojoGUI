@@ -92,10 +92,10 @@ network.mojom.TrustTokenParamsSpec = {
         { name: 'custom_key_commitment', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'custom_issuer', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
         { name: 'sign_request_data', packedOffset: 32, packedBitOffset: 0, type: network.mojom.TrustTokenSignRequestDataSpec, nullable: false },
-        { name: 'issuers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'additional_signed_headers', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'possibly_unsafe_additional_signing_data', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'include_timestamp_header', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'include_timestamp_header', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'issuers', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'additional_signed_headers', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'possibly_unsafe_additional_signing_data', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -155,10 +155,10 @@ network.mojom.TrustTokenKeyCommitmentResultSpec = {
       packedSize: 40,
       fields: [
         { name: 'protocol_version', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TrustTokenProtocolVersionSpec, nullable: false },
-        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'kAndroid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'batch_size', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'batch_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'keys', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'kAndroid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

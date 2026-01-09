@@ -78,8 +78,8 @@ help_bubble.mojom.HelpBubbleParamsSpec = {
         { name: 'body_icon_alt_text', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'progress', packedOffset: 56, packedBitOffset: 0, type: help_bubble.mojom.ProgressSpec, nullable: true },
         { name: 'buttons', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'timeout', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
-        { name: 'focus_on_show_hint', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'focus_on_show_hint', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'timeout', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -209,9 +209,9 @@ webnn.mojom.BatchNormalizationSpec = {
         { name: 'output_operand_id', packedOffset: 24, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'scale_operand_id', packedOffset: 32, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
         { name: 'bias_operand_id', packedOffset: 40, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'label', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'axis', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'epsilon', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'axis', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'epsilon', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'label', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -245,8 +245,8 @@ webnn.mojom.ConcatSpec = {
       fields: [
         { name: 'input_operand_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'output_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'axis', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'axis', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -306,10 +306,10 @@ webnn.mojom.CumulativeSumSpec = {
       fields: [
         { name: 'input_operand_id', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'axis', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'exclusive', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'reversed', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'axis', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'exclusive', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'reversed', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'label', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -429,8 +429,8 @@ webnn.mojom.InstanceNormalizationSpec = {
         { name: 'output_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'scale_operand_id', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
         { name: 'bias_operand_id', packedOffset: 24, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'label', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'epsilon', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'epsilon', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'label', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -543,8 +543,8 @@ webnn.mojom.EluSpec = {
       fields: [
         { name: 'input_operand_id', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'alpha', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'alpha', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -561,8 +561,8 @@ webnn.mojom.GatherSpec = {
         { name: 'input_operand_id', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'indices_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_id', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'axis', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'axis', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'label', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -579,8 +579,8 @@ webnn.mojom.GatherElementsSpec = {
         { name: 'input_operand_id', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'indices_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_id', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'axis', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'axis', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'label', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -630,18 +630,18 @@ webnn.mojom.GruSpec = {
         { name: 'input_operand_id', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'weight_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'recurrent_weight_operand_id', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'output_operand_ids', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'bias_operand_id', packedOffset: 32, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'recurrent_bias_operand_id', packedOffset: 40, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'initial_hidden_state_operand_id', packedOffset: 48, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'direction', packedOffset: 56, packedBitOffset: 0, type: webnn.mojom.RecurrentNetworkDirectionSpec, nullable: false },
-        { name: 'layout', packedOffset: 64, packedBitOffset: 0, type: webnn.mojom.GruWeightLayoutSpec, nullable: false },
-        { name: 'activations', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'label', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'steps', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'hidden_size', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'reset_after', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'return_sequence', packedOffset: 96, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'steps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'hidden_size', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'output_operand_ids', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bias_operand_id', packedOffset: 40, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
+        { name: 'recurrent_bias_operand_id', packedOffset: 48, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
+        { name: 'initial_hidden_state_operand_id', packedOffset: 56, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
+        { name: 'reset_after', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'return_sequence', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'direction', packedOffset: 72, packedBitOffset: 0, type: webnn.mojom.RecurrentNetworkDirectionSpec, nullable: false },
+        { name: 'layout', packedOffset: 80, packedBitOffset: 0, type: webnn.mojom.GruWeightLayoutSpec, nullable: false },
+        { name: 'activations', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'label', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -659,14 +659,14 @@ webnn.mojom.GruCellSpec = {
         { name: 'weight_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'recurrent_weight_operand_id', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'hidden_state_operand_id', packedOffset: 24, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'output_operand_id', packedOffset: 32, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'bias_operand_id', packedOffset: 40, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'recurrent_bias_operand_id', packedOffset: 48, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'layout', packedOffset: 56, packedBitOffset: 0, type: webnn.mojom.GruWeightLayoutSpec, nullable: false },
-        { name: 'activations', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'label', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'hidden_size', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'reset_after', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'hidden_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'output_operand_id', packedOffset: 40, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
+        { name: 'bias_operand_id', packedOffset: 48, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
+        { name: 'recurrent_bias_operand_id', packedOffset: 56, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
+        { name: 'reset_after', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'layout', packedOffset: 72, packedBitOffset: 0, type: webnn.mojom.GruWeightLayoutSpec, nullable: false },
+        { name: 'activations', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'label', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -684,11 +684,11 @@ webnn.mojom.GemmSpec = {
         { name: 'b_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_id', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'c_operand_id', packedOffset: 24, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'label', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'alpha', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'beta', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'a_transpose', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'b_transpose', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'alpha', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'beta', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'a_transpose', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'b_transpose', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'label', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -704,9 +704,9 @@ webnn.mojom.HardSigmoidSpec = {
       fields: [
         { name: 'input_operand_id', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'alpha', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'beta', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'alpha', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'beta', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -741,8 +741,8 @@ webnn.mojom.LayerNormalizationSpec = {
         { name: 'scale_operand_id', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
         { name: 'bias_operand_id', packedOffset: 24, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
         { name: 'axes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'label', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'epsilon', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'epsilon', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'label', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -758,8 +758,8 @@ webnn.mojom.LeakyReluSpec = {
       fields: [
         { name: 'input_operand_id', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'alpha', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'alpha', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -775,9 +775,9 @@ webnn.mojom.LinearSpec = {
       fields: [
         { name: 'input_operand_id', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'alpha', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'beta', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'alpha', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'beta', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -795,18 +795,18 @@ webnn.mojom.LstmSpec = {
         { name: 'weight_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'recurrent_weight_operand_id', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_ids', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'bias_operand_id', packedOffset: 32, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'recurrent_bias_operand_id', packedOffset: 40, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'peephole_weight_operand_id', packedOffset: 48, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'initial_hidden_state_operand_id', packedOffset: 56, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'initial_cell_state_operand_id', packedOffset: 64, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'direction', packedOffset: 72, packedBitOffset: 0, type: webnn.mojom.RecurrentNetworkDirectionSpec, nullable: false },
-        { name: 'layout', packedOffset: 80, packedBitOffset: 0, type: webnn.mojom.LstmWeightLayoutSpec, nullable: false },
-        { name: 'activations', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'label', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'steps', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'hidden_size', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'return_sequence', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'steps', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'hidden_size', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'bias_operand_id', packedOffset: 40, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
+        { name: 'recurrent_bias_operand_id', packedOffset: 48, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
+        { name: 'peephole_weight_operand_id', packedOffset: 56, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
+        { name: 'initial_hidden_state_operand_id', packedOffset: 64, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
+        { name: 'initial_cell_state_operand_id', packedOffset: 72, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
+        { name: 'return_sequence', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'direction', packedOffset: 88, packedBitOffset: 0, type: webnn.mojom.RecurrentNetworkDirectionSpec, nullable: false },
+        { name: 'layout', packedOffset: 96, packedBitOffset: 0, type: webnn.mojom.LstmWeightLayoutSpec, nullable: false },
+        { name: 'activations', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'label', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -826,13 +826,13 @@ webnn.mojom.LstmCellSpec = {
         { name: 'hidden_state_operand_id', packedOffset: 24, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'cell_state_operand_id', packedOffset: 32, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_ids', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'bias_operand_id', packedOffset: 48, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'recurrent_bias_operand_id', packedOffset: 56, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'peephole_weight_operand_id', packedOffset: 64, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
-        { name: 'layout', packedOffset: 72, packedBitOffset: 0, type: webnn.mojom.LstmWeightLayoutSpec, nullable: false },
-        { name: 'activations', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'label', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'hidden_size', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'hidden_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'bias_operand_id', packedOffset: 56, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
+        { name: 'recurrent_bias_operand_id', packedOffset: 64, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
+        { name: 'peephole_weight_operand_id', packedOffset: 72, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: true },
+        { name: 'layout', packedOffset: 80, packedBitOffset: 0, type: webnn.mojom.LstmWeightLayoutSpec, nullable: false },
+        { name: 'activations', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'label', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -934,8 +934,8 @@ webnn.mojom.ScatterElementsSpec = {
         { name: 'indices_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'updates_operand_id', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_id', packedOffset: 24, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'label', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'axis', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'axis', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'label', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -985,8 +985,8 @@ webnn.mojom.SoftmaxSpec = {
       fields: [
         { name: 'input_operand_id', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'axis', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'axis', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1034,8 +1034,8 @@ webnn.mojom.SplitSpec = {
       fields: [
         { name: 'input_operand_id', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'axis', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'axis', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1101,9 +1101,9 @@ webnn.mojom.TriangularSpec = {
       fields: [
         { name: 'input_operand_id', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'upper', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'diagonal', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'upper', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'label', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

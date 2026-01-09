@@ -81,9 +81,9 @@ handwriting.mojom.HandwritingSegmentSpec = {
       packedSize: 32,
       fields: [
         { name: 'grapheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'drawing_segments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'begin_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'end_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'begin_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'end_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'drawing_segments', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -146,9 +146,9 @@ handwriting.mojom.QueryHandwritingRecognizerResultSpec = {
       name: 'handwriting.mojom.QueryHandwritingRecognizerResult',
       packedSize: 24,
       fields: [
-        { name: 'hints', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.HandwritingHintsQueryResultSpec, nullable: false },
-        { name: 'text_alternatives', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'text_segmentation', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'text_alternatives', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'text_segmentation', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'hints', packedOffset: 8, packedBitOffset: 0, type: handwriting.mojom.HandwritingHintsQueryResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

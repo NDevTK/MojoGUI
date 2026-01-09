@@ -110,11 +110,11 @@ connectors_internals.mojom.DeviceTrustStateSpec = {
       name: 'connectors_internals.mojom.DeviceTrustState',
       packedSize: 48,
       fields: [
-        { name: 'policy_enabled_levels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'key_info', packedOffset: 8, packedBitOffset: 0, type: connectors_internals.mojom.KeyInfoSpec, nullable: false },
-        { name: 'signals_json', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'consent_metadata', packedOffset: 24, packedBitOffset: 0, type: connectors_internals.mojom.ConsentMetadataSpec, nullable: true },
-        { name: 'is_enabled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'policy_enabled_levels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_info', packedOffset: 16, packedBitOffset: 0, type: connectors_internals.mojom.KeyInfoSpec, nullable: false },
+        { name: 'signals_json', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'consent_metadata', packedOffset: 32, packedBitOffset: 0, type: connectors_internals.mojom.ConsentMetadataSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -177,15 +177,15 @@ connectors_internals.mojom.SignalsReportingStateSpec = {
   $: {
     structSpec: {
       name: 'connectors_internals.mojom.SignalsReportingState',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
         { name: 'error_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'last_upload_attempt_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_upload_success_timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_signals_upload_config', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'status_report_enabled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'signals_report_enabled', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'can_collect_all_fields', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'status_report_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'signals_report_enabled', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'last_upload_attempt_timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_upload_success_timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_signals_upload_config', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'can_collect_all_fields', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

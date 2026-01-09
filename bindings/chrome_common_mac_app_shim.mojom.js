@@ -55,9 +55,9 @@ chrome.mojom.ProfileMenuItemSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true },
-        { name: 'profile_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'menu_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'active', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'menu_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'active', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'profile_path', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -729,8 +729,8 @@ chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec = {
       name: 'chrome.mojom.AppShimHostBootstrap.OnShimConnected_Params',
       packedSize: 24,
       fields: [
-        { name: 'app_shim_info', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.AppShimInfoSpec, nullable: false },
-        { name: 'host_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'host_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'app_shim_info', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.AppShimInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

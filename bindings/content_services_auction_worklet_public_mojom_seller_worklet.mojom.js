@@ -157,14 +157,14 @@ auction_worklet.mojom.ScoreAdClient_OnScoreAdComplete_ParamsSpec = {
         { name: 'reject_reason', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.RejectReasonSpec, nullable: false },
         { name: 'component_auction_modified_bid_params', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.ComponentAuctionModifiedBidParamsSpec, nullable: true },
         { name: 'bid_in_seller_currency', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
-        { name: 'debug_loss_report_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'debug_win_report_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'pa_requests', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'real_time_contributions', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'score_ad_timing_metrics', packedOffset: 64, packedBitOffset: 0, type: auction_worklet.mojom.SellerTimingMetricsSpec, nullable: false },
-        { name: 'score_ad_dependency_latencies', packedOffset: 72, packedBitOffset: 0, type: auction_worklet.mojom.ScoreAdDependencyLatenciesSpec, nullable: false },
-        { name: 'errors', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'scoring_signals_data_version', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'scoring_signals_data_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'debug_loss_report_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'debug_win_report_url', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'pa_requests', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'real_time_contributions', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'score_ad_timing_metrics', packedOffset: 72, packedBitOffset: 0, type: auction_worklet.mojom.SellerTimingMetricsSpec, nullable: false },
+        { name: 'score_ad_dependency_latencies', packedOffset: 80, packedBitOffset: 0, type: auction_worklet.mojom.ScoreAdDependencyLatenciesSpec, nullable: false },
+        { name: 'errors', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -264,7 +264,7 @@ auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.SellerWorklet.ScoreAd_Params',
-      packedSize: 184,
+      packedSize: 200,
       fields: [
         { name: 'ad_metadata_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'bid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
@@ -282,15 +282,15 @@ auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec = {
         { name: 'browser_signal_interest_group_owner', packedOffset: 104, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'browser_signal_selected_buyer_and_seller_reporting_id', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'browser_signal_buyer_and_seller_reporting_id', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'seller_timeout', packedOffset: 128, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
-        { name: 'group_by_origin_id', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'trace_id', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'bidder_joining_origin', packedOffset: 152, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'browser_signal_bidding_duration_msecs', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'score_ad_client', packedOffset: 164, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'browser_signal_for_debugging_only_in_cooldown_or_lockout', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'browser_signal_for_debugging_only_sampling', packedOffset: 168, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_group_by_origin_mode', packedOffset: 168, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'browser_signal_bidding_duration_msecs', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'browser_signal_for_debugging_only_in_cooldown_or_lockout', packedOffset: 132, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'browser_signal_for_debugging_only_sampling', packedOffset: 132, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'seller_timeout', packedOffset: 144, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'group_by_origin_id', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'allow_group_by_origin_mode', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'trace_id', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'bidder_joining_origin', packedOffset: 176, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'score_ad_client', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -333,8 +333,8 @@ auction_worklet.mojom.SellerWorklet_ReportResult_ParamsSpec = {
         { name: 'browser_signal_highest_scoring_other_bid', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'browser_signal_highest_scoring_other_bid_currency', packedOffset: 112, packedBitOffset: 0, type: blink.mojom.AdCurrencySpec, nullable: true },
         { name: 'browser_signals_component_auction_report_result_params', packedOffset: 120, packedBitOffset: 0, type: auction_worklet.mojom.ComponentAuctionReportResultParamsSpec, nullable: true },
-        { name: 'trace_id', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'scoring_signals_data_version', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'scoring_signals_data_version', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'trace_id', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

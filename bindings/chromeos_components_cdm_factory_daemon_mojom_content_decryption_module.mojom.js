@@ -85,10 +85,10 @@ chromeos.cdm.mojom.CdmPromiseResultSpec = {
       name: 'chromeos.cdm.mojom.CdmPromiseResult',
       packedSize: 40,
       fields: [
-        { name: 'exception', packedOffset: 0, packedBitOffset: 0, type: chromeos.cdm.mojom.PromiseExceptionSpec, nullable: false },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'exception', packedOffset: 8, packedBitOffset: 0, type: chromeos.cdm.mojom.PromiseExceptionSpec, nullable: false },
         { name: 'system_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'success', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'error_message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

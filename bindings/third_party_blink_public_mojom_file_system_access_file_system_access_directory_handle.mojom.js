@@ -426,8 +426,8 @@ blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.Move_Params',
       packedSize: 24,
       fields: [
-        { name: 'new_entry_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'destination_directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'destination_directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'new_entry_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

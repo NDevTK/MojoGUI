@@ -345,12 +345,12 @@ video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSource.CreatePushSubscription_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'requested_settings', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false },
-        { name: 'subscriber', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'subscription', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'requested_settings', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false },
         { name: 'force_reopen_with_new_settings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'subscription', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

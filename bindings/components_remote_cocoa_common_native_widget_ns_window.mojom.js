@@ -63,14 +63,14 @@ remote_cocoa.mojom.NativeWidgetNSWindowInitParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowInitParams',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
         { name: 'modal_type', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.ModalTypeSpec, nullable: false },
-        { name: 'state_restoration_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'is_translucent', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_window_server_shadow', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'force_into_collection_cycle', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_tooltip', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_translucent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_window_server_shadow', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'force_into_collection_cycle', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'state_restoration_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_tooltip', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

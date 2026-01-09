@@ -510,8 +510,8 @@ blink.mojom.Widget_WasShown_ParamsSpec = {
       name: 'blink.mojom.Widget.WasShown_Params',
       packedSize: 24,
       fields: [
-        { name: 'record_tab_switch_time_request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RecordContentToVisibleTimeRequestSpec, nullable: true },
-        { name: 'was_evicted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'was_evicted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'record_tab_switch_time_request', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RecordContentToVisibleTimeRequestSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

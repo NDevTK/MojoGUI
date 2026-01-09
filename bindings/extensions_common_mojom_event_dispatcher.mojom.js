@@ -14,15 +14,15 @@ extensions.mojom.EventFilteringInfoSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventFilteringInfo',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'service_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'window_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'has_instance_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'instance_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'has_instance_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_window_exposed_by_default', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'window_exposed_by_default', packedOffset: 28, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'window_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'has_window_exposed_by_default', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'window_exposed_by_default', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -34,14 +34,14 @@ extensions.mojom.DispatchEventParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.DispatchEventParams',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
-        { name: 'host_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.HostIDSpec, nullable: false },
-        { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'filtering_info', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.EventFilteringInfoSpec, nullable: false },
-        { name: 'worker_thread_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'event_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_user_gesture', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'worker_thread_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'host_id', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.HostIDSpec, nullable: false },
+        { name: 'event_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'event_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'is_user_gesture', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'filtering_info', packedOffset: 40, packedBitOffset: 0, type: extensions.mojom.EventFilteringInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

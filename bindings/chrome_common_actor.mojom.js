@@ -298,10 +298,10 @@ actor.mojom.ActionResultSpec = {
       packedSize: 48,
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.ActionResultCodeSpec, nullable: false },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'script_tool_response', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'execution_end_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true },
-        { name: 'requires_page_stabilization', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'requires_page_stabilization', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'script_tool_response', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'execution_end_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

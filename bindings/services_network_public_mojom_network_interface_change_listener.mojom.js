@@ -16,11 +16,11 @@ network.mojom.IfAddrMsgSpec = {
       name: 'network.mojom.IfAddrMsg',
       packedSize: 16,
       fields: [
-        { name: 'ifa_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'ifa_family', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'ifa_prefixlen', packedOffset: 5, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'ifa_flags', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'ifa_scope', packedOffset: 7, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'ifa_family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'ifa_prefixlen', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'ifa_flags', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'ifa_scope', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'ifa_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

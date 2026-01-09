@@ -34,13 +34,13 @@ blink.mojom.ServiceWorkerRouterRequestConditionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterRequestCondition',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
         { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: network.mojom.RequestModeSpec, nullable: false },
-        { name: 'destination', packedOffset: 16, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false },
-        { name: 'has_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_destination', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: network.mojom.RequestModeSpec, nullable: false },
+        { name: 'has_destination', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'destination', packedOffset: 32, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

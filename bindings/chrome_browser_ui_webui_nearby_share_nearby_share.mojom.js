@@ -70,8 +70,8 @@ nearby_share.mojom.PayloadPreviewSpec = {
       packedSize: 32,
       fields: [
         { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'share_type', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.ShareTypeSpec, nullable: false },
-        { name: 'file_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'file_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'share_type', packedOffset: 16, packedBitOffset: 0, type: nearby_share.mojom.ShareTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -105,10 +105,10 @@ nearby_share.mojom.TransferMetadataSpec = {
       packedSize: 40,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.TransferStatusSpec, nullable: false },
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'is_original', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_final_status', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_original', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_final_status', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

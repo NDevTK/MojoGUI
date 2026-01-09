@@ -93,10 +93,10 @@ viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInf
       name: 'viz.mojom.InfoCollectionGpuService.GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'device_perf_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.DevicePerfInfoSpec, nullable: false },
-        { name: 'd3d12_feature_level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'highest_shader_model_version', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'directml_feature_level', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'd3d12_feature_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'highest_shader_model_version', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'directml_feature_level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'device_perf_info', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.DevicePerfInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

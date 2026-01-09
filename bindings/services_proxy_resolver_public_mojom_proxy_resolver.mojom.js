@@ -53,8 +53,8 @@ proxy_resolver.mojom.SystemProxyResolutionStatusSpec = {
       name: 'proxy_resolver.mojom.SystemProxyResolutionStatus',
       packedSize: 24,
       fields: [
-        { name: 'os_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_success', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'os_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -124,8 +124,8 @@ proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec = {
       name: 'proxy_resolver.mojom.HostResolverRequestClient.ReportResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -304,8 +304,8 @@ proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec = {
       name: 'proxy_resolver.mojom.ProxyResolverRequestClient.ReportResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'proxy_info', packedOffset: 0, packedBitOffset: 0, type: proxy_resolver.mojom.ProxyInfoSpec, nullable: false },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'proxy_info', packedOffset: 8, packedBitOffset: 0, type: proxy_resolver.mojom.ProxyInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -333,8 +333,8 @@ proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec = {
       name: 'proxy_resolver.mojom.ProxyResolverRequestClient.OnError_Params',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'line_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'line_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -558,8 +558,8 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec = {
       name: 'proxy_resolver.mojom.ProxyResolverFactoryRequestClient.OnError_Params',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'line_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'line_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

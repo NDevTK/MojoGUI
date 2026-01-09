@@ -53,8 +53,8 @@ tracing.mojom.ChunkPatchSpec = {
       name: 'tracing.mojom.ChunkPatch',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -68,11 +68,11 @@ tracing.mojom.ChunksToPatchSpec = {
       name: 'tracing.mojom.ChunksToPatch',
       packedSize: 40,
       fields: [
-        { name: 'patches', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'target_buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'writer_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'chunk_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'has_more_patches', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'target_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'writer_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'chunk_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'patches', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'has_more_patches', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -150,16 +150,16 @@ tracing.mojom.DataSourceConfigSpec = {
       packedSize: 88,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'tracing_session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'chrome_config', packedOffset: 16, packedBitOffset: 0, type: tracing.mojom.ChromeConfigSpec, nullable: false },
-        { name: 'interceptor_config', packedOffset: 24, packedBitOffset: 0, type: tracing.mojom.InterceptorConfigSpec, nullable: true },
-        { name: 'legacy_config', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'track_event_config_raw', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
-        { name: 'etw_config_raw', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
-        { name: 'system_metrics_config_raw', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
-        { name: 'histogram_samples_config_raw', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
-        { name: 'target_buffer', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'trace_duration_ms', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'target_buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'trace_duration_ms', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'tracing_session_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'chrome_config', packedOffset: 24, packedBitOffset: 0, type: tracing.mojom.ChromeConfigSpec, nullable: false },
+        { name: 'interceptor_config', packedOffset: 32, packedBitOffset: 0, type: tracing.mojom.InterceptorConfigSpec, nullable: true },
+        { name: 'legacy_config', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'track_event_config_raw', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'etw_config_raw', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'system_metrics_config_raw', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'histogram_samples_config_raw', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -191,8 +191,8 @@ tracing.mojom.BufferConfigSpec = {
       name: 'tracing.mojom.BufferConfig',
       packedSize: 24,
       fields: [
-        { name: 'fill_policy', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.BufferFillPolicySpec, nullable: false },
-        { name: 'size_kb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'size_kb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'fill_policy', packedOffset: 8, packedBitOffset: 0, type: tracing.mojom.BufferFillPolicySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -221,11 +221,11 @@ tracing.mojom.PerfettoBuiltinDataSourceSpec = {
       name: 'tracing.mojom.PerfettoBuiltinDataSource',
       packedSize: 24,
       fields: [
-        { name: 'primary_trace_clock_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'disable_clock_snapshotting', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'disable_trace_config', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'disable_system_info', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'disable_service_events', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'disable_clock_snapshotting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'disable_trace_config', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'disable_system_info', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'disable_service_events', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'primary_trace_clock_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -257,10 +257,10 @@ tracing.mojom.TraceConfigSpec = {
         { name: 'perfetto_builtin_data_source', packedOffset: 8, packedBitOffset: 0, type: tracing.mojom.PerfettoBuiltinDataSourceSpec, nullable: false },
         { name: 'buffers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'incremental_state_config', packedOffset: 24, packedBitOffset: 0, type: tracing.mojom.IncrementalStateConfigSpec, nullable: false },
-        { name: 'trace_uuid', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true },
-        { name: 'unique_session_name', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
-        { name: 'duration_ms', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'write_into_file', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'duration_ms', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'write_into_file', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'trace_uuid', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true },
+        { name: 'unique_session_name', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -665,10 +665,10 @@ tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec = {
       name: 'tracing.mojom.PerfettoService.ConnectToProducerHost_Params',
       packedSize: 32,
       fields: [
-        { name: 'shared_memory', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
-        { name: 'shared_memory_buffer_page_size_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'producer_client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'producer_host_receiver', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'producer_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'producer_host_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'shared_memory', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
+        { name: 'shared_memory_buffer_page_size_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -752,10 +752,10 @@ tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec = {
       name: 'tracing.mojom.ConsumerHost.EnableTracing_Params',
       packedSize: 32,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.TraceConfigSpec, nullable: false },
-        { name: 'output_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
-        { name: 'tracing_session_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'tracing_session_client', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'tracing_session_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'tracing_session_client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: tracing.mojom.TraceConfigSpec, nullable: false },
+        { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -769,9 +769,9 @@ tracing.mojom.ConsumerHost_CloneSession_ParamsSpec = {
       name: 'tracing.mojom.ConsumerHost.CloneSession_Params',
       packedSize: 32,
       fields: [
-        { name: 'unguessable_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'tracing_session_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'tracing_session_client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'tracing_session_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'tracing_session_client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'unguessable_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
         { name: 'privacy_filtering_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -785,9 +785,9 @@ tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec = {
       name: 'tracing.mojom.ConsumerHost.CloneSession_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
-        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'uuid', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -949,11 +949,11 @@ tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.TracingSessionHost.RequestBufferUsage_ResponseParams',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'percent_full', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'success', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'data_loss', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'percent_full', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'data_loss', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

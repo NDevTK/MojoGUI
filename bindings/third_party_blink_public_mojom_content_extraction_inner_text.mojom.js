@@ -38,9 +38,9 @@ blink.mojom.InnerTextParamsSpec = {
       fields: [
         { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
         { name: 'max_words_per_aggregate_passage', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
-        { name: 'max_passages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'min_words_per_passage', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
-        { name: 'greedily_aggregate_sibling_nodes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'greedily_aggregate_sibling_nodes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'max_passages', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'min_words_per_passage', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -250,10 +250,10 @@ remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec = {
       fields: [
         { name: 'drop_data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false },
         { name: 'source_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'image', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true },
-        { name: 'image_offset', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false },
-        { name: 'operation_mask', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'is_privileged', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'operation_mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'image', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true },
+        { name: 'image_offset', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false },
+        { name: 'is_privileged', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -602,9 +602,9 @@ remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.EndDrag_Params',
       packedSize: 32,
       fields: [
-        { name: 'local_point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'screen_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'drag_operation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'drag_operation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'local_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'screen_point', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

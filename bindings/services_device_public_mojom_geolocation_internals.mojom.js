@@ -34,10 +34,10 @@ device.mojom.AccessPointDataSpec = {
       packedSize: 40,
       fields: [
         { name: 'mac_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
-        { name: 'radio_signal_strength', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'channel', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'signal_to_noise', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'radio_signal_strength', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'channel', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'signal_to_noise', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -66,11 +66,11 @@ device.mojom.PositionCacheDiagnosticsSpec = {
       name: 'device.mojom.PositionCacheDiagnostics',
       packedSize: 48,
       fields: [
-        { name: 'last_hit', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
-        { name: 'last_miss', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
-        { name: 'hit_rate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
-        { name: 'last_network_result', packedOffset: 24, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: true },
-        { name: 'cache_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'cache_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'last_hit', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'last_miss', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'hit_rate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'last_network_result', packedOffset: 32, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

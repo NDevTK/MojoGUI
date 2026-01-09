@@ -566,12 +566,12 @@ pdf.mojom.PdfHost_SelectionChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfHost.SelectionChanged_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
         { name: 'left', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'right', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'left_height', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'right_height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'left_height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'right', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'right_height', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

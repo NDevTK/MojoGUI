@@ -89,9 +89,9 @@ media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec = {
       name: 'media.mojom.AndroidOverlayProvider.CreateOverlay_Params',
       packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AndroidOverlayConfigSpec, nullable: false },
-        { name: 'overlay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'overlay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AndroidOverlayConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

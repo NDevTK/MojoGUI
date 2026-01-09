@@ -509,10 +509,10 @@ arc.mojom.keymint.CertificateRequestSpec = {
       name: 'arc.mojom.keymint.CertificateRequest',
       packedSize: 40,
       fields: [
-        { name: 'keys_to_sign', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'encryption_cert_chain', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false },
-        { name: 'challenge', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false },
-        { name: 'test_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'test_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'keys_to_sign', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'encryption_cert_chain', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false },
+        { name: 'challenge', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

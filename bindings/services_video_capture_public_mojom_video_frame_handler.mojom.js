@@ -16,9 +16,9 @@ video_capture.mojom.ReadyFrameInBufferSpec = {
       name: 'video_capture.mojom.ReadyFrameInBuffer',
       packedSize: 24,
       fields: [
-        { name: 'frame_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false },
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'frame_feedback_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'frame_feedback_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'frame_info', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -284,8 +284,8 @@ video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec = {
       name: 'video_capture.mojom.VideoFrameHandler.OnNewBuffer_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false },
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'buffer_handle', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

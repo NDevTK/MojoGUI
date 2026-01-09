@@ -260,14 +260,14 @@ network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkChangeManager.OnNetworkChanged_Params',
-      packedSize: 40,
+      packedSize: 56,
       fields: [
-        { name: 'ip_address_change_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressChangeTypeSpec, nullable: false },
-        { name: 'new_connection_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false },
-        { name: 'new_connection_subtype', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ConnectionSubtypeSpec, nullable: false },
-        { name: 'dns_changed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'connection_type_changed', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'connection_subtype_changed', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'dns_changed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ip_address_change_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressChangeTypeSpec, nullable: false },
+        { name: 'connection_type_changed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'new_connection_type', packedOffset: 24, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false },
+        { name: 'connection_subtype_changed', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'new_connection_subtype', packedOffset: 40, packedBitOffset: 0, type: network.mojom.ConnectionSubtypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

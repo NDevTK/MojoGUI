@@ -16,9 +16,9 @@ blink.mojom.AnchorElementPointerDataSpec = {
       name: 'blink.mojom.AnchorElementPointerData',
       packedSize: 32,
       fields: [
-        { name: 'mouse_velocity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'mouse_acceleration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'is_mouse_pointer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_mouse_pointer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'mouse_velocity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'mouse_acceleration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }

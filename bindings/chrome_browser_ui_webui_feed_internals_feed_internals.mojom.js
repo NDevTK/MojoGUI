@@ -23,16 +23,16 @@ feed_internals.mojom.PropertiesSpec = {
       name: 'feed_internals.mojom.Properties',
       packedSize: 48,
       fields: [
-        { name: 'load_stream_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'feed_fetch_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'feed_actions_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'following_feed_order', packedOffset: 24, packedBitOffset: 0, type: feed_internals.mojom.FeedOrderSpec, nullable: false },
-        { name: 'is_feed_enabled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_feed_visible', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_feed_allowed', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_prefetching_enabled', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_web_feed_follow_intro_debug_enabled', packedOffset: 32, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'use_feed_query_requests', packedOffset: 32, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_feed_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_feed_visible', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_feed_allowed', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_prefetching_enabled', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_web_feed_follow_intro_debug_enabled', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_feed_query_requests', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'load_stream_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'feed_fetch_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'feed_actions_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'following_feed_order', packedOffset: 32, packedBitOffset: 0, type: feed_internals.mojom.FeedOrderSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -44,15 +44,15 @@ feed_internals.mojom.LastFetchPropertiesSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.LastFetchProperties',
-      packedSize: 56,
+      packedSize: 64,
       fields: [
-        { name: 'last_fetch_trigger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_fetch_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'refresh_suppress_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'last_bless_nonce', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_action_upload_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'last_fetch_status', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'last_action_upload_status', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'last_fetch_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'last_fetch_trigger', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_fetch_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'refresh_suppress_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'last_bless_nonce', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'last_action_upload_status', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'last_action_upload_time', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

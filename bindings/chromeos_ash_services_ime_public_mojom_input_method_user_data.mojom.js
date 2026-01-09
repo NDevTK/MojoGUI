@@ -17,8 +17,8 @@ ash.ime.mojom.StatusSpec = {
       name: 'ash.ime.mojom.Status',
       packedSize: 24,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -224,8 +224,8 @@ ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec 
       packedSize: 32,
       fields: [
         { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.JapaneseDictionaryEntrySpec, nullable: false },
-        { name: 'entry_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'entry_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'entry', packedOffset: 16, packedBitOffset: 0, type: ash.ime.mojom.JapaneseDictionaryEntrySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

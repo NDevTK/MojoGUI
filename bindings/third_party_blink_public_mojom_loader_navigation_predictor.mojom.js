@@ -25,19 +25,19 @@ blink.mojom.AnchorElementMetricsSpec = {
       name: 'blink.mojom.AnchorElementMetrics',
       packedSize: 56,
       fields: [
-        { name: 'target_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'viewport_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'anchor_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'ratio_area', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'ratio_distance_top_to_visible_top', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'ratio_distance_root_top', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'font_size_px', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'font_weight', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'is_in_iframe', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'contains_image', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_same_host', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_url_incremented_by_one', packedOffset: 40, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_text_sibling', packedOffset: 40, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'ratio_area', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'ratio_distance_top_to_visible_top', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'ratio_distance_root_top', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'is_in_iframe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'contains_image', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_same_host', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_url_incremented_by_one', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_text_sibling', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'font_size_px', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'font_weight', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'target_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'viewport_size', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -51,9 +51,9 @@ blink.mojom.AnchorElementClickSpec = {
       name: 'blink.mojom.AnchorElementClick',
       packedSize: 32,
       fields: [
-        { name: 'target_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'navigation_start_to_click', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'anchor_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'target_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'navigation_start_to_click', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -67,8 +67,8 @@ blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec = {
       name: 'blink.mojom.AnchorElementPointerDataOnHoverTimerFired',
       packedSize: 24,
       fields: [
-        { name: 'pointer_data', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false },
-        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'pointer_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -82,8 +82,8 @@ blink.mojom.AnchorElementEnteredViewportSpec = {
       name: 'blink.mojom.AnchorElementEnteredViewport',
       packedSize: 24,
       fields: [
-        { name: 'navigation_start_to_entered_viewport', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'navigation_start_to_entered_viewport', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -97,8 +97,8 @@ blink.mojom.AnchorElementLeftViewportSpec = {
       name: 'blink.mojom.AnchorElementLeftViewport',
       packedSize: 24,
       fields: [
-        { name: 'time_in_viewport', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'time_in_viewport', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,8 +112,8 @@ blink.mojom.AnchorElementPointerOverSpec = {
       name: 'blink.mojom.AnchorElementPointerOver',
       packedSize: 24,
       fields: [
-        { name: 'navigation_start_to_pointer_over', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'navigation_start_to_pointer_over', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,8 +127,8 @@ blink.mojom.AnchorElementPointerOutSpec = {
       name: 'blink.mojom.AnchorElementPointerOut',
       packedSize: 24,
       fields: [
-        { name: 'hover_dwell_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'hover_dwell_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -142,9 +142,9 @@ blink.mojom.AnchorElementPointerEventForMLModelSpec = {
       name: 'blink.mojom.AnchorElementPointerEventForMLModel',
       packedSize: 32,
       fields: [
-        { name: 'user_interaction_event_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec, nullable: false },
-        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'is_mouse', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_mouse', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'user_interaction_event_type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -158,8 +158,8 @@ blink.mojom.AnchorElementPointerDownSpec = {
       name: 'blink.mojom.AnchorElementPointerDown',
       packedSize: 24,
       fields: [
-        { name: 'navigation_start_to_pointer_down', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'navigation_start_to_pointer_down', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

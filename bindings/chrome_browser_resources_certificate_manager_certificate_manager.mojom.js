@@ -52,9 +52,9 @@ certificate_manager.mojom.CertManagementMetadataSpec = {
         { name: 'include_system_trust_store', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'num_user_added_system_certs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_include_system_trust_store_managed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'num_user_certs', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'num_policy_certs', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'show_user_certs_ui', packedOffset: 29, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'num_policy_certs', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'num_user_certs', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'show_user_certs_ui', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -108,13 +108,13 @@ arc.mojom.SelectFilesRequestSpec = {
       fields: [
         { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SelectFilesActionTypeSpec, nullable: false },
         { name: 'mime_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'default_file_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'initial_content_uri', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'initial_document_path', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.DocumentPathSpec, nullable: true },
-        { name: 'search_query', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'openable_only', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_multiple', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'default_file_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'initial_content_uri', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'initial_document_path', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.DocumentPathSpec, nullable: true },
         { name: 'task_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'openable_only', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_multiple', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'search_query', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

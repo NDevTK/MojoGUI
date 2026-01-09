@@ -41,13 +41,13 @@ side_panel.mojom.BookmarksTreeNodeSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'parent_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'children', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'date_added', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
-        { name: 'date_last_used', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
-        { name: 'index', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'unmodifiable', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'children', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'date_added', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'date_last_used', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'unmodifiable', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -598,9 +598,9 @@ side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'click_modifiers', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false },
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: side_panel.mojom.ActionSourceSpec, nullable: false },
-        { name: 'parent_folder_depth', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'parent_folder_depth', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'click_modifiers', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false },
+        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: side_panel.mojom.ActionSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -892,12 +892,12 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPage.OnBookmarkNodeMoved_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
         { name: 'old_parent_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'new_parent_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'old_node_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'new_node_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'old_node_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'new_parent_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'new_node_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

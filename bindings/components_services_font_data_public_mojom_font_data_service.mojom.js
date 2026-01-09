@@ -23,9 +23,9 @@ font_data_service.mojom.TypefaceStyleSpec = {
       name: 'font_data_service.mojom.TypefaceStyle',
       packedSize: 24,
       fields: [
-        { name: 'slant', packedOffset: 0, packedBitOffset: 0, type: font_data_service.mojom.TypefaceSlantSpec, nullable: false },
-        { name: 'weight', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'width', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'weight', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'width', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'slant', packedOffset: 8, packedBitOffset: 0, type: font_data_service.mojom.TypefaceSlantSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,8 +85,8 @@ font_data_service.mojom.MatchFamilyNameResultSpec = {
       packedSize: 32,
       fields: [
         { name: 'typeface_data', packedOffset: 0, packedBitOffset: 0, type: font_data_service.mojom.TypefaceDataSpec, nullable: false },
-        { name: 'variation_position', packedOffset: 8, packedBitOffset: 0, type: font_data_service.mojom.VariationPositionSpec, nullable: true },
-        { name: 'ttc_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'ttc_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'variation_position', packedOffset: 16, packedBitOffset: 0, type: font_data_service.mojom.VariationPositionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

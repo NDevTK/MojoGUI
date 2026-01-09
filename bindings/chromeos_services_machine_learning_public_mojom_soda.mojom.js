@@ -58,8 +58,8 @@ chromeos.machine_learning.mojom.SodaMultilangConfigSpec = {
       name: 'chromeos.machine_learning.mojom.SodaMultilangConfig',
       packedSize: 24,
       fields: [
-        { name: 'locale_to_language_pack_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'rewind_when_switching_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'rewind_when_switching_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'locale_to_language_pack_map', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -73,19 +73,19 @@ chromeos.machine_learning.mojom.SodaConfigSpec = {
       name: 'chromeos.machine_learning.mojom.SodaConfig',
       packedSize: 104,
       fields: [
-        { name: 'api_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'library_dlc_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'language_dlc_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'enable_formatting', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'recognition_mode', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'mask_offensive_words', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'speaker_change_detection', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'include_logging_output', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'multi_lang_config', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'kSpeakerDiarizationModeOffDefault', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'max_speaker_count', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'channel_count', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'sample_rate', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'channel_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'sample_rate', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'api_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'library_dlc_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'language_dlc_path', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'enable_formatting', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'recognition_mode', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mask_offensive_words', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'speaker_change_detection', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'include_logging_output', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'multi_lang_config', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'kSpeakerDiarizationModeOffDefault', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_speaker_count', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,8 +104,8 @@ chromeos.machine_learning.mojom.TimingInfoSpec = {
         { name: 'elapsed_wall_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'event_end_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'latency', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'word_alignments', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'normalized_latency', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'normalized_latency', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'word_alignments', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -201,8 +201,8 @@ chromeos.machine_learning.mojom.LangIdEventSpec = {
       packedSize: 32,
       fields: [
         { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'asr_switch_result', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.AsrSwitchResultSpec, nullable: false },
-        { name: 'confidence_level', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'confidence_level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'asr_switch_result', packedOffset: 16, packedBitOffset: 0, type: chromeos.machine_learning.mojom.AsrSwitchResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -46,8 +46,8 @@ cast_streaming.mojom.AudioStreamInitializationInfoSpec = {
       name: 'cast_streaming.mojom.AudioStreamInitializationInfo',
       packedSize: 24,
       fields: [
-        { name: 'stream_initialization_info', packedOffset: 0, packedBitOffset: 0, type: cast_streaming.mojom.AudioStreamInfoSpec, nullable: false },
-        { name: 'buffer_requester', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'buffer_requester', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'stream_initialization_info', packedOffset: 8, packedBitOffset: 0, type: cast_streaming.mojom.AudioStreamInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -61,8 +61,8 @@ cast_streaming.mojom.VideoStreamInitializationInfoSpec = {
       name: 'cast_streaming.mojom.VideoStreamInitializationInfo',
       packedSize: 24,
       fields: [
-        { name: 'stream_initialization_info', packedOffset: 0, packedBitOffset: 0, type: cast_streaming.mojom.VideoStreamInfoSpec, nullable: false },
-        { name: 'buffer_requester', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'buffer_requester', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'stream_initialization_info', packedOffset: 8, packedBitOffset: 0, type: cast_streaming.mojom.VideoStreamInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

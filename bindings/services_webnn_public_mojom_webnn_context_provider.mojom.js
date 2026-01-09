@@ -37,11 +37,11 @@ webnn.mojom.CreateContextSuccessSpec = {
       name: 'webnn.mojom.CreateContextSuccess',
       packedSize: 48,
       fields: [
-        { name: 'context_properties', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.ContextPropertiesSpec, nullable: false },
-        { name: 'context_handle', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebNNContextTokenSpec, nullable: false },
-        { name: 'write_tensor_producer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'read_tensor_consumer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'context_remote', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'context_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'context_properties', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.ContextPropertiesSpec, nullable: false },
+        { name: 'context_handle', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebNNContextTokenSpec, nullable: false },
+        { name: 'write_tensor_producer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'read_tensor_consumer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

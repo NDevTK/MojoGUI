@@ -184,9 +184,9 @@ blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec = {
         { name: 'source_file', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'script_sample', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'disposition', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'line_number', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'column_number', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'status_code', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'status_code', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'line_number', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'column_number', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

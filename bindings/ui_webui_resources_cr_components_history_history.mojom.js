@@ -24,10 +24,10 @@ history.mojom.QueryStateSpec = {
       name: 'history.mojom.QueryState',
       packedSize: 32,
       fields: [
-        { name: 'search_term', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'after', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'incremental', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'querying', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'incremental', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'querying', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'search_term', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'after', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -56,9 +56,9 @@ history.mojom.DebugInfoSpec = {
       name: 'history.mojom.DebugInfo',
       packedSize: 24,
       fields: [
-        { name: 'visit_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'typed_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'is_url_in_local_database', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_url_in_local_database', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visit_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'typed_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,7 +70,7 @@ history.mojom.HistoryEntrySpec = {
   $: {
     structSpec: {
       name: 'history.mojom.HistoryEntry',
-      packedSize: 144,
+      packedSize: 160,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -83,16 +83,16 @@ history.mojom.HistoryEntrySpec = {
         { name: 'device_type', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'date_time_of_day', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'date_relative_day', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'readableTimestamp', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'snippet', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'host_filtering_behavior', packedOffset: 104, packedBitOffset: 0, type: history.mojom.FilteringBehaviorSpec, nullable: false },
-        { name: 'remote_icon_url_for_uma', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'debug', packedOffset: 120, packedBitOffset: 0, type: history.mojom.DebugInfoSpec, nullable: true },
-        { name: 'selected', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'starred', packedOffset: 128, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'blocked_visit', packedOffset: 128, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_url_in_remote_user_data', packedOffset: 128, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_actor_visit', packedOffset: 128, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'selected', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'readableTimestamp', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'snippet', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'starred', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'host_filtering_behavior', packedOffset: 120, packedBitOffset: 0, type: history.mojom.FilteringBehaviorSpec, nullable: false },
+        { name: 'blocked_visit', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_url_in_remote_user_data', packedOffset: 128, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_actor_visit', packedOffset: 128, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'remote_icon_url_for_uma', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'debug', packedOffset: 144, packedBitOffset: 0, type: history.mojom.DebugInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -331,8 +331,8 @@ history.mojom.PageHandler_QueryHistory_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'begin_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
-        { name: 'max_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'begin_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
       ],
       versions: [{version: 0}]
     }

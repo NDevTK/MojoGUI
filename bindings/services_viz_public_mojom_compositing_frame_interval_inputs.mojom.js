@@ -38,14 +38,14 @@ viz.mojom.FrameIntervalInputsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameIntervalInputs',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
         { name: 'frame_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'content_interval_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'has_user_input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_input', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'major_scroll_speed_in_pixels_per_second', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'has_user_input', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_input', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_only_content_frame_interval_updates', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'content_interval_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'has_only_content_frame_interval_updates', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

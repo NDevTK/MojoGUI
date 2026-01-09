@@ -17,11 +17,11 @@ blink.mojom.DirectTCPSocketOptionsSpec = {
       packedSize: 48,
       fields: [
         { name: 'remote_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false },
-        { name: 'keep_alive_options', packedOffset: 8, packedBitOffset: 0, type: network.mojom.TCPKeepAliveOptionsSpec, nullable: true },
-        { name: 'dns_query_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: true },
-        { name: 'send_buffer_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
-        { name: 'receive_buffer_size', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
-        { name: 'no_delay', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'send_buffer_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'receive_buffer_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'no_delay', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'keep_alive_options', packedOffset: 24, packedBitOffset: 0, type: network.mojom.TCPKeepAliveOptionsSpec, nullable: true },
+        { name: 'dns_query_type', packedOffset: 32, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -36,9 +36,9 @@ blink.mojom.DirectConnectedUDPSocketOptionsSpec = {
       packedSize: 48,
       fields: [
         { name: 'remote_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false },
-        { name: 'dns_query_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: true },
-        { name: 'send_buffer_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
-        { name: 'receive_buffer_size', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'send_buffer_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'receive_buffer_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'dns_query_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: true },
         { name: 'multicast_time_to_live', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
         { name: 'multicast_loopback', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
@@ -52,15 +52,15 @@ blink.mojom.DirectBoundUDPSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectBoundUDPSocketOptions',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
         { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
         { name: 'send_buffer_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
         { name: 'receive_buffer_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
-        { name: 'multicast_time_to_live', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
-        { name: 'ipv6_only', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
-        { name: 'multicast_allow_address_sharing', packedOffset: 17, packedBitOffset: 1, type: mojo.internal.Bool, nullable: true },
-        { name: 'multicast_loopback', packedOffset: 17, packedBitOffset: 2, type: mojo.internal.Bool, nullable: true },
+        { name: 'ipv6_only', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'multicast_allow_address_sharing', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: true },
+        { name: 'multicast_time_to_live', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
+        { name: 'multicast_loopback', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -75,8 +75,8 @@ blink.mojom.DirectTCPServerSocketOptionsSpec = {
       packedSize: 32,
       fields: [
         { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
-        { name: 'backlog', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
-        { name: 'ipv6_only', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'ipv6_only', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'backlog', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -188,11 +188,11 @@ blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec = {
       name: 'blink.mojom.DirectSocketsService.OpenTCPSocket_ResponseParams',
       packedSize: 48,
       fields: [
-        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
-        { name: 'peer_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
-        { name: 'receive_stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'send_stream', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'result', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'local_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
+        { name: 'peer_addr', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
+        { name: 'receive_stream', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'send_stream', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -221,9 +221,9 @@ blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec = {
       name: 'blink.mojom.DirectSocketsService.OpenConnectedUDPSocket_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
-        { name: 'peer_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'local_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
+        { name: 'peer_addr', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -252,8 +252,8 @@ blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec = {
       name: 'blink.mojom.DirectSocketsService.OpenBoundUDPSocket_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'local_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -281,8 +281,8 @@ blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec = {
       name: 'blink.mojom.DirectSocketsService.OpenTCPServerSocket_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'local_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

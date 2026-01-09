@@ -36,9 +36,9 @@ network.mojom.CrossOriginOpenerPolicyReporterParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'report_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CoopAccessReportTypeSpec, nullable: false },
-        { name: 'reported_window_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'reporter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'endpoint_defined', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'reporter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'endpoint_defined', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'reported_window_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

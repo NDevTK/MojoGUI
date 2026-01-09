@@ -163,8 +163,8 @@ ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec = {
       name: 'ui.ozone.mojom.GesturePropertiesService.GetProperty_Params',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -177,8 +177,8 @@ ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec = {
       name: 'ui.ozone.mojom.GesturePropertiesService.GetProperty_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: ui.ozone.mojom.GesturePropValueSpec, nullable: true },
-        { name: 'is_read_only', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_read_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: ui.ozone.mojom.GesturePropValueSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -192,9 +192,9 @@ ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec = {
       name: 'ui.ozone.mojom.GesturePropertiesService.SetProperty_Params',
       packedSize: 32,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: ui.ozone.mojom.GesturePropValueSpec, nullable: false },
-        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: ui.ozone.mojom.GesturePropValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

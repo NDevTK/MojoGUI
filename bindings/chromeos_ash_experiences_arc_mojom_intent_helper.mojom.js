@@ -203,9 +203,9 @@ arc.mojom.ActivityIconSpec = {
       packedSize: 32,
       fields: [
         { name: 'activity', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false },
-        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'icon', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -320,10 +320,10 @@ arc.mojom.CaptionStyleSpec = {
       packedSize: 48,
       fields: [
         { name: 'user_locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'text_color', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.CaptionColorSpec, nullable: true },
-        { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.CaptionColorSpec, nullable: true },
-        { name: 'text_shadow_type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.CaptionTextShadowTypeSpec, nullable: false },
-        { name: 'font_scale', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'font_scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'text_color', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.CaptionColorSpec, nullable: true },
+        { name: 'background_color', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.CaptionColorSpec, nullable: true },
+        { name: 'text_shadow_type', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.CaptionTextShadowTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

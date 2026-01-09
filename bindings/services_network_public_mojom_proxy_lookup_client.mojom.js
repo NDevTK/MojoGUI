@@ -72,8 +72,8 @@ network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec = {
       name: 'network.mojom.ProxyLookupClient.OnProxyLookupComplete_Params',
       packedSize: 24,
       fields: [
-        { name: 'proxy_info', packedOffset: 0, packedBitOffset: 0, type: proxy_resolver.mojom.ProxyInfoSpec, nullable: true },
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'proxy_info', packedOffset: 8, packedBitOffset: 0, type: proxy_resolver.mojom.ProxyInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

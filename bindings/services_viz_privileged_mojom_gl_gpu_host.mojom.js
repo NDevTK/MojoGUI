@@ -385,8 +385,8 @@ viz.mojom.GpuHost_GetIsolationKey_ParamsSpec = {
       name: 'viz.mojom.GpuHost.GetIsolationKey_Params',
       packedSize: 24,
       fields: [
-        { name: 'wgpu_context_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebGPUExecutionContextTokenSpec, nullable: false },
-        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'wgpu_context_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebGPUExecutionContextTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

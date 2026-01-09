@@ -77,9 +77,9 @@ on_device_model.mojom.LoadModelParamsSpec = {
       fields: [
         { name: 'backend_type', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.ModelBackendTypeSpec, nullable: false },
         { name: 'assets', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.ModelAssetsSpec, nullable: false },
-        { name: 'adaptation_ranks', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'performance_hint', packedOffset: 24, packedBitOffset: 0, type: on_device_model.mojom.ModelPerformanceHintSpec, nullable: false },
-        { name: 'max_tokens', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'max_tokens', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'adaptation_ranks', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'performance_hint', packedOffset: 32, packedBitOffset: 0, type: on_device_model.mojom.ModelPerformanceHintSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

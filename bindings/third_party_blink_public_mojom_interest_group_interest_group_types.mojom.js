@@ -171,11 +171,11 @@ blink.mojom.BiddingBrowserSignalsSpec = {
       name: 'blink.mojom.BiddingBrowserSignals',
       packedSize: 40,
       fields: [
-        { name: 'prev_wins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'view_and_click_counts', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ViewAndClickCountsSpec, nullable: false },
-        { name: 'join_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'bid_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'for_debugging_only_in_cooldown_or_lockout', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'join_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'bid_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'prev_wins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'for_debugging_only_in_cooldown_or_lockout', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'view_and_click_counts', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ViewAndClickCountsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -299,8 +299,8 @@ blink.mojom.AuctionReportBuyerDebugModeConfigSpec = {
       name: 'blink.mojom.AuctionReportBuyerDebugModeConfig',
       packedSize: 24,
       fields: [
-        { name: 'debug_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
-        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'debug_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -341,7 +341,7 @@ blink.mojom.AuctionAdConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionAdConfig',
-      packedSize: 88,
+      packedSize: 104,
       fields: [
         { name: 'seller', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'server_response', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AuctionAdServerResponseConfigSpec, nullable: true },
@@ -349,13 +349,13 @@ blink.mojom.AuctionAdConfigSpec = {
         { name: 'trusted_scoring_signals_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'auction_ad_config_non_shared_params', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigNonSharedParamsSpec, nullable: false },
         { name: 'direct_from_seller_signals', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec, nullable: false },
-        { name: 'per_buyer_experiment_group_ids', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'aggregation_coordinator_origin', packedOffset: 56, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
-        { name: 'seller_experiment_group_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
-        { name: 'all_buyer_experiment_group_id', packedOffset: 66, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
-        { name: 'expects_direct_from_seller_signals_header_ad_slot', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'expects_additional_bids', packedOffset: 68, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'send_creative_scanning_metadata', packedOffset: 68, packedBitOffset: 2, type: mojo.internal.Bool, nullable: true },
+        { name: 'expects_direct_from_seller_signals_header_ad_slot', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'seller_experiment_group_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
+        { name: 'all_buyer_experiment_group_id', packedOffset: 58, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
+        { name: 'per_buyer_experiment_group_ids', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'expects_additional_bids', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'aggregation_coordinator_origin', packedOffset: 80, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
+        { name: 'send_creative_scanning_metadata', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }

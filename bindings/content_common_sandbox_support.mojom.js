@@ -192,14 +192,14 @@ content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SandboxSupport.DigitsAndSigns_ResponseParams',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
-        { name: 'digits', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'decimal', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'thousand', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'negative_sign', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'digit_substitution', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'negnumber', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'digit_substitution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'digits', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'decimal', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'thousand', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'negative_sign', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'negnumber', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -213,9 +213,9 @@ content.mojom.SandboxSupport_LocaleString_ParamsSpec = {
       name: 'content.mojom.SandboxSupport.LocaleString_Params',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.LcTypeStringSpec, nullable: false },
-        { name: 'lcid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'defaults', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'defaults', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: content.mojom.LcTypeStringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -242,9 +242,9 @@ content.mojom.SandboxSupport_LocaleStrings_ParamsSpec = {
       name: 'content.mojom.SandboxSupport.LocaleStrings_Params',
       packedSize: 32,
       fields: [
-        { name: 'collection', packedOffset: 0, packedBitOffset: 0, type: content.mojom.LcTypeStringsSpec, nullable: false },
-        { name: 'lcid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'defaults', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'defaults', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'collection', packedOffset: 16, packedBitOffset: 0, type: content.mojom.LcTypeStringsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

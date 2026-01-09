@@ -95,8 +95,8 @@ shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec
       name: 'shape_detection.mojom.BarcodeDetectionProvider.CreateBarcodeDetection_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: shape_detection.mojom.BarcodeDetectorOptionsSpec, nullable: false },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: shape_detection.mojom.BarcodeDetectorOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

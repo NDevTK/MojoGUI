@@ -297,9 +297,9 @@ media.mojom.MediaMetricsProvider_Initialize_ParamsSpec = {
       name: 'media.mojom.MediaMetricsProvider.Initialize_Params',
       packedSize: 32,
       fields: [
-        { name: 'url_scheme', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaURLSchemeSpec, nullable: false },
-        { name: 'stream_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.MediaStreamTypeSpec, nullable: false },
-        { name: 'is_mse', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_mse', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'url_scheme', packedOffset: 8, packedBitOffset: 0, type: media.mojom.MediaURLSchemeSpec, nullable: false },
+        { name: 'stream_type', packedOffset: 16, packedBitOffset: 0, type: media.mojom.MediaStreamTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

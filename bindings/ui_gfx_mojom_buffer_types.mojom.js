@@ -67,9 +67,9 @@ gfx.mojom.GpuMemoryBufferHandleSpec = {
       name: 'gfx.mojom.GpuMemoryBufferHandle',
       packedSize: 24,
       fields: [
-        { name: 'platform_handle', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferPlatformHandleSpec, nullable: true },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'stride', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'stride', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'platform_handle', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferPlatformHandleSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -488,8 +488,8 @@ ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec = {
       name: 'ash.nearby.presence.mojom.NearbyPresence.StartScan_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false },
-        { name: 'scan_session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'scan_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -19,11 +19,11 @@ most_visited.mojom.MostVisitedTileSpec = {
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'title_direction', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false },
         { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: ntp_tiles.mojom.TileSourceSpec, nullable: false },
-        { name: 'title_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_query_tile', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_user_edit', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_user_delete', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_query_tile', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_user_edit', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_user_delete', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'source', packedOffset: 32, packedBitOffset: 0, type: ntp_tiles.mojom.TileSourceSpec, nullable: false },
+        { name: 'title_source', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -53,10 +53,10 @@ most_visited.mojom.MostVisitedInfoSpec = {
       name: 'most_visited.mojom.MostVisitedInfo',
       packedSize: 24,
       fields: [
-        { name: 'tiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'custom_links_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'enterprise_shortcuts_enabled', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'visible', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'custom_links_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enterprise_shortcuts_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'tiles', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

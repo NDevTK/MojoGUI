@@ -30,9 +30,9 @@ font_service.mojom.TypefaceStyleSpec = {
       name: 'font_service.mojom.TypefaceStyle',
       packedSize: 24,
       fields: [
-        { name: 'slant', packedOffset: 0, packedBitOffset: 0, type: font_service.mojom.TypefaceSlantSpec, nullable: false },
-        { name: 'weight', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'width', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'weight', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'width', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'slant', packedOffset: 8, packedBitOffset: 0, type: font_service.mojom.TypefaceSlantSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -46,9 +46,9 @@ font_service.mojom.FontIdentitySpec = {
       name: 'font_service.mojom.FontIdentity',
       packedSize: 24,
       fields: [
-        { name: 'filepath', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'ttc_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'ttc_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'filepath', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -65,10 +65,10 @@ font_service.mojom.FontRenderStyleSpec = {
         { name: 'use_bitmaps', packedOffset: 0, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false },
         { name: 'use_autohint', packedOffset: 8, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false },
         { name: 'use_hinting', packedOffset: 16, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false },
-        { name: 'use_antialias', packedOffset: 24, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false },
-        { name: 'use_subpixel_rendering', packedOffset: 32, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false },
-        { name: 'use_subpixel_positioning', packedOffset: 40, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false },
-        { name: 'hint_style', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'hint_style', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'use_antialias', packedOffset: 32, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false },
+        { name: 'use_subpixel_rendering', packedOffset: 40, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false },
+        { name: 'use_subpixel_positioning', packedOffset: 48, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -249,8 +249,8 @@ font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec = {
       name: 'font_service.mojom.FontService.FallbackFontForCharacter_Params',
       packedSize: 24,
       fields: [
-        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'character', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'character', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'locale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -282,9 +282,9 @@ font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec = {
       fields: [
         { name: 'family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'device_scale_factor', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'is_italic', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_bold', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_italic', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_bold', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'device_scale_factor', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -365,10 +365,10 @@ font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'charset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'fallback_family_type', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'is_bold', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_italic', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_bold', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_italic', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'charset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'fallback_family_type', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

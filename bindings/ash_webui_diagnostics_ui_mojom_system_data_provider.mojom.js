@@ -63,11 +63,11 @@ ash.diagnostics.mojom.SystemInfoSpec = {
         { name: 'board_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'marketing_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'cpu_model_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'version_info', packedOffset: 24, packedBitOffset: 0, type: ash.diagnostics.mojom.VersionInfoSpec, nullable: false },
-        { name: 'device_capabilities', packedOffset: 32, packedBitOffset: 0, type: ash.diagnostics.mojom.DeviceCapabilitiesSpec, nullable: false },
-        { name: 'total_memory_kib', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'cpu_max_clock_speed_khz', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'cpu_threads_count', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'total_memory_kib', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'cpu_threads_count', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'cpu_max_clock_speed_khz', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'version_info', packedOffset: 40, packedBitOffset: 0, type: ash.diagnostics.mojom.VersionInfoSpec, nullable: false },
+        { name: 'device_capabilities', packedOffset: 48, packedBitOffset: 0, type: ash.diagnostics.mojom.DeviceCapabilitiesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -97,10 +97,10 @@ ash.diagnostics.mojom.BatteryChargeStatusSpec = {
       packedSize: 40,
       fields: [
         { name: 'power_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'battery_state', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.BatteryStateSpec, nullable: false },
-        { name: 'power_adapter_status', packedOffset: 16, packedBitOffset: 0, type: ash.diagnostics.mojom.ExternalPowerSourceSpec, nullable: false },
-        { name: 'current_now_milliamps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'charge_now_milliamp_hours', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'current_now_milliamps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'charge_now_milliamp_hours', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'battery_state', packedOffset: 16, packedBitOffset: 0, type: ash.diagnostics.mojom.BatteryStateSpec, nullable: false },
+        { name: 'power_adapter_status', packedOffset: 24, packedBitOffset: 0, type: ash.diagnostics.mojom.ExternalPowerSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,11 +147,11 @@ ash.diagnostics.mojom.CpuUsageSpec = {
       name: 'ash.diagnostics.mojom.CpuUsage',
       packedSize: 24,
       fields: [
-        { name: 'scaling_current_frequency_khz', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'percent_usage_user', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'percent_usage_system', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'percent_usage_free', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
         { name: 'average_cpu_temp_celsius', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'percent_usage_user', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'percent_usage_system', packedOffset: 7, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'percent_usage_free', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'scaling_current_frequency_khz', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

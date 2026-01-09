@@ -16,8 +16,8 @@ content.mojom.LoggingSettingsSpec = {
       name: 'content.mojom.LoggingSettings',
       packedSize: 24,
       fields: [
-        { name: 'log_file_descriptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'logging_dest', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'logging_dest', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'log_file_descriptor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

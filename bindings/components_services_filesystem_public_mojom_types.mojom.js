@@ -30,8 +30,8 @@ filesystem.mojom.TimespecOrNowSpec = {
       name: 'filesystem.mojom.TimespecOrNow',
       packedSize: 24,
       fields: [
-        { name: 'seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'now', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'now', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'seconds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }

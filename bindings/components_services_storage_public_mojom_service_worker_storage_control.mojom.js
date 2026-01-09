@@ -38,9 +38,9 @@ storage.mojom.ServiceWorkerFindRegistrationResultSpec = {
       name: 'storage.mojom.ServiceWorkerFindRegistrationResult',
       packedSize: 32,
       fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerRegistrationDataSpec, nullable: false },
-        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'version_reference', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'version_reference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'registration', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerRegistrationDataSpec, nullable: false },
+        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -208,9 +208,9 @@ storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec = 
       name: 'storage.mojom.ServiceWorkerResourceReader.ReadResponseHead_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'response_head', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: true },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'response_head', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: true },
+        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

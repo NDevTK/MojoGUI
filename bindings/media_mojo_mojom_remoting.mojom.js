@@ -912,8 +912,8 @@ media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec = {
       name: 'media.mojom.RemotingDataStreamReceiver.ReceiveFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false },
-        { name: 'frame_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

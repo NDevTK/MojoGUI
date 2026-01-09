@@ -24,8 +24,8 @@ service_manager.mojom.RunningServiceInfoSpec = {
       packedSize: 32,
       fields: [
         { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.InstanceStateSpec, nullable: false },
-        { name: 'pid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: service_manager.mojom.InstanceStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

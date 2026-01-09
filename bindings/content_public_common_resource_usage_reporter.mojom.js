@@ -52,10 +52,10 @@ content.mojom.ResourceUsageDataSpec = {
       name: 'content.mojom.ResourceUsageData',
       packedSize: 40,
       fields: [
-        { name: 'v8_bytes_allocated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'v8_bytes_used', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'web_cache_stats', packedOffset: 16, packedBitOffset: 0, type: content.mojom.ResourceTypeStatsSpec, nullable: true },
-        { name: 'reports_v8_stats', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'reports_v8_stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'v8_bytes_allocated', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'v8_bytes_used', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'web_cache_stats', packedOffset: 24, packedBitOffset: 0, type: content.mojom.ResourceTypeStatsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

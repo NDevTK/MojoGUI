@@ -367,11 +367,11 @@ blink.mojom.ContentSecurityPolicyIssueDetailsSpec = {
       fields: [
         { name: 'blocked_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'violated_directive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'content_security_policy_violation_type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ContentSecurityPolicyViolationTypeSpec, nullable: false },
-        { name: 'frame_ancestor', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AffectedFrameSpec, nullable: true },
-        { name: 'affected_location', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AffectedLocationSpec, nullable: true },
-        { name: 'violating_node_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_report_only', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_report_only', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'content_security_policy_violation_type', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ContentSecurityPolicyViolationTypeSpec, nullable: false },
+        { name: 'frame_ancestor', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AffectedFrameSpec, nullable: true },
+        { name: 'affected_location', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AffectedLocationSpec, nullable: true },
+        { name: 'violating_node_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -406,8 +406,8 @@ blink.mojom.SharedArrayBufferIssueDetailsSpec = {
       packedSize: 32,
       fields: [
         { name: 'affected_location', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AffectedLocationSpec, nullable: true },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SharedArrayBufferIssueTypeSpec, nullable: false },
-        { name: 'is_warning', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_warning', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SharedArrayBufferIssueTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -419,15 +419,15 @@ blink.mojom.LowTextContrastIssueSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LowTextContrastIssue',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
-        { name: 'violating_node_selector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'font_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'font_weight', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'violating_node_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'contrast_ratio', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'threshold_aa', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'threshold_aaa', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'violating_node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'violating_node_selector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'contrast_ratio', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'threshold_aa', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'threshold_aaa', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'font_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'font_weight', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -499,9 +499,9 @@ blink.mojom.CookieDeprecationMetadataIssueDetailsSpec = {
       packedSize: 40,
       fields: [
         { name: 'allowed_sites', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'operation', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CookieOperationSpec, nullable: false },
-        { name: 'opt_out_percentage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'is_opt_out_top_level', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'opt_out_percentage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'is_opt_out_top_level', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'operation', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.CookieOperationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -517,8 +517,8 @@ blink.mojom.GenericIssueDetailsSpec = {
       fields: [
         { name: 'error_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GenericIssueErrorTypeSpec, nullable: false },
         { name: 'frame_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'violating_node_attribute', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'violating_node_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'violating_node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'violating_node_attribute', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }

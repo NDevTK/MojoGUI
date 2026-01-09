@@ -90,9 +90,9 @@ blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec = {
       name: 'blink.mojom.DedicatedWorkerHostFactoryClient.OnWorkerHostCreated_Params',
       packedSize: 24,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'browser_interface_broker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'host', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'browser_interface_broker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'host', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,16 +104,16 @@ blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DedicatedWorkerHostFactoryClient.OnScriptLoadStarted_Params',
-      packedSize: 56,
+      packedSize: 64,
       fields: [
         { name: 'service_worker_container_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerContainerInfoForClientSpec, nullable: true },
         { name: 'main_script_load_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WorkerMainScriptLoadParamsSpec, nullable: false },
         { name: 'subresource_loader_factories', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.URLLoaderFactoryBundleSpec, nullable: false },
-        { name: 'controller_info', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerInfoSpec, nullable: true },
-        { name: 'subresource_loader_updater', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'back_forward_cache_controller_host', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'coep_reporting_observer_receiver', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
-        { name: 'dip_reporting_observer_receiver', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'subresource_loader_updater', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'controller_info', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerInfoSpec, nullable: true },
+        { name: 'back_forward_cache_controller_host', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'coep_reporting_observer_receiver', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'dip_reporting_observer_receiver', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -205,9 +205,9 @@ blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_Params
         { name: 'script_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'credentials_mode', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CredentialsModeSpec, nullable: false },
         { name: 'outside_fetch_client_settings_object', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.FetchClientSettingsObjectSpec, nullable: false },
-        { name: 'storage_access_api_status', packedOffset: 32, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false },
-        { name: 'blob_url_token', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'client', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'blob_url_token', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'client', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'storage_access_api_status', packedOffset: 40, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

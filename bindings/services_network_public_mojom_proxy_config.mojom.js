@@ -65,13 +65,13 @@ network.mojom.ProxyRulesSpec = {
       packedSize: 72,
       fields: [
         { name: 'bypass_rules', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxyHostMatchingRulesSpec, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ProxyRulesTypeSpec, nullable: false },
-        { name: 'single_proxies', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false },
-        { name: 'proxies_for_http', packedOffset: 24, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false },
-        { name: 'proxies_for_https', packedOffset: 32, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false },
-        { name: 'proxies_for_ftp', packedOffset: 40, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false },
-        { name: 'fallback_proxies', packedOffset: 48, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false },
-        { name: 'reverse_bypass', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'reverse_bypass', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ProxyRulesTypeSpec, nullable: false },
+        { name: 'single_proxies', packedOffset: 24, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false },
+        { name: 'proxies_for_http', packedOffset: 32, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false },
+        { name: 'proxies_for_https', packedOffset: 40, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false },
+        { name: 'proxies_for_ftp', packedOffset: 48, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false },
+        { name: 'fallback_proxies', packedOffset: 56, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -115,14 +115,14 @@ network.mojom.ProxyConfigSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyConfig',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
         { name: 'proxy_override_rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'pac_url', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false },
-        { name: 'proxy_rules', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ProxyRulesSpec, nullable: false },
-        { name: 'auto_detect', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'from_system', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'pac_mandatory', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'auto_detect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'from_system', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'pac_url', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false },
+        { name: 'pac_mandatory', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'proxy_rules', packedOffset: 32, packedBitOffset: 0, type: network.mojom.ProxyRulesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

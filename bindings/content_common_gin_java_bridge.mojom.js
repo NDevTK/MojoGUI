@@ -103,8 +103,8 @@ content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'origin_matcher', packedOffset: 8, packedBitOffset: 0, type: origin_matcher.mojom.OriginMatcherSpec, nullable: false },
-        { name: 'object_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'object_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'origin_matcher', packedOffset: 16, packedBitOffset: 0, type: origin_matcher.mojom.OriginMatcherSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

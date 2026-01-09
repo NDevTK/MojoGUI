@@ -28,20 +28,20 @@ app_home.mojom.AppInfoSpec = {
   $: {
     structSpec: {
       name: 'app_home.mojom.AppInfo',
-      packedSize: 72,
+      packedSize: 80,
       fields: [
         { name: 'app_type', packedOffset: 0, packedBitOffset: 0, type: app_home.mojom.AppTypeSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'start_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'icon_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'run_on_os_login_mode', packedOffset: 40, packedBitOffset: 0, type: app_home.mojom.RunOnOsLoginModeSpec, nullable: false },
-        { name: 'store_page_url', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'may_show_run_on_os_login_mode', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'may_toggle_run_on_os_login_mode', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_locally_installed', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'open_in_window', packedOffset: 56, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'may_uninstall', packedOffset: 56, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'may_show_run_on_os_login_mode', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'may_toggle_run_on_os_login_mode', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'run_on_os_login_mode', packedOffset: 48, packedBitOffset: 0, type: app_home.mojom.RunOnOsLoginModeSpec, nullable: false },
+        { name: 'is_locally_installed', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'open_in_window', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'may_uninstall', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'store_page_url', packedOffset: 64, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -354,8 +354,8 @@ media.mojom.VideoCaptureFormatSpec = {
       packedSize: 32,
       fields: [
         { name: 'frame_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'pixel_format', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCapturePixelFormatSpec, nullable: false },
-        { name: 'frame_rate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'frame_rate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'pixel_format', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCapturePixelFormatSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -373,9 +373,9 @@ media.mojom.VideoCaptureParamsSpec = {
         { name: 'buffer_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureBufferTypeSpec, nullable: false },
         { name: 'resolution_change_policy', packedOffset: 16, packedBitOffset: 0, type: media.mojom.ResolutionChangePolicySpec, nullable: false },
         { name: 'power_line_frequency', packedOffset: 24, packedBitOffset: 0, type: media.mojom.PowerLineFrequencySpec, nullable: false },
-        { name: 'capture_version_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'enable_face_detection', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_high_dpi_enabled', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_face_detection', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_high_dpi_enabled', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'capture_version_source', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -387,15 +387,15 @@ media.mojom.VideoCaptureFeedbackSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureFeedback',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
         { name: 'resource_utilization', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'DEPRECATED_mapped_sizes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'max_framerate_fps', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'max_pixels', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'require_mapped_frame', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_frame_id', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'max_framerate_fps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'max_pixels', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'require_mapped_frame', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'DEPRECATED_mapped_sizes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'frame_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'has_frame_id', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

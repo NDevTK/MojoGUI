@@ -16,12 +16,12 @@ viz.mojom.FrameSinkManagerParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerParams',
       packedSize: 40,
       fields: [
-        { name: 'debug_renderer_settings', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.DebugRendererSettingsSpec, nullable: false },
-        { name: 'restart_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'restart_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'use_activation_deadline', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'activation_deadline_in_frames', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'frame_sink_manager', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'frame_sink_manager_client', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'use_activation_deadline', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'debug_renderer_settings', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.DebugRendererSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -191,12 +191,12 @@ viz.mojom.VizMain_CreateGpuService_ParamsSpec = {
       name: 'viz.mojom.VizMain.CreateGpuService_Params',
       packedSize: 40,
       fields: [
-        { name: 'use_shader_cache_shm_count', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true },
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.GpuServiceCreationParamsSpec, nullable: false },
-        { name: 'gpu_service', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'gpu_host', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'gpu_logging', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'discardable_memory_manager', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'gpu_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'gpu_host', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'gpu_logging', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'discardable_memory_manager', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'use_shader_cache_shm_count', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true },
+        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.GpuServiceCreationParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

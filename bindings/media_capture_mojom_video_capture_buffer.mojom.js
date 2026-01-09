@@ -21,9 +21,9 @@ media.mojom.VideoFrameInfoSpec = {
         { name: 'pixel_format', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCapturePixelFormatSpec, nullable: false },
         { name: 'coded_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'visible_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'color_space', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: false },
-        { name: 'strides', packedOffset: 48, packedBitOffset: 0, type: media.mojom.PlaneStridesSpec, nullable: true },
-        { name: 'is_premapped', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_premapped', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'color_space', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: false },
+        { name: 'strides', packedOffset: 56, packedBitOffset: 0, type: media.mojom.PlaneStridesSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -37,8 +37,8 @@ media.mojom.ReadyBufferSpec = {
       name: 'media.mojom.ReadyBuffer',
       packedSize: 24,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false },
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

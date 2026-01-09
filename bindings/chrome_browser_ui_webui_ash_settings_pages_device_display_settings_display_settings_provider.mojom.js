@@ -46,15 +46,15 @@ ash.settings.mojom.DisplaySettingsValueSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.DisplaySettingsValue',
-      packedSize: 40,
+      packedSize: 56,
       fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
-        { name: 'orientation', packedOffset: 8, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsOrientationOptionSpec, nullable: true },
-        { name: 'night_light_schedule', packedOffset: 16, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec, nullable: true },
-        { name: 'is_internal_display', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
-        { name: 'night_light_status', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: true },
-        { name: 'mirror_mode_status', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: true },
-        { name: 'unified_mode_status', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_internal_display', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
+        { name: 'orientation', packedOffset: 16, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsOrientationOptionSpec, nullable: true },
+        { name: 'night_light_status', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'night_light_schedule', packedOffset: 32, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec, nullable: true },
+        { name: 'mirror_mode_status', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'unified_mode_status', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }

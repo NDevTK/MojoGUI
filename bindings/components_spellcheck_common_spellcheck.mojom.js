@@ -38,9 +38,9 @@ spellcheck.mojom.SpellCheckResultSpec = {
       packedSize: 40,
       fields: [
         { name: 'decoration', packedOffset: 0, packedBitOffset: 0, type: spellcheck.mojom.DecorationSpec, nullable: false },
-        { name: 'replacements', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'replacements', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'should_hide_suggestion_menu', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -368,8 +368,8 @@ spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec = {
       name: 'spellcheck.mojom.SpellCheckHost.CallSpellingService_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

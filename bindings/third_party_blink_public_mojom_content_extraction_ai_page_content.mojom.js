@@ -139,11 +139,11 @@ blink.mojom.AIPageContentSelectionSpec = {
       name: 'blink.mojom.AIPageContentSelection',
       packedSize: 32,
       fields: [
-        { name: 'selected_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'start_dom_node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'start_offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'end_dom_node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'end_offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'start_dom_node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'start_offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'end_dom_node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'end_offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'selected_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -157,9 +157,9 @@ blink.mojom.AIPageContentPageInteractionInfoSpec = {
       name: 'blink.mojom.AIPageContentPageInteractionInfo',
       packedSize: 24,
       fields: [
-        { name: 'mouse_position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: true },
-        { name: 'focused_dom_node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
-        { name: 'accessibility_focused_dom_node_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'focused_dom_node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'accessibility_focused_dom_node_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'mouse_position', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -185,14 +185,14 @@ blink.mojom.AIPageContentNodeInteractionInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentNodeInteractionInfo',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
         { name: 'scroller_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIPageContentScrollerInfoSpec, nullable: true },
-        { name: 'clickability_reasons', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'interaction_disabled_reasons', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'document_scoped_z_order', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
-        { name: 'is_focusable', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_disabled', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_focusable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'document_scoped_z_order', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'clickability_reasons', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_disabled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'interaction_disabled_reasons', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -224,8 +224,8 @@ blink.mojom.AIPageContentTextStyleSpec = {
       packedSize: 32,
       fields: [
         { name: 'text_size', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIPageContentTextSizeSpec, nullable: false },
-        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'has_emphasis', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_emphasis', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -345,9 +345,9 @@ blink.mojom.AIPageContentFrameDataSpec = {
         { name: 'frame_interaction_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIPageContentFrameInteractionInfoSpec, nullable: false },
         { name: 'meta_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'script_tools', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'popup', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AIPageContentPopupSpec, nullable: true },
-        { name: 'contains_paid_content', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'contains_paid_content', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'script_tools', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'popup', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AIPageContentPopupSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -455,9 +455,9 @@ blink.mojom.AIPageContentFormControlDataSpec = {
         { name: 'field_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'select_options', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'placeholder', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'redaction_decision', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AIPageContentRedactionDecisionSpec, nullable: false },
-        { name: 'is_checked', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_required', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_checked', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_required', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'redaction_decision', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.AIPageContentRedactionDecisionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -469,28 +469,28 @@ blink.mojom.AIPageContentAttributesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentAttributes',
-      packedSize: 160,
+      packedSize: 168,
       fields: [
-        { name: 'attribute_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIPageContentAttributeTypeSpec, nullable: false },
-        { name: 'geometry', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AIPageContentGeometrySpec, nullable: true },
-        { name: 'node_interaction_info', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AIPageContentNodeInteractionInfoSpec, nullable: true },
-        { name: 'text_info', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AIPageContentTextInfoSpec, nullable: true },
-        { name: 'image_info', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AIPageContentImageInfoSpec, nullable: true },
-        { name: 'svg_root_data', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AIPageContentSvgRootDataSpec, nullable: true },
-        { name: 'canvas_data', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.AIPageContentCanvasDataSpec, nullable: true },
-        { name: 'video_data', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.AIPageContentVideoDataSpec, nullable: true },
-        { name: 'anchor_data', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.AIPageContentAnchorDataSpec, nullable: true },
-        { name: 'form_data', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.AIPageContentFormDataSpec, nullable: true },
-        { name: 'form_control_data', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.AIPageContentFormControlDataSpec, nullable: true },
-        { name: 'table_data', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.AIPageContentTableDataSpec, nullable: true },
-        { name: 'iframe_data', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.AIPageContentIframeDataSpec, nullable: true },
-        { name: 'table_row_data', packedOffset: 104, packedBitOffset: 0, type: blink.mojom.AIPageContentTableRowDataSpec, nullable: true },
-        { name: 'annotated_roles', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'label', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'aria_role', packedOffset: 128, packedBitOffset: 0, type: ax.mojom.RoleSpec, nullable: true },
-        { name: 'dom_node_id', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
-        { name: 'label_for_dom_node_id', packedOffset: 140, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
-        { name: 'is_ad_related', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'dom_node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'attribute_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AIPageContentAttributeTypeSpec, nullable: false },
+        { name: 'geometry', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AIPageContentGeometrySpec, nullable: true },
+        { name: 'node_interaction_info', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AIPageContentNodeInteractionInfoSpec, nullable: true },
+        { name: 'text_info', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AIPageContentTextInfoSpec, nullable: true },
+        { name: 'image_info', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AIPageContentImageInfoSpec, nullable: true },
+        { name: 'svg_root_data', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.AIPageContentSvgRootDataSpec, nullable: true },
+        { name: 'canvas_data', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.AIPageContentCanvasDataSpec, nullable: true },
+        { name: 'video_data', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.AIPageContentVideoDataSpec, nullable: true },
+        { name: 'anchor_data', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.AIPageContentAnchorDataSpec, nullable: true },
+        { name: 'form_data', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.AIPageContentFormDataSpec, nullable: true },
+        { name: 'form_control_data', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.AIPageContentFormControlDataSpec, nullable: true },
+        { name: 'table_data', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.AIPageContentTableDataSpec, nullable: true },
+        { name: 'iframe_data', packedOffset: 104, packedBitOffset: 0, type: blink.mojom.AIPageContentIframeDataSpec, nullable: true },
+        { name: 'table_row_data', packedOffset: 112, packedBitOffset: 0, type: blink.mojom.AIPageContentTableRowDataSpec, nullable: true },
+        { name: 'annotated_roles', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'label', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'aria_role', packedOffset: 136, packedBitOffset: 0, type: ax.mojom.RoleSpec, nullable: true },
+        { name: 'label_for_dom_node_id', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'is_ad_related', packedOffset: 148, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -520,8 +520,8 @@ blink.mojom.AIPageContentPopupSpec = {
       packedSize: 32,
       fields: [
         { name: 'root_node', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIPageContentNodeSpec, nullable: false },
-        { name: 'visible_bounding_box', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'opener_dom_node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'opener_dom_node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'visible_bounding_box', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -550,14 +550,14 @@ blink.mojom.AIPageContentOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIPageContentOptions',
-      packedSize: 40,
+      packedSize: 56,
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIPageContentModeSpec, nullable: false },
-        { name: 'main_frame_view_rect_in_dips', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'on_critical_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'max_meta_elements', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'on_critical_path', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'include_same_site_only', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'include_passwords_for_redaction', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'include_same_site_only', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'main_frame_view_rect_in_dips', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'include_passwords_for_redaction', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

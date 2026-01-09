@@ -85,8 +85,8 @@ compose.mojom.ComposeStateSpec = {
       fields: [
         { name: 'webui_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'response', packedOffset: 8, packedBitOffset: 0, type: compose.mojom.ComposeResponseSpec, nullable: true },
-        { name: 'feedback', packedOffset: 16, packedBitOffset: 0, type: compose.mojom.UserFeedbackSpec, nullable: false },
-        { name: 'has_pending_request', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_pending_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'feedback', packedOffset: 24, packedBitOffset: 0, type: compose.mojom.UserFeedbackSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -114,14 +114,14 @@ compose.mojom.OpenMetadataSpec = {
   $: {
     structSpec: {
       name: 'compose.mojom.OpenMetadata',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
-        { name: 'initial_input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'compose_state', packedOffset: 8, packedBitOffset: 0, type: compose.mojom.ComposeStateSpec, nullable: false },
-        { name: 'configurable_params', packedOffset: 16, packedBitOffset: 0, type: compose.mojom.ConfigurableParamsSpec, nullable: false },
-        { name: 'fre_complete', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'msbb_state', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'text_selected', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'fre_complete', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'msbb_state', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'initial_input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'text_selected', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'compose_state', packedOffset: 24, packedBitOffset: 0, type: compose.mojom.ComposeStateSpec, nullable: false },
+        { name: 'configurable_params', packedOffset: 32, packedBitOffset: 0, type: compose.mojom.ConfigurableParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

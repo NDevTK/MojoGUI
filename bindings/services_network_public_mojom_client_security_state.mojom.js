@@ -26,10 +26,10 @@ network.mojom.ClientSecurityStateSpec = {
       packedSize: 48,
       fields: [
         { name: 'cross_origin_embedder_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false },
-        { name: 'ip_address_space', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
-        { name: 'private_network_request_policy', packedOffset: 16, packedBitOffset: 0, type: network.mojom.PrivateNetworkRequestPolicySpec, nullable: false },
-        { name: 'document_isolation_policy', packedOffset: 24, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false },
-        { name: 'is_web_secure_context', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_web_secure_context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ip_address_space', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
+        { name: 'private_network_request_policy', packedOffset: 24, packedBitOffset: 0, type: network.mojom.PrivateNetworkRequestPolicySpec, nullable: false },
+        { name: 'document_isolation_policy', packedOffset: 32, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

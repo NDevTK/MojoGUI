@@ -752,8 +752,8 @@ autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec = {
       name: 'autofill.mojom.PasswordAutofillAgent.FillIntoFocusedField_Params',
       packedSize: 24,
       fields: [
-        { name: 'credential', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'is_password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }

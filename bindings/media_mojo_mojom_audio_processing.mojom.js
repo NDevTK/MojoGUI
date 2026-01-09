@@ -14,12 +14,12 @@ media.mojom.AudioProcessingStatsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioProcessingStats',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'echo_return_loss', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'echo_return_loss_enhancement', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_echo_return_loss', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_echo_return_loss_enhancement', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_echo_return_loss', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'echo_return_loss', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'has_echo_return_loss_enhancement', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'echo_return_loss_enhancement', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -51,8 +51,8 @@ media.mojom.AudioProcessingConfigSpec = {
       name: 'media.mojom.AudioProcessingConfig',
       packedSize: 24,
       fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioProcessingSettingsSpec, nullable: false },
-        { name: 'controls_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'controls_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioProcessingSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

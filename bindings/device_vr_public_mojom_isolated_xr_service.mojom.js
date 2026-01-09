@@ -19,11 +19,11 @@ device.mojom.XRRuntimeSessionOptionsSpec = {
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRSessionModeSpec, nullable: false },
         { name: 'required_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'optional_features', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'tracked_images', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'depth_options', packedOffset: 32, packedBitOffset: 0, type: device.mojom.XRDepthOptionsSpec, nullable: true },
-        { name: 'trace_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'render_process_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'render_frame_id', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'render_process_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'render_frame_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tracked_images', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'depth_options', packedOffset: 40, packedBitOffset: 0, type: device.mojom.XRDepthOptionsSpec, nullable: true },
+        { name: 'trace_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -35,12 +35,12 @@ device.mojom.XRRuntimeSessionResultSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRuntimeSessionResult',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRSessionSpec, nullable: false },
-        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: true },
-        { name: 'controller', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'overlay', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRSessionSpec, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: true },
+        { name: 'overlay', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -484,11 +484,11 @@ device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec = {
       name: 'device.mojom.ImmersiveOverlay.SubmitOverlayTexture_Params',
       packedSize: 48,
       fields: [
-        { name: 'texture', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false },
-        { name: 'sync_token', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false },
-        { name: 'left_bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
-        { name: 'right_bounds', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
-        { name: 'frame_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'texture', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false },
+        { name: 'sync_token', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false },
+        { name: 'left_bounds', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
+        { name: 'right_bounds', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -622,9 +622,9 @@ device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec = {
       name: 'device.mojom.IsolatedXRRuntimeProviderClient.OnDeviceAdded_Params',
       packedSize: 32,
       fields: [
-        { name: 'device_data', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRDeviceDataSpec, nullable: false },
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRDeviceIdSpec, nullable: false },
-        { name: 'runtime', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'runtime', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'device_data', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRDeviceDataSpec, nullable: false },
+        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: device.mojom.XRDeviceIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

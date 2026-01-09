@@ -266,8 +266,8 @@ webui_browser.mojom.Page_ShowSidePanel_ParamsSpec = {
       name: 'webui_browser.mojom.Page.ShowSidePanel_Params',
       packedSize: 24,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -294,8 +294,8 @@ webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec = {
       name: 'webui_browser.mojom.Page.OnFullscreenModeChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: webui_browser.mojom.FullscreenContextSpec, nullable: true },
-        { name: 'is_fullscreen', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_fullscreen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: webui_browser.mojom.FullscreenContextSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

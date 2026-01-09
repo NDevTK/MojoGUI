@@ -95,14 +95,14 @@ ash.hotspot_config.mojom.HotspotConfigSpec = {
   $: {
     structSpec: {
       name: 'ash.hotspot_config.mojom.HotspotConfig',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
-        { name: 'security', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.WiFiSecurityModeSpec, nullable: false },
-        { name: 'band', packedOffset: 8, packedBitOffset: 0, type: ash.hotspot_config.mojom.WiFiBandSpec, nullable: false },
-        { name: 'ssid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'passphrase', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'auto_disable', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'bssid_randomization', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'auto_disable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'security', packedOffset: 8, packedBitOffset: 0, type: ash.hotspot_config.mojom.WiFiSecurityModeSpec, nullable: false },
+        { name: 'band', packedOffset: 16, packedBitOffset: 0, type: ash.hotspot_config.mojom.WiFiBandSpec, nullable: false },
+        { name: 'ssid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'passphrase', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'bssid_randomization', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -117,10 +117,10 @@ ash.hotspot_config.mojom.HotspotInfoSpec = {
       packedSize: 48,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotStateSpec, nullable: false },
-        { name: 'allow_status', packedOffset: 8, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotAllowStatusSpec, nullable: false },
-        { name: 'allowed_wifi_security_modes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'config', packedOffset: 24, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotConfigSpec, nullable: true },
-        { name: 'client_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'client_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'allow_status', packedOffset: 16, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotAllowStatusSpec, nullable: false },
+        { name: 'allowed_wifi_security_modes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'config', packedOffset: 32, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotConfigSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

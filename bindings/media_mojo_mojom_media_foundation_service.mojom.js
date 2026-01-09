@@ -169,8 +169,8 @@ media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec = {
       name: 'media.mojom.MediaFoundationService.IsKeySystemSupported_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'key_system_capability', packedOffset: 0, packedBitOffset: 0, type: media.mojom.KeySystemCapabilitySpec, nullable: false },
-        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'key_system_capability', packedOffset: 8, packedBitOffset: 0, type: media.mojom.KeySystemCapabilitySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

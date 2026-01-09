@@ -140,20 +140,20 @@ arc.mojom.PrintJobRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PrintJobRequest',
-      packedSize: 96,
+      packedSize: 104,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'printer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'creation_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'pages', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'attributes', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.PrintAttributesSpec, nullable: false },
-        { name: 'document_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'content_type', packedOffset: 56, packedBitOffset: 0, type: arc.mojom.PrintContentTypeSpec, nullable: false },
-        { name: 'data_size', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'copies', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'document_page_count', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'data', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true },
+        { name: 'copies', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'pages', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'attributes', packedOffset: 48, packedBitOffset: 0, type: arc.mojom.PrintAttributesSpec, nullable: false },
+        { name: 'document_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'document_page_count', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'content_type', packedOffset: 72, packedBitOffset: 0, type: arc.mojom.PrintContentTypeSpec, nullable: false },
+        { name: 'data_size', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'data', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -68,8 +68,8 @@ ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec = {
       packedSize: 32,
       fields: [
         { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiCredentialsSpec, nullable: false },
-        { name: 'ipv4_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'frequency', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'frequency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'ipv4_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

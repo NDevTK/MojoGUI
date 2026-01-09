@@ -17,8 +17,8 @@ blink.mojom.LcpElementSpec = {
       packedSize: 32,
       fields: [
         { name: 'locator', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: true },
-        { name: 'predicted_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
-        { name: 'is_image', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'predicted_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
       versions: [{version: 0}]
     }

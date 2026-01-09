@@ -283,9 +283,9 @@ blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileHandle.CreateFileWriter_Params',
       packedSize: 24,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec, nullable: false },
-        { name: 'keep_existing_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'auto_close', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'keep_existing_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'auto_close', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -340,8 +340,8 @@ blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileHandle.Move_Params',
       packedSize: 24,
       fields: [
-        { name: 'new_entry_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'destination_directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'destination_directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'new_entry_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

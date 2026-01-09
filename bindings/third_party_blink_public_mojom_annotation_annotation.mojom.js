@@ -31,10 +31,10 @@ blink.mojom.SelectorCreationResultSpec = {
       name: 'blink.mojom.SelectorCreationResult',
       packedSize: 32,
       fields: [
-        { name: 'serialized_selector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'selected_text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'host_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'agent_remote', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'host_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'agent_remote', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'serialized_selector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'selected_text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -273,10 +273,10 @@ blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec = {
       name: 'blink.mojom.AnnotationAgentContainer.CreateAgent_Params',
       packedSize: 40,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AnnotationTypeSpec, nullable: false },
-        { name: 'selector', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SelectorSpec, nullable: false },
-        { name: 'host_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'agent_receiver', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'agent_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnnotationTypeSpec, nullable: false },
+        { name: 'selector', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SelectorSpec, nullable: false },
         { name: 'search_range_start_node_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]

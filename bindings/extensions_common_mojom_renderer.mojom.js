@@ -24,12 +24,12 @@ extensions.mojom.ExtensionLoadedParamsSpec = {
         { name: 'tab_specific_permissions', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'policy_blocked_hosts', packedOffset: 48, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false },
         { name: 'policy_allowed_hosts', packedOffset: 56, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false },
-        { name: 'id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'worker_activation_token', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
-        { name: 'guid', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'uses_default_policy_blocked_allowed_hosts', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'user_scripts_allowed', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'worker_activation_token', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
         { name: 'creation_flags', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'uses_default_policy_blocked_allowed_hosts', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'user_scripts_allowed', packedOffset: 92, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'guid', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

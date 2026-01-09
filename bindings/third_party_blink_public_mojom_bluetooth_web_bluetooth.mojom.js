@@ -232,19 +232,19 @@ blink.mojom.WebBluetoothAdvertisingEventSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothAdvertisingEvent',
-      packedSize: 64,
+      packedSize: 80,
       fields: [
         { name: 'device', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebBluetoothDeviceSpec, nullable: false },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'uuids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'manufacturer_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'service_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'appearance', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'appearance_is_set', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'appearance', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'tx_power_is_set', packedOffset: 34, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'tx_power', packedOffset: 42, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'rssi', packedOffset: 43, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'appearance_is_set', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'tx_power_is_set', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'rssi_is_set', packedOffset: 44, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'rssi_is_set', packedOffset: 43, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'rssi', packedOffset: 51, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'manufacturer_data', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'service_data', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -854,8 +854,8 @@ blink.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec = {
       name: 'blink.mojom.WebBluetoothService.RequestScanningStart_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebBluetoothRequestLEScanOptionsSpec, nullable: false },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebBluetoothRequestLEScanOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

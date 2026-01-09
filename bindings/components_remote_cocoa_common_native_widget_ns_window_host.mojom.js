@@ -22,15 +22,15 @@ remote_cocoa.mojom.ValidateUserInterfaceItemResultSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.ValidateUserInterfaceItemResult',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'new_title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
-        { name: 'enable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'disable_if_has_no_key_equivalent', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'set_hidden_state', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'new_hidden_state', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'set_toggle_state', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'new_toggle_state', packedOffset: 8, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'disable_if_has_no_key_equivalent', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'new_title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'set_hidden_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'new_hidden_state', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'set_toggle_state', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'new_toggle_state', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1190,12 +1190,12 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSp
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.GetDialogButtonInfo_ResponseParams',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'button_exists', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_button_enabled', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_button_default', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'button_exists', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'is_button_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_button_default', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1351,8 +1351,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_Respons
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.GetWindowFrameTitlebarHeight_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'titlebar_height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'override_titlebar_height', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'override_titlebar_height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'titlebar_height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1448,9 +1448,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.WillExecuteCommand_Params',
       packedSize: 32,
       fields: [
-        { name: 'window_open_disposition', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.WindowOpenDispositionSpec, nullable: false },
-        { name: 'command', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_before_first_responder', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'command', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'window_open_disposition', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.WindowOpenDispositionSpec, nullable: false },
+        { name: 'is_before_first_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1477,9 +1477,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.ExecuteCommand_Params',
       packedSize: 32,
       fields: [
-        { name: 'window_open_disposition', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.WindowOpenDispositionSpec, nullable: false },
-        { name: 'command', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_before_first_responder', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'command', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'window_open_disposition', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.WindowOpenDispositionSpec, nullable: false },
+        { name: 'is_before_first_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

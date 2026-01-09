@@ -16,8 +16,8 @@ webnn.mojom.CreateTensorSuccessSpec = {
       name: 'webnn.mojom.CreateTensorSuccess',
       packedSize: 24,
       fields: [
-        { name: 'tensor_handle', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebNNTensorTokenSpec, nullable: false },
-        { name: 'tensor_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'tensor_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'tensor_handle', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebNNTensorTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

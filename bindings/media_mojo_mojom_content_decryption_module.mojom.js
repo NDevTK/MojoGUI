@@ -46,10 +46,10 @@ media.mojom.CdmPromiseResultSpec = {
       packedSize: 48,
       fields: [
         { name: 'Exception', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'exception', packedOffset: 8, packedBitOffset: 0, type: media.mojom.ExceptionSpec, nullable: false },
-        { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'exception', packedOffset: 16, packedBitOffset: 0, type: media.mojom.ExceptionSpec, nullable: false },
         { name: 'system_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'success', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'error_message', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -80,8 +80,8 @@ media.mojom.CdmContextSpec = {
       packedSize: 32,
       fields: [
         { name: 'cdm_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'requires_media_foundation_renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'decryptor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'decryptor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'requires_media_foundation_renderer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -544,8 +544,8 @@ media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'keys_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'has_additional_usable_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_additional_usable_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'keys_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -648,9 +648,9 @@ media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = {
       name: 'media.mojom.CdmFactory.CreateCdm_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'cdm_context', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmContextSpec, nullable: true },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CreateCdmStatusSpec, nullable: false },
-        { name: 'cdm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'cdm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'cdm_context', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmContextSpec, nullable: true },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: media.mojom.CreateCdmStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

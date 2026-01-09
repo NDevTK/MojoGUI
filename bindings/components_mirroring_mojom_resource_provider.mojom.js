@@ -72,9 +72,9 @@ mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec = {
       name: 'mirroring.mojom.AudioStreamCreatorClient.StreamCreated_Params',
       packedSize: 24,
       fields: [
-        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false },
-        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'client_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'data_pipe', packedOffset: 8, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,11 +248,11 @@ mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.ResourceProvider.CreateAudioStream_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'param', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'shared_memory_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'param', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
+        { name: 'shared_memory_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

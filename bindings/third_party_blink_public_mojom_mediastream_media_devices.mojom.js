@@ -101,10 +101,10 @@ blink.mojom.AudioInputDeviceCapabilitiesSpec = {
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'parameters', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
-        { name: 'latency', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'is_valid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'channels', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'sample_rate', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_valid', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'latency', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -403,10 +403,10 @@ blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec = {
       name: 'blink.mojom.MediaDevicesDispatcherHost.AddMediaDevicesListener_Params',
       packedSize: 24,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'subscribe_audio_input', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'subscribe_video_input', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'subscribe_audio_output', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'subscribe_audio_input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'subscribe_video_input', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'subscribe_audio_output', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

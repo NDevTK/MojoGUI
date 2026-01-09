@@ -47,15 +47,15 @@ side_panel.mojom.BackgroundImageSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BackgroundImage',
-      packedSize: 56,
+      packedSize: 64,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'snapshot_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'local_background_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true },
-        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'collection_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_uploaded_image', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'daily_refresh_enabled', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_uploaded_image', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'local_background_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true },
+        { name: 'title', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'collection_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'daily_refresh_enabled', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1158,9 +1158,9 @@ side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'shortcuts_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'disabled_shortcuts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'visible', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'personal_shortcuts_visible', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'personal_shortcuts_visible', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'disabled_shortcuts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1188,9 +1188,9 @@ side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec = {
       name: 'side_panel.mojom.CustomizeChromePage.SetFooterSettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'management_notice_state', packedOffset: 0, packedBitOffset: 0, type: side_panel.mojom.ManagementNoticeStateSpec, nullable: false },
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'extension_policy_enabled', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'extension_policy_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'management_notice_state', packedOffset: 8, packedBitOffset: 0, type: side_panel.mojom.ManagementNoticeStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

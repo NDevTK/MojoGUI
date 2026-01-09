@@ -86,8 +86,8 @@ media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec = {
       name: 'media.mojom.ProvisionFetcher.Retrieve_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -56,10 +56,10 @@ side_panel.customize_chrome.mojom.ActionSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ActionIdSpec, nullable: false },
         { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'category', packedOffset: 16, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.CategoryIdSpec, nullable: false },
-        { name: 'icon_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'pinned', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_enterprise_controlled_pinned_state', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'pinned', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_enterprise_controlled_pinned_state', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'category', packedOffset: 24, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.CategoryIdSpec, nullable: false },
+        { name: 'icon_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

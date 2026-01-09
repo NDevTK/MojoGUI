@@ -44,9 +44,9 @@ arc.mojom.PictureSpec = {
       name: 'arc.mojom.Picture',
       packedSize: 24,
       fields: [
-        { name: 'crop_rect', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false },
-        { name: 'picture_buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'bitstream_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'picture_buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'bitstream_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'crop_rect', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -60,8 +60,8 @@ arc.mojom.PictureBufferFormatSpec = {
       name: 'arc.mojom.PictureBufferFormat',
       packedSize: 24,
       fields: [
-        { name: 'coded_size', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false },
-        { name: 'min_num_buffers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'min_num_buffers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'coded_size', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -37,10 +37,10 @@ media.mojom.AudioEncoderConfigSpec = {
       packedSize: 40,
       fields: [
         { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioCodecSpec, nullable: false },
-        { name: 'aac', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AacAudioEncoderConfigSpec, nullable: false },
-        { name: 'sample_rate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'bitrate', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'channel_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'channel_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'sample_rate', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'bitrate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'aac', packedOffset: 24, packedBitOffset: 0, type: media.mojom.AacAudioEncoderConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -145,8 +145,8 @@ media.mojom.AudioEncoder_Initialize_ParamsSpec = {
       name: 'media.mojom.AudioEncoder.Initialize_Params',
       packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioEncoderConfigSpec, nullable: false },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioEncoderConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

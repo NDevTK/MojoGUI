@@ -62,11 +62,11 @@ discards.mojom.SiteDataValueSpec = {
       name: 'discards.mojom.SiteDataValue',
       packedSize: 48,
       fields: [
-        { name: 'updates_favicon_in_background', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false },
-        { name: 'updates_title_in_background', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false },
-        { name: 'uses_audio_in_background', packedOffset: 16, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false },
-        { name: 'load_time_estimates', packedOffset: 24, packedBitOffset: 0, type: discards.mojom.SiteDataPerformanceMeasurementSpec, nullable: true },
-        { name: 'last_loaded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'last_loaded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'updates_favicon_in_background', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false },
+        { name: 'updates_title_in_background', packedOffset: 16, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false },
+        { name: 'uses_audio_in_background', packedOffset: 24, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false },
+        { name: 'load_time_estimates', packedOffset: 32, packedBitOffset: 0, type: discards.mojom.SiteDataPerformanceMeasurementSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -81,8 +81,8 @@ discards.mojom.SiteDataEntrySpec = {
       packedSize: 32,
       fields: [
         { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.SiteDataValueSpec, nullable: true },
-        { name: 'is_dirty', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_dirty', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: discards.mojom.SiteDataValueSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

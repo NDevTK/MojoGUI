@@ -105,8 +105,8 @@ updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec = {
       name: 'updater.mojom.PostRequestObserver.OnResponseStarted_Params',
       packedSize: 24,
       fields: [
-        { name: 'content_length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
-        { name: 'http_status_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'http_status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'content_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -135,11 +135,11 @@ updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec = {
       packedSize: 56,
       fields: [
         { name: 'response_body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'header_etag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'header_x_cup_server_proof', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'header_set_cookie', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'xheader_retry_after_sec', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
-        { name: 'net_error', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'header_etag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'header_x_cup_server_proof', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'header_set_cookie', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'xheader_retry_after_sec', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -232,8 +232,8 @@ updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec = {
       name: 'updater.mojom.FileDownloadObserver.OnResponseStarted_Params',
       packedSize: 24,
       fields: [
-        { name: 'content_length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
-        { name: 'http_status_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'http_status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'content_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -261,8 +261,8 @@ updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec = {
       name: 'updater.mojom.FileDownloadObserver.OnDownloadComplete_Params',
       packedSize: 24,
       fields: [
-        { name: 'content_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'content_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -137,8 +137,8 @@ media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.Initialize_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'origin_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'origin_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

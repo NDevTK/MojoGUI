@@ -53,8 +53,8 @@ chromeos.payments.mojom.InvokePaymentAppValidResultSpec = {
       name: 'chromeos.payments.mojom.InvokePaymentAppValidResult',
       packedSize: 24,
       fields: [
-        { name: 'stringified_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_activity_result_ok', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_activity_result_ok', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'stringified_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

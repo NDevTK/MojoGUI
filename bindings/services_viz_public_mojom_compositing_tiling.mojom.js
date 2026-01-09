@@ -31,10 +31,10 @@ viz.mojom.TileSpec = {
       name: 'viz.mojom.Tile',
       packedSize: 32,
       fields: [
-        { name: 'contents', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.TileContentsSpec, nullable: false },
-        { name: 'column_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'row_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'update_damage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'column_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'row_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'update_damage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'contents', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.TileContentsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

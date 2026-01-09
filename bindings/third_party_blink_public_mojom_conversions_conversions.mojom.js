@@ -105,10 +105,10 @@ blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = {
       name: 'blink.mojom.AttributionHost.RegisterDataHost_Params',
       packedSize: 40,
       fields: [
-        { name: 'registration_eligibility', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationEligibilitySpec, nullable: false },
-        { name: 'reporting_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'data_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'is_for_background_requests', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'registration_eligibility', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationEligibilitySpec, nullable: false },
+        { name: 'is_for_background_requests', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'reporting_origins', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -122,8 +122,8 @@ blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = {
       name: 'blink.mojom.AttributionHost.RegisterNavigationDataHost_Params',
       packedSize: 24,
       fields: [
-        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false },
-        { name: 'data_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'attribution_src_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -22,8 +22,8 @@ optimization_guide.mojom.PageTextDumpRequestSpec = {
       name: 'optimization_guide.mojom.PageTextDumpRequest',
       packedSize: 24,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: optimization_guide.mojom.TextDumpEventSpec, nullable: false },
-        { name: 'max_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'max_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: optimization_guide.mojom.TextDumpEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -179,8 +179,8 @@ ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec = {
       name: 'ax.mojom.AccessibilityService.BindAssistiveTechnologyController_Params',
       packedSize: 24,
       fields: [
-        { name: 'enabled_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'at_controller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'at_controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'enabled_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -194,8 +194,8 @@ ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec = {
       name: 'ax.mojom.AccessibilityService.ConnectDevToolsAgent_Params',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AssistiveTechnologyTypeSpec, nullable: false },
-        { name: 'agent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AssistiveTechnologyTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -29,11 +29,11 @@ content.mojom.SerializeAsMHTMLParamsSpec = {
       packedSize: 48,
       fields: [
         { name: 'mhtml_boundary_marker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'digests_of_uris_to_skip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'salt', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
-        { name: 'output_handle', packedOffset: 24, packedBitOffset: 0, type: content.mojom.MhtmlOutputHandleSpec, nullable: false },
-        { name: 'mhtml_binary_encoding', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'mhtml_popup_overlay_removal', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'mhtml_binary_encoding', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'mhtml_popup_overlay_removal', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'digests_of_uris_to_skip', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'salt', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'output_handle', packedOffset: 32, packedBitOffset: 0, type: content.mojom.MhtmlOutputHandleSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

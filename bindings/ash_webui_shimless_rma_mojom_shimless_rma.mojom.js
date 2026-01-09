@@ -267,9 +267,9 @@ ash.shimless_rma.mojom.StateResultSpec = {
       packedSize: 32,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateSpec, nullable: false },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false },
-        { name: 'can_exit', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'can_go_back', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_exit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_go_back', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -283,8 +283,8 @@ ash.shimless_rma.mojom.QrCodeSpec = {
       name: 'ash.shimless_rma.mojom.QrCode',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -383,16 +383,16 @@ ash.shimless_rma.mojom.UpdateDeviceInfoStatePropertySpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.UpdateDeviceInfoStateProperty',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'customized_serial_number_naming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'serial_number_modifiable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'region_modifiable', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'sku_modifiable', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'custom_label_modifiable', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'dram_part_number_modifiable', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'feature_level_modifiable', packedOffset: 8, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
-        { name: 'hide_google_sku', packedOffset: 8, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
+        { name: 'serial_number_modifiable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'region_modifiable', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'sku_modifiable', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'custom_label_modifiable', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'dram_part_number_modifiable', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'feature_level_modifiable', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'customized_serial_number_naming', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'hide_google_sku', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -538,8 +538,8 @@ ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.OsUpdateOperationSpec, nullable: false },
-        { name: 'update_error_code', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.UpdateErrorCodeSpec, nullable: false },
-        { name: 'progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'update_error_code', packedOffset: 16, packedBitOffset: 0, type: ash.shimless_rma.mojom.UpdateErrorCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -713,8 +713,8 @@ ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.ProvisioningStatusSpec, nullable: false },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.ProvisioningErrorSpec, nullable: false },
-        { name: 'progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: ash.shimless_rma.mojom.ProvisioningErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1090,8 +1090,8 @@ ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.FinalizationStatusSpec, nullable: false },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.FinalizationErrorSpec, nullable: false },
-        { name: 'progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: ash.shimless_rma.mojom.FinalizationErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2105,8 +2105,8 @@ ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec =
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CheckForOsUpdates_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'update_available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'update_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2901,15 +2901,15 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetDeviceInformation_Params',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
         { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'dram_part_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'region_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'sku_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'custom_label_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'hw_compliance_version', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'region_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'sku_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'custom_label_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'dram_part_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'is_chassis_branded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'hw_compliance_version', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

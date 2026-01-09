@@ -24,8 +24,8 @@ cert_verifier.mojom.CertVerifierCreationParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'initial_additional_certificates', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.AdditionalCertificatesSpec, nullable: true },
-        { name: 'ct_policy', packedOffset: 8, packedBitOffset: 0, type: [EnableIf=is_ct_supported] network.mojom.CTPolicySpec, nullable: true },
-        { name: 'wait_for_update', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'wait_for_update', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ct_policy', packedOffset: 16, packedBitOffset: 0, type: [EnableIf=is_ct_supported] network.mojom.CTPolicySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -253,10 +253,10 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.GetNewCertVerifier_Params',
       packedSize: 32,
       fields: [
-        { name: 'creation_params', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.CertVerifierCreationParamsSpec, nullable: true },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'updater', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'updater', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'creation_params', packedOffset: 16, packedBitOffset: 0, type: cert_verifier.mojom.CertVerifierCreationParamsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

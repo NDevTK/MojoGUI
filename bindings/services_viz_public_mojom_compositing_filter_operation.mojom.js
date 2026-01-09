@@ -35,17 +35,17 @@ viz.mojom.FilterOperationSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FilterOperation',
-      packedSize: 72,
+      packedSize: 80,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FilterTypeSpec, nullable: false },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
-        { name: 'drop_shadow_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false },
-        { name: 'image_filter', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.PaintFilterSpec, nullable: false },
-        { name: 'matrix', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'blur_tile_mode', packedOffset: 40, packedBitOffset: 0, type: skia.mojom.TileModeSpec, nullable: false },
-        { name: 'shape', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'amount', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'zoom_inset', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'amount', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'drop_shadow_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false },
+        { name: 'image_filter', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.PaintFilterSpec, nullable: false },
+        { name: 'matrix', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'zoom_inset', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'blur_tile_mode', packedOffset: 56, packedBitOffset: 0, type: skia.mojom.TileModeSpec, nullable: false },
+        { name: 'shape', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }

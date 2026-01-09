@@ -121,8 +121,8 @@ on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec = {
       name: 'on_device_translation.mojom.FileOperationProxy.FileExists_Params',
       packedSize: 24,
       fields: [
-        { name: 'relative_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'package_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'relative_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -150,8 +150,8 @@ on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec = {
       name: 'on_device_translation.mojom.FileOperationProxy.Open_Params',
       packedSize: 24,
       fields: [
-        { name: 'relative_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'package_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'relative_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

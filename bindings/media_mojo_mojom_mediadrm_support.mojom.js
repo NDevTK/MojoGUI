@@ -16,9 +16,9 @@ media.mojom.MediaDrmSupportResultSpec = {
       name: 'media.mojom.MediaDrmSupportResult',
       packedSize: 24,
       fields: [
-        { name: 'key_system_version', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.VersionSpec, nullable: true },
-        { name: 'key_system_supports_video_mp4', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'key_system_supports_video_webm', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'key_system_supports_video_mp4', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'key_system_supports_video_webm', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'key_system_version', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.VersionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

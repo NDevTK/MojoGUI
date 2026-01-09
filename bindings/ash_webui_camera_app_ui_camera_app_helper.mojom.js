@@ -1384,9 +1384,9 @@ ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.HandleCameraResult_Params',
       packedSize: 32,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.CameraIntentActionSpec, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'intent_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'intent_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.CameraIntentActionSpec, nullable: false },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

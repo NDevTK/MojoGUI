@@ -89,38 +89,38 @@ searchbox.mojom.AutocompleteMatchSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.AutocompleteMatch',
-      packedSize: 176,
+      packedSize: 224,
       fields: [
-        { name: 'a11y_label', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'actions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'answer', packedOffset: 16, packedBitOffset: 0, type: searchbox.mojom.SuggestionAnswerSpec, nullable: true },
-        { name: 'contents', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'contents_class', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'description', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'description_class', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'destination_url', packedOffset: 56, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'inline_autocompletion', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'fill_into_edit', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'icon_path', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'icon_url', packedOffset: 88, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'image_dominant_color', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'image_url', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'remove_button_a11y_label', packedOffset: 120, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'tail_suggest_common_prefix', packedOffset: 128, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
-        { name: 'keyword_chip_hint', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'keyword_chip_a11y', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'suggestion_group_id', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_hidden', packedOffset: 156, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'allowed_to_be_default_match', packedOffset: 156, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_weather_answer_suggestion', packedOffset: 156, packedBitOffset: 2, type: mojo.internal.Bool, nullable: true },
-        { name: 'is_noncanned_aim_suggestion', packedOffset: 156, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_rich_suggestion', packedOffset: 156, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_search_type', packedOffset: 156, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_enterprise_search_aggregator_people_type', packedOffset: 156, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
-        { name: 'swap_contents_and_description', packedOffset: 156, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
-        { name: 'supports_deletion', packedOffset: 156, packedBitOffset: 8, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_instant_keyword', packedOffset: 156, packedBitOffset: 9, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_hidden', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'a11y_label', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'allowed_to_be_default_match', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'actions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'answer', packedOffset: 32, packedBitOffset: 0, type: searchbox.mojom.SuggestionAnswerSpec, nullable: true },
+        { name: 'contents', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'contents_class', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'description', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'description_class', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'destination_url', packedOffset: 72, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'inline_autocompletion', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'fill_into_edit', packedOffset: 88, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'is_weather_answer_suggestion', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'icon_path', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'icon_url', packedOffset: 112, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'image_dominant_color', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'image_url', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_noncanned_aim_suggestion', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_rich_suggestion', packedOffset: 136, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_search_type', packedOffset: 136, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_enterprise_search_aggregator_people_type', packedOffset: 136, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'type', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'remove_button_a11y_label', packedOffset: 152, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'swap_contents_and_description', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'suggestion_group_id', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'supports_deletion', packedOffset: 172, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'tail_suggest_common_prefix', packedOffset: 184, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'has_instant_keyword', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'keyword_chip_hint', packedOffset: 200, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'keyword_chip_a11y', packedOffset: 208, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,12 +134,12 @@ searchbox.mojom.TabInfoSpec = {
       name: 'searchbox.mojom.TabInfo',
       packedSize: 48,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'last_active', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'tab_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'show_in_current_tab_chip', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'show_in_previous_tab_chip', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'show_in_current_tab_chip', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'show_in_previous_tab_chip', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'last_active', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -170,9 +170,9 @@ searchbox.mojom.TabAttachmentSpec = {
       name: 'searchbox.mojom.TabAttachment',
       packedSize: 32,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'tab_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -205,8 +205,8 @@ searchbox.mojom.SelectedFileInfoSpec = {
         { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'image_data_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'selection_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
-        { name: 'is_deletable', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_deletable', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'selection_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -251,11 +251,11 @@ searchbox.mojom.OmniboxPopupSelectionSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.OmniboxPopupSelection',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: searchbox.mojom.SelectionLineStateSpec, nullable: false },
-        { name: 'line', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'action_index', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: searchbox.mojom.SelectionLineStateSpec, nullable: false },
+        { name: 'action_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -585,16 +585,16 @@ searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.OpenAutocompleteMatch_Params',
-      packedSize: 32,
+      packedSize: 48,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'line', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'mouse_button', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'are_matches_showing', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'alt_key', packedOffset: 10, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'ctrl_key', packedOffset: 10, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'meta_key', packedOffset: 10, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'shift_key', packedOffset: 10, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'are_matches_showing', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'mouse_button', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'alt_key', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ctrl_key', packedOffset: 25, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'meta_key', packedOffset: 25, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'shift_key', packedOffset: 25, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -608,9 +608,9 @@ searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.OnNavigationLikely_Params',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'navigation_predictor', packedOffset: 8, packedBitOffset: 0, type: omnibox.mojom.NavigationPredictorSpec, nullable: false },
-        { name: 'line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'navigation_predictor', packedOffset: 16, packedBitOffset: 0, type: omnibox.mojom.NavigationPredictorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -624,8 +624,8 @@ searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.DeleteAutocompleteMatch_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'line', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -639,10 +639,10 @@ searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.ActivateKeyword_Params',
       packedSize: 40,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'match_selection_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'is_mouse_event', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'match_selection_timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'is_mouse_event', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -668,17 +668,17 @@ searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.ExecuteAction_Params',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'match_selection_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'action_index', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'mouse_button', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'alt_key', packedOffset: 19, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'ctrl_key', packedOffset: 19, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'meta_key', packedOffset: 19, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'shift_key', packedOffset: 19, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'action_index', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'match_selection_timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'mouse_button', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'alt_key', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ctrl_key', packedOffset: 25, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'meta_key', packedOffset: 25, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'shift_key', packedOffset: 25, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

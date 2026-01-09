@@ -18,8 +18,8 @@ arc.mojom.ImeInfoSpec = {
       fields: [
         { name: 'ime_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'settings_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'settings_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -31,16 +31,16 @@ arc.mojom.TextInputStateSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TextInputState',
-      packedSize: 56,
+      packedSize: 72,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'text_range', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false },
-        { name: 'selection_range', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.TextInputTypeSpec, nullable: false },
-        { name: 'cursor_pos', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'flags', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'cursor_pos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'text_range', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false },
+        { name: 'selection_range', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.TextInputTypeSpec, nullable: false },
         { name: 'should_do_learning', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'first_update_after_operation', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'flags', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'first_update_after_operation', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

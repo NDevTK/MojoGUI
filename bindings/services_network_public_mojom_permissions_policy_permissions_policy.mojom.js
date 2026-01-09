@@ -37,9 +37,9 @@ network.mojom.ParsedPermissionsPolicyDeclarationSpec = {
         { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: network.mojom.PermissionsPolicyFeatureSpec, nullable: false },
         { name: 'allowed_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'self_if_matches', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
-        { name: 'reporting_endpoint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'matches_all_origins', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'matches_opaque_src', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'matches_all_origins', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'matches_opaque_src', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'reporting_endpoint', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -54,9 +54,9 @@ network.mojom.PermissionsPolicySpec = {
       packedSize: 40,
       fields: [
         { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'declarations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'inherited_policies', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'headerless', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'headerless', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'declarations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'inherited_policies', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

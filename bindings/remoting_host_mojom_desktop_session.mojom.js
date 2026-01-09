@@ -123,9 +123,9 @@ remoting.mojom.AudioPacketSpec = {
       name: 'remoting.mojom.AudioPacket',
       packedSize: 32,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'kInvalid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'kInvalid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -154,11 +154,11 @@ remoting.mojom.KeyEventSpec = {
       name: 'remoting.mojom.KeyEvent',
       packedSize: 40,
       fields: [
-        { name: 'caps_lock_state', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.BoolSpec, nullable: true },
-        { name: 'num_lock_state', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.BoolSpec, nullable: true },
-        { name: 'usb_keycode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'lock_states', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'pressed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'pressed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'usb_keycode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'lock_states', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'caps_lock_state', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.BoolSpec, nullable: true },
+        { name: 'num_lock_state', packedOffset: 24, packedBitOffset: 0, type: remoting.mojom.BoolSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -209,11 +209,11 @@ remoting.mojom.TouchEventPointSpec = {
       name: 'remoting.mojom.TouchEventPoint',
       packedSize: 40,
       fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'radius', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'angle', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'pressure', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'radius', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'angle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'pressure', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -242,9 +242,9 @@ remoting.mojom.FractionalCoordinateSpec = {
       name: 'remoting.mojom.FractionalCoordinate',
       packedSize: 24,
       fields: [
-        { name: 'screen_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'screen_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -258,12 +258,12 @@ remoting.mojom.DesktopEnvironmentOptionsSpec = {
       name: 'remoting.mojom.DesktopEnvironmentOptions',
       packedSize: 24,
       fields: [
-        { name: 'desktop_capture_options', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.DesktopCaptureOptionsSpec, nullable: false },
-        { name: 'enable_curtaining', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_user_interface', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_notifications', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'terminate_upon_input', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_remote_webauthn', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_curtaining', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_user_interface', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_notifications', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'terminate_upon_input', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_remote_webauthn', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'desktop_capture_options', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.DesktopCaptureOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -306,9 +306,9 @@ remoting.mojom.BeginFileReadSuccessSpec = {
       name: 'remoting.mojom.BeginFileReadSuccess',
       packedSize: 32,
       fields: [
-        { name: 'filename', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'file_reader', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'file_reader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'filename', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -371,8 +371,8 @@ remoting.mojom.VideoLayoutSpec = {
       packedSize: 32,
       fields: [
         { name: 'tracks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'primary_screen_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'supports_full_desktop_capture', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'supports_full_desktop_capture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'primary_screen_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -595,9 +595,9 @@ remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionManager.CreateDesktopSession_Params',
       packedSize: 32,
       fields: [
-        { name: 'screen_resolution', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false },
-        { name: 'terminal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_virtual_terminal', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'screen_resolution', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false },
+        { name: 'is_virtual_terminal', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -625,8 +625,8 @@ remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionManager.SetScreenResolution_Params',
       packedSize: 24,
       fields: [
-        { name: 'screen_resolution', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false },
-        { name: 'terminal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'screen_resolution', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1522,11 +1522,11 @@ remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec 
   $: {
     structSpec: {
       name: 'remoting.mojom.VideoCapturerEventHandler.OnSharedMemoryRegionCreated_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

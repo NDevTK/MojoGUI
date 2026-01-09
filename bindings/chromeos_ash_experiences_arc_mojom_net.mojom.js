@@ -133,9 +133,9 @@ arc.mojom.VisibleNetworkDetailsSpec = {
       name: 'arc.mojom.VisibleNetworkDetails',
       packedSize: 24,
       fields: [
-        { name: 'bssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'frequency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'signal_strength', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'frequency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'signal_strength', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'bssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,8 +206,8 @@ arc.mojom.IPConfigurationSpec = {
         { name: 'gateway', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'ip_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'name_servers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.IPAddressTypeSpec, nullable: false },
-        { name: 'routing_prefix', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'routing_prefix', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.IPAddressTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -219,14 +219,14 @@ arc.mojom.WiFiSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WiFi',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
         { name: 'bssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'hex_ssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'security', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.SecurityTypeSpec, nullable: false },
-        { name: 'frequency', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'signal_strength', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'hidden_ssid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'frequency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'hex_ssid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'hidden_ssid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'security', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.SecurityTypeSpec, nullable: false },
+        { name: 'signal_strength', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -352,9 +352,9 @@ arc.mojom.ArcDnsResolutionTestResultSpec = {
       name: 'arc.mojom.ArcDnsResolutionTestResult',
       packedSize: 32,
       fields: [
-        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'is_successful', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'response_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_successful', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'duration_ms', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -368,10 +368,10 @@ arc.mojom.ArcHttpTestResultSpec = {
       name: 'arc.mojom.ArcHttpTestResult',
       packedSize: 40,
       fields: [
-        { name: 'response_header_fields', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'duration_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'status_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_successful', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_successful', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'status_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'response_header_fields', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'duration_ms', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -385,8 +385,8 @@ arc.mojom.ArcPingTestResultSpec = {
       name: 'arc.mojom.ArcPingTestResult',
       packedSize: 24,
       fields: [
-        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'is_successful', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_successful', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'duration_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }

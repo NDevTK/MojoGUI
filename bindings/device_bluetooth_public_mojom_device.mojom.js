@@ -68,11 +68,11 @@ bluetooth.mojom.DeviceInfoSpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'name_for_display', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'rssi', packedOffset: 24, packedBitOffset: 0, type: bluetooth.mojom.RSSIWrapperSpec, nullable: true },
-        { name: 'service_uuids', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'manufacturer_data_map', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'service_data_map', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'is_gatt_connected', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_gatt_connected', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'rssi', packedOffset: 32, packedBitOffset: 0, type: bluetooth.mojom.RSSIWrapperSpec, nullable: true },
+        { name: 'service_uuids', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'manufacturer_data_map', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'service_data_map', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,9 +104,9 @@ bluetooth.mojom.CharacteristicInfoSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: false },
-        { name: 'last_known_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'properties', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'permissions', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'permissions', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'last_known_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
