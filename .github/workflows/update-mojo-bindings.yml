@@ -63,7 +63,7 @@ jobs:
 
       - name: Generate Mojo JS bindings
         run: |
-          echo "Generating Mojo JS bindings using official generator..."
+          echo "Generating Mojo JS bindings..."
           
           # Set up paths
           export PYTHONPATH="$PYTHONPATH:$(pwd)/chromium_src"
@@ -74,125 +74,390 @@ jobs:
           # Create a Python script to drive the generation
           cat << 'SCRIPT' > generate_bindings.py
           import os
-          import sys
           import json
-          import subprocess
           import re
+          import datetime
           from pathlib import Path
-          
+
           # Configuration
-          # We treat 'chromium_src' as the root of the source tree
           ROOT_DIR = 'chromium_src'
-          
-          def run_parser(mojom_path):
-              """Run the mojom parser to generate -module file for a single input."""
-              # We interpret the path relative to the checkout to keep things consistent
-              # Input: chromium_src/foo/bar.mojom
-              # We want parser to see: root=chromium_src, file=foo/bar.mojom
-              
-              cmd = [
-                  sys.executable,
-                  'chromium_src/mojo/public/tools/mojom/mojom_parser.py',
-                  '--output-root', 'chromium_src',
-                  '--input-root', 'chromium_src',
-                  '--mojom-file-list', 'parser_input_list.txt'
-              ]
-              
-              # Write temporary list file for this single input
-              # We must pass the relative path so the parser finds it in input-root
-              if mojom_path.startswith('chromium_src/') or mojom_path.startswith('chromium_src\\'):
-                  rel_path = mojom_path[len('chromium_src/'):]
-              else:
-                  rel_path = mojom_path
-
-              with open('parser_input_list.txt', 'w') as f:
-                  f.write(rel_path + '\n')
-              
-              try:
-                  # We capture output to avoid spamming logs with expected failures
-                  subprocess.run(cmd, check=True, capture_output=True)
-                  return True
-              except subprocess.CalledProcessError as e:
-                  # Enable debug printing only if needed or just count failures
-                  # print(f"DEBUG: Parser failed for {mojom_path}: {e.stderr.decode()}")
-                  return False
-
-          def run_generator(mojom_path):
-              """Run the bindings generator for a single input."""
-              # Input: chromium_src/foo/bar.mojom
-              # We use --depth chromium_src so the generator treats inputs as relative to that
-              
-              cmd = [
-                  sys.executable,
-                  'chromium_src/mojo/public/tools/bindings/mojom_bindings_generator.py',
-                  '--use_bundled_pylibs',
-                  'generate',
-                  '-g', 'javascript',
-                  '--output_dir', 'chromium_src', 
-                  '--depth', 'chromium_src', 
-                  '--bytecode_path', 'bindings', 
-                  mojom_path
-              ]
-              try:
-                  subprocess.run(cmd, check=True, capture_output=True)
-                  return True
-              except subprocess.CalledProcessError:
-                  return False
 
           def parse_mojom_file(file_path):
-               # Simplified regex checks for interface names
-               try:
-                   with open(file_path, 'r', encoding='utf-8') as f:
-                       content = f.read()
-                   module_match = re.search(r'module\s+([\w.]+);', content)
-                   module = module_match.group(1) if module_match else 'unknown'
-                   interfaces = []
-                   for match in re.finditer(r'interface\s+(\w+)', content):
-                       interfaces.append({'name': match.group(1)})
-                   return {'module': module, 'interfaces': interfaces}
-               except:
-                   return None
+              """Parse a .mojom file and extract interface definitions using regex."""
+              try:
+                  with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                      content = f.read()
+              except Exception as e:
+                  return None
+
+
+              result = {
+                  'path': str(file_path),
+                  'module': None,
+                  'imports': [],
+                  'interfaces': [],
+                  'structs': [],
+                  'enums': []
+              }
+
+              # Extract module name
+              module_match = re.search(r'module\s+([\w.]+)\s*;', content)
+              if module_match:
+                  result['module'] = module_match.group(1)
+
+              # Extract imports
+              imports = re.findall(r'import\s+"([^"]+)"', content)
+              result['imports'] = imports
+
+              # Remove comments for cleaner parsing
+              content_no_comments = re.sub(r'//[^\n]*', '', content)
+              content_no_comments = re.sub(r'/\*.*?\*/', '', content_no_comments, flags=re.DOTALL)
+
+              # Extract interfaces with their methods
+              interface_pattern = r'interface\s+(\w+)\s*\{'
+              for match in re.finditer(interface_pattern, content_no_comments):
+                  interface_name = match.group(1)
+                  start_pos = match.end()
+                  
+                  # Find matching closing brace
+                  brace_count = 1
+                  end_pos = start_pos
+                  while brace_count > 0 and end_pos < len(content_no_comments):
+                      if content_no_comments[end_pos] == '{':
+                          brace_count += 1
+                      elif content_no_comments[end_pos] == '}':
+                          brace_count -= 1
+                      end_pos += 1
+                  
+                  interface_body = content_no_comments[start_pos:end_pos-1]
+                  
+                  methods = []
+                  method_pattern = r'([A-Z][a-zA-Z0-9_]*)\s*\(([^)]*)\)\s*(?:=>\s*\(([^)]*)\))?'
+                  for method_match in re.finditer(method_pattern, interface_body):
+                      method_name = method_match.group(1)
+                      params_str = method_match.group(2).strip()
+                      returns_str = method_match.group(3)
+                      
+                      # Skip false positives
+                      if method_name in ('TODO', 'NOTE', 'FIXME', 'DEPRECATED', 'If', 'For', 'While', 'Switch'):
+                          continue
+                      
+                      params = parse_params(params_str) if params_str else []
+                      returns = parse_params(returns_str) if returns_str else []
+                      
+                      methods.append({
+                          'name': method_name,
+                          'params': params,
+                          'returns': returns
+                      })
+                  
+                  # Deduplicate methods
+                  seen = set()
+                  unique_methods = []
+                  for m in methods:
+                      if m['name'] not in seen:
+                          seen.add(m['name'])
+                          unique_methods.append(m)
+                  
+                  result['interfaces'].append({
+                      'name': interface_name,
+                      'methods': unique_methods
+                  })
+
+              # Extract enums
+              enum_pattern = r'enum\s+(\w+)\s*\{([^}]*)\}'
+              for match in re.finditer(enum_pattern, content_no_comments, re.DOTALL):
+                  enum_name = match.group(1)
+                  enum_body = match.group(2)
+                  values = []
+                  for line in enum_body.split(','):
+                      line = line.strip()
+                      if line:
+                          value_match = re.match(r'([a-zA-Z_][a-zA-Z0-9_]*)', line)
+                          if value_match:
+                              values.append(value_match.group(1))
+                  result['enums'].append({'name': enum_name, 'values': values})
+
+              # Extract structs
+              struct_pattern = r'struct\s+(\w+)\s*\{([^}]*)\}'
+              for match in re.finditer(struct_pattern, content_no_comments, re.DOTALL):
+                  struct_name = match.group(1)
+                  struct_body = match.group(2)
+                  fields = parse_params(struct_body)
+                  result['structs'].append({'name': struct_name, 'fields': fields})
+
+              return result
+
+          def parse_params(params_str):
+              """Parse parameter string into list of param objects."""
+              if not params_str:
+                  return []
+              
+              params = []
+              depth = 0
+              current = ""
+              for char in params_str:
+                  if char in '<([':
+                      depth += 1
+                  elif char in '>)]':
+                      depth -= 1
+                  elif char == ',' and depth == 0:
+                      if current.strip():
+                          p = parse_single_param(current.strip())
+                          if p:
+                              params.append(p)
+                      current = ""
+                      continue
+                  current += char
+              
+              if current.strip():
+                  p = parse_single_param(current.strip())
+                  if p:
+                      params.append(p)
+              
+              return params
+
+          def parse_single_param(param_str):
+              """Parse a single parameter like 'string name'."""
+              param_str = param_str.strip()
+              if not param_str:
+                  return None
+              
+              param_str = re.sub(r'//.*$', '', param_str, flags=re.MULTILINE).strip()
+              param_str = param_str.rstrip(';').strip()
+              
+              if not param_str:
+                  return None
+              
+              optional = '?' in param_str
+              param_str = param_str.replace('?', '').strip()
+              
+              parts = param_str.split()
+              if len(parts) >= 2:
+                  param_type = ' '.join(parts[:-1])
+                  param_name = parts[-1]
+              elif len(parts) == 1:
+                  param_type = parts[0]
+                  param_name = ""
+              else:
+                  return None
+              
+              if param_name and not re.match(r'^[a-zA-Z_][a-zA-Z0-9_]*$', param_name):
+                  return None
+              
+              return {'type': param_type, 'name': param_name, 'optional': optional}
+
+          def to_camel_case(name):
+              """Convert PascalCase to camelCase."""
+              if name and name[0].isupper():
+                  return name[0].lower() + name[1:]
+              components = name.split('_')
+              return components[0] + ''.join(x.title() for x in components[1:])
+
+          def generate_js_binding(parsed):
+              """Generate JavaScript binding code that works with the Mojo runtime."""
+              if not parsed or not parsed.get('module'):
+                  return None
+              
+              module = parsed['module']
+              module_parts = module.split('.')
+              
+              # Build namespace chain
+              js_code = f'''// Auto-generated MojoJS binding
+          // Source: {parsed['path']}
+          // Module: {module}
+
+          'use strict';
+
+          // Module namespace
+          var {module_parts[0]} = {module_parts[0]} || {{}};
+          '''
+              
+              current_ns = module_parts[0]
+              for part in module_parts[1:]:
+                  js_code += f"{current_ns}.{part} = {current_ns}.{part} || {{}};\n"
+                  current_ns += f".{part}"
+              
+              js_code += "\n"
+              
+              # Generate enums
+              for enum in parsed.get('enums', []):
+                  js_code += f"\n// Enum: {enum['name']}\n"
+                  js_code += f"{current_ns}.{enum['name']} = {{\n"
+                  for i, value in enumerate(enum['values']):
+                      js_code += f"  {value}: {i},\n"
+                  js_code += "};\n"
+              
+              # Generate interface classes with proper getRemote() method
+              for interface in parsed.get('interfaces', []):
+                  iface_name = interface['name']
+                  full_name = f"{current_ns}.{iface_name}"
+                  interface_string = f"{module}.{iface_name}"
+                  
+                  # Generate PendingReceiver class first (needed by Remote)
+                  js_code += f"\n// Interface: {iface_name}\n"
+                  js_code += f"{full_name}PendingReceiver = class {{\n"
+                  js_code += "  constructor(handle) {\n"
+                  js_code += "    this.handle = handle;\n"
+                  js_code += "  }\n"
+                  js_code += "};\n\n"
+                  
+                  # Generate Remote class with getRemote() static method
+                  js_code += f"{full_name}Remote = class {{\n"
+                  js_code += f"  static get $interfaceName() {{\n"
+                  js_code += f"    return '{interface_string}';\n"
+                  js_code += "  }\n\n"
+                  
+                  js_code += "  constructor(handle = undefined) {\n"
+                  js_code += f"    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(\n"
+                  js_code += f"      {full_name}PendingReceiver,\n"
+                  js_code += "      handle);\n"
+                  js_code += f"    this.$ = new {full_name}RemoteCallHandler(this.proxy);\n"
+                  js_code += "  }\n\n"
+                  
+                  js_code += "  bindNewPipeAndPassReceiver() {\n"
+                  js_code += "    return this.proxy.bindNewPipeAndPassReceiver();\n"
+                  js_code += "  }\n\n"
+                  
+                  js_code += "  close() {\n"
+                  js_code += "    this.proxy.close();\n"
+                  js_code += "  }\n"
+                  js_code += "};\n\n"
+                  
+                  # Generate RemoteCallHandler with methods
+                  js_code += f"{full_name}RemoteCallHandler = class {{\n"
+                  js_code += "  constructor(proxy) {\n"
+                  js_code += "    this.proxy = proxy;\n"
+                  js_code += "  }\n\n"
+                  
+                  for idx, method in enumerate(interface.get('methods', [])):
+                      params_list = [p['name'] for p in method.get('params', []) if p and p.get('name')]
+                      params_str = ', '.join(params_list)
+                      method_name_camel = to_camel_case(method['name'])
+                      
+                      js_code += f"  {method_name_camel}({params_str}) {{\n"
+                      js_code += f"    // Ordinal: {idx}\n"
+                      js_code += "    return this.proxy.sendMessage(\n"
+                      js_code += f"      {idx},  // ordinal\n"
+                      js_code += f"      {full_name}_{method['name']}_ParamsSpec.$,\n"
+                      if method.get('returns'):
+                          js_code += f"      {full_name}_{method['name']}_ResponseParamsSpec.$,\n"
+                      else:
+                          js_code += "      null,\n"
+                      js_code += f"      [{params_str}]);\n"
+                      js_code += "  }\n\n"
+                  
+                  js_code += "};\n\n"
+                  
+                  # Generate static getRemote() factory function
+                  js_code += f"{full_name}.getRemote = function() {{\n"
+                  js_code += f"  let remote = new {full_name}Remote();\n"
+                  js_code += "  let receiver = remote.bindNewPipeAndPassReceiver();\n"
+                  js_code += f"  mojo.internal.interfaceSupport.bind(\n"
+                  js_code += f"    receiver.handle,\n"
+                  js_code += f"    '{interface_string}',\n"
+                  js_code += "    'context');\n"
+                  js_code += "  return remote.$;\n"
+                  js_code += "}};\n\n"
+                  
+                  # Generate ParamsSpec placeholders for each method
+                  for idx, method in enumerate(interface.get('methods', [])):
+                      js_code += f"// ParamsSpec for {method['name']}\n"
+                      js_code += f"{full_name}_{method['name']}_ParamsSpec = {{\n"
+                      js_code += "  $: {\n"
+                      js_code += "    structSpec: {\n"
+                      js_code += f"      name: '{interface_string}.{method['name']}_Params',\n"
+                      js_code += f"      packedSize: {8 + len(method.get('params', [])) * 8},\n"
+                      js_code += "      fields: [\n"
+                      for pid, param in enumerate(method.get('params', [])):
+                          if param and param.get('name'):
+                              js_code += f"        {{ name: '{param['name']}', packedOffset: {pid * 8}, packedBitOffset: 0, type: mojo.internal.String, nullable: true }},\n"
+                      js_code += "      ],\n"
+                      js_code += "      versions: [{version: 0}]\n"
+                      js_code += "    }\n"
+                      js_code += "  }\n"
+                      js_code += "}};\n\n"
+                      
+                      if method.get('returns'):
+                          js_code += f"{full_name}_{method['name']}_ResponseParamsSpec = {{\n"
+                          js_code += "  $: {\n"
+                          js_code += "    structSpec: {\n"
+                          js_code += f"      name: '{interface_string}.{method['name']}_ResponseParams',\n"
+                          js_code += f"      packedSize: {8 + len(method.get('returns', [])) * 8},\n"
+                          js_code += "      fields: [\n"
+                          for rid, ret in enumerate(method.get('returns', [])):
+                              if ret and ret.get('name'):
+                                  js_code += f"        {{ name: '{ret['name']}', packedOffset: {rid * 8}, packedBitOffset: 0, type: mojo.internal.String, nullable: true }},\n"
+                          js_code += "      ],\n"
+                          js_code += "      versions: [{version: 0}]\n"
+                          js_code += "    }\n"
+                          js_code += "  }\n"
+                          js_code += "}};\n\n"
+                  
+                  # Also add legacy-style Ptr class for compatibility
+                  js_code += f"// Legacy compatibility\n"
+                  js_code += f"{full_name}Ptr = {full_name}Remote;\n"
+                  js_code += f"{full_name}Request = {full_name}PendingReceiver;\n\n"
+              
+              return js_code
+
+
 
           def main():
               bindings_dir = Path('bindings')
               
-              # Read file list
               with open('mojom_files.txt', 'r') as f:
                   files = [line.strip() for line in f if line.strip()]
               
               print(f"Processing {len(files)} files...")
               
-              successful_count = 0
+              success_count = 0
+              
+              index_data = {
+                  'generated_at': datetime.datetime.utcnow().isoformat() + 'Z',
+                  'interfaces': [],
+                  'files': []
+              }
               
               for mojom_path in files:
-                  # Skip non-files or weird entries
                   if not os.path.isfile(mojom_path):
                       continue
-
-                  # 1. Parse
-                  if not run_parser(mojom_path):
-                      # print(f"Skipping {mojom_path} (Parse failed)")
-                      continue
+                  
+                  # Parse and generate bindings
+                  parsed = parse_mojom_file(mojom_path)
+                  if parsed and parsed.get('interfaces'):
+                      rel_path = mojom_path.replace('chromium_src/', '')
+                      out_filename = rel_path.replace('/', '_').replace('.mojom', '.mojom.js')
+                      out_path = bindings_dir / out_filename
                       
-                  # 2. Generate
-                  if run_generator(mojom_path):
-                      successful_count += 1
-                      # Move generated -lite.js file to bindings/
-                      # Expected path: chromium_src/path/to/foo.mojom-lite.js
-                      src_p = Path(mojom_path)
-                      gen_lite = src_p.with_suffix('.mojom-lite.js')
-                      
-                      if gen_lite.exists():
-                          # Flatten name: third_party_blink_..._foo.mojom.js
-                          rel_parts = src_p.parts[1:] # Drop chromium_src
-                          flat_name = '_'.join(rel_parts).replace('.mojom', '.mojom.js')
-                          dest = bindings_dir / flat_name
+                      js_code = generate_js_binding(parsed)
+                      if js_code:
+                          with open(out_path, 'w') as f:
+                              f.write(js_code)
+                          success_count += 1
                           
-                          import shutil
-                          shutil.move(str(gen_lite), str(dest))
-                          # print(f"Generated: {flat_name}")
-
-              print(f"Successfully generated bindings for {successful_count} files.")
+                          for interface in parsed['interfaces']:
+                              index_data['interfaces'].append({
+                                  'name': interface['name'],
+                                  'module': parsed['module'],
+                                  'file': out_filename,
+                                  'methods': [m['name'] for m in interface.get('methods', [])]
+                              })
+                          
+                          index_data['files'].append({
+                              'filename': out_filename,
+                              'source': rel_path,
+                              'module': parsed['module']
+                          })
+              
+              # Write index.json
+              with open(bindings_dir / 'index.json', 'w') as f:
+                  json.dump(index_data, f, indent=2)
+              
+              # Print summary
+              print(f"\n=== Results ===")
+              print(f"Generated bindings: {success_count} files")
+              print(f"Total interfaces: {len(index_data['interfaces'])}")
 
           if __name__ == '__main__':
               main()
@@ -201,6 +466,8 @@ jobs:
           # Run the script
           python generate_bindings.py
           
+
+
       - name: Generate index.js
         run: |
           cat > bindings/index.js << 'EOF'
