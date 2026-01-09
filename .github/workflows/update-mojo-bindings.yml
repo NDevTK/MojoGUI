@@ -369,8 +369,8 @@ jobs:
                       return 8 # Default 8
 
                   # Sort: primary by size (desc), secondary by original index (stable)
-                  # Python sort is stable, so just sort by weight desc
-                  valid_params.sort(key=get_size_weight, reverse=True)
+                  # REVERTED: Mojo actually uses definition order (mostly) with alignment padding.
+                  # valid_params.sort(key=get_size_weight, reverse=True)
                   
                   for param in valid_params:
                       p_type = resolve_mojo_type(param.get('type', 'string'))
@@ -398,8 +398,7 @@ jobs:
                           f_bit = 0
                           offset += weight
                       
-                      param_name = to_camel_case(param['name'])
-                      fields_code.append(f"{{ name: '{param_name}', packedOffset: {f_off}, packedBitOffset: {f_bit}, type: {p_type}, nullable: {nullable} }}")
+                      fields_code.append(f"{{ name: '{param['name']}', packedOffset: {f_off}, packedBitOffset: {f_bit}, type: {p_type}, nullable: {nullable} }}")
                   
                   if bit > 0:
                       offset += 8
