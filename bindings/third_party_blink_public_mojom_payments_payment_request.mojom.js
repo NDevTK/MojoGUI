@@ -33,7 +33,7 @@ payments.mojom.HasEnrolledInstrumentQueryResult = {
   HAS_ENROLLED_INSTRUMENT: 0,
   HAS_NO_ENROLLED_INSTRUMENT: 1,
   QUERY_QUOTA_EXCEEDED: 2,
-  but: 3,
+
   WARNING_HAS_NO_ENROLLED_INSTRUMENT: 4,
 };
 
@@ -73,9 +73,7 @@ payments.mojom.PaymentComplete = {
 payments.mojom.PaymentResponse = class {
   constructor(values = {}) {
     this.method_name = values.method_name !== undefined ? values.method_name : "";
-    this.can = values.can !== undefined ? values.can : "";
-    this.be = values.be !== undefined ? values.be : null;
-    this.1111" = values.1111" !== undefined ? values.1111" : null;
+    this.stringified_details = values.stringified_details !== undefined ? values.stringified_details : "";
   }
 };
 

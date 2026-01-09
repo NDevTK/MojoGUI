@@ -538,12 +538,13 @@
     // ========================================
     function updateGeneratedCode() {
         if (!state.selectedInterface) {
-            elements.generatedCode.innerHTML = safeHTML(highlightSyntax('// Select an interface and method to generate code'));
+            elements.generatedCode.textContent = '// Select an interface and method to generate code';
             return;
         }
 
         const code = generateCode();
-        elements.generatedCode.innerHTML = safeHTML(highlightSyntax(code));
+        // Use textContent for safe display - no HTML injection possible
+        elements.generatedCode.textContent = code;
     }
 
     function generateCode() {
