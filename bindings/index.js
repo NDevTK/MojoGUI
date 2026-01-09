@@ -1,7 +1,7 @@
 // MojoJS Bindings Index
 // Auto-generated - Do not edit manually
 
-(function(global) {
+(function (global) {
   'use strict';
 
   const MojoBindings = {
@@ -10,7 +10,7 @@
 
     async loadIndex() {
       if (this._indexData) return this._indexData;
-      const response = await fetch('./index.json');
+      const response = await fetch('./bindings/index.json');
       this._indexData = await response.json();
       return this._indexData;
     },
@@ -23,8 +23,8 @@
     async searchInterfaces(query) {
       const interfaces = await this.getInterfaces();
       const q = query.toLowerCase();
-      return interfaces.filter(i => 
-        i.name.toLowerCase().includes(q) || 
+      return interfaces.filter(i =>
+        i.name.toLowerCase().includes(q) ||
         i.module.toLowerCase().includes(q)
       );
     },
@@ -35,7 +35,7 @@
       }
       return new Promise((resolve, reject) => {
         const script = document.createElement('script');
-        script.src = `./${filename}`;
+        script.src = `./bindings/${filename}`;
         script.onload = () => {
           this._loadedModules[filename] = true;
           resolve(true);
