@@ -48,7 +48,7 @@ device.mojom.WakeLockContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.WakeLockContext_GetWakeLock_ParamsSpec.$,
+      device.mojom.WakeLockContext_GetWakeLock_ParamsSpec,
       null,
       [type, reason, description, wake_lock]);
   }

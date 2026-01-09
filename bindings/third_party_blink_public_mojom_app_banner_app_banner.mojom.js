@@ -54,8 +54,8 @@ blink.mojom.AppBannerControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec.$,
-      blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec.$,
+      blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec,
+      blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec,
       [service, event_receiver, platform]);
   }
 
@@ -144,7 +144,7 @@ blink.mojom.AppBannerEventRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec.$,
+      blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec,
       null,
       [platform]);
   }
@@ -153,7 +153,7 @@ blink.mojom.AppBannerEventRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec.$,
+      blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec,
       null,
       []);
   }
@@ -241,7 +241,7 @@ blink.mojom.AppBannerServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec.$,
+      blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec,
       null,
       []);
   }

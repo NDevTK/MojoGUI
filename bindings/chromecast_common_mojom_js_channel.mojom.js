@@ -48,7 +48,7 @@ chromecast.mojom.JsChannelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.JsChannel_PostMessage_ParamsSpec.$,
+      chromecast.mojom.JsChannel_PostMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -123,7 +123,7 @@ chromecast.mojom.JsChannelClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec.$,
+      chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec,
       null,
       [channel, pipe]);
   }
@@ -132,7 +132,7 @@ chromecast.mojom.JsChannelClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec.$,
+      chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec,
       null,
       [channel]);
   }
@@ -222,7 +222,7 @@ chromecast.mojom.JsChannelBindingProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec.$,
+      chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec,
       null,
       [routing_id, client]);
   }

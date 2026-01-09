@@ -48,7 +48,7 @@ chromecast.mojom.RemoteInterfacesRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec.$,
+      chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec,
       null,
       [interface_name, pipe]);
   }
@@ -57,7 +57,7 @@ chromecast.mojom.RemoteInterfacesRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec.$,
+      chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec,
       null,
       [receiver]);
   }

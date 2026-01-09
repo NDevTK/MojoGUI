@@ -76,8 +76,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec.$,
-      media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec.$,
+      media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec,
+      media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec,
       [media_source, sink_id, original_presentation_id, origin, frame_tree_node_id, timeout]);
   }
 
@@ -85,8 +85,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec.$,
-      media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec.$,
+      media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec,
+      media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec,
       [media_source, presentation_id, origin, frame_tree_node_id, timeout]);
   }
 
@@ -94,8 +94,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec.$,
-      media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec.$,
+      media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec,
+      media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec,
       [route_id]);
   }
 
@@ -103,7 +103,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec.$,
+      media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec,
       null,
       [media_route_id, message]);
   }
@@ -112,7 +112,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec.$,
+      media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec,
       null,
       [media_route_id, data]);
   }
@@ -121,7 +121,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec.$,
+      media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec,
       null,
       [media_source]);
   }
@@ -130,7 +130,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec.$,
+      media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec,
       null,
       [media_source]);
   }
@@ -139,7 +139,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec.$,
+      media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec,
       null,
       []);
   }
@@ -148,7 +148,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec.$,
+      media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec,
       null,
       [route_id]);
   }
@@ -157,7 +157,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec.$,
+      media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec,
       null,
       []);
   }
@@ -166,8 +166,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec.$,
-      media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec.$,
+      media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec,
+      media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec,
       [route_id, media_controller, observer]);
   }
 
@@ -175,8 +175,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      media_router.mojom.MediaRouteProvider_GetState_ParamsSpec.$,
-      media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec.$,
+      media_router.mojom.MediaRouteProvider_GetState_ParamsSpec,
+      media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec,
       []);
   }
 
@@ -486,7 +486,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec.$,
+      media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec,
       null,
       [provider_id, media_router_provider]);
   }
@@ -495,7 +495,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec.$,
+      media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec,
       null,
       [provider_id, media_source, sinks, origins]);
   }
@@ -504,7 +504,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media_router.mojom.MediaRouter_OnIssue_ParamsSpec.$,
+      media_router.mojom.MediaRouter_OnIssue_ParamsSpec,
       null,
       [issue]);
   }
@@ -513,7 +513,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec.$,
+      media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec,
       null,
       [sink_id]);
   }
@@ -522,7 +522,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec.$,
+      media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec,
       null,
       [provider_id, routes]);
   }
@@ -531,7 +531,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec.$,
+      media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec,
       null,
       [route_id, state]);
   }
@@ -540,7 +540,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec.$,
+      media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec,
       null,
       [route_id, reason, message]);
   }
@@ -549,7 +549,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec.$,
+      media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec,
       null,
       [route_id, messages]);
   }
@@ -558,8 +558,8 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec.$,
-      media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec.$,
+      media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec,
+      media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec,
       []);
   }
 
@@ -567,7 +567,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      media_router.mojom.MediaRouter_GetLogger_ParamsSpec.$,
+      media_router.mojom.MediaRouter_GetLogger_ParamsSpec,
       null,
       [receiver]);
   }
@@ -576,7 +576,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      media_router.mojom.MediaRouter_GetDebugger_ParamsSpec.$,
+      media_router.mojom.MediaRouter_GetDebugger_ParamsSpec,
       null,
       [receiver]);
   }
@@ -585,8 +585,8 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec.$,
-      media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec.$,
+      media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec,
+      media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec,
       []);
   }
 

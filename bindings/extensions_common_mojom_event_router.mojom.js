@@ -48,7 +48,7 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec.$,
+      extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec,
       null,
       [event_listener]);
   }
@@ -57,7 +57,7 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec.$,
+      extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec,
       null,
       [event_listener]);
   }
@@ -66,7 +66,7 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec.$,
+      extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec,
       null,
       [extension_id, event_name]);
   }
@@ -75,7 +75,7 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec.$,
+      extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec,
       null,
       [extension_id, worker_scope_url, event_name]);
   }
@@ -84,7 +84,7 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec.$,
+      extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec,
       null,
       [listener_owner, event_name, filter, add_lazy_listener]);
   }
@@ -93,7 +93,7 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec.$,
+      extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec,
       null,
       [extension_id, event_name, service_worker_context, filter, add_lazy_listener]);
   }
@@ -102,7 +102,7 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec.$,
+      extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec,
       null,
       [event_listener]);
   }
@@ -111,7 +111,7 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec.$,
+      extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec,
       null,
       [event_listener]);
   }
@@ -120,7 +120,7 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec.$,
+      extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec,
       null,
       [extension_id, event_name]);
   }
@@ -129,7 +129,7 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec.$,
+      extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec,
       null,
       [extension_id, worker_scope_url, event_name]);
   }
@@ -138,7 +138,7 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec.$,
+      extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec,
       null,
       [listener_owner, event_name, filter, remove_lazy_listener]);
   }
@@ -147,7 +147,7 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec.$,
+      extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec,
       null,
       [extension_id, event_name, service_worker_context, filter, remove_lazy_listener]);
   }

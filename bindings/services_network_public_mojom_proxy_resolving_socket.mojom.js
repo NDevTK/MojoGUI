@@ -48,8 +48,8 @@ network.mojom.ProxyResolvingSocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec.$,
-      network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec.$,
+      network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec,
+      network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec,
       [host_port_pair, traffic_annotation, receiver, observer]);
   }
 
@@ -141,8 +141,8 @@ network.mojom.ProxyResolvingSocketFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec.$,
-      network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec.$,
+      network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec,
+      network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec,
       [url, network_anonymization_key, options, traffic_annotation, socket, observer]);
   }
 

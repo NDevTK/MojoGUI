@@ -80,7 +80,7 @@ blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec.$,
+      blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec,
       null,
       [upload_total, uploaded, download_total, downloaded, result, failure_reason]);
   }
@@ -89,7 +89,7 @@ blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec.$,
+      blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec,
       null,
       []);
   }
@@ -98,7 +98,7 @@ blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec.$,
+      blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec,
       null,
       [request, response]);
   }
@@ -206,8 +206,8 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BackgroundFetchService_Fetch_ParamsSpec.$,
-      blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec.$,
+      blink.mojom.BackgroundFetchService_Fetch_ParamsSpec,
+      blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec,
       [service_worker_registration_id, developer_id, requests, options, icon, ukm_data]);
   }
 
@@ -215,8 +215,8 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec.$,
-      blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec.$,
+      blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec,
+      blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec,
       [service_worker_registration_id, developer_id]);
   }
 
@@ -224,8 +224,8 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec.$,
-      blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec.$,
+      blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec,
+      blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec,
       [service_worker_registration_id]);
   }
 
@@ -233,8 +233,8 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec.$,
-      blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec.$,
+      blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec,
+      blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec,
       []);
   }
 
@@ -410,8 +410,8 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec.$,
-      blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec.$,
+      blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec,
+      blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec,
       [title, icon]);
   }
 
@@ -419,8 +419,8 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec.$,
-      blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec.$,
+      blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec,
+      blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec,
       []);
   }
 
@@ -428,8 +428,8 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec.$,
-      blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec.$,
+      blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec,
+      blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec,
       [request_to_match, cache_query_options, match_all]);
   }
 
@@ -437,7 +437,7 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec.$,
+      blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec,
       null,
       [observer]);
   }

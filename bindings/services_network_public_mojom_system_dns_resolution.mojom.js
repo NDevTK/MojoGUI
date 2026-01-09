@@ -48,8 +48,8 @@ network.mojom.SystemDnsResolverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.SystemDnsResolver_Resolve_ParamsSpec.$,
-      network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec.$,
+      network.mojom.SystemDnsResolver_Resolve_ParamsSpec,
+      network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec,
       [hostname, addr_family, flags, network]);
   }
 

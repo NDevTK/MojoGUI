@@ -48,7 +48,7 @@ userspace_swap.mojom.UserspaceSwapInitializationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$,
+      userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec,
       null,
       [uffd_error, uffd_handle, mmap_error, swap_area]);
   }
@@ -126,7 +126,7 @@ userspace_swap.mojom.UserspaceSwapRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$,
+      userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec,
       null,
       [src, dest]);
   }
@@ -135,7 +135,7 @@ userspace_swap.mojom.UserspaceSwapRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$,
+      userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec,
       null,
       [area]);
   }
@@ -144,8 +144,8 @@ userspace_swap.mojom.UserspaceSwapRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$,
-      userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec.$,
+      userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec,
+      userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec,
       [max_superpages]);
   }
 

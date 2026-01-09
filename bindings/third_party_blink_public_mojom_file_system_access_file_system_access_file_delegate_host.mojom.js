@@ -48,8 +48,8 @@ blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec,
+      blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec,
       [offset, bytes_to_read]);
   }
 
@@ -57,8 +57,8 @@ blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec,
+      blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec,
       [offset, data]);
   }
 
@@ -66,8 +66,8 @@ blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec,
+      blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec,
+      blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec,
       [length]);
   }
 

@@ -48,7 +48,7 @@ webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$,
+      webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec,
       null,
       [constant_handle, data_type, data]);
   }
@@ -57,7 +57,7 @@ webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$,
+      webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec,
       null,
       [graph_info]);
   }
@@ -66,8 +66,8 @@ webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$,
-      webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec.$,
+      webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec,
+      webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec,
       [context_properties, graph_info]);
   }
 

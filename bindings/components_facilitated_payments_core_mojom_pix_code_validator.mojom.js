@@ -56,8 +56,8 @@ payments.facilitated.mojom.PixCodeValidatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec.$,
-      payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec.$,
+      payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec,
+      payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec,
       [input_text]);
   }
 

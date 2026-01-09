@@ -49,7 +49,7 @@ chromecast.external_mojo.mojom.TestExternalConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec.$,
+      chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec,
       null,
       [service_name, interface_name, interface_pipe]);
   }

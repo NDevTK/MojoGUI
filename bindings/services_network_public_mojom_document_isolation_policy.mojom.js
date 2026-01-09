@@ -55,7 +55,7 @@ network.mojom.DocumentIsolationPolicyReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpec.$,
+      network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpec,
       null,
       [blocked_url, destination, report_only]);
   }
@@ -64,7 +64,7 @@ network.mojom.DocumentIsolationPolicyReporterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.DocumentIsolationPolicyReporter_Clone_ParamsSpec.$,
+      network.mojom.DocumentIsolationPolicyReporter_Clone_ParamsSpec,
       null,
       [receiver]);
   }

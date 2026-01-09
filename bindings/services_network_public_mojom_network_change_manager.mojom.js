@@ -108,7 +108,7 @@ network.mojom.NetworkChangeManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec.$,
+      network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec,
       null,
       [type]);
   }
@@ -117,7 +117,7 @@ network.mojom.NetworkChangeManagerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec.$,
+      network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec,
       null,
       [type]);
   }
@@ -206,7 +206,7 @@ network.mojom.NetworkChangeManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec.$,
+      network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec,
       null,
       [client_remote]);
   }
@@ -215,7 +215,7 @@ network.mojom.NetworkChangeManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec.$,
+      network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec,
       null,
       [dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype]);
   }
@@ -224,7 +224,7 @@ network.mojom.NetworkChangeManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec.$,
+      network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec,
       null,
       [notifier]);
   }

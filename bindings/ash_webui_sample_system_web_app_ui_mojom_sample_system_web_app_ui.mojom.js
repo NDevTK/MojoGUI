@@ -49,7 +49,7 @@ ash.mojom.sample_swa.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler, page]);
   }
@@ -125,8 +125,8 @@ ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec.$,
-      ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec.$,
+      ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec,
+      ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec,
       []);
   }
 
@@ -134,7 +134,7 @@ ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$,
+      ash.mojom.sample_swa.PageHandler_Send_ParamsSpec,
       null,
       [message]);
   }
@@ -143,7 +143,7 @@ ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec.$,
+      ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec,
       null,
       []);
   }
@@ -257,7 +257,7 @@ ash.mojom.sample_swa.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$,
+      ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec,
       null,
       [name]);
   }
@@ -266,7 +266,7 @@ ash.mojom.sample_swa.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$,
+      ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec,
       null,
       [child_untrusted_page, parent_trusted_page]);
   }

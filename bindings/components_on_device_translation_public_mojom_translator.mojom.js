@@ -48,8 +48,8 @@ on_device_translation.mojom.TranslatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      on_device_translation.mojom.Translator_Translate_ParamsSpec.$,
-      on_device_translation.mojom.Translator_Translate_ResponseParamsSpec.$,
+      on_device_translation.mojom.Translator_Translate_ParamsSpec,
+      on_device_translation.mojom.Translator_Translate_ResponseParamsSpec,
       [input]);
   }
 
@@ -57,8 +57,8 @@ on_device_translation.mojom.TranslatorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      on_device_translation.mojom.Translator_SplitSentences_ParamsSpec.$,
-      on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec.$,
+      on_device_translation.mojom.Translator_SplitSentences_ParamsSpec,
+      on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec,
       [input]);
   }
 

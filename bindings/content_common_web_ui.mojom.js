@@ -48,7 +48,7 @@ content.mojom.WebUIHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.WebUIHost_Send_ParamsSpec.$,
+      content.mojom.WebUIHost_Send_ParamsSpec,
       null,
       [message, args]);
   }
@@ -124,7 +124,7 @@ content.mojom.WebUIRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.WebUI_SetProperty_ParamsSpec.$,
+      content.mojom.WebUI_SetProperty_ParamsSpec,
       null,
       [property_name, property_value_json]);
   }

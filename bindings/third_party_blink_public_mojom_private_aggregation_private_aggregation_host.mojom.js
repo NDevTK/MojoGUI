@@ -59,7 +59,7 @@ blink.mojom.PrivateAggregationHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec.$,
+      blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec,
       null,
       [contributions]);
   }
@@ -68,7 +68,7 @@ blink.mojom.PrivateAggregationHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec.$,
+      blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec,
       null,
       [error_event, contributions]);
   }
@@ -77,7 +77,7 @@ blink.mojom.PrivateAggregationHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec.$,
+      blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec,
       null,
       [debug_key]);
   }

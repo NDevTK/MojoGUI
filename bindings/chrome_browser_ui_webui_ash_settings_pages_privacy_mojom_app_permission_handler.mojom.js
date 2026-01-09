@@ -50,7 +50,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec.$,
+      ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -59,8 +59,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec.$,
-      ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec.$,
+      ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec,
+      ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec,
       []);
   }
 
@@ -68,8 +68,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec.$,
-      ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec.$,
+      ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec,
+      ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec,
       []);
   }
 
@@ -77,8 +77,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec.$,
-      ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec.$,
+      ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec,
+      ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec,
       []);
   }
 
@@ -86,7 +86,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec.$,
+      ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec,
       null,
       [permission_type]);
   }
@@ -95,7 +95,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec.$,
+      ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec,
       null,
       [app_id]);
   }
@@ -104,7 +104,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec.$,
+      ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec,
       null,
       [app_id, permission]);
   }
@@ -300,7 +300,7 @@ ash.settings.app_permission.mojom.AppPermissionsObserverRemoteCallHandler = clas
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec.$,
+      ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec,
       null,
       [app_id]);
   }
@@ -309,7 +309,7 @@ ash.settings.app_permission.mojom.AppPermissionsObserverRemoteCallHandler = clas
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec.$,
+      ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec,
       null,
       [app]);
   }

@@ -54,7 +54,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec.$,
+      content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec,
       null,
       [bootstrap]);
   }
@@ -63,7 +63,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec.$,
+      content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec,
       null,
       [agent_scheduling_group]);
   }
@@ -72,7 +72,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec.$,
+      content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec,
       null,
       [last_foreground_time_region]);
   }
@@ -81,7 +81,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$,
+      content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec,
       null,
       [connection_type, max_bandwidth_mbps]);
   }
@@ -90,7 +90,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$,
+      content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec,
       null,
       [effective_connection_type, http_rtt, transport_rtt, bandwidth_kbps]);
   }
@@ -99,7 +99,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$,
+      content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec,
       null,
       [suspend]);
   }
@@ -108,7 +108,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$,
+      content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec,
       null,
       [params]);
   }
@@ -117,7 +117,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$,
+      content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec,
       null,
       [aqua_color_variant]);
   }
@@ -126,7 +126,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$,
+      content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec,
       null,
       [params]);
   }
@@ -135,7 +135,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      content.mojom.Renderer_PurgePluginListCache_ParamsSpec.$,
+      content.mojom.Renderer_PurgePluginListCache_ParamsSpec,
       null,
       []);
   }
@@ -144,7 +144,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      content.mojom.Renderer_PurgeResourceCache_ParamsSpec.$,
+      content.mojom.Renderer_PurgeResourceCache_ParamsSpec,
       null,
       []);
   }
@@ -153,7 +153,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      content.mojom.Renderer_SetProcessState_ParamsSpec.$,
+      content.mojom.Renderer_SetProcessState_ParamsSpec,
       null,
       [process_priority, visible_state]);
   }
@@ -162,7 +162,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      content.mojom.Renderer_SetIsLockedToSite_ParamsSpec.$,
+      content.mojom.Renderer_SetIsLockedToSite_ParamsSpec,
       null,
       []);
   }
@@ -171,7 +171,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec.$,
+      content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec,
       null,
       []);
   }
@@ -180,7 +180,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec.$,
+      content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec,
       null,
       [value]);
   }
@@ -189,7 +189,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec.$,
+      content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec,
       null,
       [value]);
   }
@@ -198,7 +198,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec.$,
+      content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec,
       null,
       [value]);
   }
@@ -207,7 +207,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec.$,
+      content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec,
       null,
       [resource_map]);
   }
@@ -216,7 +216,7 @@ content.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      content.mojom.Renderer_InitializeRenderer_ParamsSpec.$,
+      content.mojom.Renderer_InitializeRenderer_ParamsSpec,
       null,
       [user_agent, metadata, cors_exempt_header_list, origin_trials_settings, cpu_performance_tier, trace_id]);
   }

@@ -57,7 +57,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec.$,
+      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec,
       null,
       [clicked]);
   }
@@ -66,7 +66,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec.$,
+      blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec,
       null,
       [metrics, removed_elements]);
   }
@@ -75,7 +75,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec.$,
+      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec,
       null,
       [elements]);
   }
@@ -84,7 +84,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec.$,
+      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec,
       null,
       [elements]);
   }
@@ -93,7 +93,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec.$,
+      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec,
       null,
       [elements]);
   }
@@ -102,7 +102,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec.$,
+      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec,
       null,
       [pointer_over_event]);
   }
@@ -111,7 +111,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec.$,
+      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec,
       null,
       [hover_event]);
   }
@@ -120,7 +120,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec.$,
+      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec,
       null,
       [pointer_down_event]);
   }
@@ -129,7 +129,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec.$,
+      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec,
       null,
       [pointer_data]);
   }
@@ -138,7 +138,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec.$,
+      blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec,
       null,
       [pointer_event]);
   }
@@ -147,8 +147,8 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec.$,
-      blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec.$,
+      blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec,
+      blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec,
       []);
   }
 

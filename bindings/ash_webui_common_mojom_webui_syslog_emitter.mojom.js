@@ -49,7 +49,7 @@ ash.common.mojom.WebUiSyslogEmitterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec.$,
+      ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec,
       null,
       [prefix, message]);
   }

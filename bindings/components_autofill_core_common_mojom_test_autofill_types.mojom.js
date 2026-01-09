@@ -48,8 +48,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec.$,
-      autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec.$,
+      autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec,
+      autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec,
       [s]);
   }
 
@@ -57,8 +57,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec.$,
-      autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec.$,
+      autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec,
+      autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec,
       [s]);
   }
 
@@ -66,8 +66,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec.$,
-      autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec.$,
+      autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec,
+      autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec,
       [s]);
   }
 
@@ -75,8 +75,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec.$,
-      autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec.$,
+      autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec,
+      autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec,
       [s]);
   }
 
@@ -84,8 +84,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec.$,
-      autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec.$,
+      autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec,
+      autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec,
       [s]);
   }
 
@@ -93,8 +93,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec.$,
-      autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec.$,
+      autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec,
+      autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec,
       [s]);
   }
 
@@ -102,8 +102,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec.$,
-      autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec.$,
+      autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec,
+      autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec,
       [s]);
   }
 
@@ -111,8 +111,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec.$,
-      autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec.$,
+      autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec,
+      autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec,
       [s]);
   }
 

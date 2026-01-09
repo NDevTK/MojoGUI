@@ -48,7 +48,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec.$,
+      blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec,
       null,
       [draw_params]);
   }
@@ -57,8 +57,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec.$,
-      blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec.$,
+      blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec,
+      blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec,
       [draw_params]);
   }
 
@@ -66,8 +66,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec.$,
-      blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec.$,
+      blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec,
+      blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec,
       [shm_region]);
   }
 
@@ -75,8 +75,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec.$,
-      blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec.$,
+      blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec,
+      blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec,
       [draw_params]);
   }
 
@@ -84,7 +84,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec.$,
+      blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec,
       null,
       []);
   }
@@ -93,7 +93,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec.$,
+      blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec,
       null,
       []);
   }
@@ -102,8 +102,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec.$,
-      blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec.$,
+      blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec,
+      blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec,
       [delta, anchor]);
   }
 
@@ -111,7 +111,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec.$,
+      blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec,
       null,
       [bytes_limit]);
   }
@@ -120,7 +120,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec.$,
+      blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec,
       null,
       [layer_tree_frame_sink_id, resources]);
   }
@@ -129,7 +129,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$,
+      blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
       [layer_tree_frame_sink_id, sequence_id]);
   }
@@ -138,7 +138,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec.$,
+      blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec,
       null,
       [offset]);
   }
@@ -147,7 +147,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec.$,
+      blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec,
       null,
       [args, timing_details]);
   }
@@ -156,7 +156,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec.$,
+      blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec,
       null,
       [paused]);
   }
@@ -461,7 +461,7 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec.$,
+      blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec,
       null,
       []);
   }
@@ -470,7 +470,7 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec.$,
+      blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec,
       null,
       [params]);
   }
@@ -479,7 +479,7 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec.$,
+      blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec,
       null,
       [needs_begin_frames]);
   }
@@ -488,7 +488,7 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec.$,
+      blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec,
       null,
       [threads]);
   }
@@ -604,7 +604,7 @@ blink.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec.$,
+      blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec,
       null,
       [layer_tree_frame_sink_id, metadata_version, local_surface_id, frame, hit_test_region_list]);
   }
@@ -613,7 +613,7 @@ blink.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec.$,
+      blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec,
       null,
       [params]);
   }

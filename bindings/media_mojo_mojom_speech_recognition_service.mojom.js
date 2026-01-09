@@ -48,8 +48,8 @@ media.mojom.AudioSourceSpeechRecognitionContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec.$,
-      media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseParamsSpec.$,
+      media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec,
+      media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseParamsSpec,
       [fetcher_receiver, client, options]);
   }
 
@@ -138,7 +138,7 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec.$,
+      media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec,
       null,
       [context]);
   }
@@ -147,7 +147,7 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec.$,
+      media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec,
       null,
       [context]);
   }
@@ -156,7 +156,7 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec.$,
+      media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec,
       null,
       [binary_path, config_paths, primary_language_name]);
   }
@@ -165,7 +165,7 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec.$,
+      media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec,
       null,
       [mask_offensive_words]);
   }
@@ -174,7 +174,7 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec.$,
+      media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec,
       null,
       [config_paths]);
   }
@@ -307,7 +307,7 @@ media.mojom.AudioSourceFetcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioSourceFetcher_Start_ParamsSpec.$,
+      media.mojom.AudioSourceFetcher_Start_ParamsSpec,
       null,
       [factory, device_id, audio_parameters]);
   }
@@ -316,7 +316,7 @@ media.mojom.AudioSourceFetcherRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.AudioSourceFetcher_Stop_ParamsSpec.$,
+      media.mojom.AudioSourceFetcher_Stop_ParamsSpec,
       null,
       []);
   }

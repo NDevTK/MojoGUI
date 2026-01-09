@@ -56,8 +56,8 @@ network.mojom.WebSocketAuthenticationHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec.$,
-      network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec.$,
+      network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec,
+      network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec,
       [info, headers, remote_endpoint]);
   }
 
@@ -146,7 +146,7 @@ network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec.$,
+      network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec,
       null,
       [request]);
   }
@@ -155,7 +155,7 @@ network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec.$,
+      network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec,
       null,
       [message, net_error, response_code]);
   }
@@ -164,7 +164,7 @@ network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec.$,
+      network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec,
       null,
       [socket, client_receiver, response, readable, writable]);
   }
@@ -273,7 +273,7 @@ network.mojom.WebSocketClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.WebSocketClient_OnDataFrame_ParamsSpec.$,
+      network.mojom.WebSocketClient_OnDataFrame_ParamsSpec,
       null,
       [fin, type, data_length]);
   }
@@ -282,7 +282,7 @@ network.mojom.WebSocketClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.WebSocketClient_OnDropChannel_ParamsSpec.$,
+      network.mojom.WebSocketClient_OnDropChannel_ParamsSpec,
       null,
       [was_clean, code, reason]);
   }
@@ -291,7 +291,7 @@ network.mojom.WebSocketClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec.$,
+      network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec,
       null,
       []);
   }
@@ -397,7 +397,7 @@ network.mojom.WebSocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.WebSocket_SendMessage_ParamsSpec.$,
+      network.mojom.WebSocket_SendMessage_ParamsSpec,
       null,
       [type, data_length]);
   }
@@ -406,7 +406,7 @@ network.mojom.WebSocketRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.WebSocket_StartReceiving_ParamsSpec.$,
+      network.mojom.WebSocket_StartReceiving_ParamsSpec,
       null,
       []);
   }
@@ -415,7 +415,7 @@ network.mojom.WebSocketRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.WebSocket_StartClosingHandshake_ParamsSpec.$,
+      network.mojom.WebSocket_StartClosingHandshake_ParamsSpec,
       null,
       [code, reason]);
   }

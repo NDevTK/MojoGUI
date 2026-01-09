@@ -56,7 +56,7 @@ blink.mojom.DisplayCutoutHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec.$,
+      blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec,
       null,
       [value]);
   }
@@ -65,7 +65,7 @@ blink.mojom.DisplayCutoutHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec.$,
+      blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec,
       null,
       [value]);
   }
@@ -154,7 +154,7 @@ blink.mojom.DisplayCutoutClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec.$,
+      blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec,
       null,
       [safe_area]);
   }

@@ -48,7 +48,7 @@ video_capture.mojom.DevicesChangedObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec.$,
+      video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec,
       null,
       []);
   }

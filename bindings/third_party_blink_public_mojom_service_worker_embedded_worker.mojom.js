@@ -48,7 +48,7 @@ blink.mojom.EmbeddedWorkerInstanceClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec.$,
+      blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec,
       null,
       [params]);
   }
@@ -57,7 +57,7 @@ blink.mojom.EmbeddedWorkerInstanceClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec.$,
+      blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec,
       null,
       []);
   }
@@ -145,8 +145,8 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec.$,
-      blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec.$,
+      blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec,
+      blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec,
       []);
   }
 
@@ -154,7 +154,7 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec.$,
+      blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec,
       null,
       [feature]);
   }
@@ -163,7 +163,7 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec.$,
+      blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec,
       null,
       [agent, agent_host]);
   }
@@ -172,7 +172,7 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec.$,
+      blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec,
       null,
       []);
   }
@@ -181,7 +181,7 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec.$,
+      blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec,
       null,
       []);
   }
@@ -190,7 +190,7 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec.$,
+      blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec,
       null,
       [status, fetch_handler_type, has_hid_event_handlers, has_usb_event_handlers, thread_id, start_timing]);
   }
@@ -199,7 +199,7 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec.$,
+      blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec,
       null,
       [error_message, line_number, column_number, source_url]);
   }
@@ -208,7 +208,7 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec.$,
+      blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec,
       null,
       [source, message_level, message, line_number, source_url]);
   }
@@ -217,7 +217,7 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec.$,
+      blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec,
       null,
       []);
   }

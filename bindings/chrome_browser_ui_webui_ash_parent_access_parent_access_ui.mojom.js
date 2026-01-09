@@ -77,8 +77,8 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec.$,
-      parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec.$,
+      parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec,
+      parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec,
       []);
   }
 
@@ -86,8 +86,8 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec.$,
-      parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec.$,
+      parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec,
+      parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec,
       [encoded_parent_access_callback_proto]);
   }
 
@@ -95,8 +95,8 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec.$,
-      parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec.$,
+      parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec,
+      parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec,
       []);
   }
 
@@ -104,8 +104,8 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec.$,
-      parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec.$,
+      parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec,
+      parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec,
       []);
   }
 
@@ -113,7 +113,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec.$,
+      parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec,
       null,
       [result]);
   }
@@ -122,7 +122,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec.$,
+      parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec,
       null,
       []);
   }

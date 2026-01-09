@@ -48,7 +48,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec.$,
+      auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec,
       null,
       [request, timestamp]);
   }
@@ -57,7 +57,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec.$,
+      auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec,
       null,
       [request_id, loader_id, request_url, headers]);
   }
@@ -66,7 +66,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec.$,
+      auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec,
       null,
       [request_id, status]);
   }
@@ -75,7 +75,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec.$,
+      auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec,
       null,
       [receiver]);
   }

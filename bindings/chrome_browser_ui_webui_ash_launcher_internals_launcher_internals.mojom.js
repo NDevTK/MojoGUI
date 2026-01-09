@@ -48,7 +48,7 @@ launcher_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page]);
   }
@@ -123,7 +123,7 @@ launcher_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      launcher_internals.mojom.Page_UpdateResults_ParamsSpec.$,
+      launcher_internals.mojom.Page_UpdateResults_ParamsSpec,
       null,
       [query, keywords, results]);
   }

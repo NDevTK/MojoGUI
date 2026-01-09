@@ -48,8 +48,8 @@ media_router.mojom.DebuggerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec.$,
-      media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec.$,
+      media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec,
+      media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ media_router.mojom.DebuggerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media_router.mojom.Debugger_OnMirroringStats_ParamsSpec.$,
+      media_router.mojom.Debugger_OnMirroringStats_ParamsSpec,
       null,
       [json_stats]);
   }
@@ -66,7 +66,7 @@ media_router.mojom.DebuggerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media_router.mojom.Debugger_BindReceiver_ParamsSpec.$,
+      media_router.mojom.Debugger_BindReceiver_ParamsSpec,
       null,
       [receiver]);
   }

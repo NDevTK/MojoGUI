@@ -48,8 +48,8 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.AutomationClient_Enable_ParamsSpec.$,
-      ax.mojom.AutomationClient_Enable_ResponseParamsSpec.$,
+      ax.mojom.AutomationClient_Enable_ParamsSpec,
+      ax.mojom.AutomationClient_Enable_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.AutomationClient_Disable_ParamsSpec.$,
+      ax.mojom.AutomationClient_Disable_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +66,7 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.mojom.AutomationClient_EnableChildTree_ParamsSpec.$,
+      ax.mojom.AutomationClient_EnableChildTree_ParamsSpec,
       null,
       [tree_id]);
   }
@@ -75,7 +75,7 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ax.mojom.AutomationClient_PerformAction_ParamsSpec.$,
+      ax.mojom.AutomationClient_PerformAction_ParamsSpec,
       null,
       [action_data]);
   }

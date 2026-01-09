@@ -104,8 +104,8 @@ infobar_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec.$,
-      infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec.$,
+      infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec,
+      infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec,
       []);
   }
 
@@ -113,8 +113,8 @@ infobar_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec.$,
-      infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec.$,
+      infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec,
+      infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec,
       [type]);
   }
 
@@ -227,7 +227,7 @@ infobar_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }

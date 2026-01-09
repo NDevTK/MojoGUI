@@ -59,8 +59,8 @@ quarantine.mojom.QuarantineRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec.$,
-      quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec.$,
+      quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec,
+      quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec,
       [full_path, source_url, referrer_url, request_initiator, client_guid]);
   }
 

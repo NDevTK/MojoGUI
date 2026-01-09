@@ -48,7 +48,7 @@ media.mojom.AndroidOverlayProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec.$,
+      media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec,
       null,
       [overlay, client, config]);
   }
@@ -125,7 +125,7 @@ media.mojom.AndroidOverlayRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec.$,
+      media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec,
       null,
       [rect]);
   }
@@ -200,7 +200,7 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec.$,
+      media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec,
       null,
       [surface_key]);
   }
@@ -209,7 +209,7 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec.$,
+      media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec,
       null,
       []);
   }
@@ -218,7 +218,7 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec.$,
+      media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec,
       null,
       []);
   }
@@ -227,7 +227,7 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec.$,
+      media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec,
       null,
       [is_power_efficient]);
   }

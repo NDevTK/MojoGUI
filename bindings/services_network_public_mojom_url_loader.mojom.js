@@ -48,7 +48,7 @@ network.mojom.URLLoaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.URLLoader_FollowRedirect_ParamsSpec.$,
+      network.mojom.URLLoader_FollowRedirect_ParamsSpec,
       null,
       [removed_headers, modified_headers, modified_cors_exempt_headers, new_url]);
   }
@@ -57,7 +57,7 @@ network.mojom.URLLoaderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.URLLoader_SetPriority_ParamsSpec.$,
+      network.mojom.URLLoader_SetPriority_ParamsSpec,
       null,
       [priority, intra_priority_value]);
   }
@@ -150,7 +150,7 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec.$,
+      network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec,
       null,
       [early_hints]);
   }
@@ -159,7 +159,7 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec.$,
+      network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec,
       null,
       [head, body, cached_metadata]);
   }
@@ -168,7 +168,7 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec.$,
+      network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec,
       null,
       [redirect_info, head]);
   }
@@ -177,7 +177,7 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec.$,
+      network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec,
       null,
       [current_position, total_size]);
   }
@@ -186,7 +186,7 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec.$,
+      network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec,
       null,
       [transfer_size_diff]);
   }
@@ -195,7 +195,7 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.URLLoaderClient_OnComplete_ParamsSpec.$,
+      network.mojom.URLLoaderClient_OnComplete_ParamsSpec,
       null,
       [status]);
   }

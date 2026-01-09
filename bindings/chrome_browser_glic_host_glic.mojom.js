@@ -233,7 +233,7 @@ glic.mojom.PreloadPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec.$,
+      glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec,
       null,
       [ready_state]);
   }
@@ -308,7 +308,7 @@ glic.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.Page_IntentToShow_ParamsSpec.$,
+      glic.mojom.Page_IntentToShow_ParamsSpec,
       null,
       []);
   }
@@ -317,7 +317,7 @@ glic.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      glic.mojom.Page_SetProfileReadyState_ParamsSpec.$,
+      glic.mojom.Page_SetProfileReadyState_ParamsSpec,
       null,
       [ready_state]);
   }
@@ -326,7 +326,7 @@ glic.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      glic.mojom.Page_UpdatePageState_ParamsSpec.$,
+      glic.mojom.Page_UpdatePageState_ParamsSpec,
       null,
       [panelStateKind]);
   }
@@ -428,8 +428,8 @@ glic.mojom.GlicPreloadHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec.$,
-      glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec.$,
+      glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec,
+      glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec,
       []);
   }
 
@@ -515,7 +515,7 @@ glic.mojom.GlicPreloadHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec.$,
+      glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec,
       null,
       [receiver, page]);
   }
@@ -591,7 +591,7 @@ glic.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [receiver, page]);
   }
@@ -667,7 +667,7 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.PageHandler_CreateWebClient_ParamsSpec.$,
+      glic.mojom.PageHandler_CreateWebClient_ParamsSpec,
       null,
       [web_client_receiver]);
   }
@@ -676,8 +676,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      glic.mojom.PageHandler_PrepareForClient_ParamsSpec.$,
-      glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec.$,
+      glic.mojom.PageHandler_PrepareForClient_ParamsSpec,
+      glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec,
       []);
   }
 
@@ -685,7 +685,7 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      glic.mojom.PageHandler_WebviewCommitted_ParamsSpec.$,
+      glic.mojom.PageHandler_WebviewCommitted_ParamsSpec,
       null,
       [url]);
   }
@@ -694,7 +694,7 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      glic.mojom.PageHandler_ClosePanel_ParamsSpec.$,
+      glic.mojom.PageHandler_ClosePanel_ParamsSpec,
       null,
       []);
   }
@@ -703,7 +703,7 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec.$,
+      glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec,
       null,
       []);
   }
@@ -712,7 +712,7 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec.$,
+      glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec,
       null,
       []);
   }
@@ -721,7 +721,7 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec.$,
+      glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec,
       null,
       []);
   }
@@ -730,7 +730,7 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      glic.mojom.PageHandler_ResizeWidget_ParamsSpec.$,
+      glic.mojom.PageHandler_ResizeWidget_ParamsSpec,
       null,
       [size, duration]);
   }
@@ -739,7 +739,7 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      glic.mojom.PageHandler_EnableDragResize_ParamsSpec.$,
+      glic.mojom.PageHandler_EnableDragResize_ParamsSpec,
       null,
       [enabled]);
   }
@@ -748,7 +748,7 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec.$,
+      glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec,
       null,
       [new_state]);
   }
@@ -757,8 +757,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec.$,
-      glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec.$,
+      glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec,
+      glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec,
       []);
   }
 
@@ -993,7 +993,7 @@ glic.mojom.PinCandidatesObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec.$,
+      glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec,
       null,
       [candidates]);
   }
@@ -1068,8 +1068,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec.$,
-      glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec,
+      glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec,
       [web_client]);
   }
 
@@ -1077,7 +1077,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec.$,
+      glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec,
       null,
       []);
   }
@@ -1086,7 +1086,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec.$,
+      glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec,
       null,
       []);
   }
@@ -1095,8 +1095,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      glic.mojom.WebClientHandler_CreateTab_ParamsSpec.$,
-      glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_CreateTab_ParamsSpec,
+      glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec,
       [url, open_in_background, window_id]);
   }
 
@@ -1104,7 +1104,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec,
       null,
       [url, popup_width, popup_height]);
   }
@@ -1113,7 +1113,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec,
       null,
       [options]);
   }
@@ -1122,7 +1122,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec,
       null,
       []);
   }
@@ -1131,7 +1131,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      glic.mojom.WebClientHandler_ClosePanel_ParamsSpec.$,
+      glic.mojom.WebClientHandler_ClosePanel_ParamsSpec,
       null,
       []);
   }
@@ -1140,7 +1140,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec.$,
+      glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec,
       null,
       []);
   }
@@ -1149,7 +1149,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      glic.mojom.WebClientHandler_AttachPanel_ParamsSpec.$,
+      glic.mojom.WebClientHandler_AttachPanel_ParamsSpec,
       null,
       []);
   }
@@ -1158,7 +1158,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      glic.mojom.WebClientHandler_DetachPanel_ParamsSpec.$,
+      glic.mojom.WebClientHandler_DetachPanel_ParamsSpec,
       null,
       []);
   }
@@ -1167,7 +1167,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      glic.mojom.WebClientHandler_OnModeChange_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OnModeChange_ParamsSpec,
       null,
       [new_mode]);
   }
@@ -1176,7 +1176,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec.$,
+      glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec,
       null,
       []);
   }
@@ -1185,8 +1185,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec.$,
-      glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec,
+      glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec,
       []);
   }
 
@@ -1194,8 +1194,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec.$,
-      glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec,
+      glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec,
       [options]);
   }
 
@@ -1203,8 +1203,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec.$,
-      glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec,
+      glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec,
       [tab_id, options]);
   }
 
@@ -1212,8 +1212,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec.$,
-      glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec,
+      glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec,
       [tab_id, options]);
   }
 
@@ -1221,8 +1221,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec.$,
-      glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec,
+      glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec,
       [requested_max]);
   }
 
@@ -1230,8 +1230,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      glic.mojom.WebClientHandler_PinTabs_ParamsSpec.$,
-      glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_PinTabs_ParamsSpec,
+      glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec,
       [tab_ids, options]);
   }
 
@@ -1239,8 +1239,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec.$,
-      glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec,
+      glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec,
       [tab_ids, options]);
   }
 
@@ -1248,7 +1248,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec.$,
+      glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec,
       null,
       [options]);
   }
@@ -1257,8 +1257,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      glic.mojom.WebClientHandler_CreateSkill_ParamsSpec.$,
-      glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_CreateSkill_ParamsSpec,
+      glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec,
       [request]);
   }
 
@@ -1266,8 +1266,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec.$,
-      glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec,
+      glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec,
       [request]);
   }
 
@@ -1275,8 +1275,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      glic.mojom.WebClientHandler_GetSkill_ParamsSpec.$,
-      glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_GetSkill_ParamsSpec,
+      glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec,
       [id]);
   }
 
@@ -1284,7 +1284,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec.$,
+      glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec,
       null,
       [options, observer]);
   }
@@ -1293,7 +1293,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      glic.mojom.WebClientHandler_CreateTask_ParamsSpec.$,
+      glic.mojom.WebClientHandler_CreateTask_ParamsSpec,
       null,
       [task_options]);
   }
@@ -1302,7 +1302,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      glic.mojom.WebClientHandler_PerformActions_ParamsSpec.$,
+      glic.mojom.WebClientHandler_PerformActions_ParamsSpec,
       null,
       [actions_proto]);
   }
@@ -1311,7 +1311,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      glic.mojom.WebClientHandler_StopActorTask_ParamsSpec.$,
+      glic.mojom.WebClientHandler_StopActorTask_ParamsSpec,
       null,
       [task_id, stop_reason]);
   }
@@ -1320,7 +1320,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec.$,
+      glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec,
       null,
       [task_id, pause_reason, tab_id]);
   }
@@ -1329,8 +1329,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec.$,
-      glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec,
+      glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec,
       [task_id, context_options]);
   }
 
@@ -1338,7 +1338,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec.$,
+      glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec,
       null,
       [task_id]);
   }
@@ -1347,7 +1347,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec.$,
+      glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec,
       null,
       [task_id]);
   }
@@ -1356,8 +1356,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec.$,
-      glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec,
+      glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec,
       [task_id, open_in_background, initiator_tab_id, initiator_window_id]);
   }
 
@@ -1365,7 +1365,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      glic.mojom.WebClientHandler_ActivateTab_ParamsSpec.$,
+      glic.mojom.WebClientHandler_ActivateTab_ParamsSpec,
       null,
       [task_id]);
   }
@@ -1374,7 +1374,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec.$,
+      glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec,
       null,
       [size, duration]);
   }
@@ -1383,8 +1383,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec.$,
-      glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec,
+      glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec,
       []);
   }
 
@@ -1392,7 +1392,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec.$,
+      glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec,
       null,
       [observer]);
   }
@@ -1401,8 +1401,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec.$,
-      glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec,
+      glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec,
       [enable]);
   }
 
@@ -1410,7 +1410,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec.$,
+      glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec,
       null,
       [draggable_areas]);
   }
@@ -1419,7 +1419,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec.$,
+      glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec,
       null,
       [size]);
   }
@@ -1428,7 +1428,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec.$,
+      glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec,
       null,
       [enabled]);
   }
@@ -1437,7 +1437,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 41
     return this.proxy.sendMessage(
       41,  // ordinal
-      glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec.$,
+      glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec,
       null,
       [enabled]);
   }
@@ -1446,7 +1446,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 42
     return this.proxy.sendMessage(
       42,  // ordinal
-      glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec.$,
+      glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec,
       null,
       [enabled]);
   }
@@ -1455,7 +1455,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 43
     return this.proxy.sendMessage(
       43,  // ordinal
-      glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec.$,
+      glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec,
       null,
       [enabled]);
   }
@@ -1464,7 +1464,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 44
     return this.proxy.sendMessage(
       44,  // ordinal
-      glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec.$,
+      glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec,
       null,
       [enabled]);
   }
@@ -1473,8 +1473,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 45
     return this.proxy.sendMessage(
       45,  // ordinal
-      glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec.$,
-      glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec,
+      glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec,
       []);
   }
 
@@ -1482,8 +1482,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 46
     return this.proxy.sendMessage(
       46,  // ordinal
-      glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec.$,
-      glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec,
+      glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec,
       []);
   }
 
@@ -1491,7 +1491,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 47
     return this.proxy.sendMessage(
       47,  // ordinal
-      glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec.$,
+      glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec,
       null,
       [enabled]);
   }
@@ -1500,8 +1500,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 48
     return this.proxy.sendMessage(
       48,  // ordinal
-      glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec.$,
-      glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec,
+      glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec,
       []);
   }
 
@@ -1509,8 +1509,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 49
     return this.proxy.sendMessage(
       49,  // ordinal
-      glic.mojom.WebClientHandler_SyncCookies_ParamsSpec.$,
-      glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_SyncCookies_ParamsSpec,
+      glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec,
       []);
   }
 
@@ -1518,7 +1518,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 50
     return this.proxy.sendMessage(
       50,  // ordinal
-      glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec.$,
+      glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec,
       null,
       [event_async_id, task_id, event, details]);
   }
@@ -1527,7 +1527,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 51
     return this.proxy.sendMessage(
       51,  // ordinal
-      glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec.$,
+      glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec,
       null,
       [event_async_id, details]);
   }
@@ -1536,7 +1536,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 52
     return this.proxy.sendMessage(
       52,  // ordinal
-      glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec.$,
+      glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec,
       null,
       [task_id, event, details]);
   }
@@ -1545,7 +1545,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 53
     return this.proxy.sendMessage(
       53,  // ordinal
-      glic.mojom.WebClientHandler_JournalClear_ParamsSpec.$,
+      glic.mojom.WebClientHandler_JournalClear_ParamsSpec,
       null,
       []);
   }
@@ -1554,8 +1554,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 54
     return this.proxy.sendMessage(
       54,  // ordinal
-      glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec.$,
-      glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec,
+      glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec,
       [clear_journal]);
   }
 
@@ -1563,7 +1563,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 55
     return this.proxy.sendMessage(
       55,  // ordinal
-      glic.mojom.WebClientHandler_JournalStart_ParamsSpec.$,
+      glic.mojom.WebClientHandler_JournalStart_ParamsSpec,
       null,
       [max_bytes, capture_screenshots]);
   }
@@ -1572,7 +1572,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 56
     return this.proxy.sendMessage(
       56,  // ordinal
-      glic.mojom.WebClientHandler_JournalStop_ParamsSpec.$,
+      glic.mojom.WebClientHandler_JournalStop_ParamsSpec,
       null,
       []);
   }
@@ -1581,7 +1581,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 57
     return this.proxy.sendMessage(
       57,  // ordinal
-      glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec.$,
+      glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec,
       null,
       [positive, reason]);
   }
@@ -1590,7 +1590,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 58
     return this.proxy.sendMessage(
       58,  // ordinal
-      glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec,
       null,
       [mode]);
   }
@@ -1599,7 +1599,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 59
     return this.proxy.sendMessage(
       59,  // ordinal
-      glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec,
       null,
       []);
   }
@@ -1608,7 +1608,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 60
     return this.proxy.sendMessage(
       60,  // ordinal
-      glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec,
       null,
       []);
   }
@@ -1617,7 +1617,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 61
     return this.proxy.sendMessage(
       61,  // ordinal
-      glic.mojom.WebClientHandler_OnReaction_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OnReaction_ParamsSpec,
       null,
       [reactionType]);
   }
@@ -1626,7 +1626,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 62
     return this.proxy.sendMessage(
       62,  // ordinal
-      glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec,
       null,
       []);
   }
@@ -1635,7 +1635,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 63
     return this.proxy.sendMessage(
       63,  // ordinal
-      glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec,
       null,
       [details]);
   }
@@ -1644,7 +1644,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 64
     return this.proxy.sendMessage(
       64,  // ordinal
-      glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec,
       null,
       []);
   }
@@ -1653,7 +1653,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 65
     return this.proxy.sendMessage(
       65,  // ordinal
-      glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec,
       null,
       [model, duration]);
   }
@@ -1662,7 +1662,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 66
     return this.proxy.sendMessage(
       66,  // ordinal
-      glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec,
       null,
       [model]);
   }
@@ -1671,7 +1671,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 67
     return this.proxy.sendMessage(
       67,  // ordinal
-      glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec,
       null,
       [counter]);
   }
@@ -1680,7 +1680,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 68
     return this.proxy.sendMessage(
       68,  // ordinal
-      glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec,
       null,
       [positive]);
   }
@@ -1689,7 +1689,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 69
     return this.proxy.sendMessage(
       69,  // ordinal
-      glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec,
       null,
       []);
   }
@@ -1698,8 +1698,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 70
     return this.proxy.sendMessage(
       70,  // ordinal
-      glic.mojom.WebClientHandler_ScrollTo_ParamsSpec.$,
-      glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_ScrollTo_ParamsSpec,
+      glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec,
       [params]);
   }
 
@@ -1707,7 +1707,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 71
     return this.proxy.sendMessage(
       71,  // ordinal
-      glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec.$,
+      glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec,
       null,
       []);
   }
@@ -1716,7 +1716,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 72
     return this.proxy.sendMessage(
       72,  // ordinal
-      glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec.$,
+      glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec,
       null,
       [trial_name, group_name]);
   }
@@ -1725,7 +1725,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 73
     return this.proxy.sendMessage(
       73,  // ordinal
-      glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec,
       null,
       [type]);
   }
@@ -1734,8 +1734,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 74
     return this.proxy.sendMessage(
       74,  // ordinal
-      glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec.$,
-      glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec,
+      glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec,
       []);
   }
 
@@ -1743,8 +1743,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 75
     return this.proxy.sendMessage(
       75,  // ordinal
-      glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec.$,
-      glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec,
+      glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec,
       [is_live, options]);
   }
 
@@ -1752,8 +1752,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 76
     return this.proxy.sendMessage(
       76,  // ordinal
-      glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec.$,
-      glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec,
+      glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec,
       [is_first_run]);
   }
 
@@ -1761,7 +1761,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 77
     return this.proxy.sendMessage(
       77,  // ordinal
-      glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec.$,
+      glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec,
       null,
       []);
   }
@@ -1770,8 +1770,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 78
     return this.proxy.sendMessage(
       78,  // ordinal
-      glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec.$,
-      glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec,
+      glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec,
       []);
   }
 
@@ -1779,7 +1779,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 79
     return this.proxy.sendMessage(
       79,  // ordinal
-      glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec.$,
+      glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec,
       null,
       [notification]);
   }
@@ -1788,8 +1788,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 80
     return this.proxy.sendMessage(
       80,  // ordinal
-      glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec.$,
-      glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec,
+      glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec,
       [tab_id, names]);
   }
 
@@ -1797,8 +1797,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 81
     return this.proxy.sendMessage(
       81,  // ordinal
-      glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec.$,
-      glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec,
+      glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec,
       [info]);
   }
 
@@ -1806,8 +1806,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 82
     return this.proxy.sendMessage(
       82,  // ordinal
-      glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec.$,
-      glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec.$,
+      glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec,
+      glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec,
       [info]);
   }
 
@@ -1815,7 +1815,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 83
     return this.proxy.sendMessage(
       83,  // ordinal
-      glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec.$,
+      glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec,
       null,
       []);
   }
@@ -1824,7 +1824,7 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
     // Ordinal: 84
     return this.proxy.sendMessage(
       84,  // ordinal
-      glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec.$,
+      glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec,
       null,
       [tab_id, receiver]);
   }
@@ -3456,7 +3456,7 @@ glic.mojom.TabDataHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec.$,
+      glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec,
       null,
       [tab_data]);
   }
@@ -3531,8 +3531,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec.$,
-      glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec.$,
+      glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec,
+      glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec,
       [panel_opening_data]);
   }
 
@@ -3540,7 +3540,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec,
       null,
       []);
   }
@@ -3549,7 +3549,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec,
       null,
       [panel_state]);
   }
@@ -3558,7 +3558,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec,
       null,
       [panel_active]);
   }
@@ -3567,7 +3567,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec,
       null,
       [can_attach]);
   }
@@ -3576,7 +3576,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -3585,7 +3585,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -3594,7 +3594,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -3603,7 +3603,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -3612,7 +3612,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec,
       null,
       [focused_tab_data]);
   }
@@ -3621,7 +3621,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec,
       null,
       [resizing]);
   }
@@ -3630,7 +3630,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec,
       null,
       [hotkey]);
   }
@@ -3639,7 +3639,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec,
       null,
       [browser_is_open]);
   }
@@ -3648,7 +3648,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec,
       null,
       [instance_active]);
   }
@@ -3657,7 +3657,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -3666,7 +3666,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec,
       null,
       [tab_data]);
   }
@@ -3675,7 +3675,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec,
       null,
       [tab_data]);
   }
@@ -3684,7 +3684,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec,
       null,
       [skill_previews]);
   }
@@ -3693,7 +3693,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec,
       null,
       [skill_preview]);
   }
@@ -3702,7 +3702,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec,
       null,
       [skill]);
   }
@@ -3711,7 +3711,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec,
       null,
       [suggestions, options]);
   }
@@ -3720,7 +3720,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec,
       null,
       [task_id, state]);
   }
@@ -3729,7 +3729,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      glic.mojom.WebClient_RequestViewChange_ParamsSpec.$,
+      glic.mojom.WebClient_RequestViewChange_ParamsSpec,
       null,
       [request]);
   }
@@ -3738,7 +3738,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec,
       null,
       [tab_id, metadata]);
   }
@@ -3747,7 +3747,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -3756,8 +3756,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec.$,
-      glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec.$,
+      glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec,
+      glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec,
       [request]);
   }
 
@@ -3765,8 +3765,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec.$,
-      glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec.$,
+      glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec,
+      glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec,
       [request]);
   }
 
@@ -3774,8 +3774,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec.$,
-      glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec.$,
+      glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec,
+      glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec,
       [request]);
   }
 
@@ -3783,8 +3783,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec.$,
-      glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec.$,
+      glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec,
+      glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec,
       [request]);
   }
 
@@ -3792,7 +3792,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec,
       null,
       [context]);
   }
@@ -3801,7 +3801,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -3810,7 +3810,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec,
       null,
       [can_act_on_web]);
   }
@@ -3819,7 +3819,7 @@ glic.mojom.WebClientRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec.$,
+      glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec,
       null,
       [completed]);
   }
@@ -4409,7 +4409,7 @@ glic.mojom.CaptureRegionObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec.$,
+      glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec,
       null,
       [result, reason]);
   }

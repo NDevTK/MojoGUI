@@ -48,8 +48,8 @@ metrics.mojom.CallStackProfileCollectorTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec.$,
-      metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec.$,
+      metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec,
+      metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec,
       [in]);
   }
 

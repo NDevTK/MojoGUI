@@ -48,7 +48,7 @@ tracing.mojom.TracingServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.TracingService_Initialize_ParamsSpec.$,
+      tracing.mojom.TracingService_Initialize_ParamsSpec,
       null,
       [clients]);
   }
@@ -57,7 +57,7 @@ tracing.mojom.TracingServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.TracingService_AddClient_ParamsSpec.$,
+      tracing.mojom.TracingService_AddClient_ParamsSpec,
       null,
       [client]);
   }
@@ -66,7 +66,7 @@ tracing.mojom.TracingServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      tracing.mojom.TracingService_BindConsumerHost_ParamsSpec.$,
+      tracing.mojom.TracingService_BindConsumerHost_ParamsSpec,
       null,
       [receiver]);
   }

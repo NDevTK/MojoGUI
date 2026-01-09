@@ -55,7 +55,7 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec.$,
+      service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec,
       null,
       [running_services]);
   }
@@ -64,7 +64,7 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec.$,
+      service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec,
       null,
       [service]);
   }
@@ -73,7 +73,7 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec.$,
+      service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec,
       null,
       [identity, pid_deprecated]);
   }
@@ -82,7 +82,7 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec.$,
+      service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec,
       null,
       [identity, pid]);
   }
@@ -91,7 +91,7 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec.$,
+      service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec,
       null,
       [identity]);
   }
@@ -100,7 +100,7 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec.$,
+      service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec,
       null,
       [identity]);
   }
@@ -247,7 +247,7 @@ service_manager.mojom.ServiceManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      service_manager.mojom.ServiceManager_AddListener_ParamsSpec.$,
+      service_manager.mojom.ServiceManager_AddListener_ParamsSpec,
       null,
       [listener]);
   }

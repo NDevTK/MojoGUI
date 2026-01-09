@@ -57,7 +57,7 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec.$,
+      ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec,
       null,
       [receiver_info]);
   }
@@ -66,7 +66,7 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec.$,
+      ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec,
       null,
       []);
   }
@@ -75,7 +75,7 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec.$,
+      ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec,
       null,
       [frame_data]);
   }
@@ -84,7 +84,7 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec.$,
+      ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec,
       null,
       [audio_packet]);
   }
@@ -93,7 +93,7 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec.$,
+      ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec,
       null,
       [initiator, presenter]);
   }
@@ -102,7 +102,7 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec.$,
+      ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec,
       null,
       [reason]);
   }
@@ -247,7 +247,7 @@ ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec.$,
+      ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec,
       null,
       [page]);
   }

@@ -61,8 +61,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ParamsSpec,
+      blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ResponseParamsSpec,
       [mode]);
   }
 
@@ -70,8 +70,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FileSystemAccessFileHandle_RequestPermission_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileHandle_RequestPermission_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileHandle_RequestPermission_ParamsSpec,
+      blink.mojom.FileSystemAccessFileHandle_RequestPermission_ResponseParamsSpec,
       [mode]);
   }
 
@@ -79,8 +79,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec,
+      blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParamsSpec,
       []);
   }
 
@@ -88,8 +88,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec,
+      blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ResponseParamsSpec,
       [keep_existing_data, auto_close, mode]);
   }
 
@@ -97,8 +97,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.FileSystemAccessFileHandle_Rename_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileHandle_Rename_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileHandle_Rename_ParamsSpec,
+      blink.mojom.FileSystemAccessFileHandle_Rename_ResponseParamsSpec,
       [new_entry_name]);
   }
 
@@ -106,8 +106,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileHandle_Move_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec,
+      blink.mojom.FileSystemAccessFileHandle_Move_ResponseParamsSpec,
       [destination_directory, new_entry_name]);
   }
 
@@ -115,8 +115,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileHandle_Remove_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec,
+      blink.mojom.FileSystemAccessFileHandle_Remove_ResponseParamsSpec,
       []);
   }
 
@@ -124,8 +124,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec,
+      blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParamsSpec,
       [mode]);
   }
 
@@ -133,8 +133,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec,
+      blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ResponseParamsSpec,
       [other]);
   }
 
@@ -142,7 +142,7 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec.$,
+      blink.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec,
       null,
       [token]);
   }
@@ -151,8 +151,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec,
+      blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ResponseParamsSpec,
       []);
   }
 
@@ -160,8 +160,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec,
+      blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ResponseParamsSpec,
       []);
   }
 

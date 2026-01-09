@@ -54,8 +54,8 @@ data_decoder.mojom.ImageDecoderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec.$,
-      data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec.$,
+      data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec,
+      data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec,
       [encoded_data, codec, shrink_to_fit, max_size_in_bytes, desired_image_frame_size]);
   }
 
@@ -63,8 +63,8 @@ data_decoder.mojom.ImageDecoderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec.$,
-      data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec.$,
+      data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec,
+      data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec,
       [encoded_data, shrink_to_fit, max_size_in_bytes]);
   }
 

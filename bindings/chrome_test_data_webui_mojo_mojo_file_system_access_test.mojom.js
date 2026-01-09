@@ -48,7 +48,7 @@ test.mojom.MojoFileSystemAccessTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec.$,
+      test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec,
       null,
       [h]);
   }

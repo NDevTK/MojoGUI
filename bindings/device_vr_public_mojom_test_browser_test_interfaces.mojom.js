@@ -72,7 +72,7 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec.$,
+      device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec,
       null,
       [frame_data]);
   }
@@ -81,8 +81,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec.$,
-      device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec,
       []);
   }
 
@@ -90,8 +90,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec.$,
-      device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec,
       []);
   }
 
@@ -99,8 +99,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec.$,
-      device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec,
       []);
   }
 
@@ -108,8 +108,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec.$,
-      device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec,
       [index]);
   }
 
@@ -117,8 +117,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec.$,
-      device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec,
       [index]);
   }
 
@@ -126,8 +126,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec.$,
-      device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec,
       []);
   }
 
@@ -135,8 +135,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec.$,
-      device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec,
       []);
   }
 
@@ -144,8 +144,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec.$,
-      device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec,
+      device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec,
       [view_index]);
   }
 
@@ -430,7 +430,7 @@ device_test.mojom.XRServiceTestHookRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec.$,
+      device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec,
       null,
       [hook]);
   }
@@ -439,7 +439,7 @@ device_test.mojom.XRServiceTestHookRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec.$,
+      device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec,
       null,
       []);
   }

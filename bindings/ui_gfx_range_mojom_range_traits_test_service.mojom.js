@@ -48,8 +48,8 @@ gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec.$,
-      gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec.$,
+      gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec,
+      gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec,
       [p]);
   }
 
@@ -57,8 +57,8 @@ gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec.$,
-      gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec.$,
+      gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec,
+      gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec,
       [p]);
   }
 

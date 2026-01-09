@@ -48,7 +48,7 @@ webui_examples.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -123,7 +123,7 @@ webui_examples.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webui_examples.mojom.PageHandler_Navigate_ParamsSpec.$,
+      webui_examples.mojom.PageHandler_Navigate_ParamsSpec,
       null,
       [guest_contents_id, src]);
   }
@@ -132,7 +132,7 @@ webui_examples.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webui_examples.mojom.PageHandler_GoBack_ParamsSpec.$,
+      webui_examples.mojom.PageHandler_GoBack_ParamsSpec,
       null,
       [guest_contents_id]);
   }
@@ -141,7 +141,7 @@ webui_examples.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webui_examples.mojom.PageHandler_GoForward_ParamsSpec.$,
+      webui_examples.mojom.PageHandler_GoForward_ParamsSpec,
       null,
       [guest_contents_id]);
   }

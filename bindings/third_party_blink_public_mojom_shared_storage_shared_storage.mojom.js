@@ -68,8 +68,8 @@ blink.mojom.SharedStorageWorkletHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec.$,
-      blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec.$,
+      blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec,
+      blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec,
       [name, urls_with_metadata, serialized_data, keep_alive_after_operation, private_aggregation_config, resolve_to_config, saved_query_name, start_time]);
   }
 
@@ -77,8 +77,8 @@ blink.mojom.SharedStorageWorkletHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec.$,
-      blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec.$,
+      blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec,
+      blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec,
       [name, serialized_data, keep_alive_after_operation, private_aggregation_config, start_time]);
   }
 
@@ -206,8 +206,8 @@ blink.mojom.SharedStorageDocumentServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$,
-      blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec.$,
+      blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec,
+      blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec,
       [script_source_url, data_origin, data_origin_type, credentials_mode, creation_method, origin_trial_features, worklet_host]);
   }
 
@@ -215,8 +215,8 @@ blink.mojom.SharedStorageDocumentServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$,
-      blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec.$,
+      blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec,
+      blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec,
       [key]);
   }
 
@@ -224,8 +224,8 @@ blink.mojom.SharedStorageDocumentServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$,
-      blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec.$,
+      blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec,
+      blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec,
       [method_with_options]);
   }
 
@@ -233,8 +233,8 @@ blink.mojom.SharedStorageDocumentServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec.$,
-      blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec.$,
+      blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec,
+      blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec,
       [methods_with_options, with_lock]);
   }
 

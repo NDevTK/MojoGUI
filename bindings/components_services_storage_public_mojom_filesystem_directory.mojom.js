@@ -76,8 +76,8 @@ storage.mojom.FileLockRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.FileLock_Release_ParamsSpec.$,
-      storage.mojom.FileLock_Release_ResponseParamsSpec.$,
+      storage.mojom.FileLock_Release_ParamsSpec,
+      storage.mojom.FileLock_Release_ResponseParamsSpec,
       []);
   }
 
@@ -163,7 +163,7 @@ storage.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.Directory_Clone_ParamsSpec.$,
+      storage.mojom.Directory_Clone_ParamsSpec,
       null,
       [receiver]);
   }
@@ -172,8 +172,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.Directory_PathExists_ParamsSpec.$,
-      storage.mojom.Directory_PathExists_ResponseParamsSpec.$,
+      storage.mojom.Directory_PathExists_ParamsSpec,
+      storage.mojom.Directory_PathExists_ResponseParamsSpec,
       [path]);
   }
 
@@ -181,8 +181,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.Directory_GetEntries_ParamsSpec.$,
-      storage.mojom.Directory_GetEntries_ResponseParamsSpec.$,
+      storage.mojom.Directory_GetEntries_ParamsSpec,
+      storage.mojom.Directory_GetEntries_ResponseParamsSpec,
       [path, mode]);
   }
 
@@ -190,8 +190,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.Directory_OpenFile_ParamsSpec.$,
-      storage.mojom.Directory_OpenFile_ResponseParamsSpec.$,
+      storage.mojom.Directory_OpenFile_ParamsSpec,
+      storage.mojom.Directory_OpenFile_ResponseParamsSpec,
       [path, mode, read_access, write_access]);
   }
 
@@ -199,8 +199,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.Directory_CreateDirectory_ParamsSpec.$,
-      storage.mojom.Directory_CreateDirectory_ResponseParamsSpec.$,
+      storage.mojom.Directory_CreateDirectory_ParamsSpec,
+      storage.mojom.Directory_CreateDirectory_ResponseParamsSpec,
       [path]);
   }
 
@@ -208,8 +208,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      storage.mojom.Directory_DeleteFile_ParamsSpec.$,
-      storage.mojom.Directory_DeleteFile_ResponseParamsSpec.$,
+      storage.mojom.Directory_DeleteFile_ParamsSpec,
+      storage.mojom.Directory_DeleteFile_ResponseParamsSpec,
       [path]);
   }
 
@@ -217,8 +217,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      storage.mojom.Directory_GetFileInfo_ParamsSpec.$,
-      storage.mojom.Directory_GetFileInfo_ResponseParamsSpec.$,
+      storage.mojom.Directory_GetFileInfo_ParamsSpec,
+      storage.mojom.Directory_GetFileInfo_ResponseParamsSpec,
       [path]);
   }
 
@@ -226,8 +226,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      storage.mojom.Directory_GetPathAccess_ParamsSpec.$,
-      storage.mojom.Directory_GetPathAccess_ResponseParamsSpec.$,
+      storage.mojom.Directory_GetPathAccess_ParamsSpec,
+      storage.mojom.Directory_GetPathAccess_ResponseParamsSpec,
       [path]);
   }
 
@@ -235,8 +235,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      storage.mojom.Directory_RenameFile_ParamsSpec.$,
-      storage.mojom.Directory_RenameFile_ResponseParamsSpec.$,
+      storage.mojom.Directory_RenameFile_ParamsSpec,
+      storage.mojom.Directory_RenameFile_ResponseParamsSpec,
       [old_path, new_path]);
   }
 
@@ -244,8 +244,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      storage.mojom.Directory_LockFile_ParamsSpec.$,
-      storage.mojom.Directory_LockFile_ResponseParamsSpec.$,
+      storage.mojom.Directory_LockFile_ParamsSpec,
+      storage.mojom.Directory_LockFile_ResponseParamsSpec,
       [path]);
   }
 

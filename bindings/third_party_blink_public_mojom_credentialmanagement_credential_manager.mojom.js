@@ -71,7 +71,7 @@ blink.mojom.CredentialManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.CredentialManager_Store_ParamsSpec.$,
+      blink.mojom.CredentialManager_Store_ParamsSpec,
       null,
       [credential]);
   }
@@ -80,7 +80,7 @@ blink.mojom.CredentialManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec.$,
+      blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec,
       null,
       []);
   }
@@ -89,8 +89,8 @@ blink.mojom.CredentialManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.CredentialManager_Get_ParamsSpec.$,
-      blink.mojom.CredentialManager_Get_ResponseParamsSpec.$,
+      blink.mojom.CredentialManager_Get_ParamsSpec,
+      blink.mojom.CredentialManager_Get_ResponseParamsSpec,
       [mediation, include_passwords, federations]);
   }
 

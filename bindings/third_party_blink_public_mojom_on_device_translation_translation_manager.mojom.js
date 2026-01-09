@@ -76,7 +76,7 @@ blink.mojom.TranslationManagerCreateTranslatorClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec.$,
+      blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec,
       null,
       [result, source_lang, target_lang]);
   }
@@ -153,7 +153,7 @@ blink.mojom.TranslationManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.TranslationManager_CreateTranslator_ParamsSpec.$,
+      blink.mojom.TranslationManager_CreateTranslator_ParamsSpec,
       null,
       [client, options]);
   }
@@ -162,8 +162,8 @@ blink.mojom.TranslationManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec.$,
-      blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec.$,
+      blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec,
+      blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec,
       [source_lang, target_lang]);
   }
 

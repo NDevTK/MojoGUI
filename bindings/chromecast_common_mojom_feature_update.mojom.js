@@ -48,7 +48,7 @@ chromecast.mojom.FeatureUpdateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec.$,
+      chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec,
       null,
       [features]);
   }
@@ -123,7 +123,7 @@ chromecast.mojom.FeatureUpdateServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec.$,
+      chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec,
       null,
       [observer]);
   }

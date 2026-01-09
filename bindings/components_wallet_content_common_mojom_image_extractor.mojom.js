@@ -48,8 +48,8 @@ wallet.mojom.ImageExtractorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec.$,
-      wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec.$,
+      wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec,
+      wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec,
       []);
   }
 

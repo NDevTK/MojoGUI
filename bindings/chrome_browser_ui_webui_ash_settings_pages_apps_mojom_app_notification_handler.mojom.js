@@ -64,7 +64,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec.$,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec,
       null,
       [enabled]);
   }
@@ -73,7 +73,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec.$,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -82,7 +82,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec.$,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec,
       null,
       [app_id, permission]);
   }
@@ -91,8 +91,8 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec.$,
-      ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec.$,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec,
       []);
   }
 
@@ -100,8 +100,8 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec.$,
-      ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec.$,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec,
       []);
   }
 
@@ -109,7 +109,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec.$,
+      ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec,
       null,
       []);
   }
@@ -278,7 +278,7 @@ ash.settings.app_notification.mojom.AppNotificationsObserverRemoteCallHandler = 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec.$,
+      ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec,
       null,
       [app]);
   }
@@ -287,7 +287,7 @@ ash.settings.app_notification.mojom.AppNotificationsObserverRemoteCallHandler = 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec.$,
+      ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec,
       null,
       [enabled]);
   }

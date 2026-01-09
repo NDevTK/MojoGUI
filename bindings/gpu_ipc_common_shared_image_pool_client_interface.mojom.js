@@ -48,7 +48,7 @@ gpu.mojom.SharedImagePoolClientInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec.$,
+      gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec,
       null,
       []);
   }

@@ -48,7 +48,7 @@ extensions.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec.$,
+      extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec,
       null,
       [active_permissions, withheld_permissions]);
   }
@@ -57,8 +57,8 @@ extensions.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec.$,
-      extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec.$,
+      extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec,
+      extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec,
       [port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host]);
   }
 

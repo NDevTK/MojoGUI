@@ -48,7 +48,7 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec.$,
+      screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec,
       null,
       []);
   }
@@ -122,8 +122,8 @@ screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$,
-      screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec.$,
+      screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec,
+      screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec,
       [library_path, model_files, ocr_service_receiver]);
   }
 
@@ -131,8 +131,8 @@ screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec.$,
-      screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec.$,
+      screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec,
+      screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec,
       [library_path, model_files, main_content_extractor_service]);
   }
 
@@ -140,7 +140,7 @@ screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec.$,
+      screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec,
       null,
       [shutdown_handler]);
   }

@@ -48,7 +48,7 @@ blink.mojom.AutoplayConfigurationClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec.$,
+      blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec,
       null,
       [origin, flags]);
   }

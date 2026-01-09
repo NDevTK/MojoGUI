@@ -59,7 +59,7 @@ ash.recorder_app.mojom.ModelStateMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec.$,
+      ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec,
       null,
       [state]);
   }
@@ -134,7 +134,7 @@ ash.recorder_app.mojom.QuietModeMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec.$,
+      ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec,
       null,
       [in_quiet_mode]);
   }
@@ -209,8 +209,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec.$,
-      ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec,
+      ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
       [feature]);
   }
 
@@ -218,8 +218,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec.$,
-      ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec,
+      ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec,
       [model_id, model]);
   }
 
@@ -227,8 +227,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec.$,
-      ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec,
+      ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec,
       [uuid, feature, fields]);
   }
 
@@ -236,8 +236,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec.$,
-      ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec,
+      ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec,
       [safety_feature, text, safety_info]);
   }
 
@@ -245,8 +245,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec.$,
-      ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec,
+      ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec,
       [model_id, monitor]);
   }
 
@@ -254,8 +254,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec.$,
-      ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec,
+      ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec,
       []);
   }
 
@@ -263,8 +263,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec.$,
-      ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec,
+      ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec,
       []);
   }
 
@@ -272,8 +272,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec.$,
-      ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec,
+      ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec,
       [language, monitor]);
   }
 
@@ -281,7 +281,7 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec,
       null,
       [language]);
   }
@@ -290,8 +290,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec.$,
-      ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec,
+      ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec,
       [language, soda_client, soda_recognizer]);
   }
 
@@ -299,7 +299,7 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec,
       null,
       [description_template]);
   }
@@ -308,8 +308,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec.$,
-      ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec,
+      ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec,
       [source_id]);
   }
 
@@ -317,8 +317,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec.$,
-      ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec,
+      ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec,
       [monitor]);
   }
 
@@ -326,7 +326,7 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec,
       null,
       [quiet_mode]);
   }
@@ -335,8 +335,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec.$,
-      ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec,
+      ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec,
       []);
   }
 
@@ -344,7 +344,7 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec,
       null,
       [consent_given, consent_description_names, consent_confirmation_name]);
   }
@@ -353,8 +353,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec.$,
-      ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec.$,
+      ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec,
+      ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec,
       []);
   }
 

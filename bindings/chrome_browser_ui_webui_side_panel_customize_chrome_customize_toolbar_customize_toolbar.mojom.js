@@ -86,7 +86,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemoteCallHandle
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec.$,
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec,
       null,
       [client, handler]);
   }
@@ -162,8 +162,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec.$,
-      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec.$,
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec,
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec,
       []);
   }
 
@@ -171,8 +171,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec.$,
-      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec.$,
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec,
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec,
       []);
   }
 
@@ -180,7 +180,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec.$,
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec,
       null,
       [action_id, pinned]);
   }
@@ -189,8 +189,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec.$,
-      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec.$,
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec,
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec,
       []);
   }
 
@@ -198,7 +198,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec.$,
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec,
       null,
       []);
   }
@@ -365,7 +365,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientRemoteCallHandler = clas
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec.$,
+      side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec,
       null,
       [action_id, pinned]);
   }
@@ -374,7 +374,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientRemoteCallHandler = clas
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec.$,
+      side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec,
       null,
       []);
   }

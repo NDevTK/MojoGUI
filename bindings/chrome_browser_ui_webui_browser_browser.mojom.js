@@ -67,7 +67,7 @@ webui_browser.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -76,8 +76,8 @@ webui_browser.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec.$,
-      webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec.$,
+      webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec,
+      webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec,
       []);
   }
 
@@ -178,7 +178,7 @@ webui_browser.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec.$,
+      webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec,
       null,
       [is_user_initiated]);
   }
@@ -187,7 +187,7 @@ webui_browser.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webui_browser.mojom.Page_SetReloadStopState_ParamsSpec.$,
+      webui_browser.mojom.Page_SetReloadStopState_ParamsSpec,
       null,
       [is_loading]);
   }
@@ -196,7 +196,7 @@ webui_browser.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webui_browser.mojom.Page_ShowSidePanel_ParamsSpec.$,
+      webui_browser.mojom.Page_ShowSidePanel_ParamsSpec,
       null,
       [guest_contents_id, title]);
   }
@@ -205,7 +205,7 @@ webui_browser.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      webui_browser.mojom.Page_CloseSidePanel_ParamsSpec.$,
+      webui_browser.mojom.Page_CloseSidePanel_ParamsSpec,
       null,
       []);
   }
@@ -214,7 +214,7 @@ webui_browser.mojom.PageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec.$,
+      webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec,
       null,
       [is_fullscreen, context]);
   }
@@ -346,8 +346,8 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec.$,
-      webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec.$,
+      webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec,
+      webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec,
       [tab_id, handler]);
   }
 
@@ -355,8 +355,8 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec.$,
-      webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec.$,
+      webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec,
+      webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec,
       []);
   }
 
@@ -364,7 +364,7 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec.$,
+      webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec,
       null,
       [anchor_name]);
   }
@@ -373,7 +373,7 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec.$,
+      webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec,
       null,
       []);
   }
@@ -382,7 +382,7 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec.$,
+      webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec,
       null,
       []);
   }
@@ -391,7 +391,7 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec.$,
+      webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec,
       null,
       []);
   }
@@ -400,7 +400,7 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec.$,
+      webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec,
       null,
       []);
   }
@@ -409,7 +409,7 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      webui_browser.mojom.PageHandler_Minimize_ParamsSpec.$,
+      webui_browser.mojom.PageHandler_Minimize_ParamsSpec,
       null,
       []);
   }
@@ -418,7 +418,7 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      webui_browser.mojom.PageHandler_Maximize_ParamsSpec.$,
+      webui_browser.mojom.PageHandler_Maximize_ParamsSpec,
       null,
       []);
   }
@@ -427,7 +427,7 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      webui_browser.mojom.PageHandler_Restore_ParamsSpec.$,
+      webui_browser.mojom.PageHandler_Restore_ParamsSpec,
       null,
       []);
   }
@@ -436,7 +436,7 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      webui_browser.mojom.PageHandler_Close_ParamsSpec.$,
+      webui_browser.mojom.PageHandler_Close_ParamsSpec,
       null,
       []);
   }
@@ -669,7 +669,7 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webui_browser.mojom.GuestHandler_Navigate_ParamsSpec.$,
+      webui_browser.mojom.GuestHandler_Navigate_ParamsSpec,
       null,
       [src]);
   }
@@ -678,8 +678,8 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec.$,
-      webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec.$,
+      webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec,
+      webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec,
       []);
   }
 
@@ -687,7 +687,7 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webui_browser.mojom.GuestHandler_GoBack_ParamsSpec.$,
+      webui_browser.mojom.GuestHandler_GoBack_ParamsSpec,
       null,
       []);
   }
@@ -696,8 +696,8 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec.$,
-      webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec.$,
+      webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec,
+      webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec,
       []);
   }
 
@@ -705,7 +705,7 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      webui_browser.mojom.GuestHandler_GoForward_ParamsSpec.$,
+      webui_browser.mojom.GuestHandler_GoForward_ParamsSpec,
       null,
       []);
   }
@@ -714,7 +714,7 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      webui_browser.mojom.GuestHandler_Reload_ParamsSpec.$,
+      webui_browser.mojom.GuestHandler_Reload_ParamsSpec,
       null,
       []);
   }
@@ -723,7 +723,7 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec.$,
+      webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec,
       null,
       []);
   }
@@ -732,7 +732,7 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec.$,
+      webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec,
       null,
       []);
   }
@@ -741,8 +741,8 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec.$,
-      webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec.$,
+      webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec,
+      webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec,
       []);
   }
 

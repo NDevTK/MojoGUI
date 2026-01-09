@@ -48,7 +48,7 @@ service_manager.mojom.ServiceControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec.$,
+      service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec,
       null,
       []);
   }

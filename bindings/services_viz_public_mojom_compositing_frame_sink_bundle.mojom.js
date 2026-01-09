@@ -48,7 +48,7 @@ viz.mojom.FrameSinkBundleRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec.$,
+      viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec,
       null,
       [sink_id, needs_begin_frame]);
   }
@@ -57,7 +57,7 @@ viz.mojom.FrameSinkBundleRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.FrameSinkBundle_Submit_ParamsSpec.$,
+      viz.mojom.FrameSinkBundle_Submit_ParamsSpec,
       null,
       [submissions]);
   }
@@ -66,7 +66,7 @@ viz.mojom.FrameSinkBundleRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec.$,
+      viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec,
       null,
       [sink_id, threads]);
   }
@@ -171,7 +171,7 @@ viz.mojom.FrameSinkBundleClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec.$,
+      viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec,
       null,
       [acks, begin_frames, reclaimed_resources]);
   }
@@ -180,7 +180,7 @@ viz.mojom.FrameSinkBundleClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec.$,
+      viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec,
       null,
       [sink_id, paused]);
   }
@@ -189,7 +189,7 @@ viz.mojom.FrameSinkBundleClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$,
+      viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
       [sink_id, sequence_id]);
   }

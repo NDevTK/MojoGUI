@@ -48,7 +48,7 @@ webnn.mojom.WebNNContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec.$,
+      webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec,
       null,
       [receiver]);
   }
@@ -57,8 +57,8 @@ webnn.mojom.WebNNContextRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webnn.mojom.WebNNContext_CreateTensor_ParamsSpec.$,
-      webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec.$,
+      webnn.mojom.WebNNContext_CreateTensor_ParamsSpec,
+      webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec,
       [tensor_info, tensor_data]);
   }
 
@@ -66,8 +66,8 @@ webnn.mojom.WebNNContextRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec.$,
-      webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec.$,
+      webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec,
+      webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec,
       [tensor_info, mailbox, fence]);
   }
 

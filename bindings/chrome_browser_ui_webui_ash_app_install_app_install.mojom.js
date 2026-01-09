@@ -49,8 +49,8 @@ ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec.$,
-      ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec.$,
+      ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec,
+      ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec,
       []);
   }
 
@@ -58,7 +58,7 @@ ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec.$,
+      ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec,
       null,
       []);
   }
@@ -158,7 +158,7 @@ ash.app_install.mojom.ConnectionErrorActionsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec.$,
+      ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec,
       null,
       []);
   }
@@ -232,7 +232,7 @@ ash.app_install.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -307,8 +307,8 @@ ash.app_install.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec.$,
-      ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec.$,
+      ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec,
+      ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec,
       []);
   }
 
@@ -316,7 +316,7 @@ ash.app_install.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec.$,
+      ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec,
       null,
       []);
   }

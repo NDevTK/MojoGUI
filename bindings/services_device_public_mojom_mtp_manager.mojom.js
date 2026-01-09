@@ -48,7 +48,7 @@ device.mojom.MtpManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.MtpManagerClient_StorageAttached_ParamsSpec.$,
+      device.mojom.MtpManagerClient_StorageAttached_ParamsSpec,
       null,
       [storage_info]);
   }
@@ -57,7 +57,7 @@ device.mojom.MtpManagerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.MtpManagerClient_StorageDetached_ParamsSpec.$,
+      device.mojom.MtpManagerClient_StorageDetached_ParamsSpec,
       null,
       [storage_name]);
   }
@@ -146,8 +146,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec.$,
-      device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec.$,
+      device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec,
+      device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec,
       [client]);
   }
 
@@ -155,8 +155,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.MtpManager_GetStorageInfo_ParamsSpec.$,
-      device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec.$,
+      device.mojom.MtpManager_GetStorageInfo_ParamsSpec,
+      device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec,
       [storage_name]);
   }
 
@@ -164,8 +164,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec.$,
-      device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec.$,
+      device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec,
+      device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec,
       [storage_name]);
   }
 
@@ -173,8 +173,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.MtpManager_OpenStorage_ParamsSpec.$,
-      device.mojom.MtpManager_OpenStorage_ResponseParamsSpec.$,
+      device.mojom.MtpManager_OpenStorage_ParamsSpec,
+      device.mojom.MtpManager_OpenStorage_ResponseParamsSpec,
       [storage_name, mode]);
   }
 
@@ -182,8 +182,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.MtpManager_CloseStorage_ParamsSpec.$,
-      device.mojom.MtpManager_CloseStorage_ResponseParamsSpec.$,
+      device.mojom.MtpManager_CloseStorage_ParamsSpec,
+      device.mojom.MtpManager_CloseStorage_ResponseParamsSpec,
       [storage_handle]);
   }
 
@@ -191,8 +191,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.MtpManager_CreateDirectory_ParamsSpec.$,
-      device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec.$,
+      device.mojom.MtpManager_CreateDirectory_ParamsSpec,
+      device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec,
       [storage_handle, parent_id, directory_name]);
   }
 
@@ -200,8 +200,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec.$,
-      device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec.$,
+      device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec,
+      device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec,
       [storage_handle, file_id]);
   }
 
@@ -209,8 +209,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      device.mojom.MtpManager_ReadFileChunk_ParamsSpec.$,
-      device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec.$,
+      device.mojom.MtpManager_ReadFileChunk_ParamsSpec,
+      device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec,
       [storage_handle, file_id, offset, count]);
   }
 
@@ -218,8 +218,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      device.mojom.MtpManager_GetFileInfo_ParamsSpec.$,
-      device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec.$,
+      device.mojom.MtpManager_GetFileInfo_ParamsSpec,
+      device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec,
       [storage_handle, file_ids]);
   }
 
@@ -227,8 +227,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      device.mojom.MtpManager_RenameObject_ParamsSpec.$,
-      device.mojom.MtpManager_RenameObject_ResponseParamsSpec.$,
+      device.mojom.MtpManager_RenameObject_ParamsSpec,
+      device.mojom.MtpManager_RenameObject_ResponseParamsSpec,
       [storage_handle, object_id, new_name]);
   }
 
@@ -236,8 +236,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec.$,
-      device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec.$,
+      device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec,
+      device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec,
       [storage_handle, source_file_descriptor, parent_id, file_name]);
   }
 
@@ -245,8 +245,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      device.mojom.MtpManager_DeleteObject_ParamsSpec.$,
-      device.mojom.MtpManager_DeleteObject_ResponseParamsSpec.$,
+      device.mojom.MtpManager_DeleteObject_ParamsSpec,
+      device.mojom.MtpManager_DeleteObject_ResponseParamsSpec,
       [storage_handle, object_id]);
   }
 

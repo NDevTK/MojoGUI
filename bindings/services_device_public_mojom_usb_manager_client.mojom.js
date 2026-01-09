@@ -48,7 +48,7 @@ device.mojom.UsbDeviceManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec.$,
+      device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec,
       null,
       [device_info]);
   }
@@ -57,7 +57,7 @@ device.mojom.UsbDeviceManagerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec.$,
+      device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec,
       null,
       [device_info]);
   }

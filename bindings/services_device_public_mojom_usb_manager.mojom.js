@@ -48,8 +48,8 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec.$,
-      device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec.$,
+      device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec,
+      device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec,
       [client]);
   }
 
@@ -57,8 +57,8 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.UsbDeviceManager_GetDevices_ParamsSpec.$,
-      device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec.$,
+      device.mojom.UsbDeviceManager_GetDevices_ParamsSpec,
+      device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec,
       [options]);
   }
 
@@ -66,7 +66,7 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.UsbDeviceManager_GetDevice_ParamsSpec.$,
+      device.mojom.UsbDeviceManager_GetDevice_ParamsSpec,
       null,
       [guid, blocked_interface_classes, device_receiver, device_client]);
   }
@@ -75,7 +75,7 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec.$,
+      device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec,
       null,
       [guid, device_receiver, device_client]);
   }
@@ -84,8 +84,8 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec.$,
-      device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec.$,
+      device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec,
+      device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec,
       [guid]);
   }
 
@@ -93,8 +93,8 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec.$,
-      device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec.$,
+      device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec,
+      device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec,
       [guid]);
   }
 
@@ -102,8 +102,8 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec.$,
-      device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec.$,
+      device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec,
+      device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec,
       [guid, allowed_interfaces_mask, lifeline_fd]);
   }
 
@@ -111,7 +111,7 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      device.mojom.UsbDeviceManager_SetClient_ParamsSpec.$,
+      device.mojom.UsbDeviceManager_SetClient_ParamsSpec,
       null,
       [client]);
   }

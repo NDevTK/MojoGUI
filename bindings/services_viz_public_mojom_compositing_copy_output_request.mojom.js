@@ -48,7 +48,7 @@ viz.mojom.CopyOutputResultSenderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec.$,
+      viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec,
       null,
       [result]);
   }

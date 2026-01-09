@@ -48,7 +48,7 @@ blink.mojom.ColorChooserFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec.$,
+      blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec,
       null,
       [chooser, client, color, suggestions]);
   }
@@ -126,7 +126,7 @@ blink.mojom.ColorChooserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec.$,
+      blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec,
       null,
       [color]);
   }
@@ -201,7 +201,7 @@ blink.mojom.ColorChooserClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec.$,
+      blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec,
       null,
       [color]);
   }
@@ -276,8 +276,8 @@ blink.mojom.EyeDropperChooserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.EyeDropperChooser_Choose_ParamsSpec.$,
-      blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec.$,
+      blink.mojom.EyeDropperChooser_Choose_ParamsSpec,
+      blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec,
       []);
   }
 

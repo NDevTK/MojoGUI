@@ -59,8 +59,8 @@ blink.mojom.PushMessagingRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PushMessaging_Subscribe_ParamsSpec.$,
-      blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec.$,
+      blink.mojom.PushMessaging_Subscribe_ParamsSpec,
+      blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec,
       [service_worker_registration_id, options, user_gesture]);
   }
 
@@ -68,8 +68,8 @@ blink.mojom.PushMessagingRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PushMessaging_Unsubscribe_ParamsSpec.$,
-      blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec.$,
+      blink.mojom.PushMessaging_Unsubscribe_ParamsSpec,
+      blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec,
       [service_worker_registration_id]);
   }
 
@@ -77,8 +77,8 @@ blink.mojom.PushMessagingRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.PushMessaging_GetSubscription_ParamsSpec.$,
-      blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec.$,
+      blink.mojom.PushMessaging_GetSubscription_ParamsSpec,
+      blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec,
       [service_worker_registration_id]);
   }
 

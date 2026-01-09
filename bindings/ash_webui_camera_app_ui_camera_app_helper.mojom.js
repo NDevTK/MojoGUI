@@ -101,7 +101,7 @@ ash.camera_app.mojom.TabletModeMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec.$,
+      ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec,
       null,
       [is_tablet_mode]);
   }
@@ -176,7 +176,7 @@ ash.camera_app.mojom.ScreenStateMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec.$,
+      ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec,
       null,
       [state]);
   }
@@ -251,7 +251,7 @@ ash.camera_app.mojom.ScreenLockedMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec.$,
+      ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec,
       null,
       [is_screen_locked]);
   }
@@ -326,7 +326,7 @@ ash.camera_app.mojom.ExternalScreenMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec.$,
+      ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec,
       null,
       [has_external_screen]);
   }
@@ -401,7 +401,7 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec.$,
+      ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec,
       null,
       [has_usage]);
   }
@@ -476,7 +476,7 @@ ash.camera_app.mojom.LidStateMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec.$,
+      ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec,
       null,
       [lid_status]);
   }
@@ -551,7 +551,7 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec.$,
+      ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec,
       null,
       [is_sw_privacy_switch_on]);
   }
@@ -626,7 +626,7 @@ ash.camera_app.mojom.WindowStateMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec.$,
+      ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec,
       null,
       [states]);
   }
@@ -635,7 +635,7 @@ ash.camera_app.mojom.WindowStateMonitorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec.$,
+      ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec,
       null,
       [is_focus]);
   }
@@ -724,7 +724,7 @@ ash.camera_app.mojom.StorageMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec.$,
+      ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec,
       null,
       [status]);
   }
@@ -799,8 +799,8 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec.$,
-      ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec.$,
+      ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec,
+      ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec,
       [monitor]);
   }
 
@@ -808,8 +808,8 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec.$,
-      ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec.$,
+      ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec,
+      ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec,
       []);
   }
 
@@ -817,7 +817,7 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec.$,
+      ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec,
       null,
       []);
   }
@@ -826,7 +826,7 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec.$,
+      ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec,
       null,
       []);
   }
@@ -835,7 +835,7 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec.$,
+      ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec,
       null,
       []);
   }
@@ -844,7 +844,7 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec.$,
+      ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec,
       null,
       []);
   }
@@ -853,7 +853,7 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec.$,
+      ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec,
       null,
       []);
   }
@@ -1032,8 +1032,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec,
       [intent_id, action, data]);
   }
 
@@ -1041,8 +1041,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec,
       []);
   }
 
@@ -1050,7 +1050,7 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec,
       null,
       [event]);
   }
@@ -1059,7 +1059,7 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec,
       null,
       [event]);
   }
@@ -1068,8 +1068,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec,
       [monitor]);
   }
 
@@ -1077,8 +1077,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec,
       [monitor]);
   }
 
@@ -1086,8 +1086,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -1095,8 +1095,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec,
       [monitor]);
   }
 
@@ -1104,7 +1104,7 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec,
       null,
       [name]);
   }
@@ -1113,7 +1113,7 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec,
       null,
       [placeholder]);
   }
@@ -1122,7 +1122,7 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec,
       null,
       [url]);
   }
@@ -1131,8 +1131,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec,
       []);
   }
 
@@ -1140,8 +1140,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec,
       [file_type, destination]);
   }
 
@@ -1149,8 +1149,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec,
       [name]);
   }
 
@@ -1158,8 +1158,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec,
       []);
   }
 
@@ -1167,8 +1167,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec,
       []);
   }
 
@@ -1176,8 +1176,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec,
       [jpeg_data]);
   }
 
@@ -1185,8 +1185,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec,
       [jpeg_data, corners, rotation]);
   }
 
@@ -1194,7 +1194,7 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec,
       null,
       []);
   }
@@ -1203,8 +1203,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec,
       [monitor]);
   }
 
@@ -1212,7 +1212,7 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec,
       null,
       []);
   }
@@ -1221,7 +1221,7 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec,
       null,
       []);
   }
@@ -1230,7 +1230,7 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec,
       null,
       [config]);
   }
@@ -1239,8 +1239,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec,
       [monitor]);
   }
 
@@ -1248,8 +1248,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec,
       [monitor]);
   }
 
@@ -1257,8 +1257,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec,
       []);
   }
 
@@ -1266,8 +1266,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec,
       [monitor]);
   }
 
@@ -1275,8 +1275,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec,
       [pdf_data]);
   }
 
@@ -1284,8 +1284,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec,
       [jpeg_data]);
   }
 
@@ -1293,8 +1293,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec,
       [jpeg_data]);
   }
 
@@ -1302,7 +1302,7 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec,
       null,
       [builder]);
   }
@@ -1311,8 +1311,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec.$,
-      ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec,
+      ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec,
       []);
   }
 

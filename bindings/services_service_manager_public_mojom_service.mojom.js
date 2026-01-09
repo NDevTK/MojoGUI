@@ -48,8 +48,8 @@ service_manager.mojom.ServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      service_manager.mojom.Service_OnStart_ParamsSpec.$,
-      service_manager.mojom.Service_OnStart_ResponseParamsSpec.$,
+      service_manager.mojom.Service_OnStart_ParamsSpec,
+      service_manager.mojom.Service_OnStart_ResponseParamsSpec,
       [identity]);
   }
 
@@ -57,7 +57,7 @@ service_manager.mojom.ServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      service_manager.mojom.Service_OnBindInterface_ParamsSpec.$,
+      service_manager.mojom.Service_OnBindInterface_ParamsSpec,
       null,
       [source, interface_name, interface_pipe]);
   }
@@ -66,7 +66,7 @@ service_manager.mojom.ServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec.$,
+      service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec,
       null,
       [identity, receiver, metadata]);
   }

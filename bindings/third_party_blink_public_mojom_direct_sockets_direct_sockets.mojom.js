@@ -48,8 +48,8 @@ blink.mojom.DirectSocketsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec.$,
-      blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec.$,
+      blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec,
+      blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec,
       [options, receiver, observer]);
   }
 
@@ -57,8 +57,8 @@ blink.mojom.DirectSocketsServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec.$,
-      blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec.$,
+      blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec,
+      blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec,
       [options, receiver, listener]);
   }
 
@@ -66,8 +66,8 @@ blink.mojom.DirectSocketsServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec.$,
-      blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec.$,
+      blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec,
+      blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec,
       [options, receiver, listener]);
   }
 
@@ -75,8 +75,8 @@ blink.mojom.DirectSocketsServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec.$,
-      blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec.$,
+      blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec,
+      blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec,
       [options, receiver]);
   }
 

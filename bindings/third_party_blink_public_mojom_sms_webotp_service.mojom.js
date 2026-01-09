@@ -58,8 +58,8 @@ blink.mojom.WebOTPServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebOTPService_Receive_ParamsSpec.$,
-      blink.mojom.WebOTPService_Receive_ResponseParamsSpec.$,
+      blink.mojom.WebOTPService_Receive_ParamsSpec,
+      blink.mojom.WebOTPService_Receive_ResponseParamsSpec,
       []);
   }
 
@@ -67,7 +67,7 @@ blink.mojom.WebOTPServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.WebOTPService_Abort_ParamsSpec.$,
+      blink.mojom.WebOTPService_Abort_ParamsSpec,
       null,
       []);
   }

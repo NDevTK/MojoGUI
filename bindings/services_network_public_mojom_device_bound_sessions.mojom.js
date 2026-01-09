@@ -178,8 +178,8 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec.$,
-      network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec.$,
+      network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec,
+      network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec,
       []);
   }
 
@@ -187,7 +187,7 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec.$,
+      network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec,
       null,
       [reason, session]);
   }
@@ -196,7 +196,7 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec.$,
+      network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec,
       null,
       [reason, created_after_time, created_before_time, filter]);
   }
@@ -205,7 +205,7 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec.$,
+      network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec,
       null,
       [url, observer]);
   }
@@ -214,7 +214,7 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec.$,
+      network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -223,8 +223,8 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec.$,
-      network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec.$,
+      network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec,
+      network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec,
       [params, wrapped_key, cookies_to_set, cookie_options]);
   }
 
@@ -402,7 +402,7 @@ network.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec.$,
+      network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec,
       null,
       [access]);
   }
@@ -411,7 +411,7 @@ network.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec.$,
+      network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec,
       null,
       [observer]);
   }
@@ -500,7 +500,7 @@ network.mojom.DeviceBoundSessionEventObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec.$,
+      network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec,
       null,
       [event]);
   }
@@ -509,7 +509,7 @@ network.mojom.DeviceBoundSessionEventObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec.$,
+      network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec,
       null,
       [session_displays]);
   }

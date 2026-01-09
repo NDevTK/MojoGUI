@@ -49,8 +49,8 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec.$,
-      ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec.$,
+      ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec,
+      ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec,
       []);
   }
 
@@ -58,7 +58,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec.$,
+      ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec,
       null,
       []);
   }
@@ -67,7 +67,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec.$,
+      ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec,
       null,
       []);
   }
@@ -76,7 +76,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec.$,
+      ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec,
       null,
       []);
   }

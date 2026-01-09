@@ -48,7 +48,7 @@ chrome.mojom.GoogleAccountsPrivateApiExtensionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec.$,
+      chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec,
       null,
       [consent_result]);
   }

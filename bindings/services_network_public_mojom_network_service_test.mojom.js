@@ -57,8 +57,8 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.SimpleCacheEntry_WriteData_ParamsSpec.$,
-      network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec.$,
+      network.mojom.SimpleCacheEntry_WriteData_ParamsSpec,
+      network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec,
       [index, offset, data, truncate]);
   }
 
@@ -66,8 +66,8 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.SimpleCacheEntry_ReadData_ParamsSpec.$,
-      network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec.$,
+      network.mojom.SimpleCacheEntry_ReadData_ParamsSpec,
+      network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec,
       [index, offset, length]);
   }
 
@@ -75,8 +75,8 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec.$,
-      network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec.$,
+      network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec,
+      network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec,
       [offset, data]);
   }
 
@@ -84,8 +84,8 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec.$,
-      network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec.$,
+      network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec,
+      network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec,
       [offset, length]);
   }
 
@@ -93,7 +93,7 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.SimpleCacheEntry_Close_ParamsSpec.$,
+      network.mojom.SimpleCacheEntry_Close_ParamsSpec,
       null,
       []);
   }
@@ -284,8 +284,8 @@ network.mojom.SimpleCacheEntryEnumeratorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec.$,
-      network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec.$,
+      network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec,
+      network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec,
       []);
   }
 
@@ -371,8 +371,8 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.SimpleCache_CreateEntry_ParamsSpec.$,
-      network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec.$,
+      network.mojom.SimpleCache_CreateEntry_ParamsSpec,
+      network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec,
       [key]);
   }
 
@@ -380,8 +380,8 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.SimpleCache_OpenEntry_ParamsSpec.$,
-      network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec.$,
+      network.mojom.SimpleCache_OpenEntry_ParamsSpec,
+      network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec,
       [key]);
   }
 
@@ -389,8 +389,8 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.SimpleCache_DoomEntry_ParamsSpec.$,
-      network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec.$,
+      network.mojom.SimpleCache_DoomEntry_ParamsSpec,
+      network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec,
       [key]);
   }
 
@@ -398,8 +398,8 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.SimpleCache_DoomAllEntries_ParamsSpec.$,
-      network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec.$,
+      network.mojom.SimpleCache_DoomAllEntries_ParamsSpec,
+      network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec,
       []);
   }
 
@@ -407,7 +407,7 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.SimpleCache_EnumerateEntries_ParamsSpec.$,
+      network.mojom.SimpleCache_EnumerateEntries_ParamsSpec,
       null,
       [receiver]);
   }
@@ -416,7 +416,7 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.SimpleCache_Detach_ParamsSpec.$,
+      network.mojom.SimpleCache_Detach_ParamsSpec,
       null,
       []);
   }
@@ -613,7 +613,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.NetworkServiceTest_AddRules_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_AddRules_ParamsSpec,
       null,
       [rules]);
   }
@@ -622,7 +622,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec,
       null,
       [type]);
   }
@@ -631,7 +631,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec,
       null,
       [type]);
   }
@@ -640,7 +640,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ParamsSpec,
       null,
       []);
   }
@@ -649,7 +649,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec,
       null,
       []);
   }
@@ -658,7 +658,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec,
       null,
       [default_result]);
   }
@@ -667,7 +667,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsSpec,
       null,
       [cert, host_pattern, verify_result, rv]);
   }
@@ -676,7 +676,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec,
       null,
       [enable_unittest_source]);
   }
@@ -685,7 +685,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSpec,
       null,
       []);
   }
@@ -694,7 +694,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec,
       null,
       []);
   }
@@ -703,7 +703,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec,
       null,
       [secure_dns_mode, doh_config]);
   }
@@ -712,7 +712,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec,
       null,
       [host]);
   }
@@ -721,7 +721,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec,
       null,
       []);
   }
@@ -730,8 +730,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec.$,
-      network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec.$,
+      network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec,
+      network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec,
       []);
   }
 
@@ -739,8 +739,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec.$,
-      network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponseParamsSpec.$,
+      network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec,
+      network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponseParamsSpec,
       []);
   }
 
@@ -748,8 +748,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec.$,
-      network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec.$,
+      network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec,
+      network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec,
       [name]);
   }
 
@@ -757,7 +757,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      network.mojom.NetworkServiceTest_Log_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_Log_ParamsSpec,
       null,
       [message]);
   }
@@ -766,7 +766,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec,
       null,
       [field_trial_name]);
   }
@@ -775,7 +775,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec,
       null,
       [delay]);
   }
@@ -784,8 +784,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      network.mojom.NetworkServiceTest_OpenFile_ParamsSpec.$,
-      network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec.$,
+      network.mojom.NetworkServiceTest_OpenFile_ParamsSpec,
+      network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec,
       [path]);
   }
 
@@ -793,8 +793,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec.$,
-      network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec.$,
+      network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec,
+      network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec,
       [path, factory]);
   }
 
@@ -802,8 +802,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec.$,
-      network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec.$,
+      network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec,
+      network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec,
       [factory, path, reset]);
   }
 
@@ -811,8 +811,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec.$,
-      network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec.$,
+      network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec,
+      network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec,
       [s, endpoint]);
   }
 
@@ -820,8 +820,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec.$,
-      network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec.$,
+      network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec,
+      network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec,
       []);
   }
 
@@ -829,7 +829,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec,
       null,
       [success]);
   }
@@ -838,8 +838,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec.$,
-      network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec.$,
+      network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec,
+      network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec,
       []);
   }
 
@@ -847,8 +847,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec.$,
-      network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec.$,
+      network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec,
+      network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec,
       []);
   }
 
@@ -856,7 +856,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ParamsSpec,
       null,
       []);
   }
@@ -865,8 +865,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec.$,
-      network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec.$,
+      network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec,
+      network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec,
       []);
   }
 

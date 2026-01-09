@@ -48,8 +48,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec.$,
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec.$,
+      chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec,
+      chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec,
       [zip_file, password, temp_file_getter]);
   }
 
@@ -57,8 +57,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec.$,
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec.$,
+      chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec,
+      chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec,
       [dmg_file, temp_file_getter]);
   }
 
@@ -66,8 +66,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec.$,
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec.$,
+      chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec,
+      chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec,
       [rar_file, password, temp_file_getter]);
   }
 
@@ -75,8 +75,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec.$,
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec.$,
+      chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec,
+      chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec,
       [seven_zip_file, temp_file_getter]);
   }
 
@@ -84,8 +84,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec.$,
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec.$,
+      chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec,
+      chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec,
       [zip_file, password, header_data, temp_file_getter]);
   }
 
@@ -93,8 +93,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec.$,
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec.$,
+      chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec,
+      chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec,
       [rar_file, password, header_data, temp_file_getter]);
   }
 
@@ -328,8 +328,8 @@ chrome.mojom.TemporaryFileGetterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec.$,
-      chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec.$,
+      chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec,
+      chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec,
       []);
   }
 

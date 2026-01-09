@@ -48,7 +48,7 @@ device.mojom.TimeZoneMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.TimeZoneMonitor_AddClient_ParamsSpec.$,
+      device.mojom.TimeZoneMonitor_AddClient_ParamsSpec,
       null,
       [client]);
   }
@@ -123,7 +123,7 @@ device.mojom.TimeZoneMonitorClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec.$,
+      device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec,
       null,
       [tz_info]);
   }

@@ -100,8 +100,8 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec.$,
-      media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec.$,
+      media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec,
+      media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec,
       [stream, client, observer, log, device_id, params, group_id, shared_memory_count, enable_agc, processing_config]);
   }
 
@@ -109,7 +109,7 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$,
+      media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec,
       null,
       [input_stream_id, output_device_id]);
   }
@@ -118,8 +118,8 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec.$,
-      media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec.$,
+      media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec,
+      media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec,
       [stream, observer, log, device_id, params, group_id]);
   }
 
@@ -127,8 +127,8 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec.$,
-      media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec.$,
+      media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec,
+      media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec,
       [stream, device_switch_receiver, observer, log, device_id, params, group_id]);
   }
 
@@ -136,7 +136,7 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.AudioStreamFactory_BindMuter_ParamsSpec.$,
+      media.mojom.AudioStreamFactory_BindMuter_ParamsSpec,
       null,
       [receiver, group_id]);
   }
@@ -145,8 +145,8 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec.$,
-      media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec.$,
+      media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec,
+      media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec,
       [receiver, client, observer, params, shared_memory_count, group_id]);
   }
 

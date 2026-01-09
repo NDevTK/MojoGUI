@@ -54,7 +54,7 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec.$,
+      attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec,
       null,
       [reporting_origin, data, was_fetched_via_service_worker]);
   }
@@ -63,7 +63,7 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec.$,
+      attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec,
       null,
       [reporting_origin, data, was_fetched_via_service_worker]);
   }
@@ -72,7 +72,7 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec.$,
+      attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec,
       null,
       [registration, was_fetched_via_service_worker]);
   }
@@ -81,7 +81,7 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec.$,
+      attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec,
       null,
       [registration, was_fetched_via_service_worker]);
   }
@@ -90,7 +90,7 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec.$,
+      attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec,
       null,
       [reporting_origin, error]);
   }

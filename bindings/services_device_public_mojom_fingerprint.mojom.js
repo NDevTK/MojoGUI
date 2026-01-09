@@ -85,7 +85,7 @@ device.mojom.FingerprintObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.FingerprintObserver_OnRestarted_ParamsSpec.$,
+      device.mojom.FingerprintObserver_OnRestarted_ParamsSpec,
       null,
       []);
   }
@@ -94,7 +94,7 @@ device.mojom.FingerprintObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec.$,
+      device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec,
       null,
       [status]);
   }
@@ -103,7 +103,7 @@ device.mojom.FingerprintObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec.$,
+      device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec,
       null,
       [scan_result, is_complete, percent_complete]);
   }
@@ -112,7 +112,7 @@ device.mojom.FingerprintObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec.$,
+      device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec,
       null,
       [msg, matches]);
   }
@@ -121,7 +121,7 @@ device.mojom.FingerprintObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec.$,
+      device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec,
       null,
       []);
   }
@@ -253,8 +253,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec.$,
-      device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec.$,
+      device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec,
+      device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec,
       [user_id]);
   }
 
@@ -262,7 +262,7 @@ device.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.Fingerprint_StartEnrollSession_ParamsSpec.$,
+      device.mojom.Fingerprint_StartEnrollSession_ParamsSpec,
       null,
       [user_id, label]);
   }
@@ -271,8 +271,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec.$,
-      device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec.$,
+      device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec,
+      device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec,
       []);
   }
 
@@ -280,8 +280,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec.$,
-      device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec.$,
+      device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec,
+      device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec,
       [record_path]);
   }
 
@@ -289,8 +289,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.Fingerprint_SetRecordLabel_ParamsSpec.$,
-      device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec.$,
+      device.mojom.Fingerprint_SetRecordLabel_ParamsSpec,
+      device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec,
       [record_path, new_label]);
   }
 
@@ -298,8 +298,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.Fingerprint_RemoveRecord_ParamsSpec.$,
-      device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec.$,
+      device.mojom.Fingerprint_RemoveRecord_ParamsSpec,
+      device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec,
       [record_path]);
   }
 
@@ -307,7 +307,7 @@ device.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device.mojom.Fingerprint_StartAuthSession_ParamsSpec.$,
+      device.mojom.Fingerprint_StartAuthSession_ParamsSpec,
       null,
       []);
   }
@@ -316,8 +316,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec.$,
-      device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec.$,
+      device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec,
+      device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec,
       []);
   }
 
@@ -325,8 +325,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec.$,
-      device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec.$,
+      device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec,
+      device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec,
       []);
   }
 
@@ -334,7 +334,7 @@ device.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec.$,
+      device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -343,8 +343,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      device.mojom.Fingerprint_RequestType_ParamsSpec.$,
-      device.mojom.Fingerprint_RequestType_ResponseParamsSpec.$,
+      device.mojom.Fingerprint_RequestType_ParamsSpec,
+      device.mojom.Fingerprint_RequestType_ResponseParamsSpec,
       []);
   }
 

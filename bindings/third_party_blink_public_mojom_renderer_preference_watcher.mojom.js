@@ -48,7 +48,7 @@ blink.mojom.RendererPreferenceWatcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec.$,
+      blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec,
       null,
       [new_prefs]);
   }

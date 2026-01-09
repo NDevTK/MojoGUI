@@ -48,7 +48,7 @@ media.mojom.MuteStateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec.$,
+      media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec,
       null,
       [muted]);
   }
@@ -123,7 +123,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec.$,
+      media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec,
       null,
       [provision_fetcher]);
   }
@@ -132,7 +132,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec.$,
+      media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec,
       null,
       [cdm_storage]);
   }
@@ -141,7 +141,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec.$,
+      media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec,
       null,
       [site_mute_observer]);
   }
@@ -150,7 +150,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec.$,
+      media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec,
       null,
       [registry]);
   }
@@ -159,8 +159,8 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec.$,
-      media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec.$,
+      media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec,
+      media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec,
       []);
   }
 
@@ -168,7 +168,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec.$,
+      media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec,
       null,
       [receiver]);
   }

@@ -48,7 +48,7 @@ blink.mojom.TranslatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.Translator_Translate_ParamsSpec.$,
+      blink.mojom.Translator_Translate_ParamsSpec,
       null,
       [input, pending_responder]);
   }
@@ -57,7 +57,7 @@ blink.mojom.TranslatorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.Translator_TranslateStreaming_ParamsSpec.$,
+      blink.mojom.Translator_TranslateStreaming_ParamsSpec,
       null,
       [input, pending_responder]);
   }

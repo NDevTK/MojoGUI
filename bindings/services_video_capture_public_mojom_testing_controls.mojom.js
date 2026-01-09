@@ -48,7 +48,7 @@ video_capture.mojom.TestingControlsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.TestingControls_Crash_ParamsSpec.$,
+      video_capture.mojom.TestingControls_Crash_ParamsSpec,
       null,
       []);
   }

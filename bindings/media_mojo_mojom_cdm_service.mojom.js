@@ -48,7 +48,7 @@ media.mojom.CdmServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.CdmService_CreateCdmFactory_ParamsSpec.$,
+      media.mojom.CdmService_CreateCdmFactory_ParamsSpec,
       null,
       [factory, frame_interfaces]);
   }
@@ -124,8 +124,8 @@ media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec.$,
-      media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec.$,
+      media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec,
+      media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec,
       []);
   }
 
@@ -211,7 +211,7 @@ media.mojom.CdmServiceBrokerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.CdmServiceBroker_GetService_ParamsSpec.$,
+      media.mojom.CdmServiceBroker_GetService_ParamsSpec,
       null,
       [cdm_path, token_provider, receiver]);
   }

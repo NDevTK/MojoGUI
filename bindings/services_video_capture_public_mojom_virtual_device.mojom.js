@@ -48,8 +48,8 @@ video_capture.mojom.SharedMemoryVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec.$,
-      video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec.$,
+      video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec,
+      video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec,
       [dimension, pixel_format, strides]);
   }
 
@@ -57,7 +57,7 @@ video_capture.mojom.SharedMemoryVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec.$,
+      video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
       [buffer_id, frame_info]);
   }
@@ -162,7 +162,7 @@ video_capture.mojom.TextureVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec.$,
+      video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec,
       null,
       [buffer_id, shared_image_handle]);
   }
@@ -171,7 +171,7 @@ video_capture.mojom.TextureVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec.$,
+      video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec,
       null,
       [frame_access_handler]);
   }
@@ -180,7 +180,7 @@ video_capture.mojom.TextureVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec.$,
+      video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
       [buffer_id, frame_info]);
   }
@@ -189,7 +189,7 @@ video_capture.mojom.TextureVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec.$,
+      video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec,
       null,
       [buffer_id]);
   }
@@ -308,7 +308,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec.$,
+      video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec,
       null,
       [buffer_id, gmb_handle]);
   }
@@ -317,7 +317,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec.$,
+      video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec,
       null,
       [frame_access_handler]);
   }
@@ -326,7 +326,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec.$,
+      video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
       [buffer_id, frame_info]);
   }
@@ -335,7 +335,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec.$,
+      video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec,
       null,
       [buffer_id]);
   }

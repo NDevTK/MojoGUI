@@ -58,7 +58,7 @@ ash.focus_mode.mojom.MediaClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec.$,
+      ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec,
       null,
       [track]);
   }
@@ -133,8 +133,8 @@ ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec.$,
-      ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec.$,
+      ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec,
+      ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec,
       []);
   }
 
@@ -142,7 +142,7 @@ ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec.$,
+      ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec,
       null,
       [client]);
   }
@@ -151,7 +151,7 @@ ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec.$,
+      ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec,
       null,
       [data]);
   }
@@ -160,7 +160,7 @@ ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec.$,
+      ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec,
       null,
       []);
   }

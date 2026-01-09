@@ -48,7 +48,7 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mirroring.mojom.MirroringService_Start_ParamsSpec.$,
+      mirroring.mojom.MirroringService_Start_ParamsSpec,
       null,
       [params, max_resolution, observer, resource_provider, outbound_channel, inbound_channel]);
   }
@@ -57,7 +57,7 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec.$,
+      mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec,
       null,
       []);
   }
@@ -66,8 +66,8 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec.$,
-      mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec.$,
+      mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec,
+      mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec,
       []);
   }
 

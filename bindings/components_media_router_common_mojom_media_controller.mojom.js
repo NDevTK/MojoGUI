@@ -48,7 +48,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_router.mojom.MediaController_Play_ParamsSpec.$,
+      media_router.mojom.MediaController_Play_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media_router.mojom.MediaController_Pause_ParamsSpec.$,
+      media_router.mojom.MediaController_Pause_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +66,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media_router.mojom.MediaController_SetMute_ParamsSpec.$,
+      media_router.mojom.MediaController_SetMute_ParamsSpec,
       null,
       [mute]);
   }
@@ -75,7 +75,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media_router.mojom.MediaController_SetVolume_ParamsSpec.$,
+      media_router.mojom.MediaController_SetVolume_ParamsSpec,
       null,
       [volume]);
   }
@@ -84,7 +84,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media_router.mojom.MediaController_Seek_ParamsSpec.$,
+      media_router.mojom.MediaController_Seek_ParamsSpec,
       null,
       [time]);
   }
@@ -93,7 +93,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media_router.mojom.MediaController_NextTrack_ParamsSpec.$,
+      media_router.mojom.MediaController_NextTrack_ParamsSpec,
       null,
       []);
   }
@@ -102,7 +102,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media_router.mojom.MediaController_PreviousTrack_ParamsSpec.$,
+      media_router.mojom.MediaController_PreviousTrack_ParamsSpec,
       null,
       []);
   }

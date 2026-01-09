@@ -48,8 +48,8 @@ data_decoder.mojom.CborParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      data_decoder.mojom.CborParser_Parse_ParamsSpec.$,
-      data_decoder.mojom.CborParser_Parse_ResponseParamsSpec.$,
+      data_decoder.mojom.CborParser_Parse_ParamsSpec,
+      data_decoder.mojom.CborParser_Parse_ResponseParamsSpec,
       [cbor]);
   }
 

@@ -48,7 +48,7 @@ mirroring.mojom.AudioStreamCreatorClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec.$,
+      mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec,
       null,
       [stream, client_receiver, data_pipe]);
   }
@@ -125,7 +125,7 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec.$,
+      mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec,
       null,
       [receiver]);
   }
@@ -134,7 +134,7 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec.$,
+      mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec,
       null,
       [receiver]);
   }
@@ -143,7 +143,7 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec.$,
+      mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -152,7 +152,7 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec.$,
+      mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec,
       null,
       [receiver]);
   }
@@ -161,7 +161,7 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec.$,
+      mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec,
       null,
       [client, param, shared_memory_count]);
   }
@@ -170,7 +170,7 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec.$,
+      mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec,
       null,
       [remoter, receiver]);
   }

@@ -49,8 +49,8 @@ ash.quick_start.mojom.QuickStartDecoderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec.$,
-      ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec.$,
+      ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec,
+      ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec,
       [data]);
   }
 

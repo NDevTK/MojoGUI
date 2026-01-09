@@ -48,7 +48,7 @@ media.mojom.GpuInfoObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec.$,
+      media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec,
       null,
       [gpu_info]);
   }
@@ -123,8 +123,8 @@ media.mojom.MediaFoundationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec.$,
-      media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec.$,
+      media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec,
+      media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec,
       [key_system]);
   }
 
@@ -132,7 +132,7 @@ media.mojom.MediaFoundationServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec.$,
+      media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec,
       null,
       [factory, frame_interfaces]);
   }
@@ -236,8 +236,8 @@ media.mojom.MediaFoundationServiceBrokerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec.$,
-      media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec.$,
+      media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec,
+      media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec,
       [gpu_info]);
   }
 
@@ -245,7 +245,7 @@ media.mojom.MediaFoundationServiceBrokerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec.$,
+      media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec,
       null,
       [cdm_path, receiver]);
   }

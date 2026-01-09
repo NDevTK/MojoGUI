@@ -48,8 +48,8 @@ blink.mojom.PluginRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PluginRegistry_GetPlugins_ParamsSpec.$,
-      blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec.$,
+      blink.mojom.PluginRegistry_GetPlugins_ParamsSpec,
+      blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec,
       []);
   }
 

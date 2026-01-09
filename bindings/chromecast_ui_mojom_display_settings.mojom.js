@@ -48,7 +48,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec.$,
+      chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec,
       null,
       [kelvin]);
   }
@@ -57,7 +57,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec.$,
+      chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec,
       null,
       [kelvin, duration]);
   }
@@ -66,7 +66,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec.$,
+      chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec,
       null,
       []);
   }
@@ -75,7 +75,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec.$,
+      chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec,
       null,
       [brightness]);
   }
@@ -84,7 +84,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec.$,
+      chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec,
       null,
       [brightness, duration]);
   }
@@ -93,7 +93,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec.$,
+      chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec,
       null,
       []);
   }
@@ -102,7 +102,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec.$,
+      chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec,
       null,
       [display_on]);
   }
@@ -111,7 +111,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec.$,
+      chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec,
       null,
       [allow_power_off]);
   }
@@ -120,7 +120,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec.$,
+      chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -307,7 +307,7 @@ chromecast.mojom.DisplaySettingsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$,
+      chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec,
       null,
       [brightness]);
   }

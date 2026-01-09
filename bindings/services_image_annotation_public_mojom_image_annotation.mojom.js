@@ -63,8 +63,8 @@ image_annotation.mojom.ImageProcessorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec.$,
-      image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec.$,
+      image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec,
+      image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec,
       []);
   }
 
@@ -152,8 +152,8 @@ image_annotation.mojom.AnnotatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec.$,
-      image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec.$,
+      image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec,
+      image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec,
       [source_id, description_language_tag, image_processor]);
   }
 
@@ -242,7 +242,7 @@ image_annotation.mojom.ImageAnnotationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec.$,
+      image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec,
       null,
       [receiver]);
   }

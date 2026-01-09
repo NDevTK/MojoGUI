@@ -48,8 +48,8 @@ chromecast.mojom.ApiBindingsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.ApiBindings_GetAll_ParamsSpec.$,
-      chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec.$,
+      chromecast.mojom.ApiBindings_GetAll_ParamsSpec,
+      chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ chromecast.mojom.ApiBindingsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.ApiBindings_Connect_ParamsSpec.$,
+      chromecast.mojom.ApiBindings_Connect_ParamsSpec,
       null,
       [port_name, port]);
   }

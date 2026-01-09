@@ -75,7 +75,7 @@ bluetooth.mojom.AdvertisementRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.Advertisement_Unregister_ParamsSpec.$,
+      bluetooth.mojom.Advertisement_Unregister_ParamsSpec,
       null,
       []);
   }
@@ -149,8 +149,8 @@ bluetooth.mojom.DiscoverySessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec.$,
-      bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec.$,
+      bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec,
+      bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec,
       []);
   }
 
@@ -158,8 +158,8 @@ bluetooth.mojom.DiscoverySessionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.DiscoverySession_Stop_ParamsSpec.$,
-      bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec.$,
+      bluetooth.mojom.DiscoverySession_Stop_ParamsSpec,
+      bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec,
       []);
   }
 
@@ -271,7 +271,7 @@ bluetooth.mojom.SocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.Socket_Disconnect_ParamsSpec.$,
+      bluetooth.mojom.Socket_Disconnect_ParamsSpec,
       null,
       []);
   }
@@ -345,8 +345,8 @@ bluetooth.mojom.ServerSocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.ServerSocket_Accept_ParamsSpec.$,
-      bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec.$,
+      bluetooth.mojom.ServerSocket_Accept_ParamsSpec,
+      bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec,
       []);
   }
 
@@ -354,7 +354,7 @@ bluetooth.mojom.ServerSocketRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.ServerSocket_Disconnect_ParamsSpec.$,
+      bluetooth.mojom.ServerSocket_Disconnect_ParamsSpec,
       null,
       []);
   }
@@ -454,8 +454,8 @@ bluetooth.mojom.GattServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec.$,
-      bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec.$,
+      bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec,
+      bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec,
       [characteristic_uuid, permissions, properties]);
   }
 
@@ -463,8 +463,8 @@ bluetooth.mojom.GattServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.GattService_Register_ParamsSpec.$,
-      bluetooth.mojom.GattService_Register_ResponseParamsSpec.$,
+      bluetooth.mojom.GattService_Register_ParamsSpec,
+      bluetooth.mojom.GattService_Register_ResponseParamsSpec,
       []);
   }
 
@@ -579,8 +579,8 @@ bluetooth.mojom.GattServiceObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec.$,
-      bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec.$,
+      bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec,
+      bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec,
       [remote_device, characteristic_uuid, service_uuid, offset]);
   }
 
@@ -670,8 +670,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec.$,
-      bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec.$,
+      bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec,
+      bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec,
       [address]);
   }
 
@@ -679,8 +679,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.Adapter_GetDevices_ParamsSpec.$,
-      bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec.$,
+      bluetooth.mojom.Adapter_GetDevices_ParamsSpec,
+      bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec,
       []);
   }
 
@@ -688,8 +688,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      bluetooth.mojom.Adapter_GetInfo_ParamsSpec.$,
-      bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec.$,
+      bluetooth.mojom.Adapter_GetInfo_ParamsSpec,
+      bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec,
       []);
   }
 
@@ -697,7 +697,7 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      bluetooth.mojom.Adapter_AddObserver_ParamsSpec.$,
+      bluetooth.mojom.Adapter_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -706,8 +706,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec.$,
-      bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec.$,
+      bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec,
+      bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec,
       [service_id, service_data, use_scan_response, connectable]);
   }
 
@@ -715,8 +715,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec.$,
-      bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec.$,
+      bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec,
+      bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec,
       [discoverable]);
   }
 
@@ -724,8 +724,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      bluetooth.mojom.Adapter_SetName_ParamsSpec.$,
-      bluetooth.mojom.Adapter_SetName_ResponseParamsSpec.$,
+      bluetooth.mojom.Adapter_SetName_ParamsSpec,
+      bluetooth.mojom.Adapter_SetName_ResponseParamsSpec,
       [name]);
   }
 
@@ -733,8 +733,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec.$,
-      bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec.$,
+      bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec,
+      bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec,
       [client_name]);
   }
 
@@ -742,8 +742,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec.$,
-      bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec.$,
+      bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec,
+      bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec,
       [address, service_uuid, should_unbond_on_error]);
   }
 
@@ -751,8 +751,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec.$,
-      bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec.$,
+      bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec,
+      bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec,
       [service_name, service_uuid]);
   }
 
@@ -760,8 +760,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec.$,
-      bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec.$,
+      bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec,
+      bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec,
       [service_id, observer]);
   }
 
@@ -769,8 +769,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec.$,
-      bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec.$,
+      bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec,
+      bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec,
       []);
   }
 
@@ -1146,7 +1146,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec.$,
+      bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec,
       null,
       [present]);
   }
@@ -1155,7 +1155,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.AdapterObserver_PoweredChanged_ParamsSpec.$,
+      bluetooth.mojom.AdapterObserver_PoweredChanged_ParamsSpec,
       null,
       [powered]);
   }
@@ -1164,7 +1164,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      bluetooth.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec.$,
+      bluetooth.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec,
       null,
       [discoverable]);
   }
@@ -1173,7 +1173,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      bluetooth.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec.$,
+      bluetooth.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec,
       null,
       [discovering]);
   }
@@ -1182,7 +1182,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec.$,
+      bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec,
       null,
       [device]);
   }
@@ -1191,7 +1191,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec.$,
+      bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec,
       null,
       [device]);
   }
@@ -1200,7 +1200,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec.$,
+      bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec,
       null,
       [device]);
   }

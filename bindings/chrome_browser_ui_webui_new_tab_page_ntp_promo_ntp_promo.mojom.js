@@ -55,7 +55,7 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec.$,
+      ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec,
       null,
       []);
   }
@@ -64,7 +64,7 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec.$,
+      ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec,
       null,
       [eligible_shown, completed_shown]);
   }
@@ -73,7 +73,7 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$,
+      ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec,
       null,
       [promo_id]);
   }
@@ -82,7 +82,7 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec.$,
+      ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec,
       null,
       []);
   }
@@ -91,7 +91,7 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec.$,
+      ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec,
       null,
       []);
   }
@@ -100,7 +100,7 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec.$,
+      ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec,
       null,
       []);
   }
@@ -109,7 +109,7 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec.$,
+      ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec,
       null,
       []);
   }
@@ -264,7 +264,7 @@ ntp_promo.mojom.NtpPromoClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec.$,
+      ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec,
       null,
       [eligible, completed]);
   }
@@ -340,7 +340,7 @@ ntp_promo.mojom.NtpPromoHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec.$,
+      ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec,
       null,
       [client, handler]);
   }

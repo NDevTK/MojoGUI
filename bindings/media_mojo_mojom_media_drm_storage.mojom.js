@@ -48,8 +48,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaDrmStorage_Initialize_ParamsSpec.$,
-      media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec.$,
+      media.mojom.MediaDrmStorage_Initialize_ParamsSpec,
+      media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec.$,
-      media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec.$,
+      media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec,
+      media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec,
       []);
   }
 
@@ -66,8 +66,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec.$,
-      media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec.$,
+      media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec,
+      media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec,
       [session_id, session_data]);
   }
 
@@ -75,8 +75,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec.$,
-      media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec.$,
+      media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec,
+      media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec,
       [session_id]);
   }
 
@@ -84,8 +84,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec.$,
-      media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec.$,
+      media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec,
+      media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec,
       [session_id]);
   }
 

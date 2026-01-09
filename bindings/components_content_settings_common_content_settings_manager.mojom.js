@@ -58,7 +58,7 @@ content_settings.mojom.ContentSettingsManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec.$,
+      content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec,
       null,
       [clone]);
   }
@@ -67,8 +67,8 @@ content_settings.mojom.ContentSettingsManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec.$,
-      content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec.$,
+      content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec,
+      content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec,
       [frame_token, storage_type, origin, site_for_cookies, top_frame_origin]);
   }
 
@@ -76,7 +76,7 @@ content_settings.mojom.ContentSettingsManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec.$,
+      content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec,
       null,
       [frame_token, type]);
   }

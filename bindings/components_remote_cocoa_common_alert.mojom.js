@@ -55,8 +55,8 @@ remote_cocoa.mojom.AlertBridgeRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.AlertBridge_Show_ParamsSpec.$,
-      remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec.$,
+      remote_cocoa.mojom.AlertBridge_Show_ParamsSpec,
+      remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec,
       [params]);
   }
 
@@ -64,7 +64,7 @@ remote_cocoa.mojom.AlertBridgeRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec.$,
+      remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec,
       null,
       []);
   }

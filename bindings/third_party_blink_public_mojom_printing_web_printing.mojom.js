@@ -154,7 +154,7 @@ blink.mojom.WebPrintJobStateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec.$,
+      blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec,
       null,
       [update]);
   }
@@ -229,7 +229,7 @@ blink.mojom.WebPrintJobControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebPrintJobController_Cancel_ParamsSpec.$,
+      blink.mojom.WebPrintJobController_Cancel_ParamsSpec,
       null,
       []);
   }
@@ -303,8 +303,8 @@ blink.mojom.WebPrinterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebPrinter_FetchAttributes_ParamsSpec.$,
-      blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec.$,
+      blink.mojom.WebPrinter_FetchAttributes_ParamsSpec,
+      blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec,
       []);
   }
 
@@ -312,8 +312,8 @@ blink.mojom.WebPrinterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.WebPrinter_Print_ParamsSpec.$,
-      blink.mojom.WebPrinter_Print_ResponseParamsSpec.$,
+      blink.mojom.WebPrinter_Print_ParamsSpec,
+      blink.mojom.WebPrinter_Print_ResponseParamsSpec,
       [document, attributes]);
   }
 
@@ -427,8 +427,8 @@ blink.mojom.WebPrintingServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebPrintingService_GetPrinters_ParamsSpec.$,
-      blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec.$,
+      blink.mojom.WebPrintingService_GetPrinters_ParamsSpec,
+      blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec,
       []);
   }
 

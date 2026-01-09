@@ -48,7 +48,7 @@ updater_ui.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -124,8 +124,8 @@ updater_ui.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec.$,
-      updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec.$,
+      updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec,
+      updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec,
       []);
   }
 

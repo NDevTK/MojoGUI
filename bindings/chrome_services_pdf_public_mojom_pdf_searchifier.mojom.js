@@ -48,8 +48,8 @@ pdf.mojom.PdfSearchifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      pdf.mojom.PdfSearchifier_Searchify_ParamsSpec.$,
-      pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec.$,
+      pdf.mojom.PdfSearchifier_Searchify_ParamsSpec,
+      pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec,
       [pdf]);
   }
 

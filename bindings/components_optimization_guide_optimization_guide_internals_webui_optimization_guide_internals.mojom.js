@@ -48,7 +48,7 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page]);
   }
@@ -57,8 +57,8 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec.$,
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec.$,
+      optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec,
+      optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec,
       []);
   }
 
@@ -66,8 +66,8 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec.$,
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec.$,
+      optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec,
+      optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec.$,
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec.$,
+      optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec,
+      optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec,
       []);
   }
 
@@ -228,7 +228,7 @@ optimization_guide_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$,
+      optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
       [event_time, log_source, source_file, source_line, message]);
   }

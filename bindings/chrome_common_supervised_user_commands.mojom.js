@@ -48,7 +48,7 @@ supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec.$,
+      supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec,
       null,
       []);
   }
@@ -57,8 +57,8 @@ supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec.$,
-      supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec.$,
+      supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec,
+      supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec,
       []);
   }
 
@@ -66,8 +66,8 @@ supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec.$,
-      supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec.$,
+      supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec,
+      supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec,
       []);
   }
 
@@ -75,7 +75,7 @@ supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec.$,
+      supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec,
       null,
       []);
   }

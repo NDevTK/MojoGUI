@@ -68,7 +68,7 @@ storage.mojom.MockFailureInjectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.MockFailureInjector_FailOperation_ParamsSpec.$,
+      storage.mojom.MockFailureInjector_FailOperation_ParamsSpec,
       null,
       [failure_class, failure_method, instance_num, call_num]);
   }
@@ -146,8 +146,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec.$,
-      storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec.$,
+      storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec,
+      storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec,
       []);
   }
 
@@ -155,8 +155,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec.$,
-      storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec.$,
+      storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec,
+      storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec,
       [bucket_locator, for_sqlite]);
   }
 
@@ -164,7 +164,7 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec.$,
+      storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec,
       null,
       []);
   }
@@ -173,8 +173,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec.$,
-      storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec.$,
+      storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec,
+      storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec,
       [bucket_locator, database_id, blob_number]);
   }
 
@@ -182,7 +182,7 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec.$,
+      storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec,
       null,
       [bucket_locator]);
   }
@@ -191,7 +191,7 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec.$,
+      storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec,
       null,
       [bucket_locator]);
   }
@@ -200,8 +200,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec.$,
-      storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec.$,
+      storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec,
+      storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec,
       []);
   }
 
@@ -209,7 +209,7 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec.$,
+      storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec,
       null,
       [receiver]);
   }
@@ -218,7 +218,7 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec.$,
+      storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec,
       null,
       []);
   }

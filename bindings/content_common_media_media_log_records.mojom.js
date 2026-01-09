@@ -48,7 +48,7 @@ content.mojom.MediaInternalLogRecordsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.MediaInternalLogRecords_Log_ParamsSpec.$,
+      content.mojom.MediaInternalLogRecords_Log_ParamsSpec,
       null,
       [events]);
   }

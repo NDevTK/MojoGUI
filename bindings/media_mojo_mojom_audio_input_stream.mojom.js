@@ -59,7 +59,7 @@ media.mojom.AudioInputStreamRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioInputStream_Record_ParamsSpec.$,
+      media.mojom.AudioInputStream_Record_ParamsSpec,
       null,
       []);
   }
@@ -68,7 +68,7 @@ media.mojom.AudioInputStreamRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.AudioInputStream_SetVolume_ParamsSpec.$,
+      media.mojom.AudioInputStream_SetVolume_ParamsSpec,
       null,
       [volume]);
   }
@@ -156,7 +156,7 @@ media.mojom.AudioInputStreamClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioInputStreamClient_OnError_ParamsSpec.$,
+      media.mojom.AudioInputStreamClient_OnError_ParamsSpec,
       null,
       [code]);
   }
@@ -165,7 +165,7 @@ media.mojom.AudioInputStreamClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec.$,
+      media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec,
       null,
       [is_muted]);
   }
@@ -254,7 +254,7 @@ media.mojom.AudioInputStreamObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec.$,
+      media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec,
       null,
       []);
   }

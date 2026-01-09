@@ -49,8 +49,8 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.local_search_service.mojom.Index_GetSize_ParamsSpec.$,
-      ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec.$,
+      ash.local_search_service.mojom.Index_GetSize_ParamsSpec,
+      ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec,
       []);
   }
 
@@ -58,7 +58,7 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec.$,
+      ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec,
       null,
       [data]);
   }
@@ -67,8 +67,8 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.local_search_service.mojom.Index_Delete_ParamsSpec.$,
-      ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec.$,
+      ash.local_search_service.mojom.Index_Delete_ParamsSpec,
+      ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec,
       [ids]);
   }
 
@@ -76,8 +76,8 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec.$,
-      ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec.$,
+      ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec,
+      ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec,
       [data]);
   }
 
@@ -85,8 +85,8 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.local_search_service.mojom.Index_Find_ParamsSpec.$,
-      ash.local_search_service.mojom.Index_Find_ResponseParamsSpec.$,
+      ash.local_search_service.mojom.Index_Find_ParamsSpec,
+      ash.local_search_service.mojom.Index_Find_ResponseParamsSpec,
       [query, max_results]);
   }
 
@@ -94,7 +94,7 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec.$,
+      ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec,
       null,
       []);
   }
@@ -103,7 +103,7 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec.$,
+      ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec,
       null,
       [search_params]);
   }

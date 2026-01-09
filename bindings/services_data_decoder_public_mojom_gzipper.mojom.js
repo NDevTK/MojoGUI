@@ -48,8 +48,8 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      data_decoder.mojom.Gzipper_Deflate_ParamsSpec.$,
-      data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec.$,
+      data_decoder.mojom.Gzipper_Deflate_ParamsSpec,
+      data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec,
       [data]);
   }
 
@@ -57,8 +57,8 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      data_decoder.mojom.Gzipper_Inflate_ParamsSpec.$,
-      data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec.$,
+      data_decoder.mojom.Gzipper_Inflate_ParamsSpec,
+      data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec,
       [data, max_uncompressed_size]);
   }
 
@@ -66,8 +66,8 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      data_decoder.mojom.Gzipper_Compress_ParamsSpec.$,
-      data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec.$,
+      data_decoder.mojom.Gzipper_Compress_ParamsSpec,
+      data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec,
       [data]);
   }
 
@@ -75,8 +75,8 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      data_decoder.mojom.Gzipper_Uncompress_ParamsSpec.$,
-      data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec.$,
+      data_decoder.mojom.Gzipper_Uncompress_ParamsSpec,
+      data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec,
       [compressed_data]);
   }
 

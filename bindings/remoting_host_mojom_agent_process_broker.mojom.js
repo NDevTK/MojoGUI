@@ -48,7 +48,7 @@ remoting.mojom.AgentProcessRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec.$,
+      remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ remoting.mojom.AgentProcessRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec.$,
+      remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +66,7 @@ remoting.mojom.AgentProcessRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec.$,
+      remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec,
       null,
       [receiver]);
   }
@@ -167,7 +167,7 @@ remoting.mojom.AgentProcessBrokerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec.$,
+      remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec,
       null,
       [agent_process]);
   }

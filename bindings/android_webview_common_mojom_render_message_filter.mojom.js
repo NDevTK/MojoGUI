@@ -48,7 +48,7 @@ android_webview.mojom.RenderMessageFilterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec.$,
+      android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec,
       null,
       [parent_frame_token, child_frame_token]);
   }

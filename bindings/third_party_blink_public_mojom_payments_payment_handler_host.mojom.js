@@ -48,8 +48,8 @@ payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec.$,
-      payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec.$,
+      payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec,
+      payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec,
       [method_data]);
   }
 
@@ -57,8 +57,8 @@ payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec.$,
-      payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec.$,
+      payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec,
+      payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec,
       [shipping_option_id]);
   }
 
@@ -66,8 +66,8 @@ payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec.$,
-      payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec.$,
+      payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec,
+      payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec,
       [shipping_address]);
   }
 

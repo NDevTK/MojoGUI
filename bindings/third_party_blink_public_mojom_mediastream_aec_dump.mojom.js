@@ -48,7 +48,7 @@ blink.mojom.AecDumpAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AecDumpAgent_Start_ParamsSpec.$,
+      blink.mojom.AecDumpAgent_Start_ParamsSpec,
       null,
       [file]);
   }
@@ -57,7 +57,7 @@ blink.mojom.AecDumpAgentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AecDumpAgent_Stop_ParamsSpec.$,
+      blink.mojom.AecDumpAgent_Stop_ParamsSpec,
       null,
       []);
   }
@@ -145,7 +145,7 @@ blink.mojom.AecDumpManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AecDumpManager_Add_ParamsSpec.$,
+      blink.mojom.AecDumpManager_Add_ParamsSpec,
       null,
       [agent]);
   }

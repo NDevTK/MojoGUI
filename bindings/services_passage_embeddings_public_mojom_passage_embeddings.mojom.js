@@ -56,8 +56,8 @@ passage_embeddings.mojom.PassageEmbedderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec.$,
-      passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec.$,
+      passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec,
+      passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec,
       [passages, priority]);
   }
 
@@ -145,8 +145,8 @@ passage_embeddings.mojom.PassageEmbeddingsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec.$,
-      passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec.$,
+      passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec,
+      passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec,
       [model_params, params, model]);
   }
 

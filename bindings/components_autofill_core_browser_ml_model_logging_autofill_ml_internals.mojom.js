@@ -55,7 +55,7 @@ autofill_ml_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec.$,
+      autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec,
       null,
       [log]);
   }
@@ -130,7 +130,7 @@ autofill_ml_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec.$,
+      autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec,
       null,
       [page]);
   }

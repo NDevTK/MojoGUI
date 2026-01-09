@@ -48,7 +48,7 @@ chrome.mojom.NetworkDiagnosticsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec.$,
+      chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec,
       null,
       [failed_url]);
   }
@@ -123,7 +123,7 @@ chrome.mojom.NetworkDiagnosticsClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec.$,
+      chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec,
       null,
       [can_show]);
   }
@@ -132,7 +132,7 @@ chrome.mojom.NetworkDiagnosticsClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec.$,
+      chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec,
       null,
       [status]);
   }

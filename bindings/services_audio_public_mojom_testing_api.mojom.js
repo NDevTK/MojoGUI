@@ -48,7 +48,7 @@ audio.mojom.TestingApiRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.TestingApi_Crash_ParamsSpec.$,
+      audio.mojom.TestingApi_Crash_ParamsSpec,
       null,
       []);
   }

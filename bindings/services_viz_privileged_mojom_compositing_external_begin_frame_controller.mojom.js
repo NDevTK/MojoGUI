@@ -48,8 +48,8 @@ viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec.$,
-      viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec.$,
+      viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec,
+      viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec,
       [args, force]);
   }
 
@@ -57,7 +57,7 @@ viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec.$,
+      viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec,
       null,
       [args]);
   }
@@ -66,7 +66,7 @@ viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec.$,
+      viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec,
       null,
       [params]);
   }
@@ -75,7 +75,7 @@ viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec.$,
+      viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec,
       null,
       [display_id, is_supported]);
   }
@@ -207,7 +207,7 @@ viz.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec.$,
+      viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec,
       null,
       [needs_begin_frames]);
   }
@@ -216,7 +216,7 @@ viz.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec.$,
+      viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec,
       null,
       [display_id, needs_begin_frames]);
   }
@@ -225,7 +225,7 @@ viz.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec.$,
+      viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec,
       null,
       [interval]);
   }

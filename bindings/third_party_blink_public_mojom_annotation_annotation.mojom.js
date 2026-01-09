@@ -63,7 +63,7 @@ blink.mojom.AnnotationAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec.$,
+      blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec,
       null,
       [applies_focus]);
   }
@@ -138,7 +138,7 @@ blink.mojom.AnnotationAgentHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec.$,
+      blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec,
       null,
       [document_relative_rect, attachment_result]);
   }
@@ -214,7 +214,7 @@ blink.mojom.AnnotationAgentContainerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec.$,
+      blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec,
       null,
       [host_remote, agent_receiver, type, selector, search_range_start_node_id]);
   }
@@ -223,8 +223,8 @@ blink.mojom.AnnotationAgentContainerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec.$,
-      blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec.$,
+      blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec,
+      blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec,
       [type]);
   }
 
@@ -232,7 +232,7 @@ blink.mojom.AnnotationAgentContainerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec.$,
+      blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec,
       null,
       [type]);
   }

@@ -74,8 +74,8 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec.$,
-      screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec.$,
+      screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec,
+      screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec,
       [image]);
   }
 
@@ -83,8 +83,8 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec.$,
-      screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec.$,
+      screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec,
+      screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec,
       [image]);
   }
 
@@ -92,7 +92,7 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec.$,
+      screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec,
       null,
       [client_type]);
   }
@@ -101,8 +101,8 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec.$,
-      screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec.$,
+      screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec,
+      screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec,
       []);
   }
 
@@ -110,7 +110,7 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec.$,
+      screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec,
       null,
       [enabled]);
   }
@@ -119,8 +119,8 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec.$,
-      screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec.$,
+      screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec,
+      screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec,
       []);
   }
 
@@ -314,8 +314,8 @@ screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec.$,
-      screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec.$,
+      screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec,
+      screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec,
       [snapshot]);
   }
 
@@ -323,8 +323,8 @@ screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec.$,
-      screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec.$,
+      screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec,
+      screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec,
       [snapshot]);
   }
 
@@ -332,8 +332,8 @@ screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec.$,
-      screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec.$,
+      screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec,
+      screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec,
       [ax_tree]);
   }
 
@@ -341,7 +341,7 @@ screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec.$,
+      screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec,
       null,
       [client_type]);
   }
@@ -498,7 +498,7 @@ screen_ai.mojom.OCRServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec.$,
+      screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec,
       null,
       [annotator]);
   }
@@ -573,7 +573,7 @@ screen_ai.mojom.MainContentExtractionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec.$,
+      screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec,
       null,
       [main_content_extractor]);
   }

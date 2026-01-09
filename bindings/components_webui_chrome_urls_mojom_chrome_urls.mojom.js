@@ -48,7 +48,7 @@ chrome_urls.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -124,8 +124,8 @@ chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec.$,
-      chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec.$,
+      chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec,
+      chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec,
       []);
   }
 
@@ -133,7 +133,7 @@ chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec.$,
+      chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec,
       null,
       [enabled]);
   }

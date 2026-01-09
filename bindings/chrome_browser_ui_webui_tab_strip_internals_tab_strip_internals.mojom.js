@@ -64,7 +64,7 @@ tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -140,8 +140,8 @@ tab_strip_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec.$,
-      tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec.$,
+      tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec,
+      tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec,
       []);
   }
 
@@ -227,7 +227,7 @@ tab_strip_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec.$,
+      tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec,
       null,
       [data]);
   }

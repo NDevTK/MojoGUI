@@ -57,7 +57,7 @@ zero_state_promo.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -132,7 +132,7 @@ zero_state_promo.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec.$,
+      zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec,
       null,
       [link]);
   }

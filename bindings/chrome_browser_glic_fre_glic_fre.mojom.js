@@ -61,7 +61,7 @@ glic.mojom.FrePageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [receiver]);
   }
@@ -136,7 +136,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.FrePageHandler_AcceptFre_ParamsSpec.$,
+      glic.mojom.FrePageHandler_AcceptFre_ParamsSpec,
       null,
       []);
   }
@@ -145,7 +145,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      glic.mojom.FrePageHandler_RejectFre_ParamsSpec.$,
+      glic.mojom.FrePageHandler_RejectFre_ParamsSpec,
       null,
       []);
   }
@@ -154,7 +154,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      glic.mojom.FrePageHandler_DismissFre_ParamsSpec.$,
+      glic.mojom.FrePageHandler_DismissFre_ParamsSpec,
       null,
       [panel]);
   }
@@ -163,7 +163,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      glic.mojom.FrePageHandler_FreReloaded_ParamsSpec.$,
+      glic.mojom.FrePageHandler_FreReloaded_ParamsSpec,
       null,
       []);
   }
@@ -172,8 +172,8 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec.$,
-      glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec.$,
+      glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec,
+      glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec,
       []);
   }
 
@@ -181,7 +181,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec.$,
+      glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec,
       null,
       [url]);
   }
@@ -190,7 +190,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec.$,
+      glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec,
       null,
       [new_state]);
   }
@@ -199,7 +199,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec.$,
+      glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec,
       null,
       []);
   }
@@ -208,7 +208,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec.$,
+      glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec,
       null,
       []);
   }

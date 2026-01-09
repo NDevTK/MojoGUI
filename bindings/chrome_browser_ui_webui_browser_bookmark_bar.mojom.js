@@ -57,7 +57,7 @@ bookmark_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -133,8 +133,8 @@ bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$,
-      bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec.$,
+      bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec,
+      bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec,
       []);
   }
 
@@ -142,7 +142,7 @@ bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$,
+      bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec,
       null,
       [node_id]);
   }
@@ -243,7 +243,7 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$,
+      bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec,
       null,
       []);
   }
@@ -252,7 +252,7 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$,
+      bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec,
       null,
       [bookmark_data]);
   }
@@ -261,7 +261,7 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      bookmark_bar.mojom.Page_Show_ParamsSpec.$,
+      bookmark_bar.mojom.Page_Show_ParamsSpec,
       null,
       []);
   }
@@ -270,7 +270,7 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      bookmark_bar.mojom.Page_Hide_ParamsSpec.$,
+      bookmark_bar.mojom.Page_Hide_ParamsSpec,
       null,
       []);
   }

@@ -58,8 +58,8 @@ blink.mojom.FontAccessManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec.$,
-      blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec.$,
+      blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec,
+      blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec,
       []);
   }
 

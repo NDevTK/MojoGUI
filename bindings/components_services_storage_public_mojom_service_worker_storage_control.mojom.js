@@ -106,8 +106,8 @@ storage.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec.$,
-      storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec,
+      storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec,
       []);
   }
 
@@ -115,8 +115,8 @@ storage.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec.$,
-      storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec,
+      storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec,
       [size]);
   }
 
@@ -124,8 +124,8 @@ storage.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec.$,
-      storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec,
+      storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec,
       []);
   }
 
@@ -266,8 +266,8 @@ storage.mojom.ServiceWorkerResourceWriterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec.$,
-      storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec,
+      storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec,
       [response_head]);
   }
 
@@ -275,8 +275,8 @@ storage.mojom.ServiceWorkerResourceWriterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec.$,
-      storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec,
+      storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec,
       [data]);
   }
 
@@ -390,8 +390,8 @@ storage.mojom.ServiceWorkerResourceMetadataWriterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec.$,
-      storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec,
+      storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec,
       [data]);
   }
 
@@ -478,7 +478,7 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec,
       null,
       []);
   }
@@ -487,8 +487,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec,
       []);
   }
 
@@ -496,7 +496,7 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec,
       null,
       [versions]);
   }
@@ -505,8 +505,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec,
       []);
   }
 
@@ -514,8 +514,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec,
       [client_url, key]);
   }
 
@@ -523,8 +523,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec,
       [scope, key]);
   }
 
@@ -532,8 +532,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec,
       [registration_id, key]);
   }
 
@@ -541,8 +541,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec,
       [key]);
   }
 
@@ -550,8 +550,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec,
       [key]);
   }
 
@@ -559,8 +559,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec,
       []);
   }
 
@@ -568,8 +568,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec,
       [client_url, key]);
   }
 
@@ -577,8 +577,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec,
       [registration, resources]);
   }
 
@@ -586,8 +586,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec,
       [registration_id, key]);
   }
 
@@ -595,8 +595,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec,
       [registration_id, key]);
   }
 
@@ -604,8 +604,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec,
       [registration_id, key, last_update_check_time]);
   }
 
@@ -613,8 +613,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec,
       [registration_id, key, enable]);
   }
 
@@ -622,8 +622,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec,
       [registration_id, key, value]);
   }
 
@@ -631,8 +631,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec,
       [registration_id, key, type]);
   }
 
@@ -640,8 +640,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec,
       [registratation_id, key, updated_sha256_checksums]);
   }
 
@@ -649,8 +649,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec,
       []);
   }
 
@@ -658,8 +658,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec,
       []);
   }
 
@@ -667,8 +667,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec,
       []);
   }
 
@@ -676,7 +676,7 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec,
       null,
       [resource_id, reader]);
   }
@@ -685,7 +685,7 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec,
       null,
       [resource_id, writer]);
   }
@@ -694,7 +694,7 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec,
       null,
       [resource_id, writer]);
   }
@@ -703,8 +703,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec,
       [resource_id]);
   }
 
@@ -712,8 +712,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec,
       [resource_ids]);
   }
 
@@ -721,8 +721,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec,
       [registration_id, keys]);
   }
 
@@ -730,8 +730,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec,
       [registration_id, key, user_data]);
   }
 
@@ -739,8 +739,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec,
       [registration_id, keys]);
   }
 
@@ -748,8 +748,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec,
       [registration_id, key_prefix]);
   }
 
@@ -757,8 +757,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec,
       [registration_id, key_prefix]);
   }
 
@@ -766,8 +766,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec,
       [registratation_id, key_prefixes]);
   }
 
@@ -775,8 +775,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec,
       [key]);
   }
 
@@ -784,8 +784,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
       [key_prefix]);
   }
 
@@ -793,8 +793,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
       [key_prefix]);
   }
 
@@ -802,7 +802,7 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec,
       null,
       []);
   }
@@ -811,8 +811,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec,
       [policy_updates]);
   }
 
@@ -820,8 +820,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec,
       []);
   }
 
@@ -829,8 +829,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec,
       [version_id]);
   }
 
@@ -838,8 +838,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec,
       []);
   }
 
@@ -847,8 +847,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 41
     return this.proxy.sendMessage(
       41,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec.$,
-      storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec,
+      storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec,
       []);
   }
 
@@ -856,7 +856,7 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
     // Ordinal: 42
     return this.proxy.sendMessage(
       42,  // ordinal
-      storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec.$,
+      storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec,
       null,
       []);
   }

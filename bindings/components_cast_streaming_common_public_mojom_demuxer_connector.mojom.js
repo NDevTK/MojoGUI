@@ -48,8 +48,8 @@ cast_streaming.mojom.AudioBufferRequesterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec.$,
-      cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec.$,
+      cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec,
+      cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ cast_streaming.mojom.AudioBufferRequesterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec.$,
-      cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$,
+      cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec,
+      cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec,
       []);
   }
 
@@ -170,8 +170,8 @@ cast_streaming.mojom.VideoBufferRequesterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec.$,
-      cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec.$,
+      cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec,
+      cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec,
       []);
   }
 
@@ -179,8 +179,8 @@ cast_streaming.mojom.VideoBufferRequesterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec.$,
-      cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$,
+      cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec,
+      cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec,
       []);
   }
 
@@ -292,7 +292,7 @@ cast_streaming.mojom.DemuxerConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec.$,
+      cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec,
       null,
       []);
   }
@@ -301,7 +301,7 @@ cast_streaming.mojom.DemuxerConnectorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec.$,
+      cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec,
       null,
       [audio_buffer_requester, video_buffer_requester]);
   }

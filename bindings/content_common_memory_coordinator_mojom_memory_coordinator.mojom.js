@@ -48,7 +48,7 @@ content.mojom.ChildMemoryConsumerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec.$,
+      content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ content.mojom.ChildMemoryConsumerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec.$,
+      content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec,
       null,
       [percentage]);
   }
@@ -145,7 +145,7 @@ content.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec.$,
+      content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec,
       null,
       [consumer_id, traits, child_consumer]);
   }

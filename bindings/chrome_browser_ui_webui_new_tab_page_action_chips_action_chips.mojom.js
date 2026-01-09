@@ -56,7 +56,7 @@ action_chips.mojom.ActionChipsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec.$,
+      action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec,
       null,
       []);
   }
@@ -130,7 +130,7 @@ action_chips.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec.$,
+      action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec,
       null,
       [action_chips]);
   }
@@ -205,7 +205,7 @@ action_chips.mojom.ActionChipsHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec.$,
+      action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec,
       null,
       [handler, page]);
   }

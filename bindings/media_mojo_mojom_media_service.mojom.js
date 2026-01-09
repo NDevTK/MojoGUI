@@ -48,7 +48,7 @@ media.mojom.MediaServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec.$,
+      media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec,
       null,
       [factory, frame_interfaces]);
   }

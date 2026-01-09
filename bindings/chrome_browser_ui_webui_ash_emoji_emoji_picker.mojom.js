@@ -65,7 +65,7 @@ emoji_picker.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -140,7 +140,7 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec.$,
+      emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
       []);
   }
@@ -149,7 +149,7 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec.$,
+      emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec,
       null,
       [emoji, is_variant, search_length]);
   }
@@ -158,7 +158,7 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec.$,
+      emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec,
       null,
       [gif]);
   }
@@ -167,8 +167,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec.$,
-      emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec.$,
+      emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec,
+      emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec,
       []);
   }
 
@@ -176,8 +176,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec.$,
-      emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec.$,
+      emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec,
+      emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec,
       []);
   }
 
@@ -185,8 +185,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec.$,
-      emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec.$,
+      emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec,
+      emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec,
       []);
   }
 
@@ -194,8 +194,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec.$,
-      emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec.$,
+      emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec,
+      emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec,
       [pos]);
   }
 
@@ -203,8 +203,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec.$,
-      emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec.$,
+      emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec,
+      emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec,
       [query, pos]);
   }
 
@@ -212,8 +212,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec.$,
-      emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec.$,
+      emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec,
+      emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec,
       [ids]);
   }
 
@@ -221,7 +221,7 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec.$,
+      emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec,
       null,
       []);
   }
@@ -230,8 +230,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec.$,
-      emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec.$,
+      emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec,
+      emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec,
       []);
   }
 
@@ -239,8 +239,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec.$,
-      emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec.$,
+      emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec,
+      emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec,
       []);
   }
 
@@ -248,7 +248,7 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec.$,
+      emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec,
       null,
       [category, history]);
   }
@@ -257,7 +257,7 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec.$,
+      emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec,
       null,
       [preferred_variants]);
   }
@@ -266,8 +266,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec.$,
-      emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec.$,
+      emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec,
+      emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec,
       [category]);
   }
 

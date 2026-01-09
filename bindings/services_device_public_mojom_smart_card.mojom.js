@@ -122,8 +122,8 @@ device.mojom.SmartCardTransactionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec.$,
-      device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec.$,
+      device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec,
+      device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec,
       [disposition]);
   }
 
@@ -210,8 +210,8 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SmartCardConnection_Disconnect_ParamsSpec.$,
-      device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec.$,
+      device.mojom.SmartCardConnection_Disconnect_ParamsSpec,
+      device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec,
       [disposition]);
   }
 
@@ -219,8 +219,8 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.SmartCardConnection_Transmit_ParamsSpec.$,
-      device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec.$,
+      device.mojom.SmartCardConnection_Transmit_ParamsSpec,
+      device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec,
       [protocol, data]);
   }
 
@@ -228,8 +228,8 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.SmartCardConnection_Control_ParamsSpec.$,
-      device.mojom.SmartCardConnection_Control_ResponseParamsSpec.$,
+      device.mojom.SmartCardConnection_Control_ParamsSpec,
+      device.mojom.SmartCardConnection_Control_ResponseParamsSpec,
       [control_code, data]);
   }
 
@@ -237,8 +237,8 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.SmartCardConnection_GetAttrib_ParamsSpec.$,
-      device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec.$,
+      device.mojom.SmartCardConnection_GetAttrib_ParamsSpec,
+      device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec,
       [id]);
   }
 
@@ -246,8 +246,8 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.SmartCardConnection_SetAttrib_ParamsSpec.$,
-      device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec.$,
+      device.mojom.SmartCardConnection_SetAttrib_ParamsSpec,
+      device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec,
       [id, data]);
   }
 
@@ -255,8 +255,8 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.SmartCardConnection_Status_ParamsSpec.$,
-      device.mojom.SmartCardConnection_Status_ResponseParamsSpec.$,
+      device.mojom.SmartCardConnection_Status_ParamsSpec,
+      device.mojom.SmartCardConnection_Status_ResponseParamsSpec,
       []);
   }
 
@@ -264,8 +264,8 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec.$,
-      device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec.$,
+      device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec,
+      device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec,
       []);
   }
 
@@ -515,7 +515,7 @@ device.mojom.SmartCardConnectionWatcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec.$,
+      device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec,
       null,
       []);
   }
@@ -589,8 +589,8 @@ device.mojom.SmartCardContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SmartCardContext_ListReaders_ParamsSpec.$,
-      device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec.$,
+      device.mojom.SmartCardContext_ListReaders_ParamsSpec,
+      device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec,
       []);
   }
 
@@ -598,8 +598,8 @@ device.mojom.SmartCardContextRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.SmartCardContext_GetStatusChange_ParamsSpec.$,
-      device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec.$,
+      device.mojom.SmartCardContext_GetStatusChange_ParamsSpec,
+      device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec,
       [timeout, reader_states]);
   }
 
@@ -607,8 +607,8 @@ device.mojom.SmartCardContextRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.SmartCardContext_Cancel_ParamsSpec.$,
-      device.mojom.SmartCardContext_Cancel_ResponseParamsSpec.$,
+      device.mojom.SmartCardContext_Cancel_ParamsSpec,
+      device.mojom.SmartCardContext_Cancel_ResponseParamsSpec,
       []);
   }
 
@@ -616,8 +616,8 @@ device.mojom.SmartCardContextRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.SmartCardContext_Connect_ParamsSpec.$,
-      device.mojom.SmartCardContext_Connect_ResponseParamsSpec.$,
+      device.mojom.SmartCardContext_Connect_ParamsSpec,
+      device.mojom.SmartCardContext_Connect_ResponseParamsSpec,
       [reader, share_mode, preferred_protocols, connection_watcher]);
   }
 
@@ -787,8 +787,8 @@ device.mojom.SmartCardContextFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec.$,
-      device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec.$,
+      device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec,
+      device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec,
       []);
   }
 

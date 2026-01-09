@@ -48,7 +48,7 @@ notifications_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec.$,
+      notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec,
       null,
       [feature]);
   }

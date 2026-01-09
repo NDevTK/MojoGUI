@@ -48,7 +48,7 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec.$,
+      legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec,
       null,
       [url, api_key]);
   }
@@ -57,7 +57,7 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec.$,
+      legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec,
       null,
       []);
   }
@@ -66,8 +66,8 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec.$,
-      legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec.$,
+      legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec,
+      legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec,
       [feature_name, request]);
   }
 

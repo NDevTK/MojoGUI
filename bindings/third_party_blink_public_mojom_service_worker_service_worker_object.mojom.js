@@ -48,7 +48,7 @@ blink.mojom.ServiceWorkerObjectHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec.$,
+      blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec,
       null,
       [message]);
   }
@@ -57,7 +57,7 @@ blink.mojom.ServiceWorkerObjectHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec.$,
+      blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec,
       null,
       []);
   }
@@ -145,7 +145,7 @@ blink.mojom.ServiceWorkerObjectRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec.$,
+      blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec,
       null,
       [state]);
   }

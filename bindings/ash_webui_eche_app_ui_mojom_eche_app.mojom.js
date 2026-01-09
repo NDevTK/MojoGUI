@@ -103,7 +103,7 @@ ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec.$,
+      ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec,
       null,
       [signal]);
   }
@@ -112,7 +112,7 @@ ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec.$,
+      ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -121,7 +121,7 @@ ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec.$,
+      ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec,
       null,
       []);
   }
@@ -223,7 +223,7 @@ ash.eche_app.mojom.SignalingMessageObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec.$,
+      ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec,
       null,
       [signal]);
   }
@@ -298,8 +298,8 @@ ash.eche_app.mojom.SystemInfoProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec.$,
-      ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec.$,
+      ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec,
+      ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec,
       []);
   }
 
@@ -307,7 +307,7 @@ ash.eche_app.mojom.SystemInfoProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec.$,
+      ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -408,7 +408,7 @@ ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec.$,
+      ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec,
       null,
       [state]);
   }
@@ -417,7 +417,7 @@ ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec.$,
+      ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec,
       null,
       [is_tablet_mode]);
   }
@@ -426,7 +426,7 @@ ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec.$,
+      ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec,
       null,
       [is_different_network, android_device_on_cellular]);
   }
@@ -530,7 +530,7 @@ ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec.$,
+      ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec,
       null,
       [serialized_proto]);
   }
@@ -539,7 +539,7 @@ ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec.$,
+      ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -548,8 +548,8 @@ ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec.$,
-      ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec.$,
+      ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec,
+      ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -663,7 +663,7 @@ ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec.$,
+      ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec,
       null,
       [enable]);
   }
@@ -672,7 +672,7 @@ ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec.$,
+      ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec,
       null,
       [enable]);
   }
@@ -681,8 +681,8 @@ ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec.$,
-      ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec.$,
+      ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec,
+      ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec,
       [serialized_proto]);
   }
 
@@ -690,8 +690,8 @@ ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec.$,
-      ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec.$,
+      ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec,
+      ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec,
       [refresh_data_proto]);
   }
 
@@ -833,8 +833,8 @@ ash.eche_app.mojom.UidGeneratorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec.$,
-      ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec.$,
+      ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec,
+      ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec,
       []);
   }
 
@@ -920,7 +920,7 @@ ash.eche_app.mojom.NotificationGeneratorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec.$,
+      ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec,
       null,
       [title, message, type]);
   }
@@ -929,7 +929,7 @@ ash.eche_app.mojom.NotificationGeneratorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec.$,
+      ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec,
       null,
       [text]);
   }
@@ -1020,7 +1020,7 @@ ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec.$,
+      ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec,
       null,
       []);
   }
@@ -1029,7 +1029,7 @@ ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec.$,
+      ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec,
       null,
       [status]);
   }
@@ -1038,7 +1038,7 @@ ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec.$,
+      ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -1140,7 +1140,7 @@ ash.eche_app.mojom.StreamActionObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec.$,
+      ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec,
       null,
       [action]);
   }
@@ -1215,7 +1215,7 @@ ash.eche_app.mojom.StreamOrientationObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec.$,
+      ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec,
       null,
       [isLandscape]);
   }
@@ -1290,7 +1290,7 @@ ash.eche_app.mojom.ConnectionStatusObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec.$,
+      ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec,
       null,
       [status]);
   }
@@ -1365,7 +1365,7 @@ ash.eche_app.mojom.KeyboardLayoutHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec.$,
+      ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec,
       null,
       []);
   }
@@ -1374,7 +1374,7 @@ ash.eche_app.mojom.KeyboardLayoutHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec.$,
+      ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -1462,7 +1462,7 @@ ash.eche_app.mojom.KeyboardLayoutObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec.$,
+      ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec,
       null,
       [id, longName, shortName, layoutTag]);
   }

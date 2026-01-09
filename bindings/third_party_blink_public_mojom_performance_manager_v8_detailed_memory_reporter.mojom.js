@@ -55,8 +55,8 @@ blink.mojom.V8DetailedMemoryReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec.$,
-      blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec.$,
+      blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec,
+      blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec,
       [mode]);
   }
 

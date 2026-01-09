@@ -48,7 +48,7 @@ signout_confirmation.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$,
+      signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -124,7 +124,7 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$,
+      signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec,
       null,
       [height]);
   }
@@ -133,7 +133,7 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      signout_confirmation.mojom.PageHandler_Accept_ParamsSpec.$,
+      signout_confirmation.mojom.PageHandler_Accept_ParamsSpec,
       null,
       [uninstall_account_extensions]);
   }
@@ -142,7 +142,7 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec.$,
+      signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec,
       null,
       [uninstall_account_extensions]);
   }
@@ -151,7 +151,7 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec.$,
+      signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec,
       null,
       []);
   }
@@ -160,7 +160,7 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      signout_confirmation.mojom.PageHandler_Close_ParamsSpec.$,
+      signout_confirmation.mojom.PageHandler_Close_ParamsSpec,
       null,
       []);
   }
@@ -289,7 +289,7 @@ signout_confirmation.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$,
+      signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec,
       null,
       [data]);
   }

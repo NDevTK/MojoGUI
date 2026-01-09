@@ -48,8 +48,8 @@ legion.mojom.OakSessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      legion.mojom.OakSession_InitiateHandshake_ParamsSpec.$,
-      legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec.$,
+      legion.mojom.OakSession_InitiateHandshake_ParamsSpec,
+      legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ legion.mojom.OakSessionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      legion.mojom.OakSession_CompleteHandshake_ParamsSpec.$,
-      legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec.$,
+      legion.mojom.OakSession_CompleteHandshake_ParamsSpec,
+      legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec,
       [response]);
   }
 
@@ -66,8 +66,8 @@ legion.mojom.OakSessionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      legion.mojom.OakSession_Encrypt_ParamsSpec.$,
-      legion.mojom.OakSession_Encrypt_ResponseParamsSpec.$,
+      legion.mojom.OakSession_Encrypt_ParamsSpec,
+      legion.mojom.OakSession_Encrypt_ResponseParamsSpec,
       [input]);
   }
 
@@ -75,8 +75,8 @@ legion.mojom.OakSessionRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      legion.mojom.OakSession_Decrypt_ParamsSpec.$,
-      legion.mojom.OakSession_Decrypt_ResponseParamsSpec.$,
+      legion.mojom.OakSession_Decrypt_ParamsSpec,
+      legion.mojom.OakSession_Decrypt_ResponseParamsSpec,
       [input]);
   }
 

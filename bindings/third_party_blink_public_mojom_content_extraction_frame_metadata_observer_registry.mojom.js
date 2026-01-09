@@ -48,7 +48,7 @@ blink.mojom.PaidContentMetadataObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec.$,
+      blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec,
       null,
       [has_paid_content]);
   }
@@ -123,7 +123,7 @@ blink.mojom.MetaTagsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec.$,
+      blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec,
       null,
       [meta_tags]);
   }
@@ -198,7 +198,7 @@ blink.mojom.FrameMetadataObserverRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec.$,
+      blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -207,7 +207,7 @@ blink.mojom.FrameMetadataObserverRegistryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec.$,
+      blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec,
       null,
       [names, observer]);
   }

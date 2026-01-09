@@ -56,8 +56,8 @@ chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec.$,
-      chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec.$,
+      chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec,
+      chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec,
       [user_requested]);
   }
 
@@ -65,7 +65,7 @@ chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec.$,
+      chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec,
       null,
       []);
   }

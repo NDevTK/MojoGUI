@@ -48,7 +48,7 @@ blink.mojom.WebTransportConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebTransportConnector_Connect_ParamsSpec.$,
+      blink.mojom.WebTransportConnector_Connect_ParamsSpec,
       null,
       [url, fingerprints, application_protocols, client]);
   }

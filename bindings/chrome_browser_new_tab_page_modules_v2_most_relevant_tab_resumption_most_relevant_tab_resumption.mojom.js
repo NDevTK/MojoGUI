@@ -57,8 +57,8 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec.$,
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec.$,
+      ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec,
+      ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec,
       []);
   }
 
@@ -66,7 +66,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec.$,
+      ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec,
       null,
       [url_visits]);
   }
@@ -75,7 +75,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec.$,
+      ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec,
       null,
       [url_visit]);
   }
@@ -84,7 +84,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec.$,
+      ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec,
       null,
       [url_visits]);
   }
@@ -93,7 +93,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec.$,
+      ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec,
       null,
       [url_visit]);
   }
@@ -102,7 +102,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec.$,
+      ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec,
       null,
       [action, url_key, visit_request_id]);
   }

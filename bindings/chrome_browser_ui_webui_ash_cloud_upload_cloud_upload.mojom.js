@@ -78,7 +78,7 @@ ash.cloud_upload.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -153,8 +153,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec.$,
-      ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec,
+      ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec,
       []);
   }
 
@@ -162,8 +162,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec.$,
-      ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec,
+      ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec,
       []);
   }
 
@@ -171,8 +171,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec.$,
-      ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec,
+      ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec,
       []);
   }
 
@@ -180,8 +180,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec.$,
-      ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec,
+      ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec,
       []);
   }
 
@@ -189,8 +189,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec.$,
-      ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec,
+      ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec,
       []);
   }
 
@@ -198,7 +198,7 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec,
       null,
       [response]);
   }
@@ -207,7 +207,7 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec,
       null,
       [task_position]);
   }
@@ -216,7 +216,7 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec,
       null,
       []);
   }
@@ -225,8 +225,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$,
-      ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
+      ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec,
       []);
   }
 
@@ -234,7 +234,7 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
       null,
       [always_move]);
   }
@@ -243,8 +243,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$,
-      ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
+      ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec,
       []);
   }
 
@@ -252,7 +252,7 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
       null,
       [always_move]);
   }
@@ -261,8 +261,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec.$,
-      ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec,
+      ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec,
       []);
   }
 
@@ -270,8 +270,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec.$,
-      ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec,
+      ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec,
       []);
   }
 
@@ -279,7 +279,7 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec.$,
+      ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec,
       null,
       [page]);
   }

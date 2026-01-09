@@ -54,7 +54,7 @@ spellcheck.mojom.SpellCheckerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      spellcheck.mojom.SpellChecker_Initialize_ParamsSpec.$,
+      spellcheck.mojom.SpellChecker_Initialize_ParamsSpec,
       null,
       [dictionaries, custom_words, enable]);
   }
@@ -63,7 +63,7 @@ spellcheck.mojom.SpellCheckerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec.$,
+      spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec,
       null,
       [words_added, words_removed]);
   }
@@ -155,7 +155,7 @@ spellcheck.mojom.SpellCheckInitializationHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec.$,
+      spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec,
       null,
       []);
   }
@@ -229,7 +229,7 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec.$,
+      spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec,
       null,
       [word, misspelled]);
   }
@@ -238,8 +238,8 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec.$,
-      spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec.$,
+      spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec,
+      spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec,
       [text]);
   }
 
@@ -247,8 +247,8 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec.$,
-      spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec.$,
+      spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec,
+      spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec,
       [text, spelling_markers]);
   }
 
@@ -256,7 +256,7 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec.$,
+      spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec,
       null,
       []);
   }
@@ -265,8 +265,8 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec.$,
-      spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec.$,
+      spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec,
+      spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec,
       [word]);
   }
 
@@ -274,8 +274,8 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec.$,
-      spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec.$,
+      spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec,
+      spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec,
       [word]);
   }
 
@@ -283,8 +283,8 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec.$,
-      spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec.$,
+      spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec,
+      spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec,
       []);
   }
 

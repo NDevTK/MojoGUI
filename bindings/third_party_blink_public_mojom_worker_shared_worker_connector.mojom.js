@@ -48,7 +48,7 @@ blink.mojom.SharedWorkerConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SharedWorkerConnector_Connect_ParamsSpec.$,
+      blink.mojom.SharedWorkerConnector_Connect_ParamsSpec,
       null,
       [info, client, creation_context_type, message_port, blob_url_token]);
   }

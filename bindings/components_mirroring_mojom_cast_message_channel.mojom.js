@@ -48,7 +48,7 @@ mirroring.mojom.CastMessageChannelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec.$,
+      mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec,
       null,
       [message]);
   }

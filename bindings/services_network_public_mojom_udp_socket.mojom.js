@@ -48,8 +48,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.UDPSocket_Bind_ParamsSpec.$,
-      network.mojom.UDPSocket_Bind_ResponseParamsSpec.$,
+      network.mojom.UDPSocket_Bind_ParamsSpec,
+      network.mojom.UDPSocket_Bind_ResponseParamsSpec,
       [local_addr, socket_options]);
   }
 
@@ -57,8 +57,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.UDPSocket_Connect_ParamsSpec.$,
-      network.mojom.UDPSocket_Connect_ResponseParamsSpec.$,
+      network.mojom.UDPSocket_Connect_ParamsSpec,
+      network.mojom.UDPSocket_Connect_ResponseParamsSpec,
       [remote_addr, socket_options]);
   }
 
@@ -66,8 +66,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.UDPSocket_SetBroadcast_ParamsSpec.$,
-      network.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec.$,
+      network.mojom.UDPSocket_SetBroadcast_ParamsSpec,
+      network.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec,
       [broadcast]);
   }
 
@@ -75,8 +75,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec.$,
-      network.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec.$,
+      network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec,
+      network.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec,
       [send_buffer_size]);
   }
 
@@ -84,8 +84,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec.$,
-      network.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec.$,
+      network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec,
+      network.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec,
       [receive_buffer_size]);
   }
 
@@ -93,8 +93,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.UDPSocket_JoinGroup_ParamsSpec.$,
-      network.mojom.UDPSocket_JoinGroup_ResponseParamsSpec.$,
+      network.mojom.UDPSocket_JoinGroup_ParamsSpec,
+      network.mojom.UDPSocket_JoinGroup_ResponseParamsSpec,
       [group_address]);
   }
 
@@ -102,8 +102,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      network.mojom.UDPSocket_LeaveGroup_ParamsSpec.$,
-      network.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec.$,
+      network.mojom.UDPSocket_LeaveGroup_ParamsSpec,
+      network.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec,
       [group_address]);
   }
 
@@ -111,7 +111,7 @@ network.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      network.mojom.UDPSocket_ReceiveMore_ParamsSpec.$,
+      network.mojom.UDPSocket_ReceiveMore_ParamsSpec,
       null,
       [num_additional_datagrams]);
   }
@@ -120,7 +120,7 @@ network.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec.$,
+      network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec,
       null,
       [num_additional_datagrams, buffer_size]);
   }
@@ -129,8 +129,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      network.mojom.UDPSocket_SendTo_ParamsSpec.$,
-      network.mojom.UDPSocket_SendTo_ResponseParamsSpec.$,
+      network.mojom.UDPSocket_SendTo_ParamsSpec,
+      network.mojom.UDPSocket_SendTo_ResponseParamsSpec,
       [dest_addr, data, traffic_annotation]);
   }
 
@@ -138,8 +138,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      network.mojom.UDPSocket_Send_ParamsSpec.$,
-      network.mojom.UDPSocket_Send_ResponseParamsSpec.$,
+      network.mojom.UDPSocket_Send_ParamsSpec,
+      network.mojom.UDPSocket_Send_ResponseParamsSpec,
       [data, traffic_annotation]);
   }
 
@@ -147,7 +147,7 @@ network.mojom.UDPSocketRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      network.mojom.UDPSocket_Close_ParamsSpec.$,
+      network.mojom.UDPSocket_Close_ParamsSpec,
       null,
       []);
   }
@@ -500,7 +500,7 @@ network.mojom.UDPSocketListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.UDPSocketListener_OnReceived_ParamsSpec.$,
+      network.mojom.UDPSocketListener_OnReceived_ParamsSpec,
       null,
       [result, src_addr, data]);
   }

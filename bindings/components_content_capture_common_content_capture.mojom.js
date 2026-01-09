@@ -48,7 +48,7 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec.$,
+      content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$,
+      content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec,
       null,
       [data, first_data]);
   }
@@ -66,7 +66,7 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$,
+      content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec,
       null,
       [data]);
   }
@@ -75,7 +75,7 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$,
+      content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec,
       null,
       [ids]);
   }
@@ -192,7 +192,7 @@ content_capture.mojom.ContentCaptureSenderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec.$,
+      content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec,
       null,
       []);
   }
@@ -201,7 +201,7 @@ content_capture.mojom.ContentCaptureSenderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec.$,
+      content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec,
       null,
       []);
   }

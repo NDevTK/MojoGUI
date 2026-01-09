@@ -63,7 +63,7 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec.$,
+      midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec,
       null,
       [info]);
   }
@@ -72,7 +72,7 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec.$,
+      midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec,
       null,
       [info]);
   }
@@ -81,7 +81,7 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec.$,
+      midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec,
       null,
       [port, state]);
   }
@@ -90,7 +90,7 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec.$,
+      midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec,
       null,
       [port, state]);
   }
@@ -99,7 +99,7 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec.$,
+      midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec,
       null,
       [result]);
   }
@@ -108,7 +108,7 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec.$,
+      midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec,
       null,
       [bytes]);
   }
@@ -117,7 +117,7 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      midi.mojom.MidiSessionClient_DataReceived_ParamsSpec.$,
+      midi.mojom.MidiSessionClient_DataReceived_ParamsSpec,
       null,
       [port, data, timestamp]);
   }
@@ -280,7 +280,7 @@ midi.mojom.MidiSessionProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      midi.mojom.MidiSessionProvider_StartSession_ParamsSpec.$,
+      midi.mojom.MidiSessionProvider_StartSession_ParamsSpec,
       null,
       [receiver, client]);
   }
@@ -356,7 +356,7 @@ midi.mojom.MidiSessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      midi.mojom.MidiSession_SendData_ParamsSpec.$,
+      midi.mojom.MidiSession_SendData_ParamsSpec,
       null,
       [port, data, timestamp]);
   }

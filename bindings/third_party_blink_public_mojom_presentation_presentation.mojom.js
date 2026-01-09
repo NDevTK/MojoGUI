@@ -81,7 +81,7 @@ blink.mojom.PresentationConnectionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PresentationConnection_OnMessage_ParamsSpec.$,
+      blink.mojom.PresentationConnection_OnMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -90,7 +90,7 @@ blink.mojom.PresentationConnectionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PresentationConnection_DidChangeState_ParamsSpec.$,
+      blink.mojom.PresentationConnection_DidChangeState_ParamsSpec,
       null,
       [state]);
   }
@@ -99,7 +99,7 @@ blink.mojom.PresentationConnectionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.PresentationConnection_DidClose_ParamsSpec.$,
+      blink.mojom.PresentationConnection_DidClose_ParamsSpec,
       null,
       [reason]);
   }
@@ -202,7 +202,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PresentationService_SetController_ParamsSpec.$,
+      blink.mojom.PresentationService_SetController_ParamsSpec,
       null,
       [controller]);
   }
@@ -211,7 +211,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PresentationService_SetReceiver_ParamsSpec.$,
+      blink.mojom.PresentationService_SetReceiver_ParamsSpec,
       null,
       [receiver]);
   }
@@ -220,7 +220,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec.$,
+      blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec,
       null,
       [presentation_urls]);
   }
@@ -229,7 +229,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec.$,
+      blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec,
       null,
       [availability_url]);
   }
@@ -238,7 +238,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec.$,
+      blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec,
       null,
       [availability_url]);
   }
@@ -247,8 +247,8 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.PresentationService_StartPresentation_ParamsSpec.$,
-      blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec.$,
+      blink.mojom.PresentationService_StartPresentation_ParamsSpec,
+      blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec,
       [presentation_urls]);
   }
 
@@ -256,8 +256,8 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec.$,
-      blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec.$,
+      blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec,
+      blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec,
       [presentation_urls, presentation_id]);
   }
 
@@ -265,7 +265,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.PresentationService_CloseConnection_ParamsSpec.$,
+      blink.mojom.PresentationService_CloseConnection_ParamsSpec,
       null,
       [presentation_url, presentation_id]);
   }
@@ -274,7 +274,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.PresentationService_Terminate_ParamsSpec.$,
+      blink.mojom.PresentationService_Terminate_ParamsSpec,
       null,
       [presentation_url, presentation_id]);
   }
@@ -492,7 +492,7 @@ blink.mojom.PresentationControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec.$,
+      blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec,
       null,
       [url, availability]);
   }
@@ -501,7 +501,7 @@ blink.mojom.PresentationControllerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec.$,
+      blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec,
       null,
       [result]);
   }
@@ -510,7 +510,7 @@ blink.mojom.PresentationControllerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec.$,
+      blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec,
       null,
       [presentation_info, newState]);
   }
@@ -519,7 +519,7 @@ blink.mojom.PresentationControllerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec.$,
+      blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec,
       null,
       [presentation_info, reason, message]);
   }
@@ -640,7 +640,7 @@ blink.mojom.PresentationReceiverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec.$,
+      blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec,
       null,
       [result]);
   }

@@ -81,8 +81,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec.$,
-      chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec.$,
+      chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec,
+      chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec,
       []);
   }
 
@@ -90,7 +90,7 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec.$,
+      chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec,
       null,
       [shortcut_paths]);
   }
@@ -99,8 +99,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec.$,
-      chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec.$,
+      chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec,
+      chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec,
       [shortcut_paths, properties, operation]);
   }
 
@@ -108,8 +108,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec.$,
-      chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec.$,
+      chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec,
+      chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec,
       [type, owner, title, default_path, filter, file_type_index, default_extension]);
   }
 
@@ -117,8 +117,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chrome.mojom.UtilWin_InspectModule_ParamsSpec.$,
-      chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec.$,
+      chrome.mojom.UtilWin_InspectModule_ParamsSpec,
+      chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec,
       [module_path]);
   }
 
@@ -126,8 +126,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec.$,
-      chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec.$,
+      chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec,
+      chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec,
       [report_full_names]);
   }
 
@@ -135,8 +135,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec.$,
-      chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec.$,
+      chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec,
+      chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec,
       []);
   }
 
@@ -380,7 +380,7 @@ chrome.mojom.ProcessorMetricsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec.$,
+      chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec,
       null,
       []);
   }

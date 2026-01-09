@@ -49,7 +49,7 @@ ash.extended_updates.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -125,8 +125,8 @@ ash.extended_updates.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec.$,
-      ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec.$,
+      ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec,
+      ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec,
       []);
   }
 
@@ -134,7 +134,7 @@ ash.extended_updates.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec.$,
+      ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec,
       null,
       []);
   }
@@ -143,8 +143,8 @@ ash.extended_updates.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec.$,
-      ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec.$,
+      ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec,
+      ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec,
       []);
   }
 

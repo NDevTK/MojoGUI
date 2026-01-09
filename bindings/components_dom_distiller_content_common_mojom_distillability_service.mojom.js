@@ -48,7 +48,7 @@ dom_distiller.mojom.DistillabilityServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec.$,
+      dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec,
       null,
       [page_is_distillable, is_last_update, is_long_article, is_mobile_friendly]);
   }

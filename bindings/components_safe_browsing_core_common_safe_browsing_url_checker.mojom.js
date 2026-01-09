@@ -48,8 +48,8 @@ safe_browsing.mojom.SafeBrowsingUrlCheckerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec.$,
-      safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec.$,
+      safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec,
+      safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec,
       [url, method]);
   }
 

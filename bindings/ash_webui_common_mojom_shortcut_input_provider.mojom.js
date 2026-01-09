@@ -49,7 +49,7 @@ ash.common.mojom.ShortcutInputObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec.$,
+      ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec,
       null,
       [prerewritten_key_event, key_event]);
   }
@@ -58,7 +58,7 @@ ash.common.mojom.ShortcutInputObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec.$,
+      ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec,
       null,
       [prerewritten_key_event, key_event]);
   }
@@ -149,7 +149,7 @@ ash.common.mojom.ShortcutInputProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec.$,
+      ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec,
       null,
       [observer]);
   }
@@ -158,7 +158,7 @@ ash.common.mojom.ShortcutInputProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec.$,
+      ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec,
       null,
       []);
   }

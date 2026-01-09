@@ -48,7 +48,7 @@ tracing.mojom.TracedProcessRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec.$,
+      tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec,
       null,
       [request]);
   }

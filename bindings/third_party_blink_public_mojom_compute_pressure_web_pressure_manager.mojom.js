@@ -48,8 +48,8 @@ blink.mojom.WebPressureManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebPressureManager_AddClient_ParamsSpec.$,
-      blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec.$,
+      blink.mojom.WebPressureManager_AddClient_ParamsSpec,
+      blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec,
       [source, client]);
   }
 
@@ -137,7 +137,7 @@ blink.mojom.WebPressureClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec.$,
+      blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec,
       null,
       [update]);
   }

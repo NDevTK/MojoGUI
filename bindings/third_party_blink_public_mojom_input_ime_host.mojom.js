@@ -48,7 +48,7 @@ blink.mojom.ImeRenderWidgetHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec.$,
+      blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec,
       null,
       [cursor_anchor_info]);
   }

@@ -82,7 +82,7 @@ ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec.$,
+      ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec,
       null,
       [info]);
   }
@@ -157,8 +157,8 @@ ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec.$,
-      ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec.$,
+      ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec,
+      ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec,
       []);
   }
 
@@ -166,7 +166,7 @@ ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec.$,
+      ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec,
       null,
       [type, runner]);
   }

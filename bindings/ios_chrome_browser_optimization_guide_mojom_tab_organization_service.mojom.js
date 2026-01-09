@@ -48,8 +48,8 @@ ai.mojom.TabOrganizationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec.$,
-      ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec.$,
+      ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec,
+      ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec,
       [request]);
   }
 

@@ -48,7 +48,7 @@ blink.mojom.BlobReaderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec.$,
+      blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec,
       null,
       [total_size, expected_content_size]);
   }
@@ -57,7 +57,7 @@ blink.mojom.BlobReaderClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BlobReaderClient_OnComplete_ParamsSpec.$,
+      blink.mojom.BlobReaderClient_OnComplete_ParamsSpec,
       null,
       [status, data_length]);
   }
@@ -148,7 +148,7 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.Blob_Clone_ParamsSpec.$,
+      blink.mojom.Blob_Clone_ParamsSpec,
       null,
       [blob]);
   }
@@ -157,7 +157,7 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.Blob_AsDataPipeGetter_ParamsSpec.$,
+      blink.mojom.Blob_AsDataPipeGetter_ParamsSpec,
       null,
       [data_pipe_getter]);
   }
@@ -166,7 +166,7 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.Blob_ReadAll_ParamsSpec.$,
+      blink.mojom.Blob_ReadAll_ParamsSpec,
       null,
       [pipe, client]);
   }
@@ -175,7 +175,7 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.Blob_ReadRange_ParamsSpec.$,
+      blink.mojom.Blob_ReadRange_ParamsSpec,
       null,
       [offset, length, pipe, client]);
   }
@@ -184,7 +184,7 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.Blob_Load_ParamsSpec.$,
+      blink.mojom.Blob_Load_ParamsSpec,
       null,
       [loader, request_method, headers, client]);
   }
@@ -193,8 +193,8 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.Blob_ReadSideData_ParamsSpec.$,
-      blink.mojom.Blob_ReadSideData_ResponseParamsSpec.$,
+      blink.mojom.Blob_ReadSideData_ParamsSpec,
+      blink.mojom.Blob_ReadSideData_ResponseParamsSpec,
       []);
   }
 
@@ -202,8 +202,8 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.Blob_CaptureSnapshot_ParamsSpec.$,
-      blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec.$,
+      blink.mojom.Blob_CaptureSnapshot_ParamsSpec,
+      blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec,
       []);
   }
 
@@ -211,8 +211,8 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.Blob_GetInternalUUID_ParamsSpec.$,
-      blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec.$,
+      blink.mojom.Blob_GetInternalUUID_ParamsSpec,
+      blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec,
       []);
   }
 

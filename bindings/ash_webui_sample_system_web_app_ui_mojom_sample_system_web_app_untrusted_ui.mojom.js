@@ -49,7 +49,7 @@ ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec.$,
+      ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec,
       null,
       [child_page, parent_page]);
   }

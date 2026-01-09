@@ -55,7 +55,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec,
       null,
       [receiver, updater, client, creation_params]);
   }
@@ -64,7 +64,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec,
       null,
       [crl_set]);
   }
@@ -73,7 +73,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec,
       null,
       [log_list, update_time]);
   }
@@ -82,7 +82,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec,
       null,
       []);
   }
@@ -91,7 +91,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec,
       null,
       [new_root_store]);
   }
@@ -100,7 +100,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec,
       null,
       [new_mtc_metadata]);
   }
@@ -109,7 +109,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec,
       null,
       [use_crs]);
   }
@@ -118,8 +118,8 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec.$,
-      cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec.$,
+      cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec,
       []);
   }
 
@@ -127,8 +127,8 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec.$,
-      cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec.$,
+      cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec,
+      cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec,
       []);
   }
 
@@ -136,7 +136,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec,
       null,
       [system_time, system_ticks, current_time]);
   }

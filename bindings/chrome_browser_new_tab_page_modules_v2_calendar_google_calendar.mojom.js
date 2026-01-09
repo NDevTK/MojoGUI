@@ -49,8 +49,8 @@ ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec.$,
-      ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec.$,
+      ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec,
+      ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec,
       []);
   }
 
@@ -58,7 +58,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec.$,
+      ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec,
       null,
       []);
   }
@@ -67,7 +67,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec.$,
+      ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec,
       null,
       []);
   }

@@ -49,7 +49,7 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, receiver]);
   }
@@ -125,7 +125,7 @@ actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec.$,
+      actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec,
       null,
       [is_hovering]);
   }
@@ -134,8 +134,8 @@ actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec.$,
-      actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec.$,
+      actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec,
+      actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec,
       []);
   }
 
@@ -235,7 +235,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec.$,
+      actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec,
       null,
       [is_visible]);
   }
@@ -244,7 +244,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec.$,
+      actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec,
       null,
       [is_visible]);
   }
@@ -253,7 +253,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec.$,
+      actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec,
       null,
       [theme]);
   }
@@ -262,7 +262,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec.$,
+      actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec,
       null,
       [point]);
   }
@@ -271,7 +271,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec.$,
+      actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec,
       null,
       []);
   }

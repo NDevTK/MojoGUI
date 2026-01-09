@@ -48,8 +48,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec.$,
-      blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec.$,
+      blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec,
+      blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec,
       [family_name]);
   }
 
@@ -57,8 +57,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec.$,
-      blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec.$,
+      blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec,
+      blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec,
       []);
   }
 
@@ -66,8 +66,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec.$,
-      blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec.$,
+      blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec,
+      blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec,
       [family_index]);
   }
 
@@ -75,8 +75,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec.$,
-      blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec.$,
+      blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec,
+      blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec,
       [family_index]);
   }
 
@@ -84,8 +84,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec.$,
-      blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec.$,
+      blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec,
+      blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec,
       [font_unique_name]);
   }
 
@@ -93,8 +93,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec.$,
-      blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec.$,
+      blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec,
+      blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec,
       [text, font_style, locale_name, reading_direction, base_family_name]);
   }
 

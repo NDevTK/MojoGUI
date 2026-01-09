@@ -100,7 +100,7 @@ guest_view.mojom.GuestViewHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$,
+      guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec,
       null,
       [element_instance_id, guest_instance_id, params]);
   }
@@ -109,7 +109,7 @@ guest_view.mojom.GuestViewHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec.$,
+      guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec,
       null,
       [view_instance_id, view_type, keep_alive_handle_receiver]);
   }

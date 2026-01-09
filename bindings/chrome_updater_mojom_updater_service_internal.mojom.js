@@ -48,7 +48,7 @@ updater.mojom.UpdateServiceInternalRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      updater.mojom.UpdateServiceInternal_Run_ParamsSpec.$,
+      updater.mojom.UpdateServiceInternal_Run_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ updater.mojom.UpdateServiceInternalRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      updater.mojom.UpdateServiceInternal_Hello_ParamsSpec.$,
+      updater.mojom.UpdateServiceInternal_Hello_ParamsSpec,
       null,
       []);
   }

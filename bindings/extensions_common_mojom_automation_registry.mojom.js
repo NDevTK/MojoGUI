@@ -48,7 +48,7 @@ extensions.mojom.RendererAutomationRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec.$,
+      extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec,
       null,
       [automation]);
   }

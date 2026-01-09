@@ -63,8 +63,8 @@ payments.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec.$,
-      payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec.$,
+      payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec,
+      payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec,
       []);
   }
 
@@ -72,8 +72,8 @@ payments.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec.$,
-      payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec.$,
+      payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec,
+      payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec,
       [credential_id, rp_id, user_id]);
   }
 
@@ -81,8 +81,8 @@ payments.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec.$,
-      payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec.$,
+      payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec,
+      payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec,
       [options]);
   }
 

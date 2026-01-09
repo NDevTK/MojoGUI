@@ -78,8 +78,8 @@ blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec.$,
-      blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec.$,
+      blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec,
+      blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec,
       [options, service_worker_registration_id]);
   }
 
@@ -87,7 +87,7 @@ blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec.$,
+      blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec,
       null,
       [registration_info]);
   }
@@ -96,8 +96,8 @@ blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec.$,
-      blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$,
+      blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec,
+      blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
       [service_worker_registration_id]);
   }
 
@@ -228,8 +228,8 @@ blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec.$,
-      blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec.$,
+      blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec,
+      blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec,
       [options, service_worker_registration_id]);
   }
 
@@ -237,8 +237,8 @@ blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec.$,
-      blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec.$,
+      blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec,
+      blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec,
       [service_worker_registration_id, tag]);
   }
 
@@ -246,8 +246,8 @@ blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec.$,
-      blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$,
+      blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec,
+      blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
       [service_worker_registration_id]);
   }
 

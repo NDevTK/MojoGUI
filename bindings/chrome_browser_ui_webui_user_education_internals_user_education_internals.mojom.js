@@ -48,8 +48,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec,
       [tutorial_id]);
   }
 
@@ -66,8 +66,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec,
       []);
   }
 
@@ -84,8 +84,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec,
       [feature_name]);
   }
 
@@ -93,8 +93,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec,
       [feature_name]);
   }
 
@@ -102,8 +102,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec,
       []);
   }
 
@@ -111,8 +111,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec,
       []);
   }
 
@@ -120,8 +120,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec,
       []);
   }
 
@@ -129,8 +129,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec,
       []);
   }
 
@@ -138,8 +138,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec,
       []);
   }
 
@@ -147,8 +147,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec,
       []);
   }
 
@@ -156,8 +156,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec,
       []);
   }
 
@@ -165,8 +165,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec,
       []);
   }
 
@@ -174,8 +174,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec,
       [feature_name]);
   }
 
@@ -183,8 +183,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec,
       []);
   }
 
@@ -192,8 +192,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec,
       [id]);
   }
 
@@ -201,8 +201,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec.$,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec,
       []);
   }
 
@@ -210,7 +210,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec.$,
+      mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec,
       null,
       []);
   }

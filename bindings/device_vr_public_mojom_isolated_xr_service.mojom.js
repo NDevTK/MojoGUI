@@ -48,7 +48,7 @@ device.mojom.XRSessionControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec.$,
+      device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec,
       null,
       [restricted]);
   }
@@ -123,7 +123,7 @@ device.mojom.XRRuntimeEventListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec.$,
+      device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec,
       null,
       [visibility_state]);
   }
@@ -132,7 +132,7 @@ device.mojom.XRRuntimeEventListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec.$,
+      device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec,
       null,
       []);
   }
@@ -220,8 +220,8 @@ device.mojom.XRRuntimeRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRRuntime_RequestSession_ParamsSpec.$,
-      device.mojom.XRRuntime_RequestSession_ResponseParamsSpec.$,
+      device.mojom.XRRuntime_RequestSession_ParamsSpec,
+      device.mojom.XRRuntime_RequestSession_ResponseParamsSpec,
       [options]);
   }
 
@@ -229,7 +229,7 @@ device.mojom.XRRuntimeRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XRRuntime_ShutdownSession_ParamsSpec.$,
+      device.mojom.XRRuntime_ShutdownSession_ParamsSpec,
       null,
       []);
   }
@@ -238,7 +238,7 @@ device.mojom.XRRuntimeRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec.$,
+      device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec,
       null,
       [listener]);
   }
@@ -353,8 +353,8 @@ device.mojom.ImmersiveOverlayRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec.$,
-      device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec.$,
+      device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec,
+      device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec,
       []);
   }
 
@@ -362,8 +362,8 @@ device.mojom.ImmersiveOverlayRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec.$,
-      device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec.$,
+      device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec,
+      device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec,
       [frame_id, texture, sync_token, left_bounds, right_bounds]);
   }
 
@@ -371,7 +371,7 @@ device.mojom.ImmersiveOverlayRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec.$,
+      device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec,
       null,
       [overlay_visible, webxr_visible]);
   }
@@ -380,7 +380,7 @@ device.mojom.ImmersiveOverlayRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec.$,
+      device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec,
       null,
       []);
   }
@@ -526,7 +526,7 @@ device.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec.$,
+      device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec,
       null,
       [runtime, device_data, device_id]);
   }
@@ -535,7 +535,7 @@ device.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec.$,
+      device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec,
       null,
       [device_index]);
   }
@@ -544,7 +544,7 @@ device.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec.$,
+      device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec,
       null,
       []);
   }
@@ -648,7 +648,7 @@ device.mojom.IsolatedXRRuntimeProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec.$,
+      device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec,
       null,
       [client]);
   }
@@ -723,7 +723,7 @@ device.mojom.XRDeviceServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec.$,
+      device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec,
       null,
       [receiver, host]);
   }
@@ -732,7 +732,7 @@ device.mojom.XRDeviceServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XRDeviceService_BindTestHook_ParamsSpec.$,
+      device.mojom.XRDeviceService_BindTestHook_ParamsSpec,
       null,
       [receiver]);
   }
@@ -822,7 +822,7 @@ device.mojom.XRDeviceServiceHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec.$,
+      device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec,
       null,
       [receiver]);
   }

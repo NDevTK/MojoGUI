@@ -48,8 +48,8 @@ media_router.mojom.MediaRouterTraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec.$,
-      media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec.$,
+      media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec,
+      media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec,
       [s]);
   }
 

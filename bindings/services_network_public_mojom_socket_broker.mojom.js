@@ -48,8 +48,8 @@ network.mojom.SocketBrokerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec.$,
-      network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec.$,
+      network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec,
+      network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec,
       [address_family]);
   }
 
@@ -57,8 +57,8 @@ network.mojom.SocketBrokerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec.$,
-      network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec.$,
+      network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec,
+      network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec,
       [address_family]);
   }
 

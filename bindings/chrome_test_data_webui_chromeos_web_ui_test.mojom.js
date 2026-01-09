@@ -48,7 +48,7 @@ web_ui_test.mojom.TestRunnerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec.$,
+      web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec,
       null,
       [failureMessage]);
   }

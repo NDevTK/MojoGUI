@@ -150,7 +150,7 @@ ash.nearby.presence.mojom.ScanObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec.$,
+      ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec,
       null,
       [device]);
   }
@@ -159,7 +159,7 @@ ash.nearby.presence.mojom.ScanObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec.$,
+      ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec,
       null,
       [device]);
   }
@@ -168,7 +168,7 @@ ash.nearby.presence.mojom.ScanObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec.$,
+      ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec,
       null,
       [device]);
   }
@@ -271,8 +271,8 @@ ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec.$,
-      ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec.$,
+      ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec,
+      ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec,
       [scan_request]);
   }
 
@@ -280,7 +280,7 @@ ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec.$,
+      ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec,
       null,
       [scan_observer]);
   }
@@ -289,7 +289,7 @@ ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec.$,
+      ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec,
       null,
       [metadata]);
   }
@@ -298,8 +298,8 @@ ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec.$,
-      ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec.$,
+      ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec,
+      ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec,
       [metadata]);
   }
 
@@ -307,8 +307,8 @@ ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec.$,
-      ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec.$,
+      ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec,
+      ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec,
       [shared_credentials, account_name]);
   }
 
@@ -316,8 +316,8 @@ ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec.$,
-      ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec.$,
+      ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec,
+      ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec,
       [account_name]);
   }
 

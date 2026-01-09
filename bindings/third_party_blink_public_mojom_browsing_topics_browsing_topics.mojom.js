@@ -48,7 +48,7 @@ blink.mojom.BrowsingTopicsDocumentServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec.$,
+      blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec,
       null,
       [observe]);
   }

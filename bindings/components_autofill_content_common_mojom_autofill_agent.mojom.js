@@ -48,7 +48,7 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec.$,
+      autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec,
       null,
       []);
   }
@@ -57,8 +57,8 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec.$,
-      autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec.$,
+      autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec,
+      autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec,
       []);
   }
 
@@ -66,7 +66,7 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec.$,
+      autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec,
       null,
       [action_type, action_persistence, fields, fill_id, supports_refill]);
   }
@@ -75,7 +75,7 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec.$,
+      autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec,
       null,
       [action_type, action_persistence, field, value]);
   }
@@ -84,8 +84,8 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec.$,
-      autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec.$,
+      autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec,
+      autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec,
       [field_id]);
   }
 
@@ -93,8 +93,8 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec.$,
-      autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec.$,
+      autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec,
+      autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec,
       [value_regex, label_regex, number_of_ancestor_levels_to_search]);
   }
 
@@ -102,7 +102,7 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec.$,
+      autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec,
       null,
       [forms]);
   }
@@ -111,7 +111,7 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec.$,
+      autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec,
       null,
       []);
   }
@@ -120,7 +120,7 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec.$,
+      autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec,
       null,
       []);
   }
@@ -129,7 +129,7 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec.$,
+      autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec,
       null,
       [field, trigger_source]);
   }
@@ -138,7 +138,7 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec.$,
+      autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec,
       null,
       [field, suggestion_availability]);
   }
@@ -147,7 +147,7 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec.$,
+      autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec,
       null,
       [field, value]);
   }
@@ -156,7 +156,7 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec.$,
+      autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec,
       null,
       [username, password]);
   }
@@ -165,7 +165,7 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec.$,
+      autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec,
       null,
       [password]);
   }
@@ -174,8 +174,8 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec.$,
-      autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec.$,
+      autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec,
+      autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec,
       []);
   }
 
@@ -183,7 +183,7 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec.$,
+      autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec,
       null,
       [field_id, presentation_token]);
   }
@@ -529,7 +529,7 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec.$,
+      autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec,
       null,
       [form_data]);
   }
@@ -538,8 +538,8 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec.$,
-      autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec.$,
+      autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec,
+      autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec,
       [username, password]);
   }
 
@@ -547,7 +547,7 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec.$,
+      autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec,
       null,
       [username_element_id, password_element_id, username, password, suggestion_source]);
   }
@@ -556,7 +556,7 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec.$,
+      autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec,
       null,
       [username_element_id, password_element_id, username, password]);
   }
@@ -565,7 +565,7 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec.$,
+      autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec,
       null,
       [should_show_popup_without_passwords]);
   }
@@ -574,7 +574,7 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec.$,
+      autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec,
       null,
       [is_password, credential]);
   }
@@ -583,7 +583,7 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec.$,
+      autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec,
       null,
       [field_id, value]);
   }
@@ -592,8 +592,8 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec.$,
-      autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec.$,
+      autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec,
+      autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec,
       [field_id, value, field_properties]);
   }
 
@@ -601,8 +601,8 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec.$,
-      autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec.$,
+      autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec,
+      autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec,
       [password_element_id, new_password_element_id, confirm_password_element_id, old_password, new_password]);
   }
 
@@ -610,7 +610,7 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec.$,
+      autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec,
       null,
       [active]);
   }
@@ -619,7 +619,7 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec.$,
+      autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec,
       null,
       []);
   }
@@ -628,7 +628,7 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec.$,
+      autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec,
       null,
       [parsing_result]);
   }
@@ -637,8 +637,8 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec.$,
-      autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec.$,
+      autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec,
+      autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec,
       [field_id]);
   }
 
@@ -947,7 +947,7 @@ autofill.mojom.PasswordGenerationAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec.$,
+      autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec,
       null,
       [generated_password]);
   }
@@ -956,7 +956,7 @@ autofill.mojom.PasswordGenerationAgentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec.$,
+      autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec,
       null,
       []);
   }
@@ -965,8 +965,8 @@ autofill.mojom.PasswordGenerationAgentRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec.$,
-      autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec.$,
+      autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec,
+      autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec,
       []);
   }
 
@@ -974,7 +974,7 @@ autofill.mojom.PasswordGenerationAgentRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec.$,
+      autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec,
       null,
       [form]);
   }
@@ -983,7 +983,7 @@ autofill.mojom.PasswordGenerationAgentRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec.$,
+      autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec,
       null,
       []);
   }

@@ -65,7 +65,7 @@ media.mojom.KeySystemSupportObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec.$,
+      media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec,
       null,
       [key_systems]);
   }
@@ -140,7 +140,7 @@ media.mojom.KeySystemSupportRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.KeySystemSupport_SetObserver_ParamsSpec.$,
+      media.mojom.KeySystemSupport_SetObserver_ParamsSpec,
       null,
       [observer]);
   }

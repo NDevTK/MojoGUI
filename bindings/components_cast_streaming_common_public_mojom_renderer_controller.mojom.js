@@ -48,7 +48,7 @@ cast_streaming.mojom.RendererControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec.$,
+      cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec,
       null,
       [renderer]);
   }

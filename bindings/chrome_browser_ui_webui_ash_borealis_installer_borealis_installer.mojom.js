@@ -49,7 +49,7 @@ ash.borealis_installer.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -125,7 +125,7 @@ ash.borealis_installer.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec.$,
+      ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec,
       null,
       []);
   }
@@ -134,7 +134,7 @@ ash.borealis_installer.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec.$,
+      ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec,
       null,
       []);
   }
@@ -143,7 +143,7 @@ ash.borealis_installer.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec.$,
+      ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec,
       null,
       []);
   }
@@ -152,7 +152,7 @@ ash.borealis_installer.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec.$,
+      ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec,
       null,
       []);
   }
@@ -161,7 +161,7 @@ ash.borealis_installer.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$,
+      ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec,
       null,
       []);
   }
@@ -170,7 +170,7 @@ ash.borealis_installer.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec.$,
+      ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec,
       null,
       []);
   }
@@ -309,7 +309,7 @@ ash.borealis_installer.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$,
+      ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec,
       null,
       [progress_fraction, label]);
   }
@@ -318,7 +318,7 @@ ash.borealis_installer.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec.$,
+      ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec,
       null,
       [error]);
   }
@@ -327,7 +327,7 @@ ash.borealis_installer.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec.$,
+      ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec,
       null,
       []);
   }

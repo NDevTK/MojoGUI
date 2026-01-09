@@ -48,8 +48,8 @@ chrome.mojom.NetworkEasterEggRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec.$,
-      chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec.$,
+      chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec,
+      chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ chrome.mojom.NetworkEasterEggRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec.$,
+      chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec,
       null,
       [high_score]);
   }
@@ -66,7 +66,7 @@ chrome.mojom.NetworkEasterEggRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec.$,
+      chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec,
       null,
       []);
   }

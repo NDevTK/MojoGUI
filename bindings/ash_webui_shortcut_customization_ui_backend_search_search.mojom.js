@@ -49,7 +49,7 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemoteCallHand
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec.$,
+      ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec,
       null,
       []);
   }
@@ -123,8 +123,8 @@ ash.shortcut_customization.mojom.SearchHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec.$,
-      ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec.$,
+      ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec,
+      ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec,
       [query, max_num_results]);
   }
 
@@ -132,7 +132,7 @@ ash.shortcut_customization.mojom.SearchHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec.$,
+      ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec,
       null,
       [observer]);
   }

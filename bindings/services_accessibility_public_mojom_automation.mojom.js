@@ -48,7 +48,7 @@ ax.mojom.AutomationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$,
+      ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec,
       null,
       [tree_id]);
   }
@@ -57,7 +57,7 @@ ax.mojom.AutomationRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.Automation_DispatchActionResult_ParamsSpec.$,
+      ax.mojom.Automation_DispatchActionResult_ParamsSpec,
       null,
       [data, result]);
   }
@@ -66,7 +66,7 @@ ax.mojom.AutomationRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$,
+      ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec,
       null,
       [tree_id, updates, mouse_location, events]);
   }
@@ -75,7 +75,7 @@ ax.mojom.AutomationRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$,
+      ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec,
       null,
       [tree_id, node_id, bounds]);
   }
@@ -84,7 +84,7 @@ ax.mojom.AutomationRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$,
+      ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec,
       null,
       [tree_id, node_id, scroll_x, scroll_y]);
   }
@@ -93,7 +93,7 @@ ax.mojom.AutomationRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$,
+      ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec,
       null,
       [data, rect]);
   }

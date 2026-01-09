@@ -141,7 +141,7 @@ ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec,
       null,
       []);
   }
@@ -150,7 +150,7 @@ ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec,
       null,
       [attribution]);
   }
@@ -159,7 +159,7 @@ ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec,
       null,
       [image]);
   }
@@ -261,7 +261,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec,
       null,
       []);
   }
@@ -270,7 +270,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec,
       null,
       []);
   }
@@ -279,8 +279,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec,
       []);
   }
 
@@ -288,8 +288,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec,
       [collection_id]);
   }
 
@@ -297,8 +297,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec,
       [resume_token]);
   }
 
@@ -306,8 +306,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec,
       [resume_token]);
   }
 
@@ -315,8 +315,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -324,8 +324,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec,
       [item_id, album_id, resume_token]);
   }
 
@@ -333,8 +333,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec,
       []);
   }
 
@@ -342,8 +342,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec,
       []);
   }
 
@@ -351,8 +351,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec,
       [file_path]);
   }
 
@@ -360,7 +360,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -369,8 +369,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec,
       [unit_id, preview_mode]);
   }
 
@@ -378,8 +378,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec,
       []);
   }
 
@@ -387,8 +387,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec,
       [path, layout, preview_mode]);
   }
 
@@ -396,8 +396,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec,
       [id, layout, preview_mode]);
   }
 
@@ -405,8 +405,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec,
       [id]);
   }
 
@@ -414,8 +414,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec,
       []);
   }
 
@@ -423,7 +423,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec,
       null,
       [layout]);
   }
@@ -432,8 +432,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec,
       [collection_id]);
   }
 
@@ -441,8 +441,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec,
       []);
   }
 
@@ -450,8 +450,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec,
       []);
   }
 
@@ -459,8 +459,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec,
       []);
   }
 
@@ -468,7 +468,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec,
       null,
       []);
   }
@@ -477,7 +477,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec,
       null,
       []);
   }
@@ -486,8 +486,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec.$,
-      ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec,
+      ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec,
       []);
   }
 
@@ -1164,7 +1164,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec,
       null,
       [dark_mode_enabled]);
   }
@@ -1173,7 +1173,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -1182,7 +1182,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec,
       null,
       [color_scheme]);
   }
@@ -1191,7 +1191,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec,
       null,
       [sample_color_schemes]);
   }
@@ -1200,7 +1200,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec,
       null,
       [color]);
   }
@@ -1209,7 +1209,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec,
       null,
       [enabled, is_user_modifiable]);
   }
@@ -1218,7 +1218,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec,
       null,
       [sunrise_time, sunset_time]);
   }
@@ -1379,7 +1379,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec.$,
+      ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -1388,7 +1388,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec.$,
+      ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec,
       null,
       [dark_mode_enabled]);
   }
@@ -1397,7 +1397,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec.$,
+      ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -1406,7 +1406,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec.$,
+      ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec,
       null,
       [colorScheme]);
   }
@@ -1415,7 +1415,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec.$,
+      ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec,
       null,
       [static_color]);
   }
@@ -1424,7 +1424,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec.$,
+      ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec,
       null,
       []);
   }
@@ -1433,8 +1433,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec.$,
-      ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec,
+      ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec,
       []);
   }
 
@@ -1442,8 +1442,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec.$,
-      ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec,
+      ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec,
       []);
   }
 
@@ -1451,8 +1451,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec.$,
-      ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec,
+      ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec,
       []);
   }
 
@@ -1460,8 +1460,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec.$,
-      ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec,
+      ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -1469,8 +1469,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec.$,
-      ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec,
+      ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -1478,8 +1478,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec.$,
-      ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec,
+      ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
       []);
   }
 
@@ -1487,8 +1487,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec.$,
-      ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec,
+      ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
       []);
   }
 
@@ -1813,7 +1813,7 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec,
       null,
       [user_image]);
   }
@@ -1822,7 +1822,7 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec.$,
+      ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec,
       null,
       [profile_image]);
   }
@@ -1831,7 +1831,7 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec.$,
+      ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec,
       null,
       [is_camera_present]);
   }
@@ -1840,7 +1840,7 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec,
       null,
       [is_enterprise_managed]);
   }
@@ -1957,7 +1957,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec.$,
+      ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -1966,8 +1966,8 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec.$,
-      ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec,
+      ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec,
       []);
   }
 
@@ -1975,8 +1975,8 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec.$,
-      ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec,
+      ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec,
       []);
   }
 
@@ -1984,7 +1984,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec.$,
+      ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec,
       null,
       [index]);
   }
@@ -1993,7 +1993,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec.$,
+      ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec,
       null,
       []);
   }
@@ -2002,7 +2002,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec.$,
+      ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec,
       null,
       [data]);
   }
@@ -2011,7 +2011,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec.$,
+      ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec,
       null,
       []);
   }
@@ -2020,7 +2020,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec.$,
+      ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec,
       null,
       []);
   }
@@ -2214,7 +2214,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec,
       null,
       [ambient_mode_enabled]);
   }
@@ -2223,7 +2223,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec,
       null,
       [ambient_theme]);
   }
@@ -2232,7 +2232,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec,
       null,
       [topic_source]);
   }
@@ -2241,7 +2241,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec,
       null,
       [minutes]);
   }
@@ -2250,7 +2250,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec,
       null,
       [temperature_unit]);
   }
@@ -2259,7 +2259,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec,
       null,
       [albums]);
   }
@@ -2268,7 +2268,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec,
       null,
       [previews]);
   }
@@ -2277,7 +2277,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec,
       null,
       [visibility]);
   }
@@ -2286,7 +2286,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec,
       null,
       [enabled, is_user_modifiable]);
   }
@@ -2295,7 +2295,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec,
       null,
       [previews]);
   }
@@ -2497,8 +2497,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec.$,
-      ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec,
+      ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -2506,7 +2506,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -2515,7 +2515,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -2524,7 +2524,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec,
       null,
       [ambient_theme]);
   }
@@ -2533,7 +2533,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec,
       null,
       [minutes]);
   }
@@ -2542,7 +2542,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec,
       null,
       [topic_source]);
   }
@@ -2551,7 +2551,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec,
       null,
       [temperature_unit]);
   }
@@ -2560,7 +2560,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec,
       null,
       [id, topic_source, selected]);
   }
@@ -2569,7 +2569,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec,
       null,
       []);
   }
@@ -2578,7 +2578,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec,
       null,
       []);
   }
@@ -2587,7 +2587,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec,
       null,
       []);
   }
@@ -2596,8 +2596,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec.$,
-      ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec,
+      ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec,
       []);
   }
 
@@ -2605,7 +2605,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec,
       null,
       []);
   }
@@ -2614,8 +2614,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec.$,
-      ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec,
+      ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
       []);
   }
 
@@ -2623,8 +2623,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec.$,
-      ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec,
+      ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
       []);
   }
 
@@ -2632,7 +2632,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec.$,
+      ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec,
       null,
       []);
   }
@@ -2962,7 +2962,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec,
       null,
       [currentBacklightState]);
   }
@@ -2971,7 +2971,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec.$,
+      ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec,
       null,
       [wallpaper_color]);
   }
@@ -3060,7 +3060,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec.$,
+      ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -3069,7 +3069,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec.$,
+      ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec,
       null,
       [backlight_color]);
   }
@@ -3078,7 +3078,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec.$,
+      ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec,
       null,
       [zone, backlight_color]);
   }
@@ -3087,8 +3087,8 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec.$,
-      ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec.$,
+      ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec,
+      ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec,
       []);
   }
 
@@ -3096,7 +3096,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec.$,
+      ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec,
       null,
       []);
   }

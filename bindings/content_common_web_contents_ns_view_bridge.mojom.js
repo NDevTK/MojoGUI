@@ -62,7 +62,7 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec,
       null,
       [parent_ns_view_id]);
   }
@@ -71,7 +71,7 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec,
       null,
       []);
   }
@@ -80,7 +80,7 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec,
       null,
       [bounds_in_superview]);
   }
@@ -89,7 +89,7 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -98,7 +98,7 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec,
       null,
       []);
   }
@@ -107,7 +107,7 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec,
       null,
       [reverse]);
   }
@@ -116,7 +116,7 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec,
       null,
       [drop_data, source_origin, operation_mask, image, image_offset, is_privileged]);
   }
@@ -125,7 +125,7 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec,
       null,
       []);
   }
@@ -300,7 +300,7 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -309,7 +309,7 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec,
       null,
       [direction]);
   }
@@ -318,7 +318,7 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec,
       null,
       [visibility]);
   }
@@ -327,7 +327,7 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec,
       null,
       [drop_data]);
   }
@@ -336,8 +336,8 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec.$,
-      remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec,
       [dragging_info]);
   }
 
@@ -345,7 +345,7 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec,
       null,
       []);
   }
@@ -354,8 +354,8 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec.$,
-      remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec,
       [dragging_info]);
   }
 
@@ -363,8 +363,8 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec.$,
-      remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec,
       [dragging_info]);
   }
 
@@ -372,8 +372,8 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec.$,
-      remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec,
+      remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec,
       [file_path, drop_data, download_url, source_origin]);
   }
 
@@ -381,7 +381,7 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec.$,
+      remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec,
       null,
       [drag_operation, local_point, screen_point]);
   }

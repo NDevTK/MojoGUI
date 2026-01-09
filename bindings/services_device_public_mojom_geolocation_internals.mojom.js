@@ -65,7 +65,7 @@ device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$,
+      device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec,
       null,
       [diagnostics]);
   }
@@ -74,7 +74,7 @@ device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$,
+      device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec,
       null,
       [access_point_data]);
   }
@@ -83,7 +83,7 @@ device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$,
+      device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec,
       null,
       [response]);
   }
@@ -186,8 +186,8 @@ device.mojom.GeolocationInternalsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$,
-      device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec.$,
+      device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec,
+      device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec,
       [observer]);
   }
 

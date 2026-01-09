@@ -48,7 +48,7 @@ remote_cocoa.mojom.PopupMenuRunnerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.PopupMenuRunner_Hide_ParamsSpec.$,
+      remote_cocoa.mojom.PopupMenuRunner_Hide_ParamsSpec,
       null,
       []);
   }
@@ -122,7 +122,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_InitAsPopup_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_InitAsPopup_ParamsSpec,
       null,
       [content_rect, popup_parent_ns_view_id]);
   }
@@ -131,7 +131,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_SetParentWebContentsNSView_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_SetParentWebContentsNSView_ParamsSpec,
       null,
       [parent_ns_view_id]);
   }
@@ -140,7 +140,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_DisableDisplay_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_DisableDisplay_ParamsSpec,
       null,
       []);
   }
@@ -149,7 +149,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_MakeFirstResponder_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_MakeFirstResponder_ParamsSpec,
       null,
       []);
   }
@@ -158,7 +158,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_SetBounds_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_SetBounds_ParamsSpec,
       null,
       [rect]);
   }
@@ -167,7 +167,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_SetCALayerParams_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_SetCALayerParams_ParamsSpec,
       null,
       [ca_layer_params]);
   }
@@ -176,7 +176,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_SetBackgroundColor_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_SetBackgroundColor_ParamsSpec,
       null,
       [color]);
   }
@@ -185,7 +185,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_SetVisible_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_SetVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -194,7 +194,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_SetTooltipText_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_SetTooltipText_ParamsSpec,
       null,
       [display_text]);
   }
@@ -203,7 +203,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_SetTextInputState_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_SetTextInputState_ParamsSpec,
       null,
       [text_input_type, flags]);
   }
@@ -212,7 +212,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_SetTextSelection_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_SetTextSelection_ParamsSpec,
       null,
       [text, offset, range]);
   }
@@ -221,7 +221,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_SetCompositionRangeInfo_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_SetCompositionRangeInfo_ParamsSpec,
       null,
       [range]);
   }
@@ -230,7 +230,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_CancelComposition_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_CancelComposition_ParamsSpec,
       null,
       []);
   }
@@ -239,7 +239,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_SetShowingContextMenu_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_SetShowingContextMenu_ParamsSpec,
       null,
       [showing]);
   }
@@ -248,7 +248,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_DisplayCursor_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_DisplayCursor_ParamsSpec,
       null,
       [cursor]);
   }
@@ -257,7 +257,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLocked_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLocked_ParamsSpec,
       null,
       [locked]);
   }
@@ -266,7 +266,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLockedUnacceleratedMovement_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLockedUnacceleratedMovement_ParamsSpec,
       null,
       [unaccelerated_movement]);
   }
@@ -275,7 +275,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlayForSelection_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlayForSelection_ParamsSpec,
       null,
       []);
   }
@@ -284,7 +284,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlay_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlay_ParamsSpec,
       null,
       [attributed_string, baseline_point]);
   }
@@ -293,7 +293,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_LockKeyboard_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_LockKeyboard_ParamsSpec,
       null,
       [dom_codes]);
   }
@@ -302,7 +302,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_UnlockKeyboard_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_UnlockKeyboard_ParamsSpec,
       null,
       []);
   }
@@ -311,8 +311,8 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ParamsSpec.$,
-      remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ResponseParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ParamsSpec,
+      remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ResponseParamsSpec,
       [title, text, url, file_paths]);
   }
 
@@ -320,7 +320,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_Destroy_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_Destroy_ParamsSpec,
       null,
       []);
   }
@@ -329,7 +329,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_GestureScrollEventAck_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_GestureScrollEventAck_ParamsSpec,
       null,
       [event, consumed]);
   }
@@ -338,7 +338,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_DidOverscroll_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_DidOverscroll_ParamsSpec,
       null,
       [params]);
   }
@@ -347,8 +347,8 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ParamsSpec.$,
-      remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ResponseParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ParamsSpec,
+      remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ResponseParamsSpec,
       [menu]);
   }
 
@@ -801,8 +801,8 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ParamsSpec.$,
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ResponseParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ParamsSpec,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ResponseParamsSpec,
       []);
   }
 
@@ -810,7 +810,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_RequestShutdown_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_RequestShutdown_ParamsSpec,
       null,
       []);
   }
@@ -819,7 +819,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnFirstResponderChanged_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnFirstResponderChanged_ParamsSpec,
       null,
       [is_first_responder]);
   }
@@ -828,7 +828,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowIsKeyChanged_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowIsKeyChanged_ParamsSpec,
       null,
       [is_key]);
   }
@@ -837,7 +837,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnBoundsInWindowChanged_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnBoundsInWindowChanged_ParamsSpec,
       null,
       [view_bounds_in_window_dip, attached_to_window]);
   }
@@ -846,7 +846,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowFrameInScreenChanged_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowFrameInScreenChanged_ParamsSpec,
       null,
       [window_frame_in_screen_dip]);
   }
@@ -855,7 +855,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnScreenInfosChanged_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnScreenInfosChanged_ParamsSpec,
       null,
       [screen_infos]);
   }
@@ -864,7 +864,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_BeginKeyboardEvent_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_BeginKeyboardEvent_ParamsSpec,
       null,
       []);
   }
@@ -873,7 +873,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_EndKeyboardEvent_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_EndKeyboardEvent_ParamsSpec,
       null,
       []);
   }
@@ -882,7 +882,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardKeyboardEventWithCommands_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardKeyboardEventWithCommands_ParamsSpec,
       null,
       [event, native_event_data, skip_if_unhandled, commands]);
   }
@@ -891,7 +891,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessMouseEvent_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessMouseEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -900,7 +900,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessTouchEvent_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessTouchEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -909,7 +909,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessWheelEvent_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessWheelEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -918,7 +918,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardMouseEvent_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardMouseEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -927,7 +927,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardWheelEvent_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardWheelEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -936,7 +936,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_PinchEvent_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_PinchEvent_ParamsSpec,
       null,
       [event, is_synthetically_injected]);
   }
@@ -945,7 +945,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SmartMagnifyEvent_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SmartMagnifyEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -954,7 +954,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeSetComposition_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeSetComposition_ParamsSpec,
       null,
       [text, ime_text_spans, replacement_range, selection_start, selection_end]);
   }
@@ -963,7 +963,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCommitText_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCommitText_ParamsSpec,
       null,
       [text, replacement_range]);
   }
@@ -972,7 +972,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeFinishComposingText_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeFinishComposingText_ParamsSpec,
       null,
       []);
   }
@@ -981,7 +981,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCancelCompositionFromCocoa_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCancelCompositionFromCocoa_ParamsSpec,
       null,
       []);
   }
@@ -990,7 +990,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayAtPoint_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayAtPoint_ParamsSpec,
       null,
       [root_point]);
   }
@@ -999,7 +999,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayFromRange_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayFromRange_ParamsSpec,
       null,
       [range]);
   }
@@ -1008,8 +1008,8 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ParamsSpec.$,
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ResponseParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ParamsSpec,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ResponseParamsSpec,
       [root_point]);
   }
 
@@ -1017,8 +1017,8 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ParamsSpec.$,
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ResponseParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ParamsSpec,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ResponseParamsSpec,
       [requested_range]);
   }
 
@@ -1026,7 +1026,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ExecuteEditCommand_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_ExecuteEditCommand_ParamsSpec,
       null,
       [command]);
   }
@@ -1035,7 +1035,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_Undo_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_Undo_ParamsSpec,
       null,
       []);
   }
@@ -1044,7 +1044,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_Redo_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_Redo_ParamsSpec,
       null,
       []);
   }
@@ -1053,7 +1053,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_Cut_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_Cut_ParamsSpec,
       null,
       []);
   }
@@ -1062,7 +1062,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_Copy_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_Copy_ParamsSpec,
       null,
       []);
   }
@@ -1071,7 +1071,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_CopyToFindPboard_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_CopyToFindPboard_ParamsSpec,
       null,
       []);
   }
@@ -1080,7 +1080,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_CenterSelection_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_CenterSelection_ParamsSpec,
       null,
       []);
   }
@@ -1089,7 +1089,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_Paste_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_Paste_ParamsSpec,
       null,
       []);
   }
@@ -1098,7 +1098,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_PasteAndMatchStyle_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_PasteAndMatchStyle_ParamsSpec,
       null,
       []);
   }
@@ -1107,7 +1107,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SelectAll_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SelectAll_ParamsSpec,
       null,
       []);
   }
@@ -1116,7 +1116,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_StartSpeaking_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_StartSpeaking_ParamsSpec,
       null,
       []);
   }
@@ -1125,7 +1125,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_StopSpeaking_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_StopSpeaking_ParamsSpec,
       null,
       []);
   }
@@ -1134,8 +1134,8 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ParamsSpec.$,
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ResponseParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ParamsSpec,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ResponseParamsSpec,
       []);
   }
 
@@ -1143,8 +1143,8 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ParamsSpec.$,
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ResponseParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ParamsSpec,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ResponseParamsSpec,
       []);
   }
 
@@ -1152,7 +1152,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SetRemoteAccessibilityWindowToken_ParamsSpec.$,
+      remote_cocoa.mojom.RenderWidgetHostNSViewHost_SetRemoteAccessibilityWindowToken_ParamsSpec,
       null,
       [window_token]);
   }

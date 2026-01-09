@@ -48,7 +48,7 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SerialService_SetClient_ParamsSpec.$,
+      blink.mojom.SerialService_SetClient_ParamsSpec,
       null,
       [client]);
   }
@@ -57,8 +57,8 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SerialService_GetPorts_ParamsSpec.$,
-      blink.mojom.SerialService_GetPorts_ResponseParamsSpec.$,
+      blink.mojom.SerialService_GetPorts_ParamsSpec,
+      blink.mojom.SerialService_GetPorts_ResponseParamsSpec,
       []);
   }
 
@@ -66,8 +66,8 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SerialService_RequestPort_ParamsSpec.$,
-      blink.mojom.SerialService_RequestPort_ResponseParamsSpec.$,
+      blink.mojom.SerialService_RequestPort_ParamsSpec,
+      blink.mojom.SerialService_RequestPort_ResponseParamsSpec,
       [filters, allowed_bluetooth_service_class_ids]);
   }
 
@@ -75,8 +75,8 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.SerialService_OpenPort_ParamsSpec.$,
-      blink.mojom.SerialService_OpenPort_ResponseParamsSpec.$,
+      blink.mojom.SerialService_OpenPort_ParamsSpec,
+      blink.mojom.SerialService_OpenPort_ResponseParamsSpec,
       [token, options, client]);
   }
 
@@ -84,7 +84,7 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.SerialService_ForgetPort_ParamsSpec.$,
+      blink.mojom.SerialService_ForgetPort_ParamsSpec,
       null,
       [token]);
   }
@@ -256,7 +256,7 @@ blink.mojom.SerialServiceClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec.$,
+      blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec,
       null,
       [port_info]);
   }

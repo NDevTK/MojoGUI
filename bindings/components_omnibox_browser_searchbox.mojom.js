@@ -76,7 +76,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      searchbox.mojom.PageHandler_SetPage_ParamsSpec.$,
+      searchbox.mojom.PageHandler_SetPage_ParamsSpec,
       null,
       [page]);
   }
@@ -85,7 +85,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec.$,
+      searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec,
       null,
       [focused]);
   }
@@ -94,7 +94,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec.$,
+      searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec,
       null,
       [input, prevent_inline_autocomplete]);
   }
@@ -103,7 +103,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec.$,
+      searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec,
       null,
       [clear_result]);
   }
@@ -112,7 +112,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec.$,
+      searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec,
       null,
       [line, url, are_matches_showing, mouse_button, alt_key, ctrl_key, meta_key, shift_key]);
   }
@@ -121,7 +121,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec.$,
+      searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec,
       null,
       [line, url, navigation_predictor]);
   }
@@ -130,7 +130,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec.$,
+      searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec,
       null,
       [line, url]);
   }
@@ -139,7 +139,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec.$,
+      searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec,
       null,
       [line, url, match_selection_timestamp, is_mouse_event]);
   }
@@ -148,7 +148,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec.$,
+      searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
       [point]);
   }
@@ -157,7 +157,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec.$,
+      searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec,
       null,
       [line, action_index, url, match_selection_timestamp, mouse_button, alt_key, ctrl_key, meta_key, shift_key]);
   }
@@ -166,7 +166,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec.$,
+      searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec,
       null,
       []);
   }
@@ -175,8 +175,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec.$,
-      searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec.$,
+      searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec,
+      searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec,
       []);
   }
 
@@ -184,8 +184,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec.$,
-      searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec.$,
+      searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec,
+      searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec,
       []);
   }
 
@@ -193,8 +193,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec.$,
-      searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec.$,
+      searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec,
+      searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec,
       [tab_id]);
   }
 
@@ -202,7 +202,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec.$,
+      searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec,
       null,
       []);
   }
@@ -211,7 +211,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec.$,
+      searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec,
       null,
       []);
   }
@@ -220,8 +220,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      searchbox.mojom.PageHandler_AddFileContext_ParamsSpec.$,
-      searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec.$,
+      searchbox.mojom.PageHandler_AddFileContext_ParamsSpec,
+      searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec,
       [file_info, file_bytes]);
   }
 
@@ -229,8 +229,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      searchbox.mojom.PageHandler_AddTabContext_ParamsSpec.$,
-      searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec.$,
+      searchbox.mojom.PageHandler_AddTabContext_ParamsSpec,
+      searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec,
       [tab_id, delay_upload]);
   }
 
@@ -238,7 +238,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      searchbox.mojom.PageHandler_DeleteContext_ParamsSpec.$,
+      searchbox.mojom.PageHandler_DeleteContext_ParamsSpec,
       null,
       [token, from_automatic_chip]);
   }
@@ -247,7 +247,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      searchbox.mojom.PageHandler_ClearFiles_ParamsSpec.$,
+      searchbox.mojom.PageHandler_ClearFiles_ParamsSpec,
       null,
       []);
   }
@@ -256,7 +256,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec.$,
+      searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec,
       null,
       [query_text, mouse_button, alt_key, ctrl_key, meta_key, shift_key]);
   }
@@ -265,7 +265,7 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec.$,
+      searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec,
       null,
       []);
   }
@@ -722,7 +722,7 @@ searchbox.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec.$,
+      searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec,
       null,
       [result]);
   }
@@ -731,7 +731,7 @@ searchbox.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      searchbox.mojom.Page_UpdateSelection_ParamsSpec.$,
+      searchbox.mojom.Page_UpdateSelection_ParamsSpec,
       null,
       [old_selection, selection]);
   }
@@ -740,7 +740,7 @@ searchbox.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      searchbox.mojom.Page_SetKeywordSelected_ParamsSpec.$,
+      searchbox.mojom.Page_SetKeywordSelected_ParamsSpec,
       null,
       [is_keyword_selected]);
   }
@@ -749,7 +749,7 @@ searchbox.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      searchbox.mojom.Page_OnShow_ParamsSpec.$,
+      searchbox.mojom.Page_OnShow_ParamsSpec,
       null,
       []);
   }
@@ -758,7 +758,7 @@ searchbox.mojom.PageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      searchbox.mojom.Page_SetInputText_ParamsSpec.$,
+      searchbox.mojom.Page_SetInputText_ParamsSpec,
       null,
       [input]);
   }
@@ -767,7 +767,7 @@ searchbox.mojom.PageRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      searchbox.mojom.Page_SetThumbnail_ParamsSpec.$,
+      searchbox.mojom.Page_SetThumbnail_ParamsSpec,
       null,
       [thumbnail_url, is_deletable]);
   }
@@ -776,7 +776,7 @@ searchbox.mojom.PageRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec.$,
+      searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec,
       null,
       [token, status, error_type]);
   }
@@ -785,7 +785,7 @@ searchbox.mojom.PageRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      searchbox.mojom.Page_OnTabStripChanged_ParamsSpec.$,
+      searchbox.mojom.Page_OnTabStripChanged_ParamsSpec,
       null,
       []);
   }
@@ -794,7 +794,7 @@ searchbox.mojom.PageRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      searchbox.mojom.Page_AddFileContext_ParamsSpec.$,
+      searchbox.mojom.Page_AddFileContext_ParamsSpec,
       null,
       [token, file_info]);
   }
@@ -803,7 +803,7 @@ searchbox.mojom.PageRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec.$,
+      searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec,
       null,
       [tab]);
   }
@@ -812,7 +812,7 @@ searchbox.mojom.PageRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec.$,
+      searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec,
       null,
       [eligible]);
   }
@@ -821,7 +821,7 @@ searchbox.mojom.PageRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec.$,
+      searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec,
       null,
       [enabled]);
   }
@@ -830,7 +830,7 @@ searchbox.mojom.PageRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec.$,
+      searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec,
       null,
       [eligible]);
   }
@@ -839,7 +839,7 @@ searchbox.mojom.PageRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec.$,
+      searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec,
       null,
       [canShow]);
   }

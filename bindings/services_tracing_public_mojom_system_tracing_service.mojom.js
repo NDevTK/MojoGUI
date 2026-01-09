@@ -48,8 +48,8 @@ tracing.mojom.SystemTracingServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec.$,
-      tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec.$,
+      tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec,
+      tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec,
       []);
   }
 

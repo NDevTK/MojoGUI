@@ -48,7 +48,7 @@ chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec.$,
+      chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec,
       null,
       [messages]);
   }
@@ -57,7 +57,7 @@ chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec.$,
+      chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec,
       null,
       []);
   }
@@ -145,7 +145,7 @@ chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec.$,
+      chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec,
       null,
       [client]);
   }
@@ -154,7 +154,7 @@ chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec.$,
+      chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec,
       null,
       []);
   }

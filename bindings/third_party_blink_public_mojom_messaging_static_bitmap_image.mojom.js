@@ -48,7 +48,7 @@ blink.mojom.ImageReleaseCallbackRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ImageReleaseCallback_Release_ParamsSpec.$,
+      blink.mojom.ImageReleaseCallback_Release_ParamsSpec,
       null,
       [token]);
   }

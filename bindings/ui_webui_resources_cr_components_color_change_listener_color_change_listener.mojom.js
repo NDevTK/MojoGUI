@@ -48,7 +48,7 @@ color_change_listener.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      color_change_listener.mojom.PageHandler_SetPage_ParamsSpec.$,
+      color_change_listener.mojom.PageHandler_SetPage_ParamsSpec,
       null,
       [page]);
   }
@@ -123,7 +123,7 @@ color_change_listener.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec.$,
+      color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec,
       null,
       []);
   }

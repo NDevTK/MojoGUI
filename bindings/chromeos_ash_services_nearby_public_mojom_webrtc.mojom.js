@@ -48,8 +48,8 @@ sharing.mojom.IceConfigFetcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec.$,
-      sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec.$,
+      sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec,
+      sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec,
       []);
   }
 
@@ -135,7 +135,7 @@ sharing.mojom.MdnsResponderFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec.$,
+      sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec,
       null,
       [responder_receiver]);
   }

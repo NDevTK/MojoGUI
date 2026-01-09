@@ -48,8 +48,8 @@ network.mojom.NetworkContextClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec.$,
-      network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec.$,
+      network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec,
+      network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec,
       [process_id, async, file_paths, destination_url]);
   }
 
@@ -57,8 +57,8 @@ network.mojom.NetworkContextClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec.$,
-      network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec.$,
+      network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec,
+      network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec,
       [origins]);
   }
 
@@ -66,8 +66,8 @@ network.mojom.NetworkContextClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec.$,
-      network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec.$,
+      network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec,
+      network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec,
       [origin]);
   }
 
@@ -75,8 +75,8 @@ network.mojom.NetworkContextClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec.$,
-      network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec.$,
+      network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec,
+      network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec,
       [server_auth_token, can_delegate, auth_negotiate_android_account_type, spn]);
   }
 
@@ -84,8 +84,8 @@ network.mojom.NetworkContextClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec.$,
-      network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec.$,
+      network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec,
+      network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec,
       []);
   }
 
@@ -93,7 +93,7 @@ network.mojom.NetworkContextClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec.$,
+      network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec,
       null,
       []);
   }

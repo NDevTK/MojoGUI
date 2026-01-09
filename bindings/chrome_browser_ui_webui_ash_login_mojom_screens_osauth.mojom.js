@@ -49,7 +49,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = clas
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec.$,
+      ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec,
       null,
       []);
   }
@@ -58,7 +58,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = clas
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec.$,
+      ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec,
       null,
       []);
   }
@@ -67,7 +67,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = clas
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec.$,
+      ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec,
       null,
       []);
   }
@@ -76,7 +76,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = clas
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec.$,
+      ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec,
       null,
       []);
   }

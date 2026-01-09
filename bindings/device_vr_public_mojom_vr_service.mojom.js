@@ -165,7 +165,7 @@ device.mojom.VRServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.VRService_SetClient_ParamsSpec.$,
+      device.mojom.VRService_SetClient_ParamsSpec,
       null,
       [client]);
   }
@@ -174,8 +174,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.VRService_RequestSession_ParamsSpec.$,
-      device.mojom.VRService_RequestSession_ResponseParamsSpec.$,
+      device.mojom.VRService_RequestSession_ParamsSpec,
+      device.mojom.VRService_RequestSession_ResponseParamsSpec,
       [options]);
   }
 
@@ -183,8 +183,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.VRService_SupportsSession_ParamsSpec.$,
-      device.mojom.VRService_SupportsSession_ResponseParamsSpec.$,
+      device.mojom.VRService_SupportsSession_ParamsSpec,
+      device.mojom.VRService_SupportsSession_ResponseParamsSpec,
       [options]);
   }
 
@@ -192,7 +192,7 @@ device.mojom.VRServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.VRService_ExitPresent_ParamsSpec.$,
+      device.mojom.VRService_ExitPresent_ParamsSpec,
       null,
       []);
   }
@@ -201,7 +201,7 @@ device.mojom.VRServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.VRService_SetFramesThrottled_ParamsSpec.$,
+      device.mojom.VRService_SetFramesThrottled_ParamsSpec,
       null,
       [throttled]);
   }
@@ -210,8 +210,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.VRService_MakeXrCompatible_ParamsSpec.$,
-      device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec.$,
+      device.mojom.VRService_MakeXrCompatible_ParamsSpec,
+      device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec,
       []);
   }
 
@@ -392,7 +392,7 @@ device.mojom.XRSessionMetricsRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec.$,
+      device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec,
       null,
       [feature]);
   }
@@ -467,7 +467,7 @@ device.mojom.VRServiceClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec.$,
+      device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec,
       null,
       []);
   }
@@ -541,8 +541,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec.$,
-      device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec.$,
+      device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec,
+      device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec,
       [native_origin_information, entity_types, ray]);
   }
 
@@ -550,8 +550,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec.$,
-      device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec.$,
+      device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec,
+      device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec,
       [profile_name, entity_types, ray]);
   }
 
@@ -559,7 +559,7 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec.$,
+      device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec,
       null,
       [subscription_id]);
   }
@@ -568,8 +568,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec.$,
-      device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec.$,
+      device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec,
+      device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec,
       [native_origin_information, native_origin_from_anchor, plane_id]);
   }
 
@@ -577,7 +577,7 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec.$,
+      device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec,
       null,
       [anchor_id]);
   }
@@ -753,8 +753,8 @@ device.mojom.XRFrameDataProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec.$,
-      device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec.$,
+      device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec,
+      device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec,
       [options]);
   }
 
@@ -762,7 +762,7 @@ device.mojom.XRFrameDataProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec.$,
+      device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec,
       null,
       [environment_provider]);
   }
@@ -864,7 +864,7 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec.$,
+      device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec,
       null,
       [frame_id, left_bounds, right_bounds, source_size]);
   }
@@ -873,7 +873,7 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec.$,
+      device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec,
       null,
       [frame_id, sync_token]);
   }
@@ -882,7 +882,7 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec.$,
+      device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec,
       null,
       [frame_id, time_waited]);
   }
@@ -891,7 +891,7 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec.$,
+      device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec,
       null,
       [frame_id, texture, sync_token]);
   }
@@ -900,7 +900,7 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec.$,
+      device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec,
       null,
       [frame_id, layer_ids, sync_token, time_waited]);
   }
@@ -1041,7 +1041,7 @@ device.mojom.XRPresentationClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec.$,
+      device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec,
       null,
       [success]);
   }
@@ -1050,7 +1050,7 @@ device.mojom.XRPresentationClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec.$,
+      device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec,
       null,
       []);
   }
@@ -1059,7 +1059,7 @@ device.mojom.XRPresentationClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec.$,
+      device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec,
       null,
       [gpu_fence_handle]);
   }
@@ -1161,7 +1161,7 @@ device.mojom.XRSessionClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRSessionClient_OnExitPresent_ParamsSpec.$,
+      device.mojom.XRSessionClient_OnExitPresent_ParamsSpec,
       null,
       []);
   }
@@ -1170,7 +1170,7 @@ device.mojom.XRSessionClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec.$,
+      device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec,
       null,
       [visibility_state]);
   }
@@ -1258,8 +1258,8 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec.$,
-      device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec.$,
+      device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec,
+      device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec,
       [create_data]);
   }
 
@@ -1267,7 +1267,7 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec.$,
+      device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec,
       null,
       [layer_id]);
   }
@@ -1276,7 +1276,7 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec.$,
+      device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec,
       null,
       [layer_id, update_data]);
   }
@@ -1285,7 +1285,7 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec.$,
+      device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec,
       null,
       [layer_ids]);
   }
@@ -1416,7 +1416,7 @@ device.mojom.WebXrInternalsRendererListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec.$,
+      device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec,
       null,
       [xrframe_statistics]);
   }
@@ -1425,7 +1425,7 @@ device.mojom.WebXrInternalsRendererListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec.$,
+      device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec,
       null,
       [xrlogging_statistics]);
   }

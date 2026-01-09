@@ -48,7 +48,7 @@ remoting.mojom.ChromotingHostServicesRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec.$,
+      remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec,
       null,
       [receiver]);
   }
@@ -123,7 +123,7 @@ remoting.mojom.ChromotingSessionServicesRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$,
+      remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec,
       null,
       [receiver]);
   }
@@ -132,7 +132,7 @@ remoting.mojom.ChromotingSessionServicesRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$,
+      remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec,
       null,
       [receiver]);
   }
@@ -141,7 +141,7 @@ remoting.mojom.ChromotingSessionServicesRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$,
+      remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec,
       null,
       [receiver]);
   }

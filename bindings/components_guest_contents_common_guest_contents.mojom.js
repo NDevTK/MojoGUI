@@ -48,8 +48,8 @@ guest_contents.mojom.GuestContentsHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec.$,
-      guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec.$,
+      guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec,
+      guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec,
       [frame_to_swap, guest_contents_id]);
   }
 

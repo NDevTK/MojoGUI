@@ -98,7 +98,7 @@ ash.bluetooth_config.mojom.SystemPropertiesObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.bluetooth_config.mojom.SystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$,
+      ash.bluetooth_config.mojom.SystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec,
       null,
       [properties]);
   }
@@ -173,7 +173,7 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemoteCallHandler = clas
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDevicePaired_ParamsSpec.$,
+      ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDevicePaired_ParamsSpec,
       null,
       [device]);
   }
@@ -182,7 +182,7 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemoteCallHandler = clas
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceConnected_ParamsSpec.$,
+      ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceConnected_ParamsSpec,
       null,
       [device]);
   }
@@ -191,7 +191,7 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemoteCallHandler = clas
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceDisconnected_ParamsSpec.$,
+      ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceDisconnected_ParamsSpec,
       null,
       [device]);
   }
@@ -294,7 +294,7 @@ ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.bluetooth_config.mojom.DiscoverySessionStatusObserver_OnHasAtLeastOneDiscoverySessionChanged_ParamsSpec.$,
+      ash.bluetooth_config.mojom.DiscoverySessionStatusObserver_OnHasAtLeastOneDiscoverySessionChanged_ParamsSpec,
       null,
       [has_at_least_one_discovery_session]);
   }
@@ -369,7 +369,7 @@ ash.bluetooth_config.mojom.KeyEnteredHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.bluetooth_config.mojom.KeyEnteredHandler_HandleKeyEntered_ParamsSpec.$,
+      ash.bluetooth_config.mojom.KeyEnteredHandler_HandleKeyEntered_ParamsSpec,
       null,
       [num_keys_entered]);
   }
@@ -444,8 +444,8 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec.$,
-      ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec.$,
+      ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec,
+      ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec,
       []);
   }
 
@@ -453,8 +453,8 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec.$,
-      ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec.$,
+      ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec,
+      ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec,
       []);
   }
 
@@ -462,7 +462,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec.$,
+      ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec,
       null,
       [pin_code, handler]);
   }
@@ -471,7 +471,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec.$,
+      ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec,
       null,
       [passkey, handler]);
   }
@@ -480,8 +480,8 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ParamsSpec.$,
-      ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec.$,
+      ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ParamsSpec,
+      ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec,
       [passkey]);
   }
 
@@ -489,8 +489,8 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec.$,
-      ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec.$,
+      ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec,
+      ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec,
       []);
   }
 
@@ -685,8 +685,8 @@ ash.bluetooth_config.mojom.DevicePairingHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec.$,
-      ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec.$,
+      ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec,
+      ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec,
       [device_id, delegate]);
   }
 
@@ -694,8 +694,8 @@ ash.bluetooth_config.mojom.DevicePairingHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec.$,
-      ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec.$,
+      ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec,
+      ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec,
       [device_address]);
   }
 
@@ -810,7 +810,7 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec.$,
+      ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec,
       null,
       [handler]);
   }
@@ -819,7 +819,7 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_ParamsSpec.$,
+      ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_ParamsSpec,
       null,
       []);
   }
@@ -828,7 +828,7 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_ParamsSpec.$,
+      ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_ParamsSpec,
       null,
       [discovered_devices]);
   }
@@ -930,7 +930,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec.$,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec,
       null,
       [observer]);
   }
@@ -939,7 +939,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec.$,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec,
       null,
       [observer]);
   }
@@ -948,7 +948,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_ParamsSpec.$,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_ParamsSpec,
       null,
       [observer]);
   }
@@ -957,7 +957,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledState_ParamsSpec.$,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledState_ParamsSpec,
       null,
       [enabled]);
   }
@@ -966,7 +966,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersistence_ParamsSpec.$,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersistence_ParamsSpec,
       null,
       []);
   }
@@ -975,7 +975,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_ParamsSpec.$,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_ParamsSpec,
       null,
       [is_using_bluetooth]);
   }
@@ -984,7 +984,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec.$,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec,
       null,
       [delegate]);
   }
@@ -993,8 +993,8 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ParamsSpec.$,
-      ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec.$,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ParamsSpec,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec,
       [device_id]);
   }
 
@@ -1002,8 +1002,8 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ParamsSpec.$,
-      ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec.$,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ParamsSpec,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec,
       [device_id]);
   }
 
@@ -1011,8 +1011,8 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ParamsSpec.$,
-      ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec.$,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ParamsSpec,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec,
       [device_id]);
   }
 
@@ -1020,7 +1020,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.bluetooth_config.mojom.CrosBluetoothConfig_SetDeviceNickname_ParamsSpec.$,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_SetDeviceNickname_ParamsSpec,
       null,
       [device_id, nickname]);
   }

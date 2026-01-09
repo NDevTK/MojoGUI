@@ -66,7 +66,7 @@ blink.mojom.AIManagerCreateLanguageModelClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec.$,
+      blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec,
       null,
       [language_model_remote, info]);
   }
@@ -75,7 +75,7 @@ blink.mojom.AIManagerCreateLanguageModelClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec.$,
+      blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec,
       null,
       [error, quota_error_info]);
   }
@@ -166,7 +166,7 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AILanguageModel_Prompt_ParamsSpec.$,
+      blink.mojom.AILanguageModel_Prompt_ParamsSpec,
       null,
       [prompts, constraint, pending_responder]);
   }
@@ -175,7 +175,7 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AILanguageModel_Append_ParamsSpec.$,
+      blink.mojom.AILanguageModel_Append_ParamsSpec,
       null,
       [prompts, client]);
   }
@@ -184,7 +184,7 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.AILanguageModel_Fork_ParamsSpec.$,
+      blink.mojom.AILanguageModel_Fork_ParamsSpec,
       null,
       [client]);
   }
@@ -193,7 +193,7 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.AILanguageModel_Destroy_ParamsSpec.$,
+      blink.mojom.AILanguageModel_Destroy_ParamsSpec,
       null,
       []);
   }
@@ -202,8 +202,8 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec.$,
-      blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec.$,
+      blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec,
+      blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec,
       [input]);
   }
 

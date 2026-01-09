@@ -48,7 +48,7 @@ viz.mojom.VizDebugOutputRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.VizDebugOutput_LogFrame_ParamsSpec.$,
+      viz.mojom.VizDebugOutput_LogFrame_ParamsSpec,
       null,
       [frameData]);
   }

@@ -64,8 +64,8 @@ device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec.$,
-      device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec.$,
+      device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec,
+      device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec,
       [requests]);
   }
 
@@ -73,8 +73,8 @@ device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec.$,
-      device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec.$,
+      device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec,
+      device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec,
       []);
   }
 
@@ -82,8 +82,8 @@ device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec.$,
-      device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec.$,
+      device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec,
+      device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec,
       []);
   }
 

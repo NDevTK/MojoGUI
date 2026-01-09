@@ -49,7 +49,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec.$,
+      ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec,
       null,
       [receiver, page]);
   }
@@ -58,7 +58,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec.$,
+      ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec,
       null,
       [receiver, page, file_name]);
   }
@@ -67,8 +67,8 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec.$,
-      ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec.$,
+      ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec,
+      ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec,
       []);
   }
 
@@ -76,8 +76,8 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec.$,
-      ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec.$,
+      ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec,
+      ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec,
       [page, dlc_uuid]);
   }
 
@@ -222,7 +222,7 @@ ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec.$,
+      ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec,
       null,
       [page_metadata]);
   }
@@ -231,7 +231,7 @@ ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec.$,
+      ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec,
       null,
       [dirty_page_id]);
   }
@@ -240,7 +240,7 @@ ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec.$,
+      ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec,
       null,
       [viewport_box, scale_factor]);
   }
@@ -344,8 +344,8 @@ ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec.$,
-      ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec.$,
+      ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec,
+      ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec,
       [requestedPageId]);
   }
 
@@ -353,7 +353,7 @@ ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec.$,
+      ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec,
       null,
       [viewport_box]);
   }
@@ -362,7 +362,7 @@ ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec.$,
+      ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -478,7 +478,7 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec.$,
+      ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec,
       null,
       []);
   }
@@ -487,7 +487,7 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec.$,
+      ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec,
       null,
       [new_name]);
   }
@@ -496,7 +496,7 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec.$,
+      ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec,
       null,
       [anchor, selected_text]);
   }
@@ -505,7 +505,7 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec.$,
+      ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec,
       null,
       []);
   }
@@ -621,7 +621,7 @@ ash.media_app_ui.mojom.MahiUntrustedPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec.$,
+      ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec,
       null,
       []);
   }
@@ -630,8 +630,8 @@ ash.media_app_ui.mojom.MahiUntrustedPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec.$,
-      ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec.$,
+      ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec,
+      ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec,
       [limit]);
   }
 
@@ -731,8 +731,8 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec.$,
-      ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec.$,
+      ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec,
+      ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec,
       [image, selection]);
   }
 
@@ -740,8 +740,8 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec.$,
-      ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec.$,
+      ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec,
+      ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec,
       [image, mask, text, seed]);
   }
 
@@ -749,8 +749,8 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec.$,
-      ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec.$,
+      ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec,
+      ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec,
       [image, mask, seed]);
   }
 
@@ -758,8 +758,8 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec.$,
-      ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec.$,
+      ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec,
+      ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec,
       [image, mask, seed]);
   }
 
@@ -767,8 +767,8 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec.$,
-      ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec.$,
+      ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec,
+      ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec,
       [image]);
   }
 
@@ -776,8 +776,8 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec.$,
-      ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec.$,
+      ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec,
+      ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec,
       [gesture]);
   }
 
@@ -1007,7 +1007,7 @@ ash.media_app_ui.mojom.MantisUntrustedPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec.$,
+      ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec,
       null,
       [progress]);
   }

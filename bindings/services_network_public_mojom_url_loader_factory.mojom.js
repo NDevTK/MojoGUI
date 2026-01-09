@@ -48,7 +48,7 @@ network.mojom.URLLoaderFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec.$,
+      network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec,
       null,
       [loader, request_id, options, request, client, traffic_annotation]);
   }
@@ -57,7 +57,7 @@ network.mojom.URLLoaderFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.URLLoaderFactory_Clone_ParamsSpec.$,
+      network.mojom.URLLoaderFactory_Clone_ParamsSpec,
       null,
       [factory]);
   }

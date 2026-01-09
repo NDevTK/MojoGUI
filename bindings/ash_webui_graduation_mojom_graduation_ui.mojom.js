@@ -62,8 +62,8 @@ ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec.$,
-      ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec.$,
+      ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec,
+      ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec,
       []);
   }
 
@@ -71,8 +71,8 @@ ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec.$,
-      ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec.$,
+      ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec,
+      ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec,
       []);
   }
 
@@ -80,7 +80,7 @@ ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec.$,
+      ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec,
       null,
       [screen]);
   }
@@ -89,7 +89,7 @@ ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec.$,
+      ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec,
       null,
       []);
   }

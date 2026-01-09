@@ -48,7 +48,7 @@ new_window_proxy.mojom.NewWindowProxyRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec.$,
+      new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec,
       null,
       [url]);
   }

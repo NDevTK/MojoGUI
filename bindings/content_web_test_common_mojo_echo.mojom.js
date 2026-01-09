@@ -48,8 +48,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -57,8 +57,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -66,8 +66,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -75,8 +75,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -84,8 +84,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -93,8 +93,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -102,7 +102,7 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec.$,
+      content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec,
       null,
       [test_union]);
   }
@@ -111,8 +111,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -120,8 +120,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -129,8 +129,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -138,8 +138,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec,
       []);
   }
 
@@ -147,8 +147,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -156,8 +156,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -165,8 +165,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -174,8 +174,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -183,8 +183,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -192,8 +192,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -201,8 +201,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -210,8 +210,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -219,8 +219,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -228,7 +228,7 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec.$,
+      content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec,
       null,
       [test_union]);
   }
@@ -237,8 +237,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -246,8 +246,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -255,8 +255,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -264,8 +264,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec,
       []);
   }
 
@@ -273,8 +273,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -282,8 +282,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -291,8 +291,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec,
+      content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -300,8 +300,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      content.mojom.MojoEcho_EchoBoolArray_ParamsSpec.$,
-      content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec.$,
+      content.mojom.MojoEcho_EchoBoolArray_ParamsSpec,
+      content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec,
       [values]);
   }
 

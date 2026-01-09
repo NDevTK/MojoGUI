@@ -48,7 +48,7 @@ content.mojom.TestInterfaceForDeferRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.TestInterfaceForDefer_Ping_ParamsSpec.$,
+      content.mojom.TestInterfaceForDefer_Ping_ParamsSpec,
       null,
       []);
   }
@@ -278,7 +278,7 @@ content.mojom.MojoContextProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.MojoContextProvider_GrantAll_ParamsSpec.$,
+      content.mojom.MojoContextProvider_GrantAll_ParamsSpec,
       null,
       []);
   }

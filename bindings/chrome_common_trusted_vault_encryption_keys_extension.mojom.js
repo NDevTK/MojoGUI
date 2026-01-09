@@ -48,7 +48,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec.$,
+      chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec,
       null,
       [gaia_id, encryption_keys]);
   }
@@ -57,7 +57,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec.$,
+      chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec,
       null,
       [gaia_id, public_key, method_type_hint]);
   }

@@ -47,8 +47,8 @@ mojom.WebEngineMediaResourceProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec.$,
-      mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec.$,
+      mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec,
+      mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec,
       []);
   }
 
@@ -56,7 +56,7 @@ mojom.WebEngineMediaResourceProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec.$,
+      mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec,
       null,
       [request]);
   }

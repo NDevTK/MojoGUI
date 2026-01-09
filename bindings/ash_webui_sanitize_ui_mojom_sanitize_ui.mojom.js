@@ -49,7 +49,7 @@ ash.sanitize_ui.mojom.SettingsResetterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec.$,
+      ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec,
       null,
       []);
   }

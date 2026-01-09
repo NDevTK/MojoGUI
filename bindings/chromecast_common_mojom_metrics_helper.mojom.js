@@ -49,7 +49,7 @@ chromecast.metrics.mojom.MetricsHelperRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec.$,
+      chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec,
       null,
       [app_id, session_id, sdk_version, event]);
   }

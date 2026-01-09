@@ -78,7 +78,7 @@ content.mojom.FrameHTMLSerializerHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec.$,
+      content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec,
       null,
       [data_buffer]);
   }
@@ -87,7 +87,7 @@ content.mojom.FrameHTMLSerializerHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec.$,
+      content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec,
       null,
       []);
   }
@@ -175,8 +175,8 @@ content.mojom.FrameRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec.$,
-      content.mojom.Frame_CommitSameDocumentNavigation_ResponseParamsSpec.$,
+      content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec,
+      content.mojom.Frame_CommitSameDocumentNavigation_ResponseParamsSpec,
       [common_params, request_params]);
   }
 
@@ -184,7 +184,7 @@ content.mojom.FrameRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.Frame_UpdateSubresourceLoaderFactories_ParamsSpec.$,
+      content.mojom.Frame_UpdateSubresourceLoaderFactories_ParamsSpec,
       null,
       [subresource_loader_factories]);
   }
@@ -193,7 +193,7 @@ content.mojom.FrameRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec.$,
+      content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec,
       null,
       []);
   }
@@ -202,7 +202,7 @@ content.mojom.FrameRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.Frame_Unload_ParamsSpec.$,
+      content.mojom.Frame_Unload_ParamsSpec,
       null,
       [is_loading, new_remote_frame_replication_state, new_remote_frame_token, new_remote_frame_interfaces, new_remote_main_frame_interfaces, devtools_frame_token]);
   }
@@ -211,7 +211,7 @@ content.mojom.FrameRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.mojom.Frame_Delete_ParamsSpec.$,
+      content.mojom.Frame_Delete_ParamsSpec,
       null,
       [intention]);
   }
@@ -220,7 +220,7 @@ content.mojom.FrameRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      content.mojom.Frame_UndoCommitNavigation_ParamsSpec.$,
+      content.mojom.Frame_UndoCommitNavigation_ParamsSpec,
       null,
       [is_loading, new_remote_frame_replication_state, new_remote_frame_token, new_remote_frame_interfaces, new_remote_main_frame_interfaces]);
   }
@@ -229,7 +229,7 @@ content.mojom.FrameRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      content.mojom.Frame_GetInterfaceProvider_ParamsSpec.$,
+      content.mojom.Frame_GetInterfaceProvider_ParamsSpec,
       null,
       [interfaces]);
   }
@@ -238,8 +238,8 @@ content.mojom.FrameRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec.$,
-      content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec.$,
+      content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec,
+      content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec,
       [params]);
   }
 
@@ -247,7 +247,7 @@ content.mojom.FrameRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec.$,
+      content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec,
       null,
       [url_map, frame_token_map, save_with_empty_url, handler_remote]);
   }
@@ -472,7 +472,7 @@ content.mojom.FrameBindingsControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec.$,
+      content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec,
       null,
       [enabled_bindings_flags]);
   }
@@ -481,7 +481,7 @@ content.mojom.FrameBindingsControlRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec.$,
+      content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec,
       null,
       [features]);
   }
@@ -490,7 +490,7 @@ content.mojom.FrameBindingsControlRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.FrameBindingsControl_EnableMojoJsBindingsWithBroker_ParamsSpec.$,
+      content.mojom.FrameBindingsControl_EnableMojoJsBindingsWithBroker_ParamsSpec,
       null,
       [broker]);
   }
@@ -499,7 +499,7 @@ content.mojom.FrameBindingsControlRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec.$,
+      content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec,
       null,
       [receiver, remote]);
   }
@@ -617,7 +617,7 @@ content.mojom.NavigationRendererCancellationListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec.$,
+      content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec,
       null,
       []);
   }
@@ -691,8 +691,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.FrameHost_CreateNewWindow_ParamsSpec.$,
-      content.mojom.FrameHost_CreateNewWindow_ResponseParamsSpec.$,
+      content.mojom.FrameHost_CreateNewWindow_ParamsSpec,
+      content.mojom.FrameHost_CreateNewWindow_ResponseParamsSpec,
       [params]);
   }
 
@@ -700,7 +700,7 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.FrameHost_CreateChildFrame_ParamsSpec.$,
+      content.mojom.FrameHost_CreateChildFrame_ParamsSpec,
       null,
       [child_frame_token, frame, browser_interface_broker, policy_container_bind_params, associated_interface_provider, scope, frame_name, frame_unique_name, is_created_by_script, frame_policy, frame_owner_properties, child_frame_owner_element_type, document_ukm_source_id]);
   }
@@ -709,7 +709,7 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec.$,
+      content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec,
       null,
       [params, interface_params]);
   }
@@ -718,7 +718,7 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec.$,
+      content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec,
       null,
       [params, same_document_params]);
   }
@@ -727,7 +727,7 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec.$,
+      content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec,
       null,
       [url]);
   }
@@ -736,7 +736,7 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      content.mojom.FrameHost_BeginNavigation_ParamsSpec.$,
+      content.mojom.FrameHost_BeginNavigation_ParamsSpec,
       null,
       [common_params, begin_params, blob_url_token, navigation_client, initiator_navigation_state_keep_alive_handle, renderer_cancellation_listener]);
   }
@@ -745,7 +745,7 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec.$,
+      content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec,
       null,
       [final_response_url, cert_status]);
   }
@@ -754,7 +754,7 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec.$,
+      content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec,
       null,
       [url_load_info]);
   }
@@ -763,7 +763,7 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      content.mojom.FrameHost_DidChangeName_ParamsSpec.$,
+      content.mojom.FrameHost_DidChangeName_ParamsSpec,
       null,
       [name, unique_name]);
   }
@@ -772,7 +772,7 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec.$,
+      content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec,
       null,
       []);
   }
@@ -781,7 +781,7 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      content.mojom.FrameHost_UpdateEncoding_ParamsSpec.$,
+      content.mojom.FrameHost_UpdateEncoding_ParamsSpec,
       null,
       [encoding_name]);
   }
@@ -790,7 +790,7 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec.$,
+      content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec,
       null,
       []);
   }
@@ -799,7 +799,7 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      content.mojom.FrameHost_UpdateState_ParamsSpec.$,
+      content.mojom.FrameHost_UpdateState_ParamsSpec,
       null,
       [state]);
   }
@@ -808,7 +808,7 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      content.mojom.FrameHost_OpenURL_ParamsSpec.$,
+      content.mojom.FrameHost_OpenURL_ParamsSpec,
       null,
       [params]);
   }
@@ -817,7 +817,7 @@ content.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      content.mojom.FrameHost_DidStopLoading_ParamsSpec.$,
+      content.mojom.FrameHost_DidStopLoading_ParamsSpec,
       null,
       []);
   }

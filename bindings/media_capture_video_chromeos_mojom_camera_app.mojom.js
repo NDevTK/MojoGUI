@@ -77,8 +77,8 @@ cros.mojom.CameraAppDeviceProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec.$,
-      cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec.$,
+      cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec,
+      cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec,
       [source_id]);
   }
 
@@ -86,8 +86,8 @@ cros.mojom.CameraAppDeviceProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec.$,
-      cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec.$,
+      cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec,
+      cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec,
       []);
   }
 
@@ -95,8 +95,8 @@ cros.mojom.CameraAppDeviceProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec.$,
-      cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec.$,
+      cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec,
+      cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec,
       [source_id]);
   }
 
@@ -237,8 +237,8 @@ cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec.$,
-      cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec.$,
+      cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec,
+      cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec,
       [device_id]);
   }
 
@@ -246,8 +246,8 @@ cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec.$,
-      cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec.$,
+      cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec,
+      cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec,
       []);
   }
 
@@ -255,8 +255,8 @@ cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec.$,
-      cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec.$,
+      cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec,
+      cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec,
       [device_id, enabled]);
   }
 
@@ -264,8 +264,8 @@ cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec.$,
-      cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec.$,
+      cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec,
+      cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec,
       [device_id]);
   }
 
@@ -434,7 +434,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec.$,
+      cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec,
       null,
       [observer]);
   }
@@ -443,8 +443,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec.$,
-      cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec.$,
+      cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec,
+      cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec,
       [fps_range]);
   }
 
@@ -452,7 +452,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec.$,
+      cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec,
       null,
       [resolution]);
   }
@@ -461,7 +461,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec.$,
+      cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec,
       null,
       [intent]);
   }
@@ -470,7 +470,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec.$,
+      cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec,
       null,
       [observer, stream_type]);
   }
@@ -479,7 +479,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec.$,
+      cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -488,8 +488,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec.$,
-      cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec.$,
+      cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec,
+      cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec,
       [is_enabled]);
   }
 
@@ -497,8 +497,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec.$,
-      cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec.$,
+      cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec,
+      cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec,
       []);
   }
 
@@ -506,7 +506,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec.$,
+      cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -515,7 +515,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec.$,
+      cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -524,7 +524,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec.$,
+      cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -533,7 +533,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec.$,
+      cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec,
       null,
       [crop_region]);
   }
@@ -542,7 +542,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec.$,
+      cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec,
       null,
       []);
   }
@@ -823,7 +823,7 @@ cros.mojom.ResultMetadataObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec.$,
+      cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec,
       null,
       [camera_metadata]);
   }
@@ -898,7 +898,7 @@ cros.mojom.CameraEventObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec.$,
+      cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec,
       null,
       []);
   }
@@ -972,7 +972,7 @@ cros.mojom.DocumentCornersObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec.$,
+      cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec,
       null,
       [corners]);
   }
@@ -1047,7 +1047,7 @@ cros.mojom.CameraInfoObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec.$,
+      cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec,
       null,
       [camera_info]);
   }
@@ -1122,7 +1122,7 @@ cros.mojom.StillCaptureResultObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec.$,
+      cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec,
       null,
       [effect, status, blob]);
   }

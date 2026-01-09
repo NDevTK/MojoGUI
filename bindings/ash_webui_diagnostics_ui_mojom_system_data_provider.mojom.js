@@ -63,7 +63,7 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$,
+      ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec,
       null,
       [battery_charge_status]);
   }
@@ -138,7 +138,7 @@ ash.diagnostics.mojom.BatteryHealthObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$,
+      ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec,
       null,
       [battery_health]);
   }
@@ -213,7 +213,7 @@ ash.diagnostics.mojom.MemoryUsageObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$,
+      ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec,
       null,
       [memory_usage]);
   }
@@ -288,7 +288,7 @@ ash.diagnostics.mojom.CpuUsageObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$,
+      ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec,
       null,
       [cpu_usage]);
   }
@@ -363,8 +363,8 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$,
-      ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec.$,
+      ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec,
+      ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec,
       []);
   }
 
@@ -372,8 +372,8 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$,
-      ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec.$,
+      ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec,
+      ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec,
       []);
   }
 
@@ -381,7 +381,7 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$,
+      ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec,
       null,
       [observer]);
   }
@@ -390,7 +390,7 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$,
+      ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec,
       null,
       [observer]);
   }
@@ -399,7 +399,7 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$,
+      ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec,
       null,
       [observer]);
   }
@@ -408,7 +408,7 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$,
+      ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec,
       null,
       [observer]);
   }

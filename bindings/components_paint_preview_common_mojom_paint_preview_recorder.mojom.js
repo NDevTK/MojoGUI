@@ -59,7 +59,7 @@ paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec.$,
+      paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec,
       null,
       [params]);
   }
@@ -68,8 +68,8 @@ paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec.$,
-      paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec.$,
+      paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec,
+      paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec,
       [params]);
   }
 

@@ -61,7 +61,7 @@ media.mojom.CdmContextEventCallbackRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec.$,
+      media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec,
       null,
       [event]);
   }
@@ -136,8 +136,8 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec.$,
-      media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec.$,
+      media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec,
+      media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec,
       [decrypt_config, hw_identifier]);
   }
 
@@ -145,7 +145,7 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec.$,
+      media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec,
       null,
       [callback]);
   }
@@ -154,8 +154,8 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec.$,
-      media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec.$,
+      media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec,
+      media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec,
       []);
   }
 
@@ -163,8 +163,8 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec.$,
-      media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec.$,
+      media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec,
+      media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec,
       []);
   }
 
@@ -172,8 +172,8 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec.$,
-      media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec.$,
+      media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec,
+      media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec,
       [size]);
   }
 
@@ -181,8 +181,8 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec.$,
-      media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec.$,
+      media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec,
+      media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec,
       [secure_handle, offset, stream_data]);
   }
 
@@ -190,8 +190,8 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec.$,
-      media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec.$,
+      media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec,
+      media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec,
       [buffer, bytes]);
   }
 

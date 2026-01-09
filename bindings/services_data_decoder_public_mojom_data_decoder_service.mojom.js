@@ -48,7 +48,7 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec.$,
+      data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec,
       null,
       [receiver]);
   }
@@ -57,7 +57,7 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec.$,
+      data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec,
       null,
       [reciever]);
   }
@@ -66,7 +66,7 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec.$,
+      data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec,
       null,
       [receiver]);
   }
@@ -75,7 +75,7 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec.$,
+      data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec,
       null,
       [receiver]);
   }
@@ -84,7 +84,7 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec.$,
+      data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec,
       null,
       [receiver]);
   }
@@ -93,7 +93,7 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec.$,
+      data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec,
       null,
       [receiver]);
   }
@@ -102,7 +102,7 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec.$,
+      data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec,
       null,
       [receiver]);
   }

@@ -50,7 +50,7 @@ ash.settings.date_time.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -126,7 +126,7 @@ ash.settings.date_time.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec.$,
+      ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec,
       null,
       []);
   }
@@ -135,8 +135,8 @@ ash.settings.date_time.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec.$,
-      ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec.$,
+      ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec,
+      ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec,
       []);
   }
 
@@ -144,7 +144,7 @@ ash.settings.date_time.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec.$,
+      ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec,
       null,
       []);
   }
@@ -257,7 +257,7 @@ ash.settings.date_time.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec.$,
+      ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec,
       null,
       [is_allowed]);
   }
@@ -266,7 +266,7 @@ ash.settings.date_time.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec.$,
+      ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec,
       null,
       [success]);
   }

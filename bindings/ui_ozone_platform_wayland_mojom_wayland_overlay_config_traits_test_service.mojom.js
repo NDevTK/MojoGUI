@@ -48,8 +48,8 @@ wl.mojom.ConfigTraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec.$,
-      wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec.$,
+      wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec,
+      wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec,
       [t]);
   }
 

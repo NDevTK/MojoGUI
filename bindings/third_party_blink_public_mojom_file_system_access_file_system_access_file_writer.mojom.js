@@ -48,8 +48,8 @@ blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec,
+      blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec,
       [offset, stream]);
   }
 
@@ -57,8 +57,8 @@ blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec,
+      blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec,
       [length]);
   }
 
@@ -66,8 +66,8 @@ blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec,
+      blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec,
+      blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec,
       []);
   }
 

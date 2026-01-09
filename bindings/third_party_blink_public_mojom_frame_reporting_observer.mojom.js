@@ -48,7 +48,7 @@ blink.mojom.ReportingObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ReportingObserver_Notify_ParamsSpec.$,
+      blink.mojom.ReportingObserver_Notify_ParamsSpec,
       null,
       [report]);
   }

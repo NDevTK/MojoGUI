@@ -48,7 +48,7 @@ segmentation_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -124,7 +124,7 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec.$,
+      segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec,
       null,
       []);
   }
@@ -133,7 +133,7 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec.$,
+      segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec,
       null,
       [segment_id]);
   }
@@ -142,7 +142,7 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec.$,
+      segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec,
       null,
       [segment_id, result]);
   }
@@ -151,7 +151,7 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec.$,
+      segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec,
       null,
       [segmentation_key, optimization_target]);
   }
@@ -269,7 +269,7 @@ segmentation_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec.$,
+      segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec,
       null,
       [is_initialized, status_flag]);
   }
@@ -278,7 +278,7 @@ segmentation_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec.$,
+      segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec,
       null,
       [client_info]);
   }

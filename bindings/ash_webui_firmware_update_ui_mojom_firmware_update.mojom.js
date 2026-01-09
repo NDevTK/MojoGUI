@@ -86,7 +86,7 @@ ash.firmware_update.mojom.UpdateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec.$,
+      ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec,
       null,
       [firmware_updates]);
   }
@@ -161,7 +161,7 @@ ash.firmware_update.mojom.DeviceRequestObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec.$,
+      ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec,
       null,
       [request]);
   }
@@ -236,7 +236,7 @@ ash.firmware_update.mojom.UpdateProgressObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec.$,
+      ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec,
       null,
       [update]);
   }
@@ -311,7 +311,7 @@ ash.firmware_update.mojom.UpdateProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec.$,
+      ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec,
       null,
       [observer]);
   }
@@ -320,8 +320,8 @@ ash.firmware_update.mojom.UpdateProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec.$,
-      ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec.$,
+      ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec,
+      ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec,
       [device_id]);
   }
 
@@ -329,8 +329,8 @@ ash.firmware_update.mojom.UpdateProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec.$,
-      ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec.$,
+      ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec,
+      ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec,
       []);
   }
 
@@ -457,7 +457,7 @@ ash.firmware_update.mojom.InstallControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec.$,
+      ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec,
       null,
       [device_id, filepath]);
   }
@@ -466,7 +466,7 @@ ash.firmware_update.mojom.InstallControllerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec.$,
+      ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -475,7 +475,7 @@ ash.firmware_update.mojom.InstallControllerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec.$,
+      ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -579,7 +579,7 @@ ash.firmware_update.mojom.SystemUtilsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec.$,
+      ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec,
       null,
       []);
   }

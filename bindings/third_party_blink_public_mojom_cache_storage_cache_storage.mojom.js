@@ -69,7 +69,7 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.CacheStorageCache_Match_ParamsSpec.$,
+      blink.mojom.CacheStorageCache_Match_ParamsSpec,
       null,
       [request, query_options, in_related_fetch_event, in_range_fetch_event, trace_id]);
   }
@@ -78,7 +78,7 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.CacheStorageCache_MatchAll_ParamsSpec.$,
+      blink.mojom.CacheStorageCache_MatchAll_ParamsSpec,
       null,
       [request, query_options, trace_id]);
   }
@@ -87,7 +87,7 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec.$,
+      blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec,
       null,
       [request, query_options, trace_id]);
   }
@@ -96,7 +96,7 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.CacheStorageCache_Keys_ParamsSpec.$,
+      blink.mojom.CacheStorageCache_Keys_ParamsSpec,
       null,
       [request, query_options, trace_id]);
   }
@@ -105,8 +105,8 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.CacheStorageCache_Batch_ParamsSpec.$,
-      blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec.$,
+      blink.mojom.CacheStorageCache_Batch_ParamsSpec,
+      blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec,
       [batch_operations, trace_id]);
   }
 
@@ -114,8 +114,8 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec.$,
-      blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec.$,
+      blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec,
+      blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec,
       [url, expected_response_time, data, trace_id]);
   }
 
@@ -299,8 +299,8 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.CacheStorage_Has_ParamsSpec.$,
-      blink.mojom.CacheStorage_Has_ResponseParamsSpec.$,
+      blink.mojom.CacheStorage_Has_ParamsSpec,
+      blink.mojom.CacheStorage_Has_ResponseParamsSpec,
       [cache_name, trace_id]);
   }
 
@@ -308,8 +308,8 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.CacheStorage_Delete_ParamsSpec.$,
-      blink.mojom.CacheStorage_Delete_ResponseParamsSpec.$,
+      blink.mojom.CacheStorage_Delete_ParamsSpec,
+      blink.mojom.CacheStorage_Delete_ResponseParamsSpec,
       [cache_name, trace_id]);
   }
 
@@ -317,8 +317,8 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.CacheStorage_Keys_ParamsSpec.$,
-      blink.mojom.CacheStorage_Keys_ResponseParamsSpec.$,
+      blink.mojom.CacheStorage_Keys_ParamsSpec,
+      blink.mojom.CacheStorage_Keys_ResponseParamsSpec,
       [trace_id]);
   }
 
@@ -326,7 +326,7 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.CacheStorage_Match_ParamsSpec.$,
+      blink.mojom.CacheStorage_Match_ParamsSpec,
       null,
       [request, match_options, in_related_fetch_event, in_range_fetch_event, trace_id]);
   }
@@ -335,7 +335,7 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.CacheStorage_Open_ParamsSpec.$,
+      blink.mojom.CacheStorage_Open_ParamsSpec,
       null,
       [cache_name, trace_id]);
   }

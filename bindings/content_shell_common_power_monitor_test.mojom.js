@@ -48,8 +48,8 @@ content.mojom.PowerMonitorTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec.$,
-      content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec.$,
+      content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec,
+      content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec,
       []);
   }
 

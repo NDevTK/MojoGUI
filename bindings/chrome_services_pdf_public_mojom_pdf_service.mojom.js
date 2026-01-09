@@ -48,8 +48,8 @@ pdf.mojom.OcrRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      pdf.mojom.Ocr_PerformOcr_ParamsSpec.$,
-      pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec.$,
+      pdf.mojom.Ocr_PerformOcr_ParamsSpec,
+      pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec,
       [image]);
   }
 
@@ -136,7 +136,7 @@ pdf.mojom.PdfServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec.$,
+      pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec,
       null,
       [receiver, ocr]);
   }
@@ -145,7 +145,7 @@ pdf.mojom.PdfServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec.$,
+      pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec,
       null,
       [receiver, ocr]);
   }
@@ -154,7 +154,7 @@ pdf.mojom.PdfServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec.$,
+      pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec,
       null,
       [receiver]);
   }

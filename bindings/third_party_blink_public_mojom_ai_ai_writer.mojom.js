@@ -68,7 +68,7 @@ blink.mojom.AIWriterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AIWriter_Write_ParamsSpec.$,
+      blink.mojom.AIWriter_Write_ParamsSpec,
       null,
       [input, context, pending_responder]);
   }
@@ -77,8 +77,8 @@ blink.mojom.AIWriterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AIWriter_MeasureUsage_ParamsSpec.$,
-      blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec.$,
+      blink.mojom.AIWriter_MeasureUsage_ParamsSpec,
+      blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec,
       [input, context]);
   }
 

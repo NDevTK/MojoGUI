@@ -71,7 +71,7 @@ extensions.mojom.MessagePortRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec.$,
+      extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec,
       null,
       [error]);
   }
@@ -80,7 +80,7 @@ extensions.mojom.MessagePortRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.MessagePort_DeliverMessage_ParamsSpec.$,
+      extensions.mojom.MessagePort_DeliverMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -169,7 +169,7 @@ extensions.mojom.MessagePortHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.MessagePortHost_ClosePort_ParamsSpec.$,
+      extensions.mojom.MessagePortHost_ClosePort_ParamsSpec,
       null,
       [close_channel, error_message]);
   }
@@ -178,7 +178,7 @@ extensions.mojom.MessagePortHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.MessagePortHost_PostMessage_ParamsSpec.$,
+      extensions.mojom.MessagePortHost_PostMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -187,7 +187,7 @@ extensions.mojom.MessagePortHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec.$,
+      extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec,
       null,
       []);
   }

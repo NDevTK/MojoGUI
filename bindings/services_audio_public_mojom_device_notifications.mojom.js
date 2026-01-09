@@ -48,7 +48,7 @@ audio.mojom.DeviceListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.DeviceListener_DevicesChanged_ParamsSpec.$,
+      audio.mojom.DeviceListener_DevicesChanged_ParamsSpec,
       null,
       []);
   }
@@ -122,7 +122,7 @@ audio.mojom.DeviceNotifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec.$,
+      audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec,
       null,
       [listener]);
   }

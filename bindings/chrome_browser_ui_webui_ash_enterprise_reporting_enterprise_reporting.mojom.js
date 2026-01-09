@@ -48,7 +48,7 @@ enterprise_reporting.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -124,7 +124,7 @@ enterprise_reporting.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec.$,
+      enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec,
       null,
       [state]);
   }
@@ -133,8 +133,8 @@ enterprise_reporting.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec.$,
-      enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec.$,
+      enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec,
+      enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec,
       []);
   }
 
@@ -142,8 +142,8 @@ enterprise_reporting.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec.$,
-      enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec.$,
+      enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec,
+      enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec,
       []);
   }
 
@@ -269,7 +269,7 @@ enterprise_reporting.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec.$,
+      enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec,
       null,
       [history_data]);
   }

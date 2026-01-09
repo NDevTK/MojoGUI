@@ -64,8 +64,8 @@ network.mojom.FileEnumeratorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.FileEnumerator_GetNext_ParamsSpec.$,
-      network.mojom.FileEnumerator_GetNext_ResponseParamsSpec.$,
+      network.mojom.FileEnumerator_GetNext_ParamsSpec,
+      network.mojom.FileEnumerator_GetNext_ResponseParamsSpec,
       [num_entries]);
   }
 
@@ -154,8 +154,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec.$,
-      network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec.$,
+      network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec,
       [path]);
   }
 
@@ -163,8 +163,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec.$,
-      network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec.$,
+      network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec,
       [path]);
   }
 
@@ -172,8 +172,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec.$,
-      network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec.$,
+      network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec,
       [path]);
   }
 
@@ -181,8 +181,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec.$,
-      network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec.$,
+      network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec,
       [path, flags]);
   }
 
@@ -190,8 +190,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec.$,
-      network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec.$,
+      network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec,
       [path, mode]);
   }
 
@@ -199,8 +199,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec.$,
-      network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec.$,
+      network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec,
       [from_path, to_path]);
   }
 
@@ -208,8 +208,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec.$,
-      network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec.$,
+      network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec,
       [path]);
   }
 
@@ -217,7 +217,7 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec.$,
+      network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec,
       null,
       [path, receiver]);
   }
@@ -226,8 +226,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec.$,
-      network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec.$,
+      network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec,
+      network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec,
       [path]);
   }
 
@@ -522,7 +522,7 @@ network.mojom.HttpCacheBackendFileOperationsFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec.$,
+      network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec,
       null,
       [receiver]);
   }

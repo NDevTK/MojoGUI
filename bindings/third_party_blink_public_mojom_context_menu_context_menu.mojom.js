@@ -68,7 +68,7 @@ blink.mojom.ContextMenuClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec.$,
+      blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec,
       null,
       [action]);
   }
@@ -77,7 +77,7 @@ blink.mojom.ContextMenuClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec.$,
+      blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec,
       null,
       [link_followed, impression]);
   }

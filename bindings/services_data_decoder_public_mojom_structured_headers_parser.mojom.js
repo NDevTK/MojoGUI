@@ -48,8 +48,8 @@ data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec.$,
-      data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec.$,
+      data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec,
+      data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec,
       [header]);
   }
 
@@ -57,8 +57,8 @@ data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec.$,
-      data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec.$,
+      data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec,
+      data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec,
       [header]);
   }
 
@@ -66,8 +66,8 @@ data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec.$,
-      data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec.$,
+      data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec,
+      data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec,
       [header]);
   }
 

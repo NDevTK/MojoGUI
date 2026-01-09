@@ -53,8 +53,8 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec.$,
-      blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec.$,
+      blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec,
       [script_url, options, outside_fetch_client_settings_object]);
   }
 
@@ -62,8 +62,8 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec.$,
-      blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec.$,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec,
       [client_url]);
   }
 
@@ -71,8 +71,8 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec.$,
-      blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec.$,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec,
       []);
   }
 
@@ -80,8 +80,8 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec.$,
-      blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec.$,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec,
       []);
   }
 
@@ -89,7 +89,7 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec.$,
+      blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec,
       null,
       [receiver, purpose]);
   }
@@ -98,7 +98,7 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec.$,
+      blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec,
       null,
       [container_host]);
   }
@@ -107,7 +107,7 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec.$,
+      blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec,
       null,
       []);
   }
@@ -116,7 +116,7 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec.$,
+      blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec,
       null,
       [files]);
   }
@@ -125,7 +125,7 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec.$,
+      blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec,
       null,
       []);
   }
@@ -369,7 +369,7 @@ blink.mojom.ServiceWorkerContainerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec.$,
+      blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec,
       null,
       [controller_info, should_notify_controllerchange]);
   }
@@ -378,7 +378,7 @@ blink.mojom.ServiceWorkerContainerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec.$,
+      blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec,
       null,
       [source, message]);
   }
@@ -387,7 +387,7 @@ blink.mojom.ServiceWorkerContainerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec.$,
+      blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec,
       null,
       [feature]);
   }

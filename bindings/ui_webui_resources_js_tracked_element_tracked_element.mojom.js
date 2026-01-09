@@ -48,7 +48,7 @@ tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec.$,
+      tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec,
       null,
       [native_identifier, visible, rect]);
   }
@@ -57,7 +57,7 @@ tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec.$,
+      tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec,
       null,
       [native_identifier]);
   }
@@ -66,7 +66,7 @@ tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec.$,
+      tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec,
       null,
       [native_identifier, custom_event_name]);
   }

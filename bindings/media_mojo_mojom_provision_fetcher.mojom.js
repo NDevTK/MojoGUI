@@ -48,8 +48,8 @@ media.mojom.ProvisionFetcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.ProvisionFetcher_Retrieve_ParamsSpec.$,
-      media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec.$,
+      media.mojom.ProvisionFetcher_Retrieve_ParamsSpec,
+      media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec,
       [default_url, request_data]);
   }
 

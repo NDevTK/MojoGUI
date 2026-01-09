@@ -61,7 +61,7 @@ service_manager.mojom.ProcessMetadataRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec.$,
+      service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec,
       null,
       [pid]);
   }
@@ -136,8 +136,8 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      service_manager.mojom.Connector_BindInterface_ParamsSpec.$,
-      service_manager.mojom.Connector_BindInterface_ResponseParamsSpec.$,
+      service_manager.mojom.Connector_BindInterface_ParamsSpec,
+      service_manager.mojom.Connector_BindInterface_ResponseParamsSpec,
       [filter, interface_name, interface_pipe, priority]);
   }
 
@@ -145,8 +145,8 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      service_manager.mojom.Connector_QueryService_ParamsSpec.$,
-      service_manager.mojom.Connector_QueryService_ResponseParamsSpec.$,
+      service_manager.mojom.Connector_QueryService_ParamsSpec,
+      service_manager.mojom.Connector_QueryService_ResponseParamsSpec,
       [service_name]);
   }
 
@@ -154,8 +154,8 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      service_manager.mojom.Connector_WarmService_ParamsSpec.$,
-      service_manager.mojom.Connector_WarmService_ResponseParamsSpec.$,
+      service_manager.mojom.Connector_WarmService_ParamsSpec,
+      service_manager.mojom.Connector_WarmService_ResponseParamsSpec,
       [filter]);
   }
 
@@ -163,8 +163,8 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec.$,
-      service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec.$,
+      service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec,
+      service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec,
       [identity, service, metadata_receiver]);
   }
 
@@ -172,7 +172,7 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      service_manager.mojom.Connector_Clone_ParamsSpec.$,
+      service_manager.mojom.Connector_Clone_ParamsSpec,
       null,
       [receiver]);
   }

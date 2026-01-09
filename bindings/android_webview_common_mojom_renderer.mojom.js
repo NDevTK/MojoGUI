@@ -48,7 +48,7 @@ android_webview.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      android_webview.mojom.Renderer_ClearCache_ParamsSpec.$,
+      android_webview.mojom.Renderer_ClearCache_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ android_webview.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec.$,
+      android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec,
       null,
       [network_up]);
   }

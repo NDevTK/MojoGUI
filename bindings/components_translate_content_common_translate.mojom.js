@@ -64,8 +64,8 @@ translate.mojom.TranslateAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec.$,
-      translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec.$,
+      translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec,
+      translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec,
       [translate_script, source_lang, target_lang]);
   }
 
@@ -73,7 +73,7 @@ translate.mojom.TranslateAgentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec.$,
+      translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec,
       null,
       []);
   }
@@ -179,7 +179,7 @@ translate.mojom.ContentTranslateDriverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec.$,
+      translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec,
       null,
       [translate_agent, details, translation_critiera_met]);
   }

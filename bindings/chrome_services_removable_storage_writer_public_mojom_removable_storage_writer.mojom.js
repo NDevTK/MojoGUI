@@ -48,7 +48,7 @@ chrome.mojom.RemovableStorageWriterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$,
+      chrome.mojom.RemovableStorageWriter_Write_ParamsSpec,
       null,
       [source, target, client]);
   }
@@ -57,7 +57,7 @@ chrome.mojom.RemovableStorageWriterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$,
+      chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec,
       null,
       [source, target, client]);
   }
@@ -150,7 +150,7 @@ chrome.mojom.RemovableStorageWriterClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$,
+      chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec,
       null,
       [progress]);
   }
@@ -159,7 +159,7 @@ chrome.mojom.RemovableStorageWriterClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$,
+      chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec,
       null,
       [error]);
   }

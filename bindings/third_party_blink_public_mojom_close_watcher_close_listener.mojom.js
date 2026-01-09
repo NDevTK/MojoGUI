@@ -48,7 +48,7 @@ blink.mojom.CloseListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.CloseListener_Signal_ParamsSpec.$,
+      blink.mojom.CloseListener_Signal_ParamsSpec,
       null,
       []);
   }

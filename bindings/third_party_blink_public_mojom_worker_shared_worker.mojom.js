@@ -48,7 +48,7 @@ blink.mojom.SharedWorkerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SharedWorker_Connect_ParamsSpec.$,
+      blink.mojom.SharedWorker_Connect_ParamsSpec,
       null,
       [connection_id, message_port]);
   }
@@ -57,7 +57,7 @@ blink.mojom.SharedWorkerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SharedWorker_Terminate_ParamsSpec.$,
+      blink.mojom.SharedWorker_Terminate_ParamsSpec,
       null,
       []);
   }

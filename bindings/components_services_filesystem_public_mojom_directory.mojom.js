@@ -48,8 +48,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      filesystem.mojom.Directory_Read_ParamsSpec.$,
-      filesystem.mojom.Directory_Read_ResponseParamsSpec.$,
+      filesystem.mojom.Directory_Read_ParamsSpec,
+      filesystem.mojom.Directory_Read_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      filesystem.mojom.Directory_OpenFileHandle_ParamsSpec.$,
-      filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec.$,
+      filesystem.mojom.Directory_OpenFileHandle_ParamsSpec,
+      filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec,
       [path, open_flags]);
   }
 
@@ -66,8 +66,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      filesystem.mojom.Directory_OpenFileHandles_ParamsSpec.$,
-      filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec.$,
+      filesystem.mojom.Directory_OpenFileHandles_ParamsSpec,
+      filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec,
       [files]);
   }
 
@@ -75,8 +75,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      filesystem.mojom.Directory_OpenDirectory_ParamsSpec.$,
-      filesystem.mojom.Directory_OpenDirectory_ResponseParamsSpec.$,
+      filesystem.mojom.Directory_OpenDirectory_ParamsSpec,
+      filesystem.mojom.Directory_OpenDirectory_ResponseParamsSpec,
       [path, directory, open_flags]);
   }
 
@@ -84,8 +84,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      filesystem.mojom.Directory_Rename_ParamsSpec.$,
-      filesystem.mojom.Directory_Rename_ResponseParamsSpec.$,
+      filesystem.mojom.Directory_Rename_ParamsSpec,
+      filesystem.mojom.Directory_Rename_ResponseParamsSpec,
       [path, new_path]);
   }
 
@@ -93,8 +93,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      filesystem.mojom.Directory_Replace_ParamsSpec.$,
-      filesystem.mojom.Directory_Replace_ResponseParamsSpec.$,
+      filesystem.mojom.Directory_Replace_ParamsSpec,
+      filesystem.mojom.Directory_Replace_ResponseParamsSpec,
       [path, new_path]);
   }
 
@@ -102,8 +102,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      filesystem.mojom.Directory_Delete_ParamsSpec.$,
-      filesystem.mojom.Directory_Delete_ResponseParamsSpec.$,
+      filesystem.mojom.Directory_Delete_ParamsSpec,
+      filesystem.mojom.Directory_Delete_ResponseParamsSpec,
       [path, delete_flags]);
   }
 
@@ -111,8 +111,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      filesystem.mojom.Directory_Exists_ParamsSpec.$,
-      filesystem.mojom.Directory_Exists_ResponseParamsSpec.$,
+      filesystem.mojom.Directory_Exists_ParamsSpec,
+      filesystem.mojom.Directory_Exists_ResponseParamsSpec,
       [path]);
   }
 
@@ -120,8 +120,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      filesystem.mojom.Directory_IsWritable_ParamsSpec.$,
-      filesystem.mojom.Directory_IsWritable_ResponseParamsSpec.$,
+      filesystem.mojom.Directory_IsWritable_ParamsSpec,
+      filesystem.mojom.Directory_IsWritable_ResponseParamsSpec,
       [path]);
   }
 
@@ -129,8 +129,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      filesystem.mojom.Directory_Flush_ParamsSpec.$,
-      filesystem.mojom.Directory_Flush_ResponseParamsSpec.$,
+      filesystem.mojom.Directory_Flush_ParamsSpec,
+      filesystem.mojom.Directory_Flush_ResponseParamsSpec,
       []);
   }
 
@@ -138,8 +138,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      filesystem.mojom.Directory_StatFile_ParamsSpec.$,
-      filesystem.mojom.Directory_StatFile_ResponseParamsSpec.$,
+      filesystem.mojom.Directory_StatFile_ParamsSpec,
+      filesystem.mojom.Directory_StatFile_ResponseParamsSpec,
       [path]);
   }
 
@@ -147,7 +147,7 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      filesystem.mojom.Directory_Clone_ParamsSpec.$,
+      filesystem.mojom.Directory_Clone_ParamsSpec,
       null,
       [directory]);
   }
@@ -156,8 +156,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      filesystem.mojom.Directory_ReadEntireFile_ParamsSpec.$,
-      filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec.$,
+      filesystem.mojom.Directory_ReadEntireFile_ParamsSpec,
+      filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec,
       [path]);
   }
 
@@ -165,8 +165,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      filesystem.mojom.Directory_WriteFile_ParamsSpec.$,
-      filesystem.mojom.Directory_WriteFile_ResponseParamsSpec.$,
+      filesystem.mojom.Directory_WriteFile_ParamsSpec,
+      filesystem.mojom.Directory_WriteFile_ResponseParamsSpec,
       [path, data]);
   }
 

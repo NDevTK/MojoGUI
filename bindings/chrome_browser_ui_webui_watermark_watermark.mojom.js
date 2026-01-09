@@ -48,7 +48,7 @@ watermark.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -123,7 +123,7 @@ watermark.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec.$,
+      watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec,
       null,
       [style]);
   }
@@ -132,7 +132,7 @@ watermark.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec.$,
+      watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec,
       null,
       []);
   }

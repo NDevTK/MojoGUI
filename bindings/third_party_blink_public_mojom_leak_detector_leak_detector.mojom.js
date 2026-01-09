@@ -48,8 +48,8 @@ blink.mojom.LeakDetectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec.$,
-      blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec.$,
+      blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec,
+      blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec,
       []);
   }
 

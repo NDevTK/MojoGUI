@@ -99,8 +99,8 @@ safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec.$,
-      safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec.$,
+      safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec,
+      safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec,
       [frame_token, receiver, url, method, headers, load_flags, has_user_gesture, originated_from_service_worker]);
   }
 
@@ -108,7 +108,7 @@ safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec.$,
+      safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec,
       null,
       [receiver]);
   }
@@ -218,8 +218,8 @@ safe_browsing.mojom.ThreatReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec.$,
-      safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec.$,
+      safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec,
+      safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec,
       []);
   }
 
@@ -305,8 +305,8 @@ safe_browsing.mojom.PhishingDetectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec.$,
-      safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec.$,
+      safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec,
+      safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec,
       [url, request_type]);
   }
 
@@ -395,7 +395,7 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$,
+      safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec,
       null,
       [region, tflite_model, image_embedding_model]);
   }
@@ -404,7 +404,7 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$,
+      safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec,
       null,
       [image_embedding_model]);
   }
@@ -413,7 +413,7 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$,
+      safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec,
       null,
       [region, tflite_model]);
   }
@@ -422,7 +422,7 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec.$,
+      safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec,
       null,
       []);
   }
@@ -431,7 +431,7 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec.$,
+      safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -564,7 +564,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec.$,
+      safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec,
       null,
       []);
   }
@@ -638,8 +638,8 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec.$,
-      safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec.$,
+      safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec,
+      safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec,
       [url]);
   }
 
@@ -727,7 +727,7 @@ safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec.$,
+      safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec,
       null,
       [origin_extension_id, telemetry_url, protocol_type, contact_initiator_type]);
   }
@@ -736,7 +736,7 @@ safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec.$,
+      safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec,
       null,
       [receiver]);
   }

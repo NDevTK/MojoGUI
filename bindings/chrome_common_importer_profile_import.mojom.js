@@ -54,7 +54,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec,
       null,
       []);
   }
@@ -63,7 +63,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec,
       null,
       [succeeded, error_msg]);
   }
@@ -72,7 +72,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec,
       null,
       [item]);
   }
@@ -81,7 +81,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec,
       null,
       [item]);
   }
@@ -90,7 +90,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec,
       null,
       [total_history_rows_count]);
   }
@@ -99,7 +99,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec,
       null,
       [history_rows_group, visit_source]);
   }
@@ -108,7 +108,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec,
       null,
       [home_page]);
   }
@@ -117,7 +117,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec,
       null,
       [first_folder_name, total_bookmarks_count]);
   }
@@ -126,7 +126,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec,
       null,
       [bookmarks_group]);
   }
@@ -135,7 +135,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec,
       null,
       [total_favicons_count]);
   }
@@ -144,7 +144,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec,
       null,
       [favicons_group]);
   }
@@ -153,7 +153,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec,
       null,
       [form]);
   }
@@ -162,7 +162,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec,
       null,
       [search_engines, unique_on_host_and_path]);
   }
@@ -171,7 +171,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec,
       null,
       [total_autofill_form_data_entry_count]);
   }
@@ -180,7 +180,7 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec.$,
+      chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec,
       null,
       [autofill_form_data_entry_group]);
   }
@@ -454,7 +454,7 @@ chrome.mojom.ProfileImportRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.ProfileImport_StartImport_ParamsSpec.$,
+      chrome.mojom.ProfileImport_StartImport_ParamsSpec,
       null,
       [source_profile, items, localized_strings, observer]);
   }
@@ -463,7 +463,7 @@ chrome.mojom.ProfileImportRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.ProfileImport_CancelImport_ParamsSpec.$,
+      chrome.mojom.ProfileImport_CancelImport_ParamsSpec,
       null,
       []);
   }
@@ -472,7 +472,7 @@ chrome.mojom.ProfileImportRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec.$,
+      chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec,
       null,
       [item]);
   }

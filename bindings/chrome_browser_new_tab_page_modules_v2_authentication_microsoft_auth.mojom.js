@@ -49,7 +49,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec.$,
+      ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec,
       null,
       []);
   }
@@ -58,7 +58,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec.$,
+      ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec,
       null,
       []);
   }
@@ -67,8 +67,8 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec.$,
-      ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec.$,
+      ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec,
+      ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec,
       []);
   }
 

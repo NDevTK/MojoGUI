@@ -48,7 +48,7 @@ extensions.mojom.GuestViewRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec.$,
+      extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec,
       null,
       [success]);
   }
@@ -57,8 +57,8 @@ extensions.mojom.GuestViewRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec.$,
-      extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec.$,
+      extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec,
+      extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec,
       [script_id]);
   }
 
@@ -159,7 +159,7 @@ extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec.$,
+      extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec,
       null,
       [token_id]);
   }
@@ -168,8 +168,8 @@ extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec.$,
-      extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec.$,
+      extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec,
+      extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec,
       []);
   }
 
@@ -177,7 +177,7 @@ extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec.$,
+      extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec,
       null,
       [element_instance_id]);
   }
@@ -186,7 +186,7 @@ extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec.$,
+      extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec,
       null,
       [mime_handler_view_guest_element_instance_id, resource_url]);
   }

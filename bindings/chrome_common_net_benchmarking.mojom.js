@@ -48,7 +48,7 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec.$,
+      chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec.$,
+      chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +66,7 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec.$,
+      chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec,
       null,
       []);
   }
@@ -75,7 +75,7 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec.$,
+      chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec,
       null,
       []);
   }

@@ -48,7 +48,7 @@ blink.mojom.ProgressClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ProgressClient_OnProgress_ParamsSpec.$,
+      blink.mojom.ProgressClient_OnProgress_ParamsSpec,
       null,
       [delta]);
   }
@@ -123,7 +123,7 @@ blink.mojom.BlobRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BlobRegistry_Register_ParamsSpec.$,
+      blink.mojom.BlobRegistry_Register_ParamsSpec,
       null,
       [blob, uuid, content_type, content_disposition, elements]);
   }
@@ -132,8 +132,8 @@ blink.mojom.BlobRegistryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec.$,
-      blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec.$,
+      blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec,
+      blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec,
       [content_type, content_disposition, length_hint, data, progress_client]);
   }
 

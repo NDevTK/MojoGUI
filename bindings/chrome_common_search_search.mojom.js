@@ -48,7 +48,7 @@ search.mojom.EmbeddedSearchConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec.$,
+      search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec,
       null,
       [embedded_search, client]);
   }
@@ -124,7 +124,7 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec.$,
+      search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec,
       null,
       [page_seq_no, focus]);
   }
@@ -133,7 +133,7 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec.$,
+      search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec,
       null,
       [page_seq_no, url]);
   }
@@ -142,7 +142,7 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec.$,
+      search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec,
       null,
       [page_seq_no]);
   }
@@ -151,7 +151,7 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec.$,
+      search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec,
       null,
       [page_seq_no, url]);
   }
@@ -271,7 +271,7 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec.$,
+      search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec,
       null,
       [page_seq_no]);
   }
@@ -280,7 +280,7 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec.$,
+      search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec,
       null,
       [new_focus_state, reason]);
   }
@@ -289,7 +289,7 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec.$,
+      search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec,
       null,
       [most_visited_info]);
   }
@@ -298,7 +298,7 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec.$,
+      search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec,
       null,
       [input_in_progress]);
   }
@@ -307,7 +307,7 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec.$,
+      search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec,
       null,
       [theme]);
   }

@@ -56,7 +56,7 @@ blink.mojom.SpeechSynthesisVoiceListObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec.$,
+      blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec,
       null,
       [voice_list]);
   }
@@ -131,7 +131,7 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec.$,
+      blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec,
       null,
       []);
   }
@@ -140,7 +140,7 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec.$,
+      blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec,
       null,
       [error_code]);
   }
@@ -149,7 +149,7 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec.$,
+      blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec,
       null,
       []);
   }
@@ -158,7 +158,7 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec.$,
+      blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec,
       null,
       []);
   }
@@ -167,7 +167,7 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec.$,
+      blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec,
       null,
       [char_index, char_length]);
   }
@@ -176,7 +176,7 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec.$,
+      blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec,
       null,
       [char_index, char_length]);
   }
@@ -185,7 +185,7 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec.$,
+      blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec,
       null,
       []);
   }
@@ -342,7 +342,7 @@ blink.mojom.SpeechSynthesisRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec.$,
+      blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -351,7 +351,7 @@ blink.mojom.SpeechSynthesisRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SpeechSynthesis_Speak_ParamsSpec.$,
+      blink.mojom.SpeechSynthesis_Speak_ParamsSpec,
       null,
       [utterance, client]);
   }
@@ -360,7 +360,7 @@ blink.mojom.SpeechSynthesisRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SpeechSynthesis_Pause_ParamsSpec.$,
+      blink.mojom.SpeechSynthesis_Pause_ParamsSpec,
       null,
       []);
   }
@@ -369,7 +369,7 @@ blink.mojom.SpeechSynthesisRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.SpeechSynthesis_Resume_ParamsSpec.$,
+      blink.mojom.SpeechSynthesis_Resume_ParamsSpec,
       null,
       []);
   }
@@ -378,7 +378,7 @@ blink.mojom.SpeechSynthesisRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.SpeechSynthesis_Cancel_ParamsSpec.$,
+      blink.mojom.SpeechSynthesis_Cancel_ParamsSpec,
       null,
       []);
   }

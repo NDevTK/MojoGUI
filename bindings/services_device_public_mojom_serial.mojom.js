@@ -103,7 +103,7 @@ device.mojom.SerialPortManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SerialPortManager_SetClient_ParamsSpec.$,
+      device.mojom.SerialPortManager_SetClient_ParamsSpec,
       null,
       [client]);
   }
@@ -112,8 +112,8 @@ device.mojom.SerialPortManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.SerialPortManager_GetDevices_ParamsSpec.$,
-      device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec.$,
+      device.mojom.SerialPortManager_GetDevices_ParamsSpec,
+      device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec,
       []);
   }
 
@@ -121,8 +121,8 @@ device.mojom.SerialPortManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.SerialPortManager_OpenPort_ParamsSpec.$,
-      device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec.$,
+      device.mojom.SerialPortManager_OpenPort_ParamsSpec,
+      device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec,
       [token, use_alternate_path, options, client, watcher]);
   }
 
@@ -253,7 +253,7 @@ device.mojom.SerialPortManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec.$,
+      device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec,
       null,
       [port_info]);
   }
@@ -262,7 +262,7 @@ device.mojom.SerialPortManagerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec.$,
+      device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec,
       null,
       [port_info]);
   }
@@ -271,7 +271,7 @@ device.mojom.SerialPortManagerClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec.$,
+      device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec,
       null,
       [port_info]);
   }
@@ -374,7 +374,7 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SerialPort_StartWriting_ParamsSpec.$,
+      device.mojom.SerialPort_StartWriting_ParamsSpec,
       null,
       [consumer]);
   }
@@ -383,7 +383,7 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.SerialPort_StartReading_ParamsSpec.$,
+      device.mojom.SerialPort_StartReading_ParamsSpec,
       null,
       [producer]);
   }
@@ -392,7 +392,7 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.SerialPort_Flush_ParamsSpec.$,
+      device.mojom.SerialPort_Flush_ParamsSpec,
       null,
       [mode]);
   }
@@ -401,7 +401,7 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.SerialPort_Drain_ParamsSpec.$,
+      device.mojom.SerialPort_Drain_ParamsSpec,
       null,
       []);
   }
@@ -410,8 +410,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.SerialPort_GetControlSignals_ParamsSpec.$,
-      device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec.$,
+      device.mojom.SerialPort_GetControlSignals_ParamsSpec,
+      device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec,
       []);
   }
 
@@ -419,8 +419,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.SerialPort_SetControlSignals_ParamsSpec.$,
-      device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec.$,
+      device.mojom.SerialPort_SetControlSignals_ParamsSpec,
+      device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec,
       [signals]);
   }
 
@@ -428,8 +428,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device.mojom.SerialPort_ConfigurePort_ParamsSpec.$,
-      device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec.$,
+      device.mojom.SerialPort_ConfigurePort_ParamsSpec,
+      device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec,
       [options]);
   }
 
@@ -437,8 +437,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      device.mojom.SerialPort_GetPortInfo_ParamsSpec.$,
-      device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec.$,
+      device.mojom.SerialPort_GetPortInfo_ParamsSpec,
+      device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec,
       []);
   }
 
@@ -446,7 +446,7 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      device.mojom.SerialPort_Close_ParamsSpec.$,
+      device.mojom.SerialPort_Close_ParamsSpec,
       null,
       [flush]);
   }
@@ -682,7 +682,7 @@ device.mojom.SerialPortClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SerialPortClient_OnReadError_ParamsSpec.$,
+      device.mojom.SerialPortClient_OnReadError_ParamsSpec,
       null,
       [error]);
   }
@@ -691,7 +691,7 @@ device.mojom.SerialPortClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.SerialPortClient_OnSendError_ParamsSpec.$,
+      device.mojom.SerialPortClient_OnSendError_ParamsSpec,
       null,
       [error]);
   }

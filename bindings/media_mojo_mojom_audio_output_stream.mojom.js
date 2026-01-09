@@ -57,7 +57,7 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioOutputStream_Play_ParamsSpec.$,
+      media.mojom.AudioOutputStream_Play_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +66,7 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.AudioOutputStream_Pause_ParamsSpec.$,
+      media.mojom.AudioOutputStream_Pause_ParamsSpec,
       null,
       []);
   }
@@ -75,7 +75,7 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.AudioOutputStream_Flush_ParamsSpec.$,
+      media.mojom.AudioOutputStream_Flush_ParamsSpec,
       null,
       []);
   }
@@ -84,7 +84,7 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.AudioOutputStream_SetVolume_ParamsSpec.$,
+      media.mojom.AudioOutputStream_SetVolume_ParamsSpec,
       null,
       [volume]);
   }
@@ -198,7 +198,7 @@ media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec.$,
+      media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec,
       null,
       []);
   }
@@ -207,7 +207,7 @@ media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec.$,
+      media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec,
       null,
       []);
   }
@@ -216,7 +216,7 @@ media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec.$,
+      media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec,
       null,
       [is_audible]);
   }
@@ -317,7 +317,7 @@ media.mojom.AudioOutputStreamProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec.$,
+      media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec,
       null,
       [params, client]);
   }
@@ -393,7 +393,7 @@ media.mojom.AudioOutputStreamProviderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec.$,
+      media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec,
       null,
       [stream, data_pipe]);
   }
@@ -469,7 +469,7 @@ media.mojom.DeviceSwitchInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec.$,
+      media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec,
       null,
       [output_device_id]);
   }

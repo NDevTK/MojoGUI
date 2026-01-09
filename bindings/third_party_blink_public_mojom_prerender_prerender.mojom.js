@@ -54,7 +54,7 @@ blink.mojom.NoStatePrefetchProcessorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec.$,
+      blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec,
       null,
       [prerender_attribute]);
   }
@@ -63,7 +63,7 @@ blink.mojom.NoStatePrefetchProcessorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec.$,
+      blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec,
       null,
       []);
   }

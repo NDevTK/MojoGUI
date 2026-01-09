@@ -63,8 +63,8 @@ printing.mojom.PdfToPwgRasterConverterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec.$,
-      printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec.$,
+      printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec,
+      printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec,
       [pdf_region, pdf_settings, pwg_raster_settings]);
   }
 
@@ -72,7 +72,7 @@ printing.mojom.PdfToPwgRasterConverterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec.$,
+      printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
       [use_skia]);
   }

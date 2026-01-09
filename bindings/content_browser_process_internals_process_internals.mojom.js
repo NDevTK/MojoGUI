@@ -54,8 +54,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec.$,
-      mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec.$,
+      mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec,
+      mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec,
       []);
   }
 
@@ -63,8 +63,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec.$,
-      mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec.$,
+      mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec,
+      mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec,
       []);
   }
 
@@ -72,8 +72,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec.$,
-      mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec.$,
+      mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec,
+      mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec,
       []);
   }
 
@@ -81,8 +81,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec.$,
-      mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec.$,
+      mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec,
+      mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec,
       []);
   }
 
@@ -90,8 +90,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec.$,
-      mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec.$,
+      mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec,
+      mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec,
       []);
   }
 
@@ -99,8 +99,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec.$,
-      mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec.$,
+      mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec,
+      mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec,
       []);
   }
 
@@ -108,8 +108,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec.$,
-      mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec.$,
+      mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec,
+      mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec,
       []);
   }
 

@@ -60,8 +60,8 @@ content.mojom.MhtmlFileWriterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec.$,
-      content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec.$,
+      content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec,
+      content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec,
       [params]);
   }
 

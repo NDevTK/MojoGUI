@@ -62,8 +62,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec.$,
-      discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec.$,
+      discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec,
+      discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec,
       []);
   }
 
@@ -71,7 +71,7 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec.$,
+      discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec,
       null,
       [tab_id, is_auto_discardable]);
   }
@@ -80,7 +80,7 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      discards.mojom.DetailsProvider_DiscardById_ParamsSpec.$,
+      discards.mojom.DetailsProvider_DiscardById_ParamsSpec,
       null,
       [tab_id, reason]);
   }
@@ -89,7 +89,7 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      discards.mojom.DetailsProvider_FreezeById_ParamsSpec.$,
+      discards.mojom.DetailsProvider_FreezeById_ParamsSpec,
       null,
       [tab_id]);
   }
@@ -98,7 +98,7 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      discards.mojom.DetailsProvider_LoadById_ParamsSpec.$,
+      discards.mojom.DetailsProvider_LoadById_ParamsSpec,
       null,
       [tab_id]);
   }
@@ -107,7 +107,7 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      discards.mojom.DetailsProvider_Discard_ParamsSpec.$,
+      discards.mojom.DetailsProvider_Discard_ParamsSpec,
       null,
       []);
   }
@@ -116,7 +116,7 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec.$,
+      discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec,
       null,
       []);
   }
@@ -125,7 +125,7 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec.$,
+      discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec,
       null,
       []);
   }
@@ -309,7 +309,7 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec.$,
+      discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec,
       null,
       [frame]);
   }
@@ -318,7 +318,7 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      discards.mojom.GraphChangeStream_PageCreated_ParamsSpec.$,
+      discards.mojom.GraphChangeStream_PageCreated_ParamsSpec,
       null,
       [pages]);
   }
@@ -327,7 +327,7 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec.$,
+      discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec,
       null,
       [process]);
   }
@@ -336,7 +336,7 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec.$,
+      discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec,
       null,
       [worker]);
   }
@@ -345,7 +345,7 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec.$,
+      discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec,
       null,
       [frame]);
   }
@@ -354,7 +354,7 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      discards.mojom.GraphChangeStream_PageChanged_ParamsSpec.$,
+      discards.mojom.GraphChangeStream_PageChanged_ParamsSpec,
       null,
       [page]);
   }
@@ -363,7 +363,7 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec.$,
+      discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec,
       null,
       [process]);
   }
@@ -372,7 +372,7 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec.$,
+      discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec,
       null,
       [worker]);
   }
@@ -381,7 +381,7 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec.$,
+      discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec,
       null,
       [favicon]);
   }
@@ -390,7 +390,7 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec.$,
+      discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec,
       null,
       [node_id]);
   }
@@ -591,7 +591,7 @@ discards.mojom.GraphDumpRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec.$,
+      discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec,
       null,
       [change_subscriber]);
   }
@@ -600,8 +600,8 @@ discards.mojom.GraphDumpRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec.$,
-      discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec.$,
+      discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec,
+      discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec,
       [node_ids]);
   }
 

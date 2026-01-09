@@ -48,7 +48,7 @@ commerce.mojom.CommerceInternalsHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec.$,
+      commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -124,8 +124,8 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec.$,
-      commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec.$,
+      commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec,
       []);
   }
 
@@ -133,7 +133,7 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec.$,
+      commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec,
       null,
       []);
   }
@@ -142,8 +142,8 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec.$,
-      commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec.$,
+      commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec,
       [url]);
   }
 
@@ -151,8 +151,8 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec.$,
-      commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec.$,
+      commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec,
       []);
   }
 
@@ -160,8 +160,8 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec.$,
-      commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec.$,
+      commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec,
       []);
   }
 
@@ -169,7 +169,7 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec.$,
+      commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec,
       null,
       []);
   }
@@ -178,8 +178,8 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec.$,
-      commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec.$,
+      commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec,
+      commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec,
       []);
   }
 
@@ -396,7 +396,7 @@ commerce.mojom.CommerceInternalsPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec.$,
+      commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec,
       null,
       [eligible]);
   }

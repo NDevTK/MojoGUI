@@ -48,7 +48,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec.$,
+      network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec,
       null,
       [devtool_request_id, cookies_with_access_result, headers, timestamp, client_security_state, other_partition_info, applied_network_conditions_id]);
   }
@@ -57,7 +57,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec.$,
+      network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec,
       null,
       [devtool_request_id, cookies_with_access_result, headers, raw_response_headers, resource_address_space, http_status_code, cookie_partition_key]);
   }
@@ -66,7 +66,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec.$,
+      network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec,
       null,
       [devtool_request_id, headers]);
   }
@@ -75,7 +75,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec.$,
+      network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec,
       null,
       [devtool_request_id, url, is_warning, resource_address_space, client_security_state]);
   }
@@ -84,7 +84,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec.$,
+      network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec,
       null,
       [devtool_request_id, request_headers, request_info, initiator_url, initiator_devtool_request_id]);
   }
@@ -93,7 +93,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec.$,
+      network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec,
       null,
       [devtool_request_id, url, head]);
   }
@@ -102,7 +102,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec.$,
+      network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec,
       null,
       [devtool_request_id, status]);
   }
@@ -111,7 +111,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec.$,
+      network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec,
       null,
       [devtool_request_id, result]);
   }
@@ -120,7 +120,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      network.mojom.DevToolsObserver_OnCorsError_ParamsSpec.$,
+      network.mojom.DevToolsObserver_OnCorsError_ParamsSpec,
       null,
       [devtool_request_id, initiator_origin, client_security_state, url, status, is_warning]);
   }
@@ -129,7 +129,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      network.mojom.DevToolsObserver_OnOrbError_ParamsSpec.$,
+      network.mojom.DevToolsObserver_OnOrbError_ParamsSpec,
       null,
       [devtools_request_id, url]);
   }
@@ -138,7 +138,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec.$,
+      network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec,
       null,
       [devtool_request_id, url, error]);
   }
@@ -147,7 +147,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec.$,
+      network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec,
       null,
       [devtool_request_id, url, issues]);
   }
@@ -156,7 +156,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec.$,
+      network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec,
       null,
       [devtool_request_id, url, issue]);
   }
@@ -165,7 +165,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      network.mojom.DevToolsObserver_Clone_ParamsSpec.$,
+      network.mojom.DevToolsObserver_Clone_ParamsSpec,
       null,
       [listener]);
   }

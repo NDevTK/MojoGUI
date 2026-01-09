@@ -47,8 +47,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec.$,
-      mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec.$,
+      mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec,
+      mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec,
       []);
   }
 
@@ -56,8 +56,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec.$,
-      mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpec.$,
+      mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec,
+      mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpec,
       [url]);
   }
 
@@ -65,8 +65,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ParamsSpec.$,
-      mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParamsSpec.$,
+      mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ParamsSpec,
+      mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParamsSpec,
       []);
   }
 
@@ -74,8 +74,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec.$,
-      mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec.$,
+      mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec,
+      mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec,
       [update_manifest_url]);
   }
 
@@ -83,8 +83,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec.$,
-      mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSpec.$,
+      mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec,
+      mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSpec,
       [params]);
   }
 
@@ -92,8 +92,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec.$,
-      mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec.$,
+      mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec,
+      mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec,
       [app_id]);
   }
 
@@ -101,8 +101,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ParamsSpec.$,
-      mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ResponseParamsSpec.$,
+      mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ParamsSpec,
+      mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ResponseParamsSpec,
       [app_id]);
   }
 
@@ -110,8 +110,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec.$,
-      mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParamsSpec.$,
+      mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec,
+      mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParamsSpec,
       [app_id]);
   }
 
@@ -119,8 +119,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec.$,
-      mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec.$,
+      mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec,
+      mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec,
       [app_id]);
   }
 
@@ -128,8 +128,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec.$,
-      mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpec.$,
+      mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec,
+      mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpec,
       [app_id, update_channel]);
   }
 
@@ -137,8 +137,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec.$,
-      mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpec.$,
+      mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec,
+      mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpec,
       [app_id, pinned_version]);
   }
 
@@ -146,7 +146,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec.$,
+      mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec,
       null,
       [app_id]);
   }
@@ -155,7 +155,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec.$,
+      mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec,
       null,
       [allow_downgrades, app_id]);
   }
@@ -164,8 +164,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec.$,
-      mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec.$,
+      mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec,
+      mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec,
       []);
   }
 
@@ -173,8 +173,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec.$,
-      mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec.$,
+      mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec,
+      mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec,
       []);
   }
 
@@ -182,7 +182,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      mojom.WebAppInternalsHandler_RotateKey_ParamsSpec.$,
+      mojom.WebAppInternalsHandler_RotateKey_ParamsSpec,
       null,
       [web_bundle_id, rotated_key]);
   }

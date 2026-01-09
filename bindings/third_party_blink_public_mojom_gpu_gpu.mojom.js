@@ -48,8 +48,8 @@ blink.mojom.GpuDataManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec.$,
-      blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec.$,
+      blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec,
+      blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec,
       [url]);
   }
 

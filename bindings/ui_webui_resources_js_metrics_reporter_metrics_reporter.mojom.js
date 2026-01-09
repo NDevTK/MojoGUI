@@ -48,7 +48,7 @@ metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec.$,
+      metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec,
       null,
       [page]);
   }
@@ -57,8 +57,8 @@ metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec.$,
-      metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec.$,
+      metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec,
+      metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec,
       [name]);
   }
 
@@ -66,7 +66,7 @@ metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec.$,
+      metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec,
       null,
       [name]);
   }
@@ -75,7 +75,7 @@ metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec.$,
+      metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec,
       null,
       [name, time]);
   }
@@ -206,8 +206,8 @@ metrics_reporter.mojom.PageMetricsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec.$,
-      metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec.$,
+      metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec,
+      metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec,
       [name]);
   }
 
@@ -215,7 +215,7 @@ metrics_reporter.mojom.PageMetricsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec.$,
+      metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec,
       null,
       [name]);
   }

@@ -48,7 +48,7 @@ blink.mojom.FileBackedBlobFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec.$,
+      blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec,
       null,
       [blob, uuid, content_type, file]);
   }
@@ -57,7 +57,7 @@ blink.mojom.FileBackedBlobFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec.$,
+      blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec,
       null,
       [blob, uuid, content_type, file]);
   }

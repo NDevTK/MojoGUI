@@ -48,7 +48,7 @@ heap_profiling.mojom.TestConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec.$,
+      heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec,
       null,
       [controller]);
   }
@@ -57,7 +57,7 @@ heap_profiling.mojom.TestConnectorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec.$,
+      heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec,
       null,
       [collector]);
   }
@@ -66,7 +66,7 @@ heap_profiling.mojom.TestConnectorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec.$,
+      heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec,
       null,
       []);
   }

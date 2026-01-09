@@ -48,7 +48,7 @@ spellcheck.mojom.SpellCheckPanelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec.$,
+      spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec,
       null,
       [visible]);
   }
@@ -57,7 +57,7 @@ spellcheck.mojom.SpellCheckPanelRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec.$,
+      spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec,
       null,
       []);
   }
@@ -145,7 +145,7 @@ spellcheck.mojom.SpellCheckPanelHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec.$,
+      spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec,
       null,
       [show]);
   }
@@ -154,7 +154,7 @@ spellcheck.mojom.SpellCheckPanelHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec.$,
+      spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec,
       null,
       [word]);
   }

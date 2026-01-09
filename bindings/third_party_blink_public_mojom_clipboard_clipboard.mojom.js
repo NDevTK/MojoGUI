@@ -69,7 +69,7 @@ blink.mojom.ClipboardListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec.$,
+      blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec,
       null,
       [types, change_id]);
   }
@@ -145,8 +145,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec.$,
-      blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec.$,
+      blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec,
+      blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -154,8 +154,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec.$,
-      blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec.$,
+      blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec,
+      blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec,
       [format, buffer]);
   }
 
@@ -163,8 +163,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec.$,
-      blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec.$,
+      blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec,
+      blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -172,8 +172,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.ClipboardHost_ReadText_ParamsSpec.$,
-      blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec.$,
+      blink.mojom.ClipboardHost_ReadText_ParamsSpec,
+      blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -181,8 +181,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.ClipboardHost_ReadHtml_ParamsSpec.$,
-      blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec.$,
+      blink.mojom.ClipboardHost_ReadHtml_ParamsSpec,
+      blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -190,8 +190,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.ClipboardHost_ReadSvg_ParamsSpec.$,
-      blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec.$,
+      blink.mojom.ClipboardHost_ReadSvg_ParamsSpec,
+      blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -199,8 +199,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.ClipboardHost_ReadRtf_ParamsSpec.$,
-      blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec.$,
+      blink.mojom.ClipboardHost_ReadRtf_ParamsSpec,
+      blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -208,8 +208,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.ClipboardHost_ReadPng_ParamsSpec.$,
-      blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec.$,
+      blink.mojom.ClipboardHost_ReadPng_ParamsSpec,
+      blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -217,8 +217,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.ClipboardHost_ReadFiles_ParamsSpec.$,
-      blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec.$,
+      blink.mojom.ClipboardHost_ReadFiles_ParamsSpec,
+      blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -226,8 +226,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec.$,
-      blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec.$,
+      blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec,
+      blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec,
       [buffer, type]);
   }
 
@@ -235,8 +235,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec.$,
-      blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec.$,
+      blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec,
+      blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec,
       []);
   }
 
@@ -244,8 +244,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec.$,
-      blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec.$,
+      blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec,
+      blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec,
       [format]);
   }
 
@@ -253,7 +253,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.ClipboardHost_WriteText_ParamsSpec.$,
+      blink.mojom.ClipboardHost_WriteText_ParamsSpec,
       null,
       [text]);
   }
@@ -262,7 +262,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      blink.mojom.ClipboardHost_WriteHtml_ParamsSpec.$,
+      blink.mojom.ClipboardHost_WriteHtml_ParamsSpec,
       null,
       [markup, url]);
   }
@@ -271,7 +271,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      blink.mojom.ClipboardHost_WriteSvg_ParamsSpec.$,
+      blink.mojom.ClipboardHost_WriteSvg_ParamsSpec,
       null,
       [markup]);
   }
@@ -280,7 +280,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec.$,
+      blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec,
       null,
       []);
   }
@@ -289,7 +289,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec.$,
+      blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec,
       null,
       [data]);
   }
@@ -298,7 +298,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec.$,
+      blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec,
       null,
       [url, title]);
   }
@@ -307,7 +307,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      blink.mojom.ClipboardHost_WriteImage_ParamsSpec.$,
+      blink.mojom.ClipboardHost_WriteImage_ParamsSpec,
       null,
       [image]);
   }
@@ -316,7 +316,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec.$,
+      blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec,
       null,
       [format, data]);
   }
@@ -325,7 +325,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      blink.mojom.ClipboardHost_CommitWrite_ParamsSpec.$,
+      blink.mojom.ClipboardHost_CommitWrite_ParamsSpec,
       null,
       []);
   }
@@ -334,7 +334,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec.$,
+      blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec,
       null,
       [text]);
   }
@@ -343,8 +343,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec.$,
-      blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec.$,
+      blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec,
+      blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec,
       []);
   }
 
@@ -352,7 +352,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec.$,
+      blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec,
       null,
       [listener]);
   }

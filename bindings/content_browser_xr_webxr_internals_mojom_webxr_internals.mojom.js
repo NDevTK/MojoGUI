@@ -48,8 +48,8 @@ webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec.$,
-      webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec.$,
+      webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec,
+      webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec.$,
-      webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec.$,
+      webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec,
+      webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec,
       []);
   }
 
@@ -66,7 +66,7 @@ webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec.$,
+      webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec,
       null,
       [listener]);
   }
@@ -193,7 +193,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec.$,
+      webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec,
       null,
       [session_requested_record]);
   }
@@ -202,7 +202,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec.$,
+      webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec,
       null,
       [session_rejected_record]);
   }
@@ -211,7 +211,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec.$,
+      webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec,
       null,
       [session_started_record]);
   }
@@ -220,7 +220,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec.$,
+      webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec,
       null,
       [session_stopped_record]);
   }
@@ -229,7 +229,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec.$,
+      webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec,
       null,
       [runtime_added_record]);
   }
@@ -238,7 +238,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec.$,
+      webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec,
       null,
       [device_id]);
   }
@@ -247,7 +247,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec.$,
+      webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec,
       null,
       [xrframe_statistics]);
   }
@@ -256,7 +256,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec.$,
+      webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec,
       null,
       [xrlogging_statistics]);
   }

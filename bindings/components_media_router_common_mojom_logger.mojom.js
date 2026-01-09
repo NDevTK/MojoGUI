@@ -56,7 +56,7 @@ media_router.mojom.LoggerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_router.mojom.Logger_LogInfo_ParamsSpec.$,
+      media_router.mojom.Logger_LogInfo_ParamsSpec,
       null,
       [category, component, message, sink_id, media_source, session_id]);
   }
@@ -65,7 +65,7 @@ media_router.mojom.LoggerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media_router.mojom.Logger_LogWarning_ParamsSpec.$,
+      media_router.mojom.Logger_LogWarning_ParamsSpec,
       null,
       [category, component, message, sink_id, media_source, session_id]);
   }
@@ -74,7 +74,7 @@ media_router.mojom.LoggerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media_router.mojom.Logger_LogError_ParamsSpec.$,
+      media_router.mojom.Logger_LogError_ParamsSpec,
       null,
       [category, component, message, sink_id, media_source, session_id]);
   }
@@ -83,7 +83,7 @@ media_router.mojom.LoggerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media_router.mojom.Logger_BindReceiver_ParamsSpec.$,
+      media_router.mojom.Logger_BindReceiver_ParamsSpec,
       null,
       [receiver]);
   }

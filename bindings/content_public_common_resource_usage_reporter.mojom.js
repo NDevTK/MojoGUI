@@ -48,8 +48,8 @@ content.mojom.ResourceUsageReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec.$,
-      content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec.$,
+      content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec,
+      content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec,
       []);
   }
 

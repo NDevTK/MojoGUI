@@ -48,7 +48,7 @@ sharing.mojom.SharingRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.Sharing_Connect_ParamsSpec.$,
+      sharing.mojom.Sharing_Connect_ParamsSpec,
       null,
       [deps, nearby_connections, nearby_presence, decoder, quick_start_decoder]);
   }
@@ -57,7 +57,7 @@ sharing.mojom.SharingRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sharing.mojom.Sharing_ShutDown_ParamsSpec.$,
+      sharing.mojom.Sharing_ShutDown_ParamsSpec,
       null,
       []);
   }

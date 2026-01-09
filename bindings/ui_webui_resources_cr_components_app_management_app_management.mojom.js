@@ -122,7 +122,7 @@ app_management.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      app_management.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      app_management.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -198,8 +198,8 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      app_management.mojom.PageHandler_GetApps_ParamsSpec.$,
-      app_management.mojom.PageHandler_GetApps_ResponseParamsSpec.$,
+      app_management.mojom.PageHandler_GetApps_ParamsSpec,
+      app_management.mojom.PageHandler_GetApps_ResponseParamsSpec,
       []);
   }
 
@@ -207,8 +207,8 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      app_management.mojom.PageHandler_GetApp_ParamsSpec.$,
-      app_management.mojom.PageHandler_GetApp_ResponseParamsSpec.$,
+      app_management.mojom.PageHandler_GetApp_ParamsSpec,
+      app_management.mojom.PageHandler_GetApp_ResponseParamsSpec,
       [app_id]);
   }
 
@@ -216,8 +216,8 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      app_management.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec.$,
-      app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec.$,
+      app_management.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec,
+      app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec,
       []);
   }
 
@@ -225,8 +225,8 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec.$,
-      app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec.$,
+      app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec,
+      app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec,
       [app_id]);
   }
 
@@ -234,7 +234,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      app_management.mojom.PageHandler_SetPinned_ParamsSpec.$,
+      app_management.mojom.PageHandler_SetPinned_ParamsSpec,
       null,
       [app_id, pinned]);
   }
@@ -243,7 +243,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      app_management.mojom.PageHandler_SetPermission_ParamsSpec.$,
+      app_management.mojom.PageHandler_SetPermission_ParamsSpec,
       null,
       [app_id, permission]);
   }
@@ -252,7 +252,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      app_management.mojom.PageHandler_SetResizeLocked_ParamsSpec.$,
+      app_management.mojom.PageHandler_SetResizeLocked_ParamsSpec,
       null,
       [app_id, locked]);
   }
@@ -261,7 +261,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      app_management.mojom.PageHandler_Uninstall_ParamsSpec.$,
+      app_management.mojom.PageHandler_Uninstall_ParamsSpec,
       null,
       [app_id]);
   }
@@ -270,7 +270,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      app_management.mojom.PageHandler_OpenNativeSettings_ParamsSpec.$,
+      app_management.mojom.PageHandler_OpenNativeSettings_ParamsSpec,
       null,
       [app_id]);
   }
@@ -279,7 +279,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      app_management.mojom.PageHandler_SetPreferredApp_ParamsSpec.$,
+      app_management.mojom.PageHandler_SetPreferredApp_ParamsSpec,
       null,
       [app_id, is_preferred_app]);
   }
@@ -288,8 +288,8 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      app_management.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec.$,
-      app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec.$,
+      app_management.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec,
+      app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec,
       [app_id]);
   }
 
@@ -297,7 +297,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      app_management.mojom.PageHandler_UpdateAppSize_ParamsSpec.$,
+      app_management.mojom.PageHandler_UpdateAppSize_ParamsSpec,
       null,
       [app_id]);
   }
@@ -306,7 +306,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      app_management.mojom.PageHandler_SetWindowMode_ParamsSpec.$,
+      app_management.mojom.PageHandler_SetWindowMode_ParamsSpec,
       null,
       [app_id, window_mode]);
   }
@@ -315,7 +315,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      app_management.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$,
+      app_management.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec,
       null,
       [app_id, run_on_os_login_mode]);
   }
@@ -324,7 +324,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      app_management.mojom.PageHandler_SetFileHandlingEnabled_ParamsSpec.$,
+      app_management.mojom.PageHandler_SetFileHandlingEnabled_ParamsSpec,
       null,
       [app_id, enabled]);
   }
@@ -333,7 +333,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec.$,
+      app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec,
       null,
       []);
   }
@@ -342,7 +342,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      app_management.mojom.PageHandler_OpenStorePage_ParamsSpec.$,
+      app_management.mojom.PageHandler_OpenStorePage_ParamsSpec,
       null,
       [app_id]);
   }
@@ -351,7 +351,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      app_management.mojom.PageHandler_SetAppLocale_ParamsSpec.$,
+      app_management.mojom.PageHandler_SetAppLocale_ParamsSpec,
       null,
       [app_id, locale_tag]);
   }
@@ -360,7 +360,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec.$,
+      app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec,
       null,
       [app_id]);
   }
@@ -757,7 +757,7 @@ app_management.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      app_management.mojom.Page_OnAppAdded_ParamsSpec.$,
+      app_management.mojom.Page_OnAppAdded_ParamsSpec,
       null,
       [app]);
   }
@@ -766,7 +766,7 @@ app_management.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      app_management.mojom.Page_OnAppChanged_ParamsSpec.$,
+      app_management.mojom.Page_OnAppChanged_ParamsSpec,
       null,
       [update]);
   }
@@ -775,7 +775,7 @@ app_management.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      app_management.mojom.Page_OnAppRemoved_ParamsSpec.$,
+      app_management.mojom.Page_OnAppRemoved_ParamsSpec,
       null,
       [app_id]);
   }

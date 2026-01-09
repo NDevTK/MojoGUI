@@ -57,8 +57,8 @@ blink.mojom.FileChooserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileChooser_OpenFileChooser_ParamsSpec.$,
-      blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec.$,
+      blink.mojom.FileChooser_OpenFileChooser_ParamsSpec,
+      blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec,
       [params]);
   }
 
@@ -66,8 +66,8 @@ blink.mojom.FileChooserRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec.$,
-      blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec.$,
+      blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec,
+      blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec,
       [directory_path]);
   }
 

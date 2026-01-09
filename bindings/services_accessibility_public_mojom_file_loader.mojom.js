@@ -48,8 +48,8 @@ ax.mojom.AccessibilityFileLoaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.AccessibilityFileLoader_Load_ParamsSpec.$,
-      ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec.$,
+      ax.mojom.AccessibilityFileLoader_Load_ParamsSpec,
+      ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec,
       [path]);
   }
 

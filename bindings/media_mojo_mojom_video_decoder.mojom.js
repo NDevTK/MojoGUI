@@ -48,7 +48,7 @@ media.mojom.VideoFrameHandleReleaserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec.$,
+      media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec,
       null,
       [release_token, release_sync_token]);
   }
@@ -124,8 +124,8 @@ media.mojom.VideoDecoderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.VideoDecoder_GetSupportedConfigs_ParamsSpec.$,
-      media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec.$,
+      media.mojom.VideoDecoder_GetSupportedConfigs_ParamsSpec,
+      media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec,
       []);
   }
 
@@ -133,7 +133,7 @@ media.mojom.VideoDecoderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.VideoDecoder_Construct_ParamsSpec.$,
+      media.mojom.VideoDecoder_Construct_ParamsSpec,
       null,
       [client, media_log, video_frame_handle_releaser, decoder_buffer_pipe, command_buffer_id, target_color_space]);
   }
@@ -142,8 +142,8 @@ media.mojom.VideoDecoderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.VideoDecoder_Initialize_ParamsSpec.$,
-      media.mojom.VideoDecoder_Initialize_ResponseParamsSpec.$,
+      media.mojom.VideoDecoder_Initialize_ParamsSpec,
+      media.mojom.VideoDecoder_Initialize_ResponseParamsSpec,
       [config, low_delay, cdm]);
   }
 
@@ -151,8 +151,8 @@ media.mojom.VideoDecoderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.VideoDecoder_Decode_ParamsSpec.$,
-      media.mojom.VideoDecoder_Decode_ResponseParamsSpec.$,
+      media.mojom.VideoDecoder_Decode_ParamsSpec,
+      media.mojom.VideoDecoder_Decode_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -160,7 +160,7 @@ media.mojom.VideoDecoderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.VideoDecoder_Reset_ParamsSpec.$,
+      media.mojom.VideoDecoder_Reset_ParamsSpec,
       null,
       []);
   }
@@ -169,7 +169,7 @@ media.mojom.VideoDecoderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec.$,
+      media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec,
       null,
       [overlay_info]);
   }
@@ -363,7 +363,7 @@ media.mojom.VideoDecoderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec.$,
+      media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec,
       null,
       [frame, can_read_without_stalling, release_token]);
   }
@@ -372,7 +372,7 @@ media.mojom.VideoDecoderClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec.$,
+      media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec,
       null,
       [reason]);
   }
@@ -381,7 +381,7 @@ media.mojom.VideoDecoderClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec.$,
+      media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec,
       null,
       []);
   }

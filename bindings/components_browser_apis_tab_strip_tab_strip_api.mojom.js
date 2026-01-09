@@ -48,7 +48,7 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tabs_api.mojom.TabStripService_GetTabs_ParamsSpec.$,
+      tabs_api.mojom.TabStripService_GetTabs_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tabs_api.mojom.TabStripService_GetTab_ParamsSpec.$,
+      tabs_api.mojom.TabStripService_GetTab_ParamsSpec,
       null,
       [id]);
   }
@@ -66,7 +66,7 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec.$,
+      tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec,
       null,
       [pos, url]);
   }
@@ -75,7 +75,7 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec.$,
+      tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec,
       null,
       [id]);
   }
@@ -84,7 +84,7 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec.$,
+      tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec,
       null,
       [id]);
   }
@@ -93,7 +93,7 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec.$,
+      tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec,
       null,
       [selection, tab_to_activate]);
   }
@@ -102,7 +102,7 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      tabs_api.mojom.TabStripService_MoveNode_ParamsSpec.$,
+      tabs_api.mojom.TabStripService_MoveNode_ParamsSpec,
       null,
       [id, position]);
   }
@@ -263,7 +263,7 @@ tabs_api.mojom.TabsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec.$,
+      tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec,
       null,
       [events]);
   }

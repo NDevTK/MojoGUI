@@ -57,7 +57,7 @@ lens.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec.$,
+      lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec,
       null,
       [handler, page]);
   }
@@ -133,7 +133,7 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec.$,
+      lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec,
       null,
       []);
   }
@@ -142,8 +142,8 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec.$,
-      lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec.$,
+      lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec,
+      lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec,
       []);
   }
 
@@ -151,7 +151,7 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec.$,
+      lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec,
       null,
       [text_fragments, pdf_page_number]);
   }
@@ -160,7 +160,7 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec.$,
+      lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec,
       null,
       []);
   }
@@ -169,7 +169,7 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec.$,
+      lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -178,7 +178,7 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec.$,
+      lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec,
       null,
       []);
   }
@@ -333,7 +333,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec.$,
+      lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec,
       null,
       [results_url]);
   }
@@ -342,7 +342,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec.$,
+      lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec,
       null,
       [is_loading]);
   }
@@ -351,7 +351,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec.$,
+      lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec,
       null,
       [progress]);
   }
@@ -360,7 +360,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec.$,
+      lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -369,7 +369,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec.$,
+      lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec,
       null,
       [should_show_error_page, status]);
   }
@@ -378,7 +378,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec.$,
+      lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec,
       null,
       []);
   }
@@ -387,7 +387,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec.$,
+      lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec,
       null,
       [new_page_content_type]);
   }
@@ -396,7 +396,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec.$,
+      lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec,
       null,
       [message]);
   }
@@ -405,7 +405,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec.$,
+      lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec,
       null,
       [serialized_message]);
   }
@@ -414,7 +414,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec.$,
+      lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec,
       null,
       []);
   }
@@ -423,7 +423,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec.$,
+      lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec,
       null,
       [on_aim]);
   }
@@ -432,7 +432,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec.$,
+      lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec,
       null,
       []);
   }
@@ -441,7 +441,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec.$,
+      lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec,
       null,
       [is_showing]);
   }
@@ -450,7 +450,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec.$,
+      lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec,
       null,
       []);
   }

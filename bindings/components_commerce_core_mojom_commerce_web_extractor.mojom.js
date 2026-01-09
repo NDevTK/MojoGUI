@@ -48,8 +48,8 @@ commerce_web_extractor.mojom.CommerceWebExtractorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec.$,
-      commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec.$,
+      commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec,
+      commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec,
       []);
   }
 

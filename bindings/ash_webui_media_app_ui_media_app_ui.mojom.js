@@ -49,7 +49,7 @@ ash.media_app_ui.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -124,8 +124,8 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$,
-      ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec.$,
+      ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec,
+      ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec,
       []);
   }
 
@@ -133,7 +133,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec.$,
+      ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec,
       null,
       []);
   }
@@ -142,7 +142,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec.$,
+      ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec,
       null,
       []);
   }
@@ -151,8 +151,8 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec.$,
-      ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec.$,
+      ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec,
+      ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec,
       [token]);
   }
 
@@ -160,8 +160,8 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec.$,
-      ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec.$,
+      ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec,
+      ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec,
       [token]);
   }
 
@@ -169,7 +169,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec.$,
+      ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec,
       null,
       [token, mime_type]);
   }
@@ -178,7 +178,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec.$,
+      ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec,
       null,
       [url, payload, header]);
   }

@@ -48,7 +48,7 @@ batch_upload.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec.$,
+      batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -124,7 +124,7 @@ batch_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$,
+      batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec,
       null,
       [height]);
   }
@@ -133,7 +133,7 @@ batch_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec.$,
+      batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec,
       null,
       [idsToMove]);
   }
@@ -142,7 +142,7 @@ batch_upload.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      batch_upload.mojom.PageHandler_Close_ParamsSpec.$,
+      batch_upload.mojom.PageHandler_Close_ParamsSpec,
       null,
       []);
   }
@@ -244,7 +244,7 @@ batch_upload.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec.$,
+      batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec,
       null,
       [data]);
   }

@@ -79,8 +79,8 @@ connectors_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec.$,
-      connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec.$,
+      connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec,
+      connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec,
       []);
   }
 
@@ -88,7 +88,7 @@ connectors_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec.$,
+      connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec,
       null,
       []);
   }
@@ -97,8 +97,8 @@ connectors_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec.$,
-      connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec.$,
+      connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec,
+      connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec,
       []);
   }
 
@@ -106,8 +106,8 @@ connectors_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec.$,
-      connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec.$,
+      connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec,
+      connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec,
       []);
   }
 

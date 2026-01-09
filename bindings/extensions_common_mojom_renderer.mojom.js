@@ -48,7 +48,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.Renderer_ActivateExtension_ParamsSpec.$,
+      extensions.mojom.Renderer_ActivateExtension_ParamsSpec,
       null,
       [extension_id]);
   }
@@ -57,7 +57,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec.$,
+      extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -66,7 +66,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.Renderer_LoadExtensions_ParamsSpec.$,
+      extensions.mojom.Renderer_LoadExtensions_ParamsSpec,
       null,
       [params]);
   }
@@ -75,7 +75,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      extensions.mojom.Renderer_UnloadExtension_ParamsSpec.$,
+      extensions.mojom.Renderer_UnloadExtension_ParamsSpec,
       null,
       [extension_id]);
   }
@@ -84,7 +84,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      extensions.mojom.Renderer_SuspendExtension_ParamsSpec.$,
+      extensions.mojom.Renderer_SuspendExtension_ParamsSpec,
       null,
       [extension_id]);
   }
@@ -93,7 +93,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec.$,
+      extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec,
       null,
       [extension_id]);
   }
@@ -102,7 +102,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec.$,
+      extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec,
       null,
       [developer_mode_only]);
   }
@@ -111,7 +111,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec.$,
+      extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec,
       null,
       [extension_id, allowed]);
   }
@@ -120,7 +120,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      extensions.mojom.Renderer_SetSessionInfo_ParamsSpec.$,
+      extensions.mojom.Renderer_SetSessionInfo_ParamsSpec,
       null,
       [channel, session]);
   }
@@ -129,7 +129,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      extensions.mojom.Renderer_SetSystemFont_ParamsSpec.$,
+      extensions.mojom.Renderer_SetSystemFont_ParamsSpec,
       null,
       [font_family, font_size]);
   }
@@ -138,7 +138,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec.$,
+      extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec,
       null,
       [partition_id]);
   }
@@ -147,7 +147,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec.$,
+      extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec,
       null,
       [extension_ids]);
   }
@@ -156,7 +156,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec.$,
+      extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec,
       null,
       [infos]);
   }
@@ -165,7 +165,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec.$,
+      extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec,
       null,
       [extension_id, world_id]);
   }
@@ -174,7 +174,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      extensions.mojom.Renderer_ShouldSuspend_ParamsSpec.$,
+      extensions.mojom.Renderer_ShouldSuspend_ParamsSpec,
       null,
       []);
   }
@@ -183,7 +183,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      extensions.mojom.Renderer_TransferBlobs_ParamsSpec.$,
+      extensions.mojom.Renderer_TransferBlobs_ParamsSpec,
       null,
       []);
   }
@@ -192,7 +192,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      extensions.mojom.Renderer_UpdatePermissions_ParamsSpec.$,
+      extensions.mojom.Renderer_UpdatePermissions_ParamsSpec,
       null,
       [extension_id, active_permissions, withheld_permissions, policy_blocked_hosts, policy_allowed_hosts, uses_default_policy_host_restrictions]);
   }
@@ -201,7 +201,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec.$,
+      extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec,
       null,
       [default_policy_blocked_hosts, default_policy_allowed_hosts]);
   }
@@ -210,7 +210,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec.$,
+      extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec,
       null,
       [user_blocked_hosts, user_allowed_hosts]);
   }
@@ -219,7 +219,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec.$,
+      extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec,
       null,
       [extension_id, new_hosts, tab_id, update_origin_allowlist]);
   }
@@ -228,7 +228,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec.$,
+      extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec,
       null,
       [region, owner]);
   }
@@ -237,7 +237,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec.$,
+      extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec,
       null,
       [extension_ids, tab_id, update_origin_allowlist]);
   }
@@ -246,7 +246,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      extensions.mojom.Renderer_WatchPages_ParamsSpec.$,
+      extensions.mojom.Renderer_WatchPages_ParamsSpec,
       null,
       [css_selectors]);
   }

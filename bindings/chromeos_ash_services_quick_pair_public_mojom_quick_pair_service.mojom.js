@@ -49,7 +49,7 @@ ash.quick_pair.mojom.QuickPairServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec.$,
+      ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec,
       null,
       [fast_pair_data_parser]);
   }

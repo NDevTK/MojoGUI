@@ -48,7 +48,7 @@ remote_cocoa.mojom.MenuHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec.$,
+      remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec,
       null,
       [command_id, event_flags]);
   }
@@ -57,7 +57,7 @@ remote_cocoa.mojom.MenuHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec.$,
+      remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec,
       null,
       []);
   }
@@ -146,7 +146,7 @@ remote_cocoa.mojom.MenuRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.Menu_Cancel_ParamsSpec.$,
+      remote_cocoa.mojom.Menu_Cancel_ParamsSpec,
       null,
       []);
   }
@@ -155,7 +155,7 @@ remote_cocoa.mojom.MenuRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec.$,
+      remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec,
       null,
       [command_id, enabled, visible, label]);
   }

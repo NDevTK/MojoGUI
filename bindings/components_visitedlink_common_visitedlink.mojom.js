@@ -48,7 +48,7 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec.$,
+      visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec,
       null,
       [table_region]);
   }
@@ -57,7 +57,7 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec.$,
+      visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec,
       null,
       [link_hashes]);
   }
@@ -66,7 +66,7 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec.$,
+      visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec,
       null,
       [invalidate_cached_hashes]);
   }
@@ -75,7 +75,7 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec.$,
+      visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec,
       null,
       [origin_salts]);
   }

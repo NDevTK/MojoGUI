@@ -58,7 +58,7 @@ chrome.mojom.PluginHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.PluginHost_OpenPDF_ParamsSpec.$,
+      chrome.mojom.PluginHost_OpenPDF_ParamsSpec,
       null,
       [url]);
   }
@@ -133,7 +133,7 @@ chrome.mojom.PluginAuthHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec.$,
+      chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec,
       null,
       [name, group_id]);
   }
@@ -209,8 +209,8 @@ chrome.mojom.PluginInfoHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec.$,
-      chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec.$,
+      chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec,
+      chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec,
       [url, origin, mime_type]);
   }
 

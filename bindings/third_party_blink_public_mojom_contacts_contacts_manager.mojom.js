@@ -48,8 +48,8 @@ blink.mojom.ContactsManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ContactsManager_Select_ParamsSpec.$,
-      blink.mojom.ContactsManager_Select_ResponseParamsSpec.$,
+      blink.mojom.ContactsManager_Select_ParamsSpec,
+      blink.mojom.ContactsManager_Select_ResponseParamsSpec,
       [multiple, include_names, include_emails, include_tel, include_addresses, include_icons]);
   }
 

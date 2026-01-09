@@ -62,7 +62,7 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec.$,
+      printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec,
       null,
       [frame_guid]);
   }
@@ -71,7 +71,7 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec.$,
+      printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec,
       null,
       [frame_guid, serialized_content, subframe_content_info]);
   }
@@ -80,7 +80,7 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec.$,
+      printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec,
       null,
       [accessibility_tree]);
   }
@@ -89,8 +89,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      printing.mojom.PrintCompositor_CompositePage_ParamsSpec.$,
-      printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec.$,
+      printing.mojom.PrintCompositor_CompositePage_ParamsSpec,
+      printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec,
       [frame_guid, sk_region, subframe_content_info]);
   }
 
@@ -98,8 +98,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec.$,
-      printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec.$,
+      printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec,
+      printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec,
       [frame_guid, sk_region, subframe_content_info, document_type]);
   }
 
@@ -107,8 +107,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec.$,
-      printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec.$,
+      printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec,
+      printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec,
       [document_type]);
   }
 
@@ -116,8 +116,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec.$,
-      printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec.$,
+      printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec,
+      printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec,
       [pages_count]);
   }
 
@@ -125,7 +125,7 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec.$,
+      printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec,
       null,
       [url]);
   }
@@ -134,7 +134,7 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec.$,
+      printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec,
       null,
       [user_agent]);
   }
@@ -143,7 +143,7 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec.$,
+      printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec,
       null,
       [generate_document_outline]);
   }
@@ -152,7 +152,7 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      printing.mojom.PrintCompositor_SetTitle_ParamsSpec.$,
+      printing.mojom.PrintCompositor_SetTitle_ParamsSpec,
       null,
       [title]);
   }
@@ -161,7 +161,7 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec.$,
+      printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec,
       null,
       [watermark_block]);
   }

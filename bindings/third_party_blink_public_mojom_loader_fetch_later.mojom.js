@@ -48,7 +48,7 @@ blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec.$,
+      blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec,
       null,
       [loader, request_id, options, request, traffic_annotation]);
   }
@@ -57,7 +57,7 @@ blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec.$,
+      blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec,
       null,
       [factory]);
   }
@@ -150,7 +150,7 @@ blink.mojom.FetchLaterLoaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FetchLaterLoader_SendNow_ParamsSpec.$,
+      blink.mojom.FetchLaterLoader_SendNow_ParamsSpec,
       null,
       []);
   }
@@ -159,7 +159,7 @@ blink.mojom.FetchLaterLoaderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FetchLaterLoader_Cancel_ParamsSpec.$,
+      blink.mojom.FetchLaterLoader_Cancel_ParamsSpec,
       null,
       []);
   }

@@ -48,7 +48,7 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec.$,
+      blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec,
       null,
       [target]);
   }
@@ -57,7 +57,7 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec.$,
+      blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec,
       null,
       [target, mouse_data]);
   }
@@ -66,7 +66,7 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec.$,
+      blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec,
       null,
       [target, mouse_data]);
   }
@@ -75,7 +75,7 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec.$,
+      blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec,
       null,
       [target]);
   }
@@ -84,7 +84,7 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec.$,
+      blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec,
       null,
       [targets]);
   }

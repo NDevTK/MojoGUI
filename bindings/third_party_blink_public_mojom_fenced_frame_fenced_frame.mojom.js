@@ -48,7 +48,7 @@ blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec.$,
+      blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec,
       null,
       [url, navigation_start_time, embedder_shared_storage_context]);
   }
@@ -57,7 +57,7 @@ blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec.$,
+      blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec,
       null,
       [frame_policy]);
   }

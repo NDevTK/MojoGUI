@@ -106,7 +106,7 @@ blink.mojom.FeatureObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FeatureObserver_Register_ParamsSpec.$,
+      blink.mojom.FeatureObserver_Register_ParamsSpec,
       null,
       [feature, type]);
   }

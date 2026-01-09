@@ -48,8 +48,8 @@ blink.mojom.WebSensorProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebSensorProvider_GetSensor_ParamsSpec.$,
-      blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec.$,
+      blink.mojom.WebSensorProvider_GetSensor_ParamsSpec,
+      blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec,
       [type]);
   }
 

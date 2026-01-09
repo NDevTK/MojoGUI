@@ -48,8 +48,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.WebTransport_SendDatagram_ParamsSpec.$,
-      network.mojom.WebTransport_SendDatagram_ResponseParamsSpec.$,
+      network.mojom.WebTransport_SendDatagram_ParamsSpec,
+      network.mojom.WebTransport_SendDatagram_ResponseParamsSpec,
       [data]);
   }
 
@@ -57,8 +57,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.WebTransport_CreateStream_ParamsSpec.$,
-      network.mojom.WebTransport_CreateStream_ResponseParamsSpec.$,
+      network.mojom.WebTransport_CreateStream_ParamsSpec,
+      network.mojom.WebTransport_CreateStream_ResponseParamsSpec,
       [readable, writable]);
   }
 
@@ -66,8 +66,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec.$,
-      network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec.$,
+      network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec,
+      network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec.$,
-      network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec.$,
+      network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec,
+      network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec,
       []);
   }
 
@@ -84,7 +84,7 @@ network.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.WebTransport_SendFin_ParamsSpec.$,
+      network.mojom.WebTransport_SendFin_ParamsSpec,
       null,
       [stream_id]);
   }
@@ -93,7 +93,7 @@ network.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.WebTransport_AbortStream_ParamsSpec.$,
+      network.mojom.WebTransport_AbortStream_ParamsSpec,
       null,
       [stream_id, code]);
   }
@@ -102,7 +102,7 @@ network.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      network.mojom.WebTransport_StopSending_ParamsSpec.$,
+      network.mojom.WebTransport_StopSending_ParamsSpec,
       null,
       [stream_id, code]);
   }
@@ -111,7 +111,7 @@ network.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec.$,
+      network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec,
       null,
       [duration]);
   }
@@ -120,8 +120,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      network.mojom.WebTransport_GetStats_ParamsSpec.$,
-      network.mojom.WebTransport_GetStats_ResponseParamsSpec.$,
+      network.mojom.WebTransport_GetStats_ParamsSpec,
+      network.mojom.WebTransport_GetStats_ResponseParamsSpec,
       []);
   }
 
@@ -129,7 +129,7 @@ network.mojom.WebTransportRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      network.mojom.WebTransport_Close_ParamsSpec.$,
+      network.mojom.WebTransport_Close_ParamsSpec,
       null,
       [close_info]);
   }
@@ -399,7 +399,7 @@ network.mojom.WebTransportClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec.$,
+      network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec,
       null,
       [data]);
   }
@@ -408,7 +408,7 @@ network.mojom.WebTransportClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec.$,
+      network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec,
       null,
       [stream_id, fin_received]);
   }
@@ -417,7 +417,7 @@ network.mojom.WebTransportClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec.$,
+      network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec,
       null,
       [stream_id]);
   }
@@ -426,7 +426,7 @@ network.mojom.WebTransportClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec.$,
+      network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec,
       null,
       [stream_id, stream_error_code]);
   }
@@ -435,7 +435,7 @@ network.mojom.WebTransportClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec.$,
+      network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec,
       null,
       [stream_id, stream_error_code]);
   }
@@ -444,7 +444,7 @@ network.mojom.WebTransportClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.WebTransportClient_OnClosed_ParamsSpec.$,
+      network.mojom.WebTransportClient_OnClosed_ParamsSpec,
       null,
       [close_info, final_stats]);
   }
@@ -593,7 +593,7 @@ network.mojom.WebTransportHandshakeClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec.$,
+      network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec,
       null,
       [server_address]);
   }
@@ -602,7 +602,7 @@ network.mojom.WebTransportHandshakeClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec.$,
+      network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec,
       null,
       [transport, client, response_headers, selected_application_protocol, initial_stats]);
   }
@@ -611,7 +611,7 @@ network.mojom.WebTransportHandshakeClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec.$,
+      network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec,
       null,
       [error]);
   }

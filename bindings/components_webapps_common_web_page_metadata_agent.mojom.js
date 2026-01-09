@@ -48,8 +48,8 @@ webapps.mojom.WebPageMetadataAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec.$,
-      webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec.$,
+      webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec,
+      webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec,
       []);
   }
 

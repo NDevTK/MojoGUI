@@ -57,7 +57,7 @@ ax.mojom.UserInputRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec.$,
+      ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec,
       null,
       [key_event]);
   }
@@ -66,7 +66,7 @@ ax.mojom.UserInputRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec.$,
+      ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec,
       null,
       [mouse_event]);
   }

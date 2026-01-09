@@ -97,7 +97,7 @@ ash.diagnostics.mojom.NetworkListObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$,
+      ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec,
       null,
       [network_guids, active_guid]);
   }
@@ -173,7 +173,7 @@ ash.diagnostics.mojom.NetworkStateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$,
+      ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec,
       null,
       [network]);
   }
@@ -248,7 +248,7 @@ ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$,
+      ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec,
       null,
       [observer]);
   }
@@ -257,7 +257,7 @@ ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$,
+      ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec,
       null,
       [observer, guid]);
   }

@@ -48,8 +48,8 @@ payments.mojom.DigitalGoodsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.mojom.DigitalGoods_GetDetails_ParamsSpec.$,
-      payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec.$,
+      payments.mojom.DigitalGoods_GetDetails_ParamsSpec,
+      payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec,
       [item_ids]);
   }
 
@@ -57,8 +57,8 @@ payments.mojom.DigitalGoodsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      payments.mojom.DigitalGoods_ListPurchases_ParamsSpec.$,
-      payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec.$,
+      payments.mojom.DigitalGoods_ListPurchases_ParamsSpec,
+      payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec,
       []);
   }
 
@@ -66,8 +66,8 @@ payments.mojom.DigitalGoodsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec.$,
-      payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec.$,
+      payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec,
+      payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ payments.mojom.DigitalGoodsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      payments.mojom.DigitalGoods_Consume_ParamsSpec.$,
-      payments.mojom.DigitalGoods_Consume_ResponseParamsSpec.$,
+      payments.mojom.DigitalGoods_Consume_ParamsSpec,
+      payments.mojom.DigitalGoods_Consume_ResponseParamsSpec,
       [purchase_token]);
   }
 
@@ -245,8 +245,8 @@ payments.mojom.DigitalGoodsFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec.$,
-      payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec.$,
+      payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec,
+      payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec,
       [payment_method]);
   }
 

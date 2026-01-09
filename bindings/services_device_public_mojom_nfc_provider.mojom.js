@@ -48,7 +48,7 @@ device.mojom.NFCProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.NFCProvider_GetNFCForHost_ParamsSpec.$,
+      device.mojom.NFCProvider_GetNFCForHost_ParamsSpec,
       null,
       [host_id, receiver]);
   }
@@ -57,7 +57,7 @@ device.mojom.NFCProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec.$,
+      device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +66,7 @@ device.mojom.NFCProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec.$,
+      device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec,
       null,
       []);
   }

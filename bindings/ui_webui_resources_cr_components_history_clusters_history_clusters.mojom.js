@@ -74,7 +74,7 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec.$,
+      history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec,
       null,
       [url, click_modifiers]);
   }
@@ -83,7 +83,7 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      history_clusters.mojom.PageHandler_SetPage_ParamsSpec.$,
+      history_clusters.mojom.PageHandler_SetPage_ParamsSpec,
       null,
       [page]);
   }
@@ -92,7 +92,7 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec.$,
+      history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec,
       null,
       [query, point]);
   }
@@ -101,7 +101,7 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$,
+      history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec,
       null,
       [url, point]);
   }
@@ -110,7 +110,7 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec.$,
+      history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec,
       null,
       []);
   }
@@ -119,8 +119,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec.$,
-      history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec.$,
+      history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec,
+      history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec,
       [visible]);
   }
 
@@ -128,7 +128,7 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec.$,
+      history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec,
       null,
       [query, begin_time, recluster]);
   }
@@ -137,7 +137,7 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec.$,
+      history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec,
       null,
       [query]);
   }
@@ -146,8 +146,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      history_clusters.mojom.PageHandler_HideVisits_ParamsSpec.$,
-      history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec.$,
+      history_clusters.mojom.PageHandler_HideVisits_ParamsSpec,
+      history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec,
       [visits]);
   }
 
@@ -155,8 +155,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec.$,
-      history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec.$,
+      history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec,
+      history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec,
       [visits]);
   }
 
@@ -164,8 +164,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec.$,
-      history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec.$,
+      history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec,
+      history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec,
       [url, timestamp]);
   }
 
@@ -173,7 +173,7 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec.$,
+      history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec,
       null,
       [visits, tab_group_name]);
   }
@@ -182,7 +182,7 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec.$,
+      history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec,
       null,
       [visit_action, visit_index, visit_type]);
   }
@@ -191,7 +191,7 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec.$,
+      history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec,
       null,
       [action, visit_index]);
   }
@@ -200,7 +200,7 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec.$,
+      history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec,
       null,
       [cluster_action, cluster_index]);
   }
@@ -209,7 +209,7 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec.$,
+      history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec,
       null,
       [visible]);
   }
@@ -556,7 +556,7 @@ history_clusters.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec.$,
+      history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec,
       null,
       [result]);
   }
@@ -565,7 +565,7 @@ history_clusters.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec.$,
+      history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec,
       null,
       [cluster_index, image_url]);
   }
@@ -574,7 +574,7 @@ history_clusters.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec.$,
+      history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec,
       null,
       [hidden_visits]);
   }
@@ -583,7 +583,7 @@ history_clusters.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec.$,
+      history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec,
       null,
       [removed_visits]);
   }
@@ -592,7 +592,7 @@ history_clusters.mojom.PageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec.$,
+      history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec,
       null,
       []);
   }
@@ -601,7 +601,7 @@ history_clusters.mojom.PageRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec.$,
+      history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec,
       null,
       [query]);
   }

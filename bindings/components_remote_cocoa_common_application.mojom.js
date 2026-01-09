@@ -107,7 +107,7 @@ remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.Application_CreateAlert_ParamsSpec.$,
+      remote_cocoa.mojom.Application_CreateAlert_ParamsSpec,
       null,
       [alert_bridge_receiver]);
   }
@@ -116,7 +116,7 @@ remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec.$,
+      remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec,
       null,
       [bridge_id, window_receiver, host, text_input_host]);
   }
@@ -125,7 +125,7 @@ remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec.$,
+      remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec,
       null,
       [view_id, host, view_receiver]);
   }
@@ -134,7 +134,7 @@ remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec.$,
+      remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec,
       null,
       [receiver, host]);
   }
@@ -143,7 +143,7 @@ remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec.$,
+      remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec,
       null,
       [view_id, host, view_receiver]);
   }
@@ -152,7 +152,7 @@ remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec.$,
+      remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec,
       null,
       [command]);
   }

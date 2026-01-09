@@ -85,7 +85,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec.$,
+      chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec,
       null,
       [application]);
   }
@@ -94,7 +94,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec.$,
+      chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec,
       null,
       [widget_id]);
   }
@@ -103,7 +103,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.AppShim_SetUserAttention_ParamsSpec.$,
+      chrome.mojom.AppShim_SetUserAttention_ParamsSpec,
       null,
       [attention_type]);
   }
@@ -112,7 +112,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec.$,
+      chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec,
       null,
       [badge_label]);
   }
@@ -121,7 +121,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec.$,
+      chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec,
       null,
       [profile_menu_items]);
   }
@@ -130,7 +130,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec.$,
+      chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec,
       null,
       [dock_menu_items]);
   }
@@ -139,7 +139,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec.$,
+      chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec,
       null,
       [provider]);
   }
@@ -148,8 +148,8 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec.$,
-      chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec.$,
+      chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec,
+      chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec,
       []);
   }
 
@@ -157,7 +157,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec.$,
+      chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec,
       null,
       [receiver]);
   }
@@ -356,7 +356,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.AppShimHost_FocusApp_ParamsSpec.$,
+      chrome.mojom.AppShimHost_FocusApp_ParamsSpec,
       null,
       []);
   }
@@ -365,7 +365,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.AppShimHost_ReopenApp_ParamsSpec.$,
+      chrome.mojom.AppShimHost_ReopenApp_ParamsSpec,
       null,
       []);
   }
@@ -374,7 +374,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.AppShimHost_FilesOpened_ParamsSpec.$,
+      chrome.mojom.AppShimHost_FilesOpened_ParamsSpec,
       null,
       [files]);
   }
@@ -383,7 +383,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec.$,
+      chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec,
       null,
       [profile_path]);
   }
@@ -392,7 +392,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec.$,
+      chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec,
       null,
       []);
   }
@@ -401,7 +401,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec.$,
+      chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec,
       null,
       [urls]);
   }
@@ -410,7 +410,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec.$,
+      chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec,
       null,
       [override_url]);
   }
@@ -419,7 +419,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec.$,
+      chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec,
       null,
       [mode]);
   }
@@ -428,7 +428,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec.$,
+      chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec,
       null,
       []);
   }
@@ -437,7 +437,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec.$,
+      chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec,
       null,
       [status]);
   }
@@ -634,8 +634,8 @@ chrome.mojom.AppShimHostBootstrapRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec.$,
-      chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec.$,
+      chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec,
+      chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec,
       [host_receiver, app_shim_info]);
   }
 

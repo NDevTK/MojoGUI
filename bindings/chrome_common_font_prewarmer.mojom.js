@@ -48,7 +48,7 @@ chrome.mojom.FontPrewarmerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec.$,
+      chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec,
       null,
       [font_names]);
   }
@@ -123,8 +123,8 @@ chrome.mojom.RenderFrameFontFamilyAccessorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec.$,
-      chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec.$,
+      chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec,
+      chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec,
       []);
   }
 

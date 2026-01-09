@@ -48,7 +48,7 @@ on_load_script_injector.mojom.OnLoadScriptInjectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec.$,
+      on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec,
       null,
       [script]);
   }
@@ -57,7 +57,7 @@ on_load_script_injector.mojom.OnLoadScriptInjectorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec.$,
+      on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec,
       null,
       []);
   }

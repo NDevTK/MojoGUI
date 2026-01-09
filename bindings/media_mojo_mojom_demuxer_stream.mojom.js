@@ -48,8 +48,8 @@ media.mojom.DemuxerStreamRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.DemuxerStream_Initialize_ParamsSpec.$,
-      media.mojom.DemuxerStream_Initialize_ResponseParamsSpec.$,
+      media.mojom.DemuxerStream_Initialize_ParamsSpec,
+      media.mojom.DemuxerStream_Initialize_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ media.mojom.DemuxerStreamRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.DemuxerStream_Read_ParamsSpec.$,
-      media.mojom.DemuxerStream_Read_ResponseParamsSpec.$,
+      media.mojom.DemuxerStream_Read_ParamsSpec,
+      media.mojom.DemuxerStream_Read_ResponseParamsSpec,
       [count]);
   }
 
@@ -66,7 +66,7 @@ media.mojom.DemuxerStreamRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec.$,
+      media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec,
       null,
       []);
   }

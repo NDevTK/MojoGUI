@@ -48,8 +48,8 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$,
-      printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec.$,
+      printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec,
+      printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec,
       [page_index]);
   }
 
@@ -57,7 +57,7 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$,
+      printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec,
       null,
       [url]);
   }
@@ -66,7 +66,7 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$,
+      printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
       [use_skia]);
   }
@@ -183,8 +183,8 @@ printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$,
-      printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec.$,
+      printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec,
+      printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec,
       [pdf_region, render_settings]);
   }
 

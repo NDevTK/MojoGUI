@@ -48,7 +48,7 @@ blink.mojom.DomStorageProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec.$,
+      blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec,
       null,
       [receiver, client]);
   }
@@ -124,7 +124,7 @@ blink.mojom.DomStorageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec.$,
+      blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec,
       null,
       [storage_key, local_frame_token, area]);
   }
@@ -133,7 +133,7 @@ blink.mojom.DomStorageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec.$,
+      blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec,
       null,
       [namespace_id, receiver]);
   }
@@ -142,7 +142,7 @@ blink.mojom.DomStorageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec.$,
+      blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec,
       null,
       [storage_key, local_frame_token, namespace_id, session_namespace]);
   }
@@ -251,7 +251,7 @@ blink.mojom.DomStorageClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec.$,
+      blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec,
       null,
       []);
   }
@@ -260,7 +260,7 @@ blink.mojom.DomStorageClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec.$,
+      blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec,
       null,
       []);
   }

@@ -67,8 +67,8 @@ handwriting.mojom.HandwritingRecognizerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$,
-      handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec.$,
+      handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec,
+      handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec,
       [strokes, hints]);
   }
 
@@ -156,8 +156,8 @@ handwriting.mojom.HandwritingRecognitionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec.$,
-      handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec.$,
+      handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec,
+      handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec,
       [constraint]);
   }
 
@@ -165,8 +165,8 @@ handwriting.mojom.HandwritingRecognitionServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec.$,
-      handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec.$,
+      handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec,
+      handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec,
       [constraint]);
   }
 

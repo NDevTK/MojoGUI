@@ -48,7 +48,7 @@ blink.mojom.BadgeServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BadgeService_SetBadge_ParamsSpec.$,
+      blink.mojom.BadgeService_SetBadge_ParamsSpec,
       null,
       [value]);
   }
@@ -57,7 +57,7 @@ blink.mojom.BadgeServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BadgeService_ClearBadge_ParamsSpec.$,
+      blink.mojom.BadgeService_ClearBadge_ParamsSpec,
       null,
       []);
   }

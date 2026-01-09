@@ -48,8 +48,8 @@ device.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec.$,
-      device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec.$,
+      device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec,
+      device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec,
       [name, serial_number, landing_page]);
   }
 
@@ -57,7 +57,7 @@ device.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec.$,
+      device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec,
       null,
       [guid]);
   }
@@ -66,8 +66,8 @@ device.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec.$,
-      device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec.$,
+      device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec,
+      device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec,
       []);
   }
 

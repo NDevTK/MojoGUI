@@ -48,7 +48,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec,
       null,
       [frame_sink_id, report_activation]);
   }
@@ -57,7 +57,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec,
       null,
       [frame_sink_id]);
   }
@@ -66,7 +66,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec,
       null,
       [frame_sink_id, debug_label]);
   }
@@ -75,7 +75,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec,
       null,
       [params]);
   }
@@ -84,7 +84,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec,
       null,
       [params]);
   }
@@ -93,7 +93,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec,
       null,
       [bundle_id, receiver, client]);
   }
@@ -102,7 +102,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec,
       null,
       [frame_sink_id, bundle_id, compositor_frame_sink, compositor_frame_sink_client, config]);
   }
@@ -111,7 +111,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec,
       null,
       [frame_sink_id]);
   }
@@ -120,7 +120,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec,
       null,
       [parent_frame_sink_id, child_frame_sink_id]);
   }
@@ -129,7 +129,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec,
       null,
       [parent_frame_sink_id, child_frame_sink_id]);
   }
@@ -138,7 +138,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -147,7 +147,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec,
       null,
       [receiver, capture_version_source]);
   }
@@ -156,7 +156,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec,
       null,
       [surface_ids]);
   }
@@ -165,7 +165,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      viz.mojom.FrameSinkManager_Throttle_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_Throttle_ParamsSpec,
       null,
       [frame_sink_ids, interval]);
   }
@@ -174,7 +174,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec,
       null,
       [interval]);
   }
@@ -183,7 +183,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec,
       null,
       []);
   }
@@ -192,7 +192,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec,
       null,
       [surface_id, request, capture_exact_surface_id]);
   }
@@ -201,7 +201,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec,
       null,
       [cache_id, root_frame_sink_id]);
   }
@@ -210,7 +210,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec,
       null,
       [cache_id]);
   }
@@ -219,7 +219,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec,
       null,
       [debug_settings]);
   }
@@ -228,7 +228,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec,
       null,
       [transition_token]);
   }
@@ -237,7 +237,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec,
       null,
       [receiver]);
   }
@@ -246,7 +246,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec,
       null,
       [receiver]);
   }
@@ -255,7 +255,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec,
       null,
       [receiver]);
   }
@@ -264,7 +264,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec,
       null,
       [blocked, render_input_routers]);
   }
@@ -273,7 +273,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec.$,
+      viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec,
       null,
       []);
   }
@@ -712,7 +712,7 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec.$,
+      viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec,
       null,
       [surface_info]);
   }
@@ -721,7 +721,7 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec.$,
+      viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec,
       null,
       [frame_sink_id, hit_test_data]);
   }
@@ -730,7 +730,7 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec.$,
+      viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec,
       null,
       [frame_sink_id, frame_token, activation_time]);
   }
@@ -739,8 +739,8 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec.$,
-      viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParamsSpec.$,
+      viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec,
+      viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParamsSpec,
       [thread_ids]);
   }
 
@@ -748,7 +748,7 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec.$,
+      viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec,
       null,
       [destination_token, copy_output_result]);
   }
@@ -757,7 +757,7 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec.$,
+      viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec,
       null,
       [region]);
   }
@@ -766,7 +766,7 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec.$,
+      viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec,
       null,
       [transition_token]);
   }
@@ -942,7 +942,7 @@ viz.mojom.RendererInputRouterDelegateRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec.$,
+      viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec,
       null,
       [id, rir_delegate_client_remote, rir_delegate_receiver]);
   }

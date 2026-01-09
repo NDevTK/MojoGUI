@@ -68,7 +68,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec.$,
+      ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec,
       null,
       []);
   }
@@ -77,7 +77,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec.$,
+      ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec,
       null,
       []);
   }
@@ -86,7 +86,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec.$,
+      ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec,
       null,
       []);
   }
@@ -95,7 +95,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec.$,
+      ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec,
       null,
       []);
   }
@@ -104,7 +104,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec.$,
+      ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec,
       null,
       []);
   }
@@ -230,7 +230,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec.$,
+      ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec,
       null,
       [state]);
   }
@@ -239,7 +239,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec.$,
+      ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec,
       null,
       [required_space]);
   }
@@ -248,7 +248,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec.$,
+      ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec,
       null,
       [percent]);
   }
@@ -257,7 +257,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec.$,
+      ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec,
       null,
       [enough, connected]);
   }
@@ -266,7 +266,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec.$,
+      ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec,
       null,
       [progress]);
   }
@@ -275,7 +275,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec.$,
+      ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec,
       null,
       [remaining_time]);
   }
@@ -421,7 +421,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec.$,
+      ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec,
       null,
       []);
   }
@@ -430,7 +430,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec.$,
+      ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec,
       null,
       []);
   }
@@ -439,7 +439,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec.$,
+      ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec,
       null,
       []);
   }
@@ -448,7 +448,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec.$,
+      ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec,
       null,
       []);
   }
@@ -457,7 +457,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec.$,
+      ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec,
       null,
       []);
   }
@@ -583,7 +583,7 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec.$,
+      ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec,
       null,
       [state]);
   }
@@ -592,7 +592,7 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec.$,
+      ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec,
       null,
       [progress]);
   }
@@ -601,7 +601,7 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec.$,
+      ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec,
       null,
       [is_resuming]);
   }
@@ -610,7 +610,7 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec.$,
+      ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec,
       null,
       [percent, is_enough, is_charging]);
   }
@@ -619,7 +619,7 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec.$,
+      ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec,
       null,
       [percent]);
   }
@@ -628,7 +628,7 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec.$,
+      ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec,
       null,
       [available_space, required_space]);
   }

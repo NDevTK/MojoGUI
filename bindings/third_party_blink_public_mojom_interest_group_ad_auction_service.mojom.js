@@ -61,7 +61,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec.$,
+      blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec,
       null,
       [auction, field, json_value]);
   }
@@ -70,7 +70,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec.$,
+      blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec,
       null,
       [auction, per_buyer_signals]);
   }
@@ -79,7 +79,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec.$,
+      blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec,
       null,
       [auction, buyer, json_value]);
   }
@@ -88,7 +88,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec.$,
+      blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec,
       null,
       [auction, field, buyer_timeouts]);
   }
@@ -97,7 +97,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec.$,
+      blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec,
       null,
       [auction, per_buyer_currencies]);
   }
@@ -106,7 +106,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec.$,
+      blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec,
       null,
       [auction, direct_from_seller_signals]);
   }
@@ -115,7 +115,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec.$,
+      blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec,
       null,
       [auction, direct_from_seller_signals_header_ad_slot]);
   }
@@ -124,7 +124,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec.$,
+      blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec,
       null,
       [auction, deprecated_render_url_replacements]);
   }
@@ -133,7 +133,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec.$,
+      blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec,
       null,
       [auction, result]);
   }
@@ -142,7 +142,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec.$,
+      blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec,
       null,
       [auction]);
   }
@@ -151,7 +151,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.AbortableAdAuction_Abort_ParamsSpec.$,
+      blink.mojom.AbortableAdAuction_Abort_ParamsSpec,
       null,
       []);
   }
@@ -377,8 +377,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec.$,
-      blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec.$,
+      blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec,
+      blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec,
       [config]);
   }
 
@@ -386,8 +386,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec.$,
-      blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec.$,
+      blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec,
+      blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec,
       [ads_guid, config]);
   }
 
@@ -395,8 +395,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec.$,
-      blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec.$,
+      blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec,
+      blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec,
       [config, abort_receiver]);
   }
 
@@ -404,8 +404,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec.$,
-      blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec.$,
+      blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec,
+      blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec,
       [group]);
   }
 
@@ -413,8 +413,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec.$,
-      blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec.$,
+      blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec,
+      blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec,
       [owner, name]);
   }
 
@@ -422,7 +422,7 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec.$,
+      blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec,
       null,
       []);
   }
@@ -431,8 +431,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec.$,
-      blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec.$,
+      blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec,
+      blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec,
       [owner, interest_groups_to_keep]);
   }
 
@@ -440,7 +440,7 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec.$,
+      blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec,
       null,
       []);
   }
@@ -449,8 +449,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec.$,
-      blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec.$,
+      blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec,
+      blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec,
       [uuid_url, send_reports]);
   }
 
@@ -458,7 +458,7 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec.$,
+      blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec,
       null,
       [uuid_url, replacements]);
   }
@@ -467,8 +467,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec.$,
-      blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec.$,
+      blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec,
+      blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec,
       [sellers, config]);
   }
 

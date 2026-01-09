@@ -48,8 +48,8 @@ network.mojom.TCPBoundSocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.TCPBoundSocket_Listen_ParamsSpec.$,
-      network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec.$,
+      network.mojom.TCPBoundSocket_Listen_ParamsSpec,
+      network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec,
       [backlog, socket]);
   }
 
@@ -57,8 +57,8 @@ network.mojom.TCPBoundSocketRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.TCPBoundSocket_Connect_ParamsSpec.$,
-      network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec.$,
+      network.mojom.TCPBoundSocket_Connect_ParamsSpec,
+      network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec,
       [remote_addr_list, tcp_connected_socket_options, socket, observer]);
   }
 
@@ -180,8 +180,8 @@ network.mojom.TCPConnectedSocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec.$,
-      network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec.$,
+      network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec,
+      network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec,
       [host_port_pair, options, traffic_annotation, receiver, observer]);
   }
 
@@ -189,8 +189,8 @@ network.mojom.TCPConnectedSocketRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec.$,
-      network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec.$,
+      network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec,
+      network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec,
       [send_buffer_size]);
   }
 
@@ -198,8 +198,8 @@ network.mojom.TCPConnectedSocketRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec.$,
-      network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec.$,
+      network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec,
+      network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec,
       [receive_buffer_size]);
   }
 
@@ -207,8 +207,8 @@ network.mojom.TCPConnectedSocketRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec.$,
-      network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec.$,
+      network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec,
+      network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec,
       [no_delay]);
   }
 
@@ -216,8 +216,8 @@ network.mojom.TCPConnectedSocketRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec.$,
-      network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec.$,
+      network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec,
+      network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec,
       [enable, delay_secs]);
   }
 
@@ -420,7 +420,7 @@ network.mojom.SocketObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.SocketObserver_OnReadError_ParamsSpec.$,
+      network.mojom.SocketObserver_OnReadError_ParamsSpec,
       null,
       [net_error]);
   }
@@ -429,7 +429,7 @@ network.mojom.SocketObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.SocketObserver_OnWriteError_ParamsSpec.$,
+      network.mojom.SocketObserver_OnWriteError_ParamsSpec,
       null,
       [net_error]);
   }
@@ -518,8 +518,8 @@ network.mojom.TCPServerSocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.TCPServerSocket_Accept_ParamsSpec.$,
-      network.mojom.TCPServerSocket_Accept_ResponseParamsSpec.$,
+      network.mojom.TCPServerSocket_Accept_ParamsSpec,
+      network.mojom.TCPServerSocket_Accept_ResponseParamsSpec,
       [observer]);
   }
 

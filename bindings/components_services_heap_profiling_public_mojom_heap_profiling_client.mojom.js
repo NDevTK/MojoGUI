@@ -60,7 +60,7 @@ heap_profiling.mojom.ProfilingClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec.$,
+      heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec,
       null,
       [params]);
   }
@@ -69,8 +69,8 @@ heap_profiling.mojom.ProfilingClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec.$,
-      heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec.$,
+      heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec,
+      heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec,
       []);
   }
 

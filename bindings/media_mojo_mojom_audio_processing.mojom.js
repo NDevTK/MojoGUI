@@ -48,8 +48,8 @@ media.mojom.AudioProcessorControlsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioProcessorControls_GetStats_ParamsSpec.$,
-      media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec.$,
+      media.mojom.AudioProcessorControls_GetStats_ParamsSpec,
+      media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ media.mojom.AudioProcessorControlsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec.$,
+      media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec,
       null,
       [num_preferred_channels]);
   }

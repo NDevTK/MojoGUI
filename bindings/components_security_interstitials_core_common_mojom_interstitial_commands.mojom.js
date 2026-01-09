@@ -48,7 +48,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +66,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec,
       null,
       []);
   }
@@ -75,7 +75,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec,
       null,
       []);
   }
@@ -84,7 +84,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec,
       null,
       []);
   }
@@ -93,7 +93,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec,
       null,
       []);
   }
@@ -102,7 +102,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec,
       null,
       []);
   }
@@ -111,7 +111,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec,
       null,
       []);
   }
@@ -120,7 +120,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec,
       null,
       []);
   }
@@ -129,7 +129,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec,
       null,
       []);
   }
@@ -138,7 +138,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec,
       null,
       []);
   }
@@ -147,7 +147,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec,
       null,
       []);
   }
@@ -156,7 +156,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec,
       null,
       []);
   }
@@ -165,7 +165,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec,
       null,
       []);
   }
@@ -174,7 +174,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec,
       null,
       []);
   }
@@ -183,7 +183,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec,
       null,
       []);
   }
@@ -192,7 +192,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec,
       null,
       []);
   }
@@ -201,7 +201,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec,
       null,
       []);
   }
@@ -210,7 +210,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec,
       null,
       []);
   }
@@ -219,7 +219,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec,
       null,
       []);
   }
@@ -228,7 +228,7 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec.$,
+      security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec,
       null,
       []);
   }

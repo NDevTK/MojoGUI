@@ -48,7 +48,7 @@ shape_detection.mojom.FaceDetectionProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec.$,
+      shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec,
       null,
       [receiver, options]);
   }

@@ -113,7 +113,7 @@ blink.mojom.LockRequestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.LockRequest_Granted_ParamsSpec.$,
+      blink.mojom.LockRequest_Granted_ParamsSpec,
       null,
       [lock_handle]);
   }
@@ -122,7 +122,7 @@ blink.mojom.LockRequestRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.LockRequest_Failed_ParamsSpec.$,
+      blink.mojom.LockRequest_Failed_ParamsSpec,
       null,
       []);
   }
@@ -210,7 +210,7 @@ blink.mojom.LockManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.LockManager_RequestLock_ParamsSpec.$,
+      blink.mojom.LockManager_RequestLock_ParamsSpec,
       null,
       [name, mode, wait, request]);
   }
@@ -219,8 +219,8 @@ blink.mojom.LockManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.LockManager_QueryState_ParamsSpec.$,
-      blink.mojom.LockManager_QueryState_ResponseParamsSpec.$,
+      blink.mojom.LockManager_QueryState_ParamsSpec,
+      blink.mojom.LockManager_QueryState_ResponseParamsSpec,
       []);
   }
 

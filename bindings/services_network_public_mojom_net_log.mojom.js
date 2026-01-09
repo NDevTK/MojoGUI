@@ -63,8 +63,8 @@ network.mojom.NetLogExporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.NetLogExporter_Start_ParamsSpec.$,
-      network.mojom.NetLogExporter_Start_ResponseParamsSpec.$,
+      network.mojom.NetLogExporter_Start_ParamsSpec,
+      network.mojom.NetLogExporter_Start_ResponseParamsSpec,
       [destination, extra_constants, capture_mode, max_file_size]);
   }
 
@@ -72,8 +72,8 @@ network.mojom.NetLogExporterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.NetLogExporter_Stop_ParamsSpec.$,
-      network.mojom.NetLogExporter_Stop_ResponseParamsSpec.$,
+      network.mojom.NetLogExporter_Stop_ParamsSpec,
+      network.mojom.NetLogExporter_Stop_ResponseParamsSpec,
       [polled_values]);
   }
 
@@ -190,7 +190,7 @@ network.mojom.NetLogProxySourceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec.$,
+      network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec,
       null,
       [modes]);
   }
@@ -265,7 +265,7 @@ network.mojom.NetLogProxySinkRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.NetLogProxySink_AddEntry_ParamsSpec.$,
+      network.mojom.NetLogProxySink_AddEntry_ParamsSpec,
       null,
       [type, net_log_source, phase, time, params]);
   }

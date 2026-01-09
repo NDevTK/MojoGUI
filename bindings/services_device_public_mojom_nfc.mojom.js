@@ -76,7 +76,7 @@ device.mojom.NFCRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.NFC_SetClient_ParamsSpec.$,
+      device.mojom.NFC_SetClient_ParamsSpec,
       null,
       [client]);
   }
@@ -85,8 +85,8 @@ device.mojom.NFCRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.NFC_Push_ParamsSpec.$,
-      device.mojom.NFC_Push_ResponseParamsSpec.$,
+      device.mojom.NFC_Push_ParamsSpec,
+      device.mojom.NFC_Push_ResponseParamsSpec,
       [message, options]);
   }
 
@@ -94,7 +94,7 @@ device.mojom.NFCRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.NFC_CancelPush_ParamsSpec.$,
+      device.mojom.NFC_CancelPush_ParamsSpec,
       null,
       []);
   }
@@ -103,8 +103,8 @@ device.mojom.NFCRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.NFC_MakeReadOnly_ParamsSpec.$,
-      device.mojom.NFC_MakeReadOnly_ResponseParamsSpec.$,
+      device.mojom.NFC_MakeReadOnly_ParamsSpec,
+      device.mojom.NFC_MakeReadOnly_ResponseParamsSpec,
       []);
   }
 
@@ -112,7 +112,7 @@ device.mojom.NFCRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.NFC_CancelMakeReadOnly_ParamsSpec.$,
+      device.mojom.NFC_CancelMakeReadOnly_ParamsSpec,
       null,
       []);
   }
@@ -121,8 +121,8 @@ device.mojom.NFCRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.NFC_Watch_ParamsSpec.$,
-      device.mojom.NFC_Watch_ResponseParamsSpec.$,
+      device.mojom.NFC_Watch_ParamsSpec,
+      device.mojom.NFC_Watch_ResponseParamsSpec,
       [id]);
   }
 
@@ -130,7 +130,7 @@ device.mojom.NFCRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device.mojom.NFC_CancelWatch_ParamsSpec.$,
+      device.mojom.NFC_CancelWatch_ParamsSpec,
       null,
       [id]);
   }
@@ -326,7 +326,7 @@ device.mojom.NFCClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.NFCClient_OnWatch_ParamsSpec.$,
+      device.mojom.NFCClient_OnWatch_ParamsSpec,
       null,
       [watch_ids, serial_number, message]);
   }
@@ -335,7 +335,7 @@ device.mojom.NFCClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.NFCClient_OnError_ParamsSpec.$,
+      device.mojom.NFCClient_OnError_ParamsSpec,
       null,
       [error]);
   }
@@ -426,7 +426,7 @@ device.mojom.RawNFCClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.RawNFCClient_OnWatch_ParamsSpec.$,
+      device.mojom.RawNFCClient_OnWatch_ParamsSpec,
       null,
       [watch_ids, message]);
   }
@@ -435,7 +435,7 @@ device.mojom.RawNFCClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.RawNFCClient_OnError_ParamsSpec.$,
+      device.mojom.RawNFCClient_OnError_ParamsSpec,
       null,
       [error]);
   }

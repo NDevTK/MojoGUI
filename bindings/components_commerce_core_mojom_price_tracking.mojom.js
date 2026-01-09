@@ -49,7 +49,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec.$,
+      commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec,
       null,
       [bookmark_id]);
   }
@@ -58,7 +58,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec.$,
+      commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec,
       null,
       [bookmark_id]);
   }
@@ -67,7 +67,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec.$,
+      commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec,
       null,
       [track]);
   }
@@ -76,8 +76,8 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec.$,
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec.$,
+      commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec,
+      commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec,
       []);
   }
 
@@ -85,8 +85,8 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec.$,
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec.$,
+      commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec,
+      commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec,
       []);
   }
 
@@ -94,8 +94,8 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec.$,
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec.$,
+      commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec,
+      commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec,
       []);
   }
 
@@ -103,8 +103,8 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec.$,
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec.$,
+      commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec,
+      commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec,
       []);
   }
 
@@ -112,7 +112,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec.$,
+      commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec,
       null,
       []);
   }
@@ -332,7 +332,7 @@ commerce.price_tracking.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec.$,
+      commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec,
       null,
       [bookmark_product]);
   }
@@ -341,7 +341,7 @@ commerce.price_tracking.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec.$,
+      commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec,
       null,
       [bookmark_product]);
   }
@@ -350,7 +350,7 @@ commerce.price_tracking.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec.$,
+      commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec,
       null,
       [bookmark_product, attempted_track]);
   }
@@ -359,7 +359,7 @@ commerce.price_tracking.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec.$,
+      commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec,
       null,
       [bookmark_product]);
   }
@@ -477,7 +477,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec.$,
+      commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec,
       null,
       [page, handler]);
   }

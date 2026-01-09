@@ -48,8 +48,8 @@ blink.mojom.GeolocationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec.$,
-      blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec.$,
+      blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec,
+      blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec,
       [receiver, user_gesture]);
   }
 

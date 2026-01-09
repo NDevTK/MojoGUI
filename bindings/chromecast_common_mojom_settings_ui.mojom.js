@@ -63,7 +63,7 @@ chromecast.mojom.SettingsClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec.$,
+      chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec,
       null,
       [event, origin, touch_location]);
   }
@@ -72,7 +72,7 @@ chromecast.mojom.SettingsClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec.$,
+      chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec,
       null,
       [platform_info_json]);
   }
@@ -163,7 +163,7 @@ chromecast.mojom.SettingsPlatformRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.SettingsPlatform_Connect_ParamsSpec.$,
+      chromecast.mojom.SettingsPlatform_Connect_ParamsSpec,
       null,
       [client]);
   }
@@ -172,7 +172,7 @@ chromecast.mojom.SettingsPlatformRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec.$,
+      chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec,
       null,
       [visible]);
   }

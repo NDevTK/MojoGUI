@@ -48,8 +48,8 @@ blink.mojom.ImageDownloaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ImageDownloader_DownloadImage_ParamsSpec.$,
-      blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec.$,
+      blink.mojom.ImageDownloader_DownloadImage_ParamsSpec,
+      blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec,
       [url, is_favicon, preferred_size, max_bitmap_size, bypass_cache]);
   }
 
@@ -57,8 +57,8 @@ blink.mojom.ImageDownloaderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec.$,
-      blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec.$,
+      blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec,
+      blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec,
       [ax_node_id, preferred_size, max_bitmap_size, bypass_cache]);
   }
 

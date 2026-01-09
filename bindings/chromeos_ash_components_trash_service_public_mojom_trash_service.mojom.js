@@ -49,8 +49,8 @@ ash.trash_service.mojom.TrashServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec.$,
-      ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec.$,
+      ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec,
+      ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec,
       [trash_info_file]);
   }
 

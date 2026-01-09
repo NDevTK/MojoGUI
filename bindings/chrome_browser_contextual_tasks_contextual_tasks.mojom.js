@@ -48,8 +48,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec.$,
-      contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec,
+      contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec.$,
-      contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec,
+      contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec,
       [uuid]);
   }
 
@@ -66,7 +66,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec,
       null,
       [uuid]);
   }
@@ -75,8 +75,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec.$,
-      contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec,
+      contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec,
       [url]);
   }
 
@@ -84,7 +84,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      contextual_tasks.mojom.PageHandler_SetThreadTitle_ParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_SetThreadTitle_ParamsSpec,
       null,
       [title]);
   }
@@ -93,7 +93,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      contextual_tasks.mojom.PageHandler_CloseSidePanel_ParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_CloseSidePanel_ParamsSpec,
       null,
       []);
   }
@@ -102,7 +102,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      contextual_tasks.mojom.PageHandler_ShowThreadHistory_ParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_ShowThreadHistory_ParamsSpec,
       null,
       []);
   }
@@ -111,8 +111,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec.$,
-      contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec,
+      contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec,
       []);
   }
 
@@ -120,7 +120,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec,
       null,
       []);
   }
@@ -129,7 +129,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec,
       null,
       []);
   }
@@ -138,7 +138,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec,
       null,
       []);
   }
@@ -147,7 +147,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec,
       null,
       []);
   }
@@ -156,7 +156,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec,
       null,
       [tab_id, url]);
   }
@@ -165,7 +165,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      contextual_tasks.mojom.PageHandler_OnWebviewMessage_ParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_OnWebviewMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -174,8 +174,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec.$,
-      contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec,
+      contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec,
       [is_dark_mode, is_side_panel]);
   }
 
@@ -183,7 +183,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec.$,
+      contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec,
       null,
       []);
   }
@@ -526,7 +526,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      contextual_tasks.mojom.Page_SetThreadTitle_ParamsSpec.$,
+      contextual_tasks.mojom.Page_SetThreadTitle_ParamsSpec,
       null,
       [title]);
   }
@@ -535,7 +535,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec.$,
+      contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec,
       null,
       [uuid, thread_id, turn_id]);
   }
@@ -544,7 +544,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec.$,
+      contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec,
       null,
       []);
   }
@@ -553,7 +553,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec.$,
+      contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec,
       null,
       [message]);
   }
@@ -562,7 +562,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec.$,
+      contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec,
       null,
       []);
   }
@@ -571,7 +571,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      contextual_tasks.mojom.Page_SetOAuthToken_ParamsSpec.$,
+      contextual_tasks.mojom.Page_SetOAuthToken_ParamsSpec,
       null,
       [oauth_token]);
   }
@@ -580,7 +580,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      contextual_tasks.mojom.Page_OnContextUpdated_ParamsSpec.$,
+      contextual_tasks.mojom.Page_OnContextUpdated_ParamsSpec,
       null,
       [context_tabs]);
   }
@@ -589,7 +589,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      contextual_tasks.mojom.Page_HideInput_ParamsSpec.$,
+      contextual_tasks.mojom.Page_HideInput_ParamsSpec,
       null,
       []);
   }
@@ -598,7 +598,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      contextual_tasks.mojom.Page_RestoreInput_ParamsSpec.$,
+      contextual_tasks.mojom.Page_RestoreInput_ParamsSpec,
       null,
       []);
   }
@@ -607,7 +607,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec.$,
+      contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec,
       null,
       [is_zero_state]);
   }
@@ -616,7 +616,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      contextual_tasks.mojom.Page_OnAiPageStatusChanged_ParamsSpec.$,
+      contextual_tasks.mojom.Page_OnAiPageStatusChanged_ParamsSpec,
       null,
       [is_ai_page]);
   }
@@ -625,7 +625,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      contextual_tasks.mojom.Page_OnLensOverlayStateChanged_ParamsSpec.$,
+      contextual_tasks.mojom.Page_OnLensOverlayStateChanged_ParamsSpec,
       null,
       [is_showing]);
   }
@@ -634,7 +634,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec.$,
+      contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec,
       null,
       []);
   }
@@ -643,7 +643,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec.$,
+      contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec,
       null,
       []);
   }
@@ -896,7 +896,7 @@ contextual_tasks.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, page_handler]);
   }

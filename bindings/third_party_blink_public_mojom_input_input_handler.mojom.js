@@ -75,7 +75,7 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec.$,
+      blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec,
       null,
       [touch_action]);
   }
@@ -84,7 +84,7 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec.$,
+      blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec,
       null,
       [pan_action]);
   }
@@ -93,7 +93,7 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec.$,
+      blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec,
       null,
       [params]);
   }
@@ -102,7 +102,7 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec.$,
+      blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec,
       null,
       []);
   }
@@ -111,7 +111,7 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec.$,
+      blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec,
       null,
       []);
   }
@@ -120,7 +120,7 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec.$,
+      blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec,
       null,
       [range, character_bounds]);
   }
@@ -129,7 +129,7 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec.$,
+      blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec,
       null,
       [capture]);
   }
@@ -138,7 +138,7 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec.$,
+      blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec,
       null,
       [autoscroll_selection]);
   }
@@ -147,8 +147,8 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec.$,
-      blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec.$,
+      blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec,
+      blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec,
       [from_user_gesture, unadjusted_movement]);
   }
 
@@ -348,7 +348,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec,
       null,
       [start, end, ime_text_spans]);
   }
@@ -357,7 +357,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec,
       null,
       [start, end, type]);
   }
@@ -366,7 +366,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec,
       null,
       [start, end, ime_text_spans]);
   }
@@ -375,7 +375,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec,
       null,
       [before, after]);
   }
@@ -384,7 +384,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec,
       null,
       [before, after, replacement_text]);
   }
@@ -393,7 +393,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec,
       null,
       [before, after]);
   }
@@ -402,7 +402,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec,
       null,
       [before, after]);
   }
@@ -411,7 +411,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec,
       null,
       [start, end]);
   }
@@ -420,8 +420,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec.$,
-      blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec,
+      blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec,
       [gesture_data]);
   }
 
@@ -429,7 +429,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec,
       null,
       [command, value]);
   }
@@ -438,7 +438,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec,
       null,
       []);
   }
@@ -447,7 +447,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec,
       null,
       []);
   }
@@ -456,7 +456,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec,
       null,
       []);
   }
@@ -465,7 +465,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec,
       null,
       []);
   }
@@ -474,7 +474,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec,
       null,
       []);
   }
@@ -483,7 +483,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec,
       null,
       []);
   }
@@ -492,7 +492,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec,
       null,
       []);
   }
@@ -501,7 +501,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec,
       null,
       []);
   }
@@ -510,7 +510,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec,
       null,
       []);
   }
@@ -519,7 +519,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec,
       null,
       []);
   }
@@ -528,7 +528,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec,
       null,
       []);
   }
@@ -537,7 +537,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec,
       null,
       [word]);
   }
@@ -546,7 +546,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec,
       null,
       [word]);
   }
@@ -555,7 +555,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec,
       null,
       [base, extent]);
   }
@@ -564,7 +564,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec,
       null,
       [start, end, behavior]);
   }
@@ -573,8 +573,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec.$,
-      blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec,
+      blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec,
       [granularity, should_show_handle, should_show_context_menu]);
   }
 
@@ -582,7 +582,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec,
       null,
       [extent]);
   }
@@ -591,7 +591,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec,
       null,
       []);
   }
@@ -600,7 +600,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec,
       null,
       []);
   }
@@ -609,7 +609,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec,
       null,
       [point]);
   }
@@ -618,7 +618,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec,
       null,
       [point]);
   }
@@ -627,7 +627,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec,
       null,
       []);
   }
@@ -636,8 +636,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec.$,
-      blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec.$,
+      blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec,
+      blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec,
       [range]);
   }
 
@@ -1202,7 +1202,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec,
       null,
       [state]);
   }
@@ -1211,7 +1211,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec,
       null,
       []);
   }
@@ -1220,7 +1220,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec,
       null,
       [commands]);
   }
@@ -1229,7 +1229,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec,
       null,
       [visible]);
   }
@@ -1238,7 +1238,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec,
       null,
       [text, ime_text_spans, range, start, end, ime_state]);
   }
@@ -1247,7 +1247,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec,
       null,
       [text, ime_text_spans, range, relative_cursor_position]);
   }
@@ -1256,7 +1256,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec,
       null,
       [keep_selection]);
   }
@@ -1265,7 +1265,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec,
       null,
       []);
   }
@@ -1274,7 +1274,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec,
       null,
       [immediate_request, monitor_request]);
   }
@@ -1283,8 +1283,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec.$,
-      blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec.$,
+      blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec,
+      blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec,
       [event, original_event_for_gesture]);
   }
 
@@ -1292,7 +1292,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -1301,7 +1301,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec,
       null,
       []);
   }
@@ -1310,7 +1310,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec,
       null,
       []);
   }
@@ -1319,7 +1319,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec,
       null,
       [control_host, host, compositor_request]);
   }
@@ -1328,7 +1328,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec,
       null,
       [interface_request]);
   }
@@ -1337,7 +1337,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec.$,
+      blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec,
       null,
       [constraints, current, animate, offset_tag_modifications]);
   }

@@ -54,8 +54,8 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec.$,
-      blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec.$,
+      blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec,
+      blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec,
       [cache_type]);
   }
 
@@ -63,7 +63,7 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec.$,
+      blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec,
       null,
       [cache_type, url, expected_response_time, data]);
   }
@@ -72,8 +72,8 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec.$,
-      blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec.$,
+      blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec,
+      blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec,
       [cache_type, url]);
   }
 
@@ -81,7 +81,7 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec.$,
+      blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec,
       null,
       [cache_type, url]);
   }
@@ -90,7 +90,7 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec.$,
+      blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec,
       null,
       [url, expected_response_time, data, cache_storage_cache_name]);
   }

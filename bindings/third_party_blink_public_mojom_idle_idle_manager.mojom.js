@@ -54,7 +54,7 @@ blink.mojom.IdleMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.IdleMonitor_Update_ParamsSpec.$,
+      blink.mojom.IdleMonitor_Update_ParamsSpec,
       null,
       [state, is_overridden_by_devtools]);
   }
@@ -130,8 +130,8 @@ blink.mojom.IdleManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.IdleManager_AddMonitor_ParamsSpec.$,
-      blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec.$,
+      blink.mojom.IdleManager_AddMonitor_ParamsSpec,
+      blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec,
       [monitor]);
   }
 

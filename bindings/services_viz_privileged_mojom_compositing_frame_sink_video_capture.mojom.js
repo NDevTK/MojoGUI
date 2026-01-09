@@ -55,7 +55,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec,
       null,
       []);
   }
@@ -64,7 +64,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec,
       null,
       [feedback]);
   }
@@ -152,7 +152,7 @@ viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec,
       null,
       [data, info, content_rect, callbacks]);
   }
@@ -161,7 +161,7 @@ viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec,
       null,
       [capture_version]);
   }
@@ -170,7 +170,7 @@ viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec,
       null,
       []);
   }
@@ -179,7 +179,7 @@ viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec,
       null,
       []);
   }
@@ -188,7 +188,7 @@ viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec,
       null,
       [message]);
   }
@@ -320,7 +320,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec,
       null,
       [format]);
   }
@@ -329,7 +329,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec,
       null,
       [min_period]);
   }
@@ -338,7 +338,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec,
       null,
       [min_period]);
   }
@@ -347,7 +347,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec,
       null,
       [min_size, max_size, use_fixed_aspect_ratio]);
   }
@@ -356,7 +356,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -365,7 +365,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec,
       null,
       [enabled, majority_damaged_pixel_min_ratio]);
   }
@@ -374,7 +374,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec,
       null,
       [target, sub_capture_version]);
   }
@@ -383,7 +383,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec,
       null,
       [consumer, buffer_format_preference]);
   }
@@ -392,7 +392,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec,
       null,
       []);
   }
@@ -401,7 +401,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec,
       null,
       []);
   }
@@ -410,7 +410,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec,
       null,
       [stacking_index, receiver]);
   }
@@ -629,7 +629,7 @@ viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec,
       null,
       [image, bounds]);
   }
@@ -638,7 +638,7 @@ viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec,
       null,
       [bounds]);
   }
@@ -647,7 +647,7 @@ viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec.$,
+      viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec,
       null,
       [coordinates]);
   }

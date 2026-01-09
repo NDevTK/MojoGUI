@@ -48,7 +48,7 @@ chromecast.mojom.ActivityWindowRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.ActivityWindow_Show_ParamsSpec.$,
+      chromecast.mojom.ActivityWindow_Show_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ chromecast.mojom.ActivityWindowRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.ActivityWindow_Hide_ParamsSpec.$,
+      chromecast.mojom.ActivityWindow_Hide_ParamsSpec,
       null,
       []);
   }

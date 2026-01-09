@@ -75,7 +75,7 @@ ax.mojom.TtsUtteranceClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec.$,
+      ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -150,8 +150,8 @@ ax.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.Tts_Speak_ParamsSpec.$,
-      ax.mojom.Tts_Speak_ResponseParamsSpec.$,
+      ax.mojom.Tts_Speak_ParamsSpec,
+      ax.mojom.Tts_Speak_ResponseParamsSpec,
       [utterance, options]);
   }
 
@@ -159,7 +159,7 @@ ax.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.Tts_Stop_ParamsSpec.$,
+      ax.mojom.Tts_Stop_ParamsSpec,
       null,
       []);
   }
@@ -168,7 +168,7 @@ ax.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.mojom.Tts_Pause_ParamsSpec.$,
+      ax.mojom.Tts_Pause_ParamsSpec,
       null,
       []);
   }
@@ -177,7 +177,7 @@ ax.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ax.mojom.Tts_Resume_ParamsSpec.$,
+      ax.mojom.Tts_Resume_ParamsSpec,
       null,
       []);
   }
@@ -186,8 +186,8 @@ ax.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ax.mojom.Tts_IsSpeaking_ParamsSpec.$,
-      ax.mojom.Tts_IsSpeaking_ResponseParamsSpec.$,
+      ax.mojom.Tts_IsSpeaking_ParamsSpec,
+      ax.mojom.Tts_IsSpeaking_ResponseParamsSpec,
       []);
   }
 
@@ -195,8 +195,8 @@ ax.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ax.mojom.Tts_GetVoices_ParamsSpec.$,
-      ax.mojom.Tts_GetVoices_ResponseParamsSpec.$,
+      ax.mojom.Tts_GetVoices_ParamsSpec,
+      ax.mojom.Tts_GetVoices_ResponseParamsSpec,
       []);
   }
 

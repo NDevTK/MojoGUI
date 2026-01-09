@@ -56,8 +56,8 @@ storage.mojom.IndexedDBClientStateCheckerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec.$,
-      storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec.$,
+      storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec,
+      storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec,
       [connection_id, reason, keep_active]);
   }
 
@@ -65,7 +65,7 @@ storage.mojom.IndexedDBClientStateCheckerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec.$,
+      storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec,
       null,
       [receiver]);
   }

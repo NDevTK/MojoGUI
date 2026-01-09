@@ -57,7 +57,7 @@ ash.office_fallback.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -132,7 +132,7 @@ ash.office_fallback.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.office_fallback.mojom.PageHandler_Close_ParamsSpec.$,
+      ash.office_fallback.mojom.PageHandler_Close_ParamsSpec,
       null,
       [choice]);
   }

@@ -66,7 +66,7 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mirroring.mojom.SessionObserver_OnError_ParamsSpec.$,
+      mirroring.mojom.SessionObserver_OnError_ParamsSpec,
       null,
       [error]);
   }
@@ -75,7 +75,7 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mirroring.mojom.SessionObserver_DidStart_ParamsSpec.$,
+      mirroring.mojom.SessionObserver_DidStart_ParamsSpec,
       null,
       []);
   }
@@ -84,7 +84,7 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mirroring.mojom.SessionObserver_DidStop_ParamsSpec.$,
+      mirroring.mojom.SessionObserver_DidStop_ParamsSpec,
       null,
       []);
   }
@@ -93,7 +93,7 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec.$,
+      mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -102,7 +102,7 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec.$,
+      mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -111,7 +111,7 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec.$,
+      mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec,
       null,
       []);
   }
@@ -120,7 +120,7 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec.$,
+      mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec,
       null,
       [is_remoting]);
   }

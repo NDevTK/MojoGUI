@@ -48,7 +48,7 @@ network.mojom.NetworkAnnotationMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec.$,
+      network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec,
       null,
       [hash_code]);
   }

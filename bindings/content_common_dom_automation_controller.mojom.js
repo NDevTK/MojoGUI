@@ -48,7 +48,7 @@ content.mojom.DomAutomationControllerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec.$,
+      content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec,
       null,
       [json_string]);
   }

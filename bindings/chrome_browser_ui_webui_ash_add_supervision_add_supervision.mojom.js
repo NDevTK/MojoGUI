@@ -54,8 +54,8 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec.$,
-      add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec.$,
+      add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec,
+      add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec,
       []);
   }
 
@@ -63,8 +63,8 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec.$,
-      add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec.$,
+      add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec,
+      add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec,
       []);
   }
 
@@ -72,8 +72,8 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec.$,
-      add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec.$,
+      add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec,
+      add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec,
       []);
   }
 
@@ -81,7 +81,7 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec.$,
+      add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec,
       null,
       []);
   }
@@ -90,7 +90,7 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec.$,
+      add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec,
       null,
       []);
   }
@@ -99,7 +99,7 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec.$,
+      add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec,
       null,
       [enabled]);
   }

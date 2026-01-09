@@ -65,8 +65,8 @@ storage.mojom.BlobDataItemReaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.BlobDataItemReader_Read_ParamsSpec.$,
-      storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec.$,
+      storage.mojom.BlobDataItemReader_Read_ParamsSpec,
+      storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec,
       [offset, length, pipe]);
   }
 
@@ -74,8 +74,8 @@ storage.mojom.BlobDataItemReaderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec.$,
-      storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec.$,
+      storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec,
+      storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec,
       []);
   }
 
@@ -191,7 +191,7 @@ storage.mojom.BlobStorageContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec.$,
+      storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec,
       null,
       [blob, uuid, item]);
   }
@@ -200,7 +200,7 @@ storage.mojom.BlobStorageContextRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec.$,
+      storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec,
       null,
       [blob, uuid, data]);
   }
@@ -209,8 +209,8 @@ storage.mojom.BlobStorageContextRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec.$,
-      storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec.$,
+      storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec,
+      storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec,
       [blob, path, flush_on_write, last_modified]);
   }
 
@@ -218,7 +218,7 @@ storage.mojom.BlobStorageContextRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.BlobStorageContext_Clone_ParamsSpec.$,
+      storage.mojom.BlobStorageContext_Clone_ParamsSpec,
       null,
       [receiver]);
   }

@@ -48,8 +48,8 @@ ai.mojom.AIPrototypingServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec.$,
-      ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec.$,
+      ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec,
+      ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec,
       [request]);
   }
 
@@ -57,8 +57,8 @@ ai.mojom.AIPrototypingServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec.$,
-      ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec.$,
+      ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec,
+      ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec,
       [request]);
   }
 

@@ -54,7 +54,7 @@ storage.mojom.CacheStorageObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec.$,
+      storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec,
       null,
       [bucket_locator]);
   }
@@ -63,7 +63,7 @@ storage.mojom.CacheStorageObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec.$,
+      storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec,
       null,
       [bucket_locator, cache_name]);
   }
@@ -153,7 +153,7 @@ storage.mojom.CacheStorageControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec.$,
+      storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec,
       null,
       [cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter, bucket_locator, owner, receiver]);
   }
@@ -162,7 +162,7 @@ storage.mojom.CacheStorageControlRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.CacheStorageControl_AddObserver_ParamsSpec.$,
+      storage.mojom.CacheStorageControl_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -171,7 +171,7 @@ storage.mojom.CacheStorageControlRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec.$,
+      storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec,
       null,
       [policy_updates]);
   }

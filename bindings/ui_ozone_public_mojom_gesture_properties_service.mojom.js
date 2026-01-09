@@ -59,8 +59,8 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec.$,
-      ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec.$,
+      ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec,
+      ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec,
       []);
   }
 
@@ -68,8 +68,8 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec.$,
-      ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec.$,
+      ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec,
+      ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec,
       [device_id]);
   }
 
@@ -77,8 +77,8 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec.$,
-      ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec.$,
+      ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec,
+      ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec,
       [device_id, name]);
   }
 
@@ -86,8 +86,8 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec.$,
-      ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec.$,
+      ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec,
+      ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec,
       [device_id, name, value]);
   }
 

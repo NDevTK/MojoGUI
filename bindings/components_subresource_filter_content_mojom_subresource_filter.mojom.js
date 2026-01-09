@@ -48,7 +48,7 @@ subresource_filter.mojom.SubresourceFilterAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec.$,
+      subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec,
       null,
       [activation_state, ad_evidence]);
   }
@@ -124,7 +124,7 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec.$,
+      subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec,
       null,
       []);
   }
@@ -133,7 +133,7 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec.$,
+      subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec,
       null,
       []);
   }
@@ -142,7 +142,7 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec.$,
+      subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec,
       null,
       []);
   }
@@ -151,7 +151,7 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec.$,
+      subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec,
       null,
       [fenced_frame_root_placeholder_token]);
   }
@@ -160,7 +160,7 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec.$,
+      subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec,
       null,
       [statistics]);
   }
@@ -169,7 +169,7 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec.$,
+      subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec,
       null,
       [violation]);
   }

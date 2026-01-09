@@ -58,8 +58,8 @@ on_device_translation.mojom.FileOperationProxyRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec.$,
-      on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec.$,
+      on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec,
+      on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec,
       [package_index, relative_path]);
   }
 
@@ -67,8 +67,8 @@ on_device_translation.mojom.FileOperationProxyRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec.$,
-      on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec.$,
+      on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec,
+      on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec,
       [package_index, relative_path]);
   }
 
@@ -185,7 +185,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec.$,
+      on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec,
       null,
       [config]);
   }
@@ -194,8 +194,8 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec.$,
-      on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec.$,
+      on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec,
+      on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec,
       [source_lang, target_lang, receiver]);
   }
 
@@ -203,8 +203,8 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class 
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec.$,
-      on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec.$,
+      on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec,
+      on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec,
       [source_lang, target_lang]);
   }
 

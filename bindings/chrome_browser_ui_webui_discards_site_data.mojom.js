@@ -48,8 +48,8 @@ discards.mojom.SiteDataProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec.$,
-      discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec.$,
+      discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec,
+      discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec,
       [explicitly_requested_origins]);
   }
 
@@ -57,8 +57,8 @@ discards.mojom.SiteDataProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec.$,
-      discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec.$,
+      discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec,
+      discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec,
       []);
   }
 

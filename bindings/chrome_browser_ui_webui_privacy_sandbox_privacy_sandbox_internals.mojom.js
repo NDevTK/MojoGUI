@@ -48,8 +48,8 @@ privacy_sandbox_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec.$,
-      privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec.$,
+      privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec,
       [pref_prefixes]);
   }
 
@@ -57,8 +57,8 @@ privacy_sandbox_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec.$,
-      privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec.$,
+      privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec,
       [type]);
   }
 
@@ -66,8 +66,8 @@ privacy_sandbox_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec.$,
-      privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec.$,
+      privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ privacy_sandbox_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec.$,
-      privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec.$,
+      privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec,
       [pattern]);
   }
 
@@ -84,8 +84,8 @@ privacy_sandbox_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec.$,
-      privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec.$,
+      privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec,
+      privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec,
       [s]);
   }
 

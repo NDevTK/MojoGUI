@@ -48,7 +48,7 @@ unexportable_keys_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec.$,
+      unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -124,8 +124,8 @@ unexportable_keys_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec.$,
-      unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec.$,
+      unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec,
+      unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec,
       []);
   }
 
@@ -133,8 +133,8 @@ unexportable_keys_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec.$,
-      unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec.$,
+      unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec,
+      unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec,
       [key_id]);
   }
 

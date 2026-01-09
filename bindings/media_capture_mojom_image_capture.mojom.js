@@ -83,8 +83,8 @@ media.mojom.ImageCaptureRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.ImageCapture_GetPhotoState_ParamsSpec.$,
-      media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec.$,
+      media.mojom.ImageCapture_GetPhotoState_ParamsSpec,
+      media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec,
       [source_id]);
   }
 
@@ -92,8 +92,8 @@ media.mojom.ImageCaptureRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec.$,
-      media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec.$,
+      media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec,
+      media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec,
       [source_id, settings]);
   }
 
@@ -101,8 +101,8 @@ media.mojom.ImageCaptureRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.ImageCapture_TakePhoto_ParamsSpec.$,
-      media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec.$,
+      media.mojom.ImageCapture_TakePhoto_ParamsSpec,
+      media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec,
       [source_id]);
   }
 

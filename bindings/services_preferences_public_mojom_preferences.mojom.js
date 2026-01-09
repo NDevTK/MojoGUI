@@ -66,7 +66,7 @@ prefs.mojom.ResetOnLoadObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec.$,
+      prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec,
       null,
       []);
   }

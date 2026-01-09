@@ -48,7 +48,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -57,7 +57,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +66,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.DisplayPrivate_Resize_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_Resize_ParamsSpec,
       null,
       [size]);
   }
@@ -75,7 +75,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec,
       null,
       [color_matrix]);
   }
@@ -84,7 +84,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec,
       null,
       [display_color_spaces]);
   }
@@ -93,7 +93,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec,
       null,
       [secure]);
   }
@@ -102,7 +102,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec,
       null,
       [display_id]);
   }
@@ -111,7 +111,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec,
       null,
       [timebase, interval]);
   }
@@ -120,7 +120,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec,
       null,
       []);
   }
@@ -129,7 +129,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec,
       null,
       [refresh_rate]);
   }
@@ -138,7 +138,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec,
       null,
       [has_support, suggested_high, device_scale_factor]);
   }
@@ -147,7 +147,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec,
       null,
       [refresh_rates]);
   }
@@ -156,7 +156,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec,
       null,
       []);
   }
@@ -165,7 +165,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec,
       null,
       [enable]);
   }
@@ -174,7 +174,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -183,7 +183,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec,
       null,
       [receiver]);
   }
@@ -192,7 +192,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -201,7 +201,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec.$,
+      viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec,
       null,
       [max_vsync_interval, vrr_state]);
   }
@@ -515,7 +515,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec.$,
+      viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec,
       null,
       [ca_layer_params]);
   }
@@ -524,7 +524,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec.$,
+      viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec,
       null,
       [receiver]);
   }
@@ -533,7 +533,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec.$,
+      viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec,
       null,
       [child_window]);
   }
@@ -542,7 +542,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec.$,
+      viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec,
       null,
       [size]);
   }
@@ -551,7 +551,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec.$,
+      viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec,
       null,
       [size]);
   }
@@ -560,7 +560,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec.$,
+      viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec,
       null,
       [result]);
   }
@@ -569,7 +569,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec.$,
+      viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -578,7 +578,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec.$,
+      viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec,
       null,
       [refresh_rate]);
   }

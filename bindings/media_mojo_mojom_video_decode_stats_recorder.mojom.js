@@ -48,7 +48,7 @@ media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec.$,
+      media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec,
       null,
       [features]);
   }
@@ -57,7 +57,7 @@ media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec.$,
+      media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec,
       null,
       [targets]);
   }

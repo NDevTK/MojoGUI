@@ -48,8 +48,8 @@ network.mojom.DhcpWpadUrlClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec.$,
-      network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec.$,
+      network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec,
+      network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec,
       []);
   }
 

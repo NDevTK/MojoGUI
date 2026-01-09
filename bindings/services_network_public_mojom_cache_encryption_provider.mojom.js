@@ -48,8 +48,8 @@ network.mojom.CacheEncryptionProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec.$,
-      network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec.$,
+      network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec,
+      network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec,
       []);
   }
 

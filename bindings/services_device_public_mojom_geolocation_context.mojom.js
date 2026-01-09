@@ -55,7 +55,7 @@ device.mojom.GeolocationContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.GeolocationContext_BindGeolocation_ParamsSpec.$,
+      device.mojom.GeolocationContext_BindGeolocation_ParamsSpec,
       null,
       [receiver, requesting_url, client_id, has_precise_permission]);
   }
@@ -64,7 +64,7 @@ device.mojom.GeolocationContextRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec.$,
+      device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec,
       null,
       [origin, permission_level]);
   }
@@ -73,7 +73,7 @@ device.mojom.GeolocationContextRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.GeolocationContext_SetOverride_ParamsSpec.$,
+      device.mojom.GeolocationContext_SetOverride_ParamsSpec,
       null,
       [result]);
   }
@@ -82,7 +82,7 @@ device.mojom.GeolocationContextRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.GeolocationContext_ClearOverride_ParamsSpec.$,
+      device.mojom.GeolocationContext_ClearOverride_ParamsSpec,
       null,
       []);
   }

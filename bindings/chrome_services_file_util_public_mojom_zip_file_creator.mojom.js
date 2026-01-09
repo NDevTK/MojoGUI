@@ -48,7 +48,7 @@ chrome.mojom.ZipListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.ZipListener_OnProgress_ParamsSpec.$,
+      chrome.mojom.ZipListener_OnProgress_ParamsSpec,
       null,
       [bytes, files, directories]);
   }
@@ -57,7 +57,7 @@ chrome.mojom.ZipListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.ZipListener_OnFinished_ParamsSpec.$,
+      chrome.mojom.ZipListener_OnFinished_ParamsSpec,
       null,
       [success]);
   }
@@ -148,7 +148,7 @@ chrome.mojom.ZipFileCreatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec.$,
+      chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec,
       null,
       [src_dir, relative_paths, zip_file, listener]);
   }

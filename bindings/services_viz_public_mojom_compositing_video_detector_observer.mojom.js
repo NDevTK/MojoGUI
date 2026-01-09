@@ -48,7 +48,7 @@ viz.mojom.VideoDetectorObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec.$,
+      viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ viz.mojom.VideoDetectorObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec.$,
+      viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec,
       null,
       []);
   }

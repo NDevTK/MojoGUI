@@ -48,7 +48,7 @@ blink.mojom.WorkletDevToolsHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec.$,
+      blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec,
       null,
       [agent, agent_host]);
   }

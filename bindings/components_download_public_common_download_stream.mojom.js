@@ -62,7 +62,7 @@ download.mojom.DownloadStreamClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec.$,
+      download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec,
       null,
       [status]);
   }

@@ -119,8 +119,8 @@ network.mojom.TrustTokenQueryAnswererRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec.$,
-      network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec.$,
+      network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec,
+      network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec,
       [issuer]);
   }
 
@@ -128,8 +128,8 @@ network.mojom.TrustTokenQueryAnswererRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec.$,
-      network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec.$,
+      network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec,
+      network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec,
       [issuer]);
   }
 

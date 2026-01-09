@@ -55,7 +55,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec,
       null,
       [optional_bool]);
   }
@@ -64,7 +64,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec,
       null,
       [optional_uint8]);
   }
@@ -73,7 +73,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec,
       null,
       [optional_int8]);
   }
@@ -82,7 +82,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec,
       null,
       [optional_uint16]);
   }
@@ -91,7 +91,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec,
       null,
       [optional_int16]);
   }
@@ -100,7 +100,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec,
       null,
       [optional_uint32]);
   }
@@ -109,7 +109,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec,
       null,
       [optional_int32]);
   }
@@ -118,7 +118,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec,
       null,
       [optional_uint64]);
   }
@@ -127,7 +127,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec,
       null,
       [optional_int64]);
   }
@@ -136,7 +136,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec,
       null,
       [optional_float]);
   }
@@ -145,7 +145,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec,
       null,
       [optional_double]);
   }
@@ -154,7 +154,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec,
       null,
       [optional_enum]);
   }
@@ -163,7 +163,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec,
       null,
       [optional_bools]);
   }
@@ -172,7 +172,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec,
       null,
       [optional_int16s]);
   }
@@ -181,7 +181,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec,
       null,
       [optional_uint32s]);
   }
@@ -190,7 +190,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec,
       null,
       [optional_doubles]);
   }
@@ -199,7 +199,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec,
       null,
       [optional_enums]);
   }
@@ -208,7 +208,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec,
       null,
       [values]);
   }
@@ -217,7 +217,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec,
       null,
       [values]);
   }
@@ -226,7 +226,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec,
       null,
       [values]);
   }
@@ -235,8 +235,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec,
       [optional_bool]);
   }
 
@@ -244,8 +244,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec,
       [optional_uint8]);
   }
 
@@ -253,8 +253,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec,
       [optional_int8]);
   }
 
@@ -262,8 +262,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec,
       [optional_uint16]);
   }
 
@@ -271,8 +271,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec,
       [optional_int16]);
   }
 
@@ -280,8 +280,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec,
       [optional_uint32]);
   }
 
@@ -289,8 +289,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec,
       [optional_int32]);
   }
 
@@ -298,8 +298,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec,
       [optional_uint64]);
   }
 
@@ -307,8 +307,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec,
       [optional_int64]);
   }
 
@@ -316,8 +316,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec,
       [optional_float]);
   }
 
@@ -325,8 +325,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec,
       [optional_double]);
   }
 
@@ -334,8 +334,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec,
       [optional_enum]);
   }
 
@@ -343,8 +343,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec,
       [optional_enums]);
   }
 
@@ -352,8 +352,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec,
       [optional_int16s]);
   }
 
@@ -361,8 +361,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec,
       [optional_uint32s]);
   }
 
@@ -370,8 +370,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec,
       [optional_doubles]);
   }
 
@@ -379,8 +379,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec,
       [optional_enums]);
   }
 
@@ -388,8 +388,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec,
       [values]);
   }
 
@@ -397,8 +397,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec,
       [values]);
   }
 
@@ -406,8 +406,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec,
       [values]);
   }
 
@@ -415,7 +415,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec,
       null,
       [s]);
   }
@@ -424,7 +424,7 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 41
     return this.proxy.sendMessage(
       41,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec,
       null,
       [s]);
   }
@@ -433,8 +433,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
     // Ordinal: 42
     return this.proxy.sendMessage(
       42,  // ordinal
-      content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec,
+      content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec,
       [s]);
   }
 
@@ -1380,8 +1380,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec,
       []);
   }
 
@@ -1389,8 +1389,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec,
       []);
   }
 
@@ -1398,8 +1398,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec,
       []);
   }
 
@@ -1407,8 +1407,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec,
       []);
   }
 
@@ -1416,8 +1416,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec,
       []);
   }
 
@@ -1425,8 +1425,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec,
       []);
   }
 
@@ -1434,8 +1434,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec,
       []);
   }
 
@@ -1443,8 +1443,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec,
       []);
   }
 
@@ -1452,8 +1452,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec,
       []);
   }
 
@@ -1461,8 +1461,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec,
       []);
   }
 
@@ -1470,8 +1470,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec,
       []);
   }
 
@@ -1479,8 +1479,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec,
       []);
   }
 
@@ -1488,8 +1488,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec,
       []);
   }
 
@@ -1497,8 +1497,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec,
       []);
   }
 
@@ -1506,8 +1506,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec,
       []);
   }
 
@@ -1515,8 +1515,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec,
       []);
   }
 
@@ -1524,8 +1524,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec,
       []);
   }
 
@@ -1533,8 +1533,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec,
       []);
   }
 
@@ -1542,8 +1542,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec,
       []);
   }
 
@@ -1551,8 +1551,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec,
       []);
   }
 
@@ -1560,8 +1560,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec,
       [value]);
   }
 
@@ -1569,8 +1569,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec,
       [value]);
   }
 
@@ -1578,8 +1578,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec,
       [value]);
   }
 
@@ -1587,8 +1587,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec,
       [value]);
   }
 
@@ -1596,8 +1596,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec,
       [value]);
   }
 
@@ -1605,8 +1605,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec,
       [value]);
   }
 
@@ -1614,8 +1614,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec,
       [value]);
   }
 
@@ -1623,8 +1623,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec,
       [value]);
   }
 
@@ -1632,8 +1632,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec,
       [value]);
   }
 
@@ -1641,8 +1641,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec,
       [value]);
   }
 
@@ -1650,8 +1650,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec,
       [value]);
   }
 
@@ -1659,8 +1659,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec,
       [value]);
   }
 
@@ -1668,8 +1668,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec,
       [value]);
   }
 
@@ -1677,8 +1677,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec,
       [value]);
   }
 
@@ -1686,8 +1686,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec,
       [value]);
   }
 
@@ -1695,8 +1695,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec,
       [value]);
   }
 
@@ -1704,8 +1704,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec,
       [value]);
   }
 
@@ -1713,8 +1713,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec,
       [key, value]);
   }
 
@@ -1722,8 +1722,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec,
       [key, value]);
   }
 
@@ -1731,8 +1731,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec,
       [key, value]);
   }
 
@@ -1740,8 +1740,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec,
       []);
   }
 
@@ -1749,8 +1749,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 41
     return this.proxy.sendMessage(
       41,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec,
       []);
   }
 
@@ -1758,8 +1758,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
     // Ordinal: 42
     return this.proxy.sendMessage(
       42,  // ordinal
-      content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec.$,
-      content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec.$,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec,
+      content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec,
       [bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value]);
   }
 
