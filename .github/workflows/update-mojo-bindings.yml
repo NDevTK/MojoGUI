@@ -197,7 +197,7 @@ jobs:
                       depth += 1
                   elif char in '>)]':
                       depth -= 1
-                  elif char == ',' and depth == 0:
+                  elif (char == ',' or char == ';') and depth == 0:
                       if current.strip():
                           p = parse_single_param(current.strip())
                           if p:
@@ -220,6 +220,7 @@ jobs:
                   return None
               
               param_str = re.sub(r'//.*$', '', param_str, flags=re.MULTILINE).strip()
+              param_str = re.sub(r'=.*$', '', param_str).strip()
               param_str = param_str.rstrip(';').strip()
               
               if not param_str:
