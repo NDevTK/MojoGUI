@@ -52,18 +52,13 @@ jobs:
           
           git pull --depth=1 origin main || git pull --depth=1 origin master
 
-      - name: Filter broken .mojom files
+      - name: List and Sort .mojom files
         run: |
           # Find ALL .mojom files first
           find chromium_src -name "*.mojom" > all_mojoms.txt
           
-          # Create skip list for problematic files that crash the tool
-          cat << 'EOF' > skip_list.txt
-          gpu/ipc/common/exported_shared_image.mojom
-          EOF
-          
-          # Create the filter script
-          cat << 'EOF' > filter_mojoms.py
+          # Create the sorter script
+          cat << 'EOF' > sort_mojoms.py
           import os
           import sys
           import re
@@ -72,9 +67,6 @@ jobs:
           ROOTS = [os.getcwd(), os.path.join(os.getcwd(), 'chromium_src')]
           
           def resolve_import(import_path, current_file_path):
-              # Imports are relative to roots.
-              # But sometimes they might be relative to the file?
-              # Mojo docs say imports are relative to source root.
               for root in ROOTS:
                   candidate = os.path.join(root, import_path)
                   if os.path.isfile(candidate):
@@ -82,99 +74,64 @@ jobs:
               return None
 
           def parse_imports(file_path):
-              imports = []
               try:
                   with open(file_path, 'r', encoding='utf-8') as f:
                       content = f.read()
-                  # Regex for: import "foo/bar.mojom";
-                  # Simplistic, ignores comments, but sufficient for 99%
                   matches = re.findall(r'^\s*import\s+"([^"]+)"', content, re.MULTILINE)
                   return matches
               except Exception as e:
                   print(f"Error reading {file_path}: {e}")
-                  return None
+                  return []
 
           def main():
               with open('all_mojoms.txt', 'r') as f:
                   files = [line.strip() for line in f if line.strip()]
               
-              skip_patterns = []
-              if os.path.exists('skip_list.txt'):
-                  with open('skip_list.txt', 'r') as f:
-                      skip_patterns = [line.strip() for line in f if line.strip()]
-              
-              # Map absolute path -> list of absolute paths it imports
-              dependency_graph = {}
-              # Map clean relative path (for output) -> absolute path
-              
               abs_files = set()
               for f in files:
-                  # Check skip list
-                  should_skip = False
-                  for pattern in skip_patterns:
-                      if pattern in f:
-                          print(f"Skipping {f} (matched skip pattern '{pattern}')")
-                          should_skip = True
-                          break
-                  if should_skip:
-                      continue
-
-                  abs_path = os.path.abspath(f)
-                  abs_files.add(abs_path)
+                  abs_files.add(os.path.abspath(f))
               
-              print(f"Scanning {len(abs_files)} files for broken dependencies...")
+              dependency_graph = {}
+              print(f"Scanning {len(abs_files)} files to build dependency graph...")
               
-              for f in files:
-                  abs_path = os.path.abspath(f)
-                  if abs_path not in abs_files:
-                      continue
-
-                  imports = parse_imports(abs_path)
-                  if imports is None:
-                      continue # File unreadable
-                  
-                  dependency_graph[abs_path] = []
+              for f_abs in abs_files:
+                  imports = parse_imports(f_abs)
+                  dependency_graph[f_abs] = []
                   for imp in imports:
-                      resolved = resolve_import(imp, abs_path)
-                      if not resolved:
-                          # Dependency missing!
-                          # print(f"File {f} is missing dependency {imp}")
-                          # Add a dummy marker that won't be in abs_files
-                          dependency_graph[abs_path].append(f"MISSING:{imp}")
-                      else:
-                          dependency_graph[abs_path].append(resolved)
+                      resolved = resolve_import(imp, f_abs)
+                      if resolved and resolved in abs_files:
+                          dependency_graph[f_abs].append(resolved)
+                      # If missing/external, we ignore it for sorting purposes
+                      # (it will likely crash later, but user asked for NO filtering)
 
-              # Iteratively remove broken files
-              removed_count = 0
-              while True:
-                  current_removed = 0
-                  to_remove = set()
+              # Topological Sort
+              print("Sorting files topologically...")
+              sorted_files = []
+              visited = set()
+              temp_mark = set()
+
+              def visit(node):
+                  if node in temp_mark:
+                      return # Cycle
+                  if node in visited:
+                      return
                   
-                  for f, deps in dependency_graph.items():
-                      if f not in abs_files: 
-                          continue
-                          
-                      for dep in deps:
-                          if dep.startswith("MISSING:") or dep not in abs_files:
-                              to_remove.add(f)
-                              # print(f"Removing {os.path.relpath(f)} because of broken dependency {dep}")
-                              break
-                  
-                  if not to_remove:
-                      break
-                  
-                  for f in to_remove:
-                      abs_files.remove(f)
-                      current_removed += 1
-                  
-                  removed_count += current_removed
+                  temp_mark.add(node)
+                  for dep in dependency_graph.get(node, []):
+                      visit(dep)
+                  temp_mark.remove(node)
+                  visited.add(node)
+                  sorted_files.append(node)
+
+              # Visit all
+              for f in abs_files:
+                  if f not in visited:
+                      visit(f)
               
-              print(f"Removed {removed_count} files with broken dependency chains (including skips).")
-              print(f"Remaining valid files: {len(abs_files)}")
+              print(f"Sorted {len(sorted_files)} files.")
               
               with open('mojom_files_list.txt', 'w') as f:
-                  for abs_p in abs_files:
-                      # Convert back to relative path for tools
+                  for abs_p in sorted_files:
                       rel_p = os.path.relpath(abs_p, os.getcwd())
                       f.write(rel_p + '\n')
 
@@ -182,9 +139,9 @@ jobs:
               main()
           EOF
           
-          python3 filter_mojoms.py
+          python3 sort_mojoms.py
           
-          echo "Final list for parser:"
+          echo "Final list for parser (head):"
           head -10 mojom_files_list.txt
 
           # Rename bindings.js to mojo_bindings.js as that is what is often expected, 
@@ -340,13 +297,20 @@ jobs:
           
           print(f"Processing {len(mojom_files)} .mojom files...")
           
-          # Step 1: Parse all files
-          if not run_parser(mojom_files):
-               print("WARNING: Parsing failed. Generation might fail.")
+          # Step 1: Process files serially (Parser then Generator)
+          # We process in topological order so dependencies are ready.
           
-          # Step 2: Generate bindings
           for mojom_path in mojom_files:
-              # Run official generator
+              # 1. Parse individual file
+              # We reuse run_parser but passing just one file.
+              # NOTE: run_parser writes to mojom_files_list.txt which overwrites previous.
+              # This is fine as we process serially.
+              
+              if not run_parser([mojom_path]):
+                  print(f"Skipping {mojom_path} due to parse failure.")
+                  continue
+
+              # 2. Generate bindings
               if run_generator(mojom_path):
                   # Move generated files to bindings/ directory to flatten structure
                   # The generator outputs to {root}/{path/to/file}.js
