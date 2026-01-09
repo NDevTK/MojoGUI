@@ -99,15 +99,22 @@ jobs:
               ]
               
               # Write temporary list file for this single input
+              # We must pass the relative path so the parser finds it in input-root
+              if mojom_path.startswith('chromium_src/') or mojom_path.startswith('chromium_src\\'):
+                  rel_path = mojom_path[len('chromium_src/'):]
+              else:
+                  rel_path = mojom_path
+
               with open('parser_input_list.txt', 'w') as f:
-                  f.write(mojom_path + '\n')
+                  f.write(rel_path + '\n')
               
               try:
                   # We capture output to avoid spamming logs with expected failures
                   subprocess.run(cmd, check=True, capture_output=True)
                   return True
-              except subprocess.CalledProcessError:
-                  # Many files will fail due to missing dependencies in sparse checkout
+              except subprocess.CalledProcessError as e:
+                  # Enable debug printing only if needed or just count failures
+                  # print(f"DEBUG: Parser failed for {mojom_path}: {e.stderr.decode()}")
                   return False
 
           def run_generator(mojom_path):
